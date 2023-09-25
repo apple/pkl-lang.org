@@ -1,0 +1,23 @@
+= pkl-html-highlighter
+
+This tool produces HTML that highlights Pkl source code using Highlight.js style syntax (e.g. `<span class="hljs-keyword">let</span>`).
+
+== Building
+
+To build, run:
+
+[source,shell script]
+----
+$ cargo build
+----
+
+This places a binary at `target/debug/pkl-html-highlighter`.
+
+== Future improvements
+
+This tool is a hack to get syntax highlighting working properly on the Pkl website.
+
+Some possible improvements:
+
+* Compile this repository as a library to WebAssembly. This means we no longer have to compile a binary, and can import the `.wasm` files directly into Node.js.
+* Write a syntax highligter entirely in JavaScript and eliminate this tool altogether.

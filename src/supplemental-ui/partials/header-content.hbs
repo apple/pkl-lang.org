@@ -1,0 +1,69 @@
+<header class="header">
+  {{! add navbar-top in the initial HTML to avoid an initial transition from green to transparent}}
+  <nav class="navbar{{#if page.home}} navbar-top{{/if}}">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="{{siteRootPath}}/index.html"><img src="{{uiRootPath}}/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="{{siteRootPath}}/index.html">Pkl</a>
+        {{#unless page.home}}
+        <span class="separator">//</span>
+        <a href="{{siteRootPath}}/main/current/index.html">Docs</a>
+        {{/unless}}
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term"{{#if page.home}} autofocus{{/if}}>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="{{siteRootPath}}/main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{siteRootPath}}/main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{siteRootPath}}/main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="{{siteRootPath}}/main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="{{siteRootPath}}/swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="{{siteRootPath}}/go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{siteRootPath}}/main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{siteRootPath}}/spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{siteRootPath}}/main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{siteRootPath}}/intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="{{siteRootPath}}/neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="{{siteRootPath}}/vscode/current/index.html">VS Code</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{siteRootPath}}/main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="{{siteRootPath}}/main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="{{siteRootPath}}/security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{siteRootPath}}/main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="{{siteRootPath}}/blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

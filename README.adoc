@@ -1,0 +1,64 @@
+= Pkl Documentation Website image:https://circleci.com/gh/apple/pkl-lang.org.svg?style=svg["pkl-lang.org", link="https://circleci.com/gh/apple/pkl-lang.org"]
+
+Repo for Pkl's https://pkl-lang.org[documentation website].
+
+The website is built with the https://antora.org[Antora] docsite generator out of https://asciidoctor.org[Asciidoc] docs maintained in upstream projects (pkl, pkl-spring, etc.).
+
+== Development
+
+=== Releases
+
+Releases of the website are triggered off commits to the main branch.
+
+=== Install dependencies
+
+[source,shell]
+----
+$ ./gradlew downloadPklHtmlHighlighter npmInstall
+----
+
+=== Build Docs of Local Projects
+
+* Takes upstream project docs from local Git repos assumed to be siblings of this repo (see _site-local.yml_).
+* Builds the site (click the link printed in console output to open in browser).
+
+This allows to preview local doc changes made to upstream projects.
+
+[source,shell]
+----
+$ ./gradlew buildLocalSite   # shorthand: gw bLS
+----
+
+=== Validate Docs of Local Projects
+
+* Validates HTML
+* Checks for dangling links
+
+[source,shell]
+----
+$ ./gradlew validateLocalSite   # shorthand: gw vLS
+----
+
+=== Build Docs of Remote Projects
+
+* Fetches upstream project docs from their GitHub repos (see _site-remote.yml_).
+* Builds the site (click the link printed in console output to open in browser).
+
+This is what CI runs.
+
+[source,shell]
+----
+$ ./gradlew buildRemoteSite   # shorthand: gw bRS
+----
+
+To run this task locally, you must have token-based access for GitHub.com setup,
+
+=== Validate Docs of Remote Projects
+
+* Validates HTML
+* Checks for dangling links
+
+[source,shell]
+----
+$ ./gradlew validateRemoteSite   # shorthand: gw vRS
+----

@@ -1,0 +1,78 @@
+amends "package://pkg.pkl-lang.org/pkl-project-commons/pkl.impl.circleci@1.0.1#/PklCI.pkl"
+
+prb {
+  jobs {
+    "test"
+  }
+}
+
+main {
+  jobs {
+    "deploy"
+  }
+}
+
+jobs {
+  default {
+    docker {
+      new {
+        image = "cimg/openjdk:17.0"
+      }
+    }
+    steps {
+      "checkout"
+      new RunStep {
+        name = "Install toolchain"
+        command = """
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          . "$HOME/.cargo/env"
+          rustup default stable
+          """
+      }
+    }
+  }
+  ["test"] {
+    steps {
+      new RunStep {
+        name = "Running Gradle tests"
+        // TODO(oss) remove the SSH setup stuff and re-enable `validateRemoteSite`
+        command = #"""
+          . "$HOME/.cargo/env"
+          cat \<<EOF > ~/.cargo/config
+          [net]
+          git-fetch-with-cli = true
+          EOF
+          ./gradlew \
+            --console=plain \
+            pklHtmlHighlighter
+
+          ./gradlew \
+            --console=plain \
+            npmInstall buildRemoteSite
+          """#
+      }
+    }
+  }
+  ["deploy"] {
+    steps {
+      new RunStep {
+        name = "Running deployment"
+        // TODO(oss) remove the SSH setup stuff and re-add `validateRemoteSite`
+        command = #"""
+          . "$HOME/.cargo/env"
+          cat \<<EOF > ~/.cargo/config
+          [net]
+          git-fetch-with-cli = true
+          EOF
+          ./gradlew \
+            --console=plain \
+            pklHtmlHighlighter
+
+          ./gradlew \
+            --console=plain \
+            npmInstall buildRemoteSite publishRemoteSite
+          """#
+      }
+    }
+  }
+}

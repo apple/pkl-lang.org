@@ -1,0 +1,751 @@
+= Introducing Pkl, a programming language for configuration
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by the Pkl Team on February 1st, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+We are delighted to announce the open source first release of Pkl (pronounced _Pickle_), a programming language for producing configuration.
+// end::excerpt[]
+
+When thinking about configuration, it is common to think of static languages like JSON, YAML, or Property Lists.
+While these languages have their own merits, they tend to fall short when configuration grows in complexity.
+For example, their lack of expressivity means that code often gets repeated.
+Additionally, it can be easy to make configuration errors, because these formats do not provide any validation of their own.
+
+To address these shortcomings, sometimes formats get enhanced by ancillary tools that add special logic.
+For example, perhaps there’s a need to make code more link:https://en.wikipedia.org/wiki/Don't_repeat_yourself[pass:[<abbr title="Don't Repeat Yourself">DRY</abbr>]], so a special property is introduced that understands how to resolve references, and merge objects together.
+Alternatively, there’s a need to guard against validation errors, so some new way is created to validate a configuration value against an expected type.
+Before long, these formats almost become programming languages, but ones that are hard to understand and hard to write.
+
+On the other end of the spectrum, a general-purpose language might be used instead.
+Languages like Kotlin, Ruby, or JavaScript become the basis for link:https://en.wikipedia.org/wiki/Domain-specific_language[pass:[<abbr title="Domain-specific language">DSL</abbr>]]s that generate configuration data.
+While these languages are tremendously powerful, they can be awkward to use for describing configuration, because they are not oriented around defining and validating data.
+Additionally, these DSLs tend to be tied to their own ecosystems.
+It is a hard sell to use a Kotlin DSL as the configuration layer for an application written in Go.
+
+We created Pkl because we think that configuration is best expressed as a blend between a static language and a general-purpose programming language.
+We want to take the best of both worlds; to provide a language that is declarative and simple to read and write, but enhanced with capabilities borrowed from general-purpose languages.
+When writing Pkl, you are able to use the language features you'd expect, like classes, functions, conditionals, and loops.
+You can build abstraction layers, and share code by creating packages and publishing them.
+Most importantly, you can use Pkl to meet many different types of configuration needs.
+It can be used to produce static configuration files in any format, or be embedded as a library into another application runtime.
+
+We designed Pkl with three overarching goals:
+
+* To provide safety by catching validation errors before deployment.
+* To scale from simple to complex use-cases.
+* To be a joy to write, with our best-in-class IDE integrations.
+
+== A Quick Tour of Pkl
+
+We created Pkl to have a familiar syntax to developers, and to be easy to learn. That is why we’ve included features like classes, functions, loops, and type annotations.
+
+For example, here is a Pkl file (module) that defines a configuration schema for an imaginary web application.
+
+NOTE: This file defines types, and not data. This is a common pattern in Pkl, and we call this a _template_.
+
+[[application-pkl]]
+.Application.pkl
+[source,{pkl}]
+----
+module Application
+
+/// The hostname that this server responds to.
+hostname: String
+
+/// The port to listen on.
+port: UInt16
+
+/// The environment to deploy to.
+environment: Enviornment
+
+/// The database connection for this application
+database: Database
+
+class Database {
+  /// The username for this database.
+  username: String
+
+  /// The password for this database.
+  password: String
+
+  /// The remote host for this database.
+  host: String
+
+  /// The remote port for this database.
+  port: UInt16
+
+  /// The name of the database.
+  dbName: String
+}
+
+typealias Enviornment = "dev"|"qa"|"prod"
+----
+
+And here is how configuration data might be defined:
+
+.localhost.pkl
+[source,{pkl}]
+----
+amends "Application.pkl"
+
+hostname = "localhost"
+
+port = 3599
+
+environment = "dev"
+
+database {
+  host = "localhost"
+  port = 5786
+  username = "admin"
+  password = read("env:DATABASE_PASSWORD") // <1>
+  dbName = "myapp"
+}
+----
+<1> Built-in xref:main:language-reference:index.adoc#resources[read expression] for reading external resources.
+
+It is easy to create variations of the same base data by xref:main:language-reference:index.adoc#amending-objects[amending].
+For example, let's imagine that we want to run four databases locally, as sidecars.
+This uses a xref:main:language-reference:index.adoc#for-generators[for generator] to produce four variations, each of which amends the base `db` and specifies a different port.
+
+.sidecars.pkl
+[source,{pkl}]
+----
+import "Application.pkl"
+
+hidden db: Application.Database = new {
+  host = "localhost"
+  username = "admin"
+  password = read("env:DATABASE_PASSWORD")
+  dbName = "myapp"
+}
+
+sidecars {
+  for (offset in List(0, 1, 2, 3)) {
+    (db) {
+      port = 6000 + offset
+    }
+  }
+}
+----
+
+Pkl programs can be easily rendered to common formats.
+
+[tabs]
+====
+YAML::
++
+[source,text]
+----
+$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format yaml sidecars.pkl
+----
++
+[source,yaml]
+----
+sidecars:
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6000
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6001
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6002
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6003
+  dbName: myapp
+----
+
+JSON::
++
+[source,text]
+----
+$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format json sidecars.pkl
+----
++
+[source,json]
+----
+{
+  "sidecars": [
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6000,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6001,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6002,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6003,
+      "dbName": "myapp"
+    }
+  ]
+}
+----
+
+XML::
++
+[source,text]
+----
+$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format xml sidecars.pkl
+----
++
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <sidecars>
+    <Database>
+      <username>admin</username>
+      <password>hunter2</password>
+      <host>localhost</host>
+      <port>6000</port>
+      <dbName>myapp</dbName>
+    </Database>
+    <Database>
+      <username>admin</username>
+      <password>hunter2</password>
+      <host>localhost</host>
+      <port>6001</port>
+      <dbName>myapp</dbName>
+    </Database>
+    <Database>
+      <username>admin</username>
+      <password>hunter2</password>
+      <host>localhost</host>
+      <port>6002</port>
+      <dbName>myapp</dbName>
+    </Database>
+    <Database>
+      <username>admin</username>
+      <password>hunter2</password>
+      <host>localhost</host>
+      <port>6003</port>
+      <dbName>myapp</dbName>
+    </Database>
+  </sidecars>
+</root>
+----
+====
+
+=== Built-in Validation
+
+Configuration is about data. And data needs to be valid.
+
+In Pkl, validation is achieved using type annotations.
+And, type annotations can optionally have constraints defined on them.
+
+Here is an example, that defines the following constraints:
+
+* `age` must be between 0 and 130.
+* `name` to not be empty.
+* `zipCode` must be a string with five digits.
+
+.Person.pkl
+[source,{pkl}]
+----
+module Person
+
+name: String(!isEmpty)
+
+age: Int(isBetween(0, 130))
+
+zipCode: String(matches(Regex("\\d{5}")))
+----
+
+A failing constraint causes an evaluation error.
+
+.alessandra.pkl
+[source,{pkl}]
+----
+amends "Person.pkl"
+
+name = "Alessandra"
+
+age = -5
+
+zipCode = "90210"
+----
+
+Evaluating this module fails:
+
+[source,text]
+----
+$ pkl eval alessandra.pkl
+–– Pkl Error ––
+Type constraint `isBetween(0, 130)` violated.
+Value: -5
+
+5 | age: Int(isBetween(0, 130))
+             ^^^^^^^^^^^^^^^^^
+at Person#age (file:///Person.pkl)
+
+5 | age = -5
+          ^^
+at alessandra#age (file:///alessandra.pkl)
+
+106 | text = renderer.renderDocument(value)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+at pkl.base#Module.output.text (https://github.com/apple/pkl/blob/0.25.0/stdlib/base.pkl#L106)
+----
+
+Constraints are arbitrary expressions.
+This allows you to author types that can express any type of check that can be expressed in Pkl.
+Here is a sample type that must be a string with an odd length, and whose first letter matches the last letter.
+
+[source,{pkl}]
+----
+name: String(length.isOdd, chars.first == chars.last)
+----
+
+=== Sharing Packages
+
+Pkl provides the ability to publish _packages_, and to import them as dependencies in a project.
+This provides an easy way to share Pkl code that can be used in other projects.
+
+It is easy to create your own package and publish them as GitHub releases, or to upload them anywhere you wish.
+
+Packages can be imported via the absolute URI:
+
+[source,{pkl]
+----
+import "package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0#/toml.pkl"
+
+output {
+  renderer = new toml.Renderer {}
+}
+----
+
+Alternatively, they can be managed as dependencies of a xref:main:language-reference:index.adoc#projects[project].
+Using a project allows Pkl to resolve version conflicts between different versions of the same dependency within a dependency graph.
+It also means that you can import packages by a simpler name.
+
+.PklProject
+[source,{pkl}]
+----
+amends "pkl:Project"
+
+dependencies {
+  ["toml"] { uri = "package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0" }
+}
+----
+
+.myconfig.pkl
+[source,{pkl}]
+----
+import "@toml/toml.pkl"
+
+output {
+  renderer = new toml.Renderer {}
+}
+----
+
+A set of packages are maintained by us, the Pkl team. These include:
+
+* link:https://github.com/apple/pkl-pantry[pkl-pantry, window="_blank"] -- a monorepo that publishes many different packages.
+* link:https://github.com/apple/pkl-k8s[pkl-k8s, window="_blank"] -- templates for defining Kubernetes descriptors.
+
+== Language Bindings
+
+Pkl can produce configuration as textual output, and it can also be embedded as a library into other languages via our language bindings.
+
+When binding to a language, Pkl schema can be generated as classes/structs in the target language.
+For example, the <<application-pkl,Application.pkl>> example from above can be generated into Swift, Go, Java, and Kotlin.
+Pkl even includes documentation comments in the target language.
+
+[tabs]
+====
+Swift::
++
+[source,swift]
+----
+import PklSwift
+
+public enum Application {}
+
+extension Application {
+    public enum Enviornment: String, CaseIterable, Decodable, Hashable {
+        case dev = "dev"
+        case qa = "qa"
+        case prod = "prod"
+    }
+
+    public struct Module: PklRegisteredType, Decodable, Hashable {
+        public static var registeredIdentifier: String = "Application"
+
+        /// The hostname that this server responds to.
+        public var hostname: String
+
+        /// The port to listen on.
+        public var port: UInt16
+
+        /// The environment to deploy to.
+        public var environment: Enviornment
+
+        /// The database connection for this application
+        public var database: Database
+
+        public init(hostname: String, port: UInt16, environment: Enviornment, database: Database) {
+            self.hostname = hostname
+            self.port = port
+            self.environment = environment
+            self.database = database
+        }
+    }
+
+    public struct Database: PklRegisteredType, Decodable, Hashable {
+        public static var registeredIdentifier: String = "Application#Database"
+
+        /// The username for this database.
+        public var username: String
+
+        /// The password for this database.
+        public var password: String
+
+        /// The remote host for this database.
+        public var host: String
+
+        /// The remote port for this database.
+        public var port: UInt16
+
+        /// The name of the database.
+        public var dbName: String
+
+        public init(username: String, password: String, host: String, port: UInt16, dbName: String) {
+            self.username = username
+            self.password = password
+            self.host = host
+            self.port = port
+            self.dbName = dbName
+        }
+    }
+}
+----
+
+Go::
++
+--
+.Application.pkl.go
+[source,go]
+----
+package application
+
+type Application struct {
+	// The hostname that this server responds to.
+	Hostname string `pkl:"hostname"`
+
+	// The port to listen on.
+	Port uint16 `pkl:"port"`
+
+	// The environment to deploy to.
+	Environment enviornment.Enviornment `pkl:"environment"`
+
+	// The database connection for this application
+	Database *Database `pkl:"database"`
+}
+----
+
+.Database.pkl.go
+[source,go]
+----
+// Code generated from Pkl module `Application`. DO NOT EDIT.
+package application
+
+type Database struct {
+	// The username for this database.
+	Username string `pkl:"username"`
+
+	// The password for this database.
+	Password string `pkl:"password"`
+
+	// The remote host for this database.
+	Host string `pkl:"host"`
+
+	// The remote port for this database.
+	Port uint16 `pkl:"port"`
+
+	// The name of the database.
+	DbName string `pkl:"dbName"`
+}
+----
+
+.environment/Environment.pkl.go
+[source,go]
+----
+// Code generated from Pkl module `Application`. DO NOT EDIT.
+package enviornment
+
+import (
+	"encoding"
+	"fmt"
+)
+
+type Enviornment string
+
+const (
+	Dev  Enviornment = "dev"
+	Qa   Enviornment = "qa"
+	Prod Enviornment = "prod"
+)
+
+// String returns the string representation of Enviornment
+func (rcv Enviornment) String() string {
+	return string(rcv)
+}
+----
+--
+
+Java::
++
+[source,java]
+----
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.util.Objects;
+import org.pkl.config.java.mapper.Named;
+import org.pkl.config.java.mapper.NonNull;
+
+public final class Application {
+  /**
+   * The hostname that this server responds to.
+   */
+  public final @NonNull String hostname;
+
+  /**
+   * The port to listen on.
+   */
+  public final int port;
+
+  /**
+   * The environment to deploy to.
+   */
+  public final @NonNull Enviornment environment;
+
+  /**
+   * The database connection for this application
+   */
+  public final @NonNull Database database;
+
+  public Application(@Named("hostname") @NonNull String hostname, @Named("port") int port,
+      @Named("environment") @NonNull Enviornment environment,
+      @Named("database") @NonNull Database database) {
+    this.hostname = hostname;
+    this.port = port;
+    this.environment = environment;
+    this.database = database;
+  }
+
+  public static final class Database {
+    /**
+     * The username for this database.
+     */
+    public final @NonNull String username;
+
+    /**
+     * The password for this database.
+     */
+    public final @NonNull String password;
+
+    /**
+     * The remote host for this database.
+     */
+    public final @NonNull String host;
+
+    /**
+     * The remote port for this database.
+     */
+    public final int port;
+
+    /**
+     * The name of the database.
+     */
+    public final @NonNull String dbName;
+
+    public Database(@Named("username") @NonNull String username,
+        @Named("password") @NonNull String password, @Named("host") @NonNull String host,
+        @Named("port") long port, @Named("dbName") @NonNull String dbName) {
+      this.username = username;
+      this.password = password;
+      this.host = host;
+      this.port = port;
+      this.dbName = dbName;
+    }
+  }
+
+  public enum Enviornment {
+    DEV("dev"),
+
+    QA("qa"),
+
+    PROD("prod");
+
+    private String value;
+
+    private Enviornment(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+}
+----
+
+Kotlin::
++
+[source,kotlin]
+----
+import kotlin.Int
+import kotlin.Long
+import kotlin.String
+
+data class Application(
+  /**
+   * The hostname that this server responds to.
+   */
+  val hostname: String,
+  /**
+   * The port to listen on.
+   */
+  val port: Int,
+  /**
+   * The environment to deploy to.
+   */
+  val environment: Enviornment,
+  /**
+   * The database connection for this application
+   */
+  val database: Database
+) {
+  data class Database(
+    /**
+     * The username for this database.
+     */
+    val username: String,
+    /**
+     * The password for this database.
+     */
+    val password: String,
+    /**
+     * The remote host for this database.
+     */
+    val host: String,
+    /**
+     * The remote port for this database.
+     */
+    val port: Int,
+    /**
+     * The name of the database.
+     */
+    val dbName: String
+  )
+
+  enum class Enviornment(
+    val value: String
+  ) {
+    DEV("dev"),
+
+    QA("qa"),
+
+    PROD("prod");
+
+    override fun toString() = value
+  }
+}
+----
+====
+
+Using code generation is just one of the many ways to embed Pkl within an application.
+Our language bindings also provide evaluator APIs to control Pkl evaluation at a low level, and users are free to interact with Pkl at the abstraction level that makes the most sense for their application.
+
+== Editor Support
+
+We believe that a programming language is only as good as the experience of writing it.
+That is why we aim to provide best-in-class editor support.
+When writing Pkl in an editor, users are guided through the process of filling in configuration data from a given template.
+Additionally, the editors provide instant feedback if any values are invalid, and documentation is immediately available when called upon.
+
+We are also releasing our xref:intellij:ROOT:index.adoc[IntelliJ plugin], which provides rich support for JetBrains editors, including IntelliJ, Webstorm, GoLand, and PyCharm. These plugins are able to analyze a Pkl program and provide features like autocompletion, go-to-definition, and refactoring support.
+
+Here are some of the features that are available:
+
+[tabs]
+====
+Autocompletion::
++
+image::introducing-pkl/intellij-autocomplete.gif[Autocomplete in IntelliJ]
+
+Navigation::
++
+image::introducing-pkl/intellij-navigation.gif[Navigation in IntelliJ]
+
+Validation::
++
+image::introducing-pkl/intellij-validation.gif[Validation in IntelliJ]
+====
+
+In addition, we are also planning on supporting the link:https://microsoft.github.io/language-server-protocol/[Language Server Protocol], which will provide a similar level of integration in other editors.
+
+NOTE: We are also releasing two other plugins: our xref:vscode:ROOT:index.adoc[VS Code] plugin, and our xref:neovim:ROOT:index.adoc[neovim] plugin. Today, these plugins only provide basic editing features like syntax highlighting and code folding.
+
+== Next Steps
+
+We hope you like what we’ve shown you so far.
+For a more in-depth guide, take a look at our xref:main:language-tutorial:index.adoc[tutorial].
+To learn more about the language itself, read through our xref:main:language-reference:index.adoc[language reference].
+To connect with us, feel free to submit a topic on link:https://github.com/apple/pkl/discussions[GitHub Discussions].
+
+Additionally, feel free to browse our sample repositories to get an idea for what it’s like to use Pkl:
+
+* https://github.com/apple/pkl-go-examples
+* https://github.com/apple/pkl-jvm-examples
+* https://github.com/apple/pkl-k8s-examples
+* https://github.com/apple/pkl-swift-examples
+
+To try out Pkl locally, try downloading our CLI by following our xref:main:pkl-cli:index.adoc#installation[installation guide].
+Additionally, try installing one of our various xref:main:ROOT:tools.adoc[editor plugins] to get a glimpse of what it’s like to write Pkl yourself.
+
+We’re so excited to share Pkl with you, and we are just getting started.
+We are looking forward to seeing what you might do with it!

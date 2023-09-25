@@ -1,0 +1,67 @@
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+asciidoc:
+  extensions:
+    - 'src/highlighter/index.ts'
+    - '@asciidoctor/tabs'
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    sectlinks: ''
+    linkattrs: ''
+    pkl: pkl
+    page-pagination: '@'
+content:
+  sources:
+  # for apple/pkl, build docs for both the main branch and tags.
+  # this will build dev docs too.
+  - url: https://github.com/apple/pkl.git
+    branches: [main, "release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-spring.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-intellij.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-vscode.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-neovim.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-go.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: https://github.com/apple/pkl-swift.git
+    branches: ["release/+({0..9}).+({0..9})"]
+    start_path: docs
+  - url: ./../
+    branches: HEAD
+    start_path: landing
+  - url: ./../
+    branches: HEAD
+    start_path: blog
+output:
+  dir: build/remote
+  clean: true
+runtime:
+  cache_dir: .cache
+  fetch: true
+  log:
+    format: pretty
+site:
+  title: Pkl Docs
+  url: https://pkl-lang.org
+  start_page: ROOT::index.adoc
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: src/supplemental-ui
+urls:
+  latest_version_segment: current
+  latest_prerelease_version_segment: latest

@@ -1,0 +1,29 @@
+amends "../../pkl/.circleci/CircleCI.pkl"
+
+version = 2.1
+
+jobs {
+  ["test"] {
+    docker {
+      new {
+        image = "cimg/base"
+      }
+    }
+    steps {
+      new RunStep {
+        command = "echo hello"
+      }
+    }
+  }
+}
+
+workflows {
+  ["main"] {
+    `when` {
+      equal {
+        #"main"#
+        module.pipelineValues.`pipeline.git.branch`
+      }
+    }
+  }
+}

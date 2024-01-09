@@ -1,0 +1,16 @@
+# Generated from CircleCI.pkl. DO NOT EDIT.
+version: 2.1
+jobs:
+  test:
+    steps:
+    - run:
+        command: echo hello
+    docker:
+    - image: cimg/base
+workflows:
+  main:
+    jobs: []
+    when:
+      equal:
+      - main
+      - << pipeline.git.branch >>

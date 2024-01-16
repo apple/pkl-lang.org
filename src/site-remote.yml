@@ -1,0 +1,67 @@
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+asciidoc:
+  extensions:
+    - 'src/highlighter/index.ts'
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    sectlinks: ''
+    linkattrs: ''
+    pcl: pcl
+    pkl: pkl
+    page-pagination: true
+content:
+  sources:
+  - url: https://github.pie.apple.com/pkl/pkl.git
+    branches: [main, dev]
+    tags: [0.24.0, 0.24.1, 0.24.2, 0.24.3, 0.24.4, 0.24.5, 0.24.6]
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-spring.git
+    branches: main
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-intellij.git
+    branches: main
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-vscode.git
+    branches: main
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-neovim.git
+    branches: main
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-style-guide.git
+    branches: main
+  - url: https://github.pie.apple.com/pkl/pkl-go.git
+    branches: main
+    tags: []
+    start_path: docs
+  - url: https://github.pie.apple.com/pkl/pkl-swift.git
+    branches: main
+    tags: []
+    start_path: docs
+  - url: ./../
+    branches: HEAD
+    start_path: landing
+output:
+  dir: build/remote
+  clean: true
+runtime:
+  cache_dir: .cache
+  fetch: true
+  log:
+    format: pretty
+site:
+  title: Pkl Docs
+  url: https://pkl.apple.com
+  start_page: ROOT::index.adoc
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: src/supplemental-ui
+urls:
+  latest_version_segment: current
+  latest_prerelease_version_segment: latest

@@ -1,0 +1,22 @@
+[versions] # ordered alphabetically
+# https://plugins.gradle.org/plugin/de.undercouch.download
+downloadGradle="5.0.4"
+# https://search.maven.org/artifact/org.jsoup/jsoup
+jsoup="1.14.3"
+# use same Node version as Docker image
+# https://nodejs.org/download/release/latest-v16.x/
+node="16.13.1"
+# https://plugins.gradle.org/plugin/com.github.node-gradle.node
+nodeGradle="3.2.0"
+# https://search.maven.org/artifact/nu.validator/validator
+nuValidator="20.7.2"
+# https://artifacts.apple.com/ui/native/pcl-modules-local/pcl-html-highlighter/
+pclHtmlHighlighter="0.6.0"
+
+[libraries] # ordered alphabetically
+jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
+nuValidator = { group = "nu.validator", name = "validator", version.ref = "nuValidator" }
+
+[plugins] # ordered alphabetically
+nodeGradle = { id = "com.github.node-gradle.node", version.ref = "nodeGradle" }
+downloadGradle = { id = "de.undercouch.download", version.ref = "downloadGradle" }

@@ -1,0 +1,372 @@
+= Pkl
+:page-layout: landing
+
+[.container-land]
+====
+
+++++
+<div class="header-spacer"></div>
+++++
+
+[.hero-big]
+=====
+
+[.title]
+======
+Configuration that is *Programmable*, *Scalable*, and *Safe*
+======
+++++
+<div class="separator"></div>
+++++
+=====
+
+++++
+<div class="hero-duo">
+++++
+
+[.doc]
+======
+
+.bird.pkl
+[source%parsed,pkl]
+----
+name = "Swallow"
+
+job {
+  title = "Sr. Nest Maker"
+  company = "Nests R Us"
+  yearsOfExperience = 2
+}
+----
+
+[.hero-arrow]
+↓
+
+++++
+<div role="tablist" class="automatic">
+  <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+    <span>bird.json</span>
+  </button><button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2">
+    <span>bird.yaml</span>
+  </button><button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3">
+    <span>bird.plist</span>
+  </button><button id="tab-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-4">
+    <span>bird.properties</span>
+  </button>
+</div>
+<div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+++++
+[source,json]
+----
+{
+  "name": "Swallow",
+  "job": {
+    "title": "Sr. Nest Maker",
+    "company": "Nests R Us",
+    "yearsOfExperience": 2
+  }
+}
+----
+++++
+</div>
+<div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="is-hidden">
+++++
+[source,yaml]
+----
+name: Swallow
+job:
+  title: Sr. Nest Maker
+  company: Nests R Us
+  yearsOfExperience: 2
+----
+++++
+</div>
+<div id="tabpanel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="is-hidden">
+++++
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Swallow</string>
+  <key>job</key>
+  <dict>
+    <key>title</key>
+    <string>Sr. Nest Maker</string>
+    <key>company</key>
+    <string>Nests R Us</string>
+    <key>yearsOfExperience</key>
+    <integer>2</integer>
+  </dict>
+</dict>
+</plist>
+----
+++++
+</div>
+<div id="tabpanel-4" role="tabpanel" tabindex="0" aria-labelledby="tab-4" class="is-hidden">
+++++
+[source,properties]
+----
+name = Swallow
+job.title = Sr. Nest Maker
+job.company = Nests R Us
+job.yearsOfExperience = 2
+----
+++++
+</div>
+++++
+
+======
+
+[.doc]
+======
+
+[.hero-title]
+--
+Generate any static configuration format
+--
+
+Define all your date in Pkl, and generate output for JSON, YAML, Property Lists, and other
+configuration formats.
+
+======
+++++
+</div>
+<div class="hero-duo secondary">
+++++
+
+[.doc]
+======
+
+[.hero-title]
+--
+Integrated application configuration
+--
+
+Embed Pkl into your applications for runtime configuration, and receive code generation for
+*Java*, *Kotlin*, *Swift*, and *Go*.
+
+[.logos]
+image:java_logo.svg[foo=bar] image:kotlin_logo.svg[] image:swift_logo.svg[] image:go_logo.svg[]
+======
+
+[.doc]
+======
+
+++++
+<div role="tablist" class="automatic">
+  <button id="tab2-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel2-1">
+    <span>Pkl</span>
+  </button>
+  <button id="tab2-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-2">
+    <span>Java</span>
+  </button>
+  <button id="tab2-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-3">
+    <span>Kotlin</span>
+  </button>
+  <button id="tab2-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-4">
+    <span>Swift</span>
+  </button>
+  <button id="tab2-5" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-5">
+    <span>Go</span>
+  </button>
+</div>
+<div id="tabpanel2-1" role="tabpanel" tabindex="0" aria-labelledby="tab2-1">
+++++
+[source,pkl]
+----
+module example.MyAppConfig
+
+/// The hostname for the application
+host: String
+
+/// The port to listen on
+port: UInt16(this > 1000)
+----
+++++
+</div>
+<div id="tabpanel2-2" role="tabpanel" tabindex="0" aria-labelledby="tab2-2" class="is-hidden">
+++++
+[source,java]
+----
+package example;
+
+public final class MyAppConfig {
+  /**
+   * The hostname for the application
+   */
+  public final @NonNull String host;
+
+  /**
+   * The port to listen on
+   */
+  public final int port;
+
+  public MyAppConfig(
+        @Named("host") @NonNull String host,
+        @Named("port") int port) {
+    this.host = host;
+    this.port = port;
+  }
+
+  public MyAppConfig withHost(@NonNull String host) { /*...*/ }
+
+  public MyAppConfig withPort(int port) { /*...*/ }
+
+  @Override
+  public boolean equals(Object obj) { /*...*/ }
+
+  @Override
+  public int hashCode() { /*...*/ }
+
+  @Override
+  public String toString() { /*...*/ }
+}
+----
+++++
+</div>
+<div id="tabpanel2-3" role="tabpanel" tabindex="0" aria-labelledby="tab2-3" class="is-hidden">
+++++
+[source,kotlin]
+----
+package example
+
+data class MyAppConfig(
+  /**
+   * The hostname for the application
+   */
+  val host: String,
+  /**
+   * The port to listen on
+   */
+  val port: Int
+)
+----
+++++
+</div>
+<div id="tabpanel2-4" role="tabpanel" tabindex="0" aria-labelledby="tab2-4" class="is-hidden">
+++++
+[source,swift]
+----
+// Code generated from Pkl module `example.myAppConfig`. DO NOT EDIT.
+enum MyAppConfig {}
+
+extension MyAppConfig {
+    struct Module {
+        /// The hostname for the application
+        let host: String
+
+        /// The port to listen on
+        let port: UInt16
+    }
+}
+----
+++++
+</div>
+<div id="tabpanel2-5" role="tabpanel" tabindex="0" aria-labelledby="tab2-5" class="is-hidden">
+++++
+[source,go]
+----
+// Code generated from Pkl module `example.myAppConfig`. DO NOT EDIT.
+package myappconfig
+
+import (
+	"context"
+
+	"github.pie.apple.com/pkl/pkl-go/pkl"
+)
+
+type MyAppConfig struct {
+	// The hostname for the application
+	Host string `pkl:"host"`
+
+	// The port to listen on
+	Port uint16 `pkl:"port"`
+}
+----
+++++
+</div>
+++++
+
+======
+++++
+</div>
+<div class="hero-duo">
+++++
+
+[.doc]
+======
+image::intellij.gif[intellij]
+======
+
+[.doc]
+======
+
+[.hero-title]
+--
+Incredible IDE Integration
+--
+
+In JetBrains editors like IntelliJ and GoLand, writing Pkl feels just like Swift, TypeScript, Java, and other
+statically typed languages.
+
+======
+
+++++
+</div>
+++++
+++++
+<div class="hero-duo secondary">
+++++
+
+[.doc]
+======
+
+[.hero-title]
+--
+Catch errors before deployment
+--
+
+With a rich type and validation system, catch configuration errors before deploying your application.
+
+======
+
+[.doc]
+======
+
+[source%parsed,pkl]
+----
+email: String = "dev-team@company.com"
+
+port: Int(this > 1000) = 80
+----
+
+[.hero-arrow]
+↓
+
+[source,shell]
+----
+–– Pkl Error ––
+Type constraint `this > 1000` violated.
+Value: 80
+
+3 | port: Int(this > 1000) = 80
+              ^^^^^^^^^^^
+at config#port (config.pkl, line 3)
+
+3 | port: Int(this > 1000) = 80
+                             ^^
+at config#port (config.pkl, line 3)
+
+106 | text = renderer.renderDocument(value)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----
+
+======
+
+++++
+</div>
+++++
+====

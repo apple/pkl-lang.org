@@ -1,0 +1,60 @@
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+asciidoc:
+  extensions:
+    - 'src/highlighter/index.ts'
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    sectlinks: ''
+    linkattrs: ''
+    pkl: pkl
+    page-pagination: true
+content:
+  sources:
+  - url: ../pkl
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-spring
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-intellij
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-neovim
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-go
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-swift
+    branches: HEAD
+    start_path: docs
+  - url: ../pkl-vscode
+    branches: HEAD
+    start_path: docs
+  - url: ./../
+    branches: HEAD
+    start_path: landing
+output:
+  dir: build/local
+  clean: true
+runtime:
+  cache_dir: .cache
+  log:
+    format: pretty
+site:
+  title: Pkl Docs
+  url: /build/local/latest/
+  start_page: ROOT::index.adoc
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: src/supplemental-ui
+urls:
+  latest_version_segment: current
+  latest_prerelease_version_segment: latest

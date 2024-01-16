@@ -81,9 +81,6 @@ val buildLocalSite by tasks.registering(NodeTask::class) {
 
   doFirst {
     execOverrides {
-      // https://gitlab.com/antora/antora/issues/390
-      environment["NODE_EXTRA_CA_CERTS"] =
-        file("docker/files/apple_corporate_root_ca.pem").absolutePath
       environment["FORCE_COLOR"] = "1"
       environment["PKL_HTML_HIGHLIGHTER"] = pklHtmlHighlighter.get().outputs.files.first().absolutePath
     }
@@ -116,13 +113,7 @@ val buildRemoteSite by tasks.registering(NodeTask::class) {
   options.set(listOf("--require", "ts-node/register"))
 
   execOverrides {
-    // https://gitlab.com/antora/antora/issues/390
-    environment["NODE_EXTRA_CA_CERTS"] = file("docker/files/apple_corporate_root_ca.pem").absolutePath
     environment["PKL_HTML_HIGHLIGHTER"] = pklHtmlHighlighter.get().outputs.files.first().absolutePath
-
-    if (isCi) {
-      environment["GIT_CREDENTIALS"] = "https://${file(System.getProperty("antoraKeyPath")).readText()}:@github.pie.apple.com"
-    }
   }
 
   doLast {

@@ -1,6 +1,6 @@
-= Pkl Documentation Website image:https://badges.pie.apple.com/badges/rio?p=pie-pcl-docsite&s=pie-pcl-docsite-publish&l=Build[link="https://rio.apple.com/projects/pie-pcl-docsite"]
+= Pkl Documentation Website image:https://circleci.com/gh/pkl-lang/pkl-lang.github.io.svg?style=svg["pkl-lang.github.io", link="https://circleci.com/gh/pkl-lang/pkl-lang.github.io"]
 
-Repo for Pkl's https://pkl.apple.com[documentation website].
+Repo for Pkl's https://pkl-lang.org[documentation website].
 
 The website is built with the https://antora.org[Antora] docsite generator out of https://asciidoctor.org[Asciidoc] docs maintained in upstream projects (pkl, pkl-spring, etc.).
 
@@ -8,7 +8,7 @@ The website is built with the https://antora.org[Antora] docsite generator out o
 
 === Releases
 
-For a new release of the website, run the https://rio.apple.com/projects/aci-pkl-pkl-docsite/pipeline-specs/aci-pkl-pkl-docsite-publish/pipelines[`publish` pipeline in Rio].
+For a new release of the website, run the https://TODO[`publish` pipeline in CircleCI].
 
 === Install dependencies
 
@@ -51,15 +51,7 @@ This is what CI runs.
 $ ./gradlew buildRemoteSite   # shorthand: gw bRS
 ----
 
-To run this task locally, you must have the following in place:
-
-.~/.git-credentials
-[source]
-----
-https://GITHUB_ACCESS_TOKEN@github.pie.apple.com
-----
-
-In the above, `GITHUB_ACCESS_TOKEN` is a GitHub personal access token with scope `public_repo`.
+To run this task locally, you must have token-based access for GitHub.com setup,
 
 === Validate Docs of Remote Projects
 

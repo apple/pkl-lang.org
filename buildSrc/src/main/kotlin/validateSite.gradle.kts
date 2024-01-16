@@ -15,8 +15,6 @@ val httpLinks = listOf<String>()
 // links to exclude from validation (for example because they require authentication)
 val excludedLinks = listOf(
     "https://www.oracle.com/technetwork/java",
-    "https://stackoverflow.apple.com",
-    "https://quip-apple.com/"
 )
 
 configurations {
@@ -131,7 +129,7 @@ for (location in listOf("local", "remote")) {
                   errors.add("$htmlFile: Dangling link: $link")
                 }
               }
-            } else if (uri.scheme == "mailto" || uri.host == "rdar.apple.com" || uri.host == "adir.apple.com") {
+            } else if (uri.scheme == "mailto") {
               // not validated
             } else if (uri.scheme == "https" || uri.scheme == "http" && httpLinks.any { uri.toString().startsWith(it) }) {
               // capture values because variables will change while executor is running

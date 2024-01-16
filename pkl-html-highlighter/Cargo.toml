@@ -2,12 +2,15 @@
 name = "pkl_html_highlighter"
 version = "0.6.0"
 edition = "2018"
-authors = ["pkl-dev@group.apple.com"]
+authors = ["pkl-oss@group.apple.com"]
 
 [dependencies]
 tree-sitter-highlight = "0.20"
-tree-sitter-pkl = { git = "ssh://git@github.pie.apple.com/pkl/tree-sitter-pkl.git", tag = "0.11.0" }
+tree-sitter-pkl = { git = "ssh://git@github.com/pkl-lang/tree-sitter-pkl.git", tag = "v0.14.0" }
 clap = { version = "4.4.2", features = ["derive"] }
+
+[net]
+git-fetch-with-cli = true
 
 [[bin]]
 name = "pkl-html-highlighter"

@@ -14,6 +14,23 @@ plugins {
 val isCi = System.getenv("CI") != null
 val isDocker = System.getenv("DOCKER") != null
 
+data class Site(
+  /** The name of the repo to clone */
+  val repo: String,
+  /** The branch to clone */
+  val branch: String,
+  /**
+   * The output directory.
+   *
+   * This will result in a subdirectory in the eventual deployment, e.g. pkl-lang.org/foo
+   */
+  val dirName: String = repo,
+)
+
+val additionalSites: List<Site> = listOf(
+  Site("pkl-package-docs", "www", "package-docs"),
+)
+
 node {
   version.set(libs.versions.node)
 
@@ -30,6 +47,26 @@ node {
 idea {
   module {
     excludeDirs = excludeDirs + files(".cache", ".gradle", ".idea", "build", "node_modules")
+  }
+}
+
+val cloneAdditionalSites by tasks.registering {
+  for (site in additionalSites) {
+    outputs.dir(layout.buildDirectory.dir(site.dirName))
+  }
+  doLast {
+    for (site in additionalSites) {
+      exec {
+        commandLine(
+          "git",
+          "clone",
+          "--branch",
+          site.branch,
+          "git@github.com:apple/${site.repo}",
+          layout.buildDirectory.dir(site.dirName).get()
+        )
+      }
+    }
   }
 }
 
@@ -50,6 +87,7 @@ val pklHtmlHighlighter by tasks.registering {
 val buildLocalSite by tasks.registering(NodeTask::class) {
   dependsOn(pklHtmlHighlighter)
   dependsOn(tasks.named("npmInstall"))
+  dependsOn(cloneAdditionalSites)
 
   val outputDir = file("$buildDir/local")
 
@@ -87,12 +125,19 @@ val buildLocalSite by tasks.registering(NodeTask::class) {
   }
 
   doLast {
+    for (site in additionalSites) {
+      copy {
+        from(layout.buildDirectory.dir(site.dirName).get())
+        into("$outputDir/${site.dirName}")
+      }
+    }
     println("\nGenerated local site at: file://$outputDir/index.html")
   }
 }
 
 val buildRemoteSite by tasks.registering(NodeTask::class) {
   dependsOn(pklHtmlHighlighter)
+  dependsOn(cloneAdditionalSites)
   dependsOn(tasks.named("npmInstall"))
 
   val outputDir = file("$buildDir/remote")
@@ -117,6 +162,12 @@ val buildRemoteSite by tasks.registering(NodeTask::class) {
   }
 
   doLast {
+    for (site in additionalSites) {
+      copy {
+        from(layout.buildDirectory.dir(site.dirName).get())
+        into("$outputDir/${site.dirName}")
+      }
+    }
     println("\nGenerated remote site at: file://$outputDir/index.html")
   }
 }

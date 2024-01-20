@@ -6,12 +6,6 @@ import path from "path";
 import hljs from "highlight.js/lib/common"
 
 export function highlightPkl(source: string, lang: string): string {
-  // highlight anything calling itself "pkl-snippet" using javascript; this is legacy documentation
-  // that is lines of replInput, and JavaScript looks better than using the tree-sitter parser.
-  if (lang == "pkl-snippet") {
-    console.warn("!!!!!!!!! FOUND PKL SNIPPET: " + source);
-    return hljs.highlight(source, { language: "javascript" }).value;
-  }
   const pklHtmlHighlighterPath = process.env["PKL_HTML_HIGHLIGHTER"] || "pkl-html-highlighter";
   // pkl-html-highlighter is a subproject of this repo
   const cmd = spawnSync(

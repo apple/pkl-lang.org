@@ -1,4 +1,4 @@
-rootProject.name = "pkl-lang.github.io"
+rootProject.name = "pkl-lang.org"
 
 val javaVersion = JavaVersion.current()
 require(javaVersion.isCompatibleWith(JavaVersion.VERSION_11)) {

@@ -6,7 +6,8 @@ authors = ["pkl-oss@group.apple.com"]
 
 [dependencies]
 tree-sitter-highlight = "0.20"
-tree-sitter-pkl = { git = "ssh://git@github.com/pkl-lang/tree-sitter-pkl.git", tag = "v0.14.0" }
+# TODO(oss) replace with tag once tree-sitter-pkl is published
+tree-sitter-pkl = { git = "ssh://git@github.com/apple/tree-sitter-pkl.git", branch = "main" }
 clap = { version = "4.4.2", features = ["derive"] }
 
 [net]

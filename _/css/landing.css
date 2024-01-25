@@ -1,0 +1,210 @@
+body {
+    padding-top: 0;
+}
+
+.container-land {
+    position: relative;
+}
+
+.container-land > .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-spacer {
+    height: 3.5rem;
+    background-color: #4b693a;
+}
+
+.hero-big {
+    background: url("../img/hexagons.svg"), linear-gradient(#4b693a, #3a4e2f);
+    background-size: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.hero-big > .content {
+    padding: 5em;
+}
+
+.hero-big .title {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.hero-duo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0 2em 0;
+}
+
+.hero-duo > div {
+    max-width: 35%;
+}
+
+.hero-title {
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.hero-text {
+    font-size: 0.944rem;
+}
+
+.hero-arrow {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.secondary {
+    background: #f7f7f7;
+}
+
+.centered {
+    text-align: center;
+}
+
+.separator {
+    height: 50px;
+    background: url("../img/website_separator.svg");
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.box-text {
+    font-size: 0.9em;
+    line-height: 1.3;
+}
+
+.tabs-heading {
+    border: 0 !important;
+}
+
+.hljs {
+    background: #282c34 !important;
+    border-radius: 8px;
+}
+
+.highlightjs {
+    min-width: 350px;
+}
+
+.logos {
+    min-width: 400px;
+}
+
+.logos img[alt~="logo"] {
+    height: 64px;
+    padding-right: 20px;
+}
+
+.logos img[alt="go logo"] {
+    height: 36px;
+}
+
+@media (max-width: 768px) {
+    .hero-big > .content {
+        padding: 5em 1em;
+    }
+
+    .hero-duo {
+        flex-direction: column-reverse;
+    }
+
+    .hero-duo > div {
+        max-width: unset;
+    }
+
+    .secondary {
+        flex-direction: column;
+    }
+}
+
+[role="tab"] {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    border: 0;
+    background: inherit;
+    color: #fff;
+    border-bottom: 2px solid #282c34;
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+[role="tab"]:hover {
+    border-color: #5d5d5d;
+    background-color: #000;
+}
+
+[role="tab"][aria-selected="true"] {
+    border-bottom: 2px solid #54d0e8;
+    cursor: default;
+}
+
+[role="tab"] span {
+    display: inline-block;
+    margin: 2px;
+    padding: 4px 6px;
+}
+
+[role="tab"]:first-child {
+    border-top-left-radius: 8px;
+}
+
+[role="tab"]:last-child {
+    border-top-right-radius: 8px;
+}
+
+[role="tabpanel"].is-hidden {
+    display: none;
+}
+
+[role="tabpanel"] {
+    padding: 5px;
+    border-radius: 0 0 8px 8px;
+    background: #282c34;
+    width: 100%;
+    height: 250px;
+    min-width: 350px;
+    overflow: auto;
+}
+
+[role="tabpanel"] > .listingblock {
+    margin-top: 0;
+}
+
+[role="tabpanel"] .hljs {
+    -webkit-box-shadow: inherit !important;
+    box-shadow: inherit !important;
+}
+
+[role="tablist"] {
+    background: #282c34;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    min-width: 350px;
+    margin-top: 1rem;
+}
+
+img[alt="intellij"] {
+    min-width: 350px;
+}
+
+img[alt="website separator"] {
+    width: 100%;
+}
+
+/* Search bar doesn't search for anything on the landing page */
+.navbar-item.search {
+    display: none;
+}

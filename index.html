@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pkl :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="./_/css/site.css">
+<link rel="stylesheet" href="./_/css/site-extra.css">
+<link rel="stylesheet" href="./_/css/search.css">
+<link rel="stylesheet" href="./_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="./_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="./_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./_/img/favicon-16x16.png">
+    <link rel="stylesheet" href="./_/css/atom-one-dark.min.css">
+    <link rel="stylesheet" href="./_/css/landing.css">
+</head>
+<body>
+    <header class="header">
+  <nav class="navbar navbar-top">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="./index.html"><img src="./_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="./index.html">Pkl</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term" autofocus>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="./main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="./main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="./swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="./go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/tooling.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="./neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="./vscode/current/index.html">VS Code</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="./blog/index.html">Blog</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="./main/current/style-guide/index.html">Style Guide</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://stackoverflow.com/questions/tagged/pkl">Stack Overflow</a>
+            <a class="navbar-item" href="./blog.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    <div class="exampleblock container-land">
+<div class="content">
+<div class="header-spacer"></div>
+<div class="exampleblock hero-big">
+<div class="content">
+<div class="exampleblock title">
+<div class="content">
+<div class="paragraph">
+<p>Configuration that is <strong>Programmable</strong>, <strong>Scalable</strong>, and <strong>Safe</strong></p>
+</div>
+</div>
+</div>
+<div class="separator"></div>
+</div>
+</div>
+<div class="hero-duo">
+<div class="exampleblock doc">
+<div class="content">
+<div class="listingblock">
+<div class="title">bird.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Swallow&quot;</span>
+
+<span class="hljs-property">job</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Sr. Nest Maker&quot;</span>
+  <span class="hljs-property">company</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Nests R Us&quot;</span>
+  <span class="hljs-property">yearsOfExperience</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph hero-arrow">
+<p>↓</p>
+</div>
+<div role="tablist" class="automatic">
+  <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+    <span>bird.json</span>
+  </button><button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2">
+    <span>bird.yaml</span>
+  </button><button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3">
+    <span>bird.plist</span>
+  </button><button id="tab-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-4">
+    <span>bird.properties</span>
+  </button>
+</div>
+<div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "Swallow",
+  "job": {
+    "title": "Sr. Nest Maker",
+    "company": "Nests R Us",
+    "yearsOfExperience": 2
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">name: Swallow
+job:
+  title: Sr. Nest Maker
+  company: Nests R Us
+  yearsOfExperience: 2</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+  &lt;key&gt;name&lt;/key&gt;
+  &lt;string&gt;Swallow&lt;/string&gt;
+  &lt;key&gt;job&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;title&lt;/key&gt;
+    &lt;string&gt;Sr. Nest Maker&lt;/string&gt;
+    &lt;key&gt;company&lt;/key&gt;
+    &lt;string&gt;Nests R Us&lt;/string&gt;
+    &lt;key&gt;yearsOfExperience&lt;/key&gt;
+    &lt;integer&gt;2&lt;/integer&gt;
+  &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel-4" role="tabpanel" tabindex="0" aria-labelledby="tab-4" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">name = Swallow
+job.title = Sr. Nest Maker
+job.company = Nests R Us
+job.yearsOfExperience = 2</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock doc">
+<div class="content">
+<div class="openblock hero-title">
+<div class="content">
+<div class="paragraph">
+<p>Generate any static configuration format</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Define all your date in Pkl, and generate output for JSON, YAML, Property Lists, and other
+configuration formats.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hero-duo secondary">
+<div class="exampleblock doc">
+<div class="content">
+<div class="openblock hero-title">
+<div class="content">
+<div class="paragraph">
+<p>Integrated application configuration</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Embed Pkl into your applications for runtime configuration, and receive code generation for
+<strong>Java</strong>, <strong>Kotlin</strong>, <strong>Swift</strong>, and <strong>Go</strong>.</p>
+</div>
+<div class="paragraph logos">
+<p><span class="image"><img src="_images/java_logo.svg" alt="java logo"></span> <span class="image"><img src="_images/kotlin_logo.svg" alt="kotlin logo"></span> <span class="image"><img src="_images/swift_logo.svg" alt="swift logo"></span> <span class="image"><img src="_images/go_logo.svg" alt="go logo"></span></p>
+</div>
+</div>
+</div>
+<div class="exampleblock doc">
+<div class="content">
+<div role="tablist" class="automatic">
+  <button id="tab2-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel2-1">
+    <span>Pkl</span>
+  </button>
+  <button id="tab2-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-2">
+    <span>Java</span>
+  </button>
+  <button id="tab2-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-3">
+    <span>Kotlin</span>
+  </button>
+  <button id="tab2-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-4">
+    <span>Swift</span>
+  </button>
+  <button id="tab2-5" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-5">
+    <span>Go</span>
+  </button>
+</div>
+<div id="tabpanel2-1" role="tabpanel" tabindex="0" aria-labelledby="tab2-1">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-property">example</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">MyAppConfig</span>
+
+<span class="hljs-comment">/// The hostname for the application</span>
+<span class="hljs-property">host</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// The port to listen on</span>
+<span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel2-2" role="tabpanel" tabindex="0" aria-labelledby="tab2-2" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package example;
+
+public final class MyAppConfig {
+  /**
+   * The hostname for the application
+   */
+  public final @NonNull String host;
+
+  /**
+   * The port to listen on
+   */
+  public final int port;
+
+  public MyAppConfig(
+        @Named("host") @NonNull String host,
+        @Named("port") int port) {
+    this.host = host;
+    this.port = port;
+  }
+
+  public MyAppConfig withHost(@NonNull String host) { /*...*/ }
+
+  public MyAppConfig withPort(int port) { /*...*/ }
+
+  @Override
+  public boolean equals(Object obj) { /*...*/ }
+
+  @Override
+  public int hashCode() { /*...*/ }
+
+  @Override
+  public String toString() { /*...*/ }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel2-3" role="tabpanel" tabindex="0" aria-labelledby="tab2-3" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package example
+
+data class MyAppConfig(
+  /**
+   * The hostname for the application
+   */
+  val host: String,
+  /**
+   * The port to listen on
+   */
+  val port: Int
+)</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel2-4" role="tabpanel" tabindex="0" aria-labelledby="tab2-4" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">// Code generated from Pkl module `example.myAppConfig`. DO NOT EDIT.
+enum MyAppConfig {}
+
+extension MyAppConfig {
+    struct Module {
+        /// The hostname for the application
+        let host: String
+
+        /// The port to listen on
+        let port: UInt16
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabpanel2-5" role="tabpanel" tabindex="0" aria-labelledby="tab2-5" class="is-hidden">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">// Code generated from Pkl module `example.myAppConfig`. DO NOT EDIT.
+package myappconfig
+
+import (
+	"context"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+type MyAppConfig struct {
+	// The hostname for the application
+	Host string `pkl:"host"`
+
+	// The port to listen on
+	Port uint16 `pkl:"port"`
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hero-duo">
+<div class="exampleblock doc">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="_images/intellij.gif" alt="intellij">
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock doc">
+<div class="content">
+<div class="openblock hero-title">
+<div class="content">
+<div class="paragraph">
+<p>Incredible IDE Integration</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In JetBrains editors like IntelliJ and GoLand, writing Pkl feels just like Swift, TypeScript, Java, and other
+statically typed languages.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hero-duo secondary">
+<div class="exampleblock doc">
+<div class="content">
+<div class="openblock hero-title">
+<div class="content">
+<div class="paragraph">
+<p>Catch errors before deployment</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>With a rich type and validation system, catch configuration errors before deploying your application.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock doc">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">email</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;dev-team@company.com&quot;</span>
+
+<span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-number">80</span></code></pre>
+</div>
+</div>
+<div class="paragraph hero-arrow">
+<p>↓</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">–– Pkl Error ––
+Type constraint `this &gt; 1000` violated.
+Value: 80
+
+3 | port: Int(this &gt; 1000) = 80
+              ^^^^^^^^^^^
+at config#port (config.pkl, line 3)
+
+3 | port: Int(this &gt; 1000) = 80
+                             ^^
+at config#port (config.pkl, line 3)
+
+106 | text = renderer.renderDocument(value)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+    <script src="./_/js/site.js"></script>
+<script src="./_/js/site-support.js"></script>
+<script async src="./_/js/vendor/highlight.js"></script>
+<script src="./_/js/landing-page-support.js"></script>
+</body>
+</html>

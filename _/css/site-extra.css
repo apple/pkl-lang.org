@@ -1,0 +1,90 @@
+header .navbar, footer.footer {
+    background-color: #2b471b;
+    transition: background-color 150ms linear;
+}
+
+/**
+ * navbar-top class only applies to landing page
+ * (see landing-page-support.js and header-content.hbs)
+ */
+header .navbar.navbar-top {
+    background-color: transparent;
+}
+
+footer.footer {
+    color: #fff;
+}
+
+code {
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+}
+
+.small { font-size: 0.75em; }
+
+.navigation-container {
+    width: 13rem;
+}
+
+/**
+ * Prevent code blocks from overriding link colors
+ */
+.doc a > code {
+    color: #1565c0;
+}
+
+.doc a > code:hover {
+    color: #104d92;
+}
+
+.hljs-variable {
+    color: #333333;
+}
+
+/**
+ * make escapes a slightly darker red. same color as `hljs-title`.
+ */
+.hljs-char.escape_ {
+    color: #900;
+}
+
+/**
+ * Overrides for asciidoctor tabs
+ */
+.tabpanel {
+    border: 0 !important;
+    padding: 1.25em 0 !important;
+}
+
+.article .tablist > ul li {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom-width: 5px;
+    border-bottom-color: #2b471b;
+    border-bottom-style: solid;
+    border-radius: 4px 4px 0 0;
+}
+
+.article .tablist > ul li:hover, .article .tabs:not(.is-loading) .tablist li:not(.is-selected):hover {
+    background-color: #f7f7f7;
+}
+
+.article .tabs:not(.is-loading) .tablist li:not(.is-selected) {
+    border-bottom-color: transparent;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+/**
+ * Blog page styles
+ */
+.blog-excerpt {
+    font-style: italic;
+}
+
+.blog-byline {
+    color: #5c6370;
+}

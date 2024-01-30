@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Evaluator API :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/swift/current/evaluation.html">
+    <link rel="canonical" href="https://pkl-lang.org/go/current/evaluation.html">
     <link rel="prev" href="quickstart.html">
     <link rel="next" href="codegen.html">
     <meta name="generator" content="Antora 3.1.7">
@@ -84,13 +84,13 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="swift" data-version="0.1.0">
+<div class="nav-container" data-component="go" data-version="0.5.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
-    <h3 class="title"><a href="index.html">Pkl Swift Bindings</a></h3>
+    <h3 class="title"><a href="index.html">Pkl Go Bindings</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -113,8 +113,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Pkl Swift Bindings</span>
-    <span class="version">0.1.0</span>
+    <span class="title">Pkl Go Bindings</span>
+    <span class="version">0.5.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -139,19 +139,19 @@
     <li class="component">
       <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
     </li>
-    <li class="component">
-      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../go/current/index.html">0.5.0</a>
+        <li class="version is-current is-latest">
+          <a href="index.html">0.5.0</a>
         </li>
       </ul>
     </li>
-    <li class="component is-current">
-      <div class="title"><a href="index.html">Pkl Swift Bindings</a></div>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">0.1.0</a>
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.1.0</a>
         </li>
       </ul>
     </li>
@@ -177,7 +177,7 @@
   <a href="../../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Pkl Swift Bindings</a></li>
+    <li><a href="index.html">Pkl Go Bindings</a></li>
     <li><a href="evaluation.html">Evaluator API</a></li>
   </ul>
 </nav>
@@ -191,7 +191,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>pkl-swift provides a rich API for evaluating Pkl files in Swift via <code>PklSwift.Evaluator</code>. It can be configured with <a href="#custom-readers">custom readers</a>, have its own security settings, control
+<p>pkl-go provides a rich API for evaluating Pkl files in Go via <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#Evaluator"><code>pkl.Evaluator</code></a>. It can be configured with <a href="#custom-readers">custom readers</a>, have its own security settings, control
 external property inputs, and more.</p>
 </div>
 <div class="paragraph">
@@ -200,28 +200,28 @@ external property inputs, and more.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-evaluators"><a class="anchor" href="#using-evaluators"></a><a class="link" href="#using-evaluators">Using evaluators</a></h2>
+<h2 id="initializing-an-evaluator"><a class="anchor" href="#initializing-an-evaluator"></a><a class="link" href="#initializing-an-evaluator">Initializing an evaluator</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are two methods for interacting with <code>PklSwift.Evaluator</code>:</p>
+<p>There are two methods for initializing a <code>pkl.Evaluator</code>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>PklSwift.withEvaluator(options:_:)</code></p>
+<p><a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#NewEvaluator"><code>pkl.NewEvaluator</code></a></p>
 </li>
 <li>
-<p><code>PklSwift.EvaluatorManager.withEvaluator(options:_:)</code></p>
+<p><a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#EvaluatorManager"><code>pkl.EvaluatorManager.NewEvaluator</code></a></p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>These two methods are distinguished by how they manage the lifecycle of the underlying <code>pkl</code> child process.
-<code>PklSwift.withEvaluator(options:_:)</code> will spawn a child process per-evaluator, whereas <code>PklSwift.EvaluatorManager.withEvaluator(options:_:)</code> will spawn a
+<p>These two constructors are distinguished by how they manage the lifecycle of the underlying <code>pkl</code> child process.
+<code>pkl.NewEvaluator</code> will spawn a child process per-evaluator, whereas <code>pkl.EvaluatorManager.NewEvalutor</code> will spawn a
 child process for the lifetime of the evaluator manager.</p>
 </div>
 <div class="paragraph">
-<p>For most use cases, it is sufficient to use <code>PklSwift.withEvaluator(options:_:)</code>. If multiple evaluators are desired,
+<p>For most use-cases, it is sufficient to use the <code>pkl.NewEvaluator</code> constructor. If multiple evaluators are desired,
 for example, to maintain separate caches or to have different settings, the evaluator manager should be used.</p>
 </div>
 </div>
@@ -232,26 +232,46 @@ for example, to maintain separate caches or to have different settings, the eval
 <div class="sect2">
 <h3 id="with-code-generation"><a class="anchor" href="#with-code-generation"></a><a class="link" href="#with-code-generation">With code generation</a></h3>
 <div class="paragraph">
-<p>Swift structs generated from Pkl modules may be evaluated simply through the generated <code>loadFrom(source:)</code> and <code>loadFrom(evaluator:source:)</code> methods.</p>
+<p>Go packages generated from Pkl modules may be evaluated simply through the generated <code>LoadFromPath</code> and
+<code>Load</code> methods.</p>
 </div>
 <div class="paragraph">
-<p>For example, a Pkl module can be evaluated into a generated struct like so:</p>
+<p>For example, a generated package <code>github.com/myapp/myteam/appconfig</code> can be used for evaluation like so:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">@main struct Main {
-    static func main() async throws {
-        let config = try await AppConfig.loadFrom(source: .path("myconfig.pkl"))
-        print("Got config: \(config)")
-    }
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+	"github.com/myapp/myteam/appconfig" <i class="conum" data-value="1"></i><b>(1)</b>
+)
+
+func main() {
+	cfg, err := appconfig.LoadFromPath(context.Background(), "myconfig.pkl")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Got config: %+v\n", cfg)
 }</code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The generated package</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="without-code-generation"><a class="anchor" href="#without-code-generation"></a><a class="link" href="#without-code-generation">Without code generation</a></h3>
 <div class="paragraph">
-<p>Pkl modules may be evaluated directly into Swift structs without using code generation.</p>
+<p>Pkl modules may be evaluated directly into Go structs without using code generation.</p>
 </div>
 <div class="paragraph">
 <p>For example, given the Pkl module:</p>
@@ -265,44 +285,41 @@ for example, to maintain separate caches or to have different settings, the eval
 </div>
 </div>
 <div class="paragraph">
-<p>A Swift struct can be created matching the shape of the Pkl module.
-The Swift module must be <code>Decodable</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">foo.swift</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">struct Foo: Decodable {
-    let foo: String
-    let bar: Int
-}</code></pre>
-</div>
+<p>This may be evaluated into a Go struct via <code>pkl.Evaluator.EvaluateModule</code>.
+To run evaluation, pass a struct pointer that matches the structure of the module.</p>
 </div>
 <div class="paragraph">
-<p>Then, provide <code>Foo.self</code> to the <code>evaluateModule</code> method:</p>
+<p>If the Go property name doesn&#8217;t match the Pkl name, the <code>pkl</code> struct tag should be used to identify the Pkl property name.</p>
+</div>
+<div class="paragraph">
+<p>Example Go:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">let result = try await withEvaluator { evaluator in
-    try await evaluator.evaluateModule(source: .path("foo.pkl"), as: Foo.self)
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If the Swift property name doesn&#8217;t match the Pkl name, create a nested <code>CodingKeys</code> enum that describes how Swift names turn into Pkl names.</p>
-</div>
-<div class="paragraph">
-<p>For more details, consult the <a href="https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types#2904057">Swift documentation</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">struct Foo: Decodable {
-    let myFoo: String
-    let myBar: Innt
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+import (
+	"context"
+	"fmt"
 
-    enum CodingKeys: String, CodingKey {
-        case myFoo = "foo"
-        case myBar = "bar"
-    }
+	"github.com/apple/pkl-go/pkl"
+)
+
+type MyConfig struct {
+	Foo string `pkl:"foo"`
+	Bar int    `pkl:"bar"`
+}
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	var cfg MyConfig
+	if err = evaluator.EvaluateModule(context.Background(), pkl.FileSource("foo.pkl"), &amp;cfg); err != nil {
+		panic(err)
+	}
+	fmt.Printf("Got module: %+v", cfg)
 }</code></pre>
 </div>
 </div>
@@ -315,7 +332,7 @@ The Swift module must be <code>Decodable</code>.</p>
 <div class="sect2">
 <h3 id="textual-and-multiple-file-output"><a class="anchor" href="#textual-and-multiple-file-output"></a><a class="link" href="#textual-and-multiple-file-output">Textual and multiple file output</a></h3>
 <div class="paragraph">
-<p>In addition to modules, an evaluator may also evaluate a module&#8217;s <code>output.text</code> and <code>output.files</code> properties. This mimics the behavior of the CLI.</p>
+<p>In addition to modules, an evaluator may also evaluate a module&#8217;s <code>output.text</code> and <code>output.files</code> properties. This mimick the behavior of the CLI.</p>
 </div>
 <div class="paragraph">
 <p>Take this Pkl module:</p>
@@ -329,18 +346,28 @@ The Swift module must be <code>Decodable</code>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The textual output of this module may be evaluated via <code>PklSwift.Evaluator.evaluateOutputText(source:)</code>.</p>
+<p>The textual output of this module may be evaluated via <code>Evaluator.EvaluateOutputText</code>.</p>
 </div>
 <div class="listingblock">
-<div class="title">main.swift</div>
+<div class="title">main.go</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">@main struct Main {
-    static func main() async throws {
-        let textOutput = try await withEvaluator { evaluator in
-            try await evaluator.evaluateOutputText(source: .path("my/module.pkl"))
-        }
-        print(textOutput)
-    }
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	textOutput, err := evaluator.EvaluateOutputText(context.Background(), pkl.FileSource("foo.pkl"))
+	fmt.Println(textOutput)
 }</code></pre>
 </div>
 </div>
@@ -348,23 +375,37 @@ The Swift module must be <code>Decodable</code>.</p>
 <div class="sect2">
 <h3 id="expressions"><a class="anchor" href="#expressions"></a><a class="link" href="#expressions">Expressions</a></h3>
 <div class="paragraph">
-<p>In addition to evaluating modules and textual/file output, <em>any</em> arbitrary expression may be evaluated within a module.
-In fact, the textual and file output of a module are implemented in terms of evaluating an expression.</p>
+<p>In addition to evaluating modules and textual/file output, <em>any</em> arbitrary expression may be evaluated within a module. In fact, the textual and file output of a module are implemented in terms of evaluating an expression.</p>
 </div>
 <div class="listingblock">
-<div class="title">main.swift</div>
+<div class="title">main.go</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">@main struct Main {
-    static func main() async throws {
-        let res = try await withEvaluator { evaluator in
-            try await evaluator.evaluateExpression(
-                source: .text("foo = 5"), <i class="conum" data-value="1"></i><b>(1)</b>
-                expression: "foo + 10", <i class="conum" data-value="2"></i><b>(2)</b>
-                as: Int.self <i class="conum" data-value="3"></i><b>(3)</b>
-            )
-        }
-        print("foo is \(res)") // prints "foo is 15"
-    }
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	var res string
+	err = evaluator.EvaluateExpression(
+		context.Background(),
+		pkl.TextSource("foo = 5"), <i class="conum" data-value="1"></i><b>(1)</b>
+		`"foo is \(foo)"`, <i class="conum" data-value="2"></i><b>(2)</b>
+		&amp;res,
+	)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(res) // prints "foo is 5"
 }</code></pre>
 </div>
 </div>
@@ -372,15 +413,11 @@ In fact, the textual and file output of a module are implemented in terms of eva
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>.text("foo = 5")</code> causes Pkl to evaluate a synthetic module whose contents are <code>foo = 5</code>.</td>
+<td><code>TextSource</code> causes Pkl to evaluate <code>foo = 5</code> as a module</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The expression to be evaluated.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The expression&#8217;s result type.</td>
+<td>The expression to be evaluated</td>
 </tr>
 </table>
 </div>
@@ -391,9 +428,25 @@ In fact, the textual and file output of a module are implemented in terms of eva
 <h2 id="evaluator-options"><a class="anchor" href="#evaluator-options"></a><a class="link" href="#evaluator-options">Evaluator options</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An evaluator is configured via options on <code>PklSwift.EvaluatorOptions</code>.
-A sensible default set of options is provided on <code>PklSwift.EvaluatorOptions.preconfigured</code>.
-Alternatively, they can be built from empty by starting with <code>PklSwift.EvaluatorOptions.empty</code>.</p>
+<p>pkl-go provides <code>pkl.PreconfiguredOptions</code>, which serves as a simple way to construct an evaluator with sensible defaults.</p>
+</div>
+<div class="paragraph">
+<p>Additional options may be provided via the functional options pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions, func(opts *EvaluatorOptions) {
+	opts.Logger = pkl.StderrLogger <i class="conum" data-value="1"></i><b>(1)</b>
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Log warn/trace messages to stderr</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -401,14 +454,14 @@ Alternatively, they can be built from empty by starting with <code>PklSwift.Eval
 <h2 id="custom-readers"><a class="anchor" href="#custom-readers"></a><a class="link" href="#custom-readers">Custom readers</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>It is possible to use a custom reader for resources and modules by implementing the <code>PklSwift.ResourceReader</code> and <code>PklSwift.ModuleReader</code> protocols.</p>
+<p>It is possible to use a custom reader for resources and modules by implementing the <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#ResourceReader"><code>pkl.ResourceReader</code></a> and <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#ModuleReader"><code>pkl.ModuleReader</code></a> interfaces.</p>
 </div>
 <div class="paragraph">
-<p>Custom readers must identify the scheme that they are responsible for reading by setting the <code>scheme</code> field. For example,
+<p>Custom readers must identify the scheme that they are responsible for reading via the <code>Scheme()</code> method. For example,
 a reader may be registered to resolve the Pkl expression <code>read("secret:FOO")</code> by registering <code>"secret"</code> as its scheme.</p>
 </div>
 <div class="paragraph">
-<p>If a resource matches a scheme identified by a custom reader, its <code>read()</code> method will be called to retrieve the contents.</p>
+<p>If a resource matches a scheme identified by a custom reader, its <code>Read()</code> method will be called to retrieve the contents.</p>
 </div>
 </div>
 </div>

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Tools :: Pkl Docs</title>
-    <link rel="prev" href="standard-library.html">
-    <link rel="next" href="pkl-cli/index.html">
+    <title>Integration with Go :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/go/current/index.html">
+    <link rel="next" href="quickstart.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -83,150 +83,27 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.0-dev">
+<div class="nav-container" data-component="go" data-version="0.5.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
-    <h3 class="title"><a href="index.html">Main Project</a></h3>
+    <h3 class="title"><a href="index.html">Pkl Go Bindings</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="pkl-cli/index.html#installation">Installation</a>
+    <a class="nav-link" href="quickstart.html">Quickstart</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="language-tutorial/index.html">Language Tutorial</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="language-tutorial/01_basic_config.html">Basic Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="language-tutorial/03_writing_a_template.html">Writing a Template</a>
-  </li>
-</ul>
+    <a class="nav-link" href="evaluation.html">Evaluator API</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="language-reference/index.html">Language Reference</a>
+    <a class="nav-link" href="codegen.html">Code Generation</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="introduction/index.html">Introduction</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="introduction/use-cases.html">Use Cases</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="introduction/concepts.html">Concepts</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="introduction/components.html">Components</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="introduction/comparison.html">Comparison</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="language.html">Language</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="language-tutorial/index.html">Language Tutorial</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="language-reference/index.html">Language Reference</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="standard-library.html">Standard Library</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="tools.html">Tools</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="pkl-cli/index.html">CLI</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="pkl-doc/index.html">Pkldoc</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="pkl-gradle/index.html">Gradle Plugin</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Editor support</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../intellij/current/index.html">IntelliJ</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../vscode/current/index.html">VSCode</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#neovim:ROOT:index.adoc">Neovim</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="language-bindings.html">Language Bindings</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="java-binding/index.html">Java</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="java-binding/codegen.html">Code Generator</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="pkl-core/index.html">pkl-core Library</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="java-binding/pkl-config-java.html">pkl-config-java Library</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="kotlin-binding/index.html">Kotlin</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="kotlin-binding/codegen.html">Code Generator</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../swift/current/index.html">Swift</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../go/current/index.html">Go</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="release-notes/index.html">Release Notes</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="release-notes/0.25.html">0.25 Release Notes</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="release-notes/changelog.html">Changelog</a>
-  </li>
-</ul>
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
   </li>
 </ul>
   </li>
@@ -235,8 +112,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Main Project</span>
-    <span class="version">0.25.0-dev</span>
+    <span class="title">Pkl Go Bindings</span>
+    <span class="version">0.5.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -250,22 +127,22 @@
         </li>
       </ul>
     </li>
-    <li class="component is-current">
-      <div class="title"><a href="index.html">Main Project</a></div>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">0.25.0-dev</a>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.25.0-dev</a>
         </li>
       </ul>
     </li>
     <li class="component">
       <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
     </li>
-    <li class="component">
-      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../go/current/index.html">0.5.0</a>
+        <li class="version is-current is-latest">
+          <a href="index.html">0.5.0</a>
         </li>
       </ul>
     </li>
@@ -299,8 +176,8 @@
   <a href="../../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Main Project</a></li>
-    <li><a href="tools.html">Tools</a></li>
+    <li><a href="index.html">Pkl Go Bindings</a></li>
+    <li><a href="index.html">Integration with Go</a></li>
   </ul>
 </nav>
 </div>
@@ -309,39 +186,36 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Tools</h1>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="pkl-cli/index.html" class="xref page">CLI</a></p>
-</li>
-<li>
-<p><a href="pkl-doc/index.html" class="xref page">Pkldoc</a></p>
-</li>
-<li>
-<p><a href="pkl-gradle/index.html" class="xref page">Gradle Plugin</a></p>
-</li>
-<li>
-<p>Editor support</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="../../intellij/current/index.html" class="xref page">IntelliJ</a></p>
-</li>
-<li>
-<p><a href="../../vscode/current/index.html" class="xref page">VSCode</a></p>
-</li>
-<li>
-<p><a href="#neovim:ROOT:index.adoc" class="xref unresolved">Neovim</a></p>
-</li>
-</ul>
+<h1 class="page">Integration with Go</h1>
+<div class="paragraph">
+<p>Pkl provides a rich integration with Go. Our integration allows you to embed the Pkl runtime into your Go program, and also provides code generation from Pkl source code.</p>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>To get started, reference the <a href="quickstart.html" class="xref page">Quickstart guide</a>.
+Alternatively, use our <a href="https://github.com/apple/pkl-go-example">example project</a> as a way to get bootstrapped and on your way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/myteam/myapp/myconfig"
+)
+
+func main() {
+	cfg, err := myconfig.LoadFromPath(context.Background(), "config.pkl")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("I'm running on host %s\n", cfg.Host)
+}</code></pre>
+</div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="standard-library.html">Standard Library</a></span>
-  <span class="next"><a href="pkl-cli/index.html">CLI</a></span>
+  <span class="next"><a href="quickstart.html">Quickstart</a></span>
 </nav>
 </article>
   </div>

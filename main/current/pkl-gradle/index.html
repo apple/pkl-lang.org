@@ -358,27 +358,43 @@ That is, plugin version <code>x.y.z</code> uses Pkl version <code>x.y.z</code>.<
 <h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Gradle plugin is available <a href="https://artifacts.apple.com/plugins-snapshot/org/pkl/pkl-gradle/0.25.0-SNAPSHOT">from Maven Central</a>.
+<p>The Gradle plugin is available <a href="https://central.sonatype.com/plugins-snapshot/org/pkl/pkl-gradle/0.25.0-SNAPSHOT">from Maven Central</a>.
 It requires Java 11 or higher and Gradle 6.8 or higher.
 Earlier Gradle versions are not supported.</p>
 </div>
 <div class="paragraph">
 <p>The plugin is applied as follows:</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-1-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-1-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
   id "org.pkl-lang" version "0.25.0-SNAPSHOT"
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-1-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
   id("org.pkl-lang") version "0.25.0-SNAPSHOT"
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -394,8 +410,20 @@ Earlier Gradle versions are not supported.</p>
 <div class="paragraph">
 <p>To add an evaluator to the build, add a named configuration block inside <code>pkl.evaluators</code>:</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-2-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-2-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   evaluators {
@@ -409,19 +437,23 @@ Earlier Gradle versions are not supported.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-2-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
-    evaluators {
-        register("evalPkl") {
-            sourceModules.add(file("module1.pkl"))
-            transitiveModules.from(file("module2.pkl"))
-            outputFile.set(layout.buildDirectory.file("module1.yaml"))
-            outputFormat.set("yaml")
-        }
+  evaluators {
+    register("evalPkl") {
+      sourceModules.add(file("module1.pkl"))
+      transitiveModules.from(file("module2.pkl"))
+      outputFile.set(layout.buildDirectory.file("module1.yaml"))
+      outputFormat.set("yaml")
     }
+  }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -816,8 +848,20 @@ Relative paths are resolved against the project directory.</p>
 <div class="paragraph">
 <p>To add tests to the build, add a named configuration block inside <code>pkl.tests</code>:</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-3-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-3-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   tests {
@@ -830,8 +874,9 @@ Relative paths are resolved against the project directory.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-3-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   tests {
@@ -842,6 +887,9 @@ Relative paths are resolved against the project directory.</p>
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <details id="junit-reports-path">
@@ -1084,8 +1132,20 @@ Relative paths are resolved against the project directory.</p>
 <div class="paragraph">
 <p>To add a Java code generator to the build, add a named configuration block inside <code>pkl.javaCodeGenerators</code>:</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-4-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-4-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   javaCodeGenerators {
@@ -1096,8 +1156,9 @@ Relative paths are resolved against the project directory.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-4-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-4-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   javaCodeGenerators {
@@ -1106,6 +1167,9 @@ Relative paths are resolved against the project directory.</p>
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -1424,8 +1488,20 @@ Relative paths are resolved against the project directory.</p>
 <div class="paragraph">
 <p>To add a Kotlin code generator to the build, add a named configuration block inside <code>pkl.kotlinCodeGenerators</code>:</p>
 </div>
+<div id="tabs-5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-5-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-5-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   kotlinCodeGenerators {
@@ -1436,8 +1512,9 @@ Relative paths are resolved against the project directory.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-5-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-5-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   kotlinCodeGenerators {
@@ -1446,6 +1523,9 @@ Relative paths are resolved against the project directory.</p>
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -1742,8 +1822,20 @@ Relative paths are resolved against the project directory.</p>
 <div class="paragraph">
 <p>To add a Pkldoc generator to the build, add a named configuration block inside <code>pkl.pkldocGenerators</code>:</p>
 </div>
+<div id="tabs-6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-6-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-6-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   pkldocGenerators {
@@ -1754,16 +1846,20 @@ Relative paths are resolved against the project directory.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-6-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-6-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   pkldocGenerators {
     register("pkldoc") {
-      sourceModules.addAll(files("doc-package-info.pkl","Template1.pkl", "Template2.pkl"))
+      sourceModules.addAll(files("doc-package-info.pkl", "Template1.pkl", "Template2.pkl"))
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -2027,8 +2123,20 @@ It prepares package assets to be published from a project.</p>
 </div>
 <div class="sect2">
 <h3 id="usage-6"><a class="anchor" href="#usage-6"></a><a class="link" href="#usage-6">Usage</a></h3>
+<div id="tabs-7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-7-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-7-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   project {
@@ -2041,18 +2149,22 @@ It prepares package assets to be published from a project.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-7-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-7-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   project {
     packagers {
       register("makePackages") {
-        projectDirectories.from(file("./"))
+        projectDirectories.from(file("pkl-config/"))
       }
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -2256,8 +2368,20 @@ It takes the dependencies of a project, and writes the resolved versions a file 
 </div>
 <div class="sect2">
 <h3 id="usage-7"><a class="anchor" href="#usage-7"></a><a class="link" href="#usage-7">Usage</a></h3>
+<div id="tabs-8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-8-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-8-build-gradle">
 <div class="listingblock">
-<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
   project {
@@ -2270,18 +2394,22 @@ It takes the dependencies of a project, and writes the resolved versions a file 
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-8-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-8-build-gradle-kts">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
   project {
     resolvers {
       register("resolvePklDeps") {
-        projectDirectories.from(file("./"))
+        projectDirectories.from(file("pkl-config/"))
       }
     }
   }
 }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

@@ -198,17 +198,41 @@
 <div class="sect1">
 <h2 id="1-install-dependencies"><a class="anchor" href="#1-install-dependencies"></a><a class="link" href="#1-install-dependencies">1. Install dependencies</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Your project will need to include pkl-go as a dependency:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Add pkl-go to your project's dependencies
-go get github.com/apple/pkl-go
-
-# Install the pkl-gen-go binary (only necessary if using codegen)
-go install github.com/apple/pkl-go/cmd/pkl-gen-go@latest
-
-# Install Pkl
-brew install pkl</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go get github.com/apple/pkl-go</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If you are using <a href="codegen.html" class="xref page">code generation</a>, install the pkl-gen-go binary, either via <code>go install</code> or with a direct download.</p>
+</div>
+<div class="paragraph">
+<p>The binaries are available as assets on our <a href="https://github.com/apple/pkl-go/releases/download/v0.5.0/">GitHub release</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># via go install
+go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.5.0
+
+# via curl
+curl -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.5.0/pkl-gen-go-macos.bin
+chmod +x pkl-gen-go</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, the <code>pkl</code> CLI needs to be installed on the machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -o pkl https://github.com/apple/pkl/releases/download/0.25.0/pkl-cli-macos-0.25.0.bin
+chmod +x pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more additional CLI installation instructions, <a href="../../main/current/pkl-cli/index.html#installation" class="xref page">see here</a>.</p>
 </div>
 </div>
 </div>

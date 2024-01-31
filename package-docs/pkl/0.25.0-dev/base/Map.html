@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map (pkl/base:0.25.0-dev) • Apple Package Docs</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.0-dev/base/Map.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Apple Package Docs</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.0-dev" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="Map" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Apple Package Docs</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <div id="Key" class="anchor-param1"> </div>
+      <div id="Value" class="anchor-param2"> </div>
+      <h1 id="declaration-title">Map<span id="declaration-version">0.25.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">external class <span class="name-decl">Map</span>&lt;out <a class="param1">Key</a>, out <a class="param2">Value</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+        <div class="doc-comment"><p>An unordered mapping from keys to values.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>The following operators are supported for maps:</p>
+<pre><code>map[key]     // subscript; similar to `getOrNull` but throws if key not found
+map1 + map2  // merge; if both maps have an entry with the same key, the entry in map2 wins
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="length" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#length">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">length</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The number of entries in this map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isEmpty" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isEmpty">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isEmpty</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this map is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="keys" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#keys">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">keys</span>: <a href="Set.html" class="name-ref">Set</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>&gt;</div>
+                <div class="doc-comment"><p>The keys contained in this map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="values" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#values">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">values</span>: <a href="List.html" class="name-ref">List</a>&lt;<a href="Map.html#Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>The values contained in this map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="entries" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#entries">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">entries</span>: <a href="List.html" class="name-ref">List</a>&lt;<a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>&gt;&gt;</div>
+                <div class="doc-comment"><p>The entries contained in this map.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Map.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Map.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getOrNull()" class="anchor"> </div>
+            <div id="getOrNull().key" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getOrNull</span>(<span class="param1">key</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Map.html#Value" class="name-ref">Value</a>?</div>
+                <div class="doc-comment"><p>Returns the value for <code>key</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if this map does not contain <code>key</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="containsKey()" class="anchor"> </div>
+            <div id="containsKey().key" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#containsKey()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">containsKey</span>(<span class="param1">key</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this map contains an entry with the given key.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="containsValue()" class="anchor"> </div>
+            <div id="containsValue().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#containsValue()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">containsValue</span>(<span class="param1">value</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this map contains an entry with the given value.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="put()" class="anchor"> </div>
+            <div id="put().NewKey" class="anchor-param1"> </div>
+            <div id="put().NewValue" class="anchor-param2"> </div>
+            <div id="put().key" class="anchor-param3"> </div>
+            <div id="put().value" class="anchor-param4"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#put()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">put</span>&lt;<a class="param1">NewKey</a>, <a class="param2">NewValue</a>&gt;(<span class="param3">key</span>: <a href="Map.html#put().NewKey" class="name-ref">NewKey</a>, <span class="param4">value</span>: <a href="Map.html#put().NewValue" class="name-ref">NewValue</a>): <a href="Map.html" class="name-ref">Map</a>&lt;(<a href="Map.html#put().NewKey" class="name-ref">NewKey</a>|<a href="Map.html#Key" class="name-ref">Key</a>), (<a href="Map.html#put().NewValue" class="name-ref">NewValue</a>|<a href="Map.html#Value" class="name-ref">Value</a>)&gt;</div>
+                <div class="doc-comment"><p>Adds or updates <code>key</code> to <code>value</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remove()" class="anchor"> </div>
+            <div id="remove().key" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#remove()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">remove</span>(<span class="param1">key</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Removes the map entry with the given key.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this map unchanged if it does not contain an entry with the given key.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filter()" class="anchor"> </div>
+            <div id="filter().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#filter()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filter</span>(<span class="param1">predicate</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Removes all entries for which <code>predicate</code> does not hold.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fold()" class="anchor"> </div>
+            <div id="fold().Result" class="anchor-param1"> </div>
+            <div id="fold().initial" class="anchor-param2"> </div>
+            <div id="fold().operator" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#fold()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fold</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Map.html#fold().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Map.html#fold().Result" class="name-ref">Result</a>, <a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Map.html#fold().Result" class="name-ref">Result</a>): <a href="Map.html#fold().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds the entries of this map in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="map()" class="anchor"> </div>
+            <div id="map().NewKey" class="anchor-param1"> </div>
+            <div id="map().NewValue" class="anchor-param2"> </div>
+            <div id="map().transform" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#map()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">map</span>&lt;<a class="param1">NewKey</a>, <a class="param2">NewValue</a>&gt;(<span class="param3">transform</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Map.html#map().NewKey" class="name-ref">NewKey</a>, <a href="Map.html#map().NewValue" class="name-ref">NewValue</a>&gt;): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#map().NewKey" class="name-ref">NewKey</a>, <a href="Map.html#map().NewValue" class="name-ref">NewValue</a>&gt;</div>
+                <div class="doc-comment"><p>Transforms the entries of this map using <code>transform</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mapKeys()" class="anchor"> </div>
+            <div id="mapKeys().NewKey" class="anchor-param1"> </div>
+            <div id="mapKeys().transform" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#mapKeys()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mapKeys</span>&lt;<a class="param1">NewKey</a>&gt;(<span class="param2">transform</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Map.html#mapKeys().NewKey" class="name-ref">NewKey</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#mapKeys().NewKey" class="name-ref">NewKey</a>, <a href="Map.html#Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Transforms the keys of this map using <code>transform</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mapValues()" class="anchor"> </div>
+            <div id="mapValues().NewValue" class="anchor-param1"> </div>
+            <div id="mapValues().transform" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#mapValues()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mapValues</span>&lt;<a class="param1">NewValue</a>&gt;(<span class="param2">transform</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Map.html#mapValues().NewValue" class="name-ref">NewValue</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#mapValues().NewValue" class="name-ref">NewValue</a>&gt;</div>
+                <div class="doc-comment"><p>Transforms the values of this map using <code>transform</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flatMap()" class="anchor"> </div>
+            <div id="flatMap().NewKey" class="anchor-param1"> </div>
+            <div id="flatMap().NewValue" class="anchor-param2"> </div>
+            <div id="flatMap().transform" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#flatMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flatMap</span>&lt;<a class="param1">NewKey</a>, <a class="param2">NewValue</a>&gt;(<span class="param3">transform</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#flatMap().NewKey" class="name-ref">NewKey</a>, <a href="Map.html#flatMap().NewValue" class="name-ref">NewValue</a>&gt;): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Map.html#flatMap().NewKey" class="name-ref">NewKey</a>, <a href="Map.html#flatMap().NewValue" class="name-ref">NewValue</a>&gt;</div>
+                <div class="doc-comment"><p>Applies a map-generating <code>transform</code> to each map entry and concatenates the resulting maps.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="every()" class="anchor"> </div>
+            <div id="every().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#every()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">every</span>(<span class="param1">predicate</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>predicate</code> holds for every entry of this map.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>true</code> for an empty map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any()" class="anchor"> </div>
+            <div id="any().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">any</span>(<span class="param1">predicate</span>: (<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>predicate</code> holds for at least one entry of this map.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>false</code> for an empty map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="Map.html" class="name-ref">Map</a></div>
+                <div class="doc-comment"><p>Returns this map.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="Dynamic.html" class="name-ref">Dynamic</a></div>
+                <div class="doc-comment"><p>Converts this map to a <a href="Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toTyped()" class="anchor"> </div>
+            <div id="toTyped().Type" class="anchor-param1"> </div>
+            <div id="toTyped().clazz" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toTyped()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toTyped</span>&lt;<a class="param1">Type</a>&gt;(<span class="param2">clazz</span>: <a href="Class.html" class="name-ref">Class</a>): <a href="Map.html#toTyped().Type" class="name-ref">Type</a>(this is Typed)</div>
+                <div class="doc-comment"><p>Converts this map to a typed object of class <code>clazz</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Conforms to the semantics of the following manual conversion:</p>
+<pre><code>class Person { name: String; age: Int }
+map = Map(name, &quot;Pigeon&quot;, age, 42)
+function toTyped(map: Map): Person = new {
+  name = map.getOrNull(&quot;name&quot;) ?? super.name
+  age = map.getOrNull(&quot;age&quot;) ?? super.age
+}
+</code></pre>
+<p>Notable behavior:</p>
+<ul>
+<li>Entries of <code>this</code> that have no corresponding property in <code>clazz</code> are ignored.</li>
+<li><code>clazz</code> properties that have no corresponding entry in <code>this</code> have their defaults preserved.</li>
+<li><code>clazz</code> properties that have neither a default nor a corresponding entry in <code>this</code>
+throw an &quot;undefined property&quot; error (only) when accessed.</li>
+</ul>
+<p>Throws if <code>clazz</code> is abstract or not a subclass of <a href="Typed.html"><code>Typed</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMapping()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toMapping()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMapping</span>(): <a href="Mapping.html" class="name-ref">Mapping</a>&lt;<a href="Map.html#Key" class="name-ref">Key</a>, <a href="Map.html#Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this map to a <a href="Mapping.html"><code>Mapping</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

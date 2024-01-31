@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>base (pkl:0.25.0-dev) • Apple Package Docs</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.0-dev/base/index.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Apple Package Docs</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.0-dev" data-package-url-prefix="../" data-module-name="pkl.base" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Apple Package Docs</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a>
+      <h1 id="declaration-title">pkl.base<span id="declaration-version">0.25.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">pkl.base</span></div>
+        <div class="doc-comment"><p>Fundamental properties, methods, and classes for writing Pkl programs.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">pkl:base</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.25.0 or higher</dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Members of this module are automatically available in every Pkl module.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="NaN" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#NaN">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">NaN</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The <a href="Float.html"><code>Float</code></a> value that is not a number (NaN).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Infinity" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Infinity">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Infinity</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The <a href="Float.html"><code>Float</code></a> value that is positive Infinity. For negative infinity, use -<code>Infinity</code>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="String.html" class="name-ref">String</a>): <a href="Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="Module.html" class="name-ref">Module</a>): <a href="List.html" class="name-ref">List</a>&lt;<a href="String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Regex()" class="anchor"> </div>
+            <div id="Regex().pattern" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#Regex()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Regex</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>): <a href="Regex.html" class="name-ref">Regex</a></div>
+                <div class="doc-comment"><p>Constructs a regular expression described by <code>pattern</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>pattern</code> is not a valid regular expression.</p>
+<p>To test if <code>pattern</code> is a valid regular expression, use <a href="String.html#isRegex"><code>String.isRegex</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Undefined()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Undefined()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Undefined</span>(): nothing</div>
+                <div class="doc-comment"><p>Throws an error indicating that the requested value is undefined.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="TODO()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#TODO()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">TODO</span>(): nothing</div>
+                <div class="doc-comment"><p>Throws an error indicating that the requested functionality has not yet been implemented.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Null()" class="anchor"> </div>
+            <div id="Null().defaultValue" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Null()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Null</span>(<span class="param1">defaultValue</span>: <a href="Object.html" class="name-ref">Object</a>|<a href="Function.html" class="name-ref">Function</a>&lt;<a href="Object.html" class="name-ref">Object</a>&gt;): <a href="Null.html" class="name-ref">Null</a></div>
+                <div class="doc-comment"><p>Creates a null value that turns into <code>defaultValue</code> when amended.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Pair()" class="anchor"> </div>
+            <div id="Pair().First" class="anchor-param1"> </div>
+            <div id="Pair().Second" class="anchor-param2"> </div>
+            <div id="Pair().first" class="anchor-param3"> </div>
+            <div id="Pair().second" class="anchor-param4"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Pair()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Pair</span>&lt;<a class="param1">First</a>, <a class="param2">Second</a>&gt;(<span class="param3">first</span>: <a href="index.html#Pair().First" class="name-ref">First</a>, <span class="param4">second</span>: <a href="index.html#Pair().Second" class="name-ref">Second</a>): <a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="index.html#Pair().First" class="name-ref">First</a>, <a href="index.html#Pair().Second" class="name-ref">Second</a>&gt;</div>
+                <div class="doc-comment"><p>Constructs a <a href="Pair.html"><code>Pair</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="IntSeq()" class="anchor"> </div>
+            <div id="IntSeq().start" class="anchor-param1"> </div>
+            <div id="IntSeq().end" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#IntSeq()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">IntSeq</span>(<span class="param1">start</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">end</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="IntSeq.html" class="name-ref">IntSeq</a></div>
+                <div class="doc-comment"><p>Constructs an <a href="IntSeq.html"><code>IntSeq</code></a> with the given <code>start</code>, <code>end</code>, and step 1.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>To set a step other than 1, use method <a href="IntSeq.html#step()"><code>IntSeq.step()</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="List()" class="anchor"> </div>
+            <div id="List().Element" class="anchor-param1"> </div>
+            <div id="List().elements" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#List()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">List</span>&lt;<a class="param1">Element</a>&gt;(<span class="param2">elements</span>: <a href="VarArgs.html" class="name-ref">VarArgs</a>&lt;<a href="index.html#List().Element" class="name-ref">Element</a>&gt;): <a href="List.html" class="name-ref">List</a>&lt;<a href="index.html#List().Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Creates a list containing the given <code>elements</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method accepts any number of arguments.</p>
+<p>Facts:</p>
+<pre><code>List().isEmpty
+List(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;).contains(&quot;two&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Set()" class="anchor"> </div>
+            <div id="Set().Element" class="anchor-param1"> </div>
+            <div id="Set().elements" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#Set()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Set</span>&lt;<a class="param1">Element</a>&gt;(<span class="param2">elements</span>: <a href="VarArgs.html" class="name-ref">VarArgs</a>&lt;<a href="index.html#Set().Element" class="name-ref">Element</a>&gt;): <a href="Set.html" class="name-ref">Set</a>&lt;<a href="index.html#Set().Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Creates a set containing the given <code>elements</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method accepts any number of arguments.</p>
+<p>Facts:</p>
+<pre><code>Set().isEmpty
+Set(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;).contains(&quot;two&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Map()" class="anchor"> </div>
+            <div id="Map().Key" class="anchor-param1"> </div>
+            <div id="Map().Value" class="anchor-param2"> </div>
+            <div id="Map().keysAndValues" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#Map()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">Map</span>&lt;<a class="param1">Key</a>, <a class="param2">Value</a>&gt;(<span class="param3">keysAndValues</span>: <a href="VarArgs.html" class="name-ref">VarArgs</a>&lt;(<a href="index.html#Map().Key" class="name-ref">Key</a>|<a href="index.html#Map().Value" class="name-ref">Value</a>)&gt;): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="index.html#Map().Key" class="name-ref">Key</a>, <a href="index.html#Map().Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Creates a map containing the given alternating <code>keysAndValues</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method accepts any even number of arguments.
+Facts:</p>
+<pre><code>Map().isEmpty
+Map(&quot;name&quot;, &quot;Pigeon&quot;, &quot;age&quot;, 42).keys == Set(&quot;name&quot;, &quot;age&quot;)
+Map(&quot;name&quot;, &quot;Pigeon&quot;, &quot;age&quot;, 42).values == Set(&quot;Pigeon&quot;, 42)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Any" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Any">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Any.html" class="name-decl">Any</a></div>
+                <div class="doc-comment"><p>The top type of the type hierarchy.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Null" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Null">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Null.html" class="name-decl">Null</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>The type of <code>null</code> and null values created with <a href="index.html#Null()"><code>Null()</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Class" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Class">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Class.html" class="name-decl">Class</a>&lt;out <a class="param1">Type</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>The runtime representation of a class.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="TypeAlias" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#TypeAlias">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="TypeAlias.html" class="name-decl">TypeAlias</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>The runtime representation of a type alias.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Module" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Module">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Module.html" class="name-decl">Module</a></div>
+                <div class="doc-comment"><p>Base class for modules.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Annotation" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Annotation">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Annotation.html" class="name-decl">Annotation</a></div>
+                <div class="doc-comment"><p>Base class for annotation types.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Since" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Since">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Since.html" class="name-decl">Since</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Indicates that the annotated member was introduced in <a href="Since.html#version"><code>version</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Deprecated" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Deprecated">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Deprecated.html" class="name-decl">Deprecated</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Indicates that the annotated member is deprecated and will likely be removed in the future.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="AlsoKnownAs" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#AlsoKnownAs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="AlsoKnownAs.html" class="name-decl">AlsoKnownAs</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Lists alternative names that the annotated member is known under.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Unlisted" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Unlisted">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Unlisted.html" class="name-decl">Unlisted</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Indicates that the annotated member should not be advertised by Pkldoc and other tools.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DocExample" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#DocExample">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="DocExample.html" class="name-decl">DocExample</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Indicates to Pkldoc that the annotated module is an example for how to use <a href="DocExample.html#subjects"><code>subjects</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="SourceCode" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#SourceCode">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="SourceCode.html" class="name-decl">SourceCode</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Indicates that the annotated property's string value contains source code written in <a href="SourceCode.html#language"><code>language</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ModuleInfo" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ModuleInfo">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ModuleInfo.html" class="name-decl">ModuleInfo</a> extends <a href="Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Metadata for a module.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="FileOutput" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#FileOutput">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="FileOutput.html" class="name-decl">FileOutput</a></div>
+                <div class="doc-comment"><p>A representation of a rendered output.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ModuleOutput" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ModuleOutput">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ModuleOutput.html" class="name-decl">ModuleOutput</a> extends <a href="FileOutput.html" class="name-ref">FileOutput</a></div>
+                <div class="doc-comment"><p>The contents and appearance of a module's output.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ValueRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ValueRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ValueRenderer.html" class="name-decl">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Base class for rendering Pkl values in some output format.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PcfRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PcfRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PcfRenderer.html" class="name-decl">PcfRenderer</a> extends <a href="ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Renders values as Pcf, a static subset of Pkl.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RenderDirective" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RenderDirective">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RenderDirective.html" class="name-decl">RenderDirective</a></div>
+                <div class="doc-comment"><p>Directs a <a href="ValueRenderer.html"><code>ValueRenderer</code></a> to output <a href="RenderDirective.html#text"><code>text</code></a> as-is in place of this directive.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PcfRenderDirective" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PcfRenderDirective">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PcfRenderDirective.html" class="name-decl">PcfRenderDirective</a></div>
+                <div class="doc-comment"><p>Directs <a href="PcfRenderer.html"><code>PcfRenderer</code></a> to output additional text <a href="PcfRenderDirective.html#before"><code>before</code></a> and/or <a href="PcfRenderDirective.html#after"><code>after</code></a> rendering a <a href="PcfRenderDirective.html#value"><code>value</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="JsonRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#JsonRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="JsonRenderer.html" class="name-decl">JsonRenderer</a> extends <a href="ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Renders values as JSON.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="YamlRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#YamlRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="YamlRenderer.html" class="name-decl">YamlRenderer</a> extends <a href="ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Renders values as YAML.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PListRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PListRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PListRenderer.html" class="name-decl">PListRenderer</a> extends <a href="ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Renders values as <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html">XML property lists</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PropertiesRenderer" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PropertiesRenderer">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PropertiesRenderer.html" class="name-decl">PropertiesRenderer</a> extends <a href="ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
+                <div class="doc-comment"><p>Renders values as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Properties.html">Java Properties</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Resource" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Resource">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Resource.html" class="name-decl">Resource</a></div>
+                <div class="doc-comment"><p>An external (file, HTTP, etc.) resource.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Number" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Number">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Number.html" class="name-decl">Number</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>Common base class of <a href="Int.html"><code>Int</code></a> and <a href="Float.html"><code>Float</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Int" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Int">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Int.html" class="name-decl">Int</a> extends <a href="Number.html" class="name-ref">Number</a></div>
+                <div class="doc-comment"><p>A 64-bit signed integer.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Float" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Float">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Float.html" class="name-decl">Float</a> extends <a href="Number.html" class="name-ref">Number</a></div>
+                <div class="doc-comment"><p>A 64-bit floating-point number conforming to the IEEE 754 binary64 format.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Boolean" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Boolean">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Boolean.html" class="name-decl">Boolean</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A boolean value, either <code>true</code> or <code>false</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="String" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#String">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="String.html" class="name-decl">String</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A sequence of Unicode characters (code points).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Regex" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Regex">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Regex.html" class="name-decl">Regex</a></div>
+                <div class="doc-comment"><p>A regular expression to match strings against.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RegexMatch" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RegexMatch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RegexMatch.html" class="name-decl">RegexMatch</a></div>
+                <div class="doc-comment"><p>A match of a regular expression in a string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Duration" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Duration">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Duration.html" class="name-decl">Duration</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A quantity of elapsed time, represented as a <a href="Duration.html#value"><code>value</code></a> (e.g. <code>30.5</code>) and <a href="Duration.html#unit"><code>unit</code></a> (e.g. <code>min</code>).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DataSize" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#DataSize">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="DataSize.html" class="name-decl">DataSize</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A quantity of binary data, represented as a <a href="DataSize.html#value"><code>value</code></a> (e.g. <code>30.5</code>) and <a href="DataSize.html#unit"><code>unit</code></a> (e.g. <code>mb</code>).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Object" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Object">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Object.html" class="name-decl">Object</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A composite value containing members (properties, elements, entries).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Typed" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Typed">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Typed.html" class="name-decl">Typed</a> extends <a href="Object.html" class="name-ref">Object</a></div>
+                <div class="doc-comment"><p>Base class for objects whose members are described by a class definition.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Dynamic" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Dynamic">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Dynamic.html" class="name-decl">Dynamic</a> extends <a href="Object.html" class="name-ref">Object</a></div>
+                <div class="doc-comment"><p>An object that can contain arbitrary properties, elements, and entries.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Listing" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Listing">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Listing.html" class="name-decl">Listing</a>&lt;out <a class="param1">Element</a>&gt; extends <a href="Object.html" class="name-ref">Object</a></div>
+                <div class="doc-comment"><p>An object containing an ordered sequence of elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Mapping" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Mapping">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Mapping.html" class="name-decl">Mapping</a>&lt;out <a class="param1">Key</a>, out <a class="param2">Value</a>&gt; extends <a href="Object.html" class="name-ref">Object</a></div>
+                <div class="doc-comment"><p>An object containing an ordered sequence of key-value pairs.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function.html" class="name-decl">Function</a>&lt;out <a class="param1">Result</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>Base class for function literals (also known as <em>lambda expressions</em>).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function0" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function0">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function0.html" class="name-decl">Function0</a>&lt;out <a class="param1">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function0.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with zero parameters.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function1" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function1">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function1.html" class="name-decl">Function1</a>&lt;in <a class="param1">Param1</a>, out <a class="param2">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function1.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with one parameter.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function2" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function2">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function2.html" class="name-decl">Function2</a>&lt;in <a class="param1">Param1</a>, in <a class="param2">Param2</a>, out <a class="param3">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function2.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with two parameters.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function3" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function3">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function3.html" class="name-decl">Function3</a>&lt;in <a class="param1">Param1</a>, in <a class="param2">Param2</a>, in <a class="param3">Param3</a>, out <a class="param4">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function3.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with three parameters.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function4" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function4">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function4.html" class="name-decl">Function4</a>&lt;in <a class="param1">Param1</a>, in <a class="param2">Param2</a>, in <a class="param3">Param3</a>, in <a class="param4">Param4</a>, out <a class="param5">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function4.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with four parameters.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Function5" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Function5">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Function5.html" class="name-decl">Function5</a>&lt;in <a class="param1">Param1</a>, in <a class="param2">Param2</a>, in <a class="param3">Param3</a>, in <a class="param4">Param4</a>, in <a class="param5">Param5</a>, out <a class="param6">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function5.html#Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>A function literal with five parameters.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Pair" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Pair">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Pair.html" class="name-decl">Pair</a>&lt;out <a class="param1">First</a>, out <a class="param2">Second</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>An ordered pair of elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Collection" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Collection">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Collection.html" class="name-decl">Collection</a>&lt;out <a class="param1">Element</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>Common base class for <a href="List.html"><code>List</code></a> and <a href="Set.html"><code>Set</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="IntSeq" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#IntSeq">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="IntSeq.html" class="name-decl">IntSeq</a> extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>A finite arithmetic sequence of integers.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="VarArgs" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#VarArgs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="VarArgs.html" class="name-decl">VarArgs</a>&lt;<a class="param1">Type</a>&gt;</div>
+                <div class="doc-comment"><p>A variable number of method arguments of type <code>Type</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="List" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#List">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="List.html" class="name-decl">List</a>&lt;out <a class="param1">Element</a>&gt; extends <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="List.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>An indexed sequence of elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Set" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Set">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Set.html" class="name-decl">Set</a>&lt;out <a class="param1">Element</a>&gt; extends <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Set.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>An unordered collection of unique elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Map" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Map">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">external class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Map.html" class="name-decl">Map</a>&lt;out <a class="param1">Key</a>, out <a class="param2">Value</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>An unordered mapping from keys to values.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="NonNull" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#NonNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#NonNull" class="name-decl">NonNull</a> = <a href="Any.html" class="name-ref">Any</a>(!(this is Null))</div>
+                <div class="doc-comment"><p>A non-null value.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Int8" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Int8">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Int8" class="name-decl">Int8</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(-128, 127))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <a href="not_found"><code>math.minInt8</code></a>..<a href="not_found"><code>math.maxInt8</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Int16" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Int16">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Int16" class="name-decl">Int16</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(-32768, 32767))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <a href="not_found"><code>math.minInt16</code></a>..<a href="not_found"><code>math.maxInt16</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Int32" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Int32">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Int32" class="name-decl">Int32</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(-2147483648, 2147483647))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <a href="not_found"><code>math.minInt32</code></a>..<a href="not_found"><code>math.maxInt32</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="UInt8" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#UInt8">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#UInt8" class="name-decl">UInt8</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(0, 255))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <code>0</code>..<a href="not_found"><code>math.maxUInt8</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="UInt16" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#UInt16">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#UInt16" class="name-decl">UInt16</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(0, 65535))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <code>0</code>..<a href="not_found"><code>math.maxUInt16</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="UInt32" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#UInt32">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#UInt32" class="name-decl">UInt32</a> = <a href="Int.html" class="name-ref">Int</a>(isBetween(0, 4294967295))</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <code>0</code>..<a href="not_found"><code>math.maxUInt32</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="UInt" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#UInt">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#UInt" class="name-decl">UInt</a> = <a href="Int.html" class="name-ref">Int</a>(isPositive)</div>
+                <div class="doc-comment"><p>An <a href="Int.html"><code>Int</code></a> value in range <code>0</code>..<a href="not_found"><code>math.maxUInt</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Note that <a href="not_found"><code>math.maxUInt</code></a> is equal to <a href="not_found"><code>math.maxInt</code></a>,
+not <code>maxInt * 2 + 1</code> as one might expect.
+That is, <code>UInt</code> has half the range of <a href="Int.html"><code>Int</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Comparable" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Comparable">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Comparable" class="name-decl">Comparable</a> = <a href="String.html" class="name-ref">String</a>|<a href="Number.html" class="name-ref">Number</a>|<a href="Duration.html" class="name-ref">Duration</a>|<a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A value that can be compared to another value of the same type with <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Char" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Char">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Char" class="name-decl">Char</a> = <a href="String.html" class="name-ref">String</a>(this.length == 1)</div>
+                <div class="doc-comment"><p>A Unicode character (code point).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Uri" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Uri">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Uri" class="name-decl">Uri</a> = <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>A string representing a <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DurationUnit" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DurationUnit">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DurationUnit" class="name-decl">DurationUnit</a> = &quot;ns&quot;|&quot;us&quot;|&quot;ms&quot;|&quot;s&quot;|&quot;min&quot;|&quot;h&quot;|&quot;d&quot;</div>
+                <div class="doc-comment"><p>The unit of a <a href="Duration.html"><code>Duration</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DataSizeUnit" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DataSizeUnit">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DataSizeUnit" class="name-decl">DataSizeUnit</a> = &quot;b&quot;|&quot;kb&quot;|&quot;kib&quot;|&quot;mb&quot;|&quot;mib&quot;|&quot;gb&quot;|&quot;gib&quot;|&quot;tb&quot;|&quot;tib&quot;|&quot;pb&quot;|&quot;pib&quot;</div>
+                <div class="doc-comment"><p>The unit of a <a href="DataSize.html"><code>DataSize</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Mixin" class="anchor"> </div>
+            <div id="Mixin.Type" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#Mixin">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Mixin" class="name-decl">Mixin</a>&lt;<a class="param1">Type</a>&gt; = (<span class="name-ref">Type</span>) -&gt; <span class="name-ref">Type</span></div>
+                <div class="doc-comment"><p>An anonymous function used to apply the same modification to different objects.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Even though mixins are regular <a href="Function.html"><code>Function</code></a>s, they are best created with object syntax:</p>
+<pre><code>withNamePigeon = new Mixin&lt;Person&gt; { name = &quot;Pigeon&quot; }  // explicit type
+withNamePigeon: Mixin&lt;Person&gt; = new { name = &quot;Pigeon&quot; } // inferred type
+</code></pre>
+<p>To apply a mixin to an object, use the <code>|&gt;</code> (pipe) operator:</p>
+<pre><code>pigeon = person |&gt; withNamePigeon
+</code></pre>
+<p>Like all object-returning functions, mixins can be amended:</p>
+<pre><code>withNamePigeonAndAge42 = (withNamePigeon) { age = 42 }
+pigeon42 = person |&gt; withNamePigeonAndAge42
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String (pkl/base:0.25.0-dev) • Apple Package Docs</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.0-dev/base/String.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Apple Package Docs</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.0-dev" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="String" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Apple Package Docs</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <h1 id="declaration-title">String<span id="declaration-version">0.25.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">external class <span class="name-decl">String</span> extends <a href="Any.html" class="name-ref">Any</a></div>
+        <div class="doc-comment"><p>A sequence of Unicode characters (code points).</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>The following operators are supported for strings:</p>
+<pre><code>str[3]      // subscript
+str1 + str2 // concatenation
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="length" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#length">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">length</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The number of characters in this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>size</code>, <code>count</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p><em>Note</em>: The runtime complexity of this operation is <code>O(n)</code>.</p>
+<p>Facts:</p>
+<pre><code>&quot;&quot;.length == 0
+&quot;abc&quot;.length == 3
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastIndex" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#lastIndex">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastIndex</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The index of the last character in this string (same as <code>length - 1</code>).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>-1</code> for an empty string.</p>
+<p><em>Note</em>: The runtime complexity of this operation is <code>O(n)</code>.</p>
+<p>Facts:</p>
+<pre><code>&quot;&quot;.lastIndex == -1
+&quot;abc&quot;.lastIndex == 2
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isEmpty" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isEmpty">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isEmpty</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this string is empty.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;&quot;.isEmpty
+!(&quot;   &quot;.isEmpty)
+!(&quot;abc&quot;.isEmpty)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isBlank" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isBlank">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isBlank</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if all characters in this string have Unicode property &quot;White_Space&quot;.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;&quot;.isBlank
+&quot;   &quot;.isBlank
+&quot;\t\n\r&quot;.isBlank
+!(&quot;abc&quot;.isBlank)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isRegex" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isRegex">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isRegex</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this string is a valid regular expression according to <a href="Regex.html"><code>Regex</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="md5" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#md5">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">md5</span>: <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The <a href="https://en.wikipedia.org/wiki/MD5">MD5</a>
+hash of this string's UTF-8 byte sequence
+as hexadecimal string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>MD5 is cryptographically broken and should not be used for secure applications.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sha1" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sha1">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sha1</span>: <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The <a href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a>
+hash of this string's UTF-8 byte sequence.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>SHA-1 is cryptographically broken and should not be used for secure applications.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sha256" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sha256">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sha256</span>: <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The <a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256</a>
+cryptographic hash of this string's UTF-8 byte sequence
+as hexadecimal string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sha256Int" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sha256Int">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sha256Int</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The first 64 bits of the <a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256</a>
+cryptographic hash of this string's UTF-8 byte sequence.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="base64" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#base64">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">base64</span>: <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The Base64 encoding of this string's UTF-8 byte sequence.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="base64Decoded" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#base64Decoded">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">base64Decoded</span>: <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The inverse of <a href="String.html#base64"><code>base64</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;abc&quot;.base64.base64Decoded == &quot;abc&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="chars" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#chars">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">chars</span>: <a href="List.html" class="name-ref">List</a>&lt;<a href="index.html#Char" class="name-ref">Char</a>&gt;(this.length == length)</div>
+                <div class="doc-comment"><p>The Unicode characters in this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;abc&quot;.chars == List(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="codePoints" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#codePoints">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">codePoints</span>: <a href="List.html" class="name-ref">List</a>&lt;<a href="Int.html" class="name-ref">Int</a>(isBetween(0, 0x10FFFF))&gt;(this.length == length)</div>
+                <div class="doc-comment"><p>The Unicode code points in this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;abc&quot;.codePoints == List(0x61, 0x62, 0x63)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="String.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="String.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getOrNull()" class="anchor"> </div>
+            <div id="getOrNull().index" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getOrNull</span>(<span class="param1">index</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="index.html#Char" class="name-ref">Char</a>?</div>
+                <div class="doc-comment"><p>Returns the character at <code>index</code>, or <code>null</code> if <code>index</code> is out of range.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;abcde&quot;.getOrNull(-1) == null
+&quot;abcde&quot;.getOrNull(0) == &quot;a&quot;
+&quot;abcde&quot;.getOrNull(2) == &quot;c&quot;
+&quot;abcde&quot;.getOrNull(4) == &quot;e&quot;
+&quot;abcde&quot;.getOrNull(5) == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="substring()" class="anchor"> </div>
+            <div id="substring().start" class="anchor-param1"> </div>
+            <div id="substring().exclusiveEnd" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#substring()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">substring</span>(<span class="param1">start</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">exclusiveEnd</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Returns the substring from <code>start</code> until <code>exclusiveEnd</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>start</code> is outside range <code>0</code>..<a href="String.html#length"><code>length</code></a> or <code>exclusiveEnd</code> is outside range <code>start</code>..<code>length</code>.</p>
+<p>Facts:</p>
+<pre><code>&quot;abcde&quot;.substring(0, 0) == &quot;&quot;
+&quot;abcde&quot;.substring(0, 1) == &quot;a&quot;
+&quot;abcde&quot;.substring(1, 4) == &quot;bcd&quot;
+&quot;abcde&quot;.substring(4, 5) == &quot;e&quot;
+&quot;abcde&quot;.substring(5, 5) == &quot;&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="substringOrNull()" class="anchor"> </div>
+            <div id="substringOrNull().start" class="anchor-param1"> </div>
+            <div id="substringOrNull().exclusiveEnd" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#substringOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">substringOrNull</span>(<span class="param1">start</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">exclusiveEnd</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>Returns the substring from <code>start</code> until <code>exclusiveEnd</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if <code>start</code> is outside range <code>0</code>..<a href="String.html#length"><code>length</code></a> or <code>exclusiveEnd</code> is outside range <code>start</code>..<code>length</code>.</p>
+<p>Facts:</p>
+<pre><code>&quot;abcde&quot;.substringOrNull(0, 0) == &quot;&quot;
+&quot;abcde&quot;.substringOrNull(0, 1) == &quot;a&quot;
+&quot;abcde&quot;.substringOrNull(1, 4) == &quot;bcd&quot;
+&quot;abcde&quot;.substringOrNull(4, 5) == &quot;e&quot;
+&quot;abcde&quot;.substringOrNull(5, 5) == &quot;&quot;
+
+&quot;abcde&quot;.substringOrNull(-1, 3) == null
+&quot;abcde&quot;.substringOrNull(0, 6) == null
+&quot;abcde&quot;.substringOrNull(3, 2) == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="repeat()" class="anchor"> </div>
+            <div id="repeat().count" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#repeat()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">repeat</span>(<span class="param1">count</span>: <a href="index.html#UInt" class="name-ref">UInt</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Concatenates <code>count</code> copies of this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;abc&quot;.repeat(0) == &quot;&quot;
+&quot;abc&quot;.repeat(1) == &quot;abc&quot;
+&quot;abc&quot;.repeat(3) == &quot;abcabcabc&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="contains()" class="anchor"> </div>
+            <div id="contains().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#contains()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">contains</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this string contains <code>pattern</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="matches()" class="anchor"> </div>
+            <div id="matches().regex" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#matches()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">matches</span>(<span class="param1">regex</span>: <a href="Regex.html" class="name-ref">Regex</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this string matches <code>regex</code> in its entirety.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>test</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="startsWith()" class="anchor"> </div>
+            <div id="startsWith().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#startsWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">startsWith</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this string starts with <code>pattern</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="endsWith()" class="anchor"> </div>
+            <div id="endsWith().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#endsWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">endsWith</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this string ends with <code>pattern</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="indexOf()" class="anchor"> </div>
+            <div id="indexOf().pattern" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#indexOf()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">indexOf</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Returns the zero-based index of the first occurrence of <code>pattern</code>
+in this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="indexOfOrNull()" class="anchor"> </div>
+            <div id="indexOfOrNull().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#indexOfOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">indexOfOrNull</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Returns the zero-based index of the first occurrence of <code>pattern</code>
+in this string, or <code>null</code> if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastIndexOf()" class="anchor"> </div>
+            <div id="lastIndexOf().pattern" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#lastIndexOf()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastIndexOf</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Returns the zero-based index of the last occurrence of <code>pattern</code>
+in this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastIndexOfOrNull()" class="anchor"> </div>
+            <div id="lastIndexOfOrNull().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#lastIndexOfOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastIndexOfOrNull</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Returns the zero-based index of the last occurrence of <code>pattern</code>
+in this string, or <code>null</code> if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="take()" class="anchor"> </div>
+            <div id="take().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#take()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">take</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Returns the first <code>n</code> characters of this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>limit</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>this</code> if <code>n</code> is greater than or equal to <a href="String.html#length"><code>length</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeWhile()" class="anchor"> </div>
+            <div id="takeWhile().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#takeWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeWhile</span>(<span class="param1">predicate</span>: (<a href="String.html" class="name-ref">String</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Returns the longest prefix of this string that satisfies <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeLast()" class="anchor"> </div>
+            <div id="takeLast().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#takeLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeLast</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Returns the last <code>n</code> characters of this string.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>this</code> if <code>n</code> is greater than or equal to <a href="String.html#length"><code>length</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeLastWhile()" class="anchor"> </div>
+            <div id="takeLastWhile().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#takeLastWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeLastWhile</span>(<span class="param1">predicate</span>: (<a href="String.html" class="name-ref">String</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Returns the longest suffix of this string that satisfies <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="drop()" class="anchor"> </div>
+            <div id="drop().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#drop()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">drop</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes the first <code>n</code> characters of this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skip</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns the empty string if <code>n</code> is greater than or equal to <a href="String.html#length"><code>length</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropWhile()" class="anchor"> </div>
+            <div id="dropWhile().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropWhile</span>(<span class="param1">predicate</span>: (<a href="String.html" class="name-ref">String</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes the longest prefix of this string that satisfies <code>predicate</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipWhile</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropLast()" class="anchor"> </div>
+            <div id="dropLast().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropLast</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes the last <code>n</code> characters of this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipLast</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns the empty string if <code>n</code> is greater than or equal to <a href="String.html#length"><code>length</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropLastWhile()" class="anchor"> </div>
+            <div id="dropLastWhile().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropLastWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropLastWhile</span>(<span class="param1">predicate</span>: (<a href="String.html" class="name-ref">String</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes the longest suffix of this string that satisfies <code>predicate</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipLastWhile</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceFirst()" class="anchor"> </div>
+            <div id="replaceFirst().pattern" class="anchor-param1"> </div>
+            <div id="replaceFirst().replacement" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceFirst()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceFirst</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">replacement</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces the first occurrence of <code>pattern</code> in this string with <code>replacement</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceLast()" class="anchor"> </div>
+            <div id="replaceLast().pattern" class="anchor-param1"> </div>
+            <div id="replaceLast().replacement" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceLast</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">replacement</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces the last occurrence of <code>pattern</code> in this string with <code>replacement</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceAll()" class="anchor"> </div>
+            <div id="replaceAll().pattern" class="anchor-param1"> </div>
+            <div id="replaceAll().replacement" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceAll()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceAll</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">replacement</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces all occurrences of <code>pattern</code> in this string with <code>replacement</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceFirstMapped()" class="anchor"> </div>
+            <div id="replaceFirstMapped().pattern" class="anchor-param1"> </div>
+            <div id="replaceFirstMapped().mapper" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceFirstMapped()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceFirstMapped</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">mapper</span>: (<a href="RegexMatch.html" class="name-ref">RegexMatch</a>) -&gt; <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces the first occurrence of <code>pattern</code> in this string with the return value of <code>mapper</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceLastMapped()" class="anchor"> </div>
+            <div id="replaceLastMapped().pattern" class="anchor-param1"> </div>
+            <div id="replaceLastMapped().mapper" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceLastMapped()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceLastMapped</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">mapper</span>: (<a href="RegexMatch.html" class="name-ref">RegexMatch</a>) -&gt; <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces the last occurrence of <code>pattern</code> in this string with the return value of <code>mapper</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceAllMapped()" class="anchor"> </div>
+            <div id="replaceAllMapped().pattern" class="anchor-param1"> </div>
+            <div id="replaceAllMapped().mapper" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceAllMapped()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceAllMapped</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>, <span class="param2">mapper</span>: (<a href="RegexMatch.html" class="name-ref">RegexMatch</a>) -&gt; <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces all occurrences of <code>pattern</code> in this string with the return value of <code>mapper</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if <code>pattern</code> does not occur in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceRange()" class="anchor"> </div>
+            <div id="replaceRange().start" class="anchor-param1"> </div>
+            <div id="replaceRange().exclusiveEnd" class="anchor-param2"> </div>
+            <div id="replaceRange().replacement" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceRange()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceRange</span>(<span class="param1">start</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">exclusiveEnd</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param3">replacement</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Replaces the characters between <code>start</code> and <code>exclusiveEnd</code> with <code>replacement</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Inserts <code>replacement</code> at index <code>start</code> if <code>start == exclusiveEnd</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toUpperCase()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toUpperCase()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toUpperCase</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Performs a locale-independent character-by-character conversion of this string to uppercase.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toLowerCase()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toLowerCase()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toLowerCase</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Performs a locale-independent character-by-character conversion of this string to lowercase.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="reverse()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#reverse()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">reverse</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Reverses the order of characters in this string.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="trim()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#trim()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">trim</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes any leading and trailing characters with Unicode property &quot;White_Space&quot; from this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>strip</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="trimStart()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#trimStart()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">trimStart</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes any leading characters with Unicode property &quot;White_Space&quot; from this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>stripLeft</code>, <code>stripStart</code>, <code>stripLeading</code>, <code>trimLeft</code>, <code>trimLeading</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="trimEnd()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#trimEnd()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">trimEnd</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Removes any trailing characters with Unicode property &quot;White_Space&quot; from this string.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>stripRight</code>, <code>stripEnd</code>, <code>stripTrailing</code>, <code>trimRight</code>, <code>trimTrailin</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="padStart()" class="anchor"> </div>
+            <div id="padStart().width" class="anchor-param1"> </div>
+            <div id="padStart().char" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#padStart()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">padStart</span>(<span class="param1">width</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">char</span>: <a href="index.html#Char" class="name-ref">Char</a>): unknown</div>
+                <div class="doc-comment"><p>Increases the length of this string to <code>width</code> by adding leading <code>char</code>s.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>padLeft</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if its length is already equal to or greater than <code>width</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="padEnd()" class="anchor"> </div>
+            <div id="padEnd().width" class="anchor-param1"> </div>
+            <div id="padEnd().char" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#padEnd()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">padEnd</span>(<span class="param1">width</span>: <a href="Int.html" class="name-ref">Int</a>, <span class="param2">char</span>: <a href="index.html#Char" class="name-ref">Char</a>): unknown</div>
+                <div class="doc-comment"><p>Increases the length of this string to <code>width</code> by adding trailing <code>char</code>s.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>padRight</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this string unchanged if its length is already equal to or greater than <code>width</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="split()" class="anchor"> </div>
+            <div id="split().pattern" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#split()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">split</span>(<span class="param1">pattern</span>: <a href="String.html" class="name-ref">String</a>|<a href="Regex.html" class="name-ref">Regex</a>): <a href="List.html" class="name-ref">List</a>&lt;<a href="String.html" class="name-ref">String</a>&gt;</div>
+                <div class="doc-comment"><p>Splits this string around matches of <code>pattern</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="capitalize()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#capitalize()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">capitalize</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts the first character of this string to title case.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;pigeon&quot;.capitalize() == &quot;Pigeon&quot;
+&quot;pigeon bird&quot;.capitalize() == &quot;Pigeon bird&quot;
+&quot;&quot;.capitalize() == &quot;&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="decapitalize()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#decapitalize()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">decapitalize</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts the first character of this string to lower case.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>&quot;Pigeon&quot;.decapitalize() == &quot;pigeon&quot;
+&quot;Pigeon Bird&quot;.decapitalize() == &quot;pigeon Bird&quot;
+&quot;&quot;.decapitalize() == &quot;&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toInt()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toInt()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toInt</span>(): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Parses this string as a signed decimal (base 10) integer.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this string cannot be parsed as a signed decimal integer,
+or if the integer is too large to fit into <a href="Int.html"><code>Int</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toIntOrNull()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toIntOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toIntOrNull</span>(): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Parses this string as a signed decimal (base 10) integer.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if this string cannot be parsed as a signed decimal integer,
+or if the integer is too large to fit into <a href="Int.html"><code>Int</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toFloat()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toFloat()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toFloat</span>(): <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Parses this string as a floating point number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this string cannot be parsed as a floating point number.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toFloatOrNull()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toFloatOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toFloatOrNull</span>(): <a href="Float.html" class="name-ref">Float</a>?</div>
+                <div class="doc-comment"><p>Parses this string as a floating point number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if this string cannot be parsed as a floating point number.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toBoolean()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toBoolean()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toBoolean</span>(): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Parses <code>&quot;true&quot;</code> to <code>true</code> and <code>&quot;false&quot;</code> to <code>false</code> (case-insensitive).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this string is neither <code>&quot;true&quot;</code> nor <code>&quot;false&quot;</code> (case-insensitive).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toBooleanOrNull()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toBooleanOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toBooleanOrNull</span>(): <a href="Boolean.html" class="name-ref">Boolean</a>?</div>
+                <div class="doc-comment"><p>Parses <code>&quot;true&quot;</code> to <code>true</code> and <code>&quot;false&quot;</code> to <code>false</code> (case-insensitive).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if this string is neither <code>&quot;true&quot;</code> nor <code>&quot;false&quot;</code> (case-insensitive).</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

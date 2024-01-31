@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Introducing Pkl, a programming language for configuration :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/blog/2024-01-12-pkl-release.html">
+    <link rel="canonical" href="https://pkl-lang.org/blog/introducing-pkl.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a href="../main/current/tooling.html" class="navbar-link">Editors</a>
+          <a href="../main/current/tools.html" class="navbar-link">Editors</a>
           <div class="navbar-dropdown">
             <a class="navbar-item" href="../intellij/current/index.html">IntelliJ</a>
             <a class="navbar-item" href="../neovim/current/index.html">Neovim</a>
@@ -93,7 +93,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="2024-01-12-pkl-release.html">Introducing Pkl, a programming language for configuration</a>
+    <a class="nav-link" href="introducing-pkl.html">Introducing Pkl, a programming language for configuration</a>
   </li>
 </ul>
   </li>
@@ -110,13 +110,7 @@
       <div class="title"><a href="../intellij/current/index.html">IntelliJ Plugin</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../intellij/current/index.html">0.25.9</a>
-        </li>
-        <li class="version">
-          <a href="../intellij/0.25.8/index.html">0.25.8</a>
-        </li>
-        <li class="version">
-          <a href="../intellij/0.25.7/index.html">0.25.7</a>
+          <a href="../intellij/current/index.html">0.26.0</a>
         </li>
       </ul>
     </li>
@@ -151,7 +145,7 @@
       <div class="title"><a href="../swift/current/index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../swift/current/index.html">0.1.0</a>
+          <a href="../swift/current/index.html">0.2.0</a>
         </li>
       </ul>
     </li>
@@ -186,10 +180,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Pkl Blog</a></li>
-    <li><a href="2024-01-12-pkl-release.html">Introducing Pkl, a programming language for configuration</a></li>
+    <li><a href="introducing-pkl.html">Introducing Pkl, a programming language for configuration</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/2024-01-12-pkl-release.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/introducing-pkl.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -201,11 +195,11 @@
 <div class="sectionbody">
 <div class="blog-byline">
 <div class="paragraph">
-<p>by the Pkl Team on &lt;TBD REPLACE ME&gt;</p>
+<p>by the Pkl Team on February 1st, 2024</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We are delighted to announce the first release in open source of Pkl (pronounced <em>Pickle</em>), a programming language for producing configuration.</p>
+<p>We are delighted to announce the open source first release of Pkl (pronounced <em>Pickle</em>), a programming language for producing configuration.</p>
 </div>
 <div class="paragraph">
 <p>When thinking about configuration, it is common to think of static languages like JSON, YAML, or Property Lists.
@@ -215,15 +209,14 @@ Additionally, it can be easy to make configuration errors, because these formats
 </div>
 <div class="paragraph">
 <p>To address these shortcomings, sometimes formats get enhanced by ancillary tools that add special logic.
-For example, maybe there’s a need to make code more <a href="https://en.wikipedia.org/wiki/Don&#8217;t_repeat_yourself">DRY</a>, so a special property is introduced that understands how to resolve references, and merge objects together.
-Alternatively, maybe there’s a need to guard against validation errors, so some new way is created to validate a configuration value against an expected type.
+For example, perhaps there’s a need to make code more <a href="https://en.wikipedia.org/wiki/Don&#8217;t_repeat_yourself"><abbr title="Don't Repeat Yourself">DRY</abbr></a>, so a special property is introduced that understands how to resolve references, and merge objects together.
+Alternatively, there’s a need to guard against validation errors, so some new way is created to validate a configuration value against an expected type.
 Before long, these formats almost become programming languages, but ones that are hard to understand and hard to write.</p>
 </div>
 <div class="paragraph">
 <p>On the other end of the spectrum, a general-purpose language might be used instead.
-Languages like Kotlin, Ruby, or JavaScript become the basis for <a href="https://en.wikipedia.org/wiki/Domain-specific_language">DSL</a>s that generate configuration data.
-While these languages are tremendously powerful, they also can be painfully awkward to use for creating configuration.
-Features like mutability can be anti-features when thinking about configuration, because it makes it hard to reason about where data came from.
+Languages like Kotlin, Ruby, or JavaScript become the basis for <a href="https://en.wikipedia.org/wiki/Domain-specific_language"><abbr title="Domain-specific language">DSL</abbr></a>s that generate configuration data.
+While these languages are tremendously powerful, they can be awkward to use for describing configuration, because they are not oriented around defining and validating data.
 Additionally, these DSLs tend to be tied to their own ecosystems.
 It is a hard sell to use a Kotlin DSL as the configuration layer for an application written in Go.</p>
 </div>
@@ -232,7 +225,7 @@ It is a hard sell to use a Kotlin DSL as the configuration layer for an applicat
 We want to take the best of both worlds; to provide a language that is declarative and simple to read and write, but enhanced with capabilities borrowed from general-purpose languages.
 When writing Pkl, you are able to use the language features you&#8217;d expect, like classes, functions, conditionals, and loops.
 You can build abstraction layers, and share code by creating packages and publishing them.
-Most importantly, you can use Pkl to solve many different types of configuration needs.
+Most importantly, you can use Pkl to meet many different types of configuration needs.
 It can be used to produce static configuration files in any format, or be embedded as a library into another application runtime.</p>
 </div>
 <div class="paragraph">
@@ -430,7 +423,20 @@ This uses a <a href="../main/current/language-reference/index.html#for-generator
 And, type annotations can optionally have constraints defined on them.</p>
 </div>
 <div class="paragraph">
-<p>Here is an example, that constrains property <code>age</code> to be in between 0 and 130, and <code>name</code> to not be empty.</p>
+<p>Here is an example, that defines the following constraints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>age</code> must be between 0 and 130.</p>
+</li>
+<li>
+<p><code>name</code> to not be empty.</p>
+</li>
+<li>
+<p><code>zipCode</code> must be a string with five digits.</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="title">Person.pkl</div>
@@ -439,7 +445,9 @@ And, type annotations can optionally have constraints defined on them.</p>
 
 <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isEmpty</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">130</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
+<span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">130</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -512,7 +520,7 @@ output {
 </div>
 <div class="paragraph">
 <p>Alternatively, they can be managed as dependencies of a <a href="../main/current/language-reference/index.html#projects" class="xref page">project</a>.
-Using a project means that Pkl will resolve version conflicts between different versions of the same dependency within the dependency graph.
+Using a project allows Pkl to resolve version conflicts between different versions of the same dependency within a dependency graph.
 It also means that you can import packages by a simpler name.</p>
 </div>
 <div class="listingblock">
@@ -555,7 +563,7 @@ It also means that you can import packages by a simpler name.</p>
 <h2 id="language-bindings"><a class="anchor" href="#language-bindings"></a><a class="link" href="#language-bindings">Language Bindings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl can produce textual output, and it can also be embedded as a library into other languages via our language bindings.</p>
+<p>Pkl can produce configuration as textual output, and it can also be embedded as a library into other languages via our language bindings.</p>
 </div>
 <div class="paragraph">
 <p>When binding to a language, Pkl schema can be generated as classes/structs in the target language.
@@ -893,13 +901,14 @@ Our language bindings provide evaluator APIs to control Pkl evaluation at a low 
 <div class="paragraph">
 <p>We believe that a programming language is only as good as the experience of writing it.
 That is why we aim to provide best-in-class editor support.
-We want writing Pkl to be just as comfortable as writing in another modern language.</p>
+When writing Pkl in an editor, users are guided through the process of filling in configuration data from a given template.
+Additionally, the editors provide instant feedback if any values are invalid, and documentation is immediately available when called upon.</p>
 </div>
 <div class="paragraph">
-<p>Alongside Pkl, we are also releasing our <a href="../intellij/current/index.html" class="xref page">IntelliJ plugin</a>, which provides rich support for JetBrains editors, including IntelliJ, Webstorm, GoLand, and PyCharm. These plugins are able to analyze a Pkl program and provide features like autocompletion, go-to-definition, and refactoring support.</p>
+<p>We are also releasing our <a href="../intellij/current/index.html" class="xref page">IntelliJ plugin</a>, which provides rich support for JetBrains editors, including IntelliJ, Webstorm, GoLand, and PyCharm. These plugins are able to analyze a Pkl program and provide features like autocompletion, go-to-definition, and refactoring support.</p>
 </div>
 <div class="paragraph">
-<p>Here are some gifs that demonstrate some of the features that are available.</p>
+<p>Here are some of the features that are available:</p>
 </div>
 <div id="tabs-2" class="openblock tabs is-loading">
 <div class="content">
@@ -919,21 +928,21 @@ We want writing Pkl to be just as comfortable as writing in another modern langu
 <div id="tabs-2-autocompletion--panel" class="tabpanel" aria-labelledby="tabs-2-autocompletion">
 <div class="imageblock">
 <div class="content">
-<img src="_images/pkl-release/intellij-autocomplete.gif" alt="Autocomplete in IntelliJ">
+<img src="_images/introducing-pkl/intellij-autocomplete.gif" alt="Autocomplete in IntelliJ">
 </div>
 </div>
 </div>
 <div id="tabs-2-navigation--panel" class="tabpanel" aria-labelledby="tabs-2-navigation">
 <div class="imageblock">
 <div class="content">
-<img src="_images/pkl-release/intellij-navigation.gif" alt="Navigation in IntelliJ">
+<img src="_images/introducing-pkl/intellij-navigation.gif" alt="Navigation in IntelliJ">
 </div>
 </div>
 </div>
 <div id="tabs-2-validation--panel" class="tabpanel" aria-labelledby="tabs-2-validation">
 <div class="imageblock">
 <div class="content">
-<img src="_images/pkl-release/intellij-validation.gif" alt="Validation in IntelliJ">
+<img src="_images/introducing-pkl/intellij-validation.gif" alt="Validation in IntelliJ">
 </div>
 </div>
 </div>

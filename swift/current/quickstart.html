@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a href="../../main/current/tooling.html" class="navbar-link">Editors</a>
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
           <div class="navbar-dropdown">
             <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
             <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
@@ -84,7 +84,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="swift" data-version="0.1.0">
+<div class="nav-container" data-component="swift" data-version="0.2.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -114,20 +114,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Swift Bindings</span>
-    <span class="version">0.1.0</span>
+    <span class="version">0.2.0</span>
   </div>
   <ul class="components">
     <li class="component">
       <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../intellij/current/index.html">0.25.9</a>
-        </li>
-        <li class="version">
-          <a href="../../intellij/0.25.8/index.html">0.25.8</a>
-        </li>
-        <li class="version">
-          <a href="../../intellij/0.25.7/index.html">0.25.7</a>
+          <a href="../../intellij/current/index.html">0.26.0</a>
         </li>
       </ul>
     </li>
@@ -162,7 +156,7 @@
       <div class="title"><a href="index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.1.0</a>
+          <a href="index.html">0.2.0</a>
         </li>
       </ul>
     </li>
@@ -225,7 +219,7 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">let package = Package(
     dependencies: [
-        .package(url: "https://github.com/pkl-lang/pkl-swift", from: "0.1.0")
+        .package(url: "https://github.com/apple/pkl-swift", from: "0.2.0")
     ],
     targets: [
         .executableTarget(
@@ -301,7 +295,7 @@ In this example, the file is placed into <code>pkl/AppConfig.pkl</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl TODO_REPLACE_ME -o pkl-gen-swift
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-macos.bin -o pkl-gen-swift
 
 chmod +x pkl-gen-swift</code></pre>
 </div>
@@ -312,13 +306,13 @@ chmod +x pkl-gen-swift</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>macOS Universal Binary: TODO_REPLACE_ME</p>
+<p>macOS Universal Binary: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-macos.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-macos.bin</a></p>
 </li>
 <li>
-<p>linux/aarch64: TODO_REPLACE_ME</p>
+<p>linux/aarch64: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-linux-aarch64.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-linux-aarch64.bin</a></p>
 </li>
 <li>
-<p>linux/amd64: TODO_REPLACE_ME</p>
+<p>linux/amd64: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-linux-amd64.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.0/pkl-gen-swift-linux-amd64.bin</a></p>
 </li>
 </ul>
 </div>

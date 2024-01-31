@@ -20,6 +20,11 @@ header .navbar.navbar-top {
     background-color: transparent;
 }
 
+/* Make the background color slightly less intense */
+.navbar-end .navbar-item.has-dropdown:hover .navbar-link, .navbar-end .navbar-link:hover, .navbar-end>a.navbar-item:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
 footer.footer {
     color: #fff;
 }
@@ -72,9 +77,10 @@ code {
     border-right: none;
     border-top: none;
     border-bottom-width: 5px;
-    border-bottom-color: #2b471b;
+    border-bottom-color: #0a99d5;
     border-bottom-style: solid;
     border-radius: 4px 4px 0 0;
+    font-weight: 500;
 }
 
 .article .tablist > ul li:hover, .article .tabs:not(.is-loading) .tablist li:not(.is-selected):hover {

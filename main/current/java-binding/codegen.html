@@ -367,20 +367,66 @@
 <div class="sect2">
 <h3 id="install-library"><a class="anchor" href="#install-library"></a><a class="link" href="#install-library">Java Library</a></h3>
 <div class="paragraph">
-<p>The <code>pkl-codegen-java</code> library is available <a href="https://central.sonatype.com/plugins-snapshot/org/pkl/pkl-codegen-java/0.25.0-SNAPSHOT">from Maven Central</a>.
+<p>The <code>pkl-codegen-java</code> library is available <a href="https://central.sonatype.com//artifact/org.pkl-lang/pkl-codegen-java">from Maven Central</a>.
 It requires Java 11 or higher.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" class="bare">https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/</a></code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="gradle"><a class="anchor" href="#gradle"></a><a class="link" href="#gradle">Gradle</a></h4>
 <div class="paragraph">
 <p>To use the library in a Gradle project, declare the following dependency:</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  compile "org.pkl.testMode.pkl:pkl-codegen-java:0.25.0-SNAPSHOT"
+  compile "org.pkl-lang:pkl-codegen-java:0.25.0-SNAPSHOT"
+}
+
+repositories {
+  maven { url "https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" }
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+  compile("org.pkl-lang:pkl-codegen-java:0.25.0-SNAPSHOT")
+}
+
+repositories {
+  maven { url = uri("https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/") }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -392,11 +438,20 @@ It requires Java 11 or higher.</p>
 <div class="listingblock">
 <div class="title">pom.xml</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
-  &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
-  &lt;artifactId&gt;pkl-codegen-java&lt;/artifactId&gt;
-  &lt;version&gt;0.25.0-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;project&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
+    &lt;artifactId&gt;pkl-codegen-java&lt;/artifactId&gt;
+    &lt;version&gt;0.25.0-SNAPSHOT&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;sonatype-s01&lt;/id&gt;
+      &lt;name&gt;Sonatype S01&lt;/name&gt;
+      &lt;url&gt;https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+&lt;/project&gt;</code></pre>
 </div>
 </div>
 </div>

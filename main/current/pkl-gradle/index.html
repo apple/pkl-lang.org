@@ -356,9 +356,21 @@ That is, plugin version <code>x.y.z</code> uses Pkl version <code>x.y.z</code>.<
 <h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Gradle plugin is available <a href="https://central.sonatype.com/plugins-snapshot/org/pkl/pkl-gradle/0.25.0-SNAPSHOT">from Maven Central</a>.
+<p>The Gradle plugin is available <a href="https://central.sonatype.com//artifact/org.pkl-lang/org.pkl-lang.gradle.plugin">from Maven Central</a>.
 It requires Java 11 or higher and Gradle 6.8 or higher.
 Earlier Gradle versions are not supported.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" class="bare">https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/</a></code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The plugin is applied as follows:</p>
@@ -367,28 +379,50 @@ Earlier Gradle versions are not supported.</p>
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-1-build-gradle" class="tab">
-<p>build.gradle</p>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
 </li>
-<li id="tabs-1-build-gradle-kts" class="tab">
-<p>build.gradle.kts</p>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
 </li>
 </ul>
 </div>
-<div id="tabs-1-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-1-build-gradle">
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
+<div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
   id "org.pkl-lang" version "0.25.0-SNAPSHOT"
 }</code></pre>
 </div>
 </div>
-</div>
-<div id="tabs-1-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-1-build-gradle-kts">
 <div class="listingblock">
+<div class="title">settings.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
+    repositories {
+        maven { url "https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
   id("org.pkl-lang") version "0.25.0-SNAPSHOT"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
+    repositories {
+        maven { url = uri("https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/") }
+    }
 }</code></pre>
 </div>
 </div>

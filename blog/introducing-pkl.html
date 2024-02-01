@@ -62,7 +62,6 @@
             <a class="navbar-item" href="../vscode/current/index.html">VS Code</a>
           </div>
         </div>
-        <a class="navbar-item" href="../blog/index.html">Blog</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <a href="../main/current/resources.html" class="navbar-link">Resources</a>
           <div class="navbar-dropdown">
@@ -76,6 +75,7 @@
           <a href="../main/current/community.html" class="navbar-link">Community</a>
           <div class="navbar-dropdown is-right">
             <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../blog/index.html">Blog</a>
           </div>
         </div>
       </div>
@@ -205,7 +205,7 @@
 <div class="paragraph">
 <p>When thinking about configuration, it is common to think of static languages like JSON, YAML, or Property Lists.
 While these languages have their own merits, they tend to fall short when configuration grows in complexity.
-For example, the amount of data they describe is linear to the amount of code that they contain.
+For example, their lack of expressivity means that code often gets repeated.
 Additionally, it can be easy to make configuration errors, because these formats do not provide any validation of their own.</p>
 </div>
 <div class="paragraph">
@@ -296,7 +296,7 @@ This file defines types, and not data. This is a common pattern in Pkl, and we c
   <span class="hljs-property">host</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
   <span class="hljs-comment">/// The remote port for this database.</span>
-  <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+  <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span>
 
   <span class="hljs-comment">/// The name of the database.</span>
   <span class="hljs-property">dbName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
@@ -338,28 +338,24 @@ This file defines types, and not data. This is a common pattern in Pkl, and we c
 </div>
 <div class="paragraph">
 <p>It is easy to create variations of the same base data by <a href="../main/current/language-reference/index.html#amending-objects" class="xref page">amending</a>.
-This uses a <a href="../main/current/language-reference/index.html#for-generators" class="xref page">for generator</a> to produce four objects, each of which amends a base object and adds additional data.</p>
+For example, let&#8217;s imagine that we want to run four databases locally, as sidecars.
+This uses a <a href="../main/current/language-reference/index.html#for-generators" class="xref page">for generator</a> to produce four variations, each of which amends the base <code>db</code> and specifies a different port.</p>
 </div>
 <div class="listingblock">
-<div class="title">multiple-applications.pkl</div>
+<div class="title">sidecars.pkl</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;Application.pkl&quot;</span>
 
-<span class="hljs-keyword">hidden</span> <span class="hljs-property">app</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Application</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">hostnames</span> <span class="hljs-punctuation">{</span> <span class="hljs-string">&quot;localhost&quot;</span> <span class="hljs-punctuation">}</span>
-  <span class="hljs-property">environment</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;dev&quot;</span>
-  <span class="hljs-property">database</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">host</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;localhost&quot;</span>
-    <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">5786</span>
-    <span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;admin&quot;</span>
-    <span class="hljs-property">password</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:DATABASE_PASSWORD&quot;</span><span class="hljs-punctuation">)</span>
-    <span class="hljs-property">dbName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myapp&quot;</span>
-  <span class="hljs-punctuation">}</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">db</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Application</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Database</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">host</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;localhost&quot;</span>
+  <span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;admin&quot;</span>
+  <span class="hljs-property">password</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:DATABASE_PASSWORD&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-property">dbName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myapp&quot;</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">applications</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">sidecars</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">offset</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-punctuation">(</span><span class="hljs-property">app</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-property">db</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> <span class="hljs-property">offset</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
@@ -367,51 +363,145 @@ This uses a <a href="../main/current/language-reference/index.html#for-generator
 </div>
 </div>
 <div class="paragraph">
-<p>Pkl programs can be easily rendered to common formats, like YAML:</p>
+<p>Pkl programs can be easily rendered to common formats.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-yaml" class="tab">
+<p>YAML</p>
+</li>
+<li id="tabs-1-json" class="tab">
+<p>JSON</p>
+</li>
+<li id="tabs-1-xml" class="tab">
+<p>XML</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-yaml--panel" class="tabpanel" aria-labelledby="tabs-1-yaml">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format yaml sidecars.pkl</code></pre>
+</div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ DATABASE_PASSWORD=hunter2 pkl eval --format yaml multiple-applications.pkl</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- hostname: localhost
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">sidecars:
+- username: admin
+  password: hunter2
+  host: localhost
   port: 6000
-  environment: dev
-  database:
-    username: admin
-    password: hunter2
-    host: localhost
-    port: 5786
-    dbName: myapp
-- hostname: localhost
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
   port: 6001
-  environment: dev
-  database:
-    username: admin
-    password: hunter2
-    host: localhost
-    port: 5786
-    dbName: myapp
-- hostname: localhost
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
   port: 6002
-  environment: dev
-  database:
-    username: admin
-    password: hunter2
-    host: localhost
-    port: 5786
-    dbName: myapp
-- hostname: localhost
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
   port: 6003
-  environment: dev
-  database:
-    username: admin
-    password: hunter2
-    host: localhost
-    port: 5786
-    dbName: myapp</code></pre>
+  dbName: myapp</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-json--panel" class="tabpanel" aria-labelledby="tabs-1-json">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format json sidecars.pkl</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "sidecars": [
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6000,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6001,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6002,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6003,
+      "dbName": "myapp"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-xml--panel" class="tabpanel" aria-labelledby="tabs-1-xml">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format xml sidecars.pkl</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;sidecars&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6000&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6001&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6002&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6003&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+  &lt;/sidecars&gt;
+&lt;/root&gt;</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -461,7 +551,9 @@ And, type annotations can optionally have constraints defined on them.</p>
 
 <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Alessandra&quot;</span>
 
-<span class="hljs-property">age</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">5</span></code></pre>
+<span class="hljs-property">age</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">5</span>
+
+<span class="hljs-property">zipCode</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;90210&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -512,7 +604,7 @@ This provides an easy way to share Pkl code that can be used in other projects.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-{pkl hljs" data-lang="{pkl">import "package://pkg.pkl-lang.org/pkl-pantry/io.toml@1.0.0#/toml.pkl"
+<pre class="highlightjs highlight"><code class="language-{pkl hljs" data-lang="{pkl">import "package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0#/toml.pkl"
 
 output {
   renderer = new toml.Renderer {}
@@ -530,7 +622,7 @@ It also means that you can import packages by a simpler name.</p>
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
 
 <span class="hljs-property">dependencies</span> <span class="hljs-punctuation">{</span>
-  [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/io.toml@1.0.0&quot;</span> <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0&quot;</span> <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -571,25 +663,25 @@ It also means that you can import packages by a simpler name.</p>
 For example, the <a href="#application-pkl">Application.pkl</a> example from above can be generated into Swift, Go, Java, and Kotlin.
 Pkl even includes documentation comments in the target language.</p>
 </div>
-<div id="tabs-1" class="openblock tabs is-loading">
+<div id="tabs-2" class="openblock tabs is-loading">
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-1-swift" class="tab">
+<li id="tabs-2-swift" class="tab">
 <p>Swift</p>
 </li>
-<li id="tabs-1-go" class="tab">
+<li id="tabs-2-go" class="tab">
 <p>Go</p>
 </li>
-<li id="tabs-1-java" class="tab">
+<li id="tabs-2-java" class="tab">
 <p>Java</p>
 </li>
-<li id="tabs-1-kotlin" class="tab">
+<li id="tabs-2-kotlin" class="tab">
 <p>Kotlin</p>
 </li>
 </ul>
 </div>
-<div id="tabs-1-swift--panel" class="tabpanel" aria-labelledby="tabs-1-swift">
+<div id="tabs-2-swift--panel" class="tabpanel" aria-labelledby="tabs-2-swift">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">import PklSwift
@@ -639,12 +731,12 @@ extension Application {
         public var host: String
 
         /// The remote port for this database.
-        public var port: Int
+        public var port: UInt16
 
         /// The name of the database.
         public var dbName: String
 
-        public init(username: String, password: String, host: String, port: Int, dbName: String) {
+        public init(username: String, password: String, host: String, port: UInt16, dbName: String) {
             self.username = username
             self.password = password
             self.host = host
@@ -656,22 +748,24 @@ extension Application {
 </div>
 </div>
 </div>
-<div id="tabs-1-go--panel" class="tabpanel" aria-labelledby="tabs-1-go">
+<div id="tabs-2-go--panel" class="tabpanel" aria-labelledby="tabs-2-go">
 <div class="listingblock">
 <div class="title">Application.pkl.go</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type Employee struct {
-  // The name of the employee.
-  Name string `pkl:"name"`
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package application
 
-  // The address of the employee.
-  Address *Address `pkl:"address"`
+type Application struct {
+	// The hostname that this server responds to.
+	Hostname string `pkl:"hostname"`
 
-  // The employee's badge ID.
-  BadgeId int `pkl:"badgeId"`
+	// The port to listen on.
+	Port uint16 `pkl:"port"`
 
-  // The different phone numbers used by this employee.
-  PhoneNumbers map[string]string `pkl:"phoneNumbers"`
+	// The environment to deploy to.
+	Environment enviornment.Enviornment `pkl:"environment"`
+
+	// The database connection for this application
+	Database *Database `pkl:"database"`
 }</code></pre>
 </div>
 </div>
@@ -692,7 +786,7 @@ type Database struct {
 	Host string `pkl:"host"`
 
 	// The remote port for this database.
-	Port int `pkl:"port"`
+	Port uint16 `pkl:"port"`
 
 	// The name of the database.
 	DbName string `pkl:"dbName"`
@@ -725,7 +819,7 @@ func (rcv Enviornment) String() string {
 </div>
 </div>
 </div>
-<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.Object;
@@ -785,7 +879,7 @@ public final class Application {
     /**
      * The remote port for this database.
      */
-    public final long port;
+    public final int port;
 
     /**
      * The name of the database.
@@ -825,7 +919,7 @@ public final class Application {
 </div>
 </div>
 </div>
-<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import kotlin.Int
@@ -866,7 +960,7 @@ data class Application(
     /**
      * The remote port for this database.
      */
-    val port: Long,
+    val port: Int,
     /**
      * The name of the database.
      */
@@ -892,7 +986,7 @@ data class Application(
 </div>
 <div class="paragraph">
 <p>Using code generation is just one of the many ways to embed Pkl within an application.
-Our language bindings provide evaluator APIs to control Pkl evaluation at a low level, and users are free to interact with Pkl at the abstraction level that makes the most sense for their application.</p>
+Our language bindings also provide evaluator APIs to control Pkl evaluation at a low level, and users are free to interact with Pkl at the abstraction level that makes the most sense for their application.</p>
 </div>
 </div>
 </div>
@@ -911,36 +1005,36 @@ Additionally, the editors provide instant feedback if any values are invalid, an
 <div class="paragraph">
 <p>Here are some of the features that are available:</p>
 </div>
-<div id="tabs-2" class="openblock tabs is-loading">
+<div id="tabs-3" class="openblock tabs is-loading">
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-2-autocompletion" class="tab">
+<li id="tabs-3-autocompletion" class="tab">
 <p>Autocompletion</p>
 </li>
-<li id="tabs-2-navigation" class="tab">
+<li id="tabs-3-navigation" class="tab">
 <p>Navigation</p>
 </li>
-<li id="tabs-2-validation" class="tab">
+<li id="tabs-3-validation" class="tab">
 <p>Validation</p>
 </li>
 </ul>
 </div>
-<div id="tabs-2-autocompletion--panel" class="tabpanel" aria-labelledby="tabs-2-autocompletion">
+<div id="tabs-3-autocompletion--panel" class="tabpanel" aria-labelledby="tabs-3-autocompletion">
 <div class="imageblock">
 <div class="content">
 <img src="_images/introducing-pkl/intellij-autocomplete.gif" alt="Autocomplete in IntelliJ">
 </div>
 </div>
 </div>
-<div id="tabs-2-navigation--panel" class="tabpanel" aria-labelledby="tabs-2-navigation">
+<div id="tabs-3-navigation--panel" class="tabpanel" aria-labelledby="tabs-3-navigation">
 <div class="imageblock">
 <div class="content">
 <img src="_images/introducing-pkl/intellij-navigation.gif" alt="Navigation in IntelliJ">
 </div>
 </div>
 </div>
-<div id="tabs-2-validation--panel" class="tabpanel" aria-labelledby="tabs-2-validation">
+<div id="tabs-3-validation--panel" class="tabpanel" aria-labelledby="tabs-3-validation">
 <div class="imageblock">
 <div class="content">
 <img src="_images/introducing-pkl/intellij-validation.gif" alt="Validation in IntelliJ">
@@ -976,12 +1070,12 @@ To learn more about the language itself, read through our <a href="../main/curre
 To connect with us, feel free to submit a topic on <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a>.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, feel free to browser our sample repositories to get an idea for what it’s like to use Pkl:</p>
+<p>Additionally, feel free to browse our sample repositories to get an idea for what it’s like to use Pkl:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/apple/pkl-go-example" class="bare">https://github.com/apple/pkl-go-example</a></p>
+<p><a href="https://github.com/apple/pkl-go-examples" class="bare">https://github.com/apple/pkl-go-examples</a></p>
 </li>
 <li>
 <p><a href="https://github.com/apple/pkl-jvm-examples" class="bare">https://github.com/apple/pkl-jvm-examples</a></p>

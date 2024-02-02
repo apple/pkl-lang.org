@@ -1,0 +1,2 @@
+runtimeData.links('known-versions','[{"text":"0.25.1","classes":"current-version"},{"text":"0.25.0-dev","href":"../../0.25.0-dev/reflect/Declaration.html"}]');
+runtimeData.links('known-subtypes','[{"text":"Class","href":"Class.html"},{"text":"Method","href":"Method.html"},{"text":"Module","href":"Module.html"},{"text":"Property","href":"Property.html"},{"text":"TypeAlias","href":"TypeAlias.html"},{"text":"TypeDeclaration","href":"TypeDeclaration.html"}]');

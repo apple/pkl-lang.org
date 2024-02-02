@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Collection (pkl/base:0.25.1) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.1/base/Collection.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.1" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="Collection" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <div id="Element" class="anchor-param1"> </div>
+      <h1 id="declaration-title">Collection<span id="declaration-version">0.25.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">abstract external class <span class="name-decl">Collection</span>&lt;out <a class="param1">Element</a>&gt; extends <a href="Any.html" class="name-ref">Any</a></div>
+        <div class="doc-comment"><p>Common base class for <a href="List.html"><code>List</code></a> and <a href="Set.html"><code>Set</code></a>.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>The following operators are supported for all collections:</p>
+<pre><code>coll1 + coll2  // concatenation; result type is `Set` if `coll1` is a set and `List` otherwise
+</code></pre>
+<p>Additionally, the following operators are supported for <a href="List.html"><code>List</code></a>s:</p>
+<pre><code>coll[3]    // subscript
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="length" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#length">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">length</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The number of elements in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>size</code>, <code>count</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).length == 3
+List().length == 0
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isEmpty" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isEmpty">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isEmpty</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this collection is empty.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>!List(1, 2, 3).isEmpty
+List().isEmpty
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="first" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#first">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">first</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>The first element in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>head</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection is empty.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).first == 1
+(import &quot;pkl:test&quot;).catch(() -&gt; List().first)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="firstOrNull" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#firstOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">firstOrNull</span>: <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#first"><code>first</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>head</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rest" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rest">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rest</span>: <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>The tail of this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>tail</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection is empty.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).rest == List(2, 3)
+(import &quot;pkl:test&quot;).catch(() -&gt; List().rest)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="restOrNull" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#restOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">restOrNull</span>: <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#rest"><code>rest</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>tail</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="last" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#last">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">last</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>The last element in this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection is empty.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).last == 3
+(import &quot;pkl:test&quot;).catch(() -&gt; List().last)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastOrNull" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#lastOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastOrNull</span>: <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#last"><code>last</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="single" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#single">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">single</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>The single element in this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection has zero or more than one element.</p>
+<p>Facts:</p>
+<pre><code>List(1).single == 1
+throws(() -&gt; List().single)
+throws(() -&gt; List(1, 2, 3).single)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="singleOrNull" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#singleOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">singleOrNull</span>: <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#single"><code>single</code></a> but returns <code>null</code> if this collection is empty or has more than one element.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="min" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#min">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">min</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is less than or equal to any other element.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>minWith((a, b) -&gt; a &lt; b)</code>.</p>
+<p>Throws if this collection is empty, or if any two elements cannot be compared with <code>&lt;</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minOrNull" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minOrNull</span>: <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#min"><code>min</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="max" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#max">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">max</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is greater than or equal to any other element.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>maxWith((a, b) -&gt; a &lt; b)</code>.</p>
+<p>Throws if this collection is empty, or if any two elements cannot be compared with <code>&lt;</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxOrNull" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxOrNull">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxOrNull</span>: <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#max"><code>max</code></a> but returns <code>null</code> if this collection empty.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Collection.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Collection.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="contains()" class="anchor"> </div>
+            <div id="contains().element" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#contains()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">contains</span>(<span class="param1">element</span>: <a href="Collection.html#Element" class="name-ref">Element</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tests if <code>element</code> is contained in this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).contains(1)
+List(1, 2, 3).contains(2)
+List(1, 2, 3).contains(3)
+!List(1, 2, 3).contains(4)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="startsWith()" class="anchor"> </div>
+            <div id="startsWith().coll" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#startsWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">startsWith</span>(<span class="param1">coll</span>: <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Any.html" class="name-ref">Any</a>&gt;): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tests if this collection starts with the elements in <code>coll</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).startsWith(List(1, 2))
+List(1, 2, 3).startsWith(List())
+!List(1, 2, 3).startsWith(List(2, 3))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="endsWith()" class="anchor"> </div>
+            <div id="endsWith().coll" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#endsWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">endsWith</span>(<span class="param1">coll</span>: <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Any.html" class="name-ref">Any</a>&gt;): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tests if this collection ends with the elements in <code>coll</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).endsWith(List(2, 3))
+List(1, 2, 3).endsWith(List())
+!List(1, 2, 3).endsWith(List(1, 2))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="split()" class="anchor"> </div>
+            <div id="split().index" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#split()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">split</span>(<span class="param1">index</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;, <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;&gt;</div>
+                <div class="doc-comment"><p>Splits this collection into two at split point <code>index</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>index</code> is zero or <a href="Collection.html#length"><code>length</code></a>, one of the two collections is empty.
+Throws if <code>index</code> is outside range <code>0</code>..<code>length</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="splitOrNull()" class="anchor"> </div>
+            <div id="splitOrNull().index" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#splitOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">splitOrNull</span>(<span class="param1">index</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;, <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;&gt;?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#split()"><code>split()</code></a> but returns <code>null</code> if <code>index</code> is outside range <code>0</code>..<a href="Collection.html#length"><code>length</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="partition()" class="anchor"> </div>
+            <div id="partition().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#partition()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">partition</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;, <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;&gt;</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="indexOf()" class="anchor"> </div>
+            <div id="indexOf().element" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#indexOf()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">indexOf</span>(<span class="param1">element</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The zero-based index of the first occurrence of <code>element</code> in this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection does not contains <code>element</code>.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).indexOf(2) == 1
+List(1, 2, 2).indexOf(2) == 1
+(import &quot;pkl:test&quot;).catch(() -&gt; List(1, 2, 3).indexOf(4))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="indexOfOrNull()" class="anchor"> </div>
+            <div id="indexOfOrNull().element" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#indexOfOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">indexOfOrNull</span>(<span class="param1">element</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#indexOf()"><code>indexOf()</code></a> but returns <code>null</code> if this collection does not contain <code>element</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastIndexOf()" class="anchor"> </div>
+            <div id="lastIndexOf().element" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#lastIndexOf()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastIndexOf</span>(<span class="param1">element</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The zero-based index of the last occurrence of <code>element</code> in this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection does not contain <code>element</code>.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).lastIndexOf(2) == 1
+List(1, 2, 2).lastIndexOf(2) == 2
+(import &quot;pkl:test&quot;).catch(() -&gt; List(1, 2, 3).lastIndexOf(4))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lastIndexOfOrNull()" class="anchor"> </div>
+            <div id="lastIndexOfOrNull().element" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#lastIndexOfOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lastIndexOfOrNull</span>(<span class="param1">element</span>: <a href="Any.html" class="name-ref">Any</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#lastIndexOf()"><code>lastIndexOf()</code></a> but returns <code>null</code> if this collection does not contain <code>element</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="find()" class="anchor"> </div>
+            <div id="find().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#find()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">find</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>The first element for which <code>predicate</code> returns <code>true</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>predicate</code> does not hold for any element in this collection.</p>
+<p>Facts:</p>
+<pre><code>List(5, 6, 7).find((n) -&gt; n.isEven) == 6
+List(4, 6, 7).find((n) -&gt; n.isEven) == 4
+(import &quot;pkl:test&quot;).catch(() -&gt; List(5, 7, 9).find((n) -&gt; n.isEven))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findOrNull()" class="anchor"> </div>
+            <div id="findOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findOrNull</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#find()"><code>find()</code></a> but returns <code>null</code> if <code>predicate</code> does not hold for any element in this collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findLast()" class="anchor"> </div>
+            <div id="findLast().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findLast</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Any.html" class="name-ref">Any</a></div>
+                <div class="doc-comment"><p>The last element for which <code>predicate</code> returns <code>true</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>predicate</code> does not hold for any element in this collection.</p>
+<p>Facts:</p>
+<pre><code>List(5, 6, 7).findLast((n) -&gt; n.isEven) == 6
+List(4, 6, 8).findLast((n) -&gt; n.isEven) == 8
+List(5, 7, 9).findLast((n) -&gt; n.isEven) == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findLastOrNull()" class="anchor"> </div>
+            <div id="findLastOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findLastOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findLastOrNull</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#findLast()"><code>findLast()</code></a> but returns <code>null</code> if <code>predicate</code> does not hold for any element in this collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findIndex()" class="anchor"> </div>
+            <div id="findIndex().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findIndex()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findIndex</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The index of the first element for which <code>predicate</code> returns <code>true</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>indexWhere</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws  if <code>predicate</code> does not hold for any element in this collection.</p>
+<p>Facts:</p>
+<pre><code>List(5, 6, 7).findIndex((n) -&gt; n.isEven) == 1
+List(4, 6, 8).findIndex((n) -&gt; n.isEven) == 0
+(import &quot;pkl:test&quot;).catch(() -&gt; List(5, 7, 9).findLast((n) -&gt; n.isEven))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findIndexOrNull()" class="anchor"> </div>
+            <div id="findIndexOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findIndexOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findIndexOrNull</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#findIndex()"><code>findIndex()</code></a> but returns <code>null</code> if <code>predicate</code> does not hold for any element in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>indexWhere</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findLastIndex()" class="anchor"> </div>
+            <div id="findLastIndex().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findLastIndex()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findLastIndex</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The index of the last element for which <code>predicate</code> returns <code>true</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>lastIndexWhere</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>predicate</code> does not hold for any element in this collection.</p>
+<p>Facts:</p>
+<pre><code>List(5, 6, 7).findLastIndex((n) -&gt; n.isEven) == 1
+List(4, 6, 8).findLastIndex((n) -&gt; n.isEven) == 2
+(import &quot;pkl:test&quot;).catch(() -&gt; List(5, 7, 9).findLastIndex((n) -&gt; n.isEven))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findLastIndexOrNull()" class="anchor"> </div>
+            <div id="findLastIndexOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findLastIndexOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findLastIndexOrNull</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Int.html" class="name-ref">Int</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#findLastIndex()"><code>findLastIndex()</code></a> but returns <code>null</code> if <code>predicate</code> does not hold for any element in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>lastIndexWhere</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="count()" class="anchor"> </div>
+            <div id="count().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#count()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">count</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The number of elements for which <code>predicate</code> returns <code>true</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).count((n) -&gt; n.isEven) == 1
+List(1, 2, 3).count((n) -&gt; n.isOdd) == 2
+List(1, 2, 3).count((n) -&gt; n &gt; 9) == 0
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="every()" class="anchor"> </div>
+            <div id="every().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#every()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">every</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tests whether <code>predicate</code> holds for every element in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>all</code>, <code>forall</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 3, 3).every((n) -&gt; n.isOdd)
+List().every((n) -&gt; n.isOdd)
+!List(1, 2, 3).every((n) -&gt; n.isOdd)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any()" class="anchor"> </div>
+            <div id="any().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">any</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tests whether <code>predicate</code> holds for at least one element in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>exists</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).any((n) -&gt; n.isEven)
+!List(1, 2, 3).any((n) -&gt; n.isEven)
+!List().any((n) -&gt; n.isEven)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filter()" class="anchor"> </div>
+            <div id="filter().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#filter()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filter</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Retains elements for which <code>predicate</code> holds.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>findAll</code>, <code>where</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).filter((n) -&gt; n.isOdd) == List(1, 3)
+List(1, 2, 3).filter((n) -&gt; n.isEven) == List(2)
+List(1, 2, 3).filter((n) -&gt; n &gt; 9) == List()
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filterNonNull()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#filterNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filterNonNull</span>(): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>(this != null)&gt;</div>
+                <div class="doc-comment"><p>Retains non-null elements.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>filter((it) -&gt; it != null)</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filterIndexed()" class="anchor"> </div>
+            <div id="filterIndexed().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#filterIndexed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filterIndexed</span>(<span class="param1">predicate</span>: (<a href="Int.html" class="name-ref">Int</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Retains elements for which <code>predicate</code> holds.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>findAll</code>, <code>where</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p><code>predicate</code> takes two arguments: the index of the element, and the element itself.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).filterIndexed((i, n) -&gt; i.isOdd) == List(2)
+List(1, 2, 3).filterIndexed((i, n) -&gt; i.isEven) == List(1, 3)
+List(1, 2, 3).filterIndexed((i, n) -&gt; i.isOdd &amp;&amp; n &gt; 2) == List()
+List(1, 2, 3).filterIndexed((i, n) -&gt; i.isEven &amp;&amp; n &gt; 2) == List(3)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filterIsInstance()" class="anchor"> </div>
+            <div id="filterIsInstance().Type" class="anchor-param1"> </div>
+            <div id="filterIsInstance().clazz" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#filterIsInstance()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filterIsInstance</span>&lt;<a class="param1">Type</a>&gt;(<span class="param2">clazz</span>: <a href="Class.html" class="name-ref">Class</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#filterIsInstance().Type" class="name-ref">Type</a>&gt;</div>
+                <div class="doc-comment"><p>Retains elements whose class is a subclass of <code>clazz</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>whereType</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>filter((it) -&gt; it is X)</code>.</p>
+<p>Facts:</p>
+<pre><code>List(42, &quot;Pigeon&quot;, true, &quot;Parrot&quot;).filterIsInstance(String) == List(&quot;Pigeon&quot;, &quot;Parrot&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="map()" class="anchor"> </div>
+            <div id="map().Result" class="anchor-param1"> </div>
+            <div id="map().transform" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#map()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">map</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#map().Result" class="name-ref">Result</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#map().Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>Transforms this collection by applying <code>transform</code> to each element.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>List(1, 2, 3).map((n) -&gt; n * 2) == List(2, 4, 6)
+List(1, 2, 3).map((n) -&gt; n.isEven) == List(false, true, false)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mapIndexed()" class="anchor"> </div>
+            <div id="mapIndexed().Result" class="anchor-param1"> </div>
+            <div id="mapIndexed().transform" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#mapIndexed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mapIndexed</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="Int.html" class="name-ref">Int</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#mapIndexed().Result" class="name-ref">Result</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#mapIndexed().Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>Transforms this collection by applying <code>transform</code> to each element.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>transform</code> takes two arguments: the index of the element, and the element itself.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).mapIndexed((i, n) -&gt; n * i) == List(0, 2, 6)
+List(1, 2, 3).mapIndexed((i, n) -&gt; i.isOdd &amp;&amp; n.isEven) == List(false, true, false)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mapNonNull()" class="anchor"> </div>
+            <div id="mapNonNull().Result" class="anchor-param1"> </div>
+            <div id="mapNonNull().transform" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#mapNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mapNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#mapNonNull().Result" class="name-ref">Result</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#mapNonNull().Result" class="name-ref">Result</a>(this != null)&gt;</div>
+                <div class="doc-comment"><p>Transforms this collection by applying <code>transform</code> to each element and removing resulting <code>null</code> elements.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>filterMap</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Equivalent to <code>map(transform).filterNonNull()</code>.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).mapNonNull((n) -&gt; if (n.isOdd) null else n + 2) == List(4)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flatMap()" class="anchor"> </div>
+            <div id="flatMap().Result" class="anchor-param1"> </div>
+            <div id="flatMap().transform" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#flatMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flatMap</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#flatMap().Result" class="name-ref">Result</a>&gt;): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#flatMap().Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>Applies a collection-generating <code>transform</code> to each element in this collection
+and concatenates the resulting collections.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if <code>transform</code> produces a non-collection value.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flatMapIndexed()" class="anchor"> </div>
+            <div id="flatMapIndexed().Result" class="anchor-param1"> </div>
+            <div id="flatMapIndexed().transform" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#flatMapIndexed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flatMapIndexed</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="Int.html" class="name-ref">Int</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#flatMapIndexed().Result" class="name-ref">Result</a>&gt;): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#flatMapIndexed().Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>Applies a collection-generating <code>transform</code> to each element in this collection
+and concatenates the resulting collections.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>transform</code> takes two arguments: the index of the element, and the element itself.</p>
+<p>Throws if <code>transform</code> produces a non-collection value.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flatten()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#flatten()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flatten</span>(): <a href="Collection.html" class="name-ref">Collection</a></div>
+                <div class="doc-comment"><p>Concatenates the elements in this collection, each of which must itself be a collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if any element is not a collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="add()" class="anchor"> </div>
+            <div id="add().Other" class="anchor-param1"> </div>
+            <div id="add().element" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#add()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">add</span>&lt;<a class="param1">Other</a>&gt;(<span class="param2">element</span>: <a href="Collection.html#add().Other" class="name-ref">Other</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;(<a href="Collection.html#Element" class="name-ref">Element</a>|<a href="Collection.html#add().Other" class="name-ref">Other</a>)&gt;</div>
+                <div class="doc-comment"><p>Adds <code>element</code> to this collection.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For <a href="List.html"><code>List</code></a>, <code>element</code> is appended.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="take()" class="anchor"> </div>
+            <div id="take().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#take()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">take</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Returns the first <code>n</code> elements in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>limit</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeLast()" class="anchor"> </div>
+            <div id="takeLast().n" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#takeLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeLast</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Returns the last <code>n</code> elements in this collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeWhile()" class="anchor"> </div>
+            <div id="takeWhile().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#takeWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeWhile</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Returns the longest prefix of this collection that satisfies <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="takeLastWhile()" class="anchor"> </div>
+            <div id="takeLastWhile().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#takeLastWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">takeLastWhile</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Returns the longest suffix of this collection that satisfies <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="drop()" class="anchor"> </div>
+            <div id="drop().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#drop()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">drop</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes the first <code>n</code> elements in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skip</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropLast()" class="anchor"> </div>
+            <div id="dropLast().n" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropLast()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropLast</span>(<span class="param1">n</span>: <a href="Int.html" class="name-ref">Int</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes the last <code>n</code> elements in this collection.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipLast</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropWhile()" class="anchor"> </div>
+            <div id="dropWhile().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropWhile</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes the longest prefix of this collection that satisfies <code>predicate</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipWhile</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dropLastWhile()" class="anchor"> </div>
+            <div id="dropLastWhile().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dropLastWhile()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dropLastWhile</span>(<span class="param1">predicate</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes the longest suffix of this collection that satisfies <code>predicate</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>skipLastWhile</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fold()" class="anchor"> </div>
+            <div id="fold().Result" class="anchor-param1"> </div>
+            <div id="fold().initial" class="anchor-param2"> </div>
+            <div id="fold().operator" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#fold()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fold</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Collection.html#fold().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Collection.html#fold().Result" class="name-ref">Result</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#fold().Result" class="name-ref">Result</a>): <a href="Collection.html#fold().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this collection in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="foldBack()" class="anchor"> </div>
+            <div id="foldBack().Result" class="anchor-param1"> </div>
+            <div id="foldBack().initial" class="anchor-param2"> </div>
+            <div id="foldBack().operator" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#foldBack()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">foldBack</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Collection.html#foldBack().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#foldBack().Result" class="name-ref">Result</a>) -&gt; <a href="Collection.html#foldBack().Result" class="name-ref">Result</a>): <a href="Collection.html#foldBack().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this collection in reverse iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>foldRight</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="foldIndexed()" class="anchor"> </div>
+            <div id="foldIndexed().Result" class="anchor-param1"> </div>
+            <div id="foldIndexed().initial" class="anchor-param2"> </div>
+            <div id="foldIndexed().operator" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#foldIndexed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">foldIndexed</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Collection.html#foldIndexed().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Int.html" class="name-ref">Int</a>, <a href="Collection.html#foldIndexed().Result" class="name-ref">Result</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#foldIndexed().Result" class="name-ref">Result</a>): <a href="Collection.html#foldIndexed().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this collection in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The first parameter of <code>operator</code> is the zero-based index of the current element.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="reduce()" class="anchor"> </div>
+            <div id="reduce().Result" class="anchor-param1"> </div>
+            <div id="reduce().operator" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#reduce()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">reduce</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">operator</span>: ((<a href="Collection.html#Element" class="name-ref">Element</a>|<a href="Collection.html#reduce().Result" class="name-ref">Result</a>), <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#reduce().Result" class="name-ref">Result</a>): <a href="Collection.html#reduce().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this collection in iteration order using <code>operator</code>, starting with the first element.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="reduceOrNull()" class="anchor"> </div>
+            <div id="reduceOrNull().Result" class="anchor-param1"> </div>
+            <div id="reduceOrNull().operator" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#reduceOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">reduceOrNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">operator</span>: ((<a href="Collection.html#Element" class="name-ref">Element</a>|<a href="Collection.html#reduceOrNull().Result" class="name-ref">Result</a>), <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#reduceOrNull().Result" class="name-ref">Result</a>): <a href="Collection.html#reduceOrNull().Result" class="name-ref">Result</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#reduce()"><code>reduce()</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="groupBy()" class="anchor"> </div>
+            <div id="groupBy().Key" class="anchor-param1"> </div>
+            <div id="groupBy().selector" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#groupBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">groupBy</span>&lt;<a class="param1">Key</a>&gt;(<span class="param2">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#groupBy().Key" class="name-ref">Key</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Collection.html#groupBy().Key" class="name-ref">Key</a>, <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;&gt;</div>
+                <div class="doc-comment"><p>Groups the elements in this collection according to keys returned by <code>selector</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="repeat()" class="anchor"> </div>
+            <div id="repeat().n" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#repeat()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">repeat</span>(<span class="param1">n</span>: <a href="index.html#UInt" class="name-ref">UInt</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Concatenates this collection <code>n</code> times.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minBy()" class="anchor"> </div>
+            <div id="minBy().selector" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minBy</span>(<span class="param1">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="index.html#Comparable" class="name-ref">Comparable</a>): <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is less than or equal to any other element after applying <code>selector</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>minWith((a, b) -&gt; selector.apply(a) &lt; selector.apply(b))</code>.</p>
+<p>Throws if this collection is empty or if any two elements cannot be compared with <code>&lt;</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minByOrNull()" class="anchor"> </div>
+            <div id="minByOrNull().selector" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minByOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minByOrNull</span>(<span class="param1">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="index.html#Comparable" class="name-ref">Comparable</a>): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#minBy()"><code>minBy()</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minWith()" class="anchor"> </div>
+            <div id="minWith().comparator" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minWith</span>(<span class="param1">comparator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is less than or equal to any other element according to <code>comparator</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>comparator</code> should return <code>true</code> if its first argument is less than its second argument, and <code>false</code> otherwise.</p>
+<p>Throws if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minWithOrNull()" class="anchor"> </div>
+            <div id="minWithOrNull().comparator" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minWithOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minWithOrNull</span>(<span class="param1">comparator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Boolean.html" class="name-ref">Boolean</a>): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#minWith()"><code>minWith()</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxBy()" class="anchor"> </div>
+            <div id="maxBy().selector" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxBy</span>(<span class="param1">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="index.html#Comparable" class="name-ref">Comparable</a>): <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is greater than or equal to any other element after applying <code>selector</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>maxWith((a, b) -&gt; selector.apply(a) &lt; selector.apply(b))</code>.</p>
+<p>Throws if this collection is empty, or if any two elements cannot be compared with <code>&lt;</code> after applying <code>selector</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxByOrNull()" class="anchor"> </div>
+            <div id="maxByOrNull().selector" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxByOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxByOrNull</span>(<span class="param1">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="index.html#Comparable" class="name-ref">Comparable</a>): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#maxBy()"><code>maxBy()</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxWith()" class="anchor"> </div>
+            <div id="maxWith().comparator" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxWith</span>(<span class="param1">comparator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; (<a href="Boolean.html" class="name-ref">Boolean</a>|<a href="Int.html" class="name-ref">Int</a>)): <a href="Collection.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>Returns the first element in this collection that is greater than or equal to any other element according to <code>comparator</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>comparator</code> should return <code>true</code> if its first argument is less than its second argument, and <code>false</code> otherwise.</p>
+<p>Throws if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxWithOrNull()" class="anchor"> </div>
+            <div id="maxWithOrNull().comparator" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxWithOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxWithOrNull</span>(<span class="param1">comparator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; (<a href="Boolean.html" class="name-ref">Boolean</a>|<a href="Int.html" class="name-ref">Int</a>)): <a href="Collection.html#Element" class="name-ref">Element</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Collection.html#maxWith()"><code>maxWith()</code></a> but returns <code>null</code> if this collection is empty.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sort()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sort()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sort</span>(): <a href="List.html" class="name-ref">List</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Sorts this collection of <a href="index.html#Comparable"><code>Comparable</code></a> elements in ascending order.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>sortWith((a, b) -&gt; a &lt; b)</code>.</p>
+<p>Throws if any two elements in this collection cannot be compared with <code>&lt;</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sortBy()" class="anchor"> </div>
+            <div id="sortBy().selector" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sortBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sortBy</span>(<span class="param1">selector</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="index.html#Comparable" class="name-ref">Comparable</a>): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Sorts this collection in ascending order after applying <code>selector</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Shorthand for <code>sortWith((a, b) -&gt; selector.apply(a) &lt; selector.apply(b))</code>.</p>
+<p>Throws if any two elements in this collection cannot be compared with <code>&lt;</code> after applying <code>selector</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sortWith()" class="anchor"> </div>
+            <div id="sortWith().comparator" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sortWith()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sortWith</span>(<span class="param1">comparator</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; (<a href="Boolean.html" class="name-ref">Boolean</a>|<a href="Int.html" class="name-ref">Int</a>)): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Sorts this collection according to <code>comparator</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>comparator</code> should return <code>true</code> if its first argument
+comes before its second argument in the sort order, and <code>false</code> otherwise.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).sortWith((a, b) -&gt; a &gt; b)) == List(3, 2, 1)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="reverse()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#reverse()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">reverse</span>(): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Reverses the order of elements in this collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="zip()" class="anchor"> </div>
+            <div id="zip().Other" class="anchor-param1"> </div>
+            <div id="zip().coll" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#zip()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">zip</span>&lt;<a class="param1">Other</a>&gt;(<span class="param2">coll</span>: <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Collection.html#zip().Other" class="name-ref">Other</a>&gt;): <a href="Collection.html" class="name-ref">Collection</a>&lt;<a href="Pair.html" class="name-ref">Pair</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>, <a href="Collection.html#zip().Other" class="name-ref">Other</a>&gt;&gt;</div>
+                <div class="doc-comment"><p>Returns a collection that combines corresponding elements of <code>this</code> and <code>coll</code> in pairs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The returned collection's length is the minimum of <code>this.length</code> and <code>coll.length</code>.</p>
+<p>Facts:</p>
+<pre><code>List(1, 2, 3).zip(List(4, 5, 6)) == List(Pair(1, 4), Pair(2, 5), Pair(3, 6))
+List(1, 2, 3).zip(List(4, 5, 6, 7, 8)) == List(Pair(1, 4), Pair(2, 5), Pair(3, 6))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="transpose()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#transpose()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">transpose</span>(): <a href="Collection.html" class="name-ref">Collection</a></div>
+                <div class="doc-comment"><p>Transposes this two-dimensional collection of collections.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The <em>n</em>th row of the resulting collection corresponds to the
+<em>n</em>th column of this collection.
+Throws if an element of this collection is not itself a collection.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="join()" class="anchor"> </div>
+            <div id="join().separator" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#join()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">join</span>(<span class="param1">separator</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts the elements of this collection to strings and concatenates them inserting <code>separator</code> between elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toList()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toList()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toList</span>(): <a href="List.html" class="name-ref">List</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this collection to a list.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this collection if it already is a list.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toSet()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toSet()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toSet</span>(): <a href="Set.html" class="name-ref">Set</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this collection to a set.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns this collection if it already is a set.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div id="toMap().Key" class="anchor-param1"> </div>
+            <div id="toMap().Value" class="anchor-param2"> </div>
+            <div id="toMap().keyExtractor" class="anchor-param3"> </div>
+            <div id="toMap().valueExtractor" class="anchor-param4"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>&lt;<a class="param1">Key</a>, <a class="param2">Value</a>&gt;(<span class="param3">keyExtractor</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#toMap().Key" class="name-ref">Key</a>, <span class="param4">valueExtractor</span>: (<a href="Collection.html#Element" class="name-ref">Element</a>) -&gt; <a href="Collection.html#toMap().Value" class="name-ref">Value</a>): <a href="Map.html" class="name-ref">Map</a>&lt;<a href="Collection.html#toMap().Key" class="name-ref">Key</a>, <a href="Collection.html#toMap().Value" class="name-ref">Value</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this collection to a map by extracting a key and value from each element using the given functions.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toListing()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toListing()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toListing</span>(): <a href="Listing.html" class="name-ref">Listing</a>&lt;<a href="Collection.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this collection to a <a href="Listing.html"><code>Listing</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="Dynamic.html" class="name-ref">Dynamic</a></div>
+                <div class="doc-comment"><p>Converts this collection to a <a href="Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

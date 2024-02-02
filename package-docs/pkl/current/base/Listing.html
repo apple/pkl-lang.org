@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listing (pkl/base:0.25.1) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.1/base/Listing.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.1" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="Listing" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <div id="Element" class="anchor-param1"> </div>
+      <h1 id="declaration-title">Listing<span id="declaration-version">0.25.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">Listing</span>&lt;out <a class="param1">Element</a>&gt; extends <a href="Object.html" class="name-ref">Object</a></div>
+        <div class="doc-comment"><p>An object containing an ordered sequence of elements.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>This class is the object equivalent of <a href="List.html"><code>List</code></a>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="default" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#default">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">default</span>: (<a href="Int.html" class="name-ref">Int</a>) -&gt; <a href="Listing.html#Element" class="name-ref">Element</a></div>
+                <div class="doc-comment"><p>The function used to compute the default value for a listing element given its index.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="length" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#length">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">length</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The number of elements in this listing.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isEmpty" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isEmpty">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isEmpty</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this listing is empty, that is, has zero elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isDistinct" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isDistinct">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isDistinct</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this listing has no duplicate elements.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>isUnique</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>new Listing { 1; 2; 3 }.isDistinct
+!new Listing { 1; 2; 1 }.isDistinct
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="distinct" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#distinct">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">distinct</span>: <a href="Listing.html" class="name-ref">Listing</a>&lt;<a href="Listing.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes duplicate elements from this listing, preserving the first occurrence.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>unique</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>new Listing { 1; 2; 3 }.distinct == new Listing { 1; 2; 3 }
+new Listing { 1; 2; 1 }.distinct == new Listing { 1; 2 }
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Listing.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Listing.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isDistinctBy()" class="anchor"> </div>
+            <div id="isDistinctBy().selector" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isDistinctBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isDistinctBy</span>(<span class="param1">selector</span>: (<a href="Listing.html#Element" class="name-ref">Element</a>) -&gt; <a href="Any.html" class="name-ref">Any</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this listing has no elements that are duplicates after applying <code>selector</code>.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>isUniqueBy</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>new Listing { &quot;a&quot;; &quot;ab&quot;; &quot;abc&quot; }.isDistinctBy((it) -&gt; it.length)
+!new Listing { &quot;a&quot;; &quot;ab&quot;; &quot;c&quot; }.isDistinctBy((it) -&gt; it.length)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="distinctBy()" class="anchor"> </div>
+            <div id="distinctBy().selector" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#distinctBy()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">distinctBy</span>(<span class="param1">selector</span>: (<a href="Listing.html#Element" class="name-ref">Element</a>) -&gt; <a href="Any.html" class="name-ref">Any</a>): <a href="Listing.html" class="name-ref">Listing</a>&lt;<a href="Listing.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Removes elements that are duplicates after applying <code>selector</code> from this listing, preserving the first occurrence.</p></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>uniqueBy</code></dd>
+                </dl>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>new Listing { &quot;a&quot;; &quot;ab&quot;; &quot;abc&quot; }.distinctBy((it) -&gt; it.length) == new Listing { &quot;a&quot;; &quot;ab&quot;; &quot;abc&quot; }
+new Listing { &quot;a&quot;; &quot;ab&quot;; &quot;c&quot; }.distinctBy((it) -&gt; it.length) == new Listing { &quot;a&quot;; &quot;ab&quot; }
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fold()" class="anchor"> </div>
+            <div id="fold().Result" class="anchor-param1"> </div>
+            <div id="fold().initial" class="anchor-param2"> </div>
+            <div id="fold().operator" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#fold()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fold</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Listing.html#fold().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Listing.html#fold().Result" class="name-ref">Result</a>, <a href="Listing.html#Element" class="name-ref">Element</a>) -&gt; <a href="Listing.html#fold().Result" class="name-ref">Result</a>): <a href="Listing.html#fold().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this listing in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="foldIndexed()" class="anchor"> </div>
+            <div id="foldIndexed().Result" class="anchor-param1"> </div>
+            <div id="foldIndexed().initial" class="anchor-param2"> </div>
+            <div id="foldIndexed().operator" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#foldIndexed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">foldIndexed</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Listing.html#foldIndexed().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Int.html" class="name-ref">Int</a>, <a href="Listing.html#foldIndexed().Result" class="name-ref">Result</a>, <a href="Listing.html#Element" class="name-ref">Element</a>) -&gt; <a href="Listing.html#foldIndexed().Result" class="name-ref">Result</a>): <a href="Listing.html#foldIndexed().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this listing in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The first parameter of <code>operator</code> is the zero-based index of the current element.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="join()" class="anchor"> </div>
+            <div id="join().separator" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#join()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">join</span>(<span class="param1">separator</span>: <a href="String.html" class="name-ref">String</a>): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts the elements of this listing to strings and concatenates them inserting <code>separator</code> between elements.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toList()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toList()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toList</span>(): <a href="List.html" class="name-ref">List</a>&lt;<a href="Listing.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this listing to a <a href="List.html"><code>List</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toSet()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toSet()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toSet</span>(): <a href="Set.html" class="name-ref">Set</a>&lt;<a href="Listing.html#Element" class="name-ref">Element</a>&gt;</div>
+                <div class="doc-comment"><p>Converts this listing to a <a href="Set.html"><code>Set</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

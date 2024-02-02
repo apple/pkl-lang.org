@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>math (pkl:0.25.1) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.1/math/index.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.1" data-package-url-prefix="../" data-module-name="pkl.math" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a>
+      <h1 id="declaration-title">pkl.math<span id="declaration-version">0.25.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">pkl.math</span></div>
+        <div class="doc-comment"><p>Basic mathematical constants and functions.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">pkl:math</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.25.1 or higher</dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Note that some mathematical functions, such as <code>sign()</code>, <code>abs()</code>, and <code>round()</code>,
+are directly defined in classes <a href="../base/Number.html"><code>Number</code></a>, <a href="../base/Int.html"><code>Int</code></a>, and <a href="../base/Float.html"><code>Float</code></a>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="../base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minInt" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minInt">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minInt</span>: <a href="../base/Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The minimum <a href="../base/Int.html"><code>Int</code></a> value: <code>-9223372036854775808</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minInt8" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minInt8">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minInt8</span>: <a href="../base/index.html#Int8" class="name-ref">Int8</a></div>
+                <div class="doc-comment"><p>The minimum <a href="../base/index.html#Int8"><code>Int8</code></a> value: -128.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minInt16" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minInt16">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minInt16</span>: <a href="../base/index.html#Int16" class="name-ref">Int16</a></div>
+                <div class="doc-comment"><p>The minimum <a href="../base/index.html#Int16"><code>Int16</code></a> value: -32768.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minInt32" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minInt32">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minInt32</span>: <a href="../base/index.html#Int32" class="name-ref">Int32</a></div>
+                <div class="doc-comment"><p>The minimum <a href="../base/index.html#Int32"><code>Int32</code></a> value: -2147483648.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxInt" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxInt">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxInt</span>: <a href="../base/Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/Int.html"><code>Int</code></a> value: <code>9223372036854775807</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxInt8" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxInt8">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxInt8</span>: <a href="../base/index.html#Int8" class="name-ref">Int8</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#Int8"><code>Int8</code></a> value: 127.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxInt16" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxInt16">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxInt16</span>: <a href="../base/index.html#Int16" class="name-ref">Int16</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#Int16"><code>Int16</code></a> value: 32767.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxInt32" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxInt32">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxInt32</span>: <a href="../base/index.html#Int32" class="name-ref">Int32</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#Int32"><code>Int32</code></a> value: 2147483647.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxUInt" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxUInt">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxUInt</span>: <a href="../base/index.html#UInt" class="name-ref">UInt</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#UInt"><code>UInt</code></a> value: 9223372036854775807.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Note that <code>maxUInt</code> is equal to <a href="index.html#maxInt"><code>maxInt</code></a>,
+not <code>maxInt * 2 + 1</code> as one might expect.
+That is, <a href="../base/index.html#UInt"><code>UInt</code></a> has half the range of <a href="../base/Int.html"><code>Int</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxUInt8" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxUInt8">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxUInt8</span>: <a href="../base/index.html#UInt8" class="name-ref">UInt8</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#UInt8"><code>UInt8</code></a> value: 255.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxUInt16" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxUInt16">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxUInt16</span>: <a href="../base/index.html#UInt16" class="name-ref">UInt16</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#UInt16"><code>UInt16</code></a> value: 65535.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxUInt32" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#maxUInt32">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxUInt32</span>: <a href="../base/index.html#UInt32" class="name-ref">UInt32</a></div>
+                <div class="doc-comment"><p>The maximum <a href="../base/index.html#UInt32"><code>UInt32</code></a> value: 4294967295.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minFiniteFloat" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minFiniteFloat">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minFiniteFloat</span>: <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The minimum finite <a href="../base/Float.html"><code>Float</code></a> value: <code>-1.7976931348623157e308</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Operations whose value is less than <code>minFiniteFloat</code> return -<a href="not_found"><code>infinity</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxFiniteFloat" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxFiniteFloat">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxFiniteFloat</span>: <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The maximum finite <a href="../base/Float.html"><code>Float</code></a> value: <code>1.7976931348623157e308</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Operations whose value is greater than <code>maxFiniteFloat</code> return <a href="not_found"><code>infinity</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minPositiveFloat" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minPositiveFloat">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minPositiveFloat</span>: <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The minimum positive <a href="../base/Float.html"><code>Float</code></a> value that is greater than zero: <code>4.9e-324</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="e" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#e">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">e</span>: <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The number <a href="not_found">e</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pi" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#pi">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pi</span>: <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The number <a href="not_found">π</a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="../base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="../base/Module.html" class="name-ref">Module</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exp()" class="anchor"> </div>
+            <div id="exp().exponent" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#exp()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">exp</span>(<span class="param1">exponent</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns e raised to the power of <code>exponent</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sqrt()" class="anchor"> </div>
+            <div id="sqrt().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sqrt()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sqrt</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">square root</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cbrt()" class="anchor"> </div>
+            <div id="cbrt().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cbrt()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cbrt</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">cube root</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="log()" class="anchor"> </div>
+            <div id="log().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#log()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">log</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">natural logarithm</a> (base e logarithm) of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="log2()" class="anchor"> </div>
+            <div id="log2().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#log2()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">log2</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">base 2 logarithm</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="log10()" class="anchor"> </div>
+            <div id="log10().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#log10()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">log10</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">base 10 logarithm</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sin()" class="anchor"> </div>
+            <div id="sin().angle" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sin()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sin</span>(<span class="param1">angle</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">sine</a> of <code>angle</code> given in radians.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cos()" class="anchor"> </div>
+            <div id="cos().angle" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cos()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cos</span>(<span class="param1">angle</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">cosine</a> of <code>angle</code> given in radians.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tan()" class="anchor"> </div>
+            <div id="tan().angle" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#tan()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tan</span>(<span class="param1">angle</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">tangent</a> of <code>angle</code> given in radians.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="asin()" class="anchor"> </div>
+            <div id="asin().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#asin()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">asin</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">arcsine</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="acos()" class="anchor"> </div>
+            <div id="acos().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#acos()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">acos</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">arccosine</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="atan()" class="anchor"> </div>
+            <div id="atan().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#atan()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">atan</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">arctangent</a> of <code>x</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="gcd()" class="anchor"> </div>
+            <div id="gcd().x" class="anchor-param1"> </div>
+            <div id="gcd().y" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#gcd()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">gcd</span>(<span class="param1">x</span>: <a href="../base/Int.html" class="name-ref">Int</a>, <span class="param2">y</span>: <a href="../base/Int.html" class="name-ref">Int</a>): <a href="../base/Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">greatest common divisor</a> of <code>x</code> and <code>y</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lcm()" class="anchor"> </div>
+            <div id="lcm().x" class="anchor-param1"> </div>
+            <div id="lcm().y" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#lcm()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lcm</span>(<span class="param1">x</span>: <a href="../base/Int.html" class="name-ref">Int</a>, <span class="param2">y</span>: <a href="../base/Int.html" class="name-ref">Int</a>): <a href="../base/Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Returns the <a href="not_found">least common multiple</a> of <code>x</code> and <code>y</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isPowerOfTwo()" class="anchor"> </div>
+            <div id="isPowerOfTwo().x" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isPowerOfTwo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isPowerOfTwo</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Returns <code>true</code> if <code>x</code> is a power of two.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="min()" class="anchor"> </div>
+            <div id="min().x" class="anchor-param1"> </div>
+            <div id="min().y" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#min()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">min</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>, <span class="param2">y</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Number.html" class="name-ref">Number</a></div>
+                <div class="doc-comment"><p>Returns the minimum of <code>x</code> and <code>y</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="max()" class="anchor"> </div>
+            <div id="max().x" class="anchor-param1"> </div>
+            <div id="max().y" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#max()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">max</span>(<span class="param1">x</span>: <a href="../base/Number.html" class="name-ref">Number</a>, <span class="param2">y</span>: <a href="../base/Number.html" class="name-ref">Number</a>): <a href="../base/Number.html" class="name-ref">Number</a></div>
+                <div class="doc-comment"><p>Returns the maximum of <code>x</code> and <code>y</code>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

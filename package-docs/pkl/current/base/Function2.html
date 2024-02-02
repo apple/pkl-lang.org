@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Function2 (pkl/base:0.25.1) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.25.1/base/Function2.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.25.1" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="Function2" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <div id="Param1" class="anchor-param1"> </div>
+      <div id="Param2" class="anchor-param2"> </div>
+      <div id="Result" class="anchor-param3"> </div>
+      <h1 id="declaration-title">Function2<span id="declaration-version">0.25.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">external class <span class="name-decl">Function2</span>&lt;in <a class="param1">Param1</a>, in <a class="param2">Param2</a>, out <a class="param3">Result</a>&gt; extends <a href="Function.html" class="name-ref">Function</a>&lt;<a href="Function2.html#Result" class="name-ref">Result</a>&gt;</div>
+        <div class="doc-comment"><p>A function literal with two parameters.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Function2.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Function2.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="applyToList()" class="anchor"> </div>
+            <div id="applyToList().argumentList" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#applyToList()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Function.html" class="name-ref">Function</a>.</span><span class="name-decl">applyToList</span>(<span class="param1">argumentList</span>: <a href="List.html" class="name-ref">List</a>&lt;<a href="Any.html" class="name-ref">Any</a>&gt;): <a href="Function2.html#Result" class="name-ref">Result</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>call</code>, <code>invoke</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="apply()" class="anchor"> </div>
+            <div id="apply().p1" class="anchor-param1"> </div>
+            <div id="apply().p2" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#apply()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">apply</span>(<span class="param1">p1</span>: <a href="Function2.html#Param1" class="name-ref">Param1</a>, <span class="param2">p2</span>: <a href="Function2.html#Param2" class="name-ref">Param2</a>): <a href="Function2.html#Result" class="name-ref">Result</a></div>
+                <dl class="member-info expandable hidden collapsed">
+                  <dt>Also known as:</dt>
+                  <dd><code>call</code>, <code>invoke</code></dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

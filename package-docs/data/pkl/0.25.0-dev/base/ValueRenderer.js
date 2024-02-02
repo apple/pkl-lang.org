@@ -1,2 +1,2 @@
-runtimeData.links('known-versions','[{"text":"0.25.0-dev","classes":"current-version"}]');
+runtimeData.links('known-versions','[{"text":"0.25.1","href":"../../0.25.1/base/ValueRenderer.html"},{"text":"0.25.0-dev","classes":"current-version"}]');
 runtimeData.links('known-subtypes','[{"text":"JsonRenderer","href":"JsonRenderer.html"},{"text":"PListRenderer","href":"PListRenderer.html"},{"text":"PcfRenderer","href":"PcfRenderer.html"},{"text":"PropertiesRenderer","href":"PropertiesRenderer.html"},{"text":"Renderer","href":"../jsonnet/Renderer.html"},{"text":"Renderer","href":"../protobuf/Renderer.html"},{"text":"Renderer","href":"../xml/Renderer.html"},{"text":"YamlRenderer","href":"YamlRenderer.html"}]');

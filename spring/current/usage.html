@@ -84,7 +84,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="spring" data-version="0.14.0">
+<div class="nav-container" data-component="spring" data-version="0.15.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -111,7 +111,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Spring Boot Integration</span>
-    <span class="version">0.14.0</span>
+    <span class="version">0.15.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -126,7 +126,10 @@
       <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../main/current/index.html">0.25.0</a>
+          <a href="../../main/current/index.html">0.25.1</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.25.0/index.html">0.25.0</a>
         </li>
         <li class="version">
           <a href="../../main/0.25.0-dev/index.html">0.25.0-dev</a>
@@ -167,7 +170,7 @@
       <div class="title"><a href="index.html">Spring Boot Integration</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.14.0</a>
+          <a href="index.html">0.15.0</a>
         </li>
       </ul>
     </li>
@@ -232,20 +235,20 @@ in the Spring Boot documentation.</p>
 <div class="listingblock">
 <div class="title">AppConfig.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">// this module name determines the package and
-// class name of the generated Java config class
-module samples.boot.AppConfig
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">// this module name determines the package and</span>
+<span class="hljs-comment">// class name of the generated Java config class</span>
+<span class="hljs-keyword">module</span> <span class="hljs-property">samples</span><span class="hljs-punctuation">.</span><span class="hljs-property">boot</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">AppConfig</span>
 
-server: Server
+<span class="hljs-property">server</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Server</span>
 
-class Server {
-  endpoints: Listing&lt;Endpoint&gt;
-}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Server</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">endpoints</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Endpoint</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-punctuation">}</span>
 
-class Endpoint {
-  name: String
-  port: UInt16
-}</code></pre>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Endpoint</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+  <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span>
+<span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
 </li>
@@ -254,27 +257,40 @@ class Endpoint {
 <div class="listingblock">
 <div class="title">application.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">amends "modulepath:/appConfig.pkl"
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;modulepath:/appConfig.pkl&quot;</span>
 
-server {
-  endpoints {
-    new {
-      name = "endpoint1"
-      port = 1234
-    }
-    new {
-      name = "endpoint2"
-      port = 5678
-    }
-  }
-}</code></pre>
+<span class="hljs-property">server</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">endpoints</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;endpoint1&quot;</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">1234</span>
+    <span class="hljs-punctuation">}</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;endpoint2&quot;</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">5678</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Use Pkl&#8217;s Gradle plugin to generate Java config classes from the schema.
+<p>Use Pkl&#8217;s <a href="../../main/current/pkl-gradle/index.html" class="xref page">Gradle plugin</a> to generate Java config classes from the schema.
 Generated classes are placed in <code>generated/configClasses/</code> and compiled together with your production code.
 To run the generator directly (which isn&#8217;t typically necessary), type <code>./gradlew configClasses</code>.</p>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
 <div class="title">build.gradle</div>
 <div class="content">
@@ -291,6 +307,49 @@ pkl {
     }
   }
 }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
+  repositories {
+    mavenCentral()
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+  id("org.pkl-lang") version "$pklVersion"
+}
+
+pkl {
+  javaCodeGenerators {
+    register("configClasses") {
+      generateGetters.set(true)
+      generateSpringBootConfig.set(true)
+      sourceModules.set(files("src/main/resources/AppConfig.pkl"))
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
+  repositories {
+    mavenCentral()
+  }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </li>

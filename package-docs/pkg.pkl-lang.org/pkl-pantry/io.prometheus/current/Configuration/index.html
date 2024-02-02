@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Configuration (pkg.pkl-lang.org/pkl-pantry/io.prometheus:1.0.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/io.prometheus/1.0.0/Configuration/index.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/io.prometheus" data-package-version="1.0.0" data-package-url-prefix="../" data-module-name="io.prometheus.Configuration" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/io.prometheus</a>
+      <h1 id="declaration-title">io.prometheus.Configuration<span id="declaration-version">1.0.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">open module <span class="name-decl">io.prometheus.Configuration</span> extends <a href="../PrometheusObject/index.html" class="name-ref">io.prometheus.PrometheusObject</a></div>
+        <div class="doc-comment"><p>Prometheus is configured via command-line flags and a configuration file.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/io.prometheus@1.0.0#/Configuration.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.25.0 or higher</dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl">Configuration.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>While the command-line flags configure immutable system parameters
+(such as storage locations, amount of data to keep on disk and in memory, etc.),
+the configuration file defines everything related to scraping
+<a href="https://prometheus.io/docs/concepts/jobs_instances/">jobs and their instances</a>,
+as well as which
+<a href="https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#configuring-rules">rule files to load</a>.</p>
+<p>To view all available command-line flags, run <code>./prometheus -h</code>.</p>
+<p>Prometheus can reload its configuration at runtime.
+If the new configuration is not well-formed, the changes will not be applied.
+A configuration reload is triggered by sending a <code>SIGHUP</code> to the Prometheus process
+or sending a HTTP POST request to the <code>/-/reload</code> endpoint
+(when the <code>--web.enable-lifecycle</code> flag is enabled).
+This will also reload any configured rule files.</p>
+<p>More details: <a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file">https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file</a></p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="global" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#global">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">global</span>: <a href="GlobalConfig.html" class="name-ref">GlobalConfig</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L43-43">Source</a></div>
+                <div class="doc-comment"><p>The global configuration specifies parameters that are valid in all other configuration contexts.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>They also serve as defaults for other configuration sections.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="alerting" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#alerting">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">alerting</span>: <a href="AlertingConfig.html" class="name-ref">AlertingConfig</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L46-46">Source</a></div>
+                <div class="doc-comment"><p>Alerting specifies settings related to the Alertmanager.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="scrape_configs" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#scrape_configs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">scrape_configs</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ScrapeConfig.html" class="name-ref">ScrapeConfig</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L49-49">Source</a></div>
+                <div class="doc-comment"><p>A list of scrape configurations.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remote_write" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#remote_write">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">remote_write</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="RemoteWriteConfig.html" class="name-ref">RemoteWriteConfig</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L52-52">Source</a></div>
+                <div class="doc-comment"><p>Settings related to the remote write feature.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remote_read" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#remote_read">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">remote_read</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="RemoteReadConfig.html" class="name-ref">RemoteReadConfig</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L55-55">Source</a></div>
+                <div class="doc-comment"><p>Settings related to the remote read feature.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rule_files" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#rule_files">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rule_files</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L58-58">Source</a></div>
+                <div class="doc-comment"><p>A list of globs. Rules and alerts are read from all matching files.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="GlobalConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#GlobalConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="GlobalConfig.html" class="name-decl">GlobalConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L60-84">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ScrapeConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ScrapeConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ScrapeConfig.html" class="name-decl">ScrapeConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L97-210">Source</a></div>
+                <div class="doc-comment"><p>A set of targets and parameters describing how to scrape them.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="KubernetesSdConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#KubernetesSdConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="KubernetesSdConfig.html" class="name-decl">KubernetesSdConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L218-252">Source</a></div>
+                <div class="doc-comment"><p>Allow retrieving scrape targets from Kubernetes' REST API
+and always staying synchronized with the cluster state.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="KubernetesSdConfigSelector" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#KubernetesSdConfigSelector">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="KubernetesSdConfigSelector.html" class="name-decl">KubernetesSdConfigSelector</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L254-266">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="FileSdConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#FileSdConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="FileSdConfig.html" class="name-decl">FileSdConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L274-285">Source</a></div>
+                <div class="doc-comment"><p>File-based service discovery provides a more generic way to configure static targets and
+serves as an interface to plug in custom service discovery mechanisms.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="NamespaceSpec" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#NamespaceSpec">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="NamespaceSpec.html" class="name-decl">NamespaceSpec</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L287-289">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RelabelConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RelabelConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RelabelConfig.html" class="name-decl">RelabelConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L315-345">Source</a></div>
+                <div class="doc-comment"><p>Relabeling is a powerful tool to dynamically rewrite the label set of a target before it gets scraped.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="StaticConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#StaticConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="StaticConfig.html" class="name-decl">StaticConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L369-375">Source</a></div>
+                <div class="doc-comment"><p>Allows specifying a list of targets and a common label set for them.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RemoteWriteConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RemoteWriteConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RemoteWriteConfig.html" class="name-decl">RemoteWriteConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L386-443">Source</a></div>
+                <div class="doc-comment"><p><a href="RemoteWriteConfig.html#write_relabel_configs"><code>write_relabel_configs</code></a> is relabeling applied to samples
+before sending them to the remote endpoint.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MetadataConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MetadataConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MetadataConfig.html" class="name-decl">MetadataConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L445-455">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="QueueConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#QueueConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="QueueConfig.html" class="name-decl">QueueConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L457-495">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="AlertingConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#AlertingConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="AlertingConfig.html" class="name-decl">AlertingConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L497-499">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="AlertManagerConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#AlertManagerConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="AlertManagerConfig.html" class="name-decl">AlertManagerConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L513-557">Source</a></div>
+                <div class="doc-comment"><p>Specifies Alertmanager instances the Prometheus server sends alerts to.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="TLSConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#TLSConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="TLSConfig.html" class="name-decl">TLSConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L560-577">Source</a></div>
+                <div class="doc-comment"><p>Allows configuring TLS connections.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RemoteReadConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RemoteReadConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RemoteReadConfig.html" class="name-decl">RemoteReadConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L579-623">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BasicAuth" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#BasicAuth">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="BasicAuth.html" class="name-decl">BasicAuth</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L625-633">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Sigv4Config" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Sigv4Config">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Sigv4Config.html" class="name-decl">Sigv4Config</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L635-648">Source</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="MetricNameFormat" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#MetricNameFormat">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="../PrometheusObject/index.html#MetricNameFormat" class="name-decl">MetricNameFormat</a> = <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;[a-zA-Z_:][a-zA-Z0-9_:]*&quot;#)))<span class="context"> (<a href="../PrometheusObject/index.html" class="name-ref">io.prometheus.PrometheusObject</a>)</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="LabelNameFormat" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#LabelNameFormat">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="../PrometheusObject/index.html#LabelNameFormat" class="name-decl">LabelNameFormat</a> = <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;#)))<span class="context"> (<a href="../PrometheusObject/index.html" class="name-ref">io.prometheus.PrometheusObject</a>)</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Labels" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#Labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="../PrometheusObject/index.html#Labels" class="name-decl">Labels</a> = <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../PrometheusObject/index.html#LabelNameFormat" class="name-ref">LabelNameFormat</a>, (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>|<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Number.html" class="name-ref">Number</a>|<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a>)&gt;<span class="context"> (<a href="../PrometheusObject/index.html" class="name-ref">io.prometheus.PrometheusObject</a>)</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Scheme" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#Scheme">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="../PrometheusObject/index.html#Scheme" class="name-decl">Scheme</a> = &quot;http&quot;|&quot;https&quot;<span class="context"> (<a href="../PrometheusObject/index.html" class="name-ref">io.prometheus.PrometheusObject</a>)</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RelabelAction" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#RelabelAction">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#RelabelAction" class="name-decl">RelabelAction</a> = &quot;replace&quot;|&quot;keep&quot;|&quot;drop&quot;|&quot;hashmod&quot;|&quot;labelmap&quot;|&quot;labeldrop&quot;|&quot;labelkeep&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/io.prometheus@1.0.0/packages/io.prometheus/Configuration.pkl#L362-362">Source</a></div>
+                <div class="doc-comment"><p>Which relabel action to perform.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><ul>
+<li><code>&quot;replace&quot;</code>: Match <code>regex</code> against the concatenated <code>source_labels</code>.
+Then, set <code>target_label</code> to <code>replacement</code>, with match group references
+(<code>${1}</code>, <code>${2}</code>, ...) in <code>replacement</code> substituted by their value.
+If <code>regex</code> does not match, no replacement takes place.</li>
+<li><code>&quot;keep&quot;</code>: Drop targets for which <code>regex</code> does not match the concatenated <code>source_labels</code>.</li>
+<li><code>&quot;drop&quot;</code>: Drop targets for which <code>regex</code> matches the concatenated <code>source_labels</code>.</li>
+<li><code>&quot;hashmod&quot;</code>: Set <code>target_label</code> to the <code>modulus</code> of a hash of the concatenated <code>source_labels</code>.</li>
+<li><code>&quot;labelmap&quot;</code>: Match <code>regex</code> against all label names.
+Then copy the values of the matching labels to label names given by <code>replacement</code>
+with match group references (<code>${1}</code>, <code>${2}</code>, ...) in <code>replacement</code> substituted by their value.</li>
+<li><code>&quot;labeldrop&quot;</code>: Match <code>regex</code> against all label names.
+Any label that matches will be removed from the set of labels.</li>
+<li><code>&quot;labelkeep&quot;</code>: Match <code>regex</code> against all label names.</li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

@@ -66,7 +66,7 @@ hostname: String
 port: UInt16
 
 /// The environment to deploy to.
-environment: Enviornment
+environment: Environment
 
 /// The database connection for this application
 database: Database
@@ -88,7 +88,7 @@ class Database {
   dbName: String
 }
 
-typealias Enviornment = "dev"|"qa"|"prod"
+typealias Environment = "dev"|"qa"|"prod"
 ----
 
 And here is how configuration data might be defined:
@@ -402,7 +402,7 @@ import PklSwift
 public enum Application {}
 
 extension Application {
-    public enum Enviornment: String, CaseIterable, Decodable, Hashable {
+    public enum Environment: String, CaseIterable, Decodable, Hashable {
         case dev = "dev"
         case qa = "qa"
         case prod = "prod"
@@ -418,12 +418,12 @@ extension Application {
         public var port: UInt16
 
         /// The environment to deploy to.
-        public var environment: Enviornment
+        public var environment: Environment
 
         /// The database connection for this application
         public var database: Database
 
-        public init(hostname: String, port: UInt16, environment: Enviornment, database: Database) {
+        public init(hostname: String, port: UInt16, environment: Environment, database: Database) {
             self.hostname = hostname
             self.port = port
             self.environment = environment
@@ -476,7 +476,7 @@ type Application struct {
 	Port uint16 `pkl:"port"`
 
 	// The environment to deploy to.
-	Environment enviornment.Enviornment `pkl:"environment"`
+	Environment Environment.Environment `pkl:"environment"`
 
 	// The database connection for this application
 	Database *Database `pkl:"database"`
@@ -511,23 +511,23 @@ type Database struct {
 [source,go]
 ----
 // Code generated from Pkl module `Application`. DO NOT EDIT.
-package enviornment
+package Environment
 
 import (
 	"encoding"
 	"fmt"
 )
 
-type Enviornment string
+type Environment string
 
 const (
-	Dev  Enviornment = "dev"
-	Qa   Enviornment = "qa"
-	Prod Enviornment = "prod"
+	Dev  Environment = "dev"
+	Qa   Environment = "qa"
+	Prod Environment = "prod"
 )
 
-// String returns the string representation of Enviornment
-func (rcv Enviornment) String() string {
+// String returns the string representation of Environment
+func (rcv Environment) String() string {
 	return string(rcv)
 }
 ----
@@ -559,7 +559,7 @@ public final class Application {
   /**
    * The environment to deploy to.
    */
-  public final @NonNull Enviornment environment;
+  public final @NonNull Environment environment;
 
   /**
    * The database connection for this application
@@ -567,7 +567,7 @@ public final class Application {
   public final @NonNull Database database;
 
   public Application(@Named("hostname") @NonNull String hostname, @Named("port") int port,
-      @Named("environment") @NonNull Enviornment environment,
+      @Named("environment") @NonNull Environment environment,
       @Named("database") @NonNull Database database) {
     this.hostname = hostname;
     this.port = port;
@@ -612,7 +612,7 @@ public final class Application {
     }
   }
 
-  public enum Enviornment {
+  public enum Environment {
     DEV("dev"),
 
     QA("qa"),
@@ -621,7 +621,7 @@ public final class Application {
 
     private String value;
 
-    private Enviornment(String value) {
+    private Environment(String value) {
       this.value = value;
     }
 
@@ -653,7 +653,7 @@ data class Application(
   /**
    * The environment to deploy to.
    */
-  val environment: Enviornment,
+  val environment: Environment,
   /**
    * The database connection for this application
    */
@@ -682,7 +682,7 @@ data class Application(
     val dbName: String
   )
 
-  enum class Enviornment(
+  enum class Environment(
     val value: String
   ) {
     DEV("dev"),

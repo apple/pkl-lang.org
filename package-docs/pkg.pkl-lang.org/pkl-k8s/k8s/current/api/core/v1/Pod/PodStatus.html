@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PodStatus (pkg.pkl-lang.org/pkl-k8s/k8s:1.0.1) • Packages</title>
+    <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/1.0.1/api/core/v1/Pod/PodStatus.js" defer="defer"></script>
+    <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-k8s/k8s" data-package-version="1.0.1" data-package-url-prefix="../../../../" data-module-name="k8s.api.core.v1.Pod" data-class-name="PodStatus" data-root-url-prefix="../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-k8s/k8s</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.api.core.v1.Pod</a>
+      <h1 id="declaration-title">PodStatus<span id="declaration-version">1.0.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">PodStatus</span></div>
+        <div class="doc-comment"><p>PodStatus represents information about the status of a pod.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="phase" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#phase">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">phase</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#70-70">Source</a></div>
+                <div class="doc-comment"><p>The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The conditions array, the reason and message fields, and the individual container status arrays contain more detail about the pod's status.
+There are five possible phase values:</p>
+<p>Pending: The pod has been accepted by the Kubernetes system, but one or more of the container images has not been created.
+This includes time before being scheduled as well as time spent downloading images over the network, which could take a while.
+Running: The pod has been bound to a node, and all of the containers have been created.
+At least one container is still running, or is in the process of starting or restarting.
+Succeeded: All containers in the pod have terminated in success, and will not be restarted.
+Failed: All containers in the pod have terminated, and at least one container has terminated in failure.
+The container either exited with non-zero status or was terminated by the system.
+Unknown: For some reason the state of the pod could not be obtained, typically due to an error in communicating with the host of the pod.</p>
+<p>More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="resourceClaimStatuses" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#resourceClaimStatuses">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">resourceClaimStatuses</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="PodResourceClaimStatus.html" class="name-ref">PodResourceClaimStatus</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#74-74">Source</a></div>
+                <div class="doc-comment"><p>Status of resource claims.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="reason" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#reason">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">reason</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#79-79">Source</a></div>
+                <div class="doc-comment"><p>A brief CamelCase message indicating details about why the pod is in this state.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>e.g. 'Evicted'</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="containerStatuses" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#containerStatuses">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">containerStatuses</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ContainerStatus.html" class="name-ref">ContainerStatus</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#84-84">Source</a></div>
+                <div class="doc-comment"><p>The list has one entry per container in the manifest.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hostIP" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#hostIP">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hostIP</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#90-90">Source</a></div>
+                <div class="doc-comment"><p>hostIP holds the IP address of the host to which the pod is assigned.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Empty if the pod has not started yet.
+A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="nominatedNodeName" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#nominatedNodeName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">nominatedNodeName</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#98-98">Source</a></div>
+                <div class="doc-comment"><p>nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be scheduled right away as preemption victims receive their graceful termination periods.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This field does not guarantee that the pod will be scheduled on this node.
+Scheduler may decide to place the pod elsewhere if other nodes become available sooner.
+Scheduler may also decide to give the resources on this node to a higher priority pod that is created after preemption.
+As a result, this field may be different than PodSpec.nodeName when the pod is scheduled.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="message" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#message">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">message</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#101-101">Source</a></div>
+                <div class="doc-comment"><p>A human readable message indicating details about why the pod is in this condition.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="podIPs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#podIPs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">podIPs</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="PodIP.html" class="name-ref">PodIP</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#108-108">Source</a></div>
+                <div class="doc-comment"><p>podIPs holds the IP addresses allocated to the pod.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If this field is specified, the 0th entry must match the podIP field.
+Pods may be allocated at most 1 value for each of IPv4 and IPv6.
+This list is empty if no IPs have been allocated yet.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="podIP" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#podIP">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">podIP</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#114-114">Source</a></div>
+                <div class="doc-comment"><p>podIP address allocated to the pod.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Routable at least within the cluster.
+Empty if not yet allocated.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ephemeralContainerStatuses" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ephemeralContainerStatuses">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ephemeralContainerStatuses</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ContainerStatus.html" class="name-ref">ContainerStatus</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#117-117">Source</a></div>
+                <div class="doc-comment"><p>Status for any ephemeral containers that have run in this pod.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hostIPs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#hostIPs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hostIPs</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="HostIP.html" class="name-ref">HostIP</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#125-125">Source</a></div>
+                <div class="doc-comment"><p>hostIPs holds the IP addresses allocated to the host.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If this field is specified, the first entry must match the hostIP field.
+This list is empty if the pod has not started yet.
+A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="resize" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#resize">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">resize</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#132-132">Source</a></div>
+                <div class="doc-comment"><p>Status of resources resize desired for pod's containers.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It is empty if no resources resize is pending.
+Any changes to container resources will automatically set this to &quot;Proposed&quot;</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="startTime" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#startTime">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">startTime</span>: <a href="../../../../K8sObject/index.html#Time" class="name-ref">Time</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#137-137">Source</a></div>
+                <div class="doc-comment"><p>RFC 3339 date and time at which the object was acknowledged by the Kubelet.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This is before the Kubelet pulled the container image(s) for the pod.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="qosClass" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#qosClass">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">qosClass</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#140-140">Source</a></div>
+                <div class="doc-comment"><p>The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#quality-of-service-classes">https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#quality-of-service-classes</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="conditions" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#conditions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">conditions</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="PodCondition.html" class="name-ref">PodCondition</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#145-145">Source</a></div>
+                <div class="doc-comment"><p>Current service state of pod.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="initContainerStatuses" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#initContainerStatuses">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">initContainerStatuses</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ContainerStatus.html" class="name-ref">ContainerStatus</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Pod.pkl#151-151">Source</a></div>
+                <div class="doc-comment"><p>The list has one entry per init container in the manifest.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The most recent successful init container will have ready = true, the most recently started container will have startTime set.
+More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status</a></p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="PodStatus.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="PodStatus.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

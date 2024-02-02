@@ -1,0 +1,2 @@
+runtimeData.links('known-versions','[{"text":"1.0.1","classes":"current-version"}]');
+runtimeData.links('known-usages','[{"text":"ContainerResourceMetricSource","href":"ContainerResourceMetricSource.html"},{"text":"ExternalMetricSource","href":"ExternalMetricSource.html"},{"text":"ObjectMetricSource","href":"ObjectMetricSource.html"},{"text":"PodsMetricSource","href":"PodsMetricSource.html"},{"text":"ResourceMetricSource","href":"ResourceMetricSource.html"}]');

@@ -1,0 +1,2 @@
+runtimeData.links('known-versions','[{"text":"1.0.1","classes":"current-version"}]');
+runtimeData.links('known-usages','[{"text":"SelfSubjectReviewStatus","href":"../../v1beta1/SelfSubjectReview/SelfSubjectReviewStatus.html"},{"text":"SelfSubjectReviewStatus","href":"../../v1alpha1/SelfSubjectReview/SelfSubjectReviewStatus.html"},{"text":"SelfSubjectReviewStatus","href":"../SelfSubjectReview/SelfSubjectReviewStatus.html"},{"text":"TokenReviewStatus","href":"../TokenReview/TokenReviewStatus.html"}]');

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ValidatingWebhook (pkg.pkl-lang.org/pkl-k8s/k8sn/v1beta1/ValidatingWebhookConfiguration:1.0.1) • Packages</title>
+    <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/1.0.1/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration/ValidatingWebhook.js" defer="defer"></script>
+    <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-k8s/k8s" data-package-version="1.0.1" data-package-url-prefix="../../../../" data-module-name="k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" data-class-name="ValidatingWebhook" data-root-url-prefix="../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-k8s/k8s</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration</a>
+      <h1 id="declaration-title">ValidatingWebhook<span id="declaration-version">1.0.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">ValidatingWebhook</span></div>
+        <div class="doc-comment"><p>ValidatingWebhook describes an admission webhook and the resources and operations it applies to.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="admissionReviewVersions" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#admissionReviewVersions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">admissionReviewVersions</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#51-51">Source</a></div>
+                <div class="doc-comment"><p>AdmissionReviewVersions is an ordered list of preferred <code>AdmissionReview</code> versions the Webhook expects.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>API server will try to use first version in the list which it supports.
+If none of the versions specified in this list supported by API server, validation will fail for this object.
+If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
+Default to <code>['v1beta1']</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="matchPolicy" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#matchPolicy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">matchPolicy</span>: (&quot;Exact&quot;|&quot;Equivalent&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#64-64">Source</a></div>
+                <div class="doc-comment"><p>matchPolicy defines how the &quot;rules&quot; list is used to match incoming requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Allowed values are &quot;Exact&quot; or &quot;Equivalent&quot;.</p>
+<ul>
+<li>
+<p>Exact: match a request only if it exactly matches a specified rule.
+For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but &quot;rules&quot; only included <code>apiGroups:[&quot;apps&quot;], apiVersions:[&quot;v1&quot;], resources: [&quot;deployments&quot;]</code>, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.</p>
+</li>
+<li>
+<p>Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and &quot;rules&quot; only included <code>apiGroups:[&quot;apps&quot;], apiVersions:[&quot;v1&quot;], resources: [&quot;deployments&quot;]</code>, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.</p>
+</li>
+</ul>
+<p>Defaults to &quot;Exact&quot;</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#name">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#70-70">Source</a></div>
+                <div class="doc-comment"><p>The name of the admission webhook.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where &quot;imagepolicy&quot; is the name of the webhook, and kubernetes.io is the name of the organization.
+Required.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="namespaceSelector" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#namespaceSelector">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">namespaceSelector</span>: <a href="../../../../apimachinery/pkg/apis/meta/v1/LabelSelector/index.html" class="name-ref">LabelSelector</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#106-106">Source</a></div>
+                <div class="doc-comment"><p>NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If the object itself is a namespace, the matching is performed on object.metadata.labels.
+If the object is another cluster scoped resource, it never skips the webhook.</p>
+<p>For example, to run the webhook on any objects whose namespace is not associated with &quot;runlevel&quot; of &quot;0&quot; or &quot;1&quot;;  you will set the selector as follows: &quot;namespaceSelector&quot;: {
+&quot;matchExpressions&quot;: [
+{
+&quot;key&quot;: &quot;runlevel&quot;,
+&quot;operator&quot;: &quot;NotIn&quot;,
+&quot;values&quot;: <a href="not_found">
+&quot;0&quot;,
+&quot;1&quot;
+</a>
+}
+]
+}</p>
+<p>If instead you want to only run the webhook on any objects whose namespace is associated with the &quot;environment&quot; of &quot;prod&quot; or &quot;staging&quot;; you will set the selector as follows: &quot;namespaceSelector&quot;: {
+&quot;matchExpressions&quot;: [
+{
+&quot;key&quot;: &quot;environment&quot;,
+&quot;operator&quot;: &quot;In&quot;,
+&quot;values&quot;: <a href="not_found">
+&quot;prod&quot;,
+&quot;staging&quot;
+</a>
+}
+]
+}</p>
+<p>See <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels">https://kubernetes.io/docs/concepts/overview/working-with-objects/labels</a> for more examples of label selectors.</p>
+<p>Default to the empty LabelSelector, which matches everything.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="timeoutSeconds" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#timeoutSeconds">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">timeoutSeconds</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Int.html" class="name-ref">Int</a>(isBetween(1, 30))?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#113-113">Source</a></div>
+                <div class="doc-comment"><p>TimeoutSeconds specifies the timeout for this webhook.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy.
+The timeout value must be between 1 and 30 seconds.
+Default to 30 seconds.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rules" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rules">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rules</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../RuleWithOperations/index.html" class="name-ref">RuleWithOperations</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#119-119">Source</a></div>
+                <div class="doc-comment"><p>Rules describes what operations on what resources/subresources the webhook cares about.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The webhook cares about an operation if it matches <em>any</em> Rule.
+However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="clientConfig" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#clientConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">clientConfig</span>: <a href="../WebhookClientConfig/index.html" class="name-ref">WebhookClientConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#124-124">Source</a></div>
+                <div class="doc-comment"><p>ClientConfig defines how to communicate with the hook.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Required</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="objectSelector" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#objectSelector">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">objectSelector</span>: <a href="../../../../apimachinery/pkg/apis/meta/v1/LabelSelector/index.html" class="name-ref">LabelSelector</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#132-132">Source</a></div>
+                <div class="doc-comment"><p>ObjectSelector decides whether to run the webhook based on if the object has matching labels.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector.
+A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match.
+Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels.
+Default to the empty LabelSelector, which matches everything.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="failurePolicy" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#failurePolicy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">failurePolicy</span>: (&quot;Ignore&quot;|&quot;Fail&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#137-137">Source</a></div>
+                <div class="doc-comment"><p>FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to Ignore.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sideEffects" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sideEffects">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sideEffects</span>: (&quot;Unknown&quot;|&quot;None&quot;|&quot;Some&quot;|&quot;NoneOnDryRun&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/admissionregistration/v1beta1/ValidatingWebhookConfiguration.pkl#144-144">Source</a></div>
+                <div class="doc-comment"><p>SideEffects states whether this webhook has side effects.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone.
+Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
+Defaults to Unknown.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="ValidatingWebhook.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="ValidatingWebhook.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

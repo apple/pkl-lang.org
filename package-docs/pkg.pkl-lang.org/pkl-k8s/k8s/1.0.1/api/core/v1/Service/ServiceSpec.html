@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ServiceSpec (pkg.pkl-lang.org/pkl-k8s/k8s:1.0.1) • Packages</title>
+    <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/1.0.1/api/core/v1/Service/ServiceSpec.js" defer="defer"></script>
+    <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-k8s/k8s" data-package-version="1.0.1" data-package-url-prefix="../../../../" data-module-name="k8s.api.core.v1.Service" data-class-name="ServiceSpec" data-root-url-prefix="../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-k8s/k8s</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.api.core.v1.Service</a>
+      <h1 id="declaration-title">ServiceSpec<span id="declaration-version">1.0.1</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">ServiceSpec</span></div>
+        <div class="doc-comment"><p>ServiceSpec describes the attributes that a user creates on a service.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="clusterIPs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#clusterIPs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">clusterIPs</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#67-67">Source</a></div>
+                <div class="doc-comment"><p>ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail.
+This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).
+Valid values are &quot;None&quot;, empty string (&quot;&quot;), or a valid IP address.
+Setting this to &quot;None&quot; makes a &quot;headless service&quot; (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.
+Only applies to types ClusterIP, NodePort, and LoadBalancer.
+If this field is specified when creating a Service of type ExternalName, creation will fail.
+This field will be wiped when updating a Service to type ExternalName.
+If this field is not specified, it will be initialized from the clusterIP field.
+If this field is specified, clients must ensure that clusterIPs<a href="not_found"><code>0</code></a> and clusterIP have the same value.</p>
+<p>This field may hold a maximum of two entries (dual-stack IPs, in either order).
+These IPs must correspond to the values of the ipFamilies field.
+Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.
+More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies">https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="healthCheckNodePort" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#healthCheckNodePort">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">healthCheckNodePort</span>: <a href="../../../../K8sObject/index.html#PortNumber" class="name-ref">PortNumber</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#78-78">Source</a></div>
+                <div class="doc-comment"><p>healthCheckNodePort specifies the healthcheck nodePort for the service.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local.
+If a value is specified, is in-range, and is not in use, it will be used.
+If not specified, a value will be automatically allocated.
+External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.
+If this field is specified when creating a Service which does not need it, creation will fail.
+This field will be wiped when updating a Service to no longer need it (e.g. changing type).
+This field cannot be updated once set.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ipFamilyPolicy" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ipFamilyPolicy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ipFamilyPolicy</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#87-87">Source</a></div>
+                <div class="doc-comment"><p>IPFamilyPolicy represents the dual-stack-ness requested or required by this Service.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If there is no value provided, then this field will be set to SingleStack.
+Services can be &quot;SingleStack&quot; (a single IP family), &quot;PreferDualStack&quot; (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or &quot;RequireDualStack&quot; (two IP families on dual-stack configured clusters, otherwise fail).
+The ipFamilies and clusterIPs fields depend on the value of this field.
+This field will be wiped when updating a service to type ExternalName.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalIPs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#externalIPs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalIPs</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#94-94">Source</a></div>
+                <div class="doc-comment"><p>externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>These IPs are not managed by Kubernetes.
+The user is responsible for ensuring that traffic arrives at a node with this IP.
+A common example is external load-balancers that are not part of the Kubernetes system.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sessionAffinity" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sessionAffinity">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sessionAffinity</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#103-103">Source</a></div>
+                <div class="doc-comment"><p>Supports &quot;ClientIP&quot; and &quot;None&quot;.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Used to maintain session affinity.
+Enable client IP based session affinity.
+Must be ClientIP or None.
+Defaults to None.
+More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies">https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="allocateLoadBalancerNodePorts" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#allocateLoadBalancerNodePorts">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">allocateLoadBalancerNodePorts</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#112-112">Source</a></div>
+                <div class="doc-comment"><p>allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default is &quot;true&quot;.
+It may be set to &quot;false&quot; if the cluster load-balancer does not rely on NodePorts.
+If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field.
+This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ports" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ports">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ports</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ServicePort.html" class="name-ref">ServicePort</a>&gt;(module.hasUniquePortNames(this), module.hasNonNullPortNames(this), !isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#117-117">Source</a></div>
+                <div class="doc-comment"><p>The list of ports that are exposed by this service.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies">https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="type" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#type">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">type</span>: (&quot;ExternalName&quot;|&quot;ClusterIP&quot;|&quot;NodePort&quot;|&quot;LoadBalancer&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#131-131">Source</a></div>
+                <div class="doc-comment"><p>type determines how the Service is exposed.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to ClusterIP.
+Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer.
+&quot;ClusterIP&quot; allocates a cluster-internal IP address for load-balancing to endpoints.
+Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects.
+If clusterIP is &quot;None&quot;, no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP.
+&quot;NodePort&quot; builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP.
+&quot;LoadBalancer&quot; builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP.
+&quot;ExternalName&quot; aliases this service to the specified externalName.
+Several other fields do not apply to ExternalName services.
+More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="loadBalancerClass" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#loadBalancerClass">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">loadBalancerClass</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#145-145">Source</a></div>
+                <div class="doc-comment"><p>loadBalancerClass is the class of the load balancer implementation this Service belongs to.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If specified, the value of this field must be a label-style identifier, with an optional prefix, e.g. &quot;internal-vip&quot; or &quot;example.com/internal-vip&quot;.
+Unprefixed names are reserved for end-users.
+This field can only be set when the Service type is 'LoadBalancer'.
+If not set, the default load balancer implementation is used, today this is typically done through the cloud provider integration, but should apply for any default implementation.
+If set, it is assumed that a load balancer implementation is watching for Services with a matching class.
+Any default load balancer implementation (e.g. cloud providers) should ignore Services that set this field.
+This field can only be set when creating or updating a Service to type 'LoadBalancer'.
+Once set, it can not be changed.
+This field will be wiped when a service is updated to a non 'LoadBalancer' type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sessionAffinityConfig" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sessionAffinityConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sessionAffinityConfig</span>: <a href="SessionAffinityConfig.html" class="name-ref">SessionAffinityConfig</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#148-148">Source</a></div>
+                <div class="doc-comment"><p>sessionAffinityConfig contains the configurations of session affinity.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ipFamilies" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ipFamilies">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ipFamilies</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#163-163">Source</a></div>
+                <div class="doc-comment"><p>IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field.
+If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail.
+This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service.
+Valid values are &quot;IPv4&quot; and &quot;IPv6&quot;.
+This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to &quot;headless&quot; services.
+This field will be wiped when updating a Service to type ExternalName.</p>
+<p>This field may hold a maximum of two entries (dual-stack families, in either order).
+These families must correspond to the values of the clusterIPs field, if specified.
+Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="loadBalancerIP" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#loadBalancerIP">link</a>
+              <div class="member-left">
+                <div class="member-modifiers member-deprecated"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature member-deprecated"><span class="name-decl">loadBalancerIP</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>(type == &quot;LoadBalancer&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#173-173">Source</a></div>
+                <div class="doc-comment">Deprecated.</div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only applies to Service Type: LoadBalancer.</p><p>This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created.
+This field will be ignored if the cloud-provider does not support the feature.
+Deprecated: This field was under-specified and its meaning varies across implementations.
+Using it is non-portable and it may not support dual-stack.
+Users are encouraged to use implementation-specific annotations when available.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalName" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#externalName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalName</span>: <a href="../../../../K8sObject/index.html#Rfc1123Hostname" class="name-ref">Rfc1123Hostname</a>(type == &quot;ExternalName&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#179-179">Source</a></div>
+                <div class="doc-comment"><p>externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>No proxying will be involved.
+Must be a lowercase RFC-1123 hostname (<a href="https://tools.ietf.org/html/rfc1123)">https://tools.ietf.org/html/rfc1123)</a> and requires <code>type</code> to be &quot;ExternalName&quot;.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="loadBalancerSourceRanges" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#loadBalancerSourceRanges">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">loadBalancerSourceRanges</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#184-184">Source</a></div>
+                <div class="doc-comment"><p>If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This field will be ignored if the cloud-provider does not support the feature.&quot; More info: <a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/">https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalTrafficPolicy" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#externalTrafficPolicy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalTrafficPolicy</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#191-191">Source</a></div>
+                <div class="doc-comment"><p>externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service's &quot;externally-facing&quot; addresses (NodePorts, ExternalIPs, and LoadBalancer IPs).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If set to &quot;Local&quot;, the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP.
+(Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, &quot;Cluster&quot;, uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).
+Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get &quot;Cluster&quot; semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="selector" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#selector">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">selector</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#199-199">Source</a></div>
+                <div class="doc-comment"><p>Route service traffic to pods with label keys and values matching this selector.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify.
+Only applies to types ClusterIP, NodePort, and LoadBalancer.
+Ignored if type is ExternalName.
+More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/">https://kubernetes.io/docs/concepts/services-networking/service/</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="publishNotReadyAddresses" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#publishNotReadyAddresses">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">publishNotReadyAddresses</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#206-206">Source</a></div>
+                <div class="doc-comment"><p>publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The primary use case for setting this field is for a StatefulSet's Headless Service to propagate SRV DNS records for its Pods for the purpose of peer discovery.
+The Kubernetes controllers that generate Endpoints and EndpointSlice resources for Services interpret this to mean that all endpoints are considered &quot;ready&quot; even if the Pods themselves are not.
+Agents which consume only Kubernetes generated endpoints through the Endpoints or EndpointSlice resources can safely assume this behavior.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="internalTrafficPolicy" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#internalTrafficPolicy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">internalTrafficPolicy</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#213-213">Source</a></div>
+                <div class="doc-comment"><p>InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If set to &quot;Local&quot;, the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints.
+The default value, &quot;Cluster&quot;, uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="clusterIP" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#clusterIP">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">clusterIP</span>: (&quot;None&quot;|&quot;&quot;|<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>)?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#225-225">Source</a></div>
+                <div class="doc-comment"><p>clusterIP is the IP address of the service and is usually assigned randomly.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail.
+This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be blank) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).
+Valid values are &quot;None&quot;, empty string (&quot;&quot;), or a valid IP address.
+Setting this to &quot;None&quot; makes a &quot;headless service&quot; (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.
+Only applies to types ClusterIP, NodePort, and LoadBalancer.
+If this field is specified when creating a Service of type ExternalName, creation will fail.
+This field will be wiped when updating a Service to type ExternalName.
+More info: <a href="https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies">https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="topologyKeys" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#topologyKeys">link</a>
+              <div class="member-left">
+                <div class="member-modifiers member-deprecated"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature member-deprecated"><span class="name-decl">topologyKeys</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#239-239">Source</a></div>
+                <div class="doc-comment">Deprecated.</div>
+                <div class="doc-comment expandable hidden collapsed"><p>topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local.</p><p>Topology keys must be valid label keys and at most 16 keys may be specified.
+Endpoints are chosen based on the first topology key with available backends.
+If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail.
+The special value &quot;*&quot; may be used to mean &quot;any topology&quot;.
+This catch-all value, if used, only makes sense as the last value in the list.
+If this is not specified or empty, no topology constraints will be applied.
+This field is alpha-level and is only honored by servers that enable the ServiceTopology feature.
+This field is deprecated and will be removed in a future version.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ipFamily" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ipFamily">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ipFamily</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/Service.pkl#251-251">Source</a></div>
+                <div class="doc-comment"><p>ipFamily specifies whether this Service has a preference for a particular IP family (e.g. IPv4 vs. IPv6) when the IPv6DualStack feature gate is enabled.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>In a dual-stack cluster, you can specify ipFamily when creating a ClusterIP Service to determine whether the controller will allocate an IPv4 or IPv6 IP for it, and you can specify ipFamily when creating a headless Service to determine whether it will have IPv4 or IPv6 Endpoints.
+In either case, if you do not specify an ipFamily explicitly, it will default to the cluster's primary IP family.
+This field is part of an alpha feature, and you should not make any assumptions about its semantics other than those described above.
+In particular, you should not assume that it can (or cannot) be changed after creation time; that it can only have the values &quot;IPv4&quot; and &quot;IPv6&quot;; or that its current value on a given Service correctly reflects the current state of that Service.
+(For ClusterIP Services, look at clusterIP to see if the Service is IPv4 or IPv6.
+For headless Services, look at the endpoints, which may be dual-stack in the future.
+For ExternalName Services, ipFamily has no meaning, but it may be set to an irrelevant value anyway.)</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="ServiceSpec.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="ServiceSpec.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

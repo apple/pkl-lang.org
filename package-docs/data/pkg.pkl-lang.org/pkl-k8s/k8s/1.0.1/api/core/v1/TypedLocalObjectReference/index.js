@@ -1,0 +1,2 @@
+runtimeData.links('known-versions','[{"text":"1.0.1","classes":"current-version"}]');
+runtimeData.links('known-usages','[{"text":"IngressBackend","href":"../../../networking/v1beta1/Ingress/IngressBackend.html"},{"text":"IngressBackend","href":"../../../networking/v1/Ingress/IngressBackend.html"},{"text":"IngressBackend","href":"../../../extensions/v1beta1/Ingress/IngressBackend.html"},{"text":"PersistentVolumeClaimSpec","href":"../PersistentVolumeClaimSpec/index.html"}]');

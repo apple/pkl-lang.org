@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IPv4Network (pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net:1.1.0) • Packages</title>
+    <title>MACAddress (pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net:1.1.0) • Packages</title>
     <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
     <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net/1.1.0/net/IPv4Network.js" defer="defer"></script>
+    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net/1.1.0/net/MACAddress.js" defer="defer"></script>
     <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
@@ -15,18 +15,17 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="pkl.experimental.net.net" data-class-name="IPv4Network" data-root-url-prefix="../../../../../"></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="pkl.experimental.net.net" data-class-name="MACAddress" data-root-url-prefix="../../../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/pkl.experimental.net</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.experimental.net.net</a>
-      <h1 id="declaration-title">IPv4Network<span id="declaration-version">1.1.0</span></h1>
+      <h1 id="declaration-title">MACAddress<span id="declaration-version">1.1.0</span></h1>
       <ul class="member-group-links">
         <li><a href="#_properties">Properties</a></li>
         <li><a href="#_methods">Methods</a></li>
       </ul>
       <div id="_overview" class="anchor"> </div>
       <div id="_declaration" class="member">
-        <div class="member-signature">class <span class="name-decl">IPv4Network</span></div>
-        <div class="doc-comment"><p>An IPv4 network.</p></div>
+        <div class="member-signature">class <span class="name-decl">MACAddress</span></div>
         <dl class="member-info">
           <dt class="runtime-data hidden">Known subtypes:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
@@ -41,74 +40,13 @@
         <h2 class="member-group-title">Properties</h2>
         <ul>
           <li>
-            <div id="base" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#base">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">base</span>: <a href="IPv4Address.html" class="name-ref">IPv4Address</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L182-182">Source</a></div>
-                <div class="doc-comment"><p>The base address of this network</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="prefix" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#prefix">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">prefix</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, bitWidth))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L184-184">Source</a></div>
-                <div class="doc-comment"><p>The CIDR prefix of this network</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="bitWidth" class="anchor"> </div>
-            <div class="member hidden-member"><a class="member-selflink material-icons" href="#bitWidth">link</a>
+            <div id="repr" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#repr">link</a>
               <div class="member-left">
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bitWidth</span>: unknown<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L185-185">Source</a></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="reverseBitResolution" class="anchor"> </div>
-            <div class="member hidden-member"><a class="member-selflink material-icons" href="#reverseBitResolution">link</a>
-              <div class="member-left">
-                <div class="member-modifiers">hidden </div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">reverseBitResolution</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#UInt" class="name-ref">UInt</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L186-186">Source</a></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="firstAddress" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#firstAddress">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">firstAddress</span>: <a href="IPv4Address.html" class="name-ref">IPv4Address</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L192-192">Source</a></div>
-                <div class="doc-comment"><p>The first address in this network.
-Will be equivalent to <a href="IPv4Network.html#lastAddress"><code>lastAddress</code></a> when <a href="IPv4Network.html#prefix"><code>prefix</code></a> is equal to <a href="IPv4Network.html#bitWidth"><code>bitWidth</code></a>.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="lastAddress" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#lastAddress">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">lastAddress</span>: <a href="IPv4Address.html" class="name-ref">IPv4Address</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L195-195">Source</a></div>
-                <div class="doc-comment"><p>The last address in this network.
-Will be equivalent to <a href="IPv4Network.html#firstAddress"><code>firstAddress</code></a> when <a href="IPv4Network.html#prefix"><code>prefix</code></a> is equal to <a href="IPv4Network.html#bitWidth"><code>bitWidth</code></a>.</p></div>
+                <div class="member-signature"><span class="name-decl">repr</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#UInt8" class="name-ref">UInt8</a>&gt;(length == 6)<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L298-298">Source</a></div>
               </div>
             </div>
           </li>
@@ -137,7 +75,7 @@ Will be equivalent to <a href="IPv4Network.html#firstAddress"><code>firstAddress
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L214-214">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="index.html#MACAddressString" class="name-ref">MACAddressString</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L302-302">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -152,7 +90,7 @@ Will be equivalent to <a href="IPv4Network.html#firstAddress"><code>firstAddress
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="IPv4Network.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="IPv4Network.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="MACAddress.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="MACAddress.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -224,53 +162,14 @@ Will be equivalent to <a href="IPv4Network.html#firstAddress"><code>firstAddress
             </div>
           </li>
           <li>
-            <div id="getSubnetMask()" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#getSubnetMask()">link</a>
+            <div id="eui64()" class="anchor"> </div>
+            <div id="eui64().addr" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#eui64()">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getSubnetMask</span>(): <a href="index.html#IPv4AddressString" class="name-ref">IPv4AddressString</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L198-198">Source</a></div>
-                <div class="doc-comment"><p>Return the subnet-mask for this network.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="contains()" class="anchor"> </div>
-            <div id="contains().ip" class="anchor-param1"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#contains()">link</a>
-              <div class="member-left">
-                <div class="member-modifiers">function </div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">contains</span>(<span class="param1">ip</span>: <a href="IPv4Address.html" class="name-ref">IPv4Address</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L201-201">Source</a></div>
-                <div class="doc-comment"><p>Return true if this network contains <code>ip</code>.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="reverse()" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#reverse()">link</a>
-              <div class="member-left">
-                <div class="member-modifiers">function </div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">reverse</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L203-203">Source</a></div>
-                <div class="doc-comment"><p>Generate the name of the reverse DNS zone for this network.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="subdivideTo()" class="anchor"> </div>
-            <div id="subdivideTo().target" class="anchor-param1"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#subdivideTo()">link</a>
-              <div class="member-left">
-                <div class="member-modifiers">function </div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">subdivideTo</span>(<span class="param1">target</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, bitWidth) &amp;&amp; this &gt;= prefix)): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="IPv4Network.html" class="name-ref">IPv4Network</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L207-212">Source</a></div>
-                <div class="doc-comment"><p>Calculate all subnets of this network with prefix <code>target</code>.
-For example, given IPv4Network(&quot;10.53.120.0/21&quot;).subdivideTo(24), it outputs 8 /24 networks</p></div>
+                <div class="member-signature"><span class="name-decl">eui64</span>(<span class="param1">addr</span>: <a href="IPv6Address.html" class="name-ref">IPv6Address</a>): <a href="IPv6Address.html" class="name-ref">IPv6Address</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.experimental.net@1.1.0/packages/pkl.experimental.net/net.pkl#L304-311">Source</a></div>
               </div>
             </div>
           </li>

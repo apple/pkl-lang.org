@@ -382,7 +382,7 @@ Earlier Gradle versions are not supported.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" class="bare">https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/</a></code>.
+Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/content/groups/public" class="bare">https://s01.oss.sonatype.org/content/groups/public</a></code>.
 </td>
 </tr>
 </table>
@@ -416,7 +416,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
     repositories {
-        maven { url "https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/" }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
 }</code></pre>
 </div>
@@ -436,7 +436,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
     repositories {
-        maven { url = uri("https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/") }
+        maven { url = uri("https://s01.oss.sonatype.org/content/groups/public") }
     }
 }</code></pre>
 </div>

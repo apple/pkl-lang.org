@@ -409,9 +409,22 @@ Except where noted otherwise, the rest of this page discusses the native executa
 </div>
 <div class="sect2">
 <h3 id="macos-executable"><a class="anchor" href="#macos-executable"></a><a class="link" href="#macos-executable">macOS Executable</a></h3>
+<div class="paragraph">
+<p>On amd64:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -o pkl https://github.com/apple/pkl/releases/download/0.26.0-SNAPSHOT/pkl-cli-macos-0.26.0-SNAPSHOT.bin
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://s01.oss.sonatype.org/content/groups/public/org/pkl-lang/pkl-cli-macos-aarch64/0.26.0-SNAPSHOT/pkl-cli-macos-aarch64-0.26.0-SNAPSHOT.bin
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On aarch64:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://s01.oss.sonatype.org/content/groups/public/org/pkl-lang/pkl-cli-macos-amd64/0.26.0-SNAPSHOT/pkl-cli-macos-amd64-0.26.0-SNAPSHOT.bin
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -432,22 +445,21 @@ chmod +x pkl
 For a statically linked executable, see <a href="#alpine-linux-executable">Alpine Linux Executable</a>.</p>
 </div>
 <div class="paragraph">
-<p>On amd64:</p>
+<p>On aarch64:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># on amd64
-curl -o pkl https://github.com/apple/pkl/releases/download/0.26.0-SNAPSHOT/pkl-cli-linux-amd64-0.26.0-SNAPSHOT.bin
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://s01.oss.sonatype.org/content/groups/public/org/pkl-lang/pkl-cli-linux-aarch64/0.26.0-SNAPSHOT/pkl-cli-linux-aarch64-0.26.0-SNAPSHOT.bin
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>On aarch64:</p>
+<p>On amd64:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -o pkl https://github.com/apple/pkl/releases/download/0.26.0-SNAPSHOT/pkl-cli-linux-aarch64-0.26.0-SNAPSHOT.bin
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://s01.oss.sonatype.org/content/groups/public/org/pkl-lang/pkl-cli-linux-amd64/0.26.0-SNAPSHOT/pkl-cli-linux-amd64-0.26.0-SNAPSHOT.bin
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -469,7 +481,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -o pkl https://github.com/apple/pkl/releases/download/0.26.0-SNAPSHOT/pkl-cli-alpine-amd64-0.26.0-SNAPSHOT.bin
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://s01.oss.sonatype.org/content/groups/public/org/pkl-lang/pkl-cli-alpine-linux-amd64/0.26.0-SNAPSHOT/pkl-cli-alpine-linux-amd64-0.26.0-SNAPSHOT.bin
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -499,7 +511,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 <h3 id="java-executable"><a class="anchor" href="#java-executable"></a><a class="link" href="#java-executable">Java Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -o jpkl https://github.com/apple/pkl/releases/download/0.26.0-SNAPSHOT/pkl-cli-java-0.26.0-SNAPSHOT.jar
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.26.0-SNAPSHOT/pkl-cli-java-0.26.0-SNAPSHOT.jar
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>

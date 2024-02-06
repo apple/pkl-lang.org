@@ -4199,7 +4199,7 @@ A globbed import clause cannot be used as a type.</p>
 Globbing another scheme will cause Pkl to throw.</p>
 </div>
 <div class="paragraph">
-<p>Pkl can be extended to provide custom globbable schemes through the <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/java/org/pkl/core/module/ModuleKey.java">ModuleKey</a>
+<p>Pkl can be extended to provide custom globbable schemes through the <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/module/ModuleKey.java">ModuleKey</a>
 SPI.</p>
 </div>
 <div class="paragraph">
@@ -5042,7 +5042,7 @@ For example, the expression <code>read*("env:**")</code> will evaluate to a Mapp
 <p>When Pkl is embedded within another runtime, it can be extended to read other kinds of resources.</p>
 </div>
 <div class="paragraph">
-<p>When embedded into a JVM application, new resources may be read by implementing the <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/java/org/pkl/core/resource/ResourceReader.java">ResourceReader</a> SPI.
+<p>When embedded into a JVM application, new resources may be read by implementing the <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/resource/ResourceReader.java">ResourceReader</a> SPI.
 When Pkl is embedded within Swift, new resources may be read by implementing the <a href="https://github.com/apple/pkl-swift/blob/main/Sources/PklSwift/Reader.swift">ResourceReader</a> interface.
 When Pkl is embedded within Go, new resources may be read by implementing the <a href="https://github.com/apple/pkl-go/blob/main/pkl/reader.go">ResourceReader</a> interface.</p>
 </div>
@@ -5051,7 +5051,7 @@ When Pkl is embedded within Go, new resources may be read by implementing the <a
 <h3 id="resource-allowlist"><a class="anchor" href="#resource-allowlist"></a><a class="link" href="#resource-allowlist">Resource Allowlist</a></h3>
 <div class="paragraph">
 <p>When attempting to read a resource, the resource URI is checked against the resource allowlist (<code>--allowed-resources</code>).
-In embedded mode, the allowlist is configured via an evaluator&#8217;s <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/java/org/pkl/core/SecurityManager.java">SecurityManager</a>.</p>
+In embedded mode, the allowlist is configured via an evaluator&#8217;s <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/SecurityManager.java">SecurityManager</a>.</p>
 </div>
 <div class="paragraph">
 <p>The resource allowlist is a comma-separated list of regular expressions.
@@ -5083,7 +5083,7 @@ To raise an error, use a <code>throw</code> expression:</p>
 </div>
 <div class="paragraph">
 <p>The error message is printed to the console, and the program exits.
-In embedded mode, a <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/java/org/pkl/core/PklException.java">PklException</a> is thrown.</p>
+In embedded mode, a <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/PklException.java">PklException</a> is thrown.</p>
 </div>
 </div>
 </div>
@@ -7657,7 +7657,7 @@ The following Markdown features are supported:</p>
 </div>
 <div class="paragraph">
 <p>Doc comments are consumed by humans reading source code, the <em>Pkldoc</em> documentation generator, code generators, and editor/IDE plugins.
-They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.25.1/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
+They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.25.1/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -8172,7 +8172,7 @@ To reduce the chance of naming collisions, <code>Any</code> does not define any 
 <div class="sect2">
 <h3 id="grammar-definition"><a class="anchor" href="#grammar-definition"></a><a class="link" href="#grammar-definition">Grammar Definition</a></h3>
 <div class="paragraph">
-<p>Pkl&#8217;s <a href="https://www.antlr.org">ANTLR 4</a> grammar is defined in <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/antlr/PklLexer.g4">PklLexer.g4</a> and <a href="https://github.com/apple/pkl/tree/v0.25.1/pkl-core/src/main/antlr/PklParser.g4">PklParser.g4</a>.</p>
+<p>Pkl&#8217;s <a href="https://www.antlr.org">ANTLR 4</a> grammar is defined in <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/antlr/PklLexer.g4">PklLexer.g4</a> and <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/antlr/PklParser.g4">PklParser.g4</a>.</p>
 </div>
 </div>
 <div class="sect2">

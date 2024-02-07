@@ -1554,7 +1554,7 @@ It is used extensively in Pkl code (especially in templates), and is the key to 
 <td class="content">
 <div class="title">Lazy vs. Eager Data Types</div>
 <div class="paragraph">
-<p>Converting an object to a map is a transitition from a <em>lazy</em> to an <em>eager</em> data type.
+<p>Converting an object to a map is a transition from a <em>lazy</em> to an <em>eager</em> data type.
 All of the object&#8217;s properties are evaluated and all references between them are resolved.</p>
 </div>
 <div class="paragraph">
@@ -2575,7 +2575,7 @@ Because most value renderers treat lists the same as listings, it is often not n
 <td class="content">
 <div class="title">Lazy vs. Eager Data Types</div>
 <div class="paragraph">
-<p>Converting a listing to a list is a transitition from a <em>lazy</em> to an <em>eager</em> data type.
+<p>Converting a listing to a list is a transition from a <em>lazy</em> to an <em>eager</em> data type.
 All of the listing&#8217;s elements are evaluated and all references between them are resolved.</p>
 </div>
 <div class="paragraph">
@@ -3158,7 +3158,7 @@ As most value renderers treat maps the same as mappings, it is often not necessa
 <td class="content">
 <div class="title">Lazy vs. Eager Data Types</div>
 <div class="paragraph">
-<p>Converting a mapping to a map is a transitition from a <em>lazy</em> to an <em>eager</em> data type.
+<p>Converting a mapping to a map is a transition from a <em>lazy</em> to an <em>eager</em> data type.
 All of the mapping&#8217;s values are evaluated and all references between them are resolved.
 (Mapping keys are eagerly evaluated.)</p>
 </div>
@@ -4229,7 +4229,7 @@ This behavior is similar to the behavior of Bash with <code>shopt -s dotglob</co
 <div class="sect2">
 <h3 id="security-checks"><a class="anchor" href="#security-checks"></a><a class="link" href="#security-checks">Security Checks</a></h3>
 <div class="paragraph">
-<p>When attempting to directly evaluate a module, as in <code>pkl myModule.pkl</code>,
+<p>When attempting to directly evaluate a module, as in <code>pkl eval myModule.pkl</code>,
 the following security checks are performed:</p>
 </div>
 <div class="ulist">
@@ -4323,7 +4323,7 @@ There are two ways to change this behavior:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><code>pkl config.pkl</code>, which is shorthand for <code>pkl --format pcf config.pkl</code>, renders the module as Pcf:</p>
+<p><code>pkl eval config.pkl</code>, which is shorthand for <code>pkl eval --format pcf config.pkl</code>, renders the module as Pcf:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4334,7 +4334,7 @@ There are two ways to change this behavior:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><code>pkl --format yaml config.pkl</code> renders the module as YAML:</p>
+<p><code>pkl eval --format yaml config.pkl</code> renders the module as YAML:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4344,7 +4344,7 @@ b:
 </div>
 </div>
 <div class="paragraph">
-<p>Likewise, <code>pkl --format json config.pkl</code> renders the module as JSON.</p>
+<p>Likewise, <code>pkl eval --format json config.pkl</code> renders the module as JSON.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4535,7 +4535,7 @@ and specifying the <a href="../pkl-cli/index.html#multiple-file-output-path" cla
 </div>
 </div>
 <div class="paragraph">
-<p>Running <code>pkl -m output/ pigeon.pkl</code> produces the following output files:</p>
+<p>Running <code>pkl eval -m output/ pigeon.pkl</code> produces the following output files:</p>
 </div>
 <div class="listingblock">
 <div class="title">output/birds/pigeon.json</div>

@@ -1351,11 +1351,11 @@ The Java executable is named <code>jpkl</code>.
 </div>
 </div>
 <div class="paragraph">
-<p>To evaluate the <code>bird.name</code> property, run:</p>
+<p>To evaluate the <code>bird.species</code> property, run:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; bird.name
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; bird.species
 "Pigeon"</code></pre>
 </div>
 </div>
@@ -1425,7 +1425,7 @@ pkl&gt; hello
 pkl&gt; function double(n) = 2 * n
 pkl&gt; double(5)
 10
-pkl&gt; class Bird { name: String }
+pkl&gt; class Bird { species: String }
 pkl&gt; new Bird { species = "Pigeon" }
 {
   name = ?
@@ -1461,7 +1461,7 @@ pkl&gt; species
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; name = "Barn"
-pkl&gt; species = "$name Owl"
+pkl&gt; species = "\(name) Owl"
 pkl&gt; species
 "Barn Owl"
 pkl&gt; name = "Elf"

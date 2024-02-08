@@ -85,7 +85,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.1">
+<div class="nav-container" data-component="main" data-version="0.25.2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,7 +238,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.1</span>
+    <span class="version">0.25.2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -256,7 +256,7 @@
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.25.1</a>
+          <a href="../index.html">0.25.2</a>
         </li>
       </ul>
     </li>
@@ -324,10 +324,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.25.2</button>
   <div class="version-menu">
     <a class="version" href="../../latest/java-binding/pkl-config-java.html">0.26.0-dev</a>
-    <a class="version is-current" href="pkl-config-java.html">0.25.1</a>
+    <a class="version is-current" href="pkl-config-java.html">0.25.2</a>
   </div>
 </div>
 <div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/java-binding/pages/pkl-config-java.adoc">Edit this Page</a></div>
@@ -350,7 +350,7 @@ It offers a higher-level API specifically designed for consuming application run
 <h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <em>pkl-config-java</em> library is available <a href="https://central.sonatype.com//artifact/org.pkl-lang/pkl-config-java-all">from Maven Central</a>.
+<p>The <em>pkl-config-java</em> library is available <a href="https://central.sonatype.com/artifact/org.pkl-lang/pkl-config-java-all">from Maven Central</a>.
 It requires Java 11 or higher.</p>
 </div>
 <div class="sect2">
@@ -375,7 +375,7 @@ It requires Java 11 or higher.</p>
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  compile "org.pkl-lang:pkl-config-java:0.25.1"
+  compile "org.pkl-lang:pkl-config-java:0.25.2"
 }
 
 repositories {
@@ -389,7 +389,7 @@ repositories {
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  compile("org.pkl-lang:pkl-config-java:0.25.1")
+  compile("org.pkl-lang:pkl-config-java:0.25.2")
 }
 
 repositories {
@@ -416,7 +416,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-config-java&lt;/artifactId&gt;
-    &lt;version&gt;0.25.1&lt;/version&gt;
+    &lt;version&gt;0.25.2&lt;/version&gt;
   &lt;/dependency&gt;
   &lt;repositories&gt;
     &lt;repository&gt;
@@ -440,9 +440,9 @@ repositories {
 <div class="sect2">
 <h3 id="consuming-configuration"><a class="anchor" href="#consuming-configuration"></a><a class="link" href="#consuming-configuration">Consuming Configuration</a></h3>
 <div class="paragraph">
-<p>The <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/ConfigEvaluator.java"><code>ConfigEvaluator</code></a> class loads and evaluates Pkl modules.
-If evaluation succeeds, a <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/Config.java"><code>Config</code></a> object is returned.
-Otherwise, an <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/EvalException.java"><code>EvalException</code></a> with error details is thrown.</p>
+<p>The <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/ConfigEvaluator.java"><code>ConfigEvaluator</code></a> class loads and evaluates Pkl modules.
+If evaluation succeeds, a <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/Config.java"><code>Config</code></a> object is returned.
+Otherwise, a <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> with error details is thrown.</p>
 </div>
 <div class="paragraph">
 <p>The returned <code>Config</code> object represents the root of the Pkl configuration tree.
@@ -490,7 +490,7 @@ Note that objects returned by the evaluator remain valid after calling <code>clo
 <td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Evaluate the given text.
 Other <code>evaluate</code> methods read from files, URLs, and other sources.
-If evaluation fails, an <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-core/src/main/java/org/pkl/core/EvalException.java"><code>EvalException</code></a> is thrown.</td>
+If evaluation fails, an <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> is thrown.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -515,13 +515,13 @@ To clear the cache, for example to evaluate the same module again, close the eva
 </div>
 <div class="paragraph">
 <p>For a ready-to-go example with full source code,
-see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/config-java">config-java</a> in the <em>pkl/pkl-examples</em> repository.</p>
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/config-java">config-java</a> in the <em>pkl-jvm-examples</em> repository.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="object-mapping"><a class="anchor" href="#object-mapping"></a><a class="link" href="#object-mapping">Object Mapping</a></h3>
 <div class="paragraph">
-<p>When a <code>Config</code> object needs to convert its Pkl value to a Java value, it delegates the conversion to <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ValueMapper.java"><code>ValueMapper</code></a>.
+<p>When a <code>Config</code> object needs to convert its Pkl value to a Java value, it delegates the conversion to <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ValueMapper.java"><code>ValueMapper</code></a>.
 <code>ValueMapper</code> can convert an entire <code>PModule</code> or any part thereof.</p>
 </div>
 <div class="paragraph">
@@ -597,7 +597,7 @@ They need to be provided in one of the following ways:</p>
 <p>Annotate constructor with <code>java.beans.ConstructorProperties</code>.</p>
 </li>
 <li>
-<p>Annotate parameters with <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Named.java"><code>Named</code></a>.</p>
+<p>Annotate parameters with <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Named.java"><code>Named</code></a>.</p>
 </li>
 <li>
 <p>Annotate parameters with <code>javax.inject.Named</code>.</p>
@@ -613,7 +613,7 @@ They need to be provided in one of the following ways:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/test/java/org/pkl/config/java/mapper/PObjectToObjectByCtorTest.java"><code>PObjectToObjectByCtorTest.java</code></a></p>
+<p><a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/test/java/org/pkl/config/java/mapper/PObjectToDataObjectTest.java"><code>PObjectToDataObjectTest.java</code></a></p>
 </li>
 </ul>
 </div>
@@ -633,19 +633,19 @@ Java code never drifts from the configuration structure defined in Pkl, and the 
 <div class="sect3">
 <h4 id="value-conversions"><a class="anchor" href="#value-conversions"></a><a class="link" href="#value-conversions">Value Conversions</a></h4>
 <div class="paragraph">
-<p>The Pkl-to-Java value conversions that ship with the library are defined in <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Conversions.java"><code>Conversions</code></a> (for individual conversions) and <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ConverterFactories.java"><code>ConverterFactories</code></a> (for families of conversions).
+<p>The Pkl-to-Java value conversions that ship with the library are defined in <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Conversions.java"><code>Conversions</code></a> (for individual conversions) and <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ConverterFactories.java"><code>ConverterFactories</code></a> (for families of conversions).
 To implement and register your own conversions, follow these steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For conversions from a single source type to a single target type, implement a <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Conversion.java"><code>Conversion</code></a>.</p>
+<p>For conversions from a single source type to a single target type, implement a <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/Conversion.java"><code>Conversion</code></a>.</p>
 <div class="paragraph">
 <p>Example: <code>Conversions.pStringToCharacter</code> converts a single-character <code>pkl.base#String</code> to <code>java.lang.Character</code>.</p>
 </div>
 </li>
 <li>
-<p>For conversions from one or multiple source types to one or multiple target types, implement a <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ConverterFactory.java"><code>ConverterFactory</code></a>.</p>
+<p>For conversions from one or multiple source types to one or multiple target types, implement a <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java/mapper/ConverterFactory.java"><code>ConverterFactory</code></a>.</p>
 <div class="paragraph">
 <p>Example: <code>ConverterFactories.pCollectionToCollection</code> converts any <code>pkl.base#Collection</code> to any implementation of <code>java.util.Collection&lt;E&gt;</code>, for any <code>E</code>.</p>
 </div>
@@ -670,7 +670,7 @@ The returned `Converter`s are cached.</p>
 <h2 id="further-information"><a class="anchor" href="#further-information"></a><a class="link" href="#further-information">Further Information</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the Javadoc and sources published with the library, or browse the library&#8217;s <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/main/java/org/pkl/config/java">main</a> and <a href="https://github.com/apple/pkl/tree/0.25.1/pkl-config-java/src/test/java/org/pkl/config/java">test</a> sources.</p>
+<p>Refer to the Javadoc and sources published with the library, or browse the library&#8217;s <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/main/java/org/pkl/config/java">main</a> and <a href="https://github.com/apple/pkl/tree/0.25.2/pkl-config-java/src/test/java/org/pkl/config/java">test</a> sources.</p>
 </div>
 </div>
 </div>

@@ -85,7 +85,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.1">
+<div class="nav-container" data-component="main" data-version="0.25.2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,7 +238,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.1</span>
+    <span class="version">0.25.2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -256,7 +256,7 @@
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.25.1</a>
+          <a href="../index.html">0.25.2</a>
         </li>
       </ul>
     </li>
@@ -323,10 +323,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.25.2</button>
   <div class="version-menu">
     <a class="version" href="../../latest/language-tutorial/03_writing_a_template.html">0.26.0-dev</a>
-    <a class="version is-current" href="03_writing_a_template.html">0.25.1</a>
+    <a class="version is-current" href="03_writing_a_template.html">0.25.2</a>
   </div>
 </div>
 <div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/language-tutorial/pages/03_writing_a_template.adoc">Edit this Page</a></div>
@@ -659,7 +659,7 @@ By "precisely" we mean, that amending an object also can&#8217;t "turn it into" 
 <div class="sectionbody">
 <div class="paragraph">
 <p>Now that you know about types, you can start writing your first template.
-So far, you&#8217;ve written configurations with Pkl, either without a template, or using a template on Pkl Hub.
+So far, you&#8217;ve written configurations with Pkl, either without a template, or using the <code>acmecicd</code> template from <a href="02_filling_out_a_template.html#amending-templates" class="xref page">Amending templates</a>.
 It is often easiest to first write a (typical) configuration for which you want to create a template.
 Suppose you want to define what a live workshop for this tutorial looks like.
 Consider this example:</p>
@@ -707,17 +707,17 @@ Consider this example:</p>
 
 <span class="hljs-property">agenda</span> <span class="hljs-punctuation">{</span>
   [<span class="hljs-string">&quot;beginners&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic Configuration&quot;</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic Configuration&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
     <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
   <span class="hljs-punctuation">}</span>
   [<span class="hljs-string">&quot;intermediates&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
     <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
   <span class="hljs-punctuation">}</span>
   [<span class="hljs-string">&quot;experts&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
     <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
   <span class="hljs-punctuation">}</span>

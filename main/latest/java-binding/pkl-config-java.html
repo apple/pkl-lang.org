@@ -253,7 +253,7 @@
           <a href="../index.html">0.26.0-dev</a>
         </li>
         <li class="version is-latest">
-          <a href="../../current/index.html">0.25.1</a>
+          <a href="../../current/index.html">0.25.2</a>
         </li>
       </ul>
     </li>
@@ -325,7 +325,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">0.26.0-dev</button>
   <div class="version-menu">
     <a class="version is-current" href="pkl-config-java.html">0.26.0-dev</a>
-    <a class="version" href="../../current/java-binding/pkl-config-java.html">0.25.1</a>
+    <a class="version" href="../../current/java-binding/pkl-config-java.html">0.25.2</a>
   </div>
 </div>
 <div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/main/docs/modules/java-binding/pages/pkl-config-java.adoc">Edit this Page</a></div>
@@ -348,7 +348,7 @@ It offers a higher-level API specifically designed for consuming application run
 <h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <em>pkl-config-java</em> library is available <a href="https://central.sonatype.com//artifact/org.pkl-lang/pkl-config-java-all">from Maven Central</a>.
+<p>The <em>pkl-config-java</em> library is available <a href="https://central.sonatype.com/artifact/org.pkl-lang/pkl-config-java-all">from Maven Central</a>.
 It requires Java 11 or higher.</p>
 </div>
 <div class="sect2">
@@ -440,7 +440,7 @@ repositories {
 <div class="paragraph">
 <p>The <a href="https://github.com/apple/pkl/tree/main/pkl-config-java/src/main/java/org/pkl/config/java/ConfigEvaluator.java"><code>ConfigEvaluator</code></a> class loads and evaluates Pkl modules.
 If evaluation succeeds, a <a href="https://github.com/apple/pkl/tree/main/pkl-config-java/src/main/java/org/pkl/config/java/Config.java"><code>Config</code></a> object is returned.
-Otherwise, an <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/EvalException.java"><code>EvalException</code></a> with error details is thrown.</p>
+Otherwise, a <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> with error details is thrown.</p>
 </div>
 <div class="paragraph">
 <p>The returned <code>Config</code> object represents the root of the Pkl configuration tree.
@@ -488,7 +488,7 @@ Note that objects returned by the evaluator remain valid after calling <code>clo
 <td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Evaluate the given text.
 Other <code>evaluate</code> methods read from files, URLs, and other sources.
-If evaluation fails, an <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/EvalException.java"><code>EvalException</code></a> is thrown.</td>
+If evaluation fails, an <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> is thrown.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -513,7 +513,7 @@ To clear the cache, for example to evaluate the same module again, close the eva
 </div>
 <div class="paragraph">
 <p>For a ready-to-go example with full source code,
-see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/config-java">config-java</a> in the <em>pkl/pkl-examples</em> repository.</p>
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/config-java">config-java</a> in the <em>pkl-jvm-examples</em> repository.</p>
 </div>
 </div>
 <div class="sect2">
@@ -611,7 +611,7 @@ They need to be provided in one of the following ways:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/apple/pkl/tree/main/pkl-config-java/src/test/java/org/pkl/config/java/mapper/PObjectToObjectByCtorTest.java"><code>PObjectToObjectByCtorTest.java</code></a></p>
+<p><a href="https://github.com/apple/pkl/tree/main/pkl-config-java/src/test/java/org/pkl/config/java/mapper/PObjectToDataObjectTest.java"><code>PObjectToDataObjectTest.java</code></a></p>
 </li>
 </ul>
 </div>

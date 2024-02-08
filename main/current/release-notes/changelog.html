@@ -84,7 +84,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.1">
+<div class="nav-container" data-component="main" data-version="0.25.2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -237,7 +237,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.1</span>
+    <span class="version">0.25.2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -255,7 +255,7 @@
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.25.1</a>
+          <a href="../index.html">0.25.2</a>
         </li>
       </ul>
     </li>
@@ -322,10 +322,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.25.2</button>
   <div class="version-menu">
     <a class="version" href="../../latest/release-notes/changelog.html">0.26.0-dev</a>
-    <a class="version is-current" href="changelog.html">0.25.1</a>
+    <a class="version is-current" href="changelog.html">0.25.2</a>
   </div>
 </div>
 <div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/release-notes/pages/changelog.adoc">Edit this Page</a></div>
@@ -337,14 +337,113 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
+<h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes some issues with generated pkldoc websites (<a href="https://github.com/apple/pkl/pull/70">#70</a>,
+<a href="https://github.com/apple/pkl/pull/81">#81</a>, <a href="https://github.com/apple/pkl/pull/96">#96</a>)</p>
+</li>
+<li>
+<p>Removes errorneously published artifact called "pkl-cli" (<a href="https://github.com/apple/pkl/pull/98">#98</a>)</p>
+</li>
+<li>
+<p>Fixes an issue where a PklBugException produces an incorrect URL to file issues (<a href="https://github.com/apple/pkl/pull/73">#73</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation fixes (<a href="https://github.com/apple/pkl/pull/21">#21</a>, <a href="https://github.com/apple/pkl/pull/29">#29</a>, <a href="https://github.com/apple/pkl/pull/41">#41</a>, <a href="https://github.com/apple/pkl/pull/44">#44</a>, <a href="https://github.com/apple/pkl/pull/51">#51</a>, <a href="https://github.com/apple/pkl/pull/57">#57</a>, <a href="https://github.com/apple/pkl/pull/60">#60</a>, <a href="https://github.com/apple/pkl/pull/64">#64</a>, <a href="https://github.com/apple/pkl/pull/68">#68</a>, <a href="https://github.com/apple/pkl/pull/74">#74</a>, <a href="https://github.com/apple/pkl/pull/77">#77</a>, <a href="https://github.com/apple/pkl/pull/78">#78</a>, <a href="https://github.com/apple/pkl/pull/82">#82</a>, <a href="https://github.com/apple/pkl/pull/84">#84</a>, <a href="https://github.com/apple/pkl/pull/86">#86</a>, <a href="https://github.com/apple/pkl/pull/89">#89</a>, <a href="https://github.com/apple/pkl/pull/91">#91</a>, <a href="https://github.com/apple/pkl/pull/104">#104</a>)</p>
+</li>
+<li>
+<p>Build script improvements (<a href="https://github.com/apple/pkl/pull/53">#53</a>, <a href="https://github.com/apple/pkl/pull/83">#83</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/uhooi">@uhooi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mnin">@mnin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/TinkoLiu">@TinkoLiu</a></p>
+</li>
+<li>
+<p><a href="https://github.com/shufanhao">@shufanhao</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pfeilbr">@pfeilbr</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KadoBOT">@KadoBOT</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/translatenix">@translatenix</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Edward-Knight">@Edward-Knight</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jamesward">@jamesward</a></p>
+</li>
+<li>
+<p><a href="https://github.com/shubhgng">@shubhgng</a></p>
+</li>
+<li>
+<p><a href="https://github.com/hayashikun">@hayashikun</a></p>
+</li>
+<li>
+<p><a href="https://github.com/lanzafame">@lanzafame</a></p>
+</li>
+<li>
+<p><a href="https://github.com/igmrrf">@igmrrf</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kelvinelove">@kelvinelove</a></p>
+</li>
+<li>
+<p><a href="https://github.com/lilyball">@lilyball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/maiph">@maiph</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
 <p>Fixes an issue where pkl-tools fat jar is empty.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>

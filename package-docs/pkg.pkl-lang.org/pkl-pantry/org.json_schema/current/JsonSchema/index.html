@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JsonSchema (pkg.pkl-lang.org/pkl-pantry/org.json_schema:1.0.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.json_schema/1.0.0/JsonSchema/index.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.json_schema" data-package-version="1.0.0" data-package-url-prefix="../" data-module-name="org.json_schema.JsonSchema" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/org.json_schema</a>
+      <h1 id="declaration-title">org.json_schema.JsonSchema<span id="declaration-version">1.0.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">open module <span class="name-decl">org.json_schema.JsonSchema</span></div>
+        <div class="doc-comment"><p>A document that describes constraints on JSON values.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/JsonSchema.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https%3A//github.com/apple/pkl-pantry/blob/org.json_schema%401.0.0/packages/org.json_schema/JsonSchema.pkl">JsonSchema.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Currently only supports JSON Schema 6 or higher.
+JSON Schema 4 isn't supported because of breaking changes in how <a href="index.html#exclusiveMinimum"><code>exclusiveMinimum</code></a> and <a href="index.html#exclusiveMaximum"><code>exclusiveMaximum</code></a> work.</p>
+<p>JSON Schema documentation can be found at <a href="https://json-schema.org">https://json-schema.org</a>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="versions" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#versions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">versions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L51-54">Source</a></div>
+                <div class="doc-comment"><p>The known versions of JSON Schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For example, <code>http://json-schema.org/draft-06/schema#</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24%24baseSchema" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24%24baseSchema">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$$baseSchema</span>: <a href="index.html" class="name-ref">JsonSchema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L73-73">Source</a></div>
+                <div class="doc-comment"><p>The base-level schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This is a utility property to help with resolving references.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24%24idUri" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#%24%24idUri">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$$idUri</span>: <a href="../../../../../pkl.experimental.uri/1.0.0/URI/index.html" class="name-ref">URI</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L76-76">Source</a></div>
+                <div class="doc-comment"><p>The ID as an instance of <a href="../../../../../pkl.experimental.uri/1.0.0/URI/index.html"><code>URI</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24%24refUri" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#%24%24refUri">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$$refUri</span>: <a href="../../../../../pkl.experimental.uri/1.0.0/URI/index.html" class="name-ref">URI</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L79-79">Source</a></div>
+                <div class="doc-comment"><p>The reference as an instance of <a href="../../../../../pkl.experimental.uri/1.0.0/URI/index.html"><code>URI</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24id" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24id">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$id</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L93-93">Source</a></div>
+                <div class="doc-comment"><p>URI-reference for the schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The reference serves two purposes:</p>
+<ul>
+<li>It declares a unique identifier for the schema.</li>
+<li>It declares a base URI against which <code>$ref</code> URI-references are resolved.</li>
+</ul>
+<p>It is best practice that every top-level schema should set <code>$id</code> to an
+absolute-URI (not a relative reference), with a domain that you control.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/structuring.html#the-id-property">https://json-schema.org/understanding-json-schema/structuring.html#the-id-property</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24ref" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24ref">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$ref</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L98-98">Source</a></div>
+                <div class="doc-comment"><p>Reference to a schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/structuring.html#using-id-with-ref">https://json-schema.org/understanding-json-schema/structuring.html#using-id-with-ref</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24schema" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24schema">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$schema</span>: <a href="index.html#JsonSchemaVersion" class="name-ref">JsonSchemaVersion</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L110-110">Source</a></div>
+                <div class="doc-comment"><p>The presence of this property declares that this object represents a JSON Schema, and also
+represents the version that the schema was written against.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It is recommended that all JSON Schemas have a <a href="not_found"><code>$schema</code></a> entry,
+which must be at the root.  Therefore most of the time, you'll want
+this at the root of your schema:</p>
+<pre><code>&quot;$schema&quot;: &quot;http://json-schema.org/draft/2019-09/schema#&quot;
+</code></pre>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/schema.html">https://json-schema.org/understanding-json-schema/reference/schema.html</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24comment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24comment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$comment</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>(availableAfter(&quot;http://json-schema.org/draft-07/schema#&quot;))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L122-122">Source</a></div>
+                <div class="doc-comment"><p>Implementation comments for a schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Its value must always be a string. Unlike the annotations
+<a href="index.html#title"><code>title</code></a>, <a href="index.html#description"><code>description</code></a>, and <a href="index.html#examples"><code>examples</code></a>, JSON schema
+implementations aren't allowed to attach any meaning or behavior to it
+whatsoever, and may even strip them at any time. Therefore, they are
+useful for leaving notes to future editors of a JSON schema, but
+should not be used to communicate to users of the schema.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#comments">https://json-schema.org/understanding-json-schema/reference/generic.html#comments</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="definitions" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#definitions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">definitions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="index.html#Schema" class="name-ref">Schema</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L127-127">Source</a></div>
+                <div class="doc-comment"><p>Defines schemas that maybe re-used within a complex JSON Schema document.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/structuring.html?highlight=definitions#reuse">https://json-schema.org/understanding-json-schema/structuring.html?highlight=definitions#reuse</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="%24defs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#%24defs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">$defs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="index.html#Schema" class="name-ref">Schema</a>&gt;(availableAfter(&quot;https://json-schema.org/draft/2019-09/schema&quot;))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L134-134">Source</a></div>
+                <div class="doc-comment"><p>Defines schemas that maybe re-used within a complex JSON Schema document.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This is the same thing as <a href="index.html#definitions"><code>definitions</code></a>, but was renamed in draft 2019.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/structuring.html#defs">https://json-schema.org/understanding-json-schema/structuring.html#defs</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="title" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#title">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">title</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L142-142">Source</a></div>
+                <div class="doc-comment"><p>A short descriptor of this schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#annotations">https://json-schema.org/understanding-json-schema/reference/generic.html#annotations</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="description" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#description">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">description</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L147-147">Source</a></div>
+                <div class="doc-comment"><p>A long descriptor of this schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#annotations">https://json-schema.org/understanding-json-schema/reference/generic.html#annotations</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="default" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#default">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">default</span>: <a href="index.html#JsonSchemaValue" class="name-ref">JsonSchemaValue</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L162-162">Source</a></div>
+                <div class="doc-comment"><p>A default instance value of this schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This value is not used to fill in missing values during the validation process.
+Non-validation tools such as documentation generators or form
+generators may use this value to give hints to users about how to use
+a value.
+However, <code>default</code> is typically used to express that if a value is missing,
+then the value is semantically the same as if the value was present with the
+default value.
+The value of <code>default</code> should validate against the schema in which it resides,
+but that isn't required.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#annotations">https://json-schema.org/understanding-json-schema/reference/generic.html#annotations</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="examples" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#examples">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">examples</span>: <a href="index.html#JsonSchemaValue" class="name-ref">JsonSchemaValue</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L174-174">Source</a></div>
+                <div class="doc-comment"><p>A place to provide a set of examples that validate against the schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This isn't used for validation, but may help with explaining the effect
+and purpose of the schema to a reader.
+Each entry should validate against the schema in which it resides, but
+that isn't strictly required.
+There is no need to duplicate the <a href="index.html#default"><code>default</code></a> value in the <code>examples</code> array,
+since <code>default</code> will be treated as another example.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#annotations">https://json-schema.org/understanding-json-schema/reference/generic.html#annotations</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="deprecated" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#deprecated">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">deprecated</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>(availableAfter(&quot;https://json-schema.org/draft/2019-09/schema&quot;))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L180-180">Source</a></div>
+                <div class="doc-comment"><p>Indicates that the instance value should not be used and
+may be removed in the future.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Introduced in draft 2019-09.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="readOnly" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#readOnly">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">readOnly</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>(availableAfter(&quot;http://json-schema.org/draft-07/schema#&quot;))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L188-188">Source</a></div>
+                <div class="doc-comment"><p>Metadata indicating that the instance value should not be modified.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It could be used to indicate that a <code>PUT</code> request that changes a value would result
+in a 400 Bad Request response</p>
+<p>Introduced in draft 7.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="writeOnly" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#writeOnly">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">writeOnly</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>(availableAfter(&quot;http://json-schema.org/draft-07/schema#&quot;))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L196-196">Source</a></div>
+                <div class="doc-comment"><p>Metadata indicating that a value may be set, but will remain hidden.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>In could be used to indicate you can set a value with a <code>PUT</code> request,
+but it would not be included when retrieving that record with a <code>GET</code> request</p>
+<p>Introduced in draft 7.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="type" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#type">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">type</span>: (<a href="index.html#JsonSchemaTypeName" class="name-ref">JsonSchemaTypeName</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#JsonSchemaTypeName" class="name-ref">JsonSchemaTypeName</a>&gt;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L222-222">Source</a></div>
+                <div class="doc-comment"><p>The fundamental data type for a schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>At its core, JSON Schema defines the following basic types:</p>
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>integer</code></li>
+<li><code>boolean</code></li>
+<li><code>array</code></li>
+<li><code>object</code></li>
+<li><code>null</code></li>
+</ul>
+<p><code>type</code> may either be a string or a listing.</p>
+<ul>
+<li>If it's a string, it is the name of one of the basic types above.</li>
+<li>If it is an array, it must be an array of strings, where each string
+is the name of one of the basic types, and each element is unique.
+In this case, the JSON snippet is valid if it matches <em>any</em> of the
+given types.</li>
+</ul>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/type.html#type">https://json-schema.org/understanding-json-schema/reference/type.html#type</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="enum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#enum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">enum</span>: (<a href="index.html#JsonSchemaValue" class="name-ref">JsonSchemaValue</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#JsonSchemaValue" class="name-ref">JsonSchemaValue</a>&gt;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L231-231">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to a fixed set of values.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It must be a listing with at least one element, where each element is unique.
+You can use <code>enum</code> even without a <a href="index.html#type"><code>type</code></a>, to accept values of different types.</p>
+<p>Elements in the array might be of any value, including null.
+<a href="https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values">https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="const" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#const">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`const`</span>: <a href="index.html#JsonSchemaValue" class="name-ref">JsonSchemaValue</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L236-236">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to a single value.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/generic.html#constant-values">https://json-schema.org/understanding-json-schema/reference/generic.html#constant-values</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="multipleOf" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#multipleOf">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">multipleOf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>(isPositive)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L246-246">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to a multiple of the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It may be set to any positive number.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#multiples">https://json-schema.org/understanding-json-schema/reference/numeric.html#multiples</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minimum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minimum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minimum</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L251-251">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to be at minimum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">https://json-schema.org/understanding-json-schema/reference/numeric.html#range</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exclusiveMinimum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exclusiveMinimum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">exclusiveMinimum</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L256-256">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to be larger than the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">https://json-schema.org/understanding-json-schema/reference/numeric.html#range</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maximum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maximum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maximum</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L261-261">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to be at maximum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">https://json-schema.org/understanding-json-schema/reference/numeric.html#range</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exclusiveMaximum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exclusiveMaximum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">exclusiveMaximum</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L266-266">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to be smaller than the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">https://json-schema.org/understanding-json-schema/reference/numeric.html#range</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pattern" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pattern">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pattern</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>(isRegex)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L276-276">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value to a regex pattern.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The regular expression must conform to <a href="https://262.ecma-international.org/5.1/#sec-7.8.5">ECMA 262</a>.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions">https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minLength" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minLength">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minLength</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L281-281">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value's length to be at minimum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/string.html#length">https://json-schema.org/understanding-json-schema/reference/string.html#length</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxLength" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxLength">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxLength</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L286-286">Source</a></div>
+                <div class="doc-comment"><p>Restricts the instance value's length to be at maximum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/string.html#length">https://json-schema.org/understanding-json-schema/reference/string.html#length</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="format" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#format">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">format</span>: (&quot;date-time&quot;|&quot;time&quot;|&quot;date&quot;|&quot;email&quot;|&quot;idn-email&quot;|&quot;hostname&quot;|&quot;ipv4&quot;|&quot;ipv6&quot;|&quot;uri&quot;|&quot;uri-reference&quot;|&quot;iri&quot;|&quot;iri-reference&quot;|&quot;uri-template&quot;|&quot;json-pointer&quot;|&quot;relative-json-pointer&quot;|&quot;regex&quot;|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L295-312">Source</a></div>
+                <div class="doc-comment"><p>Allows for basic semantic validation on certain kinds of string values that are
+commonly used.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This allows values to be constrained beyond what the other tools in JSON Schema,
+including Regular Expressions can do.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/string.html#format">https://json-schema.org/understanding-json-schema/reference/string.html#format</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="properties" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#properties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">properties</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="index.html#Schema" class="name-ref">Schema</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L325-325">Source</a></div>
+                <div class="doc-comment"><p>The properties (key-value pairs) on the instance value.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Each key is the name of a property and each value is a schema used to
+validate that property.
+Any property on the instance value that doesn't match any of the property
+names within <code>properties</code> is ignored.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#properties">https://json-schema.org/understanding-json-schema/reference/object.html#properties</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="patternProperties" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#patternProperties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">patternProperties</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>(isRegex), <a href="index.html#Schema" class="name-ref">Schema</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L337-337">Source</a></div>
+                <div class="doc-comment"><p>Specifies that properties on the instance value that match the specified
+regular expression should conform to a certain schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Sometimes you want to say that, given a particular kind of property name,
+the value should match a particular schema. That’s where
+<code>patternProperties</code> comes in: it maps regular expressions to schemas.
+If a property name matches the given regular expression, the property
+value must validate against the corresponding schema.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#pattern-properties">https://json-schema.org/understanding-json-schema/reference/object.html#pattern-properties</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="additionalProperties" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#additionalProperties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">additionalProperties</span>: <a href="index.html#Schema" class="name-ref">Schema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L349-349">Source</a></div>
+                <div class="doc-comment"><p>Controls the handling of any properties on the instance value that are
+not listed within <a href="index.html#properties"><code>properties</code></a>, or match any of the regular expressions in
+<a href="index.html#patternProperties"><code>patternProperties</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>By default, any additional properties are allowed.</p>
+<p>Setting the <code>additionalProperties</code> to <code>false</code> means no additional
+properties will be allowed.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties">https://json-schema.org/understanding-json-schema/reference/object.html#additional-properties</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="required" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#required">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">required</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L359-359">Source</a></div>
+                <div class="doc-comment"><p>Properties that are required to exist on the instance value.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>By default, no properties are required.</p>
+<p>The <code>required</code> keyword takes an array of zero or more strings.  Each
+of these strings must be unique.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#required-properties">https://json-schema.org/understanding-json-schema/reference/object.html#required-properties</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="propertyNames" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#propertyNames">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">propertyNames</span>: <a href="index.html#Schema" class="name-ref">Schema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L366-366">Source</a></div>
+                <div class="doc-comment"><p>Validate that the property names match a schema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The <a href="index.html#type"><code>type</code></a> for the schema is implicitly <code>&quot;string&quot;</code>.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#property-names">https://json-schema.org/understanding-json-schema/reference/object.html#property-names</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minProperties" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minProperties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minProperties</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L371-371">Source</a></div>
+                <div class="doc-comment"><p>The minimum amount of properties that the instance value should have.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#size">https://json-schema.org/understanding-json-schema/reference/object.html#size</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxProperties" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxProperties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxProperties</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L376-376">Source</a></div>
+                <div class="doc-comment"><p>The maximum amount of properties that the instance value should have.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/object.html#size">https://json-schema.org/understanding-json-schema/reference/object.html#size</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="items" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#items">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">items</span>: (<a href="index.html#Schema" class="name-ref">Schema</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#Schema" class="name-ref">Schema</a>&gt;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L395-395">Source</a></div>
+                <div class="doc-comment"><p>Constraints on items within an array.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>There are two ways in which arrays are generally used in JSON:</p>
+<ul>
+<li>
+<p><strong>List validation:</strong> a sequence of arbitrary length where each
+item matches the same schema.</p>
+</li>
+<li>
+<p><strong>Tuple validation:</strong> a sequence of fixed length where each item may
+have a different schema.  In this usage, the index (or location) of
+each item is meaningful as to how the value is interpreted.  (This
+usage is often given a whole separate type in some programming
+languages, such as Python's <code>tuple</code>).</p>
+</li>
+</ul>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#items">https://json-schema.org/understanding-json-schema/reference/array.html#items</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="additionalItems" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#additionalItems">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">additionalItems</span>: <a href="index.html#Schema" class="name-ref">Schema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L406-406">Source</a></div>
+                <div class="doc-comment"><p>Controls whether it’s valid to have additional items in a tuple beyond what is
+defined in items.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The value of the <code>additionalItems</code> is a schema that all additional items must pass
+in order for the keyword to validate.
+This is ignored if there is not a “tuple validation” items
+keyword present in the same schema.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#addtional-items">https://json-schema.org/understanding-json-schema/reference/array.html#addtional-items</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="contains" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#contains">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">contains</span>: <a href="index.html#Schema" class="name-ref">Schema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L411-411">Source</a></div>
+                <div class="doc-comment"><p>A schema that must match at least one item within the instance array.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#contains">https://json-schema.org/understanding-json-schema/reference/array.html#contains</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minItems" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#minItems">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minItems</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L416-416">Source</a></div>
+                <div class="doc-comment"><p>Constrains the instance value's length to be at minimum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#length">https://json-schema.org/understanding-json-schema/reference/array.html#length</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="maxItems" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#maxItems">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">maxItems</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L421-421">Source</a></div>
+                <div class="doc-comment"><p>Constrains the instance value's length to be at maximum the given number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#length">https://json-schema.org/understanding-json-schema/reference/array.html#length</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="uniqueItems" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#uniqueItems">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">uniqueItems</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L426-426">Source</a></div>
+                <div class="doc-comment"><p>Specifies that each item in the instance value is unique.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/array.html#uniqueness">https://json-schema.org/understanding-json-schema/reference/array.html#uniqueness</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="oneOf" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#oneOf">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">oneOf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#Schema" class="name-ref">Schema</a>&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L434-434">Source</a></div>
+                <div class="doc-comment"><p>Specifies that the value must match against <strong>exactly</strong> one of the subschemas.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/combining.html#oneof">https://json-schema.org/understanding-json-schema/reference/combining.html#oneof</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="anyOf" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#anyOf">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">anyOf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#Schema" class="name-ref">Schema</a>&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L439-439">Source</a></div>
+                <div class="doc-comment"><p>Specifies that the value must match ay least one of the subschemas.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/combining.html#anyof">https://json-schema.org/understanding-json-schema/reference/combining.html#anyof</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="allOf" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#allOf">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">allOf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#Schema" class="name-ref">Schema</a>&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L444-444">Source</a></div>
+                <div class="doc-comment"><p>Specifies that the value must match <strong>all</strong> of the subschemas.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/combining.html#allof">https://json-schema.org/understanding-json-schema/reference/combining.html#allof</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="not" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#not">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">not</span>: <a href="index.html#Schema" class="name-ref">Schema</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L450-450">Source</a></div>
+                <div class="doc-comment"><p>The <code>not</code> keyword declares that an instance validates if it doesn’t validate
+against the given subschema.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="https://json-schema.org/understanding-json-schema/reference/combining.html#not">https://json-schema.org/understanding-json-schema/reference/combining.html#not</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="_inline_" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#_inline_">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">_inline_</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="index.html#Schema" class="name-ref">Schema</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L461-461">Source</a></div>
+                <div class="doc-comment"><p>Any additional properties that are <a href="index.html"><code>JsonSchema</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Additional properties do not affect the validation of the instance value, but
+may be referred to using <a href="index.html#$ref"><code>$ref</code></a>.</p>
+<p>This is a child property because Pkl modules cannot express both known names
+and arbitrary names.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull%28%29" class="anchor"> </div>
+            <div id="ifNonNull%28%29.Result" class="anchor-param1"> </div>
+            <div id="ifNonNull%28%29.transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty%28%29" class="anchor"> </div>
+            <div id="hasProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty%28%29" class="anchor"> </div>
+            <div id="getProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull%28%29" class="anchor"> </div>
+            <div id="getPropertyOrNull%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo%28%29" class="anchor"> </div>
+            <div id="relativePathTo%28%29.other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="JsonSchemaTypeName" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#JsonSchemaTypeName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#JsonSchemaTypeName" class="name-decl">JsonSchemaTypeName</a> = &quot;string&quot;|&quot;number&quot;|&quot;integer&quot;|&quot;boolean&quot;|&quot;object&quot;|&quot;array&quot;|&quot;null&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L28-28">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="JsonSchemaVersion" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#JsonSchemaVersion">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#JsonSchemaVersion" class="name-decl">JsonSchemaVersion</a> = &quot;http://json-schema.org/draft-06/schema#&quot;|&quot;http://json-schema.org/draft-06/schema&quot;|&quot;http://json-schema.org/draft-07/schema#&quot;|&quot;http://json-schema.org/draft-07/schema&quot;|&quot;https://json-schema.org/draft/2019-09/schema&quot;|&quot;https://json-schema.org/draft/2020-12/schema&quot;|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L30-37">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="JsonSchemaValue" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#JsonSchemaValue">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#JsonSchemaValue" class="name-decl">JsonSchemaValue</a> = <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Number.html" class="name-ref">Number</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Null.html" class="name-ref">Null</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html" class="name-ref">Dynamic</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L39-39">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Schema" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#Schema">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Schema" class="name-decl">Schema</a> = <a href="index.html" class="name-ref">JsonSchema</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema@1.0.0/packages/org.json_schema/JsonSchema.pkl#L46-46">Source</a></div>
+                <div class="doc-comment"><p>A JSON Schema can either be a <a href="index.html"><code>JsonSchema</code></a> object or a simple boolean.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A boolean schema is shorthand for:</p>
+<ul>
+<li>true: Any value is valid</li>
+<li>false: No value is valid</li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

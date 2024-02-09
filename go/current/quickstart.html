@@ -85,7 +85,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="go" data-version="0.5.1">
+<div class="nav-container" data-component="go" data-version="0.5.3">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -115,7 +115,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Go Bindings</span>
-    <span class="version">0.5.1</span>
+    <span class="version">0.5.3</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -152,7 +152,7 @@
       <div class="title"><a href="index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.5.1</a>
+          <a href="index.html">0.5.3</a>
         </li>
       </ul>
     </li>
@@ -228,15 +228,15 @@
 <p>If you are using <a href="codegen.html" class="xref page">code generation</a>, install the pkl-gen-go binary, either via <code>go install</code> or with a direct download.</p>
 </div>
 <div class="paragraph">
-<p>The binaries are available as assets on our <a href="https://github.com/apple/pkl-go/releases/tag/v0.5.1/">GitHub release</a>.</p>
+<p>The binaries are available as assets on our <a href="https://github.com/apple/pkl-go/releases/tag/v0.5.3/">GitHub release</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># via go install
-go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.5.1
+go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.5.3
 
 # via curl
-curl -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.5.1/pkl-gen-go-macos.bin
+curl -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.5.3/pkl-gen-go-macos.bin
 chmod +x pkl-gen-go</code></pre>
 </div>
 </div>
@@ -262,7 +262,7 @@ The <code>name</code> property in the annotation is the Go import path for the g
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Package</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;github.com/myorg/myteam/appconfig&quot;</span> <span class="hljs-punctuation">}</span>
 <span class="hljs-keyword">module</span> <span class="hljs-property">myorg</span><span class="hljs-punctuation">.</span><span class="hljs-property">myteam</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">AppConfig</span>
 
-<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.5.1#/go.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.5.3#/go.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// The hostname of this application.</span>
 <span class="hljs-property">host</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>

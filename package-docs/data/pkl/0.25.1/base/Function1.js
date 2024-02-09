@@ -1,1 +1,1 @@
-runtimeData.links('known-versions','[{"text":"0.25.1","classes":"current-version"},{"text":"0.25.0-dev","href":"../../0.25.0-dev/base/Function1.html"}]');
+runtimeData.links('known-versions','[{"text":"0.25.2","href":"../../0.25.2/base/Function1.html"},{"text":"0.25.1","classes":"current-version"},{"text":"0.25.0-dev","href":"../../0.25.0-dev/base/Function1.html"}]');

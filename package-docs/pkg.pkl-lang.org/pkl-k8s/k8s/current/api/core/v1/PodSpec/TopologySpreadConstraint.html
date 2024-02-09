@@ -47,7 +47,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">nodeTaintsPolicy</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#468-468">Source</a></div>
+                <div class="member-signature"><span class="name-decl">nodeTaintsPolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#468-468">Source</a></div>
                 <div class="doc-comment"><p>NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included.</p>
 <ul>
@@ -66,7 +66,7 @@ This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">whenUnsatisfiable</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#480-480">Source</a></div>
+                <div class="member-signature"><span class="name-decl">whenUnsatisfiable</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#480-480">Source</a></div>
                 <div class="doc-comment"><p>WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><ul>
 <li>DoNotSchedule (default) tells the scheduler not to schedule it.</li>
@@ -88,7 +88,7 @@ It's a required field.</li>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">maxSkew</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#Int32" class="name-ref">Int32</a>(this &gt;= 1)<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#492-492">Source</a></div>
+                <div class="member-signature"><span class="name-decl">maxSkew</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#Int32" class="name-ref">Int32</a>(this &gt;= 1)<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#492-492">Source</a></div>
                 <div class="doc-comment"><p>MaxSkew describes the degree to which pods may be unevenly distributed.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When <code>whenUnsatisfiable=DoNotSchedule</code>, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum.
 The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains.
@@ -110,7 +110,7 @@ Default value is 1 and 0 is not allowed.</li>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">nodeAffinityPolicy</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#503-503">Source</a></div>
+                <div class="member-signature"><span class="name-decl">nodeAffinityPolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#503-503">Source</a></div>
                 <div class="doc-comment"><p>NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations.</p>
 <ul>
@@ -142,7 +142,7 @@ This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">minDomains</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#Int32" class="name-ref">Int32</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#524-524">Source</a></div>
+                <div class="member-signature"><span class="name-decl">minDomains</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#Int32" class="name-ref">Int32</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#524-524">Source</a></div>
                 <div class="doc-comment"><p>MinDomains indicates a minimum number of eligible domains.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats &quot;global minimum&quot; as 0, and then the calculation of Skew is performed.
 And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling.
@@ -163,7 +163,7 @@ In this situation, new pod with the same labelSelector cannot be scheduled, beca
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">topologyKey</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#535-535">Source</a></div>
+                <div class="member-signature"><span class="name-decl">topologyKey</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#535-535">Source</a></div>
                 <div class="doc-comment"><p>TopologyKey is the key of node labels.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Nodes that have a label with this key and identical values are considered to be in the same topology.
 We consider each &lt;key, value&gt; as a &quot;bucket&quot;, and try to put balanced number of pods into each bucket.
@@ -182,7 +182,7 @@ It's a required field.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">matchLabelKeys</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#547-547">Source</a></div>
+                <div class="member-signature"><span class="name-decl">matchLabelKeys</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.0.1/generated-package/api/core/v1/PodSpec.pkl#547-547">Source</a></div>
                 <div class="doc-comment"><p>MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod.
 The same key is forbidden to exist in both MatchLabelKeys and LabelSelector.
@@ -200,107 +200,107 @@ A null or empty list means only match against labelSelector.</p>
         <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
         <ul>
           <li>
-            <div id="getClass()" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+            <div id="getClass%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="toString()" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+            <div id="toString%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L48-L48">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="ifNonNull()" class="anchor"> </div>
-            <div id="ifNonNull().Result" class="anchor-param1"> </div>
-            <div id="ifNonNull().transform" class="anchor-param2"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+            <div id="ifNonNull%28%29" class="anchor"> </div>
+            <div id="ifNonNull%28%29.Result" class="anchor-param1"> </div>
+            <div id="ifNonNull%28%29.transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="TopologySpreadConstraint.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="TopologySpreadConstraint.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="TopologySpreadConstraint.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="TopologySpreadConstraint.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="hasProperty()" class="anchor"> </div>
-            <div id="hasProperty().name" class="anchor-param1"> </div>
-            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+            <div id="hasProperty%28%29" class="anchor"> </div>
+            <div id="hasProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1702-L1702">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="getProperty()" class="anchor"> </div>
-            <div id="getProperty().name" class="anchor-param1"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+            <div id="getProperty%28%29" class="anchor"> </div>
+            <div id="getProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1707-L1707">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="getPropertyOrNull()" class="anchor"> </div>
-            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+            <div id="getPropertyOrNull%28%29" class="anchor"> </div>
+            <div id="getPropertyOrNull%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1712-L1712">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="toDynamic()" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+            <div id="toDynamic%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1715-L1715">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="toMap()" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+            <div id="toMap%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap%28%29">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docspkl/0.25.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docspkl/0.25.1/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

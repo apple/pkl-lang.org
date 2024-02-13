@@ -381,7 +381,7 @@ When you run this, Pkl expands everything fully.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
@@ -623,7 +623,7 @@ Going back to the example above, you can write <code>parrot</code> as a separate
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Importing <code>foo.pkl</code> creates the object <code>foo</code>, so you can refer to <code>pigeon</code> in this code, like you did before.</td>
+<td>Importing <code>pigeon.pkl</code> creates the object <code>pigeon</code>, so you can refer to <code>pigeon</code> in this code, like you did before.</td>
 </tr>
 </table>
 </div>
@@ -837,7 +837,7 @@ Start off by specifying the name of the pipeline and nothing else.</p>
 </div>
 <div class="paragraph">
 <p>So far, you&#8217;ve defined objects the same way you amended them.
-When the name <code>foo</code> didn&#8217;t occur before, <code>foo { &#8230;&#8203; }</code> <em>creates</em> a property called <code>foo</code> and assigns to it the object specified on the <code>&#8230;&#8203;</code>.
+If the name <code>foo</code> didn&#8217;t occur before, <code>foo { &#8230;&#8203; }</code> <em>creates</em> a property called <code>foo</code> and assigns to it the contents in place of the <code>&#8230;&#8203;</code> (given that <code>&#8230;&#8203;</code> is not valid Pkl, but an abbreviation for illustration purposes).
 If <code>foo</code> is an existing object, this notation is an <em>amend expression</em>; resulting in a new <em>object</em> (value), but <em>not</em> a new (named) property.
 Since <code>pipelines</code> is a listing, you can <em>add</em> elements by writing expressions in an amend expression.</p>
 </div>

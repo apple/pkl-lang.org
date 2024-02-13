@@ -41,9 +41,9 @@
 
   function toggleNavbarMenu (e) {
     e.stopPropagation() // trap event
-    document.documentElement.classList.toggle('is-clipped--navbar')
-    navbarBurger.setAttribute('aria-expanded', this.classList.toggle('is-active'))
-    var menu = document.getElementById(this.getAttribute('aria-controls') || this.dataset.target)
+    document.classList.toggle('is-clipped--navbar')
+    navbarBurger.setAttribute('aria-expanded', document.classList.contains('is-clipped--navbar'))
+    var menu = document.getElementById("topbar-nav")
     if (menu.classList.toggle('is-active')) {
       menu.style.maxHeight = ''
       var expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top)

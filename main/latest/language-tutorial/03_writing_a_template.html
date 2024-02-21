@@ -538,7 +538,7 @@ pklTutorialPart3 {
 </div>
 </div>
 <div class="paragraph">
-<p>Sadly, <code>pklTutorialParts.pkl</code> is a <em>rewrite</em> of <code>pklTutorial.pkl</code>.
+<p>Sadly, <code>pklTutorialParts.pkl</code> is a <em>rewrite</em> of <code>pklTutorialPart3.pkl</code>.
 It creates a separate <code>class TutorialPart</code> and instantiates three properties with it (<code>pklTutorialPart1</code>, <code>pklTutorialPart2</code> and <code>pklTutorialPart3</code>).
 In doing so, it implicitly moves everything "down" one level (<code>pklTutorialPart3</code> is now a property in the module <code>pklTutorialParts</code>, whereas above, in <code>pklTutorialPart3.pkl</code> it was its own module).
 This is not very DRY.
@@ -662,7 +662,7 @@ Suppose you want to define what a live workshop for this tutorial looks like.
 Consider this example:</p>
 </div>
 <div class="listingblock">
-<div class="title">workshop2023.pkl</div>
+<div class="title">workshop2024.pkl</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl: Configure your Systems in New Ways&quot;</span>
 <span class="hljs-property">interactive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
@@ -678,7 +678,7 @@ Consider this example:</p>
 
 <span class="hljs-property">event</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Migrating Birds between hemispheres&quot;</span>
-  <span class="hljs-property">year</span> <span class="hljs-operator">=</span> <span class="hljs-number">2023</span>
+  <span class="hljs-property">year</span> <span class="hljs-operator">=</span> <span class="hljs-number">2024</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">instructors</span> <span class="hljs-punctuation">{</span>
@@ -688,11 +688,11 @@ Consider this example:</p>
 
 <span class="hljs-property">sessions</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;8/14/2023&quot;</span>
+    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
     <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;8/15/2023&quot;</span>
+    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
     <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>

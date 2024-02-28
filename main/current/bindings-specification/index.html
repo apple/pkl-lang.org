@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Use Cases :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/main/current/introduction/use-cases.html">
-    <link rel="prev" href="index.html">
-    <link rel="next" href="concepts.html">
+    <title>Language Binding Specification :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/bindings-specification/index.html">
+    <link rel="prev" href="../../../go/current/index.html">
+    <link rel="next" href="message-passing-api.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/site-extra.css">
@@ -97,16 +97,16 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Introduction</a>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="use-cases.html">Use Cases</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="concepts.html">Concepts</a>
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="comparison.html">Comparison</a>
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
   </li>
 </ul>
   </li>
@@ -175,15 +175,15 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../../../go/current/index.html">Go</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+    <a class="nav-link" href="index.html">Specification</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+    <a class="nav-link" href="message-passing-api.html">Message Passing API</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+    <a class="nav-link" href="binary-encoding.html">Pkl Binary Encoding</a>
   </li>
 </ul>
   </li>
@@ -324,88 +324,257 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Main Project</a></li>
-    <li><a href="index.html">Introduction</a></li>
-    <li><a href="use-cases.html">Use Cases</a></li>
+    <li><a href="../language.html">Language</a></li>
+    <li><a href="../language-bindings.html">Language Bindings</a></li>
+    <li><a href="index.html">Specification</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">0.25.2</button>
   <div class="version-menu">
-    <a class="version" href="../../latest/introduction/use-cases.html">0.26.0-dev</a>
-    <a class="version is-current" href="use-cases.html">0.25.2</a>
+    <a class="version" href="../../latest/bindings-specification/index.html">0.26.0-dev</a>
+    <a class="version is-current" href="index.html">0.25.2</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/introduction/pages/use-cases.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/bindings-specification/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Use Cases</h1>
+<h1 class="page">Language Binding Specification</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Pkl is a good fit for:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Generating Static Configuration</dt>
-<dd>
-<p>Are you using a tool, service, or application that is configured with JSON, YAML, or any other static configuration format?</p>
-<div class="paragraph">
-<p>By generating this configuration with Pkl, you can reduce verbosity and increase maintainability through <a href="concepts.html#reuse" class="xref page">reuse</a>, <a href="concepts.html#template" class="xref page">templating</a>, and <a href="concepts.html#abstraction" class="xref page">abstraction</a>.
-JSON, YAML, and <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html">XML property lists</a> are supported out of the box; <a href="concepts.html#rendering" class="xref page">renderers</a> for other configuration formats can be developed and shared by anyone.
-Automatic defaults, strong validation, and sensible error messages come in reach with configuration <a href="concepts.html#schema" class="xref page">schemas</a>.</p>
+<p>Pkl can be embedded within any host application.
+The host application has access to low level controls.
+It is able to manage the lifecycle of evaluators, as well as provide custom modules and resources to Pkl.</p>
 </div>
 <div class="paragraph">
-<p>Generation can be triggered manually, by an automation pipeline, or by the target application.</p>
-</div>
-</dd>
-<dt class="hdlist1">Application Runtime Configuration</dt>
-<dd>
-<p>Are you the author of a tool, service, or application that consumes configuration?</p>
-<div class="paragraph">
-<p>By adopting Pkl as your "native" configuration solution (rather than, say, using it to generate JSON files), you benefit from a modern <a href="../java-binding/pkl-config-java.html" class="xref page">configuration library</a> that is safe, easy, and enjoyable to use.
-At the same time, anyone configuring your application&#8201;&#8212;&#8201;whether that&#8217;s your users, site reliability engineers (SREs), or yourself&#8201;&#8212;&#8201;benefit from a well-defined, well-documented, and scalable configuration language.</p>
+<p>Currently, Pkl must be embedded as a child process, by shelling out to the CLI using the <a href="../pkl-cli/index.html#command-server" class="xref page"><code>pkl server</code></a> command. In the future, a C library will also be provided.</p>
 </div>
 <div class="paragraph">
-<p>At the time of writing, Pkl offers configuration libraries for the JVM runtime, Swift, and also for Golang.</p>
+<p>When embedded, communication between a host application and Pkl happens via message passing.
+The message passing specification can be found in <a href="message-passing-api.html" class="xref page">Message Passing API</a>.</p>
 </div>
 <div class="paragraph">
-<p>We maintain the following libraries:</p>
+<p>For examples of language bindings in practice, review the <a href="#https://github.com/apple/pkl-go">pkl-go</a>, or the <a href="#https://github.com/apple/pkl-swift">pkl-swift</a> codebases.</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl&#8217;s Java and Kotlin libraries binds to Pkl directly, and do not use message passing.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-of-a-language-binding"><a class="anchor" href="#features-of-a-language-binding"></a><a class="link" href="#features-of-a-language-binding">Features of a language binding</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A language binding for Pkl should generally have the following components:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="../java-binding/pkl-config-java.html" class="xref page">pkl-config-java</a> for Java compatible languages</p>
+<p>A client that spawns <code>pkl server</code>, and talks to it using message passing.</p>
 </li>
 <li>
-<p><a href="../kotlin-binding/pkl-config-kotlin.html" class="xref page">pkl-config-kotlin</a> for the <a href="https://kotlinlang.org">Kotlin</a> language.</p>
+<p>A deserializer that turns <a href="binary-encoding.html" class="xref page">pkl binary encoding</a> into a structure in the host language.</p>
 </li>
 <li>
-<p><a href="../../../swift/current/index.html" class="xref page">pkl-swift</a> for the Swift language.</p>
+<p>A code generator that transforms Pkl schemas into schemas written in the host language.
+The code generator is mostly written in Pkl, with a lightweight executable that acts as the glue layer.
+For examples of code generators, consult <a href="https://github.com/apple/pkl-go/tree/main/codegen">pkl-go</a> and <a href="https://github.com/apple/pkl-swift/tree/main/codegen">pkl-swift</a>.</p>
 </li>
-<li>
-<p><a href="../../../go/current/index.html" class="xref page">pkl-go</a> for the Go language.</p>
-</li>
-</ul>
+</ol>
 </div>
-</dd>
-</dl>
 </div>
+</div>
+<div class="sect1">
+<h2 id="sample-flow"><a class="anchor" href="#sample-flow"></a><a class="link" href="#sample-flow">Sample flow</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>In the future, we hope to add support for other popular languages and platforms, realizing our vision of a polyglot config solution based on a single config language.</p>
+<p>Here is a sample flow for evaluating a module with the following contents:</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">&lt;Your Use Case Here&gt;</dt>
-<dd>
-<p>We are just getting started. Tell us about <em>your</em> Pkl success story!</p>
-</dd>
-</dl>
+<div class="listingblock">
+<div class="title">file:///path/to/myModule.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">MyModule</span>
+
+<span class="hljs-property">theModules</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;customfs:/*.pkl&quot;</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Client sends <a href="message-passing-api.html#create-evaluator-request" class="xref page">Create Evaluator Request</a>, including <code>customfs</code> as a custom module reader.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x20,
+  {
+    "requestId": 135,
+    "allowedModules": ["pkl:", "repl:", "file:", "customfs:"],
+    "clientModuleReaders": [
+      {
+        "scheme": "customfs",
+        "hasHierarchicalUris": true,
+        "isGlobbable": true,
+        "isLocal": true
+      }
+    ]
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Server sends <a href="message-passing-api.html#create-evaluator-response" class="xref page">Create Evaluator Response</a>, with an evaluator id.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x21,
+  {
+    "requestId": 135,
+    "evaluatorId": -135901
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Client sends <a href="message-passing-api.html#evaluate-request" class="xref page">Evaluate Request</a>, providing the module&#8217;s URI.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x23,
+  {
+    "requestId": 9805131,
+    "evaluatorId": -13901,
+    "moduleUri": "file:///path/to/myModule.pkl"
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>During evaluation, server evaluates <code>import*("customfs:/*.pkl")</code>, and sends <a href="message-passing-api.html#list-modules-request" class="xref page">List Modules Request</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x2c,
+  {
+    "requestId": -6478924,
+    "evaluatorId": -13901,
+    "uri": "customfs:/"
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Client responds with <a href="message-passing-api.html#list-modules-response" class="xref page">List Modules Response</a>.
+In our pretend scenario, there is only one file; <code>foo.pkl</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x2d,
+  {
+    "requestId": -6478924,
+    "evaluatorId": -13901,
+    "pathElements": [
+      {
+        "name": "foo.pkl",
+        "isDirectory": false
+      }
+    ]
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Server sends <a href="message-passing-api.html#read-module-request" class="xref page">Read Module Request</a> to read <code>foo.pkl</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x28,
+  {
+    "requestId": 36408291,
+    "evaluatorId": -13901,
+    "uri": "customfs:/foo.pkl"
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Client responds with the module&#8217;s contents</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x29,
+  {
+    "requestId": 36408291,
+    "evaluatorId": -13901,
+    "contents": "foo = 1"
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Server finishes evaluation, and responds with the <a href="message-passing-api.html#evaluate-response" class="xref page">Evaluate Response</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x24,
+  {
+    "requestId": 9805131,
+    "evaluatorId": -13901,
+    "result": &lt;pkl binary value&gt;
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Client sends <a href="message-passing-api.html#close-evaluator" class="xref page">Close Evaluator</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  0x22,
+  {
+    "evaluatorId": -13901
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="debug-logs"><a class="anchor" href="#debug-logs"></a><a class="link" href="#debug-logs">Debug logs</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Set the env var <code>PKL_DEBUG=1</code> to enable more verbose logging from Pkl.
+It is recommended that clients also use this environment variable to enable debug logs of their own.</p>
+</div>
+</div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Introduction</a></span>
-  <span class="next"><a href="concepts.html">Concepts</a></span>
+  <span class="prev"><a href="../../../go/current/index.html">Go</a></span>
+  <span class="next"><a href="message-passing-api.html">Message Passing API</a></span>
 </nav>
 </article>
   </div>

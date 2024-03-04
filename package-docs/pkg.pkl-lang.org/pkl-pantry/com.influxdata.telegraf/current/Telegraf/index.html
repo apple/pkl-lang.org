@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telegraf (pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf:1.1.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf/1.1.0/Telegraf/index.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="com.influxdata.telegraf.Telegraf" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf</a>
+      <h1 id="declaration-title">com.influxdata.telegraf.Telegraf<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">open module <span class="name-decl">com.influxdata.telegraf.Telegraf</span></div>
+        <div class="doc-comment"><p>Definitions for a <a href="https://docs.influxdata.com/telegraf/v1.17/administration/configuration/">Telegraf configuration</a>.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/Telegraf.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.25.0 or higher</dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https%3A//github.com/apple/pkl-pantry/blob/com.influxdata.telegraf%401.1.0/packages/com.influxdata.telegraf/Telegraf.pkl">Telegraf.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>This API nests data formats as a child object of plugins.
+For instance, here is an example of a socket listener which uses the json data format:</p>
+<pre><code>import &quot;package://pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf@&lt;version&gt;#/plugins/parsers/JsonInputDataFormat.pkl&quot;
+
+inputs {
+  socket_listener {
+    new {
+      service_address = &quot;tcp://:8085&quot;
+      data_format = new JsonInputDataFormat {
+        json_query = &quot;foo.bar&quot;
+        tag_keys {
+          &quot;my-tag-1&quot;
+          &quot;my-tag-2&quot;
+        }
+        json_name_key = &quot;my_measurement&quot;
+        json_time_key = &quot;time&quot;
+      }
+    }
+  }
+}
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="agent" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#agent">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">agent</span>: <a href="AgentConfig.html" class="name-ref">AgentConfig</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L60-60">Source</a></div>
+                <div class="doc-comment"><p>Telegraf has a few options you can configure under the <code>agent</code> section of the config.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="outputs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#outputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">outputs</span>: <a href="Outputs.html" class="name-ref">Outputs</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L65-65">Source</a></div>
+                <div class="doc-comment"><p>Output plugins write metrics to a location.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Outputs commonly write to databases, network services, and messaging systems.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="inputs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#inputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">inputs</span>: <a href="Inputs.html" class="name-ref">Inputs</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L70-70">Source</a></div>
+                <div class="doc-comment"><p>Input plugins gather and create metrics.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>They support both polling and event driven operation.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="processors" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#processors">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">processors</span>: <a href="Processors.html" class="name-ref">Processors</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L76-76">Source</a></div>
+                <div class="doc-comment"><p>Processor plugins process metrics as they pass through and immediately emit results
+based on the values they process.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For example, this could be printing all metrics or adding a tag to all metrics that pass through.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="global_tags" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#global_tags">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">global_tags</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L79-79">Source</a></div>
+                <div class="doc-comment"><p>All metrics being gathered on this host will be tagged with the tags specified here.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull%28%29" class="anchor"> </div>
+            <div id="ifNonNull%28%29.Result" class="anchor-param1"> </div>
+            <div id="ifNonNull%28%29.transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty%28%29" class="anchor"> </div>
+            <div id="hasProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty%28%29" class="anchor"> </div>
+            <div id="getProperty%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull%28%29" class="anchor"> </div>
+            <div id="getPropertyOrNull%28%29.name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap%28%29" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo%28%29" class="anchor"> </div>
+            <div id="relativePathTo%28%29.other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo%28%29">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Outputs" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Outputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Outputs.html" class="name-decl">Outputs</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L81-91">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Inputs" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Inputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Inputs.html" class="name-decl">Inputs</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L93-138">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Processors" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Processors">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Processors.html" class="name-decl">Processors</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L140-143">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="AgentConfig" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#AgentConfig">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">open class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="AgentConfig.html" class="name-decl">AgentConfig</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L145-221">Source</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

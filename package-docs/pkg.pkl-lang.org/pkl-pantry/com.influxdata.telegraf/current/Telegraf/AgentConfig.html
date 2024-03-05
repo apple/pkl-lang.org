@@ -46,7 +46,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L147-147">Source</a></div>
+                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L148-148">Source</a></div>
                 <div class="doc-comment"><p>Default data collection interval for all inputs.</p></div>
               </div>
             </div>
@@ -58,7 +58,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">round_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L152-152">Source</a></div>
+                <div class="member-signature"><span class="name-decl">round_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L153-153">Source</a></div>
                 <div class="doc-comment"><p>Rounds collection interval to <a href="AgentConfig.html#interval"><code>interval</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>For example, <code>interval = 10.s</code> collects on :00, :10, :20, etc.</p></div>
               </div>
@@ -71,7 +71,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">metric_batch_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L157-157">Source</a></div>
+                <div class="member-signature"><span class="name-decl">metric_batch_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L158-158">Source</a></div>
                 <div class="doc-comment"><p>Telegraf will send metrics to outputs in batches of at most <code>metric_batch_size</code> metrics.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This controls the size of writes that Telegraf sends to output plugins.</p></div>
               </div>
@@ -84,7 +84,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">metric_buffer_limit</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L163-163">Source</a></div>
+                <div class="member-signature"><span class="name-decl">metric_buffer_limit</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L164-164">Source</a></div>
                 <div class="doc-comment"><p>Maximum number of unwritten metrics per output.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Increasing this value allows for longer periods of output downtime
 without dropping metrics at the cost of higher maximum memory usage.</p></div>
@@ -98,7 +98,7 @@ without dropping metrics at the cost of higher maximum memory usage.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">collection_jitter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L170-170">Source</a></div>
+                <div class="member-signature"><span class="name-decl">collection_jitter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L171-171">Source</a></div>
                 <div class="doc-comment"><p>Collection jitter is used to jitter the collection by a random <a href="AgentConfig.html#interval"><code>interval</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Each plugin will sleep for a random time within jitter before collecting.
 This can be used to avoid many plugins querying things like sysfs
@@ -113,7 +113,7 @@ at the same time, which can have a measurable effect on the system.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">flush_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L175-175">Source</a></div>
+                <div class="member-signature"><span class="name-decl">flush_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L176-176">Source</a></div>
                 <div class="doc-comment"><p>Default flushing <a href="AgentConfig.html#interval"><code>interval</code></a> for all outputs.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Maximum flush interval is <code>flush_interval + flush_jitter</code>.</p></div>
               </div>
@@ -126,7 +126,7 @@ at the same time, which can have a measurable effect on the system.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">flush_jitter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L182-182">Source</a></div>
+                <div class="member-signature"><span class="name-decl">flush_jitter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L183-183">Source</a></div>
                 <div class="doc-comment"><p>Default flush jitter for all outputs.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This jitters the flush <a href="AgentConfig.html#interval"><code>interval</code></a> by a random amount.
 This is primarily to avoid large write spikes for users running a large number of telegraf instances.
@@ -141,7 +141,7 @@ For example, a jitter of 5s and interval 10s means flushes will happen every 10-
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">precision</span>: (&quot;ns&quot;|&quot;us&quot;|&quot;ms&quot;|&quot;s&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L188-188">Source</a></div>
+                <div class="member-signature"><span class="name-decl">precision</span>: (&quot;ns&quot;|&quot;us&quot;|&quot;ms&quot;|&quot;s&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L189-189">Source</a></div>
                 <div class="doc-comment"><p>Collected metrics are rounded to the precision specified as an <a href="AgentConfig.html#interval"><code>interval</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Precision will NOT be used for service inputs.
 It is up to each individual service input to set the timestamp at the appropriate precision.</p></div>
@@ -155,7 +155,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">debug</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L191-191">Source</a></div>
+                <div class="member-signature"><span class="name-decl">debug</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L192-192">Source</a></div>
                 <div class="doc-comment"><p>Log at debug level.</p></div>
               </div>
             </div>
@@ -167,7 +167,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">quiet</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L194-194">Source</a></div>
+                <div class="member-signature"><span class="name-decl">quiet</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L195-195">Source</a></div>
                 <div class="doc-comment"><p>Log only error level messages.</p></div>
               </div>
             </div>
@@ -179,7 +179,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">logfile</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L199-199">Source</a></div>
+                <div class="member-signature"><span class="name-decl">logfile</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L200-200">Source</a></div>
                 <div class="doc-comment"><p>Name of the file to be logged to when using the &quot;file&quot; logtarget.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If set to the empty string, logs are written to stderr.</p></div>
               </div>
@@ -192,7 +192,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">logfile_rotation_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L204-204">Source</a></div>
+                <div class="member-signature"><span class="name-decl">logfile_rotation_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L205-205">Source</a></div>
                 <div class="doc-comment"><p>The logfile will be rotated after the time interval specified.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When set to <code>0.s</code>, no time based rotation is performed.</p></div>
               </div>
@@ -205,7 +205,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">logfile_rotation_max_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/DataSize.html" class="name-ref">DataSize</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L209-209">Source</a></div>
+                <div class="member-signature"><span class="name-decl">logfile_rotation_max_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/DataSize.html" class="name-ref">DataSize</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L210-210">Source</a></div>
                 <div class="doc-comment"><p>The logfile will be rotated when it becomes larger than the specified size.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When set to <code>0.b</code>, no size based rotation is performed.</p></div>
               </div>
@@ -218,7 +218,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">logfile_rotation_max_archives</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L214-214">Source</a></div>
+                <div class="member-signature"><span class="name-decl">logfile_rotation_max_archives</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L215-215">Source</a></div>
                 <div class="doc-comment"><p>Maximum number of rotated archives to keep, any older logs are deleted.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If set to -1, no archives are removed.</p></div>
               </div>
@@ -231,7 +231,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">hostname</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L217-217">Source</a></div>
+                <div class="member-signature"><span class="name-decl">hostname</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L218-218">Source</a></div>
                 <div class="doc-comment"><p>Override default hostname, if empty use os.Hostname().</p></div>
               </div>
             </div>
@@ -243,7 +243,7 @@ It is up to each individual service input to set the timestamp at the appropriat
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">omit_hostname</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L220-220">Source</a></div>
+                <div class="member-signature"><span class="name-decl">omit_hostname</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.1.0/packages/com.influxdata.telegraf/Telegraf.pkl#L221-221">Source</a></div>
                 <div class="doc-comment"><p>If set to true, do no set the &quot;host&quot; tag in the telegraf agent.</p></div>
               </div>
             </div>

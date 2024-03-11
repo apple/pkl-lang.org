@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Quickstart :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/swift/current/quickstart.html">
+    <link rel="canonical" href="https://pkl-lang.org/go/current/quickstart.html">
     <link rel="prev" href="index.html">
     <link rel="next" href="evaluation.html">
     <meta name="generator" content="Antora 3.1.7">
@@ -85,13 +85,13 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="swift" data-version="0.2.3">
+<div class="nav-container" data-component="go" data-version="0.5.3">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
-    <h3 class="title"><a href="index.html">Pkl Swift Bindings</a></h3>
+    <h3 class="title"><a href="index.html">Pkl Go Bindings</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -114,8 +114,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Pkl Swift Bindings</span>
-    <span class="version">0.2.3</span>
+    <span class="title">Pkl Go Bindings</span>
+    <span class="version">0.5.3</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -148,22 +148,22 @@
     <li class="component">
       <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
     </li>
-    <li class="component">
-      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+    <li class="component is-current">
+      <div class="title"><a href="../current/index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../go/current/index.html">0.6.0</a>
+          <a href="../current/index.html">0.6.0</a>
         </li>
-        <li class="version">
-          <a href="../../go/0.5.3/index.html">0.5.3</a>
+        <li class="version is-current">
+          <a href="index.html">0.5.3</a>
         </li>
       </ul>
     </li>
-    <li class="component is-current">
-      <div class="title"><a href="index.html">Pkl Swift Bindings</a></div>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">0.2.3</a>
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.2.3</a>
         </li>
       </ul>
     </li>
@@ -200,11 +200,18 @@
   <a href="../../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Pkl Swift Bindings</a></li>
+    <li><a href="index.html">Pkl Go Bindings</a></li>
     <li><a href="quickstart.html">Quickstart</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-swift/edit/release/0.2/docs/modules/ROOT/pages/quickstart.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.5.3</button>
+  <div class="version-menu">
+    <a class="version" href="../current/quickstart.html">0.6.0</a>
+    <a class="version is-current" href="quickstart.html">0.5.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.5/docs/modules/ROOT/pages/quickstart.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -215,7 +222,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>These steps will get you up and going with using Pkl and Swift.</p>
+<p>These steps will get you up and going with using Pkl and Go.</p>
 </div>
 </div>
 </div>
@@ -223,22 +230,27 @@
 <h2 id="1-install-dependencies"><a class="anchor" href="#1-install-dependencies"></a><a class="link" href="#1-install-dependencies">1. Install dependencies</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Add the pkl-swift library as a dependency to your project&#8217;s <code>Package.swift</code>:</p>
+<p>Your project will need to include pkl-go as a dependency:</p>
 </div>
 <div class="listingblock">
-<div class="title">Package.swift</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">let package = Package(
-    dependencies: [
-        .package(url: "https://github.com/apple/pkl-swift", from: "0.2.1")
-    ],
-    targets: [
-        .executableTarget(
-            name: "my-application",
-            dependencies: [.product(name: "PklSwift", package: "pkl-swift")]
-        ),
-    ]
-)</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go get github.com/apple/pkl-go</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are using <a href="codegen.html" class="xref page">code generation</a>, install the pkl-gen-go binary, either via <code>go install</code> or with a direct download.</p>
+</div>
+<div class="paragraph">
+<p>The binaries are available as assets on our <a href="https://github.com/apple/pkl-go/releases/tag/v0.5.3/">GitHub release</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># via go install
+go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.5.3
+
+# via curl
+curl -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.5.3/pkl-gen-go-macos.bin
+chmod +x pkl-gen-go</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -250,13 +262,20 @@
 <h2 id="2-define-a-pkl-schema"><a class="anchor" href="#2-define-a-pkl-schema"></a><a class="link" href="#2-define-a-pkl-schema">2. Define a Pkl schema</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create a new Pkl file in the directory of your choice, to describe the schema of your configuration.
-In this example, the file is placed into <code>pkl/AppConfig.pkl</code>.</p>
+<p>Create a new Pkl file in the directory of your choice, and annotate it with the <code>@go.Package</code> annotation.
+The <code>name</code> property in the annotation is the Go import path for the generated configuration file.</p>
+</div>
+<div class="paragraph">
+<p>In this example, the file is placed into <code>pkl/AppConfig.pkl</code>, and the Go package name for this Pkl module is
+<code>github.com/myorg/myteam/appconfig</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">pkl/AppConfig.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">AppConfig</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Package</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;github.com/myorg/myteam/appconfig&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-keyword">module</span> <span class="hljs-property">myorg</span><span class="hljs-punctuation">.</span><span class="hljs-property">myteam</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">AppConfig</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.5.3#/go.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// The hostname of this application.</span>
 <span class="hljs-property">host</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
@@ -265,64 +284,59 @@ In this example, the file is placed into <code>pkl/AppConfig.pkl</code>.</p>
 <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span></code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="codegen"><a class="anchor" href="#codegen"></a><a class="link" href="#codegen">3. Generate Swift source code</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>With a schema defined, generate Swift source code for it.</p>
-</div>
-<div class="paragraph">
-<p>Code generation is done via the <code>pkl-gen-swift</code> CLI. To install, download it from Artifactory.</p>
-</div>
-<div class="paragraph">
-<p>On macOS:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -L https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-macos.bin -o pkl-gen-swift
-
-chmod +x pkl-gen-swift</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The binary is published for macOS, and for Linux for aarch64 and amd64 architectures.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>macOS Universal Binary: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-macos.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-macos.bin</a></p>
-</li>
-<li>
-<p>linux/aarch64: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-linux-aarch64.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-linux-aarch64.bin</a></p>
-</li>
-<li>
-<p>linux/amd64: <a href="https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-linux-amd64.bin" class="bare">https://github.com/apple/pkl-swift/releases/download/0.2.1/pkl-gen-swift-linux-amd64.bin</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In our example, Swift sources can be generated using the following command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl-gen-swift pkl/AppConfig.pkl -o Sources/MyApplication/Generated/</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This will create a file called <code>AppConfig.pkl.swift</code> inside the <code>Sources/MyApplication/Generated</code> directory.</p>
-</div>
-<div class="paragraph">
-<p>For more details on how to control code generation, consult <code>pkl-gen-swift --help</code>.</p>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Used for the <code>@go.Package</code> annotation.</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="4-evaluate-pkl-configuration-data-in-swift"><a class="anchor" href="#4-evaluate-pkl-configuration-data-in-swift"></a><a class="link" href="#4-evaluate-pkl-configuration-data-in-swift">4. Evaluate Pkl configuration data in Swift</a></h2>
+<h2 id="3-generate-go-source-code"><a class="anchor" href="#3-generate-go-source-code"></a><a class="link" href="#3-generate-go-source-code">3. Generate Go source code</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>With the above scaffolding set up, evaluate Pkl configuration data in Swift.</p>
+<p>With a schema defined, generate Go source code for it.</p>
+</div>
+<div class="paragraph">
+<p>Code generation is done via the <code>pkl-gen-go</code> CLI. To install:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go install github.com/apple/pkl-go/cmd/pkl-gen-go@latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In our example, Go sources can be generated using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl-gen-go pkl/AppConfig.pkl --base-path github.com/myorg/myteam</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>--base-path</code> causes the code generator to place the Go source files in a relative path.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>--base-path</code> argument is omitted, the code generator will also look for a <code>go.mod</code> file for the base path, as well as within the
+<a href="codegen.html#settings-file" class="xref page">settings file</a>.</p>
+</div>
+<div class="paragraph">
+<p>In this example, the Go package name of our Pkl module is <code>github.com/myorg/myteam/appconfig</code>, and the base path
+is <code>github.com/myorg/myteam</code>. Therefore, the generated Go files will be placed into the <code>appconfig</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>For more details on how to control code generation, consult <code>pkl-gen-go --help</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="4-evaluate-pkl-configuration-data-in-go"><a class="anchor" href="#4-evaluate-pkl-configuration-data-in-go"></a><a class="link" href="#4-evaluate-pkl-configuration-data-in-go">4. Evaluate Pkl configuration data in Go</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With the above scaffolding set up, evaluate Pkl configuration data in Go.</p>
 </div>
 <div class="paragraph">
 <p>First, define some configuration that uses the Pkl schema.</p>
@@ -341,21 +355,33 @@ chmod +x pkl-gen-swift</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Once defined, evaluate the Pkl module into Swift data.</p>
+<p>Once defined, evaluate the Pkl module into Go.</p>
 </div>
 <div class="listingblock">
-<div class="title">Sources/MyApplication/Main.swift</div>
+<div class="title">cmd/main.go</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">func main() async throws {
-	let config = try await AppConfig.loadFromPath("pkl/local/appConfig.pkl")
-	print("I'm running on host \(config.host)\n")
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/myorg/myteam/appconfig"
+)
+
+func main() {
+	cfg, err := appconfig.LoadFromPath(context.Background(), "pkl/local/appConfig.pkl")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("I'm running on host %s\n", cfg.Host)
 }</code></pre>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Pkl Swift Bindings</a></span>
+  <span class="prev"><a href="index.html">Pkl Go Bindings</a></span>
   <span class="next"><a href="evaluation.html">Evaluator API</a></span>
 </nav>
 </article>

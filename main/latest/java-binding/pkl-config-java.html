@@ -399,7 +399,6 @@ It requires Java 11 or higher.</p>
 
 repositories {
   maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-}
 }</code></pre>
 </div>
 </div>
@@ -488,8 +487,8 @@ Intermediate and leaf nodes are also represented as <code>Config</code> objects.
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Config config;
 try (var evaluator = ConfigEvaluator.preconfigured()) { <i class="conum" data-value="1"></i><b>(1)</b>
-  config = evaluator.evaluateText(
-    "pigeon { age = 5; diet = \"Seeds\" }"); <i class="conum" data-value="2"></i><b>(2)</b>
+  config = evaluator.evaluate(
+    ModuleSource.text("pigeon { age = 5; diet = \"Seeds\" }")); <i class="conum" data-value="2"></i><b>(2)</b>
 }
 var pigeon = config.get("pigeon"); <i class="conum" data-value="3"></i><b>(3)</b>
 var age = pigeon.get("age").as(int.class); <i class="conum" data-value="4"></i><b>(4)</b>

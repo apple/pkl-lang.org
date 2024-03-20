@@ -6099,7 +6099,13 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <p><code>Collection</code></p>
 </li>
 <li>
+<p><code>Listing</code></p>
+</li>
+<li>
 <p><code>List</code></p>
+</li>
+<li>
+<p><code>Mapping</code></p>
 </li>
 <li>
 <p><code>Set</code></p>
@@ -6108,7 +6114,25 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <p><code>Map</code></p>
 </li>
 <li>
-<p><code>Container</code></p>
+<p><code>Function0</code></p>
+</li>
+<li>
+<p><code>Function1</code></p>
+</li>
+<li>
+<p><code>Function2</code></p>
+</li>
+<li>
+<p><code>Function3</code></p>
+</li>
+<li>
+<p><code>Function4</code></p>
+</li>
+<li>
+<p><code>Function5</code></p>
+</li>
+<li>
+<p><code>Class</code></p>
 </li>
 </ul>
 </div>
@@ -6122,7 +6146,7 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <span class="hljs-property">list</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span>            <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-property">set</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Set</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span>              <i class="conum" data-value="4"></i><b>(4)</b>
 <span class="hljs-property">map</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Map</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span>      <i class="conum" data-value="5"></i><b>(5)</b>
-<span class="hljs-property">cont</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+<span class="hljs-property">mapping</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6149,7 +6173,7 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>a container of <code>Bird</code> elements</td>
+<td>a mapping of <code>String</code> keys and <code>Bird</code> values</td>
 </tr>
 </table>
 </div>
@@ -6163,7 +6187,7 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <span class="hljs-property">list</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span>       <span class="hljs-comment">// equivalent to `List&lt;unknown&gt;`</span>
 <span class="hljs-property">set</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Set</span>         <span class="hljs-comment">// equivalent to `Set&lt;unknown&gt;`</span>
 <span class="hljs-property">map</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Map</span>         <span class="hljs-comment">// equivalent to `Map&lt;unknown, unknown&gt;`</span>
-<span class="hljs-property">cont</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span>    <span class="hljs-comment">// equivalent to `Mapping&lt;unknown, unknown&gt;`</span></code></pre>
+<span class="hljs-property">mapping</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span>    <span class="hljs-comment">// equivalent to `Mapping&lt;unknown, unknown&gt;`</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

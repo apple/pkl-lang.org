@@ -30,11 +30,11 @@
         <div class="doc-comment"><p>Converts a Kubernetes YAML manifest file to Pkl.</p></div>
         <dl class="member-info">
           <dt class="">Module URI:</dt>
-          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/convert.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib@1.0.1#/convert.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
           <dt class="">Pkl version:</dt>
           <dd>0.25.0 or higher</dd>
           <dt class="">Source code:</dt>
-          <dd><a href="https%3A//github.com/apple/pkl-pantry/blob/k8s.contrib%401.0.1/packages/k8s.contrib/convert.pkl">convert.pkl</a></dd>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl">convert.pkl</a></dd>
           <dt class="runtime-data hidden">Known subtypes:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">Known usages:</dt>
@@ -72,7 +72,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L93-L107">Source</a></div>
                 <div class="doc-comment"><p>The output of this module.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
               </div>
@@ -85,9 +85,9 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">resourcesToConvert</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L55-58">Source</a></div>
+                <div class="member-signature"><span class="name-decl">resourcesToConvert</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L55-58">Source</a></div>
                 <div class="doc-comment"><p>The Kubernetes resources to convert.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>Each resource is an object of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html"><code>Mapping</code></a> as produced by <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/yaml/Parser.html"><code>yaml.Parser</code></a>.</p>
+                <div class="doc-comment expandable hidden collapsed"><p>Each resource is an object of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html"><code>Mapping</code></a> as produced by <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/yaml/Parser.html"><code>yaml.Parser</code></a>.</p>
 <p>Defaults to the resources contained in the YAML file passed with <code>-p input=path/to/file.yml</code>.</p></div>
               </div>
             </div>
@@ -99,7 +99,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">resourceConverters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Any.html" class="name-ref">Any</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L63-70">Source</a></div>
+                <div class="member-signature"><span class="name-decl">resourceConverters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>, (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Any.html" class="name-ref">Any</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L63-70">Source</a></div>
                 <div class="doc-comment"><p>Converters to be sequentially applied to <a href="index.html#resourcesToConvert"><code>resourcesToConvert</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The default <code>resourceConverters</code> suffice to convert standard Kubernetes resources.</p></div>
               </div>
@@ -112,9 +112,9 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">customResourceTemplates</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, <a href="../../../../../k8s/1.0.1/K8sResource/index.html" class="name-ref">K8sResource</a>&gt;&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L84-84">Source</a></div>
+                <div class="member-signature"><span class="name-decl">customResourceTemplates</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>, <a href="../../../../../k8s/1.0.1/K8sResource/index.html" class="name-ref">K8sResource</a>&gt;&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L84-84">Source</a></div>
                 <div class="doc-comment"><p>Resource templates to be used for converting custom resources.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>The first <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html"><code>String</code></a> key is the resource's <code>kind</code>, the second its <code>apiVersion</code>.</p>
+                <div class="doc-comment expandable hidden collapsed"><p>The first <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html"><code>String</code></a> key is the resource's <code>kind</code>, the second its <code>apiVersion</code>.</p>
 <p>Example:</p>
 <pre><code>customResourceTemplates {
   [&quot;Custom&quot;] {
@@ -149,7 +149,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -161,7 +161,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L48-L48">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -176,7 +176,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -190,7 +190,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1702-L1702">Source</a></div>
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L1702-L1702">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -203,7 +203,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1707-L1707">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L1707-L1707">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -217,7 +217,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1712-L1712">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L1712-L1712">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -230,8 +230,8 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1715-L1715">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L1715-L1715">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -242,8 +242,8 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L1718-L1718">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>
@@ -255,7 +255,7 @@ Evaluating multiple generated Pkl files at once will output a single YAML stream
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.2/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.25.3/stdlib/base.pkl#L88-L88">Source</a></div>
                 <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
 <p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
@@ -276,7 +276,7 @@ path = rootModule.relativePathTo(module)
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getResourceTemplate</span>(<span class="param1">resource</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>): <a href="../../../../../k8s/1.0.1/K8sResource/index.html" class="name-ref">K8sResource</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L86-91">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getResourceTemplate</span>(<span class="param1">resource</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>): <a href="../../../../../k8s/1.0.1/K8sResource/index.html" class="name-ref">K8sResource</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L86-91">Source</a></div>
               </div>
             </div>
           </li>
@@ -288,7 +288,7 @@ path = rootModule.relativePathTo(module)
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getResourceTemplateUri</span>(<span class="param1">resource</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/Mapping.html" class="name-ref">Mapping</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L93-94">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getResourceTemplateUri</span>(<span class="param1">resource</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping.html" class="name-ref">Mapping</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib@1.0.1/packages/k8s.contrib/convert.pkl#L93-94">Source</a></div>
               </div>
             </div>
           </li>

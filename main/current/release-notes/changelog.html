@@ -352,10 +352,91 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
+<h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes some issues with generated pkldoc websites (<a href="https://github.com/apple/pkl/pull/357">#357</a>, <a href="https://github.com/apple/pkl/pull/362">#362</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where amending a module that defines an abstract class might cause a Java <code>AssertionError</code> (<a href="https://github.com/apple/pkl/pull/319">#319</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where a for/when generator within a lambda declared with <code>new {}</code> syntax might not resolve variables correctly (<a href="https://github.com/apple/pkl/pull/297">#297</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where <code>const</code> and <code>local</code> modifiers are not exported when obtaining a class&#8217;s mirror in <code>pkl:reflect</code> (<a href="https://github.com/apple/pkl/pull/265">#265</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation improvements (<a href="https://github.com/apple/pkl/pull/93">#93</a>, <a href="https://github.com/apple/pkl/pull/106">#106</a>, <a href="https://github.com/apple/pkl/pull/143">#143</a>, <a href="https://github.com/apple/pkl/pull/205">#205</a>, <a href="https://github.com/apple/pkl/pull/214">#214</a>, <a href="https://github.com/apple/pkl/pull/224">#224</a>, <a href="https://github.com/apple/pkl/pull/257">#257</a>, <a href="https://github.com/apple/pkl/pull/270">#270</a>, <a href="https://github.com/apple/pkl/pull/282">#282</a>, <a href="https://github.com/apple/pkl/pull/283">#283</a>, <a href="https://github.com/apple/pkl/pull/299">#299</a>, <a href="https://github.com/apple/pkl/pull/337">#337</a>, <a href="https://github.com/apple/pkl/pull/340">#340</a>)</p>
+</li>
+<li>
+<p>Build script improvements (<a href="https://github.com/apple/pkl/pull/253">#253</a>, <a href="https://github.com/apple/pkl/pull/314">#314</a>, <a href="https://github.com/apple/pkl/pull/333">#333</a>, <a href="https://github.com/apple/pkl/pull/338">#338</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add <code>jpkl</code> to the set of artifacts released to GitHub (<a href="https://github.com/apple/pkl/pull/314">#314</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/r1ft1">@r1ft1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/WardsParadox">@WardsParadox</a></p>
+</li>
+<li>
+<p><a href="https://github.com/grantabbott">@grantabbott</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mshakhmaykin">@mshakhmaykin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/d4wae89d498">@d4wae89d498</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/zihluwang">@zihluwang</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Malix-off">@Malix-off</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -369,7 +450,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -382,7 +463,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -448,7 +529,7 @@
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

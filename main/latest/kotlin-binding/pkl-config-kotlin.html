@@ -458,7 +458,7 @@ Differences to the Java version are called out.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val evaluator = ConfigEvaluator.preconfigured().forKotlin() <i class="conum" data-value="1"></i><b>(1)</b>
 val config = evaluator.use { <i class="conum" data-value="2"></i><b>(2)</b>
-  it.evaluateText("""pigeon { age = 5; diet = "Seeds" }""")
+  it.evaluate(ModuleSource.text("""pigeon { age = 5; diet = new Listing { "Seeds" } }"""))
 }
 val pigeon = config["pigeon"] <i class="conum" data-value="3"></i><b>(3)</b>
 val age = pigeon["age"].to&lt;Int&gt;() <i class="conum" data-value="4"></i><b>(4)</b>
@@ -503,7 +503,7 @@ Always use <code>Config.to()</code> instead of <code>Config.as()</code> in Kotli
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val evaluator = ConfigEvaluator.preconfigured().forKotlin()
 val config = evaluator.use {
-  it.evaluateText("name = null") <i class="conum" data-value="1"></i><b>(1)</b>
+  it.evaluate(ModuleSource.text("name = null")) <i class="conum" data-value="1"></i><b>(1)</b>
 }
 val name = config["name"].to&lt;String?&gt;() <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>

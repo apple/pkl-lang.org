@@ -1,0 +1,425 @@
+= Testing in Pkl
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/bioball[Dan Chao] on April 5th, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+Pkl files are programs that get evaluated to produce a result.
+Like any other program, it can be useful to have tests that verify their business logic.
+To address this, Pkl provides tooling for writing and running tests.
+// end::excerpt[]
+
+== Writing Tests
+
+Tests in Pkl are modules that amend standard library module link:https://pkl-lang.org/package-docs/pkl/current/test/index.html[pkl.test].
+
+These modules can describe <<facts,`facts`>>, and <<examples,`examples`>>.
+
+[[facts]]
+=== Facts
+
+Facts are boolean assertions.
+They are useful for unit tests, where the behavior of functions, types, or any expression can be tested.
+
+If an expression evaluates to `false`, the test case is considered failing.
+
+Below is a naïve test about the qualities of the integer `1`, where the last expression fails.
+
+.math.pkl
+[source,pkl]
+----
+amends "pkl:test"
+
+facts {
+  ["one"] {
+    1.isOdd
+    1.isBetween(0, 3)
+    1 == 2
+  }
+}
+----
+
+Running this test provides a report about the failing test.
+
+[source]
+----
+$ pkl test math.pkl
+module math (file:///math.pkl, line 1)
+  math ❌
+    1 == 2 ❌ (file:///math.pkl, line 6)
+----
+
+`facts` in Pkl are most useful for writing fine-grained assertions about specific behavior of your code.
+
+The tests for module `pkl.experimental.uri` are a good example of `facts` in practice. There are multiple facts, where each fact contains multiple assertions which cover different cases of business logic:
+
+.link:https://github.com/apple/pkl-pantry/blob/d63f6d9e8ee139c928500a698ec5fd0538ee7367/packages/pkl.experimental.uri/tests/URI.pkl#L27-L36[URI.pkl#L27-L36]
+[source,pkl]
+----
+facts {
+  ["encode"] {
+    URI.encode("https://example.com/some path") == "https://example.com/some%20path"
+    URI.encode(alphaLower) == alphaLower
+    URI.encode(alphaUpper) == alphaUpper
+    URI.encode(nums) == nums
+
+    local safeChars = "!#$&'()*+,-./:;=?@_~"
+    URI.encode(safeChars) == safeChars
+    URI.encode("\u{ffff}") == "%EF%BF%BF"
+    URI.encode("🏀") == "%F0%9F%8F%80"
+  }
+----
+
+[[examples]]
+=== Examples
+
+Examples are values that get compared to _expected_ values.
+When first testing an example, its value gets written to a sibling file that ends in `pkl-expected.pcf`.
+The next time the test is run, the example value is then asserted to be equal to that expected value.
+If they are not equal, the test fails.
+
+Here is a quick tutorial for writing an example.
+First, we create a test module with our example.
+In this case, we are checking the behavior of an imagined `Person` class.
+For simplicity's sake, we are just declaring it as a local class.
+
+.person.pkl
+[source,pkl]
+----
+amends "pkl:test"
+
+local class Person {
+  firstName: String
+
+  lastName: String
+
+  fullName: String = "\(firstName) \(lastName)"
+}
+
+examples {
+  ["person"] {
+    new Person {
+      firstName = "Johnny"
+      lastName = "Appleseed"
+    }
+  }
+}
+----
+
+This test then gets run:
+
+[source,shell]
+----
+pkl test person.pkl
+----
+
+On the first run, Pkl tells us that the corresponding expected value was written.
+
+[source]
+----
+module person (file:///person.pkl, line 1)
+  person ✍️
+----
+
+This creates a file called `person.pkl-expected.pcf` in the same directory.
+The directory tree now looks like this:
+
+[source]
+----
+.
+├── person.pkl
+└── person.pkl-expected.pcf
+----
+
+We can inspect the contents of the `pkl-expected.pcf` to see what the expected value is.
+
+.person.pkl-expected.pcf
+[source,pkl]
+----
+examples {
+  ["person"] {
+    new {
+      firstName = "Johnny"
+      lastName = "Appleseed"
+      fullName = "Johnny Appleseed"
+    }
+  }
+}
+----
+
+Running `pkl test person.pkl` again now shows that it passes.
+
+[source]
+----
+module person (file:///person.pkl, line 1)
+  person ✅
+----
+
+Now, we'll change "Johnny" to "Sally", to demonstrate a test failure.
+
+[source,diff]
+----
+ examples {
+   ["person"] {
+     new Person {
+-      firstName = "Johnny"
++      firstName = "Sally"
+       lastName = "Appleseed"
+     }
+   }
+ }
+----
+
+Running `pkl test person.pkl` again fails.
+
+[source]
+----
+module Person (file:///person.pkl, line 1)
+  person ❌
+    (file:///person.pkl, line 13)
+    Expected: (file:///person.pkl-expected.pcf, line 3)
+    new {
+      firstName = "Johnny"
+      lastName = "Appleseed"
+      fullName = "Johnny Appleseed"
+    }
+    Actual: (file:///person.pkl-actual.pcf, line 3)
+    new {
+      firstName = "Sally"
+      lastName = "Appleseed"
+      fullName = "Sally Appleseed"
+    }
+
+----
+
+Because the test failed, Pkl writes a new file to the same directory. The directory tree now looks like this:
+
+[source]
+----
+.
+├── person.pkl
+├── person.pkl-actual.pcf
+└── person.pkl-expected.pcf
+----
+
+It can be especially useful to use `diff` to compare the `pkl-actual.pcf` file with the `pkl-expected.pcf` file.
+
+[source,shell]
+----
+diff -c person.pkl-actual.pcf person.pkl-expected.pcf
+----
+
+[source,diff]
+----
+--- person.pkl-actual.pcf    2024-03-28 15:33:15
++++ person.pkl-expected.pcf  2024-03-28 15:15:00
+@@ -1,9 +1,9 @@
+ examples {
+   ["person"] {
+     new {
+-      firstName = "Sally"
++      firstName = "Johnny"
+       lastName = "Appleseed"
+-      fullName = "Sally Appleseed"
++      fullName = "Johnny Appleseed"
+     }
+   }
+ }
+----
+
+For intentional changes, add the `--overwrite` flag. This will overwrite the expected output file, and also remove the `pkl-actual.pcf` file.
+
+[source]
+----
+$ pkl test person.pkl --overwrite
+module person (file:///person.pkl, line 1)
+  person ✍️
+----
+
+==== Pattern: Testing JSON, YAML and other module output
+
+A common pattern is to use `examples` to test how Pkl renders into static configuration.
+
+Pkl is idiomatically split between _schema_ and _data_.
+Base Pkl modules define schema and rendering logic (colloquially called templates), and downstream modules amend those base modules with just data.
+
+Here is an imagined Pkl template for configuring a logger.
+It defines some converters for `DataSize` and `Duration`, and also sets the output renderer to YAML.
+
+.Logger.pkl
+[source,pkl]
+----
+module Logger
+
+/// The list of targets to send log output to.
+targets: Listing<LogTarget>
+
+abstract class LogTarget {
+  /// The logging level to write at.
+  logLevel: "info"|"warn"|"error"
+}
+
+class RotatingFileTarget extends LogTarget {
+  /// The max file size
+  maxSize: DataSize?
+
+  /// The directory to write log lines to.
+  directory: String
+}
+
+class NetworkLogTarget extends LogTarget {
+  /// The network URL to send log lines to.
+  connectionString: Uri
+
+  /// The timeout before the connection gets killed.
+  timeout: Duration?
+}
+
+output {
+  renderer = new YamlRenderer {
+    converters {
+      [DataSize] = (it) -> "\(it.unit)\(it.value)"
+      [Duration] = (it) -> it.isoString
+    }
+  }
+}
+----
+
+After having written this template, we'd like to test to see what our YAML output actually looks like.
+We'd also like to provide some sample code for our users, that demonstrate how to use our template.
+
+To do this, we'll first create some examples modules, in an `examples/` directory.
+
+.examples/rotatingLogger.pkl
+[source,pkl]
+----
+amends "../Logger.pkl"
+
+targets {
+  new RotatingFileTarget {
+    maxSize = 5.mb
+    directory = "/vat/etc/log"
+  }
+}
+----
+
+.examples/networkLogger.pkl
+[source,pkl]
+----
+amends "../Logger.pkl"
+
+targets {
+  new NetworkLogTarget {
+    timeout = 5.s
+    connectionString = "https://example.com/foo/bar"
+  }
+}
+----
+
+With this set up, we can now use them as test examples.
+
+.tests/Logger.pkl
+[source,pkl]
+----
+module tests.Logger
+
+amends "pkl:test"
+
+import* "../examples/*.pkl" as allExamples
+
+examples {
+  for (key in allExamples.keys) { // <1>
+    [key.drop("../examples/".length).replaceLast("pkl", "yml")] { // <2>
+      allExamples[key].output.text
+    }
+  }
+}
+----
+<1> Iterates over the keys only as a workaround for a current bug where link:https://github.com/apple/pkl/issues/398[for-generators are eager in values]. This ensures that any errors related to loading the module are captured as related to that specific example.
+<2> Sets the test name to `<filename>.yml`
+
+These tests are defined as evaluating each module's `output.text` property.
+This emulates the behavior of the Pkl CLI when it evaluates a module through `pkl eval`.
+
+Furthermore, the tests uses a xref:main:language-reference:index.adoc#globbed-imports[glob import] to bulk-import these example modules.
+This means that if we add new modules to the `examples/` directory, they are automatically added as a new test.
+
+Running this test creates expected output:
+
+[source]
+----
+pkl test tests/Logger.pkl
+module tests.Logger (file:///tests/Logger.pkl, line 1)
+  networkLogger.yml ✍️
+  rotatingLogger.yml ✍️
+----
+
+== Reporting
+
+By default, Pkl writes a simple test report to console.
+Optionally, it can also produce JUnit-style reports by setting the `--junit-reports` flag.
+
+Example:
+
+[source,shell]
+----
+pkl test --junit-reports .out
+----
+
+== Interaction with `pkl:Project`
+
+In Pkl, a xref:main:language-reference:index.adoc#projects[project] is a directory of Pkl modules that is tied together with the presence of a PklProject file.
+
+There are many reasons for wanting to define a project.
+One reason is to simplify the `pkl test` command.
+If `pkl test` is run without any input source modules, it will run all tests defined in the `PklProject`.
+
+.PklProject
+[source,pkl]
+----
+amends "pkl:Project"
+
+tests {
+  ...import("tests/**.pkl").keys
+}
+----
+
+=== A note on `apiTests`
+
+When xref:main:language-reference:index.adoc#creating-a-package[creating a package], it is also possible to specify `apiTests`.
+These are tests for the _external API_ of this package.
+The intention of this is to allow checking for breaking changes when updating a version.
+When publishing a new version of the same package, running `apiTests` of a previous package can inform whether the package's major version needs to be bumped or not.
+
+The `apiTests` are also run when the package is created via `pkl project package`.
+
+== Future improvements: power assertions
+
+Testing in Pkl is already tremendously useful.
+With that said, there is still room improvements.
+
+One feature that we would like to implement is power assert style reporting.
+Power assertions are a form of reporting that displays a diagram that shows parts of the syntax tree, and their resolved values.
+
+A power-assertion report might look like:
+
+[source]
+----
+module test
+  math ❌
+    num1 == num2 ❌
+     |   |   |
+     | false |
+     1       2
+----
+
+Frameworks that provide power assertions include link:https://github.com/spockframework/spock[Spock], link:https://github.com/power-assert-js/power-assert[power-assert-js], and link:https://github.com/kishikawakatsumi/swift-power-assert[swift-power-assert].

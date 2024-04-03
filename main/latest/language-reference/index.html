@@ -1372,7 +1372,7 @@ Another difference is that in Pkl, object properties are late-bound. Read on to 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Amends expressions vs. amends declarations</div>
+<div class="title">Amends declaration vs. amends expression</div>
 <div class="paragraph">
 <p>The <a href="#defining-objects">defining objects</a> and <a href="#amending-objects">amending objects</a> sections cover two notations that are both a form of amending; called an <em>amends declaration</em> and an <em>amends expression</em>, respectively.</p>
 </div>
@@ -1392,11 +1392,11 @@ Another difference is that in Pkl, object properties are late-bound. Read on to 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Amends expression.</td>
+<td>Amends declaration.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Amends declaration.</td>
+<td>Amends expression.</td>
 </tr>
 </table>
 </div>
@@ -1406,10 +1406,10 @@ Otherwise, an amends declaration implicitly amends <a href="https://pkl-lang.org
 </div>
 <div class="paragraph">
 <p>Another way to think about an amends declaration is that it is shorthand for assignment.
-In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = super.pigeon {}</code>.</p>
+In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = (super.pigeon) {}</code>.</p>
 </div>
 <div class="paragraph">
-<p>Amending object bodies can be chained for both an amends expression and an amends declaration.</p>
+<p>Amending object bodies can be chained for both an amends declaration and an amends expression.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1430,11 +1430,11 @@ In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = super.p
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Chained amends expression (<code>pigeon { &#8230;&#8203; } { &#8230;&#8203; }</code> is the amends expression).</td>
+<td>Chained amends declaration.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Chained amends declaration.</td>
+<td>Chained amends expression (<code>(pigeon) { &#8230;&#8203; } { &#8230;&#8203; }</code> is the amends expression).</td>
 </tr>
 </table>
 </div>

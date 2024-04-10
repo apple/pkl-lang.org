@@ -6,7 +6,7 @@
 ++++
 <div class="blog-byline">
 ++++
-by link:https://github.com/bioball[Dan Chao] on April 5th, 2024
+by link:https://github.com/bioball[Dan Chao] on April 9th, 2024
 ++++
 </div>
 ++++
@@ -421,5 +421,10 @@ module test
      | false |
      1       2
 ----
+
+This feature improves the developer experience when testing <<facts,facts>>.
+Currently, only the expression is printed, as well as a report that the test failed.
+
+In lieu of this feature, link:https://pkl-lang.org/main/current/language-reference/index.html#debugging[`trace()`] expressions can be used to add more debugging output.
 
 Frameworks that provide power assertions include link:https://github.com/spockframework/spock[Spock], link:https://github.com/power-assert-js/power-assert[power-assert-js], and link:https://github.com/kishikawakatsumi/swift-power-assert[swift-power-assert].

@@ -389,7 +389,7 @@ If `pkl test` is run without any input source modules, it will run all tests def
 amends "pkl:Project"
 
 tests {
-  ...import("tests/**.pkl").keys
+  ...import*("tests/**.pkl").keys
 }
 ----
 

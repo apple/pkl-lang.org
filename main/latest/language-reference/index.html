@@ -1888,8 +1888,8 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="title">Import clauses define local properties</div>
 <div class="paragraph">
 <p>An <em>import clause</em> defines a local property in the containing module.
-This means <code>import "someModule.pkl"</code> is equivalent to <code>local someModule = import("someModule.pkl")</code>.
-Also, <code>import "someModule.pkl" as otherName</code> is equivalent to <code>local otherName = import("someModule.pkl")</code>.</p>
+This means <code>import "someModule.pkl"</code> is effectively <code>const local someModule = import("someModule.pkl")</code>.
+Also, <code>import "someModule.pkl" as otherName</code> is effectively <code>const local otherName = import("someModule.pkl")</code>.</p>
 </div>
 </td>
 </tr>

@@ -379,20 +379,20 @@ It requires Java 11 or higher and Kotlin 1.5 or higher.</p>
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-1-groovy" class="tab">
-<p>Groovy</p>
-</li>
 <li id="tabs-1-kotlin" class="tab">
 <p>Kotlin</p>
 </li>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
 </ul>
 </div>
-<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
 <div class="listingblock">
-<div class="title">build.gradle</div>
+<div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  compile "org.pkl-lang:pkl-config-kotlin:0.25.3"
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+  implementation("org.pkl-lang:pkl-config-kotlin:0.25.3")
 }
 
 repositories {
@@ -401,12 +401,12 @@ repositories {
 </div>
 </div>
 </div>
-<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
+<div class="title">build.gradle</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  compile("org.pkl-lang:pkl-config-kotlin:0.25.3")
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+  implementation "org.pkl-lang:pkl-config-kotlin:0.25.3"
 }
 
 repositories {

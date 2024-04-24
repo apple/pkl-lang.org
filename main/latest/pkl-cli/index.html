@@ -384,7 +384,7 @@ For interactive development, the CLI includes a Read-Eval-Print Loop (REPL).</p>
 <p>Native Alpine Linux executable for amd64 (cross-compiled and tested on Oracle Linux 8)</p>
 </li>
 <li>
-<p>Java executable (tested with Java 11/17 on macOS and Oracle Linux)</p>
+<p>Java executable (tested with Java 11/17 on macOS and Oracle Linux, may work on other platforms)</p>
 </li>
 </ul>
 </div>
@@ -548,6 +548,34 @@ chmod +x jpkl
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.26.0-dev (macOS 10.16, Java 11.0.9)</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="windows-support"><a class="anchor" href="#windows-support"></a><a class="link" href="#windows-support">Windows support</a></h3>
+<div class="paragraph">
+<p>Pkl does not currently support running natively on Windows. Pkl has been reported to work on the <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a> and on a <a href="https://www.oracle.com/java/technologies/downloads/#jdk21-windows">Java Runtime</a> using <a href="https://search.maven.org/remote_content?g=org.pkl-lang&amp;a=pkl-cli-java&amp;v=LATEST"><code>jpkl</code> (the Java executable version of Pkl)</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following is from successful uses of <code>jpkl</code> on Windows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; java -jar pkl-cli-java.jar --version
+Pkl 0.26.0-dev+21e0e14 (Windows 10 10.0, Java 21.0.2)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: You must use forward slashes in all paths for Windows with absolute paths prefixed with <a href="file:///" class="bare">file:///</a>.  The following examples are valid:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; java -jar pkl-cli-java.jar eval file:///C:/Code/pkl/test.pkl
+&gt; java -jar pkl-cli-java.jar eval ../Code/pkl/test.pkl
+&gt; java -jar pkl-cli-java.jar eval pkl/test.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/apple/pkl/issues/20">GitHub Issue #20</a> is used to track progress on support for the Windows platform.</p>
 </div>
 </div>
 </div>

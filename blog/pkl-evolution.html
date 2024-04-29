@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Pkl Blog :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/blog/index.html">
+    <title>Pkl Evolution :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/blog/pkl-evolution.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -94,7 +94,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="pkl-evolution.html">Pkl Evolution</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -200,51 +200,94 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Pkl Blog</a></li>
+    <li><a href="pkl-evolution.html">Pkl Evolution</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/pkl-evolution.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Pkl Blog</h1>
-<h3 id="pkl-evolution" class="discrete"><a href="pkl-evolution.html" class="xref page">Pkl Evolution</a></h3>
+<h1 class="page">Pkl Evolution</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="blog-byline">
 <div class="paragraph">
 <p>by <a href="https://github.com/bioball">Dan Chao</a> on April 18, 2024</p>
 </div>
 </div>
-<div class="blog-excerpt">
 <div class="paragraph">
 <p>Today, we launch <a href="https://github.com/apple/pkl-evolution">Pkl Evolution</a>, a new repository that holds Suggested Pkl Improvements, Changes, or Enhancements (SPICEs) for Pkl&#8217;s language, tooling, and ecosystem.</p>
 </div>
-</div>
-<hr>
-<h3 id="testing-in-pkl" class="discrete"><a href="testing-in-pkl.html" class="xref page">Testing in Pkl</a></h3>
-<div class="blog-byline">
 <div class="paragraph">
-<p>by <a href="https://github.com/bioball">Dan Chao</a> on April 9th, 2024</p>
+<p>The purpose of the Pkl Evolution repository is to provide visibility to the community how design decisions are made in Pkl.
+Additionally, it is a place for the Pkl maintainers to get feedback as in-flight proposals are being considered.</p>
 </div>
 </div>
-<div class="blog-excerpt">
+</div>
+<div class="sect1">
+<h2 id="process-for-spices"><a class="anchor" href="#process-for-spices"></a><a class="link" href="#process-for-spices">Process for SPICEs</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Pkl files are programs that get evaluated to produce a result.
-Like any other program, it can be useful to have tests that verify their business logic.
-To address this, Pkl provides tooling for writing and running tests.</p>
+<p>The process for a SPICE is:</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The SPICE is authored, and submitted as a pull request.<br>
+When authoring a SPICE, determine your SPICE number by adding one to the latest SPICE (inclusive of open pull requests).</p>
+</li>
+<li>
+<p>The contents of the SPICE are discussed and reviewed in the pull request.<br>
+It is then either accepted or rejected.</p>
+</li>
+<li>
+<p>The status of the SPICE is updated, and the pull request is merged. Both accepted and rejected SPICEs get merged into the main branch.</p>
+</li>
+</ol>
 </div>
-<hr>
-<h3 id="introducing-pkl-a-programming-language-for-configuration" class="discrete"><a href="introducing-pkl.html" class="xref page">Introducing Pkl, a programming language for configuration</a></h3>
-<div class="blog-byline">
 <div class="paragraph">
-<p>by the Pkl Team on February 1st, 2024</p>
+<p>The acceptance of a SPICE does not need to block any implementation work.
+On the contrary, it can be quite useful to have an implementation ready to go during the process of review.</p>
 </div>
-</div>
-<div class="blog-excerpt">
 <div class="paragraph">
-<p>We are delighted to announce the open source first release of Pkl (pronounced <em>Pickle</em>), a programming language for producing configuration.</p>
+<p>The acceptance of a SPICE depends on concensus from the Pkl maintainers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributing-to-pkl-evolution"><a class="anchor" href="#contributing-to-pkl-evolution"></a><a class="link" href="#contributing-to-pkl-evolution">Contributing to Pkl Evolution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two main ways you can participate and contribute to Pkl Evolution.</p>
+</div>
+<div class="paragraph">
+<p>The first way is to participate in the pull request discussion for a SPICE.
+Your thoughts and opinions are valuable to us, and can help shape the direction of the language.</p>
+</div>
+<div class="paragraph">
+<p>The second way is to author SPICEs of your own.
+If you would like to contribute your own SPICE, we recommend you first the idea to <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a> to solicit feedback.
+This can help shape the direction of the SPICE before too much work goes in.
+It can also potentially filter out ideas that are non-starters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="status-of-pkl-evolution"><a class="anchor" href="#status-of-pkl-evolution"></a><a class="link" href="#status-of-pkl-evolution">Status of Pkl Evolution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some of you might recognize how similar this is to <a href="https://github.com/apple/swift-evolution">Swift Evolution</a>.
+If you&#8217;ve noticed that, you&#8217;re totally right!
+We borrowed much of this from the Swift folks.</p>
+</div>
+<div class="paragraph">
+<p>Compared to Swift Evolution, we are choosing to keep our process relatively light-weight.
+There is no review manager, and no designated review period.
+This is an intentional choice on our part, and we expect that our own process will evolve over time.</p>
+</div>
 </div>
 </div>
 </article>

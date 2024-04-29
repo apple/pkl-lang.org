@@ -1,0 +1,57 @@
+= Pkl Evolution
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/bioball[Dan Chao] on April 18, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+Today, we launch link:https://github.com/apple/pkl-evolution[Pkl Evolution], a new repository that holds Suggested Pkl Improvements, Changes, or Enhancements (SPICEs) for Pkl's language, tooling, and ecosystem.
+// end::excerpt[]
+
+The purpose of the Pkl Evolution repository is to provide visibility to the community how design decisions are made in Pkl.
+Additionally, it is a place for the Pkl maintainers to get feedback as in-flight proposals are being considered.
+
+== Process for SPICEs
+
+The process for a SPICE is:
+
+1. The SPICE is authored, and submitted as a pull request. +
+When authoring a SPICE, determine your SPICE number by adding one to the latest SPICE (inclusive of open pull requests).
+2. The contents of the SPICE are discussed and reviewed in the pull request. +
+It is then either accepted or rejected.
+3. The status of the SPICE is updated, and the pull request is merged. Both accepted and rejected SPICEs get merged into the main branch.
+
+The acceptance of a SPICE does not need to block any implementation work.
+On the contrary, it can be quite useful to have an implementation ready to go during the process of review.
+
+The acceptance of a SPICE depends on concensus from the Pkl maintainers.
+
+== Contributing to Pkl Evolution
+
+There are two main ways you can participate and contribute to Pkl Evolution.
+
+The first way is to participate in the pull request discussion for a SPICE.
+Your thoughts and opinions are valuable to us, and can help shape the direction of the language.
+
+The second way is to author SPICEs of your own.
+If you would like to contribute your own SPICE, we recommend you first the idea to link:https://github.com/apple/pkl/discussions[GitHub Discussions] to solicit feedback.
+This can help shape the direction of the SPICE before too much work goes in.
+It can also potentially filter out ideas that are non-starters.
+
+== Status of Pkl Evolution
+
+Some of you might recognize how similar this is to link:https://github.com/apple/swift-evolution[Swift Evolution].
+If you've noticed that, you're totally right!
+We borrowed much of this from the Swift folks.
+
+Compared to Swift Evolution, we are choosing to keep our process relatively light-weight.
+There is no review manager, and no designated review period.
+This is an intentional choice on our part, and we expect that our own process will evolve over time.

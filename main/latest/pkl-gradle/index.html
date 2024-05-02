@@ -410,13 +410,33 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-1-groovy" class="tab">
-<p>Groovy</p>
-</li>
 <li id="tabs-1-kotlin" class="tab">
 <p>Kotlin</p>
 </li>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
 </ul>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+  id("org.pkl-lang") version "0.26.0-SNAPSHOT"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
+    repositories {
+        maven(url = "https://s01.oss.sonatype.org/content/groups/public")
+    }
+}</code></pre>
+</div>
+</div>
 </div>
 <div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
@@ -433,26 +453,6 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
     repositories {
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
-<div class="listingblock">
-<div class="title">build.gradle.kts</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-  id("org.pkl-lang") version "0.26.0-SNAPSHOT"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">settings.gradle.kts</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
-    repositories {
-        maven { url = uri("https://s01.oss.sonatype.org/content/groups/public") }
     }
 }</code></pre>
 </div>

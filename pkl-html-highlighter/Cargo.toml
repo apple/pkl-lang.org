@@ -12,6 +12,10 @@ clap = { version = "4.4.2", features = ["derive"] }
 [net]
 git-fetch-with-cli = true
 
+[profile.release]
+lto = true
+codegen-units = 1
+
 [[bin]]
 name = "pkl-html-highlighter"
 path = "src/main.rs"

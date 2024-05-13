@@ -725,9 +725,9 @@ This terminology describes the <em>intended use</em> of the module and doesn&#82
 In other words: just by looking at Pkl code, you can&#8217;t tell whether it is a template or a "normal" module.</p>
 </div>
 <div class="listingblock">
-<div class="title">acmecicd.pkl</div>
+<div class="title">AcmeCICD.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-property">acmecicd</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">AcmeCICD</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Pipeline</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">nameRequiresBranchName</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
@@ -759,7 +759,7 @@ That&#8217;s exactly what you&#8217;re doing here; you&#8217;re filling out "wor
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span></code></pre>
 </div>
@@ -775,7 +775,7 @@ Value: 1 <i class="conum" data-value="3"></i><b>(3)</b>
 
 225 | timeout: Int(this &gt;= 3)? <i class="conum" data-value="4"></i><b>(4)</b>
                    ^^^^^^^^^
-at acmecicd#timeout (file:///Users/me/tutorial/acmecicd.pkl, line 8)
+at AcmeCICD#timeout (file:///Users/me/tutorial/AcmeCICD.pkl, line 8)
 
 3 | timeout = 1 <i class="conum" data-value="5"></i><b>(5)</b>
               ^
@@ -839,7 +839,7 @@ Start off by specifying the name of the pipeline and nothing else.</p>
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
 <span class="hljs-property">pipelines</span> <span class="hljs-punctuation">{</span>
@@ -884,7 +884,7 @@ Pipelines that set a 'name' must also set a 'branchName'.
 
 8 | throw("Pipelines that set a 'name' must also set a 'branchName'.")
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-at acmecicd#Pipeline.nameRequiresBranchName.&lt;function#1&gt; (file:///Users/me/tutorial/acmecicd.pkl, line 8)
+at AcmeCICD#Pipeline.nameRequiresBranchName.&lt;function#1&gt; (file:///Users/me/tutorial/AcmeCICD.pkl, line 8)
 
 6 | name = "prb"
            ^^^^^
@@ -906,7 +906,7 @@ When constraints are complicated or very application specific, template authors 
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
 <span class="hljs-property">pipelines</span> <span class="hljs-punctuation">{</span>

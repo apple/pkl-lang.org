@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Evaluator API :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/go/current/evaluation.html">
+    <link rel="prev" href="quickstart.html">
+    <link rel="next" href="codegen.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../index.html"><img src="../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../vscode/current/index.html">VS Code</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="go" data-version="0.6.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Pkl Go Bindings</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="quickstart.html">Quickstart</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="evaluation.html">Evaluator API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="codegen.html">Code Generation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Pkl Go Bindings</span>
+    <span class="version">0.6.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intellij/current/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/latest/index.html">0.26.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../current/index.html">0.7.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../spring/current/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../vscode/current/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Pkl Go Bindings</a></li>
+    <li><a href="evaluation.html">Evaluator API</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.6.0</button>
+  <div class="version-menu">
+    <a class="version" href="../current/evaluation.html">0.7.0</a>
+    <a class="version is-current" href="evaluation.html">0.6.0</a>
+    <a class="version" href="../0.5.3/evaluation.html">0.5.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.6/docs/modules/ROOT/pages/evaluation.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Evaluator API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>pkl-go provides a rich API for evaluating Pkl files in Go via <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#Evaluator"><code>pkl.Evaluator</code></a>. It can be configured with <a href="#custom-readers">custom readers</a>, have its own security settings, control
+external property inputs, and more.</p>
+</div>
+<div class="paragraph">
+<p>Evaluation occurs by spawning the <code>pkl</code> cli as a child process, and communicates via message passing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="initializing-an-evaluator"><a class="anchor" href="#initializing-an-evaluator"></a><a class="link" href="#initializing-an-evaluator">Initializing an evaluator</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two methods for initializing a <code>pkl.Evaluator</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#NewEvaluator"><code>pkl.NewEvaluator</code></a></p>
+</li>
+<li>
+<p><a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#EvaluatorManager"><code>pkl.EvaluatorManager.NewEvaluator</code></a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These two constructors are distinguished by how they manage the lifecycle of the underlying <code>pkl</code> child process.
+<code>pkl.NewEvaluator</code> will spawn a child process per-evaluator, whereas <code>pkl.EvaluatorManager.NewEvalutor</code> will spawn a
+child process for the lifetime of the evaluator manager.</p>
+</div>
+<div class="paragraph">
+<p>For most use-cases, it is sufficient to use the <code>pkl.NewEvaluator</code> constructor. If multiple evaluators are desired,
+for example, to maintain separate caches or to have different settings, the evaluator manager should be used.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="evaluating-modules"><a class="anchor" href="#evaluating-modules"></a><a class="link" href="#evaluating-modules">Evaluating modules</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="with-code-generation"><a class="anchor" href="#with-code-generation"></a><a class="link" href="#with-code-generation">With code generation</a></h3>
+<div class="paragraph">
+<p>Go packages generated from Pkl modules may be evaluated simply through the generated <code>LoadFromPath</code> and
+<code>Load</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>For example, a generated package <code>github.com/myapp/myteam/appconfig</code> can be used for evaluation like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+	"github.com/myapp/myteam/appconfig" <i class="conum" data-value="1"></i><b>(1)</b>
+)
+
+func main() {
+	cfg, err := appconfig.LoadFromPath(context.Background(), "myconfig.pkl")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Got config: %+v\n", cfg)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The generated package</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="without-code-generation"><a class="anchor" href="#without-code-generation"></a><a class="link" href="#without-code-generation">Without code generation</a></h3>
+<div class="paragraph">
+<p>Pkl modules may be evaluated directly into Go structs without using code generation.</p>
+</div>
+<div class="paragraph">
+<p>For example, given the Pkl module:</p>
+</div>
+<div class="listingblock">
+<div class="title">foo.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">foo</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span>
+
+<span class="hljs-property">bar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This may be evaluated into a Go struct via <code>pkl.Evaluator.EvaluateModule</code>.
+To run evaluation, pass a struct pointer that matches the structure of the module.</p>
+</div>
+<div class="paragraph">
+<p>If the Go property name doesn&#8217;t match the Pkl name, the <code>pkl</code> struct tag should be used to identify the Pkl property name.</p>
+</div>
+<div class="paragraph">
+<p>Example Go:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+type MyConfig struct {
+	Foo string `pkl:"foo"`
+	Bar int    `pkl:"bar"`
+}
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	var cfg MyConfig
+	if err = evaluator.EvaluateModule(context.Background(), pkl.FileSource("foo.pkl"), &amp;cfg); err != nil {
+		panic(err)
+	}
+	fmt.Printf("Got module: %+v", cfg)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="alternative-evaluation-modes"><a class="anchor" href="#alternative-evaluation-modes"></a><a class="link" href="#alternative-evaluation-modes">Alternative evaluation modes</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="textual-and-multiple-file-output"><a class="anchor" href="#textual-and-multiple-file-output"></a><a class="link" href="#textual-and-multiple-file-output">Textual and multiple file output</a></h3>
+<div class="paragraph">
+<p>In addition to modules, an evaluator may also evaluate a module&#8217;s <code>output.text</code> and <code>output.files</code> properties. This mimick the behavior of the CLI.</p>
+</div>
+<div class="paragraph">
+<p>Take this Pkl module:</p>
+</div>
+<div class="listingblock">
+<div class="title">foo.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">foo</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;foo&quot;</span>
+
+<span class="hljs-property">bar</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;bar&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The textual output of this module may be evaluated via <code>Evaluator.EvaluateOutputText</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">main.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	textOutput, err := evaluator.EvaluateOutputText(context.Background(), pkl.FileSource("foo.pkl"))
+	fmt.Println(textOutput)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="expressions"><a class="anchor" href="#expressions"></a><a class="link" href="#expressions">Expressions</a></h3>
+<div class="paragraph">
+<p>In addition to evaluating modules and textual/file output, <em>any</em> arbitrary expression may be evaluated within a module. In fact, the textual and file output of a module are implemented in terms of evaluating an expression.</p>
+</div>
+<div class="listingblock">
+<div class="title">main.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/apple/pkl-go/pkl"
+)
+
+func main() {
+	evaluator, err := pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions)
+	if err != nil {
+		panic(err)
+	}
+	defer evaluator.Close()
+	var res string
+	err = evaluator.EvaluateExpression(
+		context.Background(),
+		pkl.TextSource("foo = 5"), <i class="conum" data-value="1"></i><b>(1)</b>
+		`"foo is \(foo)"`, <i class="conum" data-value="2"></i><b>(2)</b>
+		&amp;res,
+	)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(res) // prints "foo is 5"
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>TextSource</code> causes Pkl to evaluate <code>foo = 5</code> as a module</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The expression to be evaluated</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="evaluator-options"><a class="anchor" href="#evaluator-options"></a><a class="link" href="#evaluator-options">Evaluator options</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>pkl-go provides <code>pkl.PreconfiguredOptions</code>, which serves as a simple way to construct an evaluator with sensible defaults.</p>
+</div>
+<div class="paragraph">
+<p>Additional options may be provided via the functional options pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">pkl.NewEvaluator(context.Background(), pkl.PreconfiguredOptions, func(opts *EvaluatorOptions) {
+	opts.Logger = pkl.StderrLogger <i class="conum" data-value="1"></i><b>(1)</b>
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Log warn/trace messages to stderr</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="custom-readers"><a class="anchor" href="#custom-readers"></a><a class="link" href="#custom-readers">Custom readers</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is possible to use a custom reader for resources and modules by implementing the <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#ResourceReader"><code>pkl.ResourceReader</code></a> and <a href="https://pkg.go.dev/github.com/apple/pkl-go/pkl#ModuleReader"><code>pkl.ModuleReader</code></a> interfaces.</p>
+</div>
+<div class="paragraph">
+<p>Custom readers must identify the scheme that they are responsible for reading via the <code>Scheme()</code> method. For example,
+a reader may be registered to resolve the Pkl expression <code>read("secret:FOO")</code> by registering <code>"secret"</code> as its scheme.</p>
+</div>
+<div class="paragraph">
+<p>If a resource matches a scheme identified by a custom reader, its <code>Read()</code> method will be called to retrieve the contents.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="quickstart.html">Quickstart</a></span>
+  <span class="next"><a href="codegen.html">Code Generation</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/site-support.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

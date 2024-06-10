@@ -2134,10 +2134,23 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 </ul>
 </div>
 <div id="class-and-annotation-const" class="paragraph">
-<p><strong>Class and Annotation Scoping</strong></p>
+<p><strong>Class, Annotation, and Typealias Scoping</strong></p>
 </div>
 <div class="paragraph">
-<p>Within a class or annotation body, any reference to a property or method of its enclosing module requires that the referenced member is <code>const</code>.</p>
+<p>In these following scenarios, any reference to a property or method of its enclosing module requires that the referenced member is <code>const</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Class body</p>
+</li>
+<li>
+<p>Annotation body</p>
+</li>
+<li>
+<p>Typealiased constrained type</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="title">invalid2.pkl</div>
@@ -2149,7 +2162,9 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-operator">@</span><span class="hljs-title class_">Deprecated</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Replace with <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">pigeonName</span><span class="hljs-char escape_">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
-<span class="hljs-property">oldPigeonName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+<span class="hljs-property">oldPigeonName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">IsPigeonName</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">pigeonName</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2162,15 +2177,19 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 <td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Error: cannot reference non-const property <code>pigeonName</code> from an annotation.</td>
 </tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Error: cannot reference non-const property <code>pigeonname</code> from a typealias.</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
-<p>This rule exists because classes and annotations are not <a href="#late-binding">late bound</a>;
-it is not possible to change the definition of a class or annotation by amending the module
+<p>This rule exists because classes, annotations, and typealiases are not <a href="#late-binding">late bound</a>;
+it is not possible to change the definition of these members by amending the module
 where it is defined.</p>
 </div>
 <div class="paragraph">
-<p>Generally, there are two strategies for referencing a property from a class or annotation:</p>
+<p>Generally, there are two strategies for referencing such properties:</p>
 </div>
 <div class="paragraph">
 <p><strong>Add the <code>const</code> modifier to the referenced property</strong></p>

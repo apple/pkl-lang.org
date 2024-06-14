@@ -900,6 +900,28 @@ Relative paths are resolved against the project directory.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -1184,6 +1206,28 @@ Relative paths are resolved against the project directory.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -1333,6 +1377,64 @@ Whether to generate config classes for use with Spring Boot.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">renames: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code><br>
+Example: <code>renames = ["foo.": "com.example.foo.", "bar.Config": "com.example.bar.Config"]</code><br>
+Allows to change default class and package names (derived from Pkl module names) in the generated code.</p>
+</div>
+<div class="paragraph">
+<p>When you need the generated class or package names to be different from the default names derived from the Pkl module names, you can define a rename mapping, where the key is the original Pkl module name prefix, and the value is its replacement.
+When you do, the generated code&#8217;s <code>package</code> declarations, class names, as well as file locations, will be modified according to this mapping.</p>
+</div>
+<div class="paragraph">
+<p>The prefixes are replaced literally, which means that dots at the end are important.
+If you want to rename packages only, in most cases, you must ensure that you have an ending dot on both sides of a mapping (except for an empty mapping, if you use it), otherwise you may get unexpected results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following mapping configuration:
+renames = [
+  "com.foo.": "x",  // Dot on the left only
+  "org.bar": "y.",  // Dot on the right only
+  "net.baz": "z"    // No dots
+]
+
+// The following renames will be made:
+"com.foo.bar" -&gt; "xbar"       // Target prefix merged into the suffix
+"org.bar.baz" -&gt; "y..baz"     // Double dot, invalid name
+"net.baz.qux" -&gt; "z.qux"      // Looks okay, but...
+"net.bazqux"  -&gt; "zqux"       // ...may cut the name in the middle.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When computing the appropriate target name, the longest matching prefix is used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following mapping configuration:
+renames = [
+  "com.foo.Main": "w.Main",
+  "com.foo.": "x.",
+  "com.": "y.",
+  "": "z."
+]
+
+// The following renames will be made:
+com.foo.Main -&gt; w.Main
+com.foo.bar  -&gt; x.bar
+com.baz.qux  -&gt; y.baz.qux
+org.foo.bar  -&gt; z.org.foo.bar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Keys in this mapping can be arbitrary strings, including an empty string.
+Values must be valid dot-separated fully qualifed class name prefixes, possibly terminated by a dot.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>Common properties:</p>
 </div>
@@ -1537,6 +1639,28 @@ Disable caching of packages.</p>
 Example: <code>modulePath.from files("dir1", "zip1.zip", "jar1.jar")</code><br>
 The directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
 Relative paths are resolved against the project directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
 </div>
 </div>
 </details>
@@ -1667,6 +1791,64 @@ Whether to generate config classes for use with Spring Boot.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">renames: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code><br>
+Example: <code>renames = ["foo.": "com.example.foo.", "bar.Config": "com.example.bar.Config"]</code><br>
+Allows to change default class and package names (derived from Pkl module names) in the generated code.</p>
+</div>
+<div class="paragraph">
+<p>When you need the generated class or package names to be different from the default names derived from the Pkl module names, you can define a rename mapping, where the key is the original Pkl module name prefix, and the value is its replacement.
+When you do, the generated code&#8217;s <code>package</code> declarations, class names, as well as file locations, will be modified according to this mapping.</p>
+</div>
+<div class="paragraph">
+<p>The prefixes are replaced literally, which means that dots at the end are important.
+If you want to rename packages only, in most cases, you must ensure that you have an ending dot on both sides of a mapping (except for an empty mapping, if you use it), otherwise you may get unexpected results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following mapping configuration:
+renames = [
+  "com.foo.": "x",  // Dot on the left only
+  "org.bar": "y.",  // Dot on the right only
+  "net.baz": "z"    // No dots
+]
+
+// The following renames will be made:
+"com.foo.bar" -&gt; "xbar"       // Target prefix merged into the suffix
+"org.bar.baz" -&gt; "y..baz"     // Double dot, invalid name
+"net.baz.qux" -&gt; "z.qux"      // Looks okay, but...
+"net.bazqux"  -&gt; "zqux"       // ...may cut the name in the middle.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When computing the appropriate target name, the longest matching prefix is used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following mapping configuration:
+renames = [
+  "com.foo.Main": "w.Main",
+  "com.foo.": "x.",
+  "com.": "y.",
+  "": "z."
+]
+
+// The following renames will be made:
+com.foo.Main -&gt; w.Main
+com.foo.bar  -&gt; x.bar
+com.baz.qux  -&gt; y.baz.qux
+org.foo.bar  -&gt; z.org.foo.bar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Keys in this mapping can be arbitrary strings, including an empty string.
+Values must be valid dot-separated fully qualifed class name prefixes, possibly terminated by a dot.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>Common properties:</p>
 </div>
@@ -1871,6 +2053,28 @@ Disable caching of packages.</p>
 Example: <code>modulePath.from files("dir1", "zip1.zip", "jar1.jar")</code><br>
 The directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
 Relative paths are resolved against the project directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
 </div>
 </div>
 </details>
@@ -2164,6 +2368,28 @@ Relative paths are resolved against the project directory.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -2422,6 +2648,28 @@ Relative paths are resolved against the project directory.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -2605,6 +2853,28 @@ Disable caching of packages.</p>
 Example: <code>modulePath.from files("dir1", "zip1.zip", "jar1.jar")</code><br>
 The directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
 Relative paths are resolved against the project directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
 </div>
 </div>
 </details>

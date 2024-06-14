@@ -514,6 +514,9 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
 <span class="hljs-comment">/// The project dependency settings.</span>
 <span class="hljs-property">project</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Project</span><span class="hljs-operator">?</span>
 
+<span class="hljs-comment">/// Configuration of outgoing HTTP(s) requests.</span>
+<span class="hljs-property">http</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Http</span><span class="hljs-operator">?</span>
+
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientResourceReader</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-comment">/// The URI scheme this reader is responsible for reading.</span>
   <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
@@ -581,8 +584,70 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Checksums</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-comment">/// The sha-256 checksum of this dependency&#39;s metadata.</span>
   <span class="hljs-property">sha256</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
-<span class="hljs-punctuation">}</span></code></pre>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// PEM format certificates to trust when making HTTP requests.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// If [null], Pkl will trust its own built-in certificates.</span>
+  <span class="hljs-property">caCertificates</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// Configuration of the HTTP proxy to use.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// If [null], uses the operating system&#39;s proxy configuration.</span>
+  <span class="hljs-property">proxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Proxy</span><span class="hljs-operator">?</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// Settings that control how Pkl talks to HTTP proxies.</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Proxy</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The proxy to use for HTTP(S) connections.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// At the moment, only HTTP proxies are supported.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Example:</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-comment">/// address = &quot;http://my.proxy.example.com:5080&quot;</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-property">address</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;http://&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// Hosts to which all connections should bypass a proxy.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Values can be either hostnames, or IP addresses.</span>
+  <span class="hljs-comment">/// IP addresses can optionally be provided using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// The only wildcard is `&quot;*&quot;`, which disables all proxying.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// A hostname matches all subdomains.</span>
+  <span class="hljs-comment">/// For example, `example.com` matches `foo.example.com`, but not `fooexample.com`.</span>
+  <span class="hljs-comment">/// A hostname that is prefixed with a dot matches the hostname itself,</span>
+  <span class="hljs-comment">/// so `.example.com` matches `example.com`.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Optionally, a port can be specified.</span>
+  <span class="hljs-comment">/// If a port is omitted, all ports are matched.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Example:</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-comment">/// noProxy {</span>
+  <span class="hljs-comment">///   &quot;127.0.0.1&quot;</span>
+  <span class="hljs-comment">///   &quot;169.254.0.0/16&quot;</span>
+  <span class="hljs-comment">///   &quot;example.com&quot;</span>
+  <span class="hljs-comment">///   &quot;localhost:5050&quot;</span>
+  <span class="hljs-comment">/// }</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-property">noProxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-property">isDistinct</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a> (not expressable in Pkl)</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>

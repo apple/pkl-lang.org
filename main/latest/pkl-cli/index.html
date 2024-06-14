@@ -1240,7 +1240,7 @@ Certificates need to be X.509 certificates in PEM format.</p>
 </div>
 </details>
 <details>
-<summary class="title">--proxy</summary>
+<summary class="title">--http-proxy</summary>
 <div class="content">
 <div class="paragraph">
 <p>Default: (none)<br>
@@ -1251,7 +1251,7 @@ The URI must have scheme <code>http</code>, and may not contain anything other t
 </div>
 </details>
 <details>
-<summary class="title">--no-proxy</summary>
+<summary class="title">--http-no-proxy</summary>
 <div class="content">
 <div class="paragraph">
 <p>Default: (none)<br>
@@ -1675,7 +1675,7 @@ When determining proxy settings, Pkl will look at the following locations, in or
 <p><a href="../language-reference/index.html#projects" class="xref page">PklProject file</a></p>
 </li>
 <li>
-<p><code>--proxy</code> and <code>--no-proxy</code> CLI flags</p>
+<p><code>--http-proxy</code> and <code>--http-no-proxy</code> CLI flags</p>
 </li>
 </ol>
 </div>
@@ -1688,7 +1688,7 @@ When determining proxy settings, Pkl will look at the following locations, in or
 <td class="content">
 <div class="paragraph">
 <p>The proxy and noproxy values are individually set.
-For example, using the <code>--no-proxy</code> flag but not the <code>--proxy</code> flag will cause Pkl to look at the PklProject file, then the settings file, then system settings for the proxy address.</p>
+For example, using the <code>--http-no-proxy</code> flag but not the <code>--http-proxy</code> flag will cause Pkl to look at the PklProject file, then the settings file, then system settings for the proxy address.</p>
 </div>
 <div class="paragraph">
 <p>One exception to this rule is that setting a proxy address will cause Pkl to ignore any noproxy values set at the OS level.</p>
@@ -1707,10 +1707,10 @@ Pkl does not support authentication with a proxy.</p>
 <div class="sect2">
 <h3 id="proxy-exclusions"><a class="anchor" href="#proxy-exclusions"></a><a class="link" href="#proxy-exclusions">Proxy exclusions</a></h3>
 <div class="paragraph">
-<p>Pkl can be configured to bypass the proxy for specific requests via a proxy exclusion rule (i.e. the <code>--no-proxy</code> flag).
+<p>Pkl can be configured to bypass the proxy for specific requests via a proxy exclusion rule (i.e. the <code>--http-no-proxy</code> flag).
 It may be provided either as a hostname, an IP address, or an IP range via <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.
 When determining whether a proxy should be excluded, hostnames do not get resolved to their IP address.
-For example, a request to <code>localhost</code> will not match <code>--no-proxy=127.0.0.1</code>.</p>
+For example, a request to <code>localhost</code> will not match <code>--http-no-proxy=127.0.0.1</code>.</p>
 </div>
 <div class="paragraph">
 <p>For individual hosts (not CIDRs), ports can be specified.

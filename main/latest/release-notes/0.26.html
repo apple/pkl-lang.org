@@ -386,9 +386,9 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <p>News you don&#8217;t want to miss.</p>
 </div>
 <div class="sect2">
-<h3 id="windows-support"><a class="anchor" href="#windows-support"></a><a class="link" href="#windows-support">Windows Support (<a href="https://github.com/apple/pkl/pull/492">#492</a>)</a></h3>
+<h3 id="windows-support"><a class="anchor" href="#windows-support"></a><a class="link" href="#windows-support">Windows Support</a></h3>
 <div class="paragraph">
-<p>Pkl is now available on Windows!</p>
+<p>Pkl is now available on Windows! (<a href="https://github.com/apple/pkl/pull/492">#492</a>)</p>
 </div>
 <div class="paragraph">
 <p>In addition to macOS and Linux, Pkl is now available for download on Windows operating systems.</p>
@@ -450,9 +450,9 @@ This would an invalid URI; the correct URI should be <code>"file:///C:/Foo/Bar/B
 </div>
 </div>
 <div class="sect2">
-<h3 id="http-proxying"><a class="anchor" href="#http-proxying"></a><a class="link" href="#http-proxying">HTTP proxying (<a href="https://github.com/apple/pkl/pull/506">#506</a>)</a></h3>
+<h3 id="http-proxying"><a class="anchor" href="#http-proxying"></a><a class="link" href="#http-proxying">HTTP proxying</a></h3>
 <div class="paragraph">
-<p>Pkl now supports proxying HTTP(S) requests.</p>
+<p>Pkl now supports proxying HTTP(S) requests (<a href="https://github.com/apple/pkl/pull/506">#506</a>).</p>
 </div>
 <div class="paragraph">
 <p>For users of the CLI, Pkl will by default look for proxy settings configured within the OS when on macOS, Windows, and GNOME environments.</p>
@@ -489,7 +489,10 @@ For details, see <a href="#message-passing-api-changes">Message passing API chan
 </div>
 </div>
 <div class="sect2">
-<h3 id="scheme-agnostic-project-dependencies"><a class="anchor" href="#scheme-agnostic-project-dependencies"></a><a class="link" href="#scheme-agnostic-project-dependencies">Scheme-agnostic project dependencies (<a href="https://github.com/apple/pkl/pull/486">#486</a>)</a></h3>
+<h3 id="scheme-agnostic-project-dependencies"><a class="anchor" href="#scheme-agnostic-project-dependencies"></a><a class="link" href="#scheme-agnostic-project-dependencies">Scheme-agnostic project dependencies</a></h3>
+<div class="paragraph">
+<p>Improvements have been made to project dependencies (<a href="https://github.com/apple/pkl/pull/486">#486</a>).</p>
+</div>
 <div class="paragraph">
 <p>A project dependency is a way to manage <code>package</code>-based modules.
 It provides two uses:</p>
@@ -548,7 +551,10 @@ This also means that other custom methods of embedding modules can also use depe
 </div>
 </div>
 <div class="sect2">
-<h3 id="typealias-scoping-fix-and-change"><a class="anchor" href="#typealias-scoping-fix-and-change"></a><a class="link" href="#typealias-scoping-fix-and-change">Typealias scoping fix and change (<a href="https://github.com/apple/pkl/pull/144">#144</a>, <a href="https://github.com/apple/pkl/pull/373">#373</a>, <a href="https://github.com/apple/pkl/pull/516">#516</a>)</a></h3>
+<h3 id="typealias-scoping-fix-and-change"><a class="anchor" href="#typealias-scoping-fix-and-change"></a><a class="link" href="#typealias-scoping-fix-and-change">Typealias scoping fix and change</a></h3>
+<div class="paragraph">
+<p>Improvements have been made to `typealias`es (<a href="https://github.com/apple/pkl/pull/144">#144</a>, <a href="https://github.com/apple/pkl/pull/373">#373</a>, <a href="https://github.com/apple/pkl/pull/516">#516</a>).</p>
+</div>
 <div class="paragraph">
 <p>Currently, a typealias that references a value on its enclosing module will break if used in another module.</p>
 </div>
@@ -587,7 +593,7 @@ Typealiases are meant to be statically defined, and shouldn&#8217;t be able to s
 Thus, a new rule is introduced: a typealias can only reference properties/methods that are <code>const</code>.</p>
 </div>
 <div class="paragraph">
-<p>This is a breaking change. To read more about this breakage and remediation steps, reference <a href="#typealiases-are-treated-as-const">Typealiases are treated as <code>const</code> (#516)</a>.</p>
+<p>This is a breaking change. To read more about this breakage and remediation steps, reference <a href="#typealiases-are-treated-as-const">Typealiases are treated as <code>const</code></a>.</p>
 </div>
 </div>
 </div>
@@ -618,9 +624,9 @@ Thus, a new rule is introduced: a typealias can only reference properties/method
 </div>
 </div>
 <div class="sect2">
-<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard library changes (<a href="https://github.com/apple/pkl/pull/506">#506</a>)</a></h3>
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard library changes</a></h3>
 <div class="paragraph">
-<p>To support <a href="#http-proxying">http proxying</a>, several changes have been made to the standard library.</p>
+<p>To support <a href="#http-proxying">http proxying</a>, several changes have been made to the standard library (<a href="https://github.com/apple/pkl/pull/506">#506</a>).</p>
 </div>
 <div class="ulist">
 <ul>
@@ -637,9 +643,9 @@ For backwards compatibility, <code>pkl.Project</code> now has a <code>typealias 
 <div class="sect2">
 <h3 id="java-api-changes"><a class="anchor" href="#java-api-changes"></a><a class="link" href="#java-api-changes">Java API Changes</a></h3>
 <div class="sect3">
-<h4 id="http-java-client"><a class="anchor" href="#http-java-client"></a><a class="link" href="#http-java-client">HTTP Java Client (<a href="https://github.com/apple/pkl/pull/217">#217</a>, <a href="https://github.com/apple/pkl/pull/295">#295</a>, <a href="https://github.com/apple/pkl/pull/506">#506</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>)</a></h4>
+<h4 id="http-java-client"><a class="anchor" href="#http-java-client"></a><a class="link" href="#http-java-client">HTTP Java Client</a></h4>
 <div class="paragraph">
-<p>A new Java API is introduced, named <code>org.pkl.core.http.HttpClient</code>.
+<p>A new Java API is introduced, named <code>org.pkl.core.http.HttpClient</code> (<a href="https://github.com/apple/pkl/pull/217">#217</a>, <a href="https://github.com/apple/pkl/pull/295">#295</a>, <a href="https://github.com/apple/pkl/pull/506">#506</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>).
 This interface provides the ability to manage how Pkl makes HTTP(S) calls, including how it deals with CA certificates, as well as proxies.</p>
 </div>
 <div class="paragraph">
@@ -647,9 +653,9 @@ This interface provides the ability to manage how Pkl makes HTTP(S) calls, inclu
 </div>
 </div>
 <div class="sect3">
-<h4 id="http-module-key-factory"><a class="anchor" href="#http-module-key-factory"></a><a class="link" href="#http-module-key-factory">New HTTP ModuleKeyFactory (<a href="https://github.com/apple/pkl/pull/495">#495</a>)</a></h4>
+<h4 id="http-module-key-factory"><a class="anchor" href="#http-module-key-factory"></a><a class="link" href="#http-module-key-factory">New HTTP ModuleKeyFactory</a></h4>
 <div class="paragraph">
-<p>A new module key factory for HTTP(S) modules has been added, and can be built with <code>org.pkl.core.ModuleKeyFactories#http</code>.</p>
+<p>A new module key factory for HTTP(S) modules has been added (<a href="https://github.com/apple/pkl/pull/495">#495</a>), and can be built with <code>org.pkl.core.ModuleKeyFactories#http</code>.</p>
 </div>
 <div class="paragraph">
 <p>The preconfigured evaluator (<code>org.pkl.core.EvaluatorBuilder#preconfigured</code>) includes this module key.
@@ -682,9 +688,9 @@ However, this bypasses proxy and CA certificate settings.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="pkl-executor-changes"><a class="anchor" href="#pkl-executor-changes"></a><a class="link" href="#pkl-executor-changes"><code>pkl-executor</code> changes (<a href="https://github.com/apple/pkl/pull/217">#217</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>)</a></h4>
+<h4 id="pkl-executor-changes"><a class="anchor" href="#pkl-executor-changes"></a><a class="link" href="#pkl-executor-changes"><code>pkl-executor</code> changes</a></h4>
 <div class="paragraph">
-<p>A new set of parameters are now available to <code>org.pkl.executor.Executor</code>.
+<p>A new set of parameters are now available to <code>org.pkl.executor.Executor</code> (<a href="https://github.com/apple/pkl/pull/217">#217</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>).
 These new parameters are exposed by <code>org.pkl.executor.spi.v1.ExecutorSpiOptions2</code>.</p>
 </div>
 <div class="paragraph">
@@ -709,18 +715,18 @@ These new parameters are exposed by <code>org.pkl.executor.spi.v1.ExecutorSpiOpt
 </div>
 </div>
 <div class="sect2">
-<h3 id="message-passing-api-changes"><a class="anchor" href="#message-passing-api-changes"></a><a class="link" href="#message-passing-api-changes">Message passing API changes (<a href="https://github.com/apple/pkl/pull/506">#506</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>)</a></h3>
+<h3 id="message-passing-api-changes"><a class="anchor" href="#message-passing-api-changes"></a><a class="link" href="#message-passing-api-changes">Message passing API changes</a></h3>
 <div class="paragraph">
-<p>A new property, <code>http</code>, is added to <a href="../bindings-specification/message-passing-api.html#create-evaluator-request" class="xref page">Create Evaluator Request</a>.</p>
+<p>A new property, <code>http</code>, is added to <a href="../bindings-specification/message-passing-api.html#create-evaluator-request" class="xref page">Create Evaluator Request</a> (<a href="https://github.com/apple/pkl/pull/506">#506</a>, <a href="https://github.com/apple/pkl/pull/518">#518</a>).</p>
 </div>
 <div class="paragraph">
 <p>This allows for the configuration of Pkl&#8217;s HTTP proxy, as well as CA certificates.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rename-codegen-classes"><a class="anchor" href="#rename-codegen-classes"></a><a class="link" href="#rename-codegen-classes">Ability to rename classes produced by Java/Kotlin code generators (<a href="https://github.com/apple/pkl/pull/499">#499</a>)</a></h3>
+<h3 id="rename-codegen-classes"><a class="anchor" href="#rename-codegen-classes"></a><a class="link" href="#rename-codegen-classes">Ability to rename classes produced by Java/Kotlin code generators</a></h3>
 <div class="paragraph">
-<p>The Java and Kotlin code generators have a new option that allows users to change the name of Java/Kotlin classes that get produced during code generation.</p>
+<p>The Java and Kotlin code generators have a new option that allows users to change the name of Java/Kotlin classes that get produced during code generation (<a href="https://github.com/apple/pkl/pull/499">#499</a>).</p>
 </div>
 <div class="paragraph">
 <p>The CLIs have a new flag, <code>--rename</code>, and the Gradle plugin receives a similarly named property called <code>renames</code>.</p>
@@ -741,7 +747,10 @@ These new parameters are exposed by <code>org.pkl.executor.spi.v1.ExecutorSpiOpt
 <p>Things to watch out for when upgrading.</p>
 </div>
 <div class="sect2">
-<h3 id="typealiases-are-treated-as-const"><a class="anchor" href="#typealiases-are-treated-as-const"></a><a class="link" href="#typealiases-are-treated-as-const">Typealiases are treated as <code>const</code> (<a href="https://github.com/apple/pkl/pull/516">#516</a>)</a></h3>
+<h3 id="typealiases-are-treated-as-const"><a class="anchor" href="#typealiases-are-treated-as-const"></a><a class="link" href="#typealiases-are-treated-as-const">Typealiases are treated as <code>const</code></a></h3>
+<div class="paragraph">
+<p>A breaking change has been made to typealiases (<a href="https://github.com/apple/pkl/pull/516">#516</a>).</p>
+</div>
 <div class="paragraph">
 <p>Typealiases are types that can stand in for another type declaration.</p>
 </div>
@@ -831,7 +840,10 @@ This works because import declarations introduce values that are implicitly mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="expanded-dependency-notation-uris"><a class="anchor" href="#expanded-dependency-notation-uris"></a><a class="link" href="#expanded-dependency-notation-uris">Expanded dependency notation URIs (<a href="https://github.com/apple/pkl/pull/486">#486</a>)</a></h3>
+<h3 id="expanded-dependency-notation-uris"><a class="anchor" href="#expanded-dependency-notation-uris"></a><a class="link" href="#expanded-dependency-notation-uris">Expanded dependency notation URIs</a></h3>
+<div class="paragraph">
+<p>The parsing of relative path imports has changed (<a href="https://github.com/apple/pkl/pull/486">#486</a>).</p>
+</div>
 <div class="paragraph">
 <p>Currently, the declaration <code>import "@foo/bar.pkl"</code> is treated as the import of a dependency named <code>foo</code>, but <em>only</em> when declared within file-based and package-based modules.
 In an HTTP-based module, for example, the above import is treated as "bar.pkl inside directory @foo".</p>
@@ -853,9 +865,9 @@ In an HTTP-based module, for example, the above import is treated as "bar.pkl in
 </div>
 </div>
 <div class="sect2">
-<h3 id="minimum-java-version-bump"><a class="anchor" href="#minimum-java-version-bump"></a><a class="link" href="#minimum-java-version-bump">Minimum Java version bumped to Java 17 (<a href="https://github.com/apple/pkl/pull/439">#439</a>)</a></h3>
+<h3 id="minimum-java-version-bump"><a class="anchor" href="#minimum-java-version-bump"></a><a class="link" href="#minimum-java-version-bump">Minimum Java version bumped to Java 17</a></h3>
 <div class="paragraph">
-<p>The minimum Java version for Pkl has been bumped to Java 17.</p>
+<p>The minimum Java version for Pkl has been bumped to Java 17 (<a href="https://github.com/apple/pkl/pull/439">#439</a>).</p>
 </div>
 <div class="paragraph">
 <p>This means that when running the <a href="../pkl-cli/index.html#java-executable" class="xref page">jpkl</a> CLI, the installed <code>java</code> is expected to be Java 17 or higher.
@@ -863,15 +875,15 @@ This also means that users of the JVM libraries need to be on at least Java 17 o
 </div>
 </div>
 <div class="sect2">
-<h3 id="minimum-gradle-version-bump"><a class="anchor" href="#minimum-gradle-version-bump"></a><a class="link" href="#minimum-gradle-version-bump">Gradle plugin minimum version bump (<a href="https://github.com/apple/pkl/pull/454">#454</a>)</a></h3>
+<h3 id="minimum-gradle-version-bump"><a class="anchor" href="#minimum-gradle-version-bump"></a><a class="link" href="#minimum-gradle-version-bump">Gradle plugin minimum version bump</a></h3>
 <div class="paragraph">
-<p>The minimum Gradle version for the <a href="../../current/pkl-gradle/index.html" class="xref page">Gradle plugin</a> is now 8.1.</p>
+<p>The minimum Gradle version for the <a href="../../current/pkl-gradle/index.html" class="xref page">Gradle plugin</a> is now 8.1 (<a href="https://github.com/apple/pkl/pull/454">#454</a>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="path-encoding-changes"><a class="anchor" href="#path-encoding-changes"></a><a class="link" href="#path-encoding-changes">Path encoding changes (<a href="https://github.com/apple/pkl/pull/489">#489</a>)</a></h3>
+<h3 id="path-encoding-changes"><a class="anchor" href="#path-encoding-changes"></a><a class="link" href="#path-encoding-changes">Path encoding changes</a></h3>
 <div class="paragraph">
-<p>In order to support Windows, the output of some Pkl tools have unsafe characters encoded in a special format.</p>
+<p>In order to support Windows, the output of some Pkl tools have unsafe characters encoded in a special format (<a href="https://github.com/apple/pkl/pull/489">#489</a>).</p>
 </div>
 <div class="paragraph">
 <p>On Windows, the characters <code>&lt;</code>, <code>&gt;</code>, <code>:</code>, <code>"</code>, <code>\</code>, <code>|</code>, <code>?</code>, and <code>*</code> are reserved and cannot exist in a filename.
@@ -968,16 +980,20 @@ These are:</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="standard-library-breaking-changes"><a class="anchor" href="#standard-library-breaking-changes"></a><a class="link" href="#standard-library-breaking-changes">Standard library breaking changes (<a href="https://github.com/apple/pkl/pull/506">#506</a>)</a></h3>
+<h3 id="standard-library-breaking-changes"><a class="anchor" href="#standard-library-breaking-changes"></a><a class="link" href="#standard-library-breaking-changes">Standard library breaking changes</a></h3>
 <div class="paragraph">
 <p>Class <code>pkl.Project.EvaluatorSettings</code> has been removed.
-A new (deprecated) typealias is added that points to new module <code>pkl.EvaluatorSettings</code>.</p>
+A new (deprecated) typealias is added that points to new module <code>pkl.EvaluatorSettings</code>.
+For both of these, see <a href="https://github.com/apple/pkl/pull/506">#506</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="type-checked-settings-file"><a class="anchor" href="#type-checked-settings-file"></a><a class="link" href="#type-checked-settings-file">Type-checked settings file (<a href="https://github.com/apple/pkl/pull/477">#477</a>)</a></h3>
+<h3 id="type-checked-settings-file"><a class="anchor" href="#type-checked-settings-file"></a><a class="link" href="#type-checked-settings-file">Type-checked settings file</a></h3>
 <div class="paragraph">
-<p>The <a href="../pkl-cli/index.html#settings-file" class="xref page">Settings file</a> is a way to control the behavior of the Pkl CLI.
+<p>The loading of the <a href="../pkl-cli/index.html#settings-file" class="xref page">settings file</a> has changed (<a href="https://github.com/apple/pkl/pull/477">#477</a>).</p>
+</div>
+<div class="paragraph">
+<p>The settings file is a way to control the behavior of the Pkl CLI.
 This module is expected to <code>amends "pkl:settings"</code>, but this behavior was not checked.</p>
 </div>
 <div class="paragraph">
@@ -985,12 +1001,12 @@ This module is expected to <code>amends "pkl:settings"</code>, but this behavior
 </div>
 </div>
 <div class="sect2">
-<h3 id="empty-directories-excluded-from-packaging"><a class="anchor" href="#empty-directories-excluded-from-packaging"></a><a class="link" href="#empty-directories-excluded-from-packaging">Empty directories excluded from packaging (<a href="https://github.com/apple/pkl/pull/330">#330</a>)</a></h3>
+<h3 id="empty-directories-excluded-from-packaging"><a class="anchor" href="#empty-directories-excluded-from-packaging"></a><a class="link" href="#empty-directories-excluded-from-packaging">Empty directories excluded from packaging</a></h3>
 <div class="paragraph">
 <p>Currently, the <code>pkl project package</code> command will bundle empty directories into the resulting ZIP file.</p>
 </div>
 <div class="paragraph">
-<p>In version 0.26, this has been changed to exclude these directories.
+<p>In version 0.26, this has been changed to exclude these directories (<a href="https://github.com/apple/pkl/pull/330">#330</a>).
 This means that the packages can produce a <em>different</em> checksum if there are any empty directories.</p>
 </div>
 <div class="paragraph">

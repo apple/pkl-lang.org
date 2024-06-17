@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.3">
+<div class="nav-container" data-component="main" data-version="0.26.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -245,7 +248,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.3</span>
+    <span class="version">0.26.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -259,11 +262,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.26.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.25.3</a>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
         </li>
       </ul>
     </li>
@@ -341,13 +347,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.26.0</a>
     <a class="version" href="../../latest/pkl-cli/index.html">0.26.0-dev</a>
-    <a class="version is-current" href="index.html">0.25.3</a>
+    <a class="version" href="../../0.25.3/pkl-cli/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -384,12 +391,15 @@ For interactive development, the CLI includes a Read-Eval-Print Loop (REPL).</p>
 <p>Native Alpine Linux executable for amd64 (cross-compiled and tested on Oracle Linux 8)</p>
 </li>
 <li>
-<p>Java executable (tested with Java 11/17 on macOS and Oracle Linux)</p>
+<p>Native Windows executable for amd64 (tested on Windows Server 2022)</p>
+</li>
+<li>
+<p>Java executable (tested with Java 17/21 on macOS and Oracle Linux)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>On macOS and Linux, we recommend using the native executables.
+<p>On macOS, Linux, and Windows, we recommend using the native executables.
 They are self-contained, start up instantly, and run complex Pkl code much faster than the Java executable.</p>
 </div>
 <div class="admonitionblock note">
@@ -410,7 +420,7 @@ whereas, the Alpine Linux executable is statically linked against <em>musl libc<
 </div>
 <div class="paragraph">
 <p>The Java executable works on multiple platforms and has a smaller binary size than the native executables.
-However, it requires a Java 11 (or higher) runtime on the system path, has a noticeable startup delay,
+However, it requires a Java 17 (or higher) runtime on the system path, has a noticeable startup delay,
 and runs complex Pkl code slower than the native executables.</p>
 </div>
 <div class="paragraph">
@@ -420,7 +430,7 @@ Except where noted otherwise, the rest of this page discusses the native executa
 <div class="sect2">
 <h3 id="homebrew"><a class="anchor" href="#homebrew"></a><a class="link" href="#homebrew">Homebrew</a></h3>
 <div class="paragraph">
-<p>Release versions can be installed with <a href="https://brew.sh">Homebrew</a>.</p>
+<p>On macOS and Linux, release versions can be installed with <a href="https://brew.sh">Homebrew</a>.</p>
 </div>
 <div class="paragraph">
 <p>To install Pkl, run:</p>
@@ -453,7 +463,7 @@ brew upgrade pkl   # or just `brew upgrade`</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://github.com/apple/pkl/releases/download/0.25.3/pkl-macos-aarch64
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-macos-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -463,7 +473,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://github.com/apple/pkl/releases/download/0.25.3/pkl-macos-amd64
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-macos-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -473,7 +483,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.25.3 (macOS, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.0 (macOS, native)</code></pre>
 </div>
 </div>
 </div>
@@ -488,7 +498,7 @@ For a statically linked executable, see <a href="#alpine-linux-executable">Alpin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://github.com/apple/pkl/releases/download/0.25.3/pkl-linux-aarch64
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-linux-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -498,7 +508,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://github.com/apple/pkl/releases/download/0.25.3/pkl-linux-amd64
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -508,7 +518,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.25.3 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.0 (Linux, native)</code></pre>
 </div>
 </div>
 </div>
@@ -520,7 +530,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl https://github.com/apple/pkl/releases/download/0.25.3/pkl-alpine-linux-amd64
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-alpine-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -530,7 +540,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.25.3 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.0 (Linux, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -547,10 +557,39 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 </div>
 </div>
 <div class="sect2">
+<h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.26.0/pkl-windows-amd64.exe' -OutFile pkl.exe
+.\pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.0 (Windows 10.0, native)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We currently do not support the aarch64 architecture for Windows.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="java-executable"><a class="anchor" href="#java-executable"></a><a class="link" href="#java-executable">Java Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.25.3/pkl-cli-java-0.25.3.jar
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.26.0/pkl-cli-java-0.26.0.jar'
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>
@@ -560,8 +599,21 @@ chmod +x jpkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.25.3 (macOS 10.16, Java 11.0.9)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.26.0 (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Java executable does not work as an executable file on Windows.
+However, it will work as a jar, for example, with <code>java -jar jpkl</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -808,7 +860,7 @@ Running the previous command is conceptually the same as if the below module wer
 <div class="sect2">
 <h3 id="command-server"><a class="anchor" href="#command-server"></a><a class="link" href="#command-server"><code>pkl server</code></a></h3>
 <div class="paragraph">
-<p><strong>Synopsys:</strong> <code>pkl server</code></p>
+<p><strong>Synopsis:</strong> <code>pkl server</code></p>
 </div>
 <div class="paragraph">
 <p>Run as a server that communicates over standard input/output.</p>
@@ -820,7 +872,7 @@ Running the previous command is conceptually the same as if the below module wer
 <div class="sect2">
 <h3 id="command-test"><a class="anchor" href="#command-test"></a><a class="link" href="#command-test"><code>pkl test</code></a></h3>
 <div class="paragraph">
-<p><strong>Synopsys:</strong> <code>pkl test [&lt;options&gt;] [&lt;modules&gt;]</code></p>
+<p><strong>Synopsis:</strong> <code>pkl test [&lt;options&gt;] [&lt;modules&gt;]</code></p>
 </div>
 <div class="paragraph">
 <p>Evaluate the given <code>&lt;modules&gt;</code> as <em>tests</em>, producing a test report and appropriate exit code.</p>
@@ -868,7 +920,7 @@ The old expected files will be deleted if present.</p>
 <div class="sect2">
 <h3 id="command-repl"><a class="anchor" href="#command-repl"></a><a class="link" href="#command-repl"><code>pkl repl</code></a></h3>
 <div class="paragraph">
-<p><strong>Synopsys:</strong> <code>pkl repl [&lt;options&gt;]</code></p>
+<p><strong>Synopsis:</strong> <code>pkl repl [&lt;options&gt;]</code></p>
 </div>
 <div class="paragraph">
 <p>Start a REPL session.</p>
@@ -1091,7 +1143,7 @@ The cache directory for storing packages.</p>
 <summary class="title">--no-cache</summary>
 <div class="content">
 <div class="paragraph">
-<p>Disable cacheing of packages.</p>
+<p>Disable caching of packages.</p>
 </div>
 </div>
 </details>
@@ -1202,6 +1254,28 @@ Certificates need to be X.509 certificates in PEM format.</p>
 </div>
 <div class="paragraph">
 <p>For other methods of configuring certificates, see <a href="#ca-certs">CA Certificates</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>http://proxy.example.com:1234</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-no-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>example.com,169.254.0.0/16</code><br>
+Comma separated list of hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
 </div>
 </div>
 </details>
@@ -1360,7 +1434,7 @@ The separator can be customized using the <code>--module-output-separator</code>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
-Welcome to Pkl 0.25.3.
+Welcome to Pkl 0.26.0.
 Type an expression to have it evaluated.
 Type :help or :examples for more information.
 
@@ -1569,7 +1643,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/settings/">pkl.settings</a>.</p>
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/settings/">pkl.settings</a>.</p>
 </div>
 </div>
 </div>
@@ -1577,7 +1651,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <h2 id="ca-certs"><a class="anchor" href="#ca-certs"></a><a class="link" href="#ca-certs">CA Certificates</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
+<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
 These certificates can be overridden via either of the two options:</p>
 </div>
 <div class="ulist">
@@ -1594,6 +1668,94 @@ These certificates can be overridden via either of the two options:</p>
 <p>Both these options will <strong>replace</strong> the default CA certificates bundled with Pkl.<br>
 The CLI option takes precedence over the certificates in <code>~/.pkl/cacerts/</code>.<br>
 Certificates need to be X.509 certificates in PEM format.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-proxy"><a class="anchor" href="#http-proxy"></a><a class="link" href="#http-proxy">HTTP Proxying</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When making HTTP(s) requests, Pkl can possibly make use of an HTTP proxy.</p>
+</div>
+<div class="paragraph">
+<p>There are two values that determine proxy settings; the proxy address and list of noproxy rules.
+When determining proxy settings, Pkl will look at the following locations, in order of precedence (lowest to highest):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OS settings (on macOS, Windows, and GNOME environments)</p>
+</li>
+<li>
+<p><a href="#settings-file">Settings file</a></p>
+</li>
+<li>
+<p><a href="../language-reference/index.html#projects" class="xref page">PklProject file</a></p>
+</li>
+<li>
+<p><code>--http-proxy</code> and <code>--http-no-proxy</code> CLI flags</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The proxy and noproxy values are individually set.
+For example, using the <code>--http-no-proxy</code> flag but not the <code>--http-proxy</code> flag will cause Pkl to look at the PklProject file, then the settings file, then system settings for the proxy address.</p>
+</div>
+<div class="paragraph">
+<p>One exception to this rule is that setting a proxy address will cause Pkl to ignore any noproxy values set at the OS level.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pkl only supports HTTP proxies, so neither HTTPS nor SOCKS proxies are supported.
+Pkl does not support authentication with a proxy.</p>
+</div>
+<div class="paragraph">
+<p>When specifying a proxy address, it must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+<div class="sect2">
+<h3 id="proxy-exclusions"><a class="anchor" href="#proxy-exclusions"></a><a class="link" href="#proxy-exclusions">Proxy exclusions</a></h3>
+<div class="paragraph">
+<p>Pkl can be configured to bypass the proxy for specific requests via a proxy exclusion rule (i.e. the <code>--http-no-proxy</code> flag).
+It may be provided either as a hostname, an IP address, or an IP range via <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.
+When determining whether a proxy should be excluded, hostnames do not get resolved to their IP address.
+For example, a request to <code>localhost</code> will not match <code>--http-no-proxy=127.0.0.1</code>.</p>
+</div>
+<div class="paragraph">
+<p>For individual hosts (not CIDRs), ports can be specified.
+When no port is specified for a given host, connections to all ports bypass the proxy.</p>
+</div>
+<div class="paragraph">
+<p>A hostname will match all of its subdomains.
+For example, <code>example.com</code> will match <code>foo.example.com</code>, and <code>bar.foo.example.com</code>, but not <code>fooexample.com</code>.</p>
+</div>
+<div class="paragraph">
+<p>The value <code>*</code> is a special wildcard that matches all hosts.</p>
+</div>
+<div class="paragraph">
+<p>A port can optionally be specified. If omitted, it matches all ports.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl follows the rules described in <a href="https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/#standardizing-no_proxy">Standardizing <code>no_proxy</code></a>, except it does not look at environment variables.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>

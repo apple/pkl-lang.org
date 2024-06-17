@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.3">
+<div class="nav-container" data-component="main" data-version="0.26.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -245,7 +248,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.3</span>
+    <span class="version">0.26.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -259,11 +262,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.26.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.25.3</a>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
         </li>
       </ul>
     </li>
@@ -344,13 +350,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="codegen.html">0.26.0</a>
     <a class="version" href="../../latest/java-binding/codegen.html">0.26.0-dev</a>
-    <a class="version is-current" href="codegen.html">0.25.3</a>
+    <a class="version" href="../../0.25.3/java-binding/codegen.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/java-binding/pages/codegen.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/java-binding/pages/codegen.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -400,7 +407,7 @@
 <h3 id="install-library"><a class="anchor" href="#install-library"></a><a class="link" href="#install-library">Java Library</a></h3>
 <div class="paragraph">
 <p>The <code>pkl-codegen-java</code> library is available <a href="https://central.sonatype.com/artifact/org.pkl-lang/pkl-codegen-java">from Maven Central</a>.
-It requires Java 11 or higher.</p>
+It requires Java 17 or higher.</p>
 </div>
 <div class="sect3">
 <h4 id="gradle"><a class="anchor" href="#gradle"></a><a class="link" href="#gradle">Gradle</a></h4>
@@ -411,20 +418,20 @@ It requires Java 11 or higher.</p>
 <div class="content">
 <div class="ulist tablist">
 <ul>
-<li id="tabs-1-groovy" class="tab">
-<p>Groovy</p>
-</li>
 <li id="tabs-1-kotlin" class="tab">
 <p>Kotlin</p>
 </li>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
 </ul>
 </div>
-<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
 <div class="listingblock">
-<div class="title">build.gradle</div>
+<div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  compile "org.pkl-lang:pkl-codegen-java:0.25.3"
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+  implementation("org.pkl-lang:pkl-codegen-java:0.26.0")
 }
 
 repositories {
@@ -433,12 +440,12 @@ repositories {
 </div>
 </div>
 </div>
-<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
 <div class="listingblock">
-<div class="title">build.gradle.kts</div>
+<div class="title">build.gradle</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  compile("org.pkl-lang:pkl-codegen-java:0.25.3")
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+  implementation "org.pkl-lang:pkl-codegen-java:0.26.0"
 }
 
 repositories {
@@ -462,7 +469,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-codegen-java&lt;/artifactId&gt;
-    &lt;version&gt;0.25.3&lt;/version&gt;
+    &lt;version&gt;0.26.0&lt;/version&gt;
   &lt;/dependency&gt;
 &lt;/project&gt;</code></pre>
 </div>
@@ -556,15 +563,6 @@ or it may generate code that does not compile.</p>
 </div>
 </div>
 </details>
-<details>
-<summary class="title">--implement-serializable</summary>
-<div class="content">
-<div class="paragraph">
-<p>Default: (flag not set)<br>
-Whether to make generated classes implement <code>java.io.Serializable</code>.</p>
-</div>
-</div>
-</details>
 <div class="paragraph">
 <p>Common code generator options:</p>
 </div>
@@ -595,6 +593,70 @@ Relative paths are resolved against the working directory.</p>
 <div class="paragraph">
 <p>Default: (not set)<br>
 Flag that indicates to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--implement-serializable</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Whether to make generated classes implement <code>java.io.Serializable</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--rename</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>foo.=com.example.foo.</code><br>
+Allows to change default class and package names (derived from Pkl module names) in the generated code.</p>
+</div>
+<div class="paragraph">
+<p>When you need the generated class or package names to be different from the default names derived from the Pkl module names, you can define a rename mapping, where the key is the original Pkl module name prefix, and the value is its replacement.
+When you do, the generated code&#8217;s <code>package</code> declarations, class names, as well as file locations, will be modified according to this mapping.</p>
+</div>
+<div class="paragraph">
+<p>The prefixes are replaced literally, which means that dots at the end are important.
+If you want to rename packages only, in most cases, you must ensure that you have an ending dot on both sides of a mapping (except for an empty mapping, if you use it), otherwise you may get unexpected results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following arguments:
+--rename com.foo.=x  // Dot on the left only
+--rename org.bar=y.  // Dot on the right only
+--rename net.baz=z   // No dots
+
+// The following renames will be made:
+"com.foo.bar" -&gt; "xbar"       // Target prefix merged into the suffix
+"org.bar.baz" -&gt; "y..baz"     // Double dot, invalid name
+"net.baz.qux" -&gt; "z.qux"      // Looks okay, but...
+"net.bazqux"  -&gt; "zqux"       // ...may cut the name in the middle.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When computing the appropriate target name, the longest matching prefix is used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following arguments:
+--rename com.foo.Main=w.Main
+--rename com.foo.=x.
+--rename com.=y.
+--rename =z.
+
+// The following renames will be made:
+com.foo.Main -&gt; w.Main
+com.foo.bar  -&gt; x.bar
+com.baz.qux  -&gt; y.baz.qux
+org.foo.bar  -&gt; z.org.foo.bar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repeat this option to define multiple mappings.
+Keys can be arbitrary strings, including an empty string.
+Values must be valid dot-separated fully qualified class name prefixes, possibly terminated by a dot.</p>
 </div>
 </div>
 </details>
@@ -639,7 +701,7 @@ The cache directory for storing packages.</p>
 <summary class="title">--no-cache</summary>
 <div class="content">
 <div class="paragraph">
-<p>Disable cacheing of packages.</p>
+<p>Disable caching of packages.</p>
 </div>
 </div>
 </details>
@@ -750,6 +812,28 @@ Certificates need to be X.509 certificates in PEM format.</p>
 </div>
 <div class="paragraph">
 <p>For other methods of configuring certificates, see <a href="../pkl-cli/index.html#ca-certs" class="xref page">CA Certificates</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>http://proxy.example.com:1234</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-no-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>example.com,169.254.0.0/16</code><br>
+Comma separated list of hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
 </div>
 </div>
 </details>

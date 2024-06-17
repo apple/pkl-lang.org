@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Comparison :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/introduction/comparison.html">
+    <link rel="prev" href="concepts.html">
+    <link rel="next" href="../pkl-cli/index.html#installation">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.25.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.25.3</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.26.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.26.0-dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Introduction</a></li>
+    <li><a href="comparison.html">Comparison</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/introduction/comparison.html">0.26.0</a>
+    <a class="version" href="../../latest/introduction/comparison.html">0.26.0-dev</a>
+    <a class="version is-current" href="comparison.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/introduction/pages/comparison.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Comparison</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configuration is often described in a static configuration format or is generated with a general-purpose programming language.
+This page lists shortcomings of these approaches and explains how Pkl addresses them.
+Also, Pkl&#8217;s strong and weak points in comparison to other configuration languages are discussed in this document.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="static-config-formats"><a class="anchor" href="#static-config-formats"></a><a class="link" href="#static-config-formats">Pkl vs. Static Config Formats</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Static configuration formats such as JSON, YAML, TOML, and XML work reasonably well for simple configuration needs.
+However, they do have some shortcomings, including:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>They are not very human-friendly to read and write. (JSON, XML)</p>
+</li>
+<li>
+<p>They do not provide a way to split a large file into multiple smaller ones. (JSON, YAML, TOML)</p>
+</li>
+<li>
+<p>They offer no way or very limited ways to abstract over repetitive configuration. (JSON, YAML, TOML, XML)</p>
+</li>
+<li>
+<p>They do not offer standardized or widely available schema validators. (JSON, YAML, TOML)</p>
+</li>
+<li>
+<p>They offer little or no schema-aware tooling. (JSON, YAML, TOML)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pkl addresses these shortcomings as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>It has a clutter-free and familiar syntax with nestable comments.</p>
+</li>
+<li>
+<p>Modules can import other modules from local and remote locations.</p>
+</li>
+<li>
+<p>Every object can act as a template for other objects.
+The standard library offers strong support for data manipulation.</p>
+</li>
+<li>
+<p>It has strong built-in support for describing and validating configuration schemas.</p>
+</li>
+<li>
+<p>It is designed to enable schema-aware tooling, such as REPLs and editors with code completion support.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="general-purpose-langs"><a class="anchor" href="#general-purpose-langs"></a><a class="link" href="#general-purpose-langs">Pkl vs. General-purpose Languages</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When configuration needs outgrow the capabilities of static configuration formats,
+projects often turn to generate configuration with a general-purpose programming language such as Python.
+Given enough effort, this approach can satisfy complex configuration needs.
+However, expressing configuration in a full-blown programming language does have some shortcomings, including:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Reading, writing, and debugging configuration can become as challenging as reading, writing, and debugging application code.</p>
+</li>
+<li>
+<p>The host language may not be a good fit for describing, manipulating, and abstracting over hierarchical configuration.</p>
+</li>
+<li>
+<p>Configuration code may not visually resemble the configuration it generates.</p>
+</li>
+<li>
+<p>The host language may not be a good fit for defining and validating configuration schemas.</p>
+</li>
+<li>
+<p>Development environments may offer little help for developing and validating configuration written in the host language.</p>
+</li>
+<li>
+<p>General-purpose languages are powerful and often difficult to sandbox.
+Are you certain your configuration script isn&#8217;t erasing your hard disk or launching a rocket?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pkl addresses these shortcomings as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As an expression-oriented and side-effect free language, it eliminates many potential sources of errors.</p>
+</li>
+<li>
+<p>It is specifically designed for describing, manipulating, and abstracting over hierarchical configuration.</p>
+</li>
+<li>
+<p>Pkl code often resembles the configuration it generates.</p>
+</li>
+<li>
+<p>It has strong built-in support for defining and validating configuration schemas.</p>
+</li>
+<li>
+<p>It is designed to enable advanced and schema-aware tooling.</p>
+</li>
+<li>
+<p>It is comparatively powerless and strictly sandboxed, making fatal configuration mistakes and exploits less likely.
+Till now, we haven&#8217;t spotted any Pkl script capable of erasing your hard disk.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="other-config-langs"><a class="anchor" href="#other-config-langs"></a><a class="link" href="#other-config-langs">Pkl vs. Other Config Languages</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Compared to open-source configuration languages such as <a href="https://jsonnet.org">Jsonnet</a>,
+<a href="https://github.com/hashicorp/hcl">HCL</a>, and <a href="https://dhall-lang.org">Dhall</a>, Pkl&#8217;s strong points are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">General</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl has a clean and familiar syntax, which makes it easier to read and learn.</p>
+</li>
+<li>
+<p>Pkl supports writing sophisticated schemas, which enables config validation, code and documentation generation, and advanced IDE support.
+This is Pkl&#8217;s most significant differentiator, and is the main reason why we created it.</p>
+</li>
+<li>
+<p>Pkl has stronger templating capabilities than other config languages, reducing user code to the absolute minimum.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Embedding</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl is great for embedding into JVM applications.</p>
+</li>
+<li>
+<p>Pkl offers modern <a href="../java-binding/pkl-config-java.html" class="xref page">JVM libraries</a> for runtime application configuration.</p>
+</li>
+<li>
+<p>Pkl supports <a href="../java-binding/codegen.html" class="xref page">code generation</a> to enable statically typed access to configuration from programming languages.</p>
+</li>
+<li>
+<p>Pkl integrates with third-party (<a href="https://github.com/apple/pkl-spring">Spring Boot</a>) JVM libraries and frameworks.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Tooling</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl has a polished <a href="../pkl-doc/index.html" class="xref page">documentation generator</a> that produces highly navigable and searchable documentation.</p>
+</li>
+<li>
+<p>Pkl offers a <a href="../pkl-gradle/index.html" class="xref page">Gradle plugin</a> to easily integrate code evaluation, documentation generation, and code generation into your builds.</p>
+</li>
+<li>
+<p>Pkl&#8217;s native executables have a <a href="https://www.graalvm.org">JIT compiler</a> that can speed up evaluation up to hundred times.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>On the other hand, we believe that Pkl&#8217;s weak points are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl&#8217;s native binaries are larger than those of other config languages.</p>
+</li>
+<li>
+<p>Pkl is less known and has a smaller community than some other config languages.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We are working towards making Pkl overcome these weakness. Please support us in reaching this goal!</p>
+</div>
+<div class="paragraph">
+<p>We hope that you will enjoy Pkl, and that you trust us to gradually improve its weak points.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="concepts.html">Concepts</a></span>
+  <span class="next"><a href="../pkl-cli/index.html#installation">Installation</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

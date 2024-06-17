@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.3">
+<div class="nav-container" data-component="main" data-version="0.26.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -245,7 +248,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.3</span>
+    <span class="version">0.26.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -259,11 +262,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.26.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.25.3</a>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
         </li>
       </ul>
     </li>
@@ -342,13 +348,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="03_writing_a_template.html">0.26.0</a>
     <a class="version" href="../../latest/language-tutorial/03_writing_a_template.html">0.26.0-dev</a>
-    <a class="version is-current" href="03_writing_a_template.html">0.25.3</a>
+    <a class="version" href="../../0.25.3/language-tutorial/03_writing_a_template.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/language-tutorial/pages/03_writing_a_template.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/language-tutorial/pages/03_writing_a_template.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -361,7 +368,7 @@
 <div class="paragraph">
 <p>In parts <a href="01_basic_config.html" class="xref page">one</a> and <a href="02_filling_out_a_template.html" class="xref page">two</a>, you saw that Pkl provides <em>validation</em> of our configurations.
 It checks syntax, types and constraints.
-As you saw in the <code>acmecicd</code> example <a href="02_filling_out_a_template.html#amending-templates" class="xref page">here</a>, the template can provide informative error messages when an amending module violates a type constraint.</p>
+As you saw in the <code>AcmeCICD</code> example <a href="02_filling_out_a_template.html#amending-templates" class="xref page">here</a>, the template can provide informative error messages when an amending module violates a type constraint.</p>
 </div>
 <div class="paragraph">
 <p>In this final part, you will see some of Pkl&#8217;s techniques that are particularly relevant for writing a template.</p>
@@ -394,7 +401,7 @@ Before you can write types for them, you need to know how to write the types for
 
 <span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
 
-<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">50</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span></code></pre>
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -410,7 +417,7 @@ part = 3
 hasExercises = true
 amountLearned = 13.37
 duration = 30.min
-bandwidthRequirementPerSecond = 50.mb</code></pre>
+bandwidthRequirementPerSecond = 52.4288.mb</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -539,7 +546,7 @@ pklTutorialPart1 {
   hasExercises = true
   amountLearned = 13.37
   duration = 30.min
-  bandwidthRequirementPerSecond = 50.mb
+  bandwidthRequirementPerSecond = 52.4288.mb
 }
 pklTutorialPart2 {
   name = "Filling out a Template"
@@ -547,7 +554,7 @@ pklTutorialPart2 {
   hasExercises = true
   amountLearned = 13.37
   duration = 30.min
-  bandwidthRequirementPerSecond = 50.mb
+  bandwidthRequirementPerSecond = 52.4288.mb
 }
 pklTutorialPart3 {
   name = "Writing a Template"
@@ -555,7 +562,7 @@ pklTutorialPart3 {
   hasExercises = true
   amountLearned = 13.37
   duration = 30.min
-  bandwidthRequirementPerSecond = 50.mb
+  bandwidthRequirementPerSecond = 52.4288.mb
 }</code></pre>
 </div>
 </div>
@@ -595,7 +602,7 @@ Instead of starting from a particular tutorial part, you can define the module <
 
 <span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">50</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -648,7 +655,7 @@ part = 3
 hasExercises = true
 amountLearned = 13.37
 duration = 30.min
-bandwidthRequirementPerSecond = 50.mb</code></pre>
+bandwidthRequirementPerSecond = 52.4288.mb</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -678,7 +685,7 @@ By "precisely" we mean, that amending an object also can&#8217;t "turn it into" 
 <div class="sectionbody">
 <div class="paragraph">
 <p>Now that you know about types, you can start writing your first template.
-So far, you&#8217;ve written configurations with Pkl, either without a template, or using the <code>acmecicd</code> template from <a href="02_filling_out_a_template.html#amending-templates" class="xref page">Amending templates</a>.
+So far, you&#8217;ve written configurations with Pkl, either without a template, or using the <code>AcmeCICD</code> template from <a href="02_filling_out_a_template.html#amending-templates" class="xref page">Amending templates</a>.
 It is often easiest to first write a (typical) configuration for which you want to create a template.
 Suppose you want to define what a live workshop for this tutorial looks like.
 Consider this example:</p>

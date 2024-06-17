@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.3">
+<div class="nav-container" data-component="main" data-version="0.26.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -245,7 +248,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.3</span>
+    <span class="version">0.26.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -259,11 +262,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.26.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.25.3</a>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
         </li>
       </ul>
     </li>
@@ -342,13 +348,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.26.0</a>
     <a class="version" href="../../latest/language-reference/index.html">0.26.0-dev</a>
-    <a class="version is-current" href="index.html">0.25.3</a>
+    <a class="version" href="../../0.25.3/language-reference/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/language-reference/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/language-reference/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -407,7 +414,7 @@ For API documentation, see <a href="../standard-library.html" class="xref page">
 </dd>
 <dt class="hdlist1">Block comment</dt>
 <dd>
-<p>A nestable multiline comment which is typically used to comment out code.
+<p>A nestable multiline comment, which is typically used to comment out code.
 Starts with <code>/*</code> and ends with <code>*/</code>.</p>
 <div class="listingblock">
 <div class="content">
@@ -443,13 +450,13 @@ For details on their syntax, see <a href="#doc-comments">Doc Comments</a>.</p>
 <h2 id="numbers"><a class="anchor" href="#numbers"></a><a class="link" href="#numbers">Numbers</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl has two numeric types, <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Int">Int</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Float">Float</a>.
-Their common supertype is <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number">Number</a>.</p>
+<p>Pkl has two numeric types, <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Int">Int</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Float">Float</a>.
+Their common supertype is <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number">Number</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="integers"><a class="anchor" href="#integers"></a><a class="link" href="#integers">Integers</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Int">Int</a> is a 64-bit signed integer.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Int">Int</a> is a 64-bit signed integer.</p>
 </div>
 <div class="paragraph">
 <p>Integer literals can be written in decimal, hexadecimal, binary, or octal notation:</p>
@@ -576,7 +583,7 @@ An underscore does not affect the integer&#8217;s value.</p>
 </div>
 <div class="paragraph">
 <p>To restrict an integer&#8217;s range, use one of the predefined <a href="#predefined-type-aliases">type aliases</a>
-or an <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number#isBetween">isBetween</a> <a href="#type-constraints">type constraint</a>:</p>
+or an <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number#isBetween">isBetween</a> <a href="#type-constraints">type constraint</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -588,12 +595,12 @@ or an <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number#isBetwee
 <div class="sect2">
 <h3 id="floats"><a class="anchor" href="#floats"></a><a class="link" href="#floats">Floats</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Float">Float</a> is a 64-bit <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double-precision</a> floating point number.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Float">Float</a> is a 64-bit <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double-precision</a> floating point number.</p>
 </div>
 <div class="paragraph">
 <p>Float literals use decimal notation.
 They consist of an integer part, decimal point, fractional part, and exponent part.
-The integer and exponent part are optional.</p>
+The integer and exponent parts are optional.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -629,15 +636,15 @@ The integer and exponent part are optional.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#NaN">NaN</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Infinity">Infinity</a> properties are defined in the standard library.</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#NaN">NaN</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Infinity">Infinity</a> properties are defined in the standard library.</p>
 </div>
 <div class="paragraph">
 <p>Floats support the same comparison and arithmetic operators as integers.
-Float literals with zero fractional part can be safely replaced with integer literals.
+Float literals with a fractional part of zero can be safely replaced with integer literals.
 For example, it is safe to write <code>1.3 * 42</code> instead of <code>1.3 * 42.0</code>.</p>
 </div>
 <div class="paragraph">
-<p>Floats can also include the same underscore separater as integers. For example, <code>1_000.4_400</code> is a float whose value is equivalent to <code>1000.4400</code>.</p>
+<p>Floats can also include the same underscore separator as integers. For example, <code>1_000.4_400</code> is a float whose value is equivalent to <code>1000.4400</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -646,13 +653,13 @@ For example, it is safe to write <code>1.3 * 42</code> instead of <code>1.3 * 42
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-As integers are more convenient to use than floats with zero fractional part, we recommend to require <code>x: Number</code> instead of <code>x: Float</code> in type annotations.
+As integers are more convenient to use than floats with a fractional part of zero, we recommend requiring <code>x: Number</code> instead of <code>x: Float</code> in type annotations.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>To restrict a float to a finite value, use the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number#isFinite">isFinite</a> <a href="#type-constraints">type constraint</a>:</p>
+<p>To restrict a float to a finite value, use the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number#isFinite">isFinite</a> <a href="#type-constraints">type constraint</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -660,7 +667,7 @@ As integers are more convenient to use than floats with zero fractional part, we
 </div>
 </div>
 <div class="paragraph">
-<p>To restrict a float&#8217;s range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number#isBetween">isBetween</a> type constraint:</p>
+<p>To restrict a float&#8217;s range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number#isBetween">isBetween</a> type constraint:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -674,11 +681,11 @@ As integers are more convenient to use than floats with zero fractional part, we
 <h2 id="booleans"><a class="anchor" href="#booleans"></a><a class="link" href="#booleans">Booleans</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Boolean">Boolean</a> is either <code>true</code> or <code>false</code>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean">Boolean</a> is either <code>true</code> or <code>false</code>.</p>
 </div>
 <div class="paragraph">
 <p>Apart from the standard logical operators, <code>Boolean</code> has
-<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Boolean#xor()">xor</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Boolean#implies()">implies</a> methods.</p>
+<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean#xor()">xor</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean#implies()">implies</a> methods.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -719,7 +726,7 @@ As integers are more convenient to use than floats with zero fractional part, we
 <h2 id="strings"><a class="anchor" href="#strings"></a><a class="link" href="#strings">Strings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String">String</a> is a sequence of Unicode code points.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String">String</a> is a sequence of Unicode code points.</p>
 </div>
 <div class="paragraph">
 <p>String literals are enclosed in double quotes:</p>
@@ -842,7 +849,7 @@ String content and closing delimiter must each start on a new line.</p>
 Line breaks are included in the string and normalized to <code>\n</code>.</p>
 </div>
 <div class="paragraph">
-<p>The previous multiline string is equivalent to this single line string.
+<p>The previous multiline string is equivalent to this single-line string.
 Notice that there is no leading or trailing whitespace.</p>
 </div>
 <div class="listingblock">
@@ -851,7 +858,7 @@ Notice that there is no leading or trailing whitespace.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>String interpolation, character escape sequences, and Unicode escape sequences work the same as for single line strings:</p>
+<p>String interpolation, character escape sequences, and Unicode escape sequences work the same as for single-line strings:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -864,7 +871,7 @@ Notice that there is no leading or trailing whitespace.</p>
 </div>
 <div class="paragraph">
 <p>Each content line must begin with the same whitespace characters as the line containing the closing delimiter,
-which are not included in the string. Any further leading whitespace characters are preserved.
+which is not included in the string. Any further leading whitespace characters are preserved.
 In other words, line indentation is controlled by indenting lines relative to the closing delimiter.</p>
 </div>
 <div class="paragraph">
@@ -898,7 +905,7 @@ In other words, line indentation is controlled by indenting lines relative to th
 <h3 id="custom-string-delimiters"><a class="anchor" href="#custom-string-delimiters"></a><a class="link" href="#custom-string-delimiters">Custom String Delimiters</a></h3>
 <div class="paragraph">
 <p>Some strings contain many verbatim backslash (<code>\</code>) or quote (<code>"</code>) characters.
-A good example is regular expressions, which make frequent use of backslash characters for their own escaping.
+A good example is regular expressions, which make frequent use of backslash characters for escaping.
 In such cases, using the escape sequences <code>\\</code> and <code>\"</code> quickly becomes tedious and hampers readability.</p>
 </div>
 <div class="paragraph">
@@ -923,7 +930,7 @@ This also affects the escape character, which changes from <code>\</code> to <co
 </div>
 </div>
 <div class="paragraph">
-<p>More generally, string delimiters and escape character can be customized to contain <em>n</em> pound signs each, for n &gt;= 1.</p>
+<p>More generally, string delimiters and escape characters can be customized to contain <em>n</em> pound signs each, for n &gt;= 1.</p>
 </div>
 <div class="paragraph">
 <p>In the following string, <em>n</em> is 2. As a result, the string content is interpreted verbatim:</p>
@@ -937,7 +944,7 @@ This also affects the escape character, which changes from <code>\</code> to <co
 <div class="sect2">
 <h3 id="string-api"><a class="anchor" href="#string-api"></a><a class="link" href="#string-api">String API</a></h3>
 <div class="paragraph">
-<p>The <code>String</code> class offers a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String">rich API</a>.
+<p>The <code>String</code> class offers a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -975,8 +982,8 @@ Here are just a few examples:</p>
 <h2 id="durations"><a class="anchor" href="#durations"></a><a class="link" href="#durations">Durations</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Duration">Duration</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
-The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#DurationUnit">DurationUnit</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Duration">Duration</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
+The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#DurationUnit">DurationUnit</a>.</p>
 </div>
 <div class="paragraph">
 <p>Durations are constructed with the following <code>Number</code> properties:</p>
@@ -995,7 +1002,7 @@ The unit component is constrained to the units defined in <a href="https://pkl-l
 <div class="paragraph">
 <p>A duration can be negative, as in <code>-5.min</code>.
 It can have a floating point value, as in <code>5.13.min</code>.
-The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Duration#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Duration#unit">unit</a> properties provide access to the duration&#8217;s components.</p>
+The <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Duration#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Duration#unit">unit</a> properties provide access to the duration&#8217;s components.</p>
 </div>
 <div class="paragraph">
 <p>Durations support the standard comparison operators:</p>
@@ -1094,11 +1101,11 @@ The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Duration#value">v
 <h2 id="data-sizes"><a class="anchor" href="#data-sizes"></a><a class="link" href="#data-sizes">Data Sizes</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/DataSize">DataSize</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
-The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#DataSizeUnit">DataSizeUnit</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/DataSize">DataSize</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
+The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#DataSizeUnit">DataSizeUnit</a>.</p>
 </div>
 <div class="paragraph">
-<p>Data sizes with decimal unit (factor 1000) are constructed with the following <code>Number</code> properties:</p>
+<p>Data sizes with decimal units (factor 1000) are constructed with the following <code>Number</code> properties:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1111,7 +1118,7 @@ The unit component is constrained to the units defined in <a href="https://pkl-l
 </div>
 </div>
 <div class="paragraph">
-<p>Data sizes with binary unit (factor 1024) are constructed with the following <code>Number</code> properties:</p>
+<p>Data sizes with binary units (factor 1024) are constructed with the following <code>Number</code> properties:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1126,7 +1133,7 @@ The unit component is constrained to the units defined in <a href="https://pkl-l
 <div class="paragraph">
 <p>A data size can be negative, as in <code>-5.mb</code>.
 It can have a floating point value, as in <code>5.13.mb</code>.
-The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/DataSize#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/DataSize#unit">unit</a> properties provide access to the data size&#8217;s components.</p>
+The <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/DataSize#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/DataSize#unit">unit</a> properties provide access to the data size&#8217;s components.</p>
 </div>
 <div class="paragraph">
 <p>Data sizes support the standard comparison operators:</p>
@@ -1228,7 +1235,7 @@ The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/DataSize#value">v
 <p>An object is an ordered collection of <em>values</em> indexed by <em>name</em>.</p>
 </div>
 <div class="paragraph">
-<p>An object&#8217;s key–value pairs are called its <em>properties</em>.
+<p>An object&#8217;s key-value pairs are called its <em>properties</em>.
 Property values are lazily evaluated on the first read.</p>
 </div>
 <div class="paragraph">
@@ -1309,13 +1316,13 @@ The open curly brace indicates that its value is another object.</td>
 </div>
 <div class="paragraph">
 <p>Like all values, objects are <em>immutable</em>, which is just a fancy (and short!) way to say that their properties never change.
-So what happens when Pigeon moves to a different street? Do we have to construct a new object from scratch?</p>
+So what happens when Dodo moves to a different street? Do we have to construct a new object from scratch?</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="amending-objects"><a class="anchor" href="#amending-objects"></a><a class="link" href="#amending-objects">Amending Objects</a></h3>
 <div class="paragraph">
-<p>Fortunately we don&#8217;t have to.
+<p>Fortunately, we don&#8217;t have to.
 An object can be <em>amended</em> to form a new object that only differs in selected properties.
 Here is how this looks:</p>
 </div>
@@ -1359,8 +1366,8 @@ even if, as in our example, the overridden property is nested inside another obj
 </td>
 <td class="content">
 If this way of constructing new objects from existing objects reminds you of prototypical inheritance, you are spot-on:
-Pkl objects use protoypical inheritance as known from languages such as JavaScript.
-But unlike in JavaScript, their prototype chain cannot be directly accessed or even be modified.
+Pkl objects use prototypical inheritance as known from languages such as JavaScript.
+But unlike in JavaScript, their prototype chain cannot be directly accessed or even modified.
 Another difference is that in Pkl, object properties are late-bound. Read on to see what this means.
 </td>
 </tr>
@@ -1373,7 +1380,7 @@ Another difference is that in Pkl, object properties are late-bound. Read on to 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Amends expressions vs. amends declarations</div>
+<div class="title">Amends declaration vs. amends expression</div>
 <div class="paragraph">
 <p>The <a href="#defining-objects">defining objects</a> and <a href="#amending-objects">amending objects</a> sections cover two notations that are both a form of amending; called an <em>amends declaration</em> and an <em>amends expression</em>, respectively.</p>
 </div>
@@ -1393,24 +1400,24 @@ Another difference is that in Pkl, object properties are late-bound. Read on to 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Amends expression.</td>
+<td>Amends declaration.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Amends declaration.</td>
+<td>Amends expression.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>An amends declaration amends the property of the same name in a module&#8217;s parent module, if the parent property exists.
-Otherwise, an amends declaration implicitly amends <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Dynamic">Dynamic</a>.</p>
+<p>An amends declaration amends a property of the same name if the property exists within a parent module.
+Otherwise, an amends declaration implicitly amends <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic">Dynamic</a>.</p>
 </div>
 <div class="paragraph">
 <p>Another way to think about an amends declaration is that it is shorthand for assignment.
-In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = super.pigeon {}</code>.</p>
+In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = (super.pigeon) {}</code>.</p>
 </div>
 <div class="paragraph">
-<p>Amending object bodies can be chained for both an amends expression and an amends declaration.</p>
+<p>Amending object bodies can be chained for both an amends declaration and an amends expression.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1431,11 +1438,11 @@ In practical terms, <code>pigeon {}</code> is the same as <code>pigeon = super.p
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Chained amends expression (<code>pigeon { &#8230;&#8203; } { &#8230;&#8203; }</code> is the amends expression).</td>
+<td>Chained amends declaration.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Chained amends declaration.</td>
+<td>Chained amends expression (<code>(pigeon) { &#8230;&#8203; } { &#8230;&#8203; }</code> is the amends expression).</td>
 </tr>
 </table>
 </div>
@@ -1503,7 +1510,7 @@ This is what we mean when we say that object properties are <em>late-bound</em>.
 <div class="paragraph">
 <p>A good analogy is that object properties behave like spreadsheet cells.
 When they are linked, changes to "downstream" properties automatically propagate to "upstream" properties.
-The main difference is, editing a spreadsheet cell changes the state of the spreadsheet,
+The main difference is that editing a spreadsheet cell changes the state of the spreadsheet,
 whereas "editing" a property results in a new object, leaving the original object untouched.
 It is as if you made a copy of the entire spreadsheet whenever you edited a cell!</p>
 </div>
@@ -1513,7 +1520,7 @@ It is as if you made a copy of the entire spreadsheet whenever you edited a cell
 </div>
 <div class="paragraph">
 <p>Late binding of properties is an incredibly useful feature for a configuration language.
-It is used extensively in Pkl code (especially in templates), and is the key to understanding how Pkl works.</p>
+It is used extensively in Pkl code (especially in templates) and is the key to understanding how Pkl works.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1541,7 +1548,7 @@ It is used extensively in Pkl code (especially in templates), and is the key to 
 <p>Convert the object to a map.</p>
 </li>
 <li>
-<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map">rich API</a>.</p>
+<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the map back to an object.</p>
@@ -1591,12 +1598,12 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 <div class="ulist">
 <ul>
 <li>
-<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Dynamic">Dynamic</a> object has no predefined structure.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
+<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic">Dynamic</a> object has no predefined structure.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 When a dynamic object is amended, not only can existing properties be overridden or amended, but new properties can also be added.
 So far, we have only used dynamic objects in this chapter.</p>
 </li>
 <li>
-<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Typed">Typed</a> object has a fixed structure described by a class definition.
+<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed">Typed</a> object has a fixed structure described by a class definition.
 When a typed object is amended, its properties can be overridden or amended, but new properties cannot be added.
 In other words, the new object has the same class as the original object.</p>
 </li>
@@ -1686,7 +1693,7 @@ How does it differ from a dynamic object?</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Evaluating this, gives:</p>
+<p>Evaluating this gives:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1731,7 +1738,7 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <td class="content">
 <div class="title">Converting untyped objects to typed objects</div>
 <div class="paragraph">
-<p>When you have a <code>Dynamic</code> that has all the properties (with the right types and meeting all constraints), you can convert it to a <code>Typed</code> by using <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Dynamic#toTyped()"><code>toTyped(&lt;class&gt;)</code></a>:</p>
+<p>When you have a <code>Dynamic</code> that has all the properties (with the right types and meeting all constraints), you can convert it to a <code>Typed</code> by using <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic#toTyped()"><code>toTyped(&lt;class&gt;)</code></a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1768,7 +1775,7 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="sect3">
 <h4 id="hidden-properties"><a class="anchor" href="#hidden-properties"></a><a class="link" href="#hidden-properties">Hidden Properties</a></h4>
 <div class="paragraph">
-<p>A property with modifier <code>hidden</code> is omitted from rendered output and from object conversions.</p>
+<p>A property with the modifier <code>hidden</code> is omitted from the rendered output and object conversions.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1835,7 +1842,7 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="sect3">
 <h4 id="local-properties"><a class="anchor" href="#local-properties"></a><a class="link" href="#local-properties">Local properties</a></h4>
 <div class="paragraph">
-<p>A property with modifier <code>local</code> can only be referenced in the lexical scope of its definition.</p>
+<p>A property with the modifier <code>local</code> can only be referenced in the lexical scope of its definition.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1888,8 +1895,8 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="title">Import clauses define local properties</div>
 <div class="paragraph">
 <p>An <em>import clause</em> defines a local property in the containing module.
-This means <code>import "someModule.pkl"</code> is equivalent to <code>local someModule = import("someModule.pkl")</code>.
-Also, <code>import "someModule.pkl" as otherName</code> is equivalent to <code>local otherName = import("someModule.pkl")</code>.</p>
+This means <code>import "someModule.pkl"</code> is effectively <code>const local someModule = import("someModule.pkl")</code>.
+Also, <code>import "someModule.pkl" as otherName</code> is effectively <code>const local otherName = import("someModule.pkl")</code>.</p>
 </div>
 </td>
 </tr>
@@ -1942,7 +1949,7 @@ Similarly, it is an error to use an <a href="#amends-declaration">amends declara
 </table>
 </div>
 <div class="paragraph">
-<p>When extending a class and overriding an existing property definition, the fixed-ness of the overridden property must be preserved.
+<p>When extending a class and overriding an existing property definition, the fixedness of the overridden property must be preserved.
 If the property in the parent class is declared <code>fixed</code>, the child property must also be declared <code>fixed</code>.
 If the property in the parent class is not declared <code>fixed</code>, the child property may not add the <code>fixed</code> modifier.</p>
 </div>
@@ -1973,7 +1980,7 @@ If the property in the parent class is not declared <code>fixed</code>, the chil
 </div>
 <div class="paragraph">
 <p>The <code>fixed</code> modifier is useful for defining properties that are meant to be derived from other properties.
-In the following snippet, property <code>result</code> is not meant to be assigned to, because it is derived
+In the following snippet, the property <code>result</code> is not meant to be assigned to, because it is derived
 from other properties.</p>
 </div>
 <div class="listingblock">
@@ -2111,7 +2118,7 @@ const <span class="hljs-property">bird</span><span class="hljs-punctuation">:</s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Because <code>const</code> members can only reference its own values, or other <code>const</code> members, they are not <a href="#late-binding">late bound</a>.
+Because <code>const</code> members can only reference themselves and other <code>const</code> members, they are not <a href="#late-binding">late bound</a>.
 </td>
 </tr>
 </table>
@@ -2131,10 +2138,23 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 </ul>
 </div>
 <div id="class-and-annotation-const" class="paragraph">
-<p><strong>Class and Annotation Scoping</strong></p>
+<p><strong>Class, Annotation, and Typealias Scoping</strong></p>
 </div>
 <div class="paragraph">
-<p>Within a class or annotation body, any reference to a property or method of its enclosing module requires that the referenced member is <code>const</code>.</p>
+<p>In these following scenarios, any reference to a property or method of its enclosing module requires that the referenced member is <code>const</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Class body</p>
+</li>
+<li>
+<p>Annotation body</p>
+</li>
+<li>
+<p>Typealiased constrained type</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="title">invalid2.pkl</div>
@@ -2146,7 +2166,9 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-operator">@</span><span class="hljs-title class_">Deprecated</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Replace with <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">pigeonName</span><span class="hljs-char escape_">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
-<span class="hljs-property">oldPigeonName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+<span class="hljs-property">oldPigeonName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">IsPigeonName</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">pigeonName</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2159,15 +2181,19 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 <td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Error: cannot reference non-const property <code>pigeonName</code> from an annotation.</td>
 </tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Error: cannot reference non-const property <code>pigeonname</code> from a typealias.</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
-<p>This rule exists because classes and annotations are not <a href="#late-binding">late bound</a>;
-it is not possible to change the definition of a class nor annotation by amending the module
+<p>This rule exists because classes, annotations, and typealiases are not <a href="#late-binding">late bound</a>;
+it is not possible to change the definition of these members by amending the module
 where it is defined.</p>
 </div>
 <div class="paragraph">
-<p>Generally, there are two strategies for referencing a property from a class or annotation:</p>
+<p>Generally, there are two strategies for referencing such properties:</p>
 </div>
 <div class="paragraph">
 <p><strong>Add the <code>const</code> modifier to the referenced property</strong></p>
@@ -2187,7 +2213,7 @@ where it is defined.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This solution makes sense if <code>pigeonName</code> does get assigned/amended when amending module <code>Birds.pkl</code> (modules are regular objects that can be amended).</p>
+<p>This solution makes sense if <code>pigeonName</code> does not get assigned/amended when amending module <code>Birds.pkl</code> (modules are regular objects that can be amended).</p>
 </div>
 <div class="paragraph">
 <p><strong>Self-import the module</strong></p>
@@ -2227,7 +2253,7 @@ where it is defined.</p>
 <h2 id="listings"><a class="anchor" href="#listings"></a><a class="link" href="#listings">Listings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Listing">Listing</a> is an ordered, indexed collection of <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing">Listing</a> is an ordered, indexed collection of <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>A listing&#8217;s elements have zero-based indexes and are lazily evaluated on the first read.</p>
@@ -2387,7 +2413,7 @@ The order of definitions is relevant.</td>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Defines a local property with value <code>"Pigeon"</code>.
+<td>Defines a local property with the value <code>"Pigeon"</code>.
 Local properties can have a type annotation, as in <code>pigeon: String = "Pigeon"</code>.</td>
 </tr>
 <tr>
@@ -2510,7 +2536,7 @@ To reference the element at index <code>&lt;index&gt;</code>, use <code>this[&lt
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Amends listing <code>birds</code> and overrides property <code>diet</code> of element 0 (whose name is "Pigeon"`) to have value <code>"Worms"</code>.</td>
+<td>Amends listing <code>birds</code> and overrides property <code>diet</code> of element 0 (whose name is "Pigeon"`) to have the value <code>"Worms"</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -2550,7 +2576,7 @@ To reference the element at index <code>&lt;index&gt;</code>, use <code>this[&lt
 <p>Convert the listing to a list.</p>
 </li>
 <li>
-<p>Transform the list using <code>List</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/List">rich API</a>.</p>
+<p>Transform the list using <code>List</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/List">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the list back to a listing.</p>
@@ -2564,7 +2590,7 @@ To reference the element at index <code>&lt;index&gt;</code>, use <code>this[&lt
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ValueRenderer">value renderer</a>.
+Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ValueRenderer">value renderer</a>.
 Because most value renderers treat lists the same as listings, it is often not necessary to convert back to a listing.
 </td>
 </tr>
@@ -2651,7 +2677,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </table>
 </div>
 <div class="paragraph">
-<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Listing#default">property</a> defined in class <code>Listing</code>.
+<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing#default">property</a> defined in class <code>Listing</code>.
 If <code>birds</code> had a <a href="#listing-type-annotations">type annotation</a>, a suitable default element would be inferred from its type parameter.
 If, as in our example, no type annotation is provided or inherited, the default element is the empty <code>Dynamic</code> object.</p>
 </div>
@@ -2725,7 +2751,7 @@ An equivalent literal definition of <code>birds2</code> would look as follows:</
 <p>its value is checked to have type <code>Listing</code>.</p>
 </li>
 <li>
-<p>the listing&#8217;s elements are checked to have type <code>ElementType</code>.</p>
+<p>the listing&#8217;s elements are checked to have the type <code>ElementType</code>.</p>
 </li>
 </ul>
 </div>
@@ -2773,7 +2799,7 @@ it is not necessary to state the type of each list element
 <div class="sect3">
 <h4 id="distinct-elements"><a class="anchor" href="#distinct-elements"></a><a class="link" href="#distinct-elements">Distinct Elements</a></h4>
 <div class="paragraph">
-<p>To constrain a listing to distinct elements, use <code>Listing</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Listing#isDistinct">isDistinct</a> property:</p>
+<p>To constrain a listing to distinct elements, use <code>Listing</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing#isDistinct">isDistinct</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2789,7 +2815,7 @@ it is not necessary to state the type of each list element
 <p>This is as close as Pkl&#8217;s late-bound data types (objects, listings, and mappings) get to a <a href="#sets">Set</a>.</p>
 </div>
 <div class="paragraph">
-<p>To demand distinct names instead of distinct <code>Bird</code> objects, use <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Listing#isDistinctBy()">isDistinctBy()</a>:</p>
+<p>To demand distinct names instead of distinct <code>Bird</code> objects, use <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing#isDistinctBy()">isDistinctBy()</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2804,7 +2830,7 @@ it is not necessary to state the type of each list element
 <h2 id="mappings"><a class="anchor" href="#mappings"></a><a class="link" href="#mappings">Mappings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping">Mapping</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping">Mapping</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2820,7 +2846,7 @@ Nevertheless, this section is written to stand on its own.
 </table>
 </div>
 <div class="paragraph">
-<p>A mapping&#8217;s key–value pairs are called its <em>entries</em>.
+<p>A mapping&#8217;s key-value pairs are called its <em>entries</em>.
 Keys are eagerly evaluated; values are lazily evaluated on the first read.</p>
 </div>
 <div class="paragraph">
@@ -2829,7 +2855,7 @@ Keys are eagerly evaluated; values are lazily evaluated on the first read.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Like maps, mappings can contain arbitrary key–value pairs.</p>
+<p>Like maps, mappings can contain arbitrary key-value pairs.</p>
 </li>
 <li>
 <p>Like objects, mappings excel at defining and amending nested literal data structures.</p>
@@ -2854,10 +2880,10 @@ but converting them to a map (and, if necessary, back to a mapping) opens the do
 <div class="ulist">
 <ul>
 <li>
-<p>When key–value style data needs to be specified literally, use a mapping.</p>
+<p>When key-value style data needs to be specified literally, use a mapping.</p>
 </li>
 <li>
-<p>When key–value style data needs to be transformed in a way that cannot be achieved by <a href="#amending-mappings">amending</a> a mapping, use a map.</p>
+<p>When key-value style data needs to be transformed in a way that cannot be achieved by <a href="#amending-mappings">amending</a> a mapping, use a map.</p>
 </li>
 <li>
 <p>If in doubt, use a mapping.</p>
@@ -2902,11 +2928,11 @@ Otherwise, amend syntax (<code>birds { &#8230;&#8203; }</code>) or shorthand ins
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Defines a mapping entry with key <code>"Pigeon"</code> and a value of type <code>Dynamic</code>.</td>
+<td>Defines a mapping entry with the key <code>"Pigeon"</code> and a value of type <code>Dynamic</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Defines a mapping entry with key <code>"Parrot"</code> and a value of type <code>Dynamic</code>.</td>
+<td>Defines a mapping entry with the key <code>"Parrot"</code> and a value of type <code>Dynamic</code>.</td>
 </tr>
 </table>
 </div>
@@ -2974,7 +3000,7 @@ Otherwise, amend syntax (<code>birds { &#8230;&#8203; }</code>) or shorthand ins
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Defines a local property name <code>parrot</code> with value <code>"Parrot"</code>.
+<td>Defines a local property name <code>parrot</code> with the value <code>"Parrot"</code>.
 Local properties can have a type annotation, as in <code>parrot: String = "Parrot"</code>.</td>
 </tr>
 <tr>
@@ -3032,7 +3058,7 @@ The local property is visible to values but not keys.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Defines a mapping entry with key <code>"Barn owl"</code> and a value of type <code>Dynamic</code>.</td>
+<td>Defines a mapping entry with the key <code>"Barn owl"</code> and a value of type <code>Dynamic</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -3068,11 +3094,11 @@ To reference the value with key <code>&lt;key&gt;</code>, use <code>this[&lt;key
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Defines a mapping entry with key <code>"Pigeon"</code> and a value of type <code>Dynamic</code>.</td>
+<td>Defines a mapping entry with the key <code>"Pigeon"</code> and a value of type <code>Dynamic</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Defines a mapping entry with key <code>"Parrot"</code> and a value that amends <code>"Pigeon"</code>.</td>
+<td>Defines a mapping entry with the key <code>"Parrot"</code> and a value that amends <code>"Pigeon"</code>.</td>
 </tr>
 </table>
 </div>
@@ -3133,7 +3159,7 @@ To reference the value with key <code>&lt;key&gt;</code>, use <code>this[&lt;key
 <p>Convert the mapping to a map.</p>
 </li>
 <li>
-<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map">rich API</a>.</p>
+<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the map back to a mapping.</p>
@@ -3147,7 +3173,7 @@ To reference the value with key <code>&lt;key&gt;</code>, use <code>this[&lt;key
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ValueRenderer">value renderer</a>.
+Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ValueRenderer">value renderer</a>.
 As most value renderers treat maps the same as mappings, it is often not necessary to convert back to a mapping.
 </td>
 </tr>
@@ -3217,7 +3243,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Defines a mapping entry with key <code>"Pigeon"</code> that implicitly amends the default value.</td>
+<td>Defines a mapping entry with the key <code>"Pigeon"</code> that implicitly amends the default value.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -3225,7 +3251,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Defines a mapping entry with key <code>"Parrot"</code> that implicitly amends the default value.</td>
+<td>Defines a mapping entry with the key <code>"Parrot"</code> that implicitly amends the default value.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
@@ -3234,7 +3260,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </table>
 </div>
 <div class="paragraph">
-<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping#default">property</a> defined in class <code>Mapping</code>.
+<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping#default">property</a> defined in class <code>Mapping</code>.
 If <code>birds</code> had a <a href="#mapping-type-annotations">type annotation</a>, a suitable default value would be inferred from its second type parameter.
 If, as in our example, no type annotation is provided or inherited, the default value is the empty <code>Dynamic</code> object.</p>
 </div>
@@ -3359,7 +3385,7 @@ it is not necessary to state the type of each mapping value
 <div class="sectionbody">
 <div class="paragraph">
 <p>Classes are arranged in a single inheritance hierarchy.
-At the top of the hierarchy sits class <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Any">Any</a>; at the bottom, type <a href="#nothing-type">nothing</a>.</p>
+At the top of the hierarchy sits class <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Any">Any</a>; at the bottom, type <a href="#nothing-type">nothing</a>.</p>
 </div>
 <div class="paragraph">
 <p>Classes contain properties and methods, which can be <code>local</code> to their declaring scope.
@@ -3400,7 +3426,7 @@ Properties can also be <code>hidden</code> from rendering.</p>
 <div class="sect2">
 <h3 id="class-inheritance"><a class="anchor" href="#class-inheritance"></a><a class="link" href="#class-inheritance">Class Inheritance</a></h3>
 <div class="paragraph">
-<p>Pkl supports single inheritance with a Java(Script) like syntax.</p>
+<p>Pkl supports single inheritance with a Java(Script)-like syntax.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3487,7 +3513,7 @@ By convention, module files have a <code>.pkl</code> extension.</p>
 <p>Modules have a <a href="#module-names">Module Name</a> and are loaded from a <a href="#module-uris">Module URI</a>.</p>
 </div>
 <div class="paragraph">
-<p>At runtime, modules are represented as objects of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Module">Module</a>.
+<p>At runtime, modules are represented as objects of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Module">Module</a>.
 The precise runtime type of a module is a subclass of <code>Module</code> containing the module&#8217;s property and method definitions.</p>
 </div>
 <div class="paragraph">
@@ -3664,7 +3690,7 @@ For more details, consult the <a href="#projects">project</a> section of the lan
 <div class="paragraph">
 <p>Standard library modules are named <code>pkl.&lt;simpleName&gt;</code> and have module URIs of the form <code>pkl:&lt;simpleName&gt;</code>.
 For example, module <code>pkl.math</code> has module URI <code>pkl:math</code>.
-See the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/">API Docs</a> for the complete list of standard library modules.</p>
+See the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/">API Docs</a> for the complete list of standard library modules.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3682,15 +3708,33 @@ with <code>import "parrot.pkl"</code> or <code>import "/animals/birds/parrot.pkl
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When importing a relative folder or file that starts with <code>@</code>, the import string must be prefixed with <code>./</code>.
-Otherwise, this syntax will be interpreted as dependency notation.
+<div class="title">Paths on Windows</div>
+<div class="paragraph">
+<p>Relative paths use the <code>/</code> character as the directory separator on all platforms, including Windows.</p>
+</div>
+<div class="paragraph">
+<p>Paths that contain drive letters (e.g. <code>C:</code>) must be declared as an absolute file URI, for example: <code>import "file:///C:/path/to/my/module.pkl"</code>. Otherwise, they are interpreted as a URI scheme.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When importing a relative directory or file that starts with <code>@</code>, the import string must be prefixed with <code>./</code>.
+Otherwise, this syntax will be interpreted as <a href="#dependency-notation">dependency notation</a>.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dependency-notation-uris"><a class="anchor" href="#dependency-notation-uris"></a><a class="link" href="#dependency-notation-uris">Dependency notation URIs</a></h4>
+<h4 id="dependency-notation"><a class="anchor" href="#dependency-notation"></a><a class="link" href="#dependency-notation">Dependency notation URIs</a></h4>
 <div class="paragraph">
 <p>Example: <code>@birds/bird.pkl</code></p>
 </div>
@@ -3699,7 +3743,7 @@ Otherwise, this syntax will be interpreted as dependency notation.
 For example, import <code>@birds/bird.pkl</code> represents path <code>/bird.pkl</code> in a dependency named "birds".</p>
 </div>
 <div class="paragraph">
-<p>A dependency is either a remote package, or a local project dependency.</p>
+<p>A dependency is either a remote package or a local project dependency.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3974,7 +4018,7 @@ Only modules declared as <code>open</code> can be extended.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>At most, one extends clause is permitted.
+<p>At most one extends clause is permitted.
 A module cannot have both an amends clause and an extends clause.</p>
 </div>
 <div class="paragraph">
@@ -4112,7 +4156,7 @@ The name of this property, called <em>import name</em>, is constructed from the 
 <li>
 <p>valid identifier</p>
 <div class="paragraph">
-<p>Stick to alphanumeric characters. Use underscore (<code>_</code>) instead of hyphen (<code>-</code>) as name separator.</p>
+<p>Stick to alphanumeric characters. Use an underscore (<code>_</code>) instead of a hyphen (<code>-</code>) as a name separator.</p>
 </div>
 </li>
 <li>
@@ -4131,7 +4175,7 @@ The name of this property, called <em>import name</em>, is constructed from the 
 <div class="sect3">
 <h4 id="import-expression"><a class="anchor" href="#import-expression"></a><a class="link" href="#import-expression">Import Expressions (<code>import()</code>)</a></h4>
 <div class="paragraph">
-<p>An import expression consists of the keyword <code>import</code>, following by a <a href="#module-uris">module URI</a> wrapped in parentheses:</p>
+<p>An import expression consists of the keyword <code>import</code>, followed by a <a href="#module-uris">module URI</a> wrapped in parentheses:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4155,7 +4199,7 @@ When importing multiple modules, a glob pattern is used to match against existin
 A globbed import evaluates to a <code>Mapping</code>, where keys are the expanded form of the glob and values are import expressions on each individual module.</p>
 </div>
 <div class="paragraph">
-<p>Globbed imports can be expressed as either a clause, or as an expression.
+<p>Globbed imports can be expressed as either a clause or as an expression.
 When expressed as a clause, they follow the same naming rules as a normal <a href="#import-clause">import clause</a>: they introduce a local property equal to the last path segment without the <code>.pkl</code> extension.
 A globbed import clause cannot be used as a type.</p>
 </div>
@@ -4175,7 +4219,7 @@ A globbed import clause cannot be used as a type.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Globbed import clause without explicit name (will import the name <code>*</code>)</td>
+<td>Globbed import clause without an explicit name (will import the name <code>*</code>)</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -4220,7 +4264,7 @@ A globbed import clause cannot be used as a type.</p>
 Globbing another scheme will cause Pkl to throw.</p>
 </div>
 <div class="paragraph">
-<p>Pkl can be extended to provide custom globbable schemes through the <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/java/org/pkl/core/module/ModuleKey.java">ModuleKey</a>
+<p>Pkl can be extended to provide custom globbable schemes through the <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/java/org/pkl/core/module/ModuleKey.java">ModuleKey</a>
 SPI.</p>
 </div>
 <div class="paragraph">
@@ -4304,7 +4348,7 @@ By default, there are five trust levels, listed from highest to lowest:</p>
 </div>
 <div class="paragraph">
 <p>If a module URI is resolved in multiple steps, all URIs are subject to the above security checks.
-An example for this is an HTTPS URL that results in a redirect.</p>
+An example of this is an HTTPS URL that results in a redirect.</p>
 </div>
 <div class="paragraph">
 <p>Pkl embedders can further customize security checks.</p>
@@ -4371,10 +4415,10 @@ b:
 <p>Now let&#8217;s do the same&#8201;&#8212;&#8201;and more&#8201;&#8212;&#8201;inside the language.</p>
 </div>
 <div class="paragraph">
-<p>Modules have an <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Module#output">output</a> property that controls what the module&#8217;s output is and how that output is rendered.</p>
+<p>Modules have an <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Module#output">output</a> property that controls what the module&#8217;s output is and how that output is rendered.</p>
 </div>
 <div class="paragraph">
-<p>To control <strong>what</strong> the output is, set the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ModuleOutput#value">output.value</a> property:</p>
+<p>To control <strong>what</strong> the output is, set the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ModuleOutput#value">output.value</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4396,7 +4440,7 @@ b:
 </div>
 </div>
 <div class="paragraph">
-<p>To control <em>how</em> the output is rendered, set the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ModuleOutput#renderer">output.renderer</a> property:</p>
+<p>To control <em>how</em> the output is rendered, set the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ModuleOutput#renderer">output.renderer</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4416,33 +4460,33 @@ b:
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/JsonRenderer">JsonRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/JsonRenderer">JsonRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/jsonnet/Renderer">jsonnet.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/jsonnet/Renderer">jsonnet.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PcfRenderer">PcfRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PcfRenderer">PcfRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PListRenderer">PListRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PListRenderer">PListRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PropertiesRenderer">PropertiesRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PropertiesRenderer">PropertiesRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/protobuf/Renderer">protobuf.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/protobuf/Renderer">protobuf.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/xml/Renderer">xml.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/xml/Renderer">xml.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/YamlRenderer">YamlRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/YamlRenderer">YamlRenderer</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To render a format that is not yet supported, implement your own renderer by extending class <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ValueRenderer">ValueRenderer</a>.</p>
+<p>To render a format that is not yet supported, you can implement your own renderer by extending the class <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ValueRenderer">ValueRenderer</a>.</p>
 </div>
 <div class="paragraph">
 <p>The standard library renderers can be configured with <em>value converters</em>, which influence how particular values are rendered.</p>
@@ -4493,11 +4537,11 @@ However, we can teach it to:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For more on path based converters, see <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/PcfRenderer#converters">PcfRenderer.converters</a>.</p>
+<p>For more on path-based converters, see <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/PcfRenderer#converters">PcfRenderer.converters</a>.</p>
 </div>
 <div class="paragraph">
 <p>Sometimes it is useful to directly compute the final module output, bypassing <code>output.value</code> and <code>output.converters</code>.
-To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ModuleOutput#text">output.text</a> property to a String value:</p>
+To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ModuleOutput#text">output.text</a> property to a String value:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4519,8 +4563,8 @@ To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mod
 <div class="sect3">
 <h4 id="multiple-file-output"><a class="anchor" href="#multiple-file-output"></a><a class="link" href="#multiple-file-output">Multiple File Output</a></h4>
 <div class="paragraph">
-<p>Sometimes, it is desirable for a single module to produce multiple output files.
-This is possible by configuring a module&#8217;s <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/ModuleOutput#files"><code>output.files</code></a> property
+<p>It is sometimes desirable for a single module to produce multiple output files.
+This is possible by configuring a module&#8217;s <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ModuleOutput#files"><code>output.files</code></a> property
 and specifying the <a href="../pkl-cli/index.html#multiple-file-output-path" class="xref page"><code>--multiple-file-output-path</code></a>
 (or <code>-m</code> for short) CLI option.</p>
 </div>
@@ -4659,7 +4703,7 @@ the appropriate file extensions can be obtained programmatically:</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The keyword <code>null</code> indicates the absence of a value.
-<code>null</code> is an instance of <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Null">Null</a>, a direct subclass of <code>Any</code>.</p>
+<code>null</code> is an instance of <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Null">Null</a>, a direct subclass of <code>Any</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="non-null-operator"><a class="anchor" href="#non-null-operator"></a><a class="link" href="#non-null-operator">Non-Null Operator</a></h3>
@@ -4733,7 +4777,7 @@ Here are some examples:</p>
 <td class="content">
 <div class="title">Default non-null behavior</div>
 <div class="paragraph">
-<p>There are many languages that allow <code>null</code> for (almost) every type, but Pkl does not.
+<p>Many languages allow <code>null</code> for (almost) every type, but Pkl does not.
 Any type can be extended to include <code>null</code> by appending <code>?</code> to the type.</p>
 </div>
 <div class="paragraph">
@@ -4817,7 +4861,7 @@ Here are some examples:</p>
 <div class="sect2">
 <h3 id="ifnonnull-method"><a class="anchor" href="#ifnonnull-method"></a><a class="link" href="#ifnonnull-method">ifNonNull Method</a></h3>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Null#ifNonNull()">ifNonNull()</a> method is a generalization of the <a href="#null-propagation">null propagation</a> operator.</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Null#ifNonNull()">ifNonNull()</a> method is a generalization of the <a href="#null-propagation">null propagation</a> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4917,22 +4961,22 @@ Result type is <code>String</code>.</p>
 <dt class="hdlist1">file: </dt>
 <dd>
 <p>Reads a file from the file system.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Resource">Resource</a>.</p>
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource">Resource</a>.</p>
 </dd>
 <dt class="hdlist1">http(s): </dt>
 <dd>
 <p>Reads an HTTP(S) resource.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Resource">Resource</a>.</p>
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource">Resource</a>.</p>
 </dd>
 <dt class="hdlist1">modulepath: </dt>
 <dd>
 <p>Reads a resource from the module path (<code>--module-path</code>) or JVM class path.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Resource">Resource</a>.
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource">Resource</a>.
 See <a href="#module-path-uri">Module Path URI</a> for further information.</p>
 </dd>
 <dt class="hdlist1">package: </dt>
 <dd>
-<p>Reads a resource from a <em>package</em>. Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Resource">Resource</a>. See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
+<p>Reads a resource from a <em>package</em>. Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource">Resource</a>. See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
 </dd>
 </dl>
 </div>
@@ -5063,7 +5107,7 @@ For example, the expression <code>read*("env:**")</code> will evaluate to a Mapp
 <p>When Pkl is embedded within another runtime, it can be extended to read other kinds of resources.</p>
 </div>
 <div class="paragraph">
-<p>When embedded into a JVM application, new resources may be read by implementing the <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/java/org/pkl/core/resource/ResourceReader.java">ResourceReader</a> SPI.
+<p>When embedded into a JVM application, new resources may be read by implementing the <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/java/org/pkl/core/resource/ResourceReader.java">ResourceReader</a> SPI.
 When Pkl is embedded within Swift, new resources may be read by implementing the <a href="https://github.com/apple/pkl-swift/blob/main/Sources/PklSwift/Reader.swift">ResourceReader</a> interface.
 When Pkl is embedded within Go, new resources may be read by implementing the <a href="https://github.com/apple/pkl-go/blob/main/pkl/reader.go">ResourceReader</a> interface.</p>
 </div>
@@ -5072,7 +5116,7 @@ When Pkl is embedded within Go, new resources may be read by implementing the <a
 <h3 id="resource-allowlist"><a class="anchor" href="#resource-allowlist"></a><a class="link" href="#resource-allowlist">Resource Allowlist</a></h3>
 <div class="paragraph">
 <p>When attempting to read a resource, the resource URI is checked against the resource allowlist (<code>--allowed-resources</code>).
-In embedded mode, the allowlist is configured via an evaluator&#8217;s <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/java/org/pkl/core/SecurityManager.java">SecurityManager</a>.</p>
+In embedded mode, the allowlist is configured via an evaluator&#8217;s <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/java/org/pkl/core/SecurityManager.java">SecurityManager</a>.</p>
 </div>
 <div class="paragraph">
 <p>The resource allowlist is a comma-separated list of regular expressions.
@@ -5103,8 +5147,8 @@ To raise an error, use a <code>throw</code> expression:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>The error message is printed to the console, and the program exits.
-In embedded mode, a <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/java/org/pkl/core/PklException.java">PklException</a> is thrown.</p>
+<p>The error message is printed to the console and the program exits.
+In embedded mode, a <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/java/org/pkl/core/PklException.java">PklException</a> is thrown.</p>
 </div>
 </div>
 </div>
@@ -5335,7 +5379,7 @@ If the type check succeeds, the operand is returned as-is; otherwise, an error i
 <div class="sect2">
 <h3 id="lists"><a class="anchor" href="#lists"></a><a class="link" href="#lists">Lists</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/List">List</a> is an ordered, indexed collection of <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/List">List</a> is an ordered, indexed collection of <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>A list&#8217;s elements have zero-based indexes and are eagerly evaluated.</p>
@@ -5391,7 +5435,7 @@ Note that listings can be converted to lists when the need arises.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>result: heterogenous list whose last element is another list</td>
+<td>result: heterogeneous list whose last element is another list</td>
 </tr>
 </table>
 </div>
@@ -5421,7 +5465,7 @@ Note that listings can be converted to lists when the need arises.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>List</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/List">rich API</a>.
+<p>Class <code>List</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/List">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -5467,7 +5511,7 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="sets"><a class="anchor" href="#sets"></a><a class="link" href="#sets">Sets</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Set">Set</a> is an ordered collection of unique <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Set">Set</a> is an ordered collection of unique <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>A set&#8217;s elements are eagerly evaluated.</p>
@@ -5499,7 +5543,7 @@ Here are just a few examples:</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>result: heterogenous set that contains a list as its last element</td>
+<td>result: heterogeneous set that contains a list as its last element</td>
 </tr>
 </table>
 </div>
@@ -5520,7 +5564,7 @@ Here are just a few examples:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>Set</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Set">rich API</a>.
+<p>Class <code>Set</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Set">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -5556,10 +5600,10 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="maps"><a class="anchor" href="#maps"></a><a class="link" href="#maps">Maps</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map">Map</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map">Map</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
 </div>
 <div class="paragraph">
-<p>A map&#8217;s key–value pairs are called its <em>entries</em>.
+<p>A map&#8217;s key-value pairs are called its <em>entries</em>.
 Keys and values are eagerly evaluated.</p>
 </div>
 <div class="admonitionblock tip">
@@ -5573,10 +5617,10 @@ Keys and values are eagerly evaluated.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>When key–value style data needs to be specified literally, use a mapping.</p>
+<p>When key-value style data needs to be specified literally, use a mapping.</p>
 </li>
 <li>
-<p>When key–value style data needs to be transformed in ways that cannot be achieved by <a href="#amending-mappings">amending</a> a mapping, use a map.</p>
+<p>When key-value style data needs to be transformed in ways that cannot be achieved by <a href="#amending-mappings">amending</a> a mapping, use a map.</p>
 </li>
 <li>
 <p>If in doubt, use a mapping.</p>
@@ -5618,7 +5662,7 @@ Keys and values are eagerly evaluated.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Any Pkl value can be used as map key:</p>
+<p>Any Pkl value can be used as a map key:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5659,7 +5703,7 @@ Keys and values are eagerly evaluated.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>Map</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Map">rich API</a>.
+<p>Class <code>Map</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -5700,10 +5744,10 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="regular-expressions"><a class="anchor" href="#regular-expressions"></a><a class="link" href="#regular-expressions">Regular Expressions</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Regex">Regex</a> is a regular expression with the same syntax and semantics as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regular expression</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Regex">Regex</a> is a regular expression with the same syntax and semantics as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regular expression</a>.</p>
 </div>
 <div class="paragraph">
-<p>Regular expressions are constructed with the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Regex()">Regex()</a> method:</p>
+<p>Regular expressions are constructed with the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Regex()">Regex()</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5712,10 +5756,10 @@ Here are just a few examples:</p>
 </div>
 <div class="paragraph">
 <p>Notice the use of custom string delimiters <code>#"</code> and <code>"#</code>, which change the string&#8217;s escape character from <code>\</code> to <code>\#</code>.
-As a consequence, the regular expression&#8217;s own backslash escape character no longer needs to be escaped.</p>
+As a consequence, the regular expression&#8217;s backslash escape character no longer requires escaping.</p>
 </div>
 <div class="paragraph">
-<p>To test if a string fully matches a regular expression, use <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/String#matches()">String.matches()</a>:</p>
+<p>To test if a string fully matches a regular expression, use <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String#matches()">String.matches()</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5733,8 +5777,8 @@ Here is an example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To find all matches of a regex in a string, use <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Regex#match">Regex.findMatchesIn()</a>.
-The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/RegexMatch">RegexMatch</a> objects containing details about each match:</p>
+<p>To find all matches of a regex in a string, use <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Regex#match">Regex.findMatchesIn()</a>.
+The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/RegexMatch">RegexMatch</a> objects containing details about each match:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5825,36 +5869,36 @@ The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/ba
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Int8">Int8</a> (-128 to 127)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Int8">Int8</a> (-128 to 127)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Int16">Int16</a> (-32,768 to 32,767)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Int16">Int16</a> (-32,768 to 32,767)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Int32">Int32</a> (-2,147,483,648 to 2,147,483,647)</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#UInt8">UInt8</a> (0 to 255)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#UInt16">UInt16</a> (0 to 65,535)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#UInt32">UInt32</a> (0 to 4,294,967,295)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#UInt">UInt</a> (0 to 9,223,372,036,854,775,807)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Int32">Int32</a> (-2,147,483,648 to 2,147,483,647)</p>
 </li>
 </ul>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/#Uri">Uri</a> (any String value)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#UInt8">UInt8</a> (0 to 255)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#UInt16">UInt16</a> (0 to 65,535)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#UInt32">UInt32</a> (0 to 4,294,967,295)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#UInt">UInt</a> (0 to 9,223,372,036,854,775,807)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/#Uri">Uri</a> (any String value)</p>
 </li>
 </ul>
 </div>
@@ -5888,7 +5932,7 @@ Value: -1</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>To restrict a number to a custom range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Number#isBetween">isBetween</a> method:</p>
+<p>To restrict a number to a custom range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number#isBetween">isBetween</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5925,7 +5969,7 @@ Type annotations serve the following purposes:</p>
 <ul>
 <li>
 <p>Documentation
-+ Type annotations help documenting data models. They are included in generated documentation.</p>
++ Type annotations help to document data models. They are included in any generated documentation.</p>
 </li>
 <li>
 <p>Validation
@@ -6157,7 +6201,7 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>a pair with first element of type <code>String</code> and second element of type <code>Bird</code></td>
+<td>a pair <code>String</code> and <code>Bird</code> as types for the first and second element, respectively</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -6222,7 +6266,7 @@ it backs off and trusts the user that they know what they are doing.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Union types have no implicit default values, but an explicit type can be choosen using a <code>*</code> marker:</p>
+<p>Union types have no implicit default values, but an explicit type can be chosen using a <code>*</code> marker:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6307,7 +6351,7 @@ it backs off and trusts the code&#8217;s author to know what they are doing&#820
 <h4 id="progressive-disclosure"><a class="anchor" href="#progressive-disclosure"></a><a class="link" href="#progressive-disclosure">Progressive Disclosure</a></h4>
 <div class="paragraph">
 <p>In the spirit of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, type annotations are optional in Pkl.
-Omitting a type annotation is equivalent to specifying type <code>unknown</code>:</p>
+Omitting a type annotation is equivalent to specifying the type <code>unknown</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6492,7 +6536,7 @@ Type constraints enable advanced runtime validation that goes beyond the capabil
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Note how <code>parent</code> is different from <code>name</code>. If they were the same, we would be thrown a contraint error.</td>
+<td>Note how <code>parent</code> is different from <code>name</code>. If they were the same, we would be thrown a constraint error.</td>
 </tr>
 </table>
 </div>
@@ -6510,7 +6554,7 @@ Type constraints enable advanced runtime validation that goes beyond the capabil
 <div class="paragraph">
 <p>Boolean expressions are convenient for ad-hoc type constraints.
 Alternatively, type constraints can be given as lambda expressions accepting a single argument, namely the value to be validated.
-This allows to abstract over and reuse type constraints.</p>
+This allows for the abstraction and reuse of type constraints.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6603,14 +6647,14 @@ under names such as <em>lamba expressions</em>, <em>arrow functions</em>, <em>fu
 <p>This anonymous function accepts a parameter named <code>n</code>, multiplies it by 3, and returns the result.</p>
 </div>
 <div class="paragraph">
-<p>Anonymous functions are values of type <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function">Function</a>, more specifically
-<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function0">Function0</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function1">Function1</a>,
-<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function2">Function2</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function3">Function3</a>,
-<a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function4">Function4</a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function5">Function5</a>.
+<p>Anonymous functions are values of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function">Function</a>, more specifically
+<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function0">Function0</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function1">Function1</a>,
+<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function2">Function2</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function3">Function3</a>,
+<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function4">Function4</a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function5">Function5</a>.
 They cannot have more than five parameters.</p>
 </div>
 <div class="paragraph">
-<p>To invoke an anonymous function, call its <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Function1#apply()">apply</a> method:</p>
+<p>To invoke an anonymous function, call its <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Function1#apply()">apply</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6794,8 +6838,8 @@ applies the original function to them, and amends the returned object.</p>
 </div>
 <div class="paragraph">
 <p>Function amending is a special form of function composition.
-Thanks to function amending, <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Listing#default">Listing.default</a>
-and <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/base/Mapping#default">Mapping.default</a> can be treated as if they were objects,
+Thanks to function amending, <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing#default">Listing.default</a>
+and <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping#default">Mapping.default</a> can be treated as if they were objects,
 only gradually revealing their true (single-parameter function) nature:</p>
 </div>
 <div class="listingblock">
@@ -6872,7 +6916,7 @@ To access the <code>default</code> function&#8217;s key parameter, it is declare
 <div class="sect2">
 <h3 id="amend-null"><a class="anchor" href="#amend-null"></a><a class="link" href="#amend-null">Amending Null Values</a></h3>
 <div class="paragraph">
-<p>It&#8217;s time to lift a secret: The predefined <code>null</code> value is just one of potentially many values of type <code>Null</code>.</p>
+<p>It&#8217;s time to lift a secret: The predefined <code>null</code> value is just one of the potentially many values of type <code>Null</code>.</p>
 </div>
 <div class="paragraph">
 <p>First, here are the technical facts:</p>
@@ -7177,7 +7221,7 @@ property value</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Indices are zero based.
+<p>Indices are zero-based.
 Note that <code>for</code> generators can generate elements and entries but not properties.<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
 </div>
 </div>
@@ -7296,7 +7340,7 @@ For example, a <code>List</code> can be spread into a <code>Listing</code>, but 
 <td class="content">
 <div class="paragraph">
 <p>Look out for duplicate key conflicts when using spreads.
-When spreading entries or properties, it is possible that a spread causes conflict due to an existing definition of a key.</p>
+Spreading entries or properties may cause conflicts due to matched existing key definitions.</p>
 </div>
 <div class="paragraph">
 <p>In the following code snippet, <code>"Pigeon"</code> is declared twice in the <code>newPets</code> object, and thus is an error.</p>
@@ -7501,7 +7545,7 @@ If the <code>-</code> character exists at the beginning or the end of a characte
 </div>
 <div class="paragraph">
 <p>A character class is not allowed to be empty.
-Thus, if the first character within the character class is <code>]</code>, it treated literally and not as the closing delimiter of the character class.
+Thus, if the first character within the character class is <code>]</code>, it is treated literally and not as the closing delimiter of the character class.
 For example, the glob pattern <code>[]abc]</code> matches a single character that is either <code>]</code>, <code>a</code>, <code>b</code>, or <code>c</code>.</p>
 </div>
 </div>
@@ -7702,7 +7746,7 @@ The following Markdown features are supported:</p>
 </div>
 <div class="paragraph">
 <p>Doc comments are consumed by humans reading source code, the <em>Pkldoc</em> documentation generator, code generators, and editor/IDE plugins.
-They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.25.3/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
+They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -7788,7 +7832,7 @@ Here is a comprehensive example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A [common Bird] found in large cities.</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A [common Bird][Bird] found in large cities.</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7796,7 +7840,7 @@ Here is a comprehensive example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A [*common* Bird] found in large cities.</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A [*common* Bird][Bird] found in large cities.</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8059,7 +8103,7 @@ If a match is found, this is the answer.</p>
 If a match is found, this is the answer.</p>
 </li>
 <li>
-<p>Seach the class inheritance chain of <code>this</code>, starting with the class of <code>this</code>
+<p>Search the class inheritance chain of <code>this</code>, starting with the class of <code>this</code>
 and continuing upwards until and including class <code>Any</code>, for a method named <code>x.</code>
 If a match is found, this is the answer.</p>
 </li>
@@ -8075,7 +8119,7 @@ If a match is found, this is the answer.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Pkl does not support arity or type based method overloading.
+Pkl does not support arity or type-based method overloading.
 Hence, the argument list of a method call is irrelevant for method resolution.
 </td>
 </tr>
@@ -8217,7 +8261,7 @@ To reduce the chance of naming collisions, <code>Any</code> does not define any 
 <div class="sect2">
 <h3 id="grammar-definition"><a class="anchor" href="#grammar-definition"></a><a class="link" href="#grammar-definition">Grammar Definition</a></h3>
 <div class="paragraph">
-<p>Pkl&#8217;s <a href="https://www.antlr.org">ANTLR 4</a> grammar is defined in <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/antlr/PklLexer.g4">PklLexer.g4</a> and <a href="https://github.com/apple/pkl/tree/0.25.3/pkl-core/src/main/antlr/PklParser.g4">PklParser.g4</a>.</p>
+<p>Pkl&#8217;s <a href="https://www.antlr.org">ANTLR 4</a> grammar is defined in <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/antlr/PklLexer.g4">PklLexer.g4</a> and <a href="https://github.com/apple/pkl/tree/0.26.0/pkl-core/src/main/antlr/PklParser.g4">PklParser.g4</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -8241,9 +8285,6 @@ They cannot be used as a regular identifier, and currently do not have any meani
 <p><code>delete</code></p>
 </li>
 <li>
-<p><code>match</code></p>
-</li>
-<li>
 <p><code>case</code></p>
 </li>
 <li>
@@ -8251,9 +8292,6 @@ They cannot be used as a regular identifier, and currently do not have any meani
 </li>
 <li>
 <p><code>vararg</code></p>
-</li>
-<li>
-<p><code>const</code></p>
 </li>
 </ul>
 </div>
@@ -8265,7 +8303,7 @@ They cannot be used as a regular identifier, and currently do not have any meani
 <h3 id="blank-identifiers"><a class="anchor" href="#blank-identifiers"></a><a class="link" href="#blank-identifiers">Blank Identifiers</a></h3>
 <div class="paragraph">
 <p>Blank identifiers can be used in many places to ignore parameters and variables.<br>
-<code>_</code> is not a valid identifier. In order to use it as a parameter or variable name
+<code>_</code> is not a valid identifier. To use it as a parameter or variable name,
 it needs to be enclosed in backticks: `_`.</p>
 </div>
 <div class="sect3">
@@ -8319,8 +8357,8 @@ it needs to be enclosed in backticks: `_`.</p>
 <div class="sect2">
 <h3 id="projects"><a class="anchor" href="#projects"></a><a class="link" href="#projects">Projects</a></h3>
 <div class="paragraph">
-<p>A <em>project</em> is a directory of Pkl modules, and other resources.
-It is defined by the presence of a <code>PklProject</code> file, that amends standard library module
+<p>A <em>project</em> is a directory of Pkl modules and other resources.
+It is defined by the presence of a <code>PklProject</code> file that amends the standard library module
 <code>pkl:Project</code>.</p>
 </div>
 <div class="paragraph">
@@ -8414,7 +8452,7 @@ Internally, Pkl assigns URI scheme <code>projectpackage</code> to project depend
 <h4 id="resolving-dependencies"><a class="anchor" href="#resolving-dependencies"></a><a class="link" href="#resolving-dependencies">Resolving Dependencies</a></h4>
 <div class="paragraph">
 <p>Dependencies that are declared in a <code>PklProject</code> file must be <em>resolved</em> via CLI command <a href="../pkl-cli/index.html#command-project-resolve" class="xref page"><code>pkl project resolve</code></a>.
-This builds a single dependency list, resolving all transitive dependencies and determines appropriate version for each package.
+This builds a single dependency list, resolving all transitive dependencies, and determines the appropriate version for each package.
 It creates or updates a file called <code>PklProject.deps.json</code> in the project&#8217;s root directory with the list of resolved dependencies.</p>
 </div>
 <div class="paragraph">
@@ -8477,20 +8515,20 @@ To create a package, the <code>package</code> section of a <code>PklProject</cod
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The package URI, without the version part</td>
+<td>The package URI, without the version part.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The version of the package</td>
+<td>The version of the package.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>The URL that the package&#8217;s ZIP file will available for download at.</td>
+<td>The URL to download the package&#8217;s ZIP file.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The package itself is created by command <a href="../pkl-cli/index.html#command-project-package" class="xref page"><code>pkl project package</code></a>.</p>
+<p>The package itself is created by the command <a href="../pkl-cli/index.html#command-project-package" class="xref page"><code>pkl project package</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>This command only prepares artifacts to be published.

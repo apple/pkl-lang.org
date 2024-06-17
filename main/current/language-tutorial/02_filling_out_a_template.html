@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.25.3">
+<div class="nav-container" data-component="main" data-version="0.26.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -245,7 +248,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.25.3</span>
+    <span class="version">0.26.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -259,11 +262,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.26.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.26.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.25.3</a>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
         </li>
       </ul>
     </li>
@@ -342,13 +348,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.25.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="02_filling_out_a_template.html">0.26.0</a>
     <a class="version" href="../../latest/language-tutorial/02_filling_out_a_template.html">0.26.0-dev</a>
-    <a class="version is-current" href="02_filling_out_a_template.html">0.25.3</a>
+    <a class="version" href="../../0.25.3/language-tutorial/02_filling_out_a_template.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.25/docs/modules/language-tutorial/pages/02_filling_out_a_template.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/language-tutorial/pages/02_filling_out_a_template.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -397,7 +404,7 @@ Consider the following example.</p>
 </div>
 <div class="paragraph">
 <p>Parrot and Pigeon have nearly identical properties.
-They only differ in their name and taxonomy, so if you have already written out <code>bird</code>, you can say that <code>parrot</code> is just like <code>pigeon</code> except <code>name</code> is <code>"Parrot"</code>, diet is <code>"Berries"</code> the <code>taxonomy.order</code> is <code>"Psittaciformes"</code>.
+They only differ in their name and taxonomy, so if you have already written out <code>bird</code>, you can say that <code>parrot</code> is just like <code>bird</code> except <code>name</code> is <code>"Parrot"</code>, diet is <code>"Berries"</code> the <code>taxonomy.order</code> is <code>"Psittaciformes"</code>.
 When you run this, Pkl expands everything fully.</p>
 </div>
 <div class="listingblock">
@@ -422,15 +429,18 @@ When you run this, Pkl expands everything fully.</p>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><em>Amending</em> does not allow us to <em>add</em> properties to the (typed) object we are amending.
+<p>So far, you have only worked with <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic">Dynamic</a> objects.
+Pkl also offers <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed">Typed</a> objects.
+<em>Amending</em> allows you to override, amend, and add new properties to a dynamic object.
+Typed objects will only let you amend or override existing properties, not add entirely new ones.
 The <a href="03_writing_a_template.html" class="xref page">next part of the tutorial</a> discusses types in more detail.
 There, you see that amending <em>never changes the type</em> of the object.</p>
 </div>
@@ -446,22 +456,25 @@ Consider the following example.</p>
 <div class="listingblock">
 <div class="title">nestedAmends.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">woodPigeon</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">stockPigeon</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Stock pigeon&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
-  <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span>
-
-<span class="hljs-property">stockPigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">woodPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Stock pigeon&quot;</span>
-  <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+    <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbimorphae&quot;</span>
+    <span class="hljs-property">order</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbiformes&quot;</span>
     <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba oenas&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">dodo</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">stockPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">woodPigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">stockPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
+  <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">dodo</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">woodPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
   <span class="hljs-property">extinct</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
@@ -488,7 +501,7 @@ Consider the following example.</p>
 </div>
 <div class="paragraph">
 <p>Notice how you only have to change <code>taxonomy.species</code>.
-In this example, <code>bird.taxonomy</code> has <code>kingdom</code>, <code>clade</code>, <code>order</code> and <code>species</code>.
+In this example, <code>stockPigeon.taxonomy</code> has <code>kingdom</code>, <code>clade</code>, <code>order</code> and <code>species</code>.
 You are amending <code>stockPigeon</code>, to define <code>woodPigeon</code>.
 They have the same <code>taxonomy</code>, except for <code>species</code>.
 This notation says that everything in <code>taxonomy</code> should be what it is in the object you are amending (<code>stockPigeon</code>), except for <code>species</code>, which should be <code>"Columba palumbus"</code> .</p>
@@ -498,27 +511,36 @@ This notation says that everything in <code>taxonomy</code> should be what it is
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">woodPigeon</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
-  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
-  <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
-  <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span>
-<span class="hljs-property">stockPigeon</span> <span class="hljs-punctuation">{</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">stockPigeon</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Stock pigeon&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+    <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbimorphae&quot;</span>
+    <span class="hljs-property">order</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbiformes&quot;</span>
     <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba oenas&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">woodPigeon</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
+  <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+    <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbimorphae&quot;</span>
+    <span class="hljs-property">order</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbiformes&quot;</span>
+    <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 <span class="hljs-property">dodo</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
-  <span class="hljs-property">extinct</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+    <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbimorphae&quot;</span>
+    <span class="hljs-property">order</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columbiformes&quot;</span>
     <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Raphus cucullatus&quot;</span>
   <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">extinct</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -615,6 +637,8 @@ Going back to the example above, you can write <code>parrot</code> as a separate
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
 <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
 <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+  <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dinosauria&quot;</span>
   <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
@@ -654,6 +678,8 @@ Looking at the result, however, you see a (possibly) unexpected difference.</p>
 <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
 <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
 <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+  <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dinosauria&quot;</span>
   <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
 <span class="hljs-punctuation">}</span>
 
@@ -662,6 +688,8 @@ Looking at the result, however, you see a (possibly) unexpected difference.</p>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Great green macaw&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">kingdom</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Animalia&quot;</span>
+    <span class="hljs-property">clade</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dinosauria&quot;</span>
     <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Ara ambiguus&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -716,9 +744,9 @@ This terminology describes the <em>intended use</em> of the module and doesn&#82
 In other words: just by looking at Pkl code, you can&#8217;t tell whether it is a template or a "normal" module.</p>
 </div>
 <div class="listingblock">
-<div class="title">acmecicd.pkl</div>
+<div class="title">AcmeCICD.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-property">acmecicd</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">AcmeCICD</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Pipeline</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">nameRequiresBranchName</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
@@ -750,7 +778,7 @@ That&#8217;s exactly what you&#8217;re doing here; you&#8217;re filling out "wor
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span></code></pre>
 </div>
@@ -766,7 +794,7 @@ Value: 1 <i class="conum" data-value="3"></i><b>(3)</b>
 
 225 | timeout: Int(this &gt;= 3)? <i class="conum" data-value="4"></i><b>(4)</b>
                    ^^^^^^^^^
-at acmecicd#timeout (file:///Users/me/tutorial/acmecicd.pkl, line 8)
+at AcmeCICD#timeout (file:///Users/me/tutorial/AcmeCICD.pkl, line 8)
 
 3 | timeout = 1 <i class="conum" data-value="5"></i><b>(5)</b>
               ^
@@ -830,7 +858,7 @@ Start off by specifying the name of the pipeline and nothing else.</p>
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
 <span class="hljs-property">pipelines</span> <span class="hljs-punctuation">{</span>
@@ -850,12 +878,12 @@ Start off by specifying the name of the pipeline and nothing else.</p>
 </div>
 <div class="paragraph">
 <p>So far, you&#8217;ve defined objects the same way you amended them.
-When the <code>name</code> didn&#8217;t occur before, <code>new { &#8230;&#8203; }</code> <em>creates</em> a property called <code>name</code> and assigns to it the object specified on the <code>Listing</code>.
-If <code>name</code> is an existing object, this notation is an <em>amend expression</em>; resulting in a new <em>object</em> (value), but <em>not</em> a new (named) property.
+If the name <code>foo</code> didn&#8217;t occur before, <code>foo { &#8230;&#8203; }</code> <em>creates</em> a property called <code>foo</code> and assigns to it the contents in place of the <code>&#8230;&#8203;</code> (given that <code>&#8230;&#8203;</code> is not valid Pkl, but an abbreviation for illustration purposes).
+If <code>foo</code> is an existing object, this notation is an <em>amend expression</em>; resulting in a new <em>object</em> (value), but <em>not</em> a new (named) property.
 Since <code>pipelines</code> is a listing, you can <em>add</em> elements by writing expressions in an amend expression.</p>
 </div>
 <div class="paragraph">
-<p>In this case, though, there is no object to amend. Writing <code>pipelines { &#8230;&#8203; }</code> defines a <em>property</em>, but listings may only include <em>elements</em>.
+<p>In this case, though, there is no object to amend. Writing <code>myNewPipeline { &#8230;&#8203; }</code> defines a <em>property</em>, but listings may only include <em>elements</em>.
 This is where you can use the keyword <code>new</code>.</p>
 </div>
 <div class="paragraph">
@@ -875,7 +903,7 @@ Pipelines that set a 'name' must also set a 'branchName'.
 
 8 | throw("Pipelines that set a 'name' must also set a 'branchName'.")
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-at acmecicd#Pipeline.nameRequiresBranchName.&lt;function#1&gt; (file:///Users/me/tutorial/acmecicd.pkl, line 8)
+at AcmeCICD#Pipeline.nameRequiresBranchName.&lt;function#1&gt; (file:///Users/me/tutorial/AcmeCICD.pkl, line 8)
 
 6 | name = "prb"
            ^^^^^
@@ -897,7 +925,7 @@ When constraints are complicated or very application specific, template authors 
 <div class="listingblock">
 <div class="title">cicd.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;acmecicd.pkl&quot;</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;AcmeCICD.pkl&quot;</span>
 
 <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
 <span class="hljs-property">pipelines</span> <span class="hljs-punctuation">{</span>

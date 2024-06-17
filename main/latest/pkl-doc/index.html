@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.26.0-dev">
+<div class="nav-container" data-component="main" data-version="0.27.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -230,6 +230,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -248,7 +251,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.26.0-dev</span>
+    <span class="version">0.27.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -262,11 +265,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.27.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.26.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.26.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.25.3/index.html">0.25.3</a>
@@ -348,10 +351,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.26.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.27.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.27.0-dev</a>
     <a class="version" href="../../current/pkl-doc/index.html">0.26.0</a>
-    <a class="version is-current" href="index.html">0.26.0-dev</a>
     <a class="version" href="../../0.25.3/pkl-doc/index.html">0.25.3</a>
   </div>
 </div>
@@ -370,7 +373,7 @@
 </div>
 <div class="paragraph">
 <p>Pkldoc&#8217;s look and feel is inspired by Scaladoc.
-To get a first impression, browse the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0-dev/">Standard Library API Docs</a>.</p>
+To get a first impression, browse the <a href="https://pkl-lang.org/package-docs/pkl/0.27.0-dev/">Standard Library API Docs</a>.</p>
 </div>
 </div>
 </div>
@@ -418,7 +421,7 @@ See <a href="../language-reference/index.html#member-links" class="xref page">Me
 <div class="sect2">
 <h3 id="member-search"><a class="anchor" href="#member-search"></a><a class="link" href="#member-search">Member Search</a></h3>
 <div class="paragraph">
-<p>To get a first impression of Pkldoc&#8217;s member search, let&#8217;s try and find property <code>MinFiniteFloat</code> in the <a href="https://pkl-lang.org/package-docs/pkl/0.26.0-dev/">standard library docs</a>:</p>
+<p>To get a first impression of Pkldoc&#8217;s member search, let&#8217;s try and find property <code>MinFiniteFloat</code> in the <a href="https://pkl-lang.org/package-docs/pkl/0.27.0-dev/">standard library docs</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -510,7 +513,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-doc:0.26.0-SNAPSHOT")
+  implementation("org.pkl-lang:pkl-doc:0.27.0-SNAPSHOT")
 }
 
 repositories {
@@ -524,7 +527,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-doc:0.26.0-SNAPSHOT"
+  implementation "org.pkl-lang:pkl-doc:0.27.0-SNAPSHOT"
 }
 
 repositories {
@@ -548,7 +551,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-doc&lt;/artifactId&gt;
-    &lt;version&gt;0.26.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;0.27.0-SNAPSHOT&lt;/version&gt;
   &lt;/dependency&gt;
   &lt;repositories&gt;
     &lt;repository&gt;
@@ -579,12 +582,12 @@ We recommend to provision it with a Maven compatible build tool as shown in <a h
 It can generate documentation either for modules directly, or generate documentation for <em>package uris</em>.</p>
 </div>
 <div class="paragraph">
-<p>The tool requires an argument of a module named <code>_docsite-info.pkl</code>, that amends <a href="https://pkl-lang.org/package-docs/pkl/0.26.0-dev/DocsiteInfo/">pkl.DocsiteInfo</a>.</p>
+<p>The tool requires an argument of a module named <code>_docsite-info.pkl</code>, that amends <a href="https://pkl-lang.org/package-docs/pkl/0.27.0-dev/DocsiteInfo/">pkl.DocsiteInfo</a>.</p>
 </div>
 <h4 id="generating-documentation-for-modules-directly" class="discrete">Generating documentation for modules directly</h4>
 <div class="paragraph">
 <p>Modules can be passed directly to Pkldoc for documentation generation.
-When generating documentation for these modules, there must also be a module named <em>doc-package-info.pkl</em> that amends <a href="https://pkl-lang.org/package-docs/pkl/0.26.0-dev/DocPackageInfo/">pkl.DocPackageInfo</a>.</p>
+When generating documentation for these modules, there must also be a module named <em>doc-package-info.pkl</em> that amends <a href="https://pkl-lang.org/package-docs/pkl/0.27.0-dev/DocPackageInfo/">pkl.DocPackageInfo</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <em>doc-package-info.pkl</em> module defines a <em>doc package</em>, which describes how modules are grouped and versioned together.</p>

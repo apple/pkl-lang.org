@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TableRenderer (pkg.pkl-lang.org/pkl-pantry/pkl.table:1.1.0) • Packages</title>
+    <title>RowDirective (pkg.pkl-lang.org/pkl-pantry/pkl.table:1.1.0) • Packages</title>
     <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
     <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.table/1.1.0/table/TableRenderer.js" defer="defer"></script>
+    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.table/1.1.0/table/RowDirective.js" defer="defer"></script>
     <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
@@ -15,18 +15,19 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/pkl.table" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="pkl.table.table" data-class-name="TableRenderer" data-root-url-prefix="../../../../../"></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/pkl.table" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="pkl.table.table" data-class-name="RowDirective" data-root-url-prefix="../../../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/pkl.table</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.table.table</a>
-      <h1 id="declaration-title">TableRenderer<span id="declaration-version">1.1.0</span></h1>
+      <h1 id="declaration-title">RowDirective<span id="declaration-version">1.1.0</span></h1>
       <ul class="member-group-links">
         <li><a href="#_properties">Properties</a></li>
         <li><a href="#_methods">Methods</a></li>
       </ul>
       <div id="_overview" class="anchor"> </div>
       <div id="_declaration" class="member">
-        <div class="member-signature">class <span class="name-decl">TableRenderer</span> extends <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/ValueRenderer.html" class="name-ref">ValueRenderer</a></div>
-        <div class="doc-comment"><p><a href="not_found"><code>pkl.ValueRenderer</code></a> subclass used to render pretty-printed tables</p></div>
+        <div class="member-signature">open class <span class="name-decl">RowDirective</span></div>
+        <div class="doc-comment"><p>Used to provide fully custom content for an entire table row
+One possible usage is to express colspan in HTML tables</p></div>
         <dl class="member-info">
           <dt class="runtime-data hidden">Known subtypes:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
@@ -38,94 +39,16 @@
       </div>
       <div class="member-group">
         <div id="_properties" class="anchor"> </div>
-        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <h2 class="member-group-title">Properties</h2>
         <ul>
           <li>
-            <div id="converters" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#converters">link</a>
+            <div id="content" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#content">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/ValueRenderer.html" class="name-ref">ValueRenderer</a>.</span><span class="name-decl">converters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;(<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Class.html" class="name-ref">Class</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>), (unknown) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L301-L301">Source</a></div>
-                <div class="doc-comment"><p>Value converters to apply before values are rendered.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>A value converter is a function that converts a value to another value
-immediately before the value is rendered (and after the value has been type-checked).
-The converted value is then rendered by the renderer's hardwired rendering logic.</p>
-<p>When a converter returns a value of type <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Object.html"><code>Object</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Collection.html"><code>Collection</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Map.html"><code>Map</code></a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Pair.html"><code>Pair</code></a>,
-converters are recursively applied to the returned value's components (object properties,
-list elements, etc.).</p>
-<p>At most one converter is applied per value.
-If multiple converters are applicable, a winner is chosen as follows:</p>
-<ul>
-<li>A converter with <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html"><code>String</code></a> key wins over a converter with <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Class.html"><code>Class</code></a> key.</li>
-<li>Between multiple <code>String</code> key converters, the converter defined earlier
-(according to the mapping's definition order) wins.</li>
-<li>Between multiple <code>Class</code> key converters, the most specific class (according to class
-hierarchy) wins.</li>
-</ul>
-<p>A converter's key specifies which values the converter should be applied to.
-A converter with <code>Class</code> key is applied to values of that class, including values of its
-subclasses.
-A converter with <code>String</code> key is applied to values whose path matches the <em>path spec</em>
-described by the string.</p>
-<p>Path specs can have the following components:</p>
-<ul>
-<li><code>^</code> matches the top-level value passed to <code>renderDocument()</code> or <code>renderValue()</code> (often the
-module object)</li>
-<li><code>pigeon</code> matches property <code>pigeon</code> at any hierarchy level</li>
-<li><code>[pigeon]</code> matches map(ping) entry with String key <code>&quot;pigeon&quot;</code> at any hierarchy level</li>
-<li><code>*</code> matches any property</li>
-<li><code>[*]</code> matches any list(ing) element or map(ping) entry</li>
-</ul>
-<p>Here are some examples of valid property paths:</p>
-<ul>
-<li><code>&quot;server&quot;</code></li>
-<li><code>&quot;server.timeout&quot;</code></li>
-<li><code>&quot;^server.timeout&quot;</code> (matches <code>server.timeout</code>, but not <code>racks[12345].server.timeout</code>)</li>
-<li><code>&quot;racks[12345].server&quot;</code></li>
-<li><code>&quot;racks[*].server</code></li>
-</ul>
-<p>Paths are matched against path specs component-wise in reverse order.
-For example, paths <code>server.timeout</code> and <code>racks[*].server.timeout</code>
-both match path spec <code>server.timeout</code>, whereas path <code>server.timeout.millis</code> does not.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="extension" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#extension">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/ValueRenderer.html" class="name-ref">ValueRenderer</a>.</span><span class="name-decl">extension</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L305-L305">Source</a></div>
-                <div class="doc-comment"><p>The file extension associated with this output format,
-or <code>null</code> if this format does not have an extension.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="style" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#style">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">style</span>: <a href="TableStyle.html" class="name-ref">TableStyle</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L235-235">Source</a></div>
-                <div class="doc-comment"><p>Style to use for table rendering</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="columns" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#columns">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">columns</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Listing.html" class="name-ref">Listing</a>&lt;(<a href="Column.html" class="name-ref">Column</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>)&gt;(!isEmpty || throw(&quot;TableRenderer must be configured to render at least one column&quot;))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L238-238">Source</a></div>
-                <div class="doc-comment"><p>Listing of properties that should be rendered as table columns</p></div>
+                <div class="member-signature"><span class="name-decl">content</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L45-45">Source</a></div>
               </div>
             </div>
           </li>
@@ -169,7 +92,7 @@ or <code>null</code> if this format does not have an extension.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="TableRenderer.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="TableRenderer.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="RowDirective.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="RowDirective.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -241,28 +164,14 @@ or <code>null</code> if this format does not have an extension.</p></div>
             </div>
           </li>
           <li>
-            <div id="renderDocument()" class="anchor"> </div>
-            <div id="renderDocument().value" class="anchor-param1"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#renderDocument()">link</a>
+            <div id="render()" class="anchor"> </div>
+            <div id="render().style" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#render()">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">renderDocument</span>(<span class="param1">value</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L243-254">Source</a></div>
-                <div class="doc-comment"><p>Renders <code>value</code> as a pretty-printed table.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="renderValue()" class="anchor"> </div>
-            <div id="renderValue()._%230" class="anchor-param1"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#renderValue()">link</a>
-              <div class="member-left">
-                <div class="member-modifiers">function </div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">renderValue</span>(<span class="param1">_#0</span>: unknown): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L257-257">Source</a></div>
-                <div class="doc-comment"><p>Unsupported. <a href="not_found"><code>renderCell</code></a> is used instead as the column name must be known to look up the relevant converter</p></div>
+                <div class="member-signature"><span class="name-decl">render</span>(<span class="param1">style</span>: <a href="TableStyle.html" class="name-ref">TableStyle</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.table@1.1.0/packages/pkl.table/table.pkl#L47-47">Source</a></div>
               </div>
             </div>
           </li>

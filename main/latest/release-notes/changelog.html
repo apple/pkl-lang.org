@@ -380,6 +380,45 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes a regression where native executables fail to run on some environments that don&#8217;t support newer CPU features (<a href="https://github.com/apple/pkl/pull/551">#551</a>).</p>
+</li>
+<li>
+<p>Fixes a <code>PklBugException</code> when passing <code>.</code> as a project directory to <code>pkl project resolve</code> and <code>pkl project package</code> (<a href="https://github.com/apple/pkl/pull/544">#544</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Disable revocation checking of TLS certificates (<a href="https://github.com/apple/pkl/pull/553">#553</a>).</p>
+<div class="paragraph">
+<p>As part of HTTP improvements in 0.26, we unwittingly fixed a bug where Pkl does not actually perform cert revocation checks when making HTTPS requests.
+This fix, unfortunately, caused a regression in some cases.
+For example, this happens when connecting to a server that bears a public trust certificate, while in an environment with no internet access.
+This is because the HTTP client needs to check the revocation status of all certificates in the chain.</p>
+</div>
+<div class="paragraph">
+<p>Revocation checks are a nuanced topic with some benefits, and also with its own problem areas.
+For this reason, revocation checking is disabled for Pkl&#8217;s native CLIs.
+Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the JVM.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.26.0"><a class="anchor" href="#release-0.26.0"></a><a class="link" href="#release-0.26.0">0.26.0 (2024-06-17)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -391,7 +430,7 @@
 <h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -423,7 +462,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -472,7 +511,7 @@
 <h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -565,7 +604,7 @@
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

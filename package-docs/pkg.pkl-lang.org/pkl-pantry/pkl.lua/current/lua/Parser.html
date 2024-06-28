@@ -59,23 +59,23 @@ for details on the type used to represent nested tables.</p>
 <tbody>
 <tr>
 <td>nil</td>
-<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Null.html"><code>Null</code></a></td>
+<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Null.html"><code>Null</code></a></td>
 </tr>
 <tr>
 <td>boolean</td>
-<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean.html"><code>Boolean</code></a></td>
+<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Boolean.html"><code>Boolean</code></a></td>
 </tr>
 <tr>
 <td>number</td>
-<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Number.html"><code>Number</code></a></td>
+<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Number.html"><code>Number</code></a></td>
 </tr>
 <tr>
 <td>string</td>
-<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html"><code>String</code></a></td>
+<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html"><code>String</code></a></td>
 </tr>
 <tr>
 <td>table</td>
-<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html"><code>Dynamic</code></a> or <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping.html"><code>Mapping</code></a>/<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing.html"><code>Listing</code></a> depending on <code>Parser.useDynamic</code></td>
+<td><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html"><code>Dynamic</code></a> or <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Mapping.html"><code>Mapping</code></a>/<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Listing.html"><code>Listing</code></a> depending on <code>Parser.useDynamic</code></td>
 </tr>
 </tbody>
 </table>
@@ -108,13 +108,13 @@ _ENV[&quot; &quot;]=&quot;space&quot;
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">useDynamic</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L395-395">Source</a></div>
+                <div class="member-signature"><span class="name-decl">useDynamic</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L395-395">Source</a></div>
                 <div class="doc-comment"><p>Determines what the parser produces when parsing Lua.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>If <code>true</code> (the default), the parse result is a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html"><code>Dynamic</code></a>, otherwise it's a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping.html"><code>Mapping</code></a>.</p>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>true</code> (the default), the parse result is a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html"><code>Dynamic</code></a>, otherwise it's a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Mapping.html"><code>Mapping</code></a>.</p>
 <p>For nested tables, if <code>true</code> every nested table is a <code>Dynamic</code>, otherwise a nested table will be a <code>Mapping</code> if it
-contains key/value pairs, a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Listing.html"><code>Listing</code></a> if it contains elements, or it will throw an error if it contains both. If
+contains key/value pairs, a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Listing.html"><code>Listing</code></a> if it contains elements, or it will throw an error if it contains both. If
 <code>false</code> then empty tables will be represented as empty <code>Listing</code>s.</p>
-<p>If <code>useDynamic</code> is <code>true</code>, Lua keys named &quot;default&quot; will be shadowed by the built-in <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html#default"><code>Dynamic.default</code></a> property.</p></div>
+<p>If <code>useDynamic</code> is <code>true</code>, Lua keys named &quot;default&quot; will be shadowed by the built-in <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html#default"><code>Dynamic.default</code></a> property.</p></div>
               </div>
             </div>
           </li>
@@ -125,9 +125,9 @@ contains key/value pairs, a <a href="https://pkl-lang.org/package-docs/pkl/0.26.
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">converters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping.html" class="name-ref">Mapping</a>&lt;(<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Class.html" class="name-ref">Class</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>), (unknown) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Any.html" class="name-ref">Any</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L401-401">Source</a></div>
+                <div class="member-signature"><span class="name-decl">converters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;(<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Class.html" class="name-ref">Class</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>), (unknown) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L401-401">Source</a></div>
                 <div class="doc-comment"><p>Value converters to apply to parsed values.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>For further information see <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/ValueRenderer.html#converters"><code>ValueRenderer.converters</code></a>. Table entries with string keys are treated as properties.
+                <div class="doc-comment expandable hidden collapsed"><p>For further information see <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/ValueRenderer.html#converters"><code>ValueRenderer.converters</code></a>. Table entries with string keys are treated as properties.
 This means paths like <code>x[foo]</code> will never match anything.</p></div>
               </div>
             </div>
@@ -145,7 +145,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -157,7 +157,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L48-L48">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -172,7 +172,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Parser.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Parser.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Parser.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Parser.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -186,7 +186,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L1708-L1708">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L1708-L1708">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -199,7 +199,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L1713-L1713">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L1713-L1713">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -213,7 +213,7 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L1718-L1718">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L1718-L1718">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -226,8 +226,8 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L1721-L1721">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L1721-L1721">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -238,8 +238,8 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.0/stdlib/base.pkl#L1724-L1724">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.26.1/stdlib/base.pkl#L1724-L1724">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>
@@ -251,11 +251,11 @@ This means paths like <code>x[foo]</code> will never match anything.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">parse</span>(<span class="param1">source</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource.html" class="name-ref">Resource</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/String.html" class="name-ref">String</a>): unknown<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L412-532">Source</a></div>
+                <div class="member-signature"><span class="name-decl">parse</span>(<span class="param1">source</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Resource.html" class="name-ref">Resource</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/String.html" class="name-ref">String</a>): unknown<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.lua@1.1.1/packages/pkl.lua/lua.pkl#L412-532">Source</a></div>
                 <div class="doc-comment"><p>Parses <code>source</code> as a strict subset of Lua.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if an error occurs during parsing.</p>
-<p>If <code>source</code> is a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Resource.html"><code>Resource</code></a>, the resource URI is included in parse error messages.</p>
-<p>In the absence of converters this will return a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Dynamic.html"><code>Dynamic</code></a> or a <a href="https://pkl-lang.org/package-docs/pkl/0.26.0/base/Mapping.html">Mapping&lt;String, Value&gt;</a>.</p></div>
+<p>If <code>source</code> is a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Resource.html"><code>Resource</code></a>, the resource URI is included in parse error messages.</p>
+<p>In the absence of converters this will return a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Dynamic.html"><code>Dynamic</code></a> or a <a href="https://pkl-lang.org/package-docs/pkl/0.26.1/base/Mapping.html">Mapping&lt;String, Value&gt;</a>.</p></div>
               </div>
             </div>
           </li>

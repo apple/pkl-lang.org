@@ -85,7 +85,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="intellij" data-version="0.27.0">
+<div class="nav-container" data-component="intellij" data-version="0.28.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -142,14 +142,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">IntelliJ Plugin</span>
-    <span class="version">0.27.0</span>
+    <span class="version">0.28.0</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="index.html">IntelliJ Plugin</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.27.0</a>
+          <a href="index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.27.0/index.html">0.27.0</a>
         </li>
         <li class="version">
           <a href="../0.26.0/index.html">0.26.0</a>
@@ -250,13 +253,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.27.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.28.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="changelog.html">0.27.0</a>
+    <a class="version is-current" href="changelog.html">0.28.0</a>
+    <a class="version" href="../0.27.0/changelog.html">0.27.0</a>
     <a class="version" href="../0.26.0/changelog.html">0.26.0</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-intellij/edit/release/0.27/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-intellij/edit/release/0.28/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -265,10 +269,60 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.27.0"><a class="anchor" href="#release-0.27.0"></a><a class="link" href="#release-0.27.0">0.27.0 (2024-06-20)</a></h2>
+<h2 id="release-0.28.0"><a class="anchor" href="#release-0.28.0"></a><a class="link" href="#release-0.28.0">0.28.0 (2024-07-25)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix an issue where transitive dependencies within a project show an incorrect type mismatch error (<a href="https://github.com/apple/pkl-intellij/pull/42">#42</a>).</p>
+</li>
+<li>
+<p>Fix an issue where the "Sync Projects" action does not enable the plugin to resolve dependencies until after an editor restart (<a href="https://github.com/apple/pkl-intellij/pull/43">#43</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>More metadata added to <code>.idea/workspace.xml</code> (requires a new project sync after updating the plugin) (<a href="https://github.com/apple/pkl-intellij/pull/42">#42</a>).</p>
+</li>
+<li>
+<p>Project sync related changes (<a href="https://github.com/apple/pkl-intellij/pull/42">#42</a>, <a href="https://github.com/apple/pkl-intellij/pull/46">#46</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Show project-related notification banners on any Pkl file that is within a project directory.</p>
+</li>
+<li>
+<p>Skip ignored files when syncing projects.</p>
+</li>
+<li>
+<p>Remove check for missing package sources, because this can be a cause for slowdown.</p>
+</li>
+<li>
+<p>Add annotation for missing package sources when viewing dependency notation.</p>
+</li>
+<li>
+<p>Change project dependency downloading from an action to an intention.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.27.0"><a class="anchor" href="#release-0.27.0"></a><a class="link" href="#release-0.27.0">0.27.0 (2024-06-20)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -303,7 +357,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>

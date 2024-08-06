@@ -274,7 +274,7 @@
           <a href="../index.html">0.27.0-dev</a>
         </li>
         <li class="version is-latest">
-          <a href="../../current/index.html">0.26.2</a>
+          <a href="../../current/index.html">0.26.3</a>
         </li>
         <li class="version">
           <a href="../../0.25.3/index.html">0.25.3</a>
@@ -365,7 +365,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">0.27.0-dev</button>
   <div class="version-menu">
     <a class="version is-current" href="changelog.html">0.27.0-dev</a>
-    <a class="version" href="../../current/release-notes/changelog.html">0.26.2</a>
+    <a class="version" href="../../current/release-notes/changelog.html">0.26.3</a>
     <a class="version" href="../../0.25.3/release-notes/changelog.html">0.25.3</a>
   </div>
 </div>
@@ -386,10 +386,31 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
+<h2 id="release-0.26.3"><a class="anchor" href="#release-0.26.3"></a><a class="link" href="#release-0.26.3">0.26.3 (2024-08-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where CLI argument <code>--property foo=""</code> is effectively parsed as <code>--property foo="true"</code>. This is now parsed as an empty string (<a href="https://github.com/apple/pkl/pull/596">#596</a>).</p>
+</li>
+<li>
+<p>Fixes a regression where amending a globbed import or globbed read results in a PklBugException (<a href="https://github.com/apple/pkl/pull/607">#607</a>).</p>
+</li>
+<li>
+<p>Fixes an issue around using <code>file()</code> notation when using the pkl-gradle plugin on Windows (<a href="https://github.com/apple/pkl/pull/611">#611</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -404,7 +425,7 @@
 <h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -451,7 +472,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -532,7 +553,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -625,7 +646,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

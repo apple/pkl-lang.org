@@ -1,0 +1,78 @@
+= Class-as-a-Function Pattern
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/HT154[Josh Basch] on August 6th, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+In many languages, function and method parameters may be assigned default values allowing the argument to be omitted in calls.
+Many languages also offer named parameters, which aid in API self-documentation.
+Pkl xref:main:language-reference:index.adoc#methods[methods] do not provide either feature, but one way to achieve similar results is the "class-as-a-function" (CaaF) pattern.
+// end::excerpt[]
+
+== Usage
+
+In the class-as-a-function pattern, a class is created that accepts "input" properties and has one or more `fixed` "output" properties.
+
+Input properties are normal class properties. They are named, may have a type annotation, and may be defined with default values. Default values can be static values or may be derived from other properties.
+
+Output properties derive their value from the input properties. They are marked as xref:main:language-reference:index.adoc#fixed-properties[`fixed`] so they may not be overridden when amending instances of the class.
+
+== Example
+
+[source,pkl]
+----
+class GreetingFunction {
+  name: String // <1>
+
+  greeting: String = "Hello" // <2>
+
+  fixed result: String = "\(greeting), \(name)!" // <3>
+}
+
+greetPigeon: String = new GreetingFunction { name = "Pigeon" }.result // <4>
+
+greetHawk: String = new GreetingFunction { name = "Hawk"; greeting = "Good day" }.result // <5>
+----
+<1> A required input property.
+<2> An optional input property with a default value.
+<3> An output property, calculated from the input properties.
+<4> result: `"Hello, Pigeon!"`
+<5> result: `"Good day, Hawk!"`
+
+== Tips
+
+* Despite the name, the pattern can also be applied using a module.
+* The CaaF pattern is especially compelling in cases where multiple outputs will be derived from the same set of inputs.
+Instead of defining multiple methods that accept the same parameters, a single class may be defined with multiple output properties.
+* In some cases, it may make sense to use CaaF in conjunction with link:https://pkl-lang.org/package-docs/pkl/current/base/PcfRenderer#converters[output converters]. This allows the "un-called" function instance to be used in place of the result data and enables amending the arguments to the function while still producing the desired output type and value, eg.:
+[source,pkl]
+----
+greetPigeon: GreetingFunction|String = "こんばんは、鳩さん" // <1>
+
+greetHawk: GreetingFunction|String = new GreetingFunction { name = "Hawk" } // <2>
+
+farewellHawk = (greetHawk) {
+  greeting = "Bye" // <3>
+}
+
+output {
+  renderer {
+    converters {
+      [GreetingFunction] = (it) -> it.result // <4>
+    }
+  }
+}
+----
+<1> A fully custom greeting not using `GreetingFunction`.
+<2> result: `"Hi, Hawk!"`
+<3> result: `"Bye, Hawk!"`
+<4> Configuring a converter for `GreetingFunction` causes instances to be "evaluated" in the rendered output.

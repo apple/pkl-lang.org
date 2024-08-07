@@ -57,6 +57,7 @@ greetHawk: String = new GreetingFunction { name = "Hawk"; greeting = "Good day" 
 * The CaaF pattern is especially compelling in cases where multiple outputs will be derived from the same set of inputs.
 Instead of defining multiple methods that accept the same parameters, a single class may be defined with multiple output properties.
 * In some cases, it may make sense to use CaaF in conjunction with link:https://pkl-lang.org/package-docs/pkl/current/base/PcfRenderer#converters[output converters]. This allows the "un-called" function instance to be used in place of the result data and enables amending the arguments to the function while still producing the desired output type and value, eg.:
++
 [source,pkl]
 ----
 greetPigeon: GreetingFunction|String = "こんばんは、鳩さん" // <1>

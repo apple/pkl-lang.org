@@ -24,7 +24,7 @@ In the class-as-a-function pattern, a class is created that accepts "input" prop
 
 Input properties are normal class properties. They are named, may have a type annotation, and may be defined with default values. Default values can be static values or may be derived from other properties.
 
-Output properties derive their value from the input properties. They are marked as xref:main:language-reference:index.adoc#fixed-properties[`fixed`] so they may not be overridden when amending instances of the class.
+Output properties derive their value from the input properties. They are typically marked as xref:main:language-reference:index.adoc#fixed-properties[`fixed`] so they may not be overridden when amending instances of the class.
 
 == Example
 
@@ -80,3 +80,188 @@ output {
 <2> result: `"Hi, Hawk!"`
 <3> result: `"Bye, Hawk!"`
 <4> Configuring a converter for `GreetingFunction` causes instances to be "evaluated" in the rendered output.
+
+== Building Abstractions
+
+The class-as-a-function pattern can be used to build abstraction layers that provide simple APIs resulting in more complex configurations.
+This is sometimes called "embedding" a class.
+
+link:https://kubernetes.io[Kubernetes] is an example of a system that requires a lot of configuration to use.
+Often, deploying applications in Kubernetes requires repeating very similar configurations with only names and a few values changed.
+Here is an example of a CaaF module that uses class embedding to build a simple but extensible abstraction for basic web services:
+
+[source,pkl]
+----
+module SimpleApplication
+
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/apps/v1/Deployment.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/core/v1/Service.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/Ingress.pkl"
+
+// input properties:
+/// Web application name
+name: String
+
+/// Container image tag
+image: String
+
+/// Application Pod replica count
+replicas: Int32? = 1
+
+/// HTTP listen port
+port: UInt16 = 8080
+
+/// URL Path to use for liveness checking
+livenessPath: String? = "/livez"
+
+/// URL Path to use for readiness checking
+readinessPath: String? = "/readyz"
+
+// output properties:
+local app = this // <1>
+
+/// Kubernetes labels used for all output resources and selectors
+labels: Mapping<String, String> = new {
+  ["app.kubernetes.io/name"] = name
+}
+
+/// Kuberetes [Deployment] that manages the application Pods.
+deployment: Deployment = new { // <2>
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    replicas = app.replicas
+    template {
+      metadata {
+        labels = app.labels
+      }
+      spec {
+        containers {
+          new {
+            name = app.name
+            image = app.image
+            when (livenessPath != null) {
+              livenessProbe {
+                httpGet {
+                  port = app.port
+                  path = livenessPath
+                }
+              }
+            }
+            when (readinessPath != null) {
+              readinessProbe {
+                httpGet {
+                  port = app.port
+                  path = readinessPath
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Kubernetes [Service] that provides a cluster-internal VIP for the application.
+service: Service = new {
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    selector = app.labels
+    ports {
+      new {
+        name = "http"
+        port = app.port
+      }
+    }
+  }
+}
+
+/// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.
+ingress: Ingress = new {
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    defaultBackend {
+      service {
+        name = app.service?.metadata?.name!!
+        port  {
+          number = app.service.spec?.ports!![0].port
+        }
+      }
+    }
+  }
+}
+
+/// All Kubernetes resources needed to deploy the application.
+resources: Listing<K8sResource> = new {
+  deployment
+  service
+  ingress
+}
+----
+<1> This "captures" the `SimpleApplication` instance so its properties can be unambiguously referred to.
+
+
+Notably, this example does not mark its output properties as `fixed`, which enables easy customization of these properties beyond what the module configures by default.
+Here are a few examples of using the `SimpleApplication` module:
+
+[source,pkl]
+----
+import "SimpleApplication.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/NetworkPolicy.pkl"
+
+/// The most basic [SimpleApplication] usage.
+/// The application image is expected to listen on port 8080 and provide /livez and /readyz paths
+app1: Listing<K8sResource> = new SimpleApplication {
+  name = "app1"
+  image = "myregistry/app1:latest"
+}.resources
+
+/// Usage of [SimpleApplication] with additional input properties overridden.
+app2: Listing<K8sResource> = new SimpleApplication {
+  name = "app2"
+  image = "myregistry/app2:latest"
+  replicas = 3
+  port = 9090
+  livenessPath = null
+  readinessPath = "/healthz"
+}.resources
+
+/// Advanced [SimpleApplication] usage where output properties are amended
+/// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]'s simple API.
+/// It also amends [resources] to add an additional resource required specifically by this application.
+app3: Listing<K8sResource> = new SimpleApplication {
+  name = "app3"
+  image = "myregistry/app3:latest"
+  labels {
+    ["app.kubernetes.io/instance"] = "\(name)-staging"
+  }
+  deployment {
+    spec {
+      securityContext {
+        runAsNonRoot = true
+      }
+      initContainers {
+        new {
+          // ...
+        }
+      }
+    }
+  }
+  resource {
+    new NetworkPolicy {
+      // ...
+    }
+  }
+}.resources
+----

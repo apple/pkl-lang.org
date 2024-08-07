@@ -31,10 +31,13 @@ Output properties derive their value from the input properties. They are marked 
 [source,pkl]
 ----
 class GreetingFunction {
+  /// The name that should be greeted.
   name: String // <1>
 
+  /// The phrase used to greet [name].
   greeting: String = "Hello" // <2>
 
+  /// The derived greeting.
   fixed result: String = "\(greeting), \(name)!" // <3>
 }
 

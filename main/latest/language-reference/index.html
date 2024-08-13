@@ -1793,7 +1793,8 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="sect3">
 <h4 id="hidden-properties"><a class="anchor" href="#hidden-properties"></a><a class="link" href="#hidden-properties">Hidden Properties</a></h4>
 <div class="paragraph">
-<p>A property with the modifier <code>hidden</code> is omitted from the rendered output and object conversions.</p>
+<p>A property with the modifier <code>hidden</code> is omitted from the rendered output and object conversions.
+Hidden properties are also ignored when evaluating equality or hashing (e.g. for <code>Mapping</code> or <code>Map</code> keys).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1811,7 +1812,13 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 
 <span class="hljs-property">pigeonInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-property">nameAndLifespanInIndex</span> <i class="conum" data-value="4"></i><b>(4)</b>
 
-<span class="hljs-property">pigeonDynamic</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toDynamic</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<span class="hljs-property">pigeonDynamic</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toDynamic</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
+
+<span class="hljs-property">favoritePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">pigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bettie, <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">lifespan</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">samePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span> <span class="hljs-operator">==</span> <span class="hljs-property">favoritePigeon</span> <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1836,6 +1843,10 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <td><i class="conum" data-value="5"></i><b>5</b></td>
 <td>Object conversions omit hidden properties, so the resulting <code>Dynamic</code> has three properties.</td>
 </tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Objects that differ only in <code>hidden</code> property values are considered equal</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
@@ -1853,7 +1864,13 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
   <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
   <span class="hljs-property">nameSignWidth</span> <span class="hljs-operator">=</span> <span class="hljs-number">9</span>
-<span class="hljs-punctuation">}</span></code></pre>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">favoritePigeon</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
+  <span class="hljs-property">nameSignWidth</span> <span class="hljs-operator">=</span> <span class="hljs-number">9</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">samePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span></code></pre>
 </div>
 </div>
 </div>

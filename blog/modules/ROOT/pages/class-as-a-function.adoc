@@ -6,7 +6,7 @@
 ++++
 <div class="blog-byline">
 ++++
-by link:https://github.com/HT154[Josh Basch] on August 6th, 2024
+by link:https://github.com/HT154[Josh Basch] on August 13th, 2024
 ++++
 </div>
 ++++
@@ -71,7 +71,7 @@ farewellHawk = (greetHawk) {
 output {
   renderer {
     converters {
-      [GreetingFunction] = (it) -> it.result // <4>
+      [GreetingFunction] = (it) -> it.message // <4>
     }
   }
 }
@@ -250,17 +250,22 @@ app3: Listing<K8sResource> = new SimpleApplication {
   }
   deployment {
     spec {
-      securityContext {
-        runAsNonRoot = true
-      }
-      initContainers {
-        new {
-          // ...
+      template {
+        spec {
+          securityContext {
+            runAsNonRoot = true
+          }
+          initContainers {
+            new {
+              name = "my-init-container"
+              // ...
+            }
+          }
         }
       }
     }
   }
-  resource {
+  resources {
     new NetworkPolicy {
       // ...
     }

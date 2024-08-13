@@ -38,12 +38,12 @@ class GreetingFunction {
   greeting: String = "Hello" // <2>
 
   /// The derived greeting.
-  fixed result: String = "\(greeting), \(name)!" // <3>
+  fixed message: String = "\(greeting), \(name)!" // <3>
 }
 
-greetPigeon: String = new GreetingFunction { name = "Pigeon" }.result // <4>
+greetPigeon: String = new GreetingFunction { name = "Pigeon" }.message // <4>
 
-greetHawk: String = new GreetingFunction { name = "Hawk"; greeting = "Good day" }.result // <5>
+greetHawk: String = new GreetingFunction { name = "Hawk"; greeting = "Good day" }.message // <5>
 ----
 <1> A required input property.
 <2> An optional input property with a default value.
@@ -221,7 +221,8 @@ import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl"
 import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/NetworkPolicy.pkl"
 
 /// The most basic [SimpleApplication] usage.
-/// The application image is expected to listen on port 8080 and provide /livez and /readyz paths
+///
+/// The application image is expected to listen on port 8080 and provide `/livez` and `/readyz` paths
 app1: Listing<K8sResource> = new SimpleApplication {
   name = "app1"
   image = "myregistry/app1:latest"
@@ -237,7 +238,8 @@ app2: Listing<K8sResource> = new SimpleApplication {
   readinessPath = "/healthz"
 }.resources
 
-/// Advanced [SimpleApplication] usage where output properties are amended
+/// Advanced [SimpleApplication] usage where output properties are amended.
+///
 /// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]'s simple API.
 /// It also amends [resources] to add an additional resource required specifically by this application.
 app3: Listing<K8sResource> = new SimpleApplication {

@@ -1,0 +1,274 @@
+= Class-as-a-Function Pattern
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/HT154[Josh Basch] on August 13th, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+In many languages, function and method parameters may be assigned default values allowing the argument to be omitted in calls.
+Many languages also offer named parameters, which aid in API self-documentation.
+Pkl xref:main:language-reference:index.adoc#methods[methods] do not provide either feature, but one way to achieve similar results is the "class-as-a-function" (CaaF) pattern.
+// end::excerpt[]
+
+== Usage
+
+In the class-as-a-function pattern, a class is created that accepts "input" properties and has one or more `fixed` "output" properties.
+
+Input properties are normal class properties. They are named, may have a type annotation, and may be defined with default values. Default values can be static values or may be derived from other properties.
+
+Output properties derive their value from the input properties. They are typically marked as xref:main:language-reference:index.adoc#fixed-properties[`fixed`] so they may not be overridden when amending instances of the class.
+
+== Example
+
+[source,pkl]
+----
+class GreetingFunction {
+  /// The name that should be greeted.
+  name: String // <1>
+
+  /// The phrase used to greet [name].
+  greeting: String = "Hello" // <2>
+
+  /// The derived greeting.
+  fixed message: String = "\(greeting), \(name)!" // <3>
+}
+
+greetPigeon: String = new GreetingFunction { name = "Pigeon" }.message // <4>
+
+greetHawk: String = new GreetingFunction { name = "Hawk"; greeting = "Good day" }.message // <5>
+----
+<1> A required input property.
+<2> An optional input property with a default value.
+<3> An output property, calculated from the input properties.
+<4> result: `"Hello, Pigeon!"`
+<5> result: `"Good day, Hawk!"`
+
+== Tips
+
+* Despite the name, the pattern can also be applied using a module.
+* The CaaF pattern is especially compelling in cases where multiple outputs will be derived from the same set of inputs.
+Instead of defining multiple methods that accept the same parameters, a single class may be defined with multiple output properties.
+* In some cases, it may make sense to use CaaF in conjunction with link:https://pkl-lang.org/package-docs/pkl/current/base/PcfRenderer#converters[output converters]. This allows the "un-called" function instance to be used in place of the result data and enables amending the arguments to the function while still producing the desired output type and value, eg.:
++
+[source,pkl]
+----
+greetPigeon: GreetingFunction|String = "こんばんは、鳩さん" // <1>
+
+greetHawk: GreetingFunction|String = new GreetingFunction { name = "Hawk" } // <2>
+
+farewellHawk = (greetHawk) {
+  greeting = "Bye" // <3>
+}
+
+output {
+  renderer {
+    converters {
+      [GreetingFunction] = (it) -> it.message // <4>
+    }
+  }
+}
+----
+<1> A fully custom greeting not using `GreetingFunction`.
+<2> result: `"Hi, Hawk!"`
+<3> result: `"Bye, Hawk!"`
+<4> Configuring a converter for `GreetingFunction` causes instances to be "evaluated" in the rendered output.
+
+== Building Abstractions
+
+The class-as-a-function pattern can be used to build abstraction layers that provide simple APIs resulting in more complex configurations.
+This is sometimes called "embedding" a class.
+
+link:https://kubernetes.io[Kubernetes] is an example of a system that requires a lot of configuration to use.
+Often, deploying applications in Kubernetes requires repeating very similar configurations with only names and a few values changed.
+Here is an example of a CaaF module that uses class embedding to build a simple but extensible abstraction for basic web services:
+
+[source,pkl]
+----
+module SimpleApplication
+
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/apps/v1/Deployment.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/core/v1/Service.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/Ingress.pkl"
+
+// input properties:
+/// Web application name
+name: String
+
+/// Container image tag
+image: String
+
+/// Application Pod replica count
+replicas: Int32? = 1
+
+/// HTTP listen port
+port: UInt16 = 8080
+
+/// URL Path to use for liveness checking
+livenessPath: String? = "/livez"
+
+/// URL Path to use for readiness checking
+readinessPath: String? = "/readyz"
+
+// output properties:
+local app = this // <1>
+
+/// Kubernetes labels used for all output resources and selectors
+labels: Mapping<String, String> = new {
+  ["app.kubernetes.io/name"] = name
+}
+
+/// Kuberetes [Deployment] that manages the application Pods.
+deployment: Deployment = new { // <2>
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    replicas = app.replicas
+    template {
+      metadata {
+        labels = app.labels
+      }
+      spec {
+        containers {
+          new {
+            name = app.name
+            image = app.image
+            when (livenessPath != null) {
+              livenessProbe {
+                httpGet {
+                  port = app.port
+                  path = livenessPath
+                }
+              }
+            }
+            when (readinessPath != null) {
+              readinessProbe {
+                httpGet {
+                  port = app.port
+                  path = readinessPath
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Kubernetes [Service] that provides a cluster-internal VIP for the application.
+service: Service = new {
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    selector = app.labels
+    ports {
+      new {
+        name = "http"
+        port = app.port
+      }
+    }
+  }
+}
+
+/// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.
+ingress: Ingress = new {
+  metadata {
+    name = app.name
+    labels = app.labels
+  }
+  spec {
+    defaultBackend {
+      service {
+        name = app.service?.metadata?.name!!
+        port  {
+          number = app.service.spec?.ports!![0].port
+        }
+      }
+    }
+  }
+}
+
+/// All Kubernetes resources needed to deploy the application.
+resources: Listing<K8sResource> = new {
+  deployment
+  service
+  ingress
+}
+----
+<1> This "captures" the `SimpleApplication` instance so its properties can be unambiguously referred to.
+
+
+Notably, this example does not mark its output properties as `fixed`, which enables easy customization of these properties beyond what the module configures by default.
+Here are a few examples of using the `SimpleApplication` module:
+
+[source,pkl]
+----
+import "SimpleApplication.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl"
+import "package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/NetworkPolicy.pkl"
+
+/// The most basic [SimpleApplication] usage.
+///
+/// The application image is expected to listen on port 8080 and provide `/livez` and `/readyz` paths
+app1: Listing<K8sResource> = new SimpleApplication {
+  name = "app1"
+  image = "myregistry/app1:latest"
+}.resources
+
+/// Usage of [SimpleApplication] with additional input properties overridden.
+app2: Listing<K8sResource> = new SimpleApplication {
+  name = "app2"
+  image = "myregistry/app2:latest"
+  replicas = 3
+  port = 9090
+  livenessPath = null
+  readinessPath = "/healthz"
+}.resources
+
+/// Advanced [SimpleApplication] usage where output properties are amended.
+///
+/// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]'s simple API.
+/// It also amends [resources] to add an additional resource required specifically by this application.
+app3: Listing<K8sResource> = new SimpleApplication {
+  name = "app3"
+  image = "myregistry/app3:latest"
+  labels {
+    ["app.kubernetes.io/instance"] = "\(name)-staging"
+  }
+  deployment {
+    spec {
+      template {
+        spec {
+          securityContext {
+            runAsNonRoot = true
+          }
+          initContainers {
+            new {
+              name = "my-init-container"
+              // ...
+            }
+          }
+        }
+      }
+    }
+  }
+  resources {
+    new NetworkPolicy {
+      // ...
+    }
+  }
+}.resources
+----

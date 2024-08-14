@@ -81,6 +81,30 @@ output {
 <3> result: `"Bye, Hawk!"`
 <4> Configuring a converter for `GreetingFunction` causes instances to be "evaluated" in the rendered output.
 
+== Multi-directional Functions
+
+Pkl's system of property default values and late binding enables using class-as-a-function to concisely express inverse and even circular relationships between properties.
+This allows the same property to be both input and output, depending on how the function type is used.
+
+Using this technique entails declaring properties with default values derived from the other properties of the type in a cyclic fashion.
+Ordinarily, a circular data reference of this kind would result in a stack overflow error, but instantiating the type with the appropriate input(s) overridden with concrete values breaks the circular reference.
+
+[source,pkl]
+----
+class Temperature {
+  fahrenheit: Float = celsius * 9 / 5 + 32
+  celsius: Float = kelvin - 273.15
+  kelvin: Float = (fahrenheit - 32) / 9 * 5 + 273.15
+}
+
+fToK = new Temperature { fahrenheit = 72.0 }.kelvin
+fToC = new Temperature { fahrenheit = 72.0 }.celsius
+kToF = new Temperature { kelvin = 300.0 }.fahrenheit
+kToC = new Temperature { kelvin = 300.0 }.celsius
+cToF = new Temperature { celsius = 20.0 }.fahrenheit
+cToK = new Temperature { celsius = 20.0 }.kelvin
+----
+
 == Building Abstractions
 
 The class-as-a-function pattern can be used to build abstraction layers that provide simple APIs resulting in more complex configurations.
@@ -122,12 +146,12 @@ readinessPath: String? = "/readyz"
 local app = this // <1>
 
 /// Kubernetes labels used for all output resources and selectors
-labels: Mapping<String, String> = new {
+labels: Mapping<String, String> = new { // <2>
   ["app.kubernetes.io/name"] = name
 }
 
 /// Kuberetes [Deployment] that manages the application Pods.
-deployment: Deployment = new { // <2>
+deployment: Deployment = new { // <3>
   metadata {
     name = app.name
     labels = app.labels
@@ -167,7 +191,7 @@ deployment: Deployment = new { // <2>
 }
 
 /// Kubernetes [Service] that provides a cluster-internal VIP for the application.
-service: Service = new {
+service: Service = new { // <3>
   metadata {
     name = app.name
     labels = app.labels
@@ -184,7 +208,7 @@ service: Service = new {
 }
 
 /// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.
-ingress: Ingress = new {
+ingress: Ingress = new { // <3>
   metadata {
     name = app.name
     labels = app.labels
@@ -202,14 +226,16 @@ ingress: Ingress = new {
 }
 
 /// All Kubernetes resources needed to deploy the application.
-resources: Listing<K8sResource> = new {
+resources: Listing<K8sResource> = new { // <4>
   deployment
   service
   ingress
 }
 ----
 <1> This "captures" the `SimpleApplication` instance so its properties can be unambiguously referred to.
-
+<2> The `labels` property is an "intermediary" property that serves as a customization point, it is calculated from inputs by default but is not itself an output.
+<3> The `deployment`, `service`, and `ingress` properties are the module's primary output properties.
+<4> For convenience, the `resources` property combines all of the above outputs into a single `Listing`.
 
 Notably, this example does not mark its output properties as `fixed`, which enables easy customization of these properties beyond what the module configures by default.
 Here are a few examples of using the `SimpleApplication` module:

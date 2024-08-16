@@ -3535,6 +3535,32 @@ Submodules and subclasses can override them.</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Methods do not support named parameters or default parameter values.
+The <a href="../../../blog/class-as-a-function.html" class="xref page">Class-as-a-function</a> pattern may be a suitable replacement.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In most cases, methods without parameters should not be defined.
+Instead, use <a href="#fixed-properties"><code>fixed</code> properties</a> on the module or class.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -8409,10 +8435,10 @@ It is defined by the presence of a <code>PklProject</code> file that amends the 
 <p>It allows defining common evaluator settings for Pkl modules within a logical project.</p>
 </li>
 <li>
-<p>It helps with managing <a href="#packages">package</a> dependencies for Pkl modules within a logical project.</p>
+<p>It helps with managing <a href="#package-asset-uri">package</a> dependencies for Pkl modules within a logical project.</p>
 </li>
 <li>
-<p>It enables packaging and sharing the contents of the project as a <a href="#packages">package</a>.</p>
+<p>It enables packaging and sharing the contents of the project as a <a href="#package-asset-uri">package</a>.</p>
 </li>
 <li>
 <p>It allows importing packages via dependency notation.</p>

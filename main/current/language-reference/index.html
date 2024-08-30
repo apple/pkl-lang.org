@@ -1793,7 +1793,8 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <div class="sect3">
 <h4 id="hidden-properties"><a class="anchor" href="#hidden-properties"></a><a class="link" href="#hidden-properties">Hidden Properties</a></h4>
 <div class="paragraph">
-<p>A property with the modifier <code>hidden</code> is omitted from the rendered output and object conversions.</p>
+<p>A property with the modifier <code>hidden</code> is omitted from the rendered output and object conversions.
+Hidden properties are also ignored when evaluating equality or hashing (e.g. for <code>Mapping</code> or <code>Map</code> keys).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1811,7 +1812,13 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 
 <span class="hljs-property">pigeonInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-property">nameAndLifespanInIndex</span> <i class="conum" data-value="4"></i><b>(4)</b>
 
-<span class="hljs-property">pigeonDynamic</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toDynamic</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<span class="hljs-property">pigeonDynamic</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toDynamic</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
+
+<span class="hljs-property">favoritePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">pigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bettie, <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">lifespan</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">samePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-property">pigeon</span> <span class="hljs-operator">==</span> <span class="hljs-property">favoritePigeon</span> <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1836,6 +1843,10 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <td><i class="conum" data-value="5"></i><b>5</b></td>
 <td>Object conversions omit hidden properties, so the resulting <code>Dynamic</code> has three properties.</td>
 </tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Objects that differ only in <code>hidden</code> property values are considered equal</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
@@ -1853,7 +1864,13 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
   <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
   <span class="hljs-property">nameSignWidth</span> <span class="hljs-operator">=</span> <span class="hljs-number">9</span>
-<span class="hljs-punctuation">}</span></code></pre>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">favoritePigeon</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
+  <span class="hljs-property">nameSignWidth</span> <span class="hljs-operator">=</span> <span class="hljs-number">9</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">samePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span></code></pre>
 </div>
 </div>
 </div>
@@ -3469,7 +3486,8 @@ Properties can also be <code>hidden</code> from rendering.</p>
 <h2 id="methods"><a class="anchor" href="#methods"></a><a class="link" href="#methods">Methods</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Modules and classes can define methods.
+<p>Pkl methods can be defined on classes and modules using the <code>function</code> keyword.
+Methods may access properties of their containing type.
 Submodules and subclasses can override them.</p>
 </div>
 <div class="paragraph">
@@ -3512,6 +3530,32 @@ Submodules and subclasses can override them.</p>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
 <td>Call module method (on <code>this</code>).</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Methods do not support named parameters or default parameter values.
+The <a href="../../../blog/class-as-a-function.html" class="xref page">Class-as-a-function</a> pattern may be a suitable replacement.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In most cases, methods without parameters should not be defined.
+Instead, use <a href="#fixed-properties"><code>fixed</code> properties</a> on the module or class.
+</td>
 </tr>
 </table>
 </div>
@@ -5201,7 +5245,8 @@ To do so, use a <code>trace</code> expression:</p>
 <p>This section discusses language features that are generally more relevant to template and library authors than template consumers.</p>
 </div>
 <div class="paragraph">
-<p><a href="#let-expressions">Let Expressions</a><br>
+<p><a href="#meaning-of-new">Meaning of <code>new</code></a><br>
+<a href="#let-expressions">Let Expressions</a><br>
 <a href="#type-tests">Type Tests</a><br>
 <a href="#type-casts">Type Casts</a><br>
 <a href="#lists">Lists</a><br>
@@ -5223,6 +5268,240 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#reserved-keywords">Reserved Keywords</a><br>
 <a href="#blank-identifiers">Blank Identifiers</a><br>
 <a href="#projects">Projects</a></p>
+</div>
+<div class="sect2">
+<h3 id="meaning-of-new"><a class="anchor" href="#meaning-of-new"></a><a class="link" href="#meaning-of-new">Meaning of <code>new</code></a></h3>
+<div class="paragraph">
+<p>Objects in Pkl always <a href="#amending-objects">amends</a> <em>some</em> value.
+The <code>new</code> keyword is a special case of amending where a contextual value is amended.
+In Pkl, there are two forms of <code>new</code> objects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>new</code> with explicit type information, for example, <code>new Foo {}</code>.</p>
+</li>
+<li>
+<p><code>new</code> without type information, for example, <code>new {}</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="type-defaults"><a class="anchor" href="#type-defaults"></a><a class="link" href="#type-defaults">Type defaults</a></h4>
+<div class="paragraph">
+<p>To understand instantiation cases without explicit parent or type information, it&#8217;s important to first understand implicit default values.
+When a property is declared in a module or class but is not provided an explicit default value, the property&#8217;s default value becomes the type&#8217;s default value.
+Similarly, when <code>Listing</code> and <code>Mapping</code> types are declared with explicit type arguments for their element or value, their <code>default</code> property amends that declared type.
+When <code>Listing</code> and <code>Mapping</code> types are declared without type arguments, their <code>default</code> property amends an empty <code>Dynamic</code> object.
+Some types, including <code>Pair</code> and primitives like <code>String</code>, <code>Number</code>, and <code>Boolean</code> have no default value; attempting to render such a property results in the error "Tried to read property <code>&lt;name&gt;</code> but its value is undefined".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;polly&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">birdListing</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">birdMapping</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Without an explicit default value, this property has default value <code>new Bird { name = "polly" }</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>With an explicit element type argument, this property&#8217;s default value is equivalent to <code>new Listing&lt;Bird&gt; { default = (_) &#8594; new Bird { name = "polly" } }</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>With an explicit value type argument, this property&#8217;s default value is equivalent to <code>new Mapping&lt;String, Bird&gt; { default = (_) &#8594; new Bird { name = "polly" } }</code></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="explicitly-typed-new"><a class="anchor" href="#explicitly-typed-new"></a><a class="link" href="#explicitly-typed-new">Explicitly Typed <code>new</code></a></h4>
+<div class="paragraph">
+<p>Instantiating an object with <code>new &lt;type&gt;</code> results in a value that amends the specified type&#8217;s default value.
+Notably, creating a <code>Listing</code> element or assigning a <code>Mapping</code> entry value with an explicitly typed <code>new</code> ignores the object&#8217;s <code>default</code> value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The name of the bird</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Whether this is a bird of prey or not.</span>
+  <span class="hljs-property">isPredatory</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span><span class="hljs-operator">?</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">newProperty</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Warbler&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">someListing</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">default</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">isPredatory</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Sand Piper&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">someMapping</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">default</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">isPredatory</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;Penguin&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Penguin&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Assigning a <code>new</code> explicitly-typed value to a property.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Adding an <code>new</code> explicitly-typed <code>Listing</code> element.
+The value will not have property <code>isPredatory = true</code> as the <code>default</code> property of the <code>Listing</code> is not used.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Assigning a <code>new</code> explicitly-typed value to a <code>Mapping</code> entry.
+The value will not have property <code>isPredatory = true</code> as the <code>default</code> property of the <code>Mapping</code> is not used.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implicitly-typed-new"><a class="anchor" href="#implicitly-typed-new"></a><a class="link" href="#implicitly-typed-new">Implicitly Typed <code>new</code></a></h4>
+<div class="paragraph">
+<p>When using the implicitly typed <code>new</code> invocation, there is no explicit parent value to amend.
+In these cases, Pkl infers the amend operation&#8217;s parent value based on context:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When assigning to a declared property, the property&#8217;s default value is amended (<a href="#amend-null">including <code>null</code></a>).
+If there is no type associated with the property, an empty <code>Dynamic</code> object is amended.</p>
+</li>
+<li>
+<p>When assigning to an entry (e.g. a <code>Mapping</code> member) or element (e.g. a <code>Listing</code> member), the enclosing object&#8217;s <code>default</code> property is applied to the corresponding index or key, respectively, to produce the value to be amended.</p>
+</li>
+<li>
+<p>In other cases, evaluation fails with the error message "Cannot tell which parent to amend".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The type annotation of a <a href="#methods">method</a> parameter is not used for inference.
+In this case, the argument&#8217;s type should be specified explicitly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">listHatchlings</span><span class="hljs-punctuation">(</span><span class="hljs-params">items</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">item</span> <span class="hljs-keyword">in</span> <span class="hljs-params">items</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>:<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">item</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">typedProperty</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Swift&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">untypedProperty</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">hello</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;world&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">typedListing</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Kite&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">untypedListing</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
+    <span class="hljs-property">hello</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;there&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">typedMapping</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">default</span> <span class="hljs-punctuation">{</span> <span class="hljs-params">entryKey</span> <span class="hljs-punctuation">-&gt;</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-params">entryKey</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;Saltmarsh Sparrow&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="5"></i><b>(5)</b>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Sharp-tailed Sparrow&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">amendedMapping</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">typedMapping</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;Saltmarsh Sparrow&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span> <i class="conum" data-value="6"></i><b>(6)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Aviary</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Osprey&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">aviary</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Aviary</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">birds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="7"></i><b>(7)</b>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Kiwi&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">swiftHatchlings</span> <span class="hljs-operator">=</span> <span class="hljs-property">typedProperty</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">listHatchlings</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-string">&quot;Poppy&quot;</span>; <span class="hljs-string">&quot;Chirpy&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="8"></i><b>(8)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Assignment to a property with an explicitly declared type, amending <code>new Bird {}</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Assignment to an undeclared property in module context, amending <code>new Dynamic {}</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>Listing</code> element creation, amending implicit <code>default</code>, <code>new Bird {}</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><code>Listing</code> element creation, amending implicit <code>default</code>, <code>new Dynamic {}</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>Mapping</code> value assignment, amdending the result of applying <code>default</code> to <code>"Saltmarsh Sparrow"</code>, <code>new Bird { name = "Saltmarsh Sparrow" }</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td><code>Mapping</code> value assignment <em>replacing</em> the parent&#8217;s entry, amending the result of applying <code>default</code> to <code>"Saltmarsh Sparrow"</code>, <code>new Bird { name = "Saltmarsh Sparrow" }</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Admending the property default value <code>new Listing { new Bird { name = "Osprey" } }</code>; the result contains both birds.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Error: Cannot tell which parent to amend.</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="let-expressions"><a class="anchor" href="#let-expressions"></a><a class="link" href="#let-expressions">Let Expressions</a></h3>
@@ -6148,7 +6427,8 @@ To turn them into <em>nullable types</em>, append a question mark (<code>?</code
 <div class="paragraph">
 <p>The only class types that admit <code>null</code> values despite not ending in <code>?</code> are <code>Any</code> and <code>Null</code>.
 (<code>Null</code> is not very useful as a type because it <em>only</em> admits <code>null</code> values.)
-<code>Any?</code> and <code>Null?</code> are equivalent to <code>Any</code> and <code>Null</code>, respectively.</p>
+<code>Any?</code> and <code>Null?</code> are equivalent to <code>Any</code> and <code>Null</code>, respectively.
+In some languages, nullable types are also known as <em>optional types</em>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -8388,10 +8668,10 @@ It is defined by the presence of a <code>PklProject</code> file that amends the 
 <p>It allows defining common evaluator settings for Pkl modules within a logical project.</p>
 </li>
 <li>
-<p>It helps with managing <a href="#packages">package</a> dependencies for Pkl modules within a logical project.</p>
+<p>It helps with managing <a href="#package-asset-uri">package</a> dependencies for Pkl modules within a logical project.</p>
 </li>
 <li>
-<p>It enables packaging and sharing the contents of the project as a <a href="#packages">package</a>.</p>
+<p>It enables packaging and sharing the contents of the project as a <a href="#package-asset-uri">package</a>.</p>
 </li>
 <li>
 <p>It allows importing packages via dependency notation.</p>

@@ -862,6 +862,9 @@ Type: <a href="#client-message">Client</a> <a href="#response-message">Response<
 If successful, <code>contents</code> is set.
 Otherwise, <code>error</code> is set.</p>
 </div>
+<div class="paragraph">
+<p>If neither is set, <code>contents</code> defaults to an empty byte array.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
@@ -921,6 +924,9 @@ Type: <a href="#client-message">Client</a> <a href="#response-message">Response<
 <p>The response to <a href="#read-module-request">Read Module Request</a>.
 If successful, <code>contents</code> is set.
 Otherwise, <code>error</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>If neither is set, <code>contents</code> defaults to an empty string.</p>
 </div>
 <div class="listingblock">
 <div class="content">

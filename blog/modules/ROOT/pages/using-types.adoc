@@ -13,24 +13,24 @@ by link:https://github.com/stackoverflow[Islon Scherer] on October 1st, 2024
 // end::byline[]
 
 // tag::excerpt[]
-One of the main points of using Pkl is to describe what you configuration looks like.
-But an often overlooked design goal (arguably, the most important), is to
+One of the main points of using Pkl is to describe what your configuration looks like.
+An often overlooked design goal (arguably, the most important), is to
 *forbid* invalid configurations. Pkl types allow a great degree of freedom
-and power in constraining what you data looks like.
+and power in constraining what your data looks like.
 // end::excerpt[]
 
-Some developers, especially those coming from more traditional languages like
+Some developers, especially those coming from more general purpose languages like
 Go or Java, may have a pre-defined notion of how types can help them.
-So let's have a look how Pkl can go beyond most traditional types.
+So let's have a look at how Pkl can go beyond most traditional types.
 
 == Beyond Strings
 
-`String` is a type we tend to see everywhere, this is especially true in configuration
+`String` is a type we tend to see everywhere. This is especially true in configuration
 languages, where a `String` can be used as a "joker" type for many different values.
 
 === Enumerating possibilities
 
-A typical usage of Strings is to define a finite set of values that you property can take:
+A typical usage of Strings is to define a finite set of values that your property can take:
 
 [source,pkl]
 ----
@@ -100,7 +100,7 @@ Pkl comes with some useful typealiases for numbers like `Int16`, `UInt8`, etc.
 ----
 serverPort: UInt16 // <1>
 ----
-<1> Will only allow values between 0 and 65535.
+<1> Will only allow values between 0 and 65535, inclusive.
 
 Builtin typealiases are not the only way to handle such cases, though.
 Numbers can be constrained to any value.
@@ -122,17 +122,17 @@ and we can provide multiple ones:
 
 [source,pkl]
 ----
-local function isPrime(n: Int): Boolean = !IntSeq(2, n - 1).toList().any((x) -> n % x == 0)
+local isPrime = (n: Int) -> IntSeq(2, n - 1).toList().every((x) -> n % x != 0)
 
-hash: Int(isPrime(this)) // <1>
+hash: Int(isPrime) // <1>
 
 name: String(this == capitalize()) // <2>
 
-building: String(isEmpty || this.toInt() <= 100) // <2>
+building: String(isEmpty || toInt() <= 100) // <2>
 
 region: String(startsWith("us-"), length < 10) // <3>
 
-grade: Int(isBetween(0, 10))|String(matches(Regex(#"[A|B|C|D|E|F][+-]?"#))) // <4>
+grade: Int(isBetween(0, 10))|String(matches(Regex(#"[A-F][+-]?"#))) // <4>
 ----
 <1> User defined constraints.
 <2> Arbitrary boolean expressions.
@@ -162,24 +162,24 @@ Value: "123-123-123"
 
 We can do better than that.
 
-One trick to improve error messages is to create named functions:
+One trick to improve error messages is to create named lambdas:
 
 [source,pkl]
 ----
-local function isValidSocialSecurityNumber(str: String): Boolean =
+local isValidSocialSecurityNumber = (str: String) ->
   str.matches(Regex(#"\d{3}-\d{2}-\d{4}"#))
 
-ssn: String(isValidSocialSecurityNumber(this)) = "123-123-123"
+ssn: String(isValidSocialSecurityNumber) = "123-123-123"
 ----
 
 [source,text]
 ----
 –– Pkl Error ––
-Type constraint `isValidSocialSecurityNumber(this)` violated.
+Type constraint `isValidSocialSecurityNumber` violated.
 Value: "123-123-123"
 
-4 | ssn: String(isValidSocialSecurityNumber(this)) = "123-123-123"
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4 | ssn: String(isValidSocialSecurityNumber) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ...
 ----
 
@@ -187,7 +187,7 @@ That's already better. Users now have a hint of what they did wrong.
 
 === Providing custom error messages
 
-We just saw how to improve error messages with functions, but Pkl can
+We just saw how to improve error messages with lambdas, but Pkl can
 do even better than that.
 
 With the knowledge that failing constraints will throw an exception, we can provide a custom

@@ -95,6 +95,9 @@ contentType: "text/plain"|"text/html"|"application/json"|String // <4>
 <4> Declaring some common possibilities before the generic type
     is a useful pattern that results in better tooling support in IDEs.
 
+There are plenty of ways to make our types more fine-grained than just `String`,
+but strings are not the only types we can refine in Pkl.
+
 == Constraining numbers
 
 Pkl comes with some useful typealiases for numbers like `Int16`, `UInt8`, etc.
@@ -222,3 +225,32 @@ where `X` is a number between 0 and 9.
 ----
 
 Now users know exactly what the problem is and how to fix it.
+
+Using `throw` to give a better error report is a powerful tool, but it comes with its own set
+of downsides that we have to be aware of.
+
+Throwing exceptions inside constraints will short-circuit and stop execution immediately, so it
+doesn't compose very well:
+
+[source,pkl]
+----
+typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+typealias NIN = String(matches(Regex(#"[A-Z]{2}\d{6}[A-Z]"#)) || throw("Invalid NIN ..."))
+
+taxId: SSN|NIN = "AB123456C"
+----
+
+[source.text]
+----
+–– Pkl Error ––
+Invalid SSN ...
+
+1 | typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+...
+----
+
+That wasn't expected.
+
+Because of the eager nature of `throw`, we have to be careful when to use it and to not
+compose it with other constraints.

@@ -53,7 +53,7 @@ Now `env` will reject any invalid possibility. If you're using an IDE, like the
 link:https://github.com/apple/pkl-intellij[IntelliJ plugin], this has the added benefits
 of providing autocomplete and telling you when a given value is invalid.
 
-In Pkl, strings are not only values, they can also be types.
+In Pkl, strings are not only values; they can also be types.
 
 === Matching values
 
@@ -70,9 +70,8 @@ Again, we can do better to validate that the given ip is correct:
 [source,pkl]
 ----
 /// The IPv4 to connect
-serverIp: String(matches(Regex(#"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"#))) // <1>
+serverIp: String(matches(Regex(#"((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}"#))) // <1>
 ----
-<1> This regex is kept simple for illustration purposes, it still allows for invalid inputs.
 
 Strings can be constrained to match specific regular expressions.
 The new `serverIp` will only allow values of a specific shape, greatly reducing the possibility
@@ -87,10 +86,14 @@ name: String(!isBlank) // <1>
 email: String(contains("@")) // <2>
 
 swiftFile: String(endsWith(".swift")) // <3>
+
+contentType: "text/plain"|"text/html"|"application/json"|String // <4>
 ----
 <1> `name` cannot be empty or a blank String.
 <2> `email` must contain a `@` symbol.
 <3> A Swift file must have the correct extension.
+<4> Declaring some common possibilities before the generic type
+    is a useful pattern that results in better tooling support in IDEs.
 
 == Constraining numbers
 
@@ -122,21 +125,22 @@ and we can provide multiple ones:
 
 [source,pkl]
 ----
-local isPrime = (n: Int) -> IntSeq(2, n - 1).toList().every((x) -> n % x != 0)
+local isPrime = (n: Int) ->
+  n > 1 && IntSeq(2, n - 1).toList().every((x) -> n % x != 0)
 
 hash: Int(isPrime) // <1>
 
-name: String(this == capitalize()) // <2>
+region: String(startsWith("us-"), length < 10) // <2>
 
-building: String(isEmpty || toInt() <= 100) // <2>
+name: String(this == capitalize()) // <3>
 
-region: String(startsWith("us-"), length < 10) // <3>
+building: String(isEmpty || toInt() <= 100) // <3>
 
 grade: Int(isBetween(0, 10))|String(matches(Regex(#"[A-F][+-]?"#))) // <4>
 ----
 <1> User defined constraints.
-<2> Arbitrary boolean expressions.
-<3> Multiple constraints.
+<2> Multiple constraints.
+<3> Arbitrary boolean expressions.
 <4> Multiple possibilities with different constraints.
 
 == Better errors

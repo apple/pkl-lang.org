@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Changelog :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/vscode/current/changelog.html">
+    <link rel="prev" href="features.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -85,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="vscode" data-version="0.17.0">
+<div class="nav-container" data-component="vscode" data-version="0.18.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -99,19 +100,10 @@
     <a class="nav-link" href="installation.html">Installation</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="features/index.html">Features</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="features/syntax-highlighting.html">Syntax Highlighting</a>
+    <a class="nav-link" href="features.html">Features</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="features/bracket-matching.html">Bracket Matching</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="features/code-snippets.html">Code Snippets</a>
-  </li>
-</ul>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="changelog.html">Changelog</a>
   </li>
 </ul>
   </li>
@@ -121,7 +113,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">VS Code Extension</span>
-    <span class="version">0.17.0</span>
+    <span class="version">0.18.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -223,7 +215,10 @@
       <div class="title"><a href="index.html">VS Code Extension</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.17.0</a>
+          <a href="index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.17.0/index.html">0.17.0</a>
         </li>
         <li class="version">
           <a href="../0.16.0/index.html">0.16.0</a>
@@ -249,14 +244,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.17.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.18.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="changelog.html">0.17.0</a>
+    <a class="version is-current" href="changelog.html">0.18.0</a>
+    <a class="version" href="../0.17.0/changelog.html">0.17.0</a>
     <a class="version" href="../0.16.0/changelog.html">0.16.0</a>
     <a class="version" href="../0.11.0/changelog.html">0.11.0</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-vscode/edit/release/0.17/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-vscode/edit/release/0.18/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -265,10 +261,98 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
+<h2 id="0-18-0-2024-10-10"><a class="anchor" href="#0-18-0-2024-10-10"></a><a class="link" href="#0-18-0-2024-10-10">0.18.0 (2024-10-10)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add support for <a href="../../lsp/current/index.html" class="xref page">pkl-lsp</a>. The editor now ships with a version of pkl-lsp, and queries for updates when the extension starts up. The LSP currently requires Java 22 to run. This requirement will go away when pkl-lsp ships native executables. By default, pkl-vscode will look for Java in <code>$PATH</code>, and will prompt if it cannot be found, or is lower than 22 (<a href="https://github.com/apple/pkl-vscode/pull/19">#19</a>, <a href="https://github.com/apple/pkl-vscode/pull/21">#21</a>, <a href="https://github.com/apple/pkl-vscode/pull/22">#22</a>, <a href="https://github.com/apple/pkl-vscode/pull/23">#23</a>, <a href="https://github.com/apple/pkl-vscode/pull/24">#24</a>, <a href="https://github.com/apple/pkl-vscode/pull/25">#25</a>, <a href="https://github.com/apple/pkl-vscode/pull/27">#27</a>, <a href="https://github.com/apple/pkl-vscode/pull/28">#28</a>, <a href="https://github.com/apple/pkl-vscode/pull/32">#32</a>).</p>
+<div class="paragraph">
+<p>These are the initial support features, and the list will grow over time as the LSP improves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hover-over documentation</p>
+</li>
+<li>
+<p>Go-to-definition</p>
+</li>
+<li>
+<p>Project syncing</p>
+</li>
+<li>
+<p>Autocompletion</p>
+</li>
+<li>
+<p>Viewing stdlib, https, and package sources</p>
+</li>
+<li>
+<p>Resolving imports</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add command "Pkl: Sync projects".</p>
+</li>
+<li>
+<p>Add new configuration items:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pkl.cli.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.java.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.debug.port</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve syntax highlighting (<a href="https://github.com/apple/pkl-vscode/pull/30">#30</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Change snippets from textmate snippets to pkl-lsp (<a href="https://github.com/apple/pkl-vscode/pull/25">#25</a>).</p>
+</li>
+<li>
+<p>Rename some internal files (<a href="https://github.com/apple/pkl-vscode/pull/26">#26</a>).</p>
+</li>
+<li>
+<p>Change some files to markdown (<a href="https://github.com/apple/pkl-vscode/pull/20">#20</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="0-17-0-2024-03-12"><a class="anchor" href="#0-17-0-2024-03-12"></a><a class="link" href="#0-17-0-2024-03-12">0.17.0 (2024-03-12)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -296,7 +380,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -328,6 +412,9 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="features.html">Features</a></span>
+</nav>
 </article>
   </div>
 </main>

@@ -288,7 +288,8 @@
 go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.8.0
 
 # via curl
-curl -L -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.8.0/pkl-gen-go-macos.bin
+# available platforms: macos, linux-amd64, and linux-aarch64
+curl -L -o pkl-gen-go github.com/apple/pkl-go/releases/download/v0.8.0/pkl-gen-go-&lt;platform&gt;.bin
 chmod +x pkl-gen-go</code></pre>
 </div>
 </div>
@@ -344,7 +345,7 @@ The <code>name</code> property in the annotation is the Go import path for the g
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go install github.com/apple/pkl-go/cmd/pkl-gen-go@latest</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go install github.com/apple/pkl-go/cmd/pkl-gen-go@v{version}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -381,7 +382,7 @@ is <code>github.com/myorg/myteam</code>. Therefore, the generated Go files will 
 <p>First, define some configuration that uses the Pkl schema.</p>
 </div>
 <div class="paragraph">
-<p>In our example, we create a file at path <code>pkl/local/appConfig.pkl</code>. We imagine that we are defining configuration for a server running in a local environment, and would likewise place other environments in sibling directorys; e.g. <code>pkl/int/appConfig.pkl</code> and <code>pkl/prod/appConfig.pkl</code>.</p>
+<p>In our example, we create a file at path <code>pkl/local/appConfig.pkl</code>. We imagine that we are defining configuration for a server running in a local environment, and would likewise place other environments in sibling directories; e.g. <code>pkl/int/appConfig.pkl</code> and <code>pkl/prod/appConfig.pkl</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">pkl/local/appConfig.pkl</div>

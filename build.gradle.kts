@@ -105,6 +105,7 @@ val buildLocalSite by tasks.registering(NodeTask::class) {
   inputs.dir("../pkl-intellij/docs")
   inputs.dir("../pkl-vscode/docs")
   inputs.dir("../pkl-neovim/docs")
+  inputs.dir("../pkl-lsp/docs")
   inputs.dir("blog/")
   inputs.dir("landing/")
 

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pkl-lsp :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/lsp/current/index.html">
+    <link rel="next" href="integration.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../index.html"><img src="../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../lsp/current/index.html">pkl-lsp</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="lsp" data-version="0.1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">pkl-lsp</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="integration.html">Integrating with pkl-lsp</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">pkl-lsp</span>
+    <span class="version">0.1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intellij/current/index.html">0.30.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/latest/index.html">0.27.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../go/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">pkl-lsp</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../spring/current/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../vscode/current/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">pkl-lsp</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.1/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">pkl-lsp</h1>
+<div class="paragraph">
+<p>pkl-lsp provides language services for various editor plugins, following the <a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a>.</p>
+</div>
+<div class="paragraph">
+<p>It is a low-level tool, and not meant to be used directly by end users.</p>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="integration.html">Integrating with pkl-lsp</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/site-support.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

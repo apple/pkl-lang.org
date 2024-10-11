@@ -20,7 +20,7 @@ and power in constraining what your data looks like.
 // end::excerpt[]
 
 Some developers, especially those coming from more general purpose languages like
-Go or Java, may have a pre-defined notion of how types can help them.
+Swift, Go, or Java, may have a pre-defined notion of how types can help them.
 So let's have a look at how Pkl can go beyond most traditional types.
 
 == Beyond Strings
@@ -194,8 +194,10 @@ That's already better. Users now have a hint of what they did wrong.
 
 === Providing custom error messages
 
-We just saw how to improve error messages with lambdas, but Pkl can
-do even better than that.
+Sometimes, it can be useful to provide your own custom error messages.
+Pkl doesn't provide a built-in way to do this, but one pattern to hack around this limitation is to use `throw`.
+
+WARNING: This approach can be a footgun. See <<dangers-of-throw>> for details.
 
 With the knowledge that failing constraints will throw an exception, we can provide a custom
 error message by throwing the exception ourselves:
@@ -225,6 +227,9 @@ where `X` is a number between 0 and 9.
 ----
 
 Now users know exactly what the problem is and how to fix it.
+
+[[dangers-of-throw]]
+==== Dangers of `throw`
 
 Using `throw` to give a better error report is a powerful tool, but it comes with its own set
 of downsides that we have to be aware of.

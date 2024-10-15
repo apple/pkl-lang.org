@@ -1,0 +1,261 @@
+= Taking types to the next level
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/stackoverflow[Islon Scherer] on October 15th, 2024
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+One of the main points of using Pkl is to describe what your configuration looks like.
+An often overlooked design goal (arguably, the most important), is to
+*forbid* invalid configurations. Pkl types allow a great degree of freedom
+and power in constraining what your data looks like.
+// end::excerpt[]
+
+Some developers, especially those coming from more general purpose languages like
+Swift, Go, or Java, may have a pre-defined notion of how types can help them.
+So let's have a look at how Pkl can go beyond most traditional types.
+
+== Beyond Strings
+
+`String` is a type we tend to see everywhere. This is especially true in configuration
+languages, where a `String` can be used as a "joker" type for many different values.
+
+=== Enumerating possibilities
+
+A typical usage of Strings is to define a finite set of values that your property can take:
+
+[source,pkl]
+----
+/// The environment where this service is running.
+///
+/// Valid possibilities are "dev", "qa" and "prod".
+env: String
+----
+
+This works, but has the problem that users of your template can provide invalid data, like `"foo"`.
+So let's do better:
+
+[source,pkl]
+----
+/// The environment where this service is running.
+env: "dev"|"qa"|"prod"
+----
+
+Now `env` will reject any invalid possibility. If you're using an IDE, like the
+link:https://github.com/apple/pkl-intellij[IntelliJ plugin], this has the added benefits
+of providing autocomplete and telling you when a given value is invalid.
+
+In Pkl, strings are not only values; they can also be types.
+
+=== Matching values
+
+Another typical use for strings is to allow values that have a specific *shape*:
+
+[source,pkl]
+----
+/// The IPv4 to connect
+serverIp: String
+----
+
+Again, we can do better to validate that the given ip is correct:
+
+[source,pkl]
+----
+/// The IPv4 to connect
+serverIp: String(matches(Regex(#"((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}"#))) // <1>
+----
+
+Strings can be constrained to match specific regular expressions.
+The new `serverIp` will only allow values of a specific shape, greatly reducing the possibility
+of invalid configs.
+
+=== More String goodies
+
+[source,pkl]
+----
+name: String(!isBlank) // <1>
+
+email: String(contains("@")) // <2>
+
+swiftFile: String(endsWith(".swift")) // <3>
+
+contentType: "text/plain"|"text/html"|"application/json"|String // <4>
+----
+<1> `name` cannot be empty or a blank String.
+<2> `email` must contain a `@` symbol.
+<3> A Swift file must have the correct extension.
+<4> Declaring some common possibilities before the generic type
+    is a useful pattern that results in better tooling support in IDEs.
+
+There are plenty of ways to make our types more fine-grained than just `String`,
+but strings are not the only types we can refine in Pkl.
+
+== Constraining numbers
+
+Pkl comes with some useful typealiases for numbers like `Int16`, `UInt8`, etc.
+
+[source,pkl]
+----
+serverPort: UInt16 // <1>
+----
+<1> Will only allow values between 0 and 65535, inclusive.
+
+Builtin typealiases are not the only way to handle such cases, though.
+Numbers can be constrained to any value.
+
+[source,pkl]
+----
+volume: Float(isBetween(0.0, 11.0)) // <1>
+
+multiplier: Int(isEven) // <2>
+----
+<1> `volume` can only be in the range between 0 and 11.
+<2> `multiplier` cannot be odd.
+
+== Beyond builtins
+
+Up to now, we only took a look at builtin functions, mostly functions of the type itself.
+We also limited our types to a single constraint. Pkl allows, though, for arbitrary functions as constraints,
+and we can provide multiple ones:
+
+[source,pkl]
+----
+local isPrime = (n: Int) ->
+  n > 1 && IntSeq(2, n - 1).toList().every((x) -> n % x != 0)
+
+hash: Int(isPrime) // <1>
+
+region: String(startsWith("us-"), length < 10) // <2>
+
+name: String(this == capitalize()) // <3>
+
+building: String(isEmpty || toInt() <= 100) // <3>
+
+grade: Int(isBetween(0, 10))|String(matches(Regex(#"[A-F][+-]?"#))) // <4>
+----
+<1> User defined constraints.
+<2> Multiple constraints.
+<3> Arbitrary boolean expressions.
+<4> Multiple possibilities with different constraints.
+
+== Better errors
+
+One downside of using arbitrary expressions as constraints is that, sometimes, errors messages
+can be a bit hard to understand:
+
+[source,pkl]
+----
+ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#))) = "123-123-123"
+----
+
+[source,text]
+----
+–– Pkl Error ––
+Type constraint `matches(Regex(#"\d{3}-\d{2}-\d{4}"#))` violated.
+Value: "123-123-123"
+
+1 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#))) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+----
+
+We can do better than that.
+
+One trick to improve error messages is to create named lambdas:
+
+[source,pkl]
+----
+local isValidSocialSecurityNumber = (str: String) ->
+  str.matches(Regex(#"\d{3}-\d{2}-\d{4}"#))
+
+ssn: String(isValidSocialSecurityNumber) = "123-123-123"
+----
+
+[source,text]
+----
+–– Pkl Error ––
+Type constraint `isValidSocialSecurityNumber` violated.
+Value: "123-123-123"
+
+4 | ssn: String(isValidSocialSecurityNumber) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+----
+
+That's already better. Users now have a hint of what they did wrong.
+
+=== Providing custom error messages
+
+Sometimes, it can be useful to provide your own custom error messages.
+Pkl doesn't provide a built-in way to do this, but one pattern to hack around this limitation is to use `throw`.
+
+WARNING: This approach can be a footgun. See <<dangers-of-throw>> for details.
+
+With the knowledge that failing constraints will throw an exception, we can provide a custom
+error message by throwing the exception ourselves:
+
+[source,pkl]
+----
+local function reportSSN(ssn: String) =
+  """
+  Invalid social security number: \(ssn).
+  Valid ones should be in the form `XXX-XX-XXXX`
+  where `X` is a number between 0 and 9.
+  """
+
+ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw(reportSSN(this))) = "123-123-123"
+----
+
+[source,text]
+----
+–– Pkl Error ––
+Invalid social security number: 123-123-123.
+Valid ones should be in the form `XXX-XX-XXXX`
+where `X` is a number between 0 and 9.
+
+8 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw(reportSSN(this))) = "123-123-123"
+                                                         ^^^^^^^^^^^^^^^^^^^^^^
+...
+----
+
+Now users know exactly what the problem is and how to fix it.
+
+[[dangers-of-throw]]
+==== Dangers of `throw`
+
+Using `throw` to give a better error report is a powerful tool, but it comes with its own set
+of downsides that we have to be aware of.
+
+Throwing exceptions inside constraints will short-circuit and stop execution immediately, so it
+doesn't compose very well:
+
+[source,pkl]
+----
+typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+typealias NIN = String(matches(Regex(#"[A-Z]{2}\d{6}[A-Z]"#)) || throw("Invalid NIN ..."))
+
+taxId: SSN|NIN = "AB123456C"
+----
+
+[source.text]
+----
+–– Pkl Error ––
+Invalid SSN ...
+
+1 | typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+...
+----
+
+That wasn't expected.
+
+Because of the eager nature of `throw`, we have to be careful when to use it and to not
+compose it with other constraints.

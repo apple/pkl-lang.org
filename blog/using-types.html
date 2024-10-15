@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Taking types to the next level :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/blog/using-types.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<link rel="stylesheet" href="../_/css/search.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../index.html"><img src="../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="blog" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Pkl Blog</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="using-types.html">Taking types to the next level</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="class-as-a-function.html">Class-as-a-Function Pattern</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="pkl-evolution.html">Pkl Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing-in-pkl.html">Testing in Pkl</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introducing-pkl.html">Introducing Pkl, a programming language for configuration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Pkl Blog</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../intellij/current/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../main/latest/index.html">0.27.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../main/current/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../go/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../swift/current/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../lsp/current/index.html">pkl-lsp</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../lsp/current/index.html">0.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../spring/current/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../vscode/current/index.html">0.18.1</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Pkl Blog</a></li>
+    <li><a href="using-types.html">Taking types to the next level</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/using-types.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Taking types to the next level</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/stackoverflow">Islon Scherer</a> on October 15th, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>One of the main points of using Pkl is to describe what your configuration looks like.
+An often overlooked design goal (arguably, the most important), is to
+<strong>forbid</strong> invalid configurations. Pkl types allow a great degree of freedom
+and power in constraining what your data looks like.</p>
+</div>
+<div class="paragraph">
+<p>Some developers, especially those coming from more general purpose languages like
+Swift, Go, or Java, may have a pre-defined notion of how types can help them.
+So let&#8217;s have a look at how Pkl can go beyond most traditional types.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="beyond-strings"><a class="anchor" href="#beyond-strings"></a><a class="link" href="#beyond-strings">Beyond Strings</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>String</code> is a type we tend to see everywhere. This is especially true in configuration
+languages, where a <code>String</code> can be used as a "joker" type for many different values.</p>
+</div>
+<div class="sect2">
+<h3 id="enumerating-possibilities"><a class="anchor" href="#enumerating-possibilities"></a><a class="link" href="#enumerating-possibilities">Enumerating possibilities</a></h3>
+<div class="paragraph">
+<p>A typical usage of Strings is to define a finite set of values that your property can take:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The environment where this service is running.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// Valid possibilities are &quot;dev&quot;, &quot;qa&quot; and &quot;prod&quot;.</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This works, but has the problem that users of your template can provide invalid data, like <code>"foo"</code>.
+So let&#8217;s do better:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The environment where this service is running.</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dev&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;qa&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;prod&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now <code>env</code> will reject any invalid possibility. If you&#8217;re using an IDE, like the
+<a href="https://github.com/apple/pkl-intellij">IntelliJ plugin</a>, this has the added benefits
+of providing autocomplete and telling you when a given value is invalid.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl, strings are not only values; they can also be types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="matching-values"><a class="anchor" href="#matching-values"></a><a class="link" href="#matching-values">Matching values</a></h3>
+<div class="paragraph">
+<p>Another typical use for strings is to allow values that have a specific <strong>shape</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The IPv4 to connect</span>
+<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Again, we can do better to validate that the given ip is correct:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The IPv4 to connect</span>
+<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Strings can be constrained to match specific regular expressions.
+The new <code>serverIp</code> will only allow values of a specific shape, greatly reducing the possibility
+of invalid configs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="more-string-goodies"><a class="anchor" href="#more-string-goodies"></a><a class="link" href="#more-string-goodies">More String goodies</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isBlank</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">email</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">contains</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;@&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">swiftFile</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">endsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;.swift&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">contentType</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text/plain&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;text/html&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;application/json&quot;</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>name</code> cannot be empty or a blank String.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>email</code> must contain a <code>@</code> symbol.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>A Swift file must have the correct extension.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Declaring some common possibilities before the generic type
+is a useful pattern that results in better tooling support in IDEs.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are plenty of ways to make our types more fine-grained than just <code>String</code>,
+but strings are not the only types we can refine in Pkl.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="constraining-numbers"><a class="anchor" href="#constraining-numbers"></a><a class="link" href="#constraining-numbers">Constraining numbers</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl comes with some useful typealiases for numbers like <code>Int16</code>, <code>UInt8</code>, etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">serverPort</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Will only allow values between 0 and 65535, inclusive.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Builtin typealiases are not the only way to handle such cases, though.
+Numbers can be constrained to any value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">volume</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">11.0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">multiplier</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEven</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>volume</code> can only be in the range between 0 and 11.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>multiplier</code> cannot be odd.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="beyond-builtins"><a class="anchor" href="#beyond-builtins"></a><a class="link" href="#beyond-builtins">Beyond builtins</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Up to now, we only took a look at builtin functions, mostly functions of the type itself.
+We also limited our types to a single constraint. Pkl allows, though, for arbitrary functions as constraints,
+and we can provide multiple ones:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isPrime</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">n</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+  <span class="hljs-params">n</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span> <span class="hljs-operator">&amp;&amp;</span> <span class="hljs-title class_">IntSeq</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-params">n</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">every</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">x</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">n</span> <span class="hljs-operator">%</span> <span class="hljs-params">x</span> <span class="hljs-operator">!=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">hash</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isPrime</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">region</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;us-&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-property">length</span> <span class="hljs-operator">&lt;</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">==</span> <span class="hljs-title function_ invoke__">capitalize</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">building</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEmpty</span> <span class="hljs-operator">||</span> <span class="hljs-title function_ invoke__">toInt</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">grade</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-F][+-]?&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>User defined constraints.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Multiple constraints.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Arbitrary boolean expressions.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Multiple possibilities with different constraints.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="better-errors"><a class="anchor" href="#better-errors"></a><a class="link" href="#better-errors">Better errors</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One downside of using arbitrary expressions as constraints is that, sometimes, errors messages
+can be a bit hard to understand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `matches(Regex(#"\d{3}-\d{2}-\d{4}"#))` violated.
+Value: "123-123-123"
+
+1 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#))) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can do better than that.</p>
+</div>
+<div class="paragraph">
+<p>One trick to improve error messages is to create named lambdas:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isValidSocialSecurityNumber</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">str</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+  <span class="hljs-params">str</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isValidSocialSecurityNumber</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `isValidSocialSecurityNumber` violated.
+Value: "123-123-123"
+
+4 | ssn: String(isValidSocialSecurityNumber) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s already better. Users now have a hint of what they did wrong.</p>
+</div>
+<div class="sect2">
+<h3 id="providing-custom-error-messages"><a class="anchor" href="#providing-custom-error-messages"></a><a class="link" href="#providing-custom-error-messages">Providing custom error messages</a></h3>
+<div class="paragraph">
+<p>Sometimes, it can be useful to provide your own custom error messages.
+Pkl doesn&#8217;t provide a built-in way to do this, but one pattern to hack around this limitation is to use <code>throw</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This approach can be a footgun. See <a href="#dangers-of-throw">Dangers of <code>throw</code></a> for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With the knowledge that failing constraints will throw an exception, we can provide a custom
+error message by throwing the exception ourselves:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-params">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span>
+  <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">ssn</span><span class="hljs-char escape_">)</span></span>.</span>
+<span class="hljs-string">  Valid ones should be in the form `XXX-XX-XXXX`</span>
+<span class="hljs-string">  where `X` is a number between 0 and 9.</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span>
+
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Invalid social security number: 123-123-123.
+Valid ones should be in the form `XXX-XX-XXXX`
+where `X` is a number between 0 and 9.
+
+8 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw(reportSSN(this))) = "123-123-123"
+                                                         ^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now users know exactly what the problem is and how to fix it.</p>
+</div>
+<div class="sect3">
+<h4 id="dangers-of-throw"><a class="anchor" href="#dangers-of-throw"></a><a class="link" href="#dangers-of-throw">Dangers of <code>throw</code></a></h4>
+<div class="paragraph">
+<p>Using <code>throw</code> to give a better error report is a powerful tool, but it comes with its own set
+of downsides that we have to be aware of.</p>
+</div>
+<div class="paragraph">
+<p>Throwing exceptions inside constraints will short-circuit and stop execution immediately, so it
+doesn&#8217;t compose very well:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">typealias</span> <span class="hljs-title class_">SSN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid SSN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-Z]{2}\d{6}[A-Z]&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid NIN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">taxId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">SSN</span><span class="hljs-operator">|</span><span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;AB123456C&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock text">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">–– Pkl Error ––
+Invalid SSN ...
+
+1 | typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That wasn&#8217;t expected.</p>
+</div>
+<div class="paragraph">
+<p>Because of the eager nature of <code>throw</code>, we have to be careful when to use it and to not
+compose it with other constraints.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../_/js/site.js"></script>
+<script src="../_/js/site-support.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>

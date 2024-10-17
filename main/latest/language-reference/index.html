@@ -5555,7 +5555,7 @@ Its syntax is:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birdDiets</span> <span class="hljs-operator">=</span>
   <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">diets</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Seeds&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Berries&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Mice&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
-  <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-property">diets</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-property">diets</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+    <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-property">diets</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-property">diets</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5586,7 +5586,7 @@ Its syntax is:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birdDiets</span> <span class="hljs-operator">=</span>
   <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">diets</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Seeds&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Berries&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Mice&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
-  <span class="hljs-property">diets</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">+</span> <span class="hljs-property">diets</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+    <span class="hljs-property">diets</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">+</span> <span class="hljs-property">diets</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5605,7 +5605,7 @@ Its syntax is:</p>
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birdDiets</span> <span class="hljs-operator">=</span>
   <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">birds</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Pigeon&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Barn owl&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Parrot&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
   <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Seeds&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Mice&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Berries&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
-  <span class="hljs-property">birds</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">zip</span><span class="hljs-punctuation">(</span><span class="hljs-property">diet</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+    <span class="hljs-property">birds</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">zip</span><span class="hljs-punctuation">(</span><span class="hljs-property">diet</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -7672,7 +7672,7 @@ Spreading entries or properties may cause conflicts due to matched existing key 
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">newPets</span> <span class="hljs-punctuation">{</span>
-  ...<span class="hljs-property">cast</span>
+  ...<span class="hljs-property">oldPets</span>
   [<span class="hljs-string">&quot;Pigeon&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Toby the Pigeon&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>

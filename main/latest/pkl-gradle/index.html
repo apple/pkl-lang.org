@@ -535,7 +535,6 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
   evaluators {
     evalPkl {
       sourceModules.add(file("module1.pkl"))
-      transitiveModules.from file("module2.pkl")
       outputFile = layout.buildDirectory.file("module1.yaml")
       outputFormat = "yaml"
     }
@@ -551,7 +550,6 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
   evaluators {
     register("evalPkl") {
       sourceModules.add(file("module1.pkl"))
-      transitiveModules.from(file("module2.pkl"))
       outputFile.set(layout.buildDirectory.file("module1.yaml"))
       outputFormat.set("yaml")
     }
@@ -561,10 +559,6 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 </div>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>To guarantee correct Gradle up-to-date behavior,
-<code>transitiveModules</code> needs to contain all module files transitively referenced by <code>sourceModules</code>.</p>
 </div>
 <div class="paragraph">
 <p>For each declared evaluator, the Pkl plugin creates an equally named task.
@@ -776,12 +770,22 @@ List of Pkl modules which are used for this operation.</p>
 <summary class="title">transitiveModules: ConfigurableFileCollection</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>files()</code> (empty collection)<br>
+<p>Default: [computed by pkl-gradle]<br>
 Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
-Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br>
-File paths of modules that are directly or indirectly used by source modules.
-Setting this option enables correct Gradle up-to-date checks, which ensures that your Pkl tasks are executed if any of the transitive files are modified; it does not affect evaluation otherwise.
-Including source modules in <code>transitiveModules</code> is permitted but not required.
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
 Relative paths are resolved against the project directory.</p>
 </div>
 </div>
@@ -844,8 +848,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -1082,12 +1085,22 @@ List of Pkl modules which are used for this operation.</p>
 <summary class="title">transitiveModules: ConfigurableFileCollection</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>files()</code> (empty collection)<br>
+<p>Default: [computed by pkl-gradle]<br>
 Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
-Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br>
-File paths of modules that are directly or indirectly used by source modules.
-Setting this option enables correct Gradle up-to-date checks, which ensures that your Pkl tasks are executed if any of the transitive files are modified; it does not affect evaluation otherwise.
-Including source modules in <code>transitiveModules</code> is permitted but not required.
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
 Relative paths are resolved against the project directory.</p>
 </div>
 </div>
@@ -1150,8 +1163,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -1518,12 +1530,22 @@ List of Pkl modules which are used for this operation.</p>
 <summary class="title">transitiveModules: ConfigurableFileCollection</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>files()</code> (empty collection)<br>
+<p>Default: [computed by pkl-gradle]<br>
 Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
-Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br>
-File paths of modules that are directly or indirectly used by source modules.
-Setting this option enables correct Gradle up-to-date checks, which ensures that your Pkl tasks are executed if any of the transitive files are modified; it does not affect evaluation otherwise.
-Including source modules in <code>transitiveModules</code> is permitted but not required.
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
 Relative paths are resolved against the project directory.</p>
 </div>
 </div>
@@ -1586,8 +1608,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -1932,12 +1953,22 @@ List of Pkl modules which are used for this operation.</p>
 <summary class="title">transitiveModules: ConfigurableFileCollection</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>files()</code> (empty collection)<br>
+<p>Default: [computed by pkl-gradle]<br>
 Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
-Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br>
-File paths of modules that are directly or indirectly used by source modules.
-Setting this option enables correct Gradle up-to-date checks, which ensures that your Pkl tasks are executed if any of the transitive files are modified; it does not affect evaluation otherwise.
-Including source modules in <code>transitiveModules</code> is permitted but not required.
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
 Relative paths are resolved against the project directory.</p>
 </div>
 </div>
@@ -2000,8 +2031,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -2244,12 +2274,22 @@ List of Pkl modules which are used for this operation.</p>
 <summary class="title">transitiveModules: ConfigurableFileCollection</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>files()</code> (empty collection)<br>
+<p>Default: [computed by pkl-gradle]<br>
 Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
-Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br>
-File paths of modules that are directly or indirectly used by source modules.
-Setting this option enables correct Gradle up-to-date checks, which ensures that your Pkl tasks are executed if any of the transitive files are modified; it does not affect evaluation otherwise.
-Including source modules in <code>transitiveModules</code> is permitted but not required.
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
 Relative paths are resolved against the project directory.</p>
 </div>
 </div>
@@ -2312,8 +2352,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -2592,8 +2631,7 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -2800,8 +2838,319 @@ Example: <code>allowedModules = ["file:"]</code><br>
 URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">allowedResources: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>["env:", "prop:", "modulepath:", "https:", "file:", "package:", "projectpackage:"]</code><br>
+Example: <code>allowedResources = ["env:", "prop:"]</code><br>
+URL patterns that determine which external resources can be read.
+Patterns are matched against the beginning of resource URLs.
+At least one pattern needs to match for a resource to be readable.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">environmentVariables: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code> (note that Gradle default differs from CLI default)<br>
+Example 1: <code>environmentVariables = ["MY_VAR_1": "myValue1", "MY_VAR_2": "myValue2"]</code><br>
+Example 2: <code>environmentVariables = System.getenv()</code><br>
+Environment variables that can be read by Pkl code with <code>read("env:&lt;envVariableName&gt;")</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">evalRootDir: DirectoryProperty</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>rootProject.layout.projectDirectory</code><br>
+Example 1: <code>evalRootDir = layout.projectDirectory.dir("pkl-modules")</code><br>
+Example 2: <code>evalRootDir.fileValue file("/some/absolute/path")</code><br></p>
+</div>
+<div class="paragraph">
+<p>Root directory for <code>file:</code> modules and resources.
+If non-null, access to file-based modules and resources is restricted to those located under the root directory.
+Any symlinks are resolved before this check is performed.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">evalTimeout: Property&lt;java.time.Duration&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>evalTimeout = Duration.ofSeconds(10)</code><br>
+Duration after which evaluation of a source module will be timed out.
+Note that a timeout is treated the same as a program error in that any subsequent source modules will not be evaluated.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">externalProperties: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code><br>
+Example: <code>externalProperties = ["myProp1": "myValue1", "myProp2": "myValue2"]</code><br>
+External properties that can be read by Pkl code with <code>read("prop:&lt;propertyName&gt;")</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">moduleCacheDir: DirectoryProperty</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
+Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
+The cache directory for storing packages.
+If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noCache: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Disable caching of packages.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">modulePath: ConfigurableFileCollection</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>files()</code> (empty collection)<br>
+Example: <code>modulePath.from files("dir1", "zip1.zip", "jar1.jar")</code><br>
+The directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
+Relative paths are resolved against the project directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">proxy: Property&lt;URI&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>proxy = uri("http://proxy.example.com:1234")</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProxy: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>noProxy = ["example.com", "169.254.0.0/16"]</code><br>
+Hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="analyze-imports"><a class="anchor" href="#analyze-imports"></a><a class="link" href="#analyze-imports">Analyze Imports</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature is the Gradle analogy for the <a href="../pkl-cli/index.html#command-analyze-imports" class="xref page">analyze imports</a> command in the CLI. It builds a graph of imports of the provided source modules.</p>
+</div>
+<div class="sect2">
+<h3 id="usage-8"><a class="anchor" href="#usage-8"></a><a class="link" href="#usage-8">Usage</a></h3>
+<div id="tabs-9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-build-gradle" class="tab">
+<p>build.gradle</p>
+</li>
+<li id="tabs-9-build-gradle-kts" class="tab">
+<p>build.gradle.kts</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-build-gradle--panel" class="tabpanel" aria-labelledby="tabs-9-build-gradle">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pkl {
+  analyzers {
+    imports {
+      appConfig {
+        sourceModules.add(file("src/main/resources/appConfig.pkl"))
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-9-build-gradle-kts--panel" class="tabpanel" aria-labelledby="tabs-9-build-gradle-kts">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pkl {
+  analyzers {
+    imports {
+      register("appConfig") {
+        sourceModules.add(file("src/main/resources/appConfig.pkl"))
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration-options-7"><a class="anchor" href="#configuration-options-7"></a><a class="link" href="#configuration-options-7">Configuration Options</a></h3>
+<details>
+<summary class="title">outputFormat: Property&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#output-format">outputFormat</a> in <a href="#module-evaluation">Module Evaluation</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">outputFile: RegularFileProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#output-file">outputFile</a> in <a href="#module-evaluation">Module Evaluation</a>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Common properties:</p>
+</div>
+<details>
+<summary class="title">sourceModules: ListProperty&lt;Object&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[]</code><br>
+Example 1: <code>sourceModules = ["module1.pkl", "module2.pkl"]</code><br>
+Example 2: <code>sourceModules = fileTree("config").include("**/*.pkl")</code><br>
+List of Pkl modules which are used for this operation.</p>
+</div>
+<div class="paragraph">
+<p>This property accepts the following types to represent a module:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java.net.URI</code></p>
+</li>
+<li>
+<p><code>java.io.File</code></p>
+</li>
+<li>
+<p><code>java.nio.file.Path</code></p>
+</li>
+<li>
+<p><code>java.net.URL</code></p>
+</li>
+<li>
+<p><code>java.lang.CharSequence</code> - if the represented string looks like a URI (it contains a scheme), the input is treated as a URI. Otherwise, it is treated as a path. Relative paths are resolved against the project directory.</p>
+</li>
+<li>
+<p><code>org.gradle.api.file.FileSystemLocation</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">transitiveModules: ConfigurableFileCollection</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: [computed by pkl-gradle]<br>
+Example 1: <code>transitiveModules.from files("module1.pkl", "module2.pkl")</code><br>
+Example 2: <code>transitiveModules.from fileTree("config").include("**/*.pkl")</code><br></p>
+</div>
+<div class="paragraph">
+<p>File paths of modules that are directly or indirectly used by source modules.</p>
+</div>
+<div class="paragraph">
+<p>This property, along with <code>sourceModules</code>, is the set of input files used to determine whether this task is up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>By default, Pkl computes this property by analyzing the imports of the source modules.
+Setting this property explicitly causes Pkl to skip the analyze imports step.</p>
+</div>
+<div class="paragraph">
+<p>Including source modules in <code>transitiveModules</code> is permitted but not required.
+Relative paths are resolved against the project directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">projectDir: DirectoryProperty</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example 1: <code>projectDir = layout.projectDirectory.dir("pkl")</code><br>
+Example 2: <code>projectDir.fileValue file("/some/absolute/path")</code></p>
+</div>
+<div class="paragraph">
+<p>Directory where the project lives.</p>
+</div>
+<div class="paragraph">
+<p>A project is a directory that contains a <code>PklProject</code> file, which is used to declare package dependencies, as well as common evaluator settings to be applied in the project.</p>
+</div>
+<div class="paragraph">
+<p>If <code>null</code>, this is determined by searching up from the working directory for a directory that contains a <code>PklProject</code> file, until <code>evalRootDir</code> or the file system root is reached.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">omitProjectSettings: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disables loading evaluator settings from the PklProject file.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noProject: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disables all behavior related to projects.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">settingsModule: Property&lt;Object&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>settingsModule = layout.projectDirectory.file("mySettings.pkl")</code><br>
+The Pkl settings module to use.
+This property accepts the same input types as the <code>sourceModules</code> property.</p>
+</div>
+<div class="paragraph">
+<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">allowedModules: ListProperty&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>["pkl:", "file:", "modulepath:", "https:", "repl:", "package:", "projectpackage:"]</code><br>
+Example: <code>allowedModules = ["file:"]</code><br>
+URI patterns that determine which modules can be loaded and evaluated.
+Patterns are matched against the beginning of module URIs.
+(File paths have been converted to <code>file:</code> URLs at this stage.)
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>

@@ -1123,9 +1123,77 @@ package already exists in the cache directory, this command is a no-op.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="command-analyze-imports"><a class="anchor" href="#command-analyze-imports"></a><a class="link" href="#command-analyze-imports"><code>pkl analyze imports</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl analyze imports [&lt;modules&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>This command builds a graph of imports declared in the provided modules.</p>
+</div>
+<div class="paragraph">
+<p>This is a lower level command that is meant to be useful for Pkl-related tooling.
+For example, this command feeds into the <a href="../pkl-gradle/index.html" class="xref page">Gradle Plugin</a> to determine if tasks are considered up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>This command produces an object with two properties, <code>imports</code> and <code>resolvedImports</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>imports</code> property is a mapping of a module&#8217;s absolute URI, to the set of imports declared within that module.</p>
+</div>
+<div class="paragraph">
+<p>The <code>resolvedImports</code> property is a mapping of a module&#8217;s absolute URI (as stated in <code>imports</code>), to the resolved absolute URI that might be useful for fetching the module&#8217;s contents.
+For example, a <a href="../language-reference/index.html#local-dependencies" class="xref page">local dependency</a> import will have an in-language URI with scheme <code>projectpackage:</code>, and may have resolved URI with scheme <code>file:</code> (assuming that the project is file-based).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Analyze the imports of a single module
+pkl analyze imports myModule.pkl
+
+# Same as the previous command, but output in JSON.
+pkl analyze imports -f json myModule.pkl
+
+# Analyze imports of all modules declared within src/
+pkl analyze imports src/*.pkl</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;modules&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the modules to analyze. Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options-6"><a class="anchor" href="#options-6"></a><a class="link" href="#options-6">Options</a></h4>
+<details>
+<summary class="title">-f, --format</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#format">-f, --format</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-o, --output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#output-path">-o, --output-path</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
-<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, and <a href="#command-download-package"><code>pkl download-package</code></a> commands support the following common options:</p>
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
 </div>
 <details id="allowed-modules">
 <summary class="title">--allowed-modules</summary>
@@ -1135,8 +1203,7 @@ package already exists in the cache directory, this command is a no-op.</p>
 Comma-separated list of URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -1302,7 +1369,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 </div>
 </details>
 <div class="paragraph">
-<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, and <a href="#command-download-package"><code>pkl download-package</code></a> commands also take the following options:</p>
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands also take the following options:</p>
 </div>
 <details id="project-dir">
 <summary class="title">--project-dir</summary>

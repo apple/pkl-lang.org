@@ -902,6 +902,11 @@ Running the previous command is conceptually the same as if the below module wer
 <div class="paragraph">
 <p>Renderers defined in test files will be ignored by the <code>test</code> command.</p>
 </div>
+<div class="paragraph">
+<p>Tests that result in writing <code>pkl-expected.pcf</code> files are considered failing tests.
+If these are the only failures, the command exits with exit code 10.
+Otherwise, failures result in exit code 1.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">&lt;modules&gt;</dt>

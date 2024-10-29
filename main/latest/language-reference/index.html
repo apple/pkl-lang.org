@@ -5285,7 +5285,8 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#grammar-definition">Grammar Definition</a><br>
 <a href="#reserved-keywords">Reserved Keywords</a><br>
 <a href="#blank-identifiers">Blank Identifiers</a><br>
-<a href="#projects">Projects</a></p>
+<a href="#projects">Projects</a><br>
+<a href="#external-readers">External Readers</a></p>
 </div>
 <div class="sect2">
 <h3 id="meaning-of-new"><a class="anchor" href="#meaning-of-new"></a><a class="link" href="#meaning-of-new">Meaning of <code>new</code></a></h3>
@@ -8919,6 +8920,81 @@ At runtime, it will resolve to relative path <code>../fruit/Pear.pkl</code>.</p>
 </div>
 <div class="paragraph">
 <p>When packaging projects with local dependencies, both the project and its dependent project must be passed to the <a href="../pkl-cli/index.html#command-project-package" class="xref page"><code>pkl project package</code></a> command.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="external-readers"><a class="anchor" href="#external-readers"></a><a class="link" href="#external-readers">External Readers</a></h3>
+<div class="paragraph">
+<p>External readers are a mechanism to extend the <a href="#modules">module</a> and <a href="#resources">resource</a> URI schemes that Pkl supports.
+Readers are implemented as ordinary executables and use Pkl&#8217;s <a href="../bindings-specification/message-passing-api.html" class="xref page">message passing API</a> to communicate with the hosting Pkl evaluator.
+The <a href="../../../swift/current/index.html" class="xref page">Swift</a> and <a href="../../../go/current/index.html" class="xref page">Go</a> language binding libraries provide an <code>ExternalReaderRuntime</code> type to facilitate implementing external readers.</p>
+</div>
+<div class="paragraph">
+<p>External readers are configured separately for modules and resources.
+They are registered by mapping their URI scheme to the executable to run and additonal arguments to pass.
+This is done on the command line by passing <code>--external-resource-reader</code> and <code>--external-module-reader</code> flags, which may both be passed multiple times.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl eval &lt;module&gt; --external-resource-reader &lt;scheme&gt;=&lt;executable&gt; --external-module-reader &lt;scheme&gt;='&lt;executable&gt; &lt;argument&gt; &lt;argument&gt;'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>External readers may also be configured in a <a href="#projects">Project&#8217;s</a> <code>PklProject</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">externalResourceReaders</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;&lt;scheme&gt;&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">executable</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&lt;executable&gt;&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">externalModuleReaders</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;&lt;scheme&gt;&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">executable</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&lt;executable&gt;&quot;</span>
+      <span class="hljs-property">arguments</span> <span class="hljs-punctuation">{</span> <span class="hljs-string">&quot;&lt;arg&gt;&quot;</span>; <span class="hljs-string">&quot;&lt;arg&gt;&quot;</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Registering an external reader for a scheme automatically adds that scheme to the default allowed modules/resources.
+As with Pkl&#8217;s built-in module and resource schemes, setting explicit allowed modules or resources overrides this behavior and appropriate patterns must be specified to allow use of external readers.</p>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="anchor" href="#example"></a><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Consider this module:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;pigeon&quot;</span>
+
+<span class="hljs-property">email</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ldap://ds.example.com:389/dc=example,dc=com?mail?sub?(uid=<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">username</span><span class="hljs-char escape_">)</span></span>)&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">text</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pkl doesn&#8217;t implement the <code>ldap:</code> resource URI scheme natively, but an external reader can provide it.
+Assuming a hypothetical <code>pkl-ldap</code> executable implementing the external reader protocol and the <code>ldap:</code> scheme is in the <code>$PATH</code>, this module can be evaluated as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl eval &lt;module&gt; --external-resource-reader ldap=pkl-ldap
+username = "pigeon"
+email = "pigeon@example.com"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the external reader may provide both <code>ldap:</code> and <code>ldaps:</code> schemes.
+To support both schemes during evaluation, both would need to be registered explicitly:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl eval &lt;module&gt; --external-resource-reader ldap=pkl-ldap --external-resource-reader ldaps=pkl-ldap</code></pre>
+</div>
 </div>
 </div>
 </div>

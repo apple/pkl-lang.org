@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.26.3">
+<div class="nav-container" data-component="main" data-version="0.27.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -231,6 +231,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -249,7 +252,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.26.3</span>
+    <span class="version">0.27.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -275,11 +278,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.27.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.27.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.26.3</a>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
         </li>
         <li class="version">
           <a href="../../0.25.3/index.html">0.25.3</a>
@@ -383,14 +389,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.26.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.27.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="codegen.html">0.27.0</a>
     <a class="version" href="../../latest/kotlin-binding/codegen.html">0.27.0-dev</a>
-    <a class="version is-current" href="codegen.html">0.26.3</a>
+    <a class="version" href="../../0.26.3/kotlin-binding/codegen.html">0.26.3</a>
     <a class="version" href="../../0.25.3/kotlin-binding/codegen.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/kotlin-binding/pages/codegen.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.27/docs/modules/kotlin-binding/pages/codegen.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -449,7 +456,7 @@ It requires Java 17 or higher and Kotlin 1.3 or higher.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-codegen-kotlin:0.26.3")
+  implementation("org.pkl-lang:pkl-codegen-kotlin:0.27.0")
 }
 
 repositories {
@@ -463,7 +470,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-codegen-kotlin:0.26.3"
+  implementation "org.pkl-lang:pkl-codegen-kotlin:0.27.0"
 }
 
 repositories {
@@ -486,7 +493,7 @@ repositories {
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
   &lt;artifactId&gt;pkl-codegen-kotlin&lt;/artifactId&gt;
-  &lt;version&gt;0.26.3&lt;/version&gt;
+  &lt;version&gt;0.27.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -658,8 +665,7 @@ Values must be valid dot-separated fully qualified class name prefixes, possibly
 Comma-separated list of URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -671,6 +677,29 @@ Both source modules and transitive modules are subject to this check.</p>
 Comma-separated list of URI patterns that determine which external resources can be read.
 Patterns are matched against the beginning of resource URIs.
 At least one pattern needs to match for a resource to be readable.</p>
+</div>
+</div>
+</details>
+<details id="color">
+<summary class="title">--color</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>auto</code><br>
+When to format messages with ANSI color codes.
+Possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"never"</code>: Never format</p>
+</li>
+<li>
+<p><code>"auto"</code>: Format if <code>stdin</code>, <code>stdout</code>, or <code>stderr</code> are connected to a console.</p>
+</li>
+<li>
+<p><code>"always"</code>: Always format</p>
+</li>
+</ul>
 </div>
 </div>
 </details>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Changelog :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/changelog.html">
+    <link rel="prev" href="0.25.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.26.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.26.3</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.27.0-dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">pkl-lsp</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.18.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Release Notes</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.26.3</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/release-notes/changelog.html">0.27.0</a>
+    <a class="version" href="../../latest/release-notes/changelog.html">0.27.0-dev</a>
+    <a class="version is-current" href="changelog.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/release-notes/changelog.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/release-notes/pages/changelog.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Changelog</h1>
+<div class="sect1">
+<h2 id="release-0.26.3"><a class="anchor" href="#release-0.26.3"></a><a class="link" href="#release-0.26.3">0.26.3 (2024-08-06)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where CLI argument <code>--property foo=""</code> is effectively parsed as <code>--property foo="true"</code>. This is now parsed as an empty string (<a href="https://github.com/apple/pkl/pull/596">#596</a>).</p>
+</li>
+<li>
+<p>Fixes a regression where amending a globbed import or globbed read results in a PklBugException (<a href="https://github.com/apple/pkl/pull/607">#607</a>).</p>
+</li>
+<li>
+<p>Fixes an issue around using <code>file()</code> notation when using the pkl-gradle plugin on Windows (<a href="https://github.com/apple/pkl/pull/611">#611</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes a possible race condition where multiple concurrent Pkl evaluations results in a thrown exception when downloading packages (<a href="https://github.com/apple/pkl/pull/584">#584</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes a regression where native executables fail to run on some environments that don&#8217;t support newer CPU features (<a href="https://github.com/apple/pkl/pull/551">#551</a>).</p>
+</li>
+<li>
+<p>Fixes a <code>PklBugException</code> when passing <code>.</code> as a project directory to <code>pkl project resolve</code> and <code>pkl project package</code> (<a href="https://github.com/apple/pkl/pull/544">#544</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Disable revocation checking of TLS certificates (<a href="https://github.com/apple/pkl/pull/553">#553</a>).</p>
+<div class="paragraph">
+<p>As part of HTTP improvements in 0.26, we unwittingly fixed a bug where Pkl does not actually perform cert revocation checks when making HTTPS requests.
+This fix, unfortunately, caused a regression in some cases.
+For example, this happens when connecting to a server that bears a public trust certificate, while in an environment with no internet access.
+This is because the HTTP client needs to check the revocation status of all certificates in the chain.</p>
+</div>
+<div class="paragraph">
+<p>Revocation checks are a nuanced topic with some benefits, and also with its own problem areas.
+For this reason, revocation checking is disabled for Pkl&#8217;s native CLIs.
+Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the JVM.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.26.0"><a class="anchor" href="#release-0.26.0"></a><a class="link" href="#release-0.26.0">0.26.0 (2024-06-17)</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="0.26.html" class="xref page">Release notes</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes some issues with generated pkldoc websites (<a href="https://github.com/apple/pkl/pull/357">#357</a>, <a href="https://github.com/apple/pkl/pull/362">#362</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where amending a module that defines an abstract class might cause a Java <code>AssertionError</code> (<a href="https://github.com/apple/pkl/pull/319">#319</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where a for/when generator within a lambda declared with <code>new {}</code> syntax might not resolve variables correctly (<a href="https://github.com/apple/pkl/pull/297">#297</a>)</p>
+</li>
+<li>
+<p>Fixes a bug where <code>const</code> and <code>local</code> modifiers are not exported when obtaining a class&#8217;s mirror in <code>pkl:reflect</code> (<a href="https://github.com/apple/pkl/pull/265">#265</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation improvements (<a href="https://github.com/apple/pkl/pull/93">#93</a>, <a href="https://github.com/apple/pkl/pull/106">#106</a>, <a href="https://github.com/apple/pkl/pull/143">#143</a>, <a href="https://github.com/apple/pkl/pull/205">#205</a>, <a href="https://github.com/apple/pkl/pull/214">#214</a>, <a href="https://github.com/apple/pkl/pull/224">#224</a>, <a href="https://github.com/apple/pkl/pull/257">#257</a>, <a href="https://github.com/apple/pkl/pull/270">#270</a>, <a href="https://github.com/apple/pkl/pull/282">#282</a>, <a href="https://github.com/apple/pkl/pull/283">#283</a>, <a href="https://github.com/apple/pkl/pull/299">#299</a>, <a href="https://github.com/apple/pkl/pull/337">#337</a>, <a href="https://github.com/apple/pkl/pull/340">#340</a>)</p>
+</li>
+<li>
+<p>Build script improvements (<a href="https://github.com/apple/pkl/pull/253">#253</a>, <a href="https://github.com/apple/pkl/pull/314">#314</a>, <a href="https://github.com/apple/pkl/pull/333">#333</a>, <a href="https://github.com/apple/pkl/pull/338">#338</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add <code>jpkl</code> to the set of artifacts released to GitHub (<a href="https://github.com/apple/pkl/pull/314">#314</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/r1ft1">@r1ft1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/WardsParadox">@WardsParadox</a></p>
+</li>
+<li>
+<p><a href="https://github.com/grantabbott">@grantabbott</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mshakhmaykin">@mshakhmaykin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/d4wae89d498">@d4wae89d498</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/zihluwang">@zihluwang</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Malix-off">@Malix-off</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes some issues with generated pkldoc websites (<a href="https://github.com/apple/pkl/pull/70">#70</a>,
+<a href="https://github.com/apple/pkl/pull/81">#81</a>, <a href="https://github.com/apple/pkl/pull/96">#96</a>)</p>
+</li>
+<li>
+<p>Fixes an issue where a PklBugException produces an incorrect URL to file issues (<a href="https://github.com/apple/pkl/pull/73">#73</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation fixes (<a href="https://github.com/apple/pkl/pull/21">#21</a>, <a href="https://github.com/apple/pkl/pull/29">#29</a>, <a href="https://github.com/apple/pkl/pull/41">#41</a>, <a href="https://github.com/apple/pkl/pull/44">#44</a>, <a href="https://github.com/apple/pkl/pull/51">#51</a>, <a href="https://github.com/apple/pkl/pull/57">#57</a>, <a href="https://github.com/apple/pkl/pull/60">#60</a>, <a href="https://github.com/apple/pkl/pull/64">#64</a>, <a href="https://github.com/apple/pkl/pull/68">#68</a>, <a href="https://github.com/apple/pkl/pull/74">#74</a>, <a href="https://github.com/apple/pkl/pull/77">#77</a>, <a href="https://github.com/apple/pkl/pull/78">#78</a>, <a href="https://github.com/apple/pkl/pull/82">#82</a>, <a href="https://github.com/apple/pkl/pull/84">#84</a>, <a href="https://github.com/apple/pkl/pull/86">#86</a>, <a href="https://github.com/apple/pkl/pull/89">#89</a>, <a href="https://github.com/apple/pkl/pull/91">#91</a>, <a href="https://github.com/apple/pkl/pull/104">#104</a>)</p>
+</li>
+<li>
+<p>Build script improvements (<a href="https://github.com/apple/pkl/pull/53">#53</a>, <a href="https://github.com/apple/pkl/pull/83">#83</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/uhooi">@uhooi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mnin">@mnin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/TinkoLiu">@TinkoLiu</a></p>
+</li>
+<li>
+<p><a href="https://github.com/shufanhao">@shufanhao</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pfeilbr">@pfeilbr</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KadoBOT">@KadoBOT</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/translatenix">@translatenix</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Edward-Knight">@Edward-Knight</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jamesward">@jamesward</a></p>
+</li>
+<li>
+<p><a href="https://github.com/shubhgng">@shubhgng</a></p>
+</li>
+<li>
+<p><a href="https://github.com/hayashikun">@hayashikun</a></p>
+</li>
+<li>
+<p><a href="https://github.com/lanzafame">@lanzafame</a></p>
+</li>
+<li>
+<p><a href="https://github.com/igmrrf">@igmrrf</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kelvinelove">@kelvinelove</a></p>
+</li>
+<li>
+<p><a href="https://github.com/lilyball">@lilyball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/maiph">@maiph</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where pkl-tools fat jar is empty.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.25.0"><a class="anchor" href="#release-0.25.0"></a><a class="link" href="#release-0.25.0">0.25.0 (2024-02-01)</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="0.25.html" class="xref page">Release notes</a></p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="0.25.html">0.25 Release Notes</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

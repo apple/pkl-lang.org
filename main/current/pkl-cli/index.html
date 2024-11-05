@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.26.3">
+<div class="nav-container" data-component="main" data-version="0.27.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -231,6 +231,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -249,7 +252,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.26.3</span>
+    <span class="version">0.27.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -275,11 +278,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.27.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.27.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.26.3</a>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
         </li>
         <li class="version">
           <a href="../../0.25.3/index.html">0.25.3</a>
@@ -380,14 +386,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.26.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.27.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.27.0</a>
     <a class="version" href="../../latest/pkl-cli/index.html">0.27.0-dev</a>
-    <a class="version is-current" href="index.html">0.26.3</a>
+    <a class="version" href="../../0.26.3/pkl-cli/index.html">0.26.3</a>
     <a class="version" href="../../0.25.3/pkl-cli/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.26/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.27/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -496,7 +503,7 @@ brew upgrade pkl   # or just `brew upgrade`</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-macos-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-macos-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -506,7 +513,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-macos-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-macos-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -516,7 +523,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.3 (macOS, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.27.0 (macOS, native)</code></pre>
 </div>
 </div>
 </div>
@@ -531,7 +538,7 @@ For a statically linked executable, see <a href="#alpine-linux-executable">Alpin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-linux-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-linux-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -541,7 +548,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -551,7 +558,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.3 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.27.0 (Linux, native)</code></pre>
 </div>
 </div>
 </div>
@@ -563,7 +570,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-alpine-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-alpine-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -573,7 +580,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.3 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.27.0 (Linux, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -593,7 +600,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 <h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.26.3/pkl-windows-amd64.exe' -OutFile pkl.exe
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.27.0/pkl-windows-amd64.exe' -OutFile pkl.exe
 .\pkl --version</code></pre>
 </div>
 </div>
@@ -602,7 +609,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.26.3 (Windows 10.0, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.27.0 (Windows 10.0, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -622,7 +629,7 @@ We currently do not support the aarch64 architecture for Windows.
 <h3 id="java-executable"><a class="anchor" href="#java-executable"></a><a class="link" href="#java-executable">Java Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.26.3/pkl-cli-java-0.26.3.jar'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.27.0/pkl-cli-java-0.27.0.jar'
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>
@@ -632,7 +639,7 @@ chmod +x jpkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.26.3 (macOS 14.2, Java 17.0.10)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.27.0 (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -913,6 +920,11 @@ Running the previous command is conceptually the same as if the below module wer
 <div class="paragraph">
 <p>Renderers defined in test files will be ignored by the <code>test</code> command.</p>
 </div>
+<div class="paragraph">
+<p>Tests that result in writing <code>pkl-expected.pcf</code> files are considered failing tests.
+If these are the only failures, the command exits with exit code 10.
+Otherwise, failures result in exit code 1.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">&lt;modules&gt;</dt>
@@ -1134,9 +1146,77 @@ package already exists in the cache directory, this command is a no-op.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="command-analyze-imports"><a class="anchor" href="#command-analyze-imports"></a><a class="link" href="#command-analyze-imports"><code>pkl analyze imports</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl analyze imports [&lt;modules&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>This command builds a graph of imports declared in the provided modules.</p>
+</div>
+<div class="paragraph">
+<p>This is a lower level command that is meant to be useful for Pkl-related tooling.
+For example, this command feeds into the <a href="../pkl-gradle/index.html" class="xref page">Gradle Plugin</a> to determine if tasks are considered up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>This command produces an object with two properties, <code>imports</code> and <code>resolvedImports</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>imports</code> property is a mapping of a module&#8217;s absolute URI, to the set of imports declared within that module.</p>
+</div>
+<div class="paragraph">
+<p>The <code>resolvedImports</code> property is a mapping of a module&#8217;s absolute URI (as stated in <code>imports</code>), to the resolved absolute URI that might be useful for fetching the module&#8217;s contents.
+For example, a <a href="../language-reference/index.html#local-dependencies" class="xref page">local dependency</a> import will have an in-language URI with scheme <code>projectpackage:</code>, and may have resolved URI with scheme <code>file:</code> (assuming that the project is file-based).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Analyze the imports of a single module
+pkl analyze imports myModule.pkl
+
+# Same as the previous command, but output in JSON.
+pkl analyze imports -f json myModule.pkl
+
+# Analyze imports of all modules declared within src/
+pkl analyze imports src/*.pkl</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;modules&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the modules to analyze. Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options-6"><a class="anchor" href="#options-6"></a><a class="link" href="#options-6">Options</a></h4>
+<details>
+<summary class="title">-f, --format</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#format">-f, --format</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-o, --output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#output-path">-o, --output-path</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
-<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, and <a href="#command-download-package"><code>pkl download-package</code></a> commands support the following common options:</p>
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
 </div>
 <details id="allowed-modules">
 <summary class="title">--allowed-modules</summary>
@@ -1146,8 +1226,7 @@ package already exists in the cache directory, this command is a no-op.</p>
 Comma-separated list of URI patterns that determine which modules can be loaded and evaluated.
 Patterns are matched against the beginning of module URIs.
 (File paths have been converted to <code>file:</code> URLs at this stage.)
-At least one pattern needs to match for a module to be loadable.
-Both source modules and transitive modules are subject to this check.</p>
+At least one pattern needs to match for a module to be loadable.</p>
 </div>
 </div>
 </details>
@@ -1159,6 +1238,29 @@ Both source modules and transitive modules are subject to this check.</p>
 Comma-separated list of URI patterns that determine which external resources can be read.
 Patterns are matched against the beginning of resource URIs.
 At least one pattern needs to match for a resource to be readable.</p>
+</div>
+</div>
+</details>
+<details id="color">
+<summary class="title">--color</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>auto</code><br>
+When to format messages with ANSI color codes.
+Possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"never"</code>: Never format</p>
+</li>
+<li>
+<p><code>"auto"</code>: Format if <code>stdin</code>, <code>stdout</code>, or <code>stderr</code> are connected to a console.</p>
+</li>
+<li>
+<p><code>"always"</code>: Always format</p>
+</li>
+</ul>
 </div>
 </div>
 </details>
@@ -1313,7 +1415,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 </div>
 </details>
 <div class="paragraph">
-<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, and <a href="#command-download-package"><code>pkl download-package</code></a> commands also take the following options:</p>
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands also take the following options:</p>
 </div>
 <details id="project-dir">
 <summary class="title">--project-dir</summary>
@@ -1467,7 +1569,7 @@ The separator can be customized using the <code>--module-output-separator</code>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
-Welcome to Pkl 0.26.3.
+Welcome to Pkl 0.27.0.
 Type an expression to have it evaluated.
 Type :help or :examples for more information.
 
@@ -1676,7 +1778,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.26.3/settings/">pkl.settings</a>.</p>
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.27.0/settings/">pkl.settings</a>.</p>
 </div>
 </div>
 </div>
@@ -1684,7 +1786,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <h2 id="ca-certs"><a class="anchor" href="#ca-certs"></a><a class="link" href="#ca-certs">CA Certificates</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.26.3/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
+<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.27.0/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
 These certificates can be overridden via either of the two options:</p>
 </div>
 <div class="ulist">

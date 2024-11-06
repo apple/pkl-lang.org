@@ -314,9 +314,12 @@ They are useful for unit tests, where the behavior of functions, types, or any e
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test math.pkl
-module math (file:///math.pkl, line 1)
-  math ❌
-    1 == 2 ❌ (file:///math.pkl, line 6)</code></pre>
+module test
+  facts
+    ✘ one
+       1 == 2 (file:///math.pkl, line 7)
+
+0.0% tests pass [1/1 failed], 66.7% asserts pass [1/3 failed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -393,8 +396,11 @@ For simplicity&#8217;s sake, we are just declaring it as a local class.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">module person (file:///person.pkl, line 1)
-  person ✍️</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✍️ person
+
+1 examples written</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -430,8 +436,11 @@ The directory tree now looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">module person (file:///person.pkl, line 1)
-  person ✅</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✔ person
+
+100.0% tests pass [1 passed], 100.0% asserts pass [1 passed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -455,21 +464,24 @@ The directory tree now looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">module Person (file:///person.pkl, line 1)
-  person ❌
-    (file:///person.pkl, line 13)
-    Expected: (file:///person.pkl-expected.pcf, line 3)
-    new {
-      firstName = "Johnny"
-      lastName = "Appleseed"
-      fullName = "Johnny Appleseed"
-    }
-    Actual: (file:///person.pkl-actual.pcf, line 3)
-    new {
-      firstName = "Sally"
-      lastName = "Appleseed"
-      fullName = "Sally Appleseed"
-    }</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✘ person
+       #0: (file:///test.pkl, line 13)
+         Expected: (file:///test.pkl-expected.pcf, line 3)
+         new {
+           firstName = "Johnny"
+           lastName = "Appleseed"
+           fullName = "Johnny Appleseed"
+         }
+         Actual: (file:///test.pkl-actual.pcf, line 3)
+         new {
+           firstName = "Sally"
+           lastName = "Appleseed"
+           fullName = "Sally Appleseed"
+         }
+
+0.0% tests pass [1/1 failed], 0.0% asserts pass [1/1 failed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -515,8 +527,11 @@ The directory tree now looks like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test person.pkl --overwrite
-module person (file:///person.pkl, line 1)
-  person ✍️</code></pre>
+module test
+  examples
+    ✍️ person
+
+1 examples written</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -650,10 +665,13 @@ This means that if we add new modules to the <code>examples/</code> directory, t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">pkl test tests/Logger.pkl
-module tests.Logger (file:///tests/Logger.pkl, line 1)
-  networkLogger.yml ✍️
-  rotatingLogger.yml ✍️</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test tests/Logger.pkl
+module tests.Logger
+  examples
+    ✍️ networkLogger.yml
+    ✍️ rotatingLogger.yml
+
+2 examples written</code></pre>
 </div>
 </div>
 </div>
@@ -729,11 +747,12 @@ Power assertions are a form of reporting that displays a diagram that shows part
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">module test
-  math ❌
-    num1 == num2 ❌
-     |   |   |
-     | false |
-     1       2</code></pre>
+  facts
+    ✘ math
+        num1 == num2
+         |   |   |
+         | false |
+         1       2</code></pre>
 </div>
 </div>
 <div class="paragraph">

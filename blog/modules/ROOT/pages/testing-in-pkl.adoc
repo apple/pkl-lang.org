@@ -53,9 +53,12 @@ Running this test provides a report about the failing test.
 [source]
 ----
 $ pkl test math.pkl
-module math (file:///math.pkl, line 1)
-  math ❌
-    1 == 2 ❌ (file:///math.pkl, line 6)
+module test
+  facts
+    ✘ one
+       1 == 2 (file:///math.pkl, line 7)
+
+0.0% tests pass [1/1 failed], 66.7% asserts pass [1/3 failed]
 ----
 
 `facts` in Pkl are most useful for writing fine-grained assertions about specific behavior of your code.
@@ -126,8 +129,11 @@ On the first run, Pkl tells us that the corresponding expected value was written
 
 [source]
 ----
-module person (file:///person.pkl, line 1)
-  person ✍️
+module test
+  examples
+    ✍️ person
+
+1 examples written
 ----
 
 This creates a file called `person.pkl-expected.pcf` in the same directory.
@@ -160,8 +166,11 @@ Running `pkl test person.pkl` again now shows that it passes.
 
 [source]
 ----
-module person (file:///person.pkl, line 1)
-  person ✅
+module test
+  examples
+    ✔ person
+
+100.0% tests pass [1 passed], 100.0% asserts pass [1 passed]
 ----
 
 Now, we'll change "Johnny" to "Sally", to demonstrate a test failure.
@@ -183,22 +192,24 @@ Running `pkl test person.pkl` again fails.
 
 [source]
 ----
-module Person (file:///person.pkl, line 1)
-  person ❌
-    (file:///person.pkl, line 13)
-    Expected: (file:///person.pkl-expected.pcf, line 3)
-    new {
-      firstName = "Johnny"
-      lastName = "Appleseed"
-      fullName = "Johnny Appleseed"
-    }
-    Actual: (file:///person.pkl-actual.pcf, line 3)
-    new {
-      firstName = "Sally"
-      lastName = "Appleseed"
-      fullName = "Sally Appleseed"
-    }
+module test
+  examples
+    ✘ person
+       #0: (file:///test.pkl, line 13)
+         Expected: (file:///test.pkl-expected.pcf, line 3)
+         new {
+           firstName = "Johnny"
+           lastName = "Appleseed"
+           fullName = "Johnny Appleseed"
+         }
+         Actual: (file:///test.pkl-actual.pcf, line 3)
+         new {
+           firstName = "Sally"
+           lastName = "Appleseed"
+           fullName = "Sally Appleseed"
+         }
 
+0.0% tests pass [1/1 failed], 0.0% asserts pass [1/1 failed]
 ----
 
 Because the test failed, Pkl writes a new file to the same directory. The directory tree now looks like this:
@@ -241,8 +252,11 @@ For intentional changes, add the `--overwrite` flag. This will overwrite the exp
 [source]
 ----
 $ pkl test person.pkl --overwrite
-module person (file:///person.pkl, line 1)
-  person ✍️
+module test
+  examples
+    ✍️ person
+
+1 examples written
 ----
 
 ==== Pattern: Testing JSON, YAML and other module output
@@ -357,10 +371,13 @@ Running this test creates expected output:
 
 [source]
 ----
-pkl test tests/Logger.pkl
-module tests.Logger (file:///tests/Logger.pkl, line 1)
-  networkLogger.yml ✍️
-  rotatingLogger.yml ✍️
+$ pkl test tests/Logger.pkl
+module tests.Logger
+  examples
+    ✍️ networkLogger.yml
+    ✍️ rotatingLogger.yml
+
+2 examples written
 ----
 
 == Reporting
@@ -415,11 +432,12 @@ A power-assertion report might look like:
 [source]
 ----
 module test
-  math ❌
-    num1 == num2 ❌
-     |   |   |
-     | false |
-     1       2
+  facts
+    ✘ math
+        num1 == num2
+         |   |   |
+         | false |
+         1       2
 ----
 
 This feature improves the developer experience when testing <<facts,facts>>.

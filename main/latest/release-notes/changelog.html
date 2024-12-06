@@ -417,6 +417,58 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-0.27.1"><a class="anchor" href="#release-0.27.1"></a><a class="link" href="#release-0.27.1">0.27.1 (2024-12-06)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes a broken "number literals" link in the 0.27 release notes (<a href="https://github.com/apple/pkl/pull/784">#784</a>).</p>
+</li>
+<li>
+<p>Fixes a possible deadlock during external reader process close (<a href="https://github.com/apple/pkl/pull/786">#786</a>).</p>
+</li>
+<li>
+<p>Fixes counting elements with computed indices multiple times in length computation of listings (<a href="https://github.com/apple/pkl/pull/797">#797</a>).</p>
+</li>
+<li>
+<p>Fixes non Pkl modules being reported in GatherImports task, leading to plugin failures (<a href="https://github.com/apple/pkl/pull/821">#821</a>).</p>
+</li>
+<li>
+<p>Fixes a problem where the delegate chain of type casts for Listing/Mapping get unreasonably big, even though the type nodes are the same, which may lead to a stack overflow or performance degradation (<a href="https://github.com/apple/pkl/pull/826">#826</a>).</p>
+</li>
+<li>
+<p>Fixes incorrect scoping of type variables in lazy Listing/Mapping type checking in cross-module typealiases (<a href="https://github.com/apple/pkl/pull/789">#789</a>).</p>
+</li>
+<li>
+<p>Fixes regression in type checking logic for Listing/Mapping (<a href="https://github.com/apple/pkl/pull/789">#789</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/GUI">@GUI</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/odenix">@odenix</a> (formerly @translatenix)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.27.0"><a class="anchor" href="#release-0.27.0"></a><a class="link" href="#release-0.27.0">0.27.0 (2024-11-05)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -428,7 +480,7 @@
 <h2 id="release-0.26.3"><a class="anchor" href="#release-0.26.3"></a><a class="link" href="#release-0.26.3">0.26.3 (2024-08-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -449,7 +501,7 @@
 <h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -464,7 +516,7 @@
 <h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -511,7 +563,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -553,7 +605,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -592,7 +644,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -619,7 +671,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -685,7 +737,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

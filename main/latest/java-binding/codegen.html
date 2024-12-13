@@ -604,7 +604,7 @@ Flag that indicates to generate private final fields and public getter methods i
 <div class="content">
 <div class="paragraph">
 <p>Default: (flag not set)<br>
-Flag that indicates to generate Javadoc based on doc comments for Pkl modules, classes, and properties.</p>
+Flag that indicates to preserve Pkl doc comments by generating corresponding Javadoc comments.</p>
 </div>
 </div>
 </details>
@@ -612,8 +612,12 @@ Flag that indicates to generate Javadoc based on doc comments for Pkl modules, c
 <summary class="title">--params-annotation</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>org.pkl.config.java.mapper.Named</code><br>
-Fully qualified name of the annotation to use on constructor parameters.</p>
+<p>Default: <code>none</code> if <code>--generate-spring-boot</code> is set, <code>org.pkl.config.java.mapper.Named</code> otherwise<br>
+Fully qualified name of the annotation type to use for annotating constructor parameters with their name.<br>
+The specified annotation type must have a <code>value</code> parameter of type <code>String</code> or the generated code may not compile.
+If set to <code>none</code>, constructor parameters are not annotated.
+Whether and how constructor parameters should be annotated depends on the library that instantiates the generated classes.
+For Spring Boot applications, and for users of <code>pkl-config-java</code> compiling the generated classes with <code>-parameters</code>, no annotation is required.</p>
 </div>
 </div>
 </details>
@@ -622,9 +626,9 @@ Fully qualified name of the annotation to use on constructor parameters.</p>
 <div class="content">
 <div class="paragraph">
 <p>Default: <code>org.pkl.config.java.mapper.NonNull</code><br>
-Fully qualified named of the annotation class to use for non-null types.<br>
-This annotation is required to have <code>java.lang.annotation.ElementType.TYPE_USE</code> as a <code>@Target</code>
-or it may generate code that does not compile.</p>
+Fully qualified name of the annotation type to use for annotating non-null types.<br>
+The specified annotation type must be annotated with <code>@java.lang.annotation.Target(ElementType.TYPE_USE)</code>
+or the generated code may not compile.</p>
 </div>
 </div>
 </details>
@@ -666,7 +670,7 @@ Flag that indicates to generate config classes for use with Spring Boot.</p>
 <div class="content">
 <div class="paragraph">
 <p>Default: (not set)<br>
-Whether to make generated classes implement <code>java.io.Serializable</code>.</p>
+Flag that indicates to generate classes that implement <code>java.io.Serializable</code>.</p>
 </div>
 </div>
 </details>

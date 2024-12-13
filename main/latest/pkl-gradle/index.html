@@ -1395,13 +1395,28 @@ Whether to generate private final fields and public getter methods rather than p
 </div>
 </details>
 <details>
-<summary class="title">preferJavaxInjectAnnotation: Boolean</summary>
+<summary class="title">paramsAnnotation: Property&lt;String&gt;</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>false</code><br>
-Example: <code>preferJavaxInjectAnnotation = true</code><br>
-Whether to annotate constructor parameters with <code>@javax.inject.Named</code> instead of <code>@org.pkl.config.java.mapper.Named</code>.
-If <code>true</code>, the generated code will have a compile dependency on <code>javax.inject:javax.inject:1</code>.</p>
+<p>Default: <code>null</code> if <code>generateSpringBootConfig</code> is <code>true</code>, <code>"org.pkl.config.java.mapper.Named"</code> otherwise+
+Example: <code>paramsAnnotation = "org.project.MyAnnotation"</code><br>
+Fully qualified name of the annotation type to use for annotating constructor parameters with their name.<br>
+The specified annotation type must have a <code>value</code> parameter of type <code>String</code> or the generated code may not compile.
+If set to <code>null</code>, constructor parameters are not annotated.
+Whether and how constructor parameters should be annotated depends on the library that instantiates the generated classes.
+For Spring Boot applications, and for users of <code>pkl-config-java</code> compiling the generated classes with <code>-parameters</code>, no annotation is required.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">nonNullAnnotation: Property&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>"org.pkl.config.java.mapper.NonNull"</code><br>
+Example: <code>nonNullAnnotation = "org.project.MyAnnotation"</code><br>
+Fully qualified name of the annotation type to use for annotating non-null types.<br>
+The specified annotation type must be annotated with <code>@java.lang.annotation.Target(ElementType.TYPE_USE)</code>
+or the generated code may not compile.</p>
 </div>
 </div>
 </details>
@@ -1454,6 +1469,16 @@ The Gradle source set that generated code is compiled together with.</p>
 <p>Default: <code>false</code><br>
 Example: <code>generateSpringBootConfig = true</code><br>
 Whether to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">implementSerializable: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>implementSerializable = true</code><br>
+Whether to generate classes that implement <code>java.io.Serializable</code>.</p>
 </div>
 </div>
 </details>
@@ -1834,9 +1859,20 @@ see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-kotlin"
 </div>
 <div class="sect2">
 <h3 id="configuration-options-3"><a class="anchor" href="#configuration-options-3"></a><a class="link" href="#configuration-options-3">Configuration Options</a></h3>
-<div class="paragraph">
-<p>(None)</p>
+
 </div>
+<div class="sect2">
+<h3 id="configuration-options-4"><a class="anchor" href="#configuration-options-4"></a><a class="link" href="#configuration-options-4">Configuration Options</a></h3>
+<details>
+<summary class="title">generateKdoc: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>generateKdoc = true</code><br>
+Whether to preserve Pkl doc comments by generating corresponding KDoc comments.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>Common code generation properties:</p>
 </div>
@@ -1886,6 +1922,16 @@ The Gradle source set that generated code is compiled together with.</p>
 <p>Default: <code>false</code><br>
 Example: <code>generateSpringBootConfig = true</code><br>
 Whether to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">implementSerializable: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>implementSerializable = true</code><br>
+Whether to generate classes that implement <code>java.io.Serializable</code>.</p>
 </div>
 </div>
 </details>
@@ -2263,7 +2309,7 @@ see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/pkldoc">pkldoc<
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-4"><a class="anchor" href="#configuration-options-4"></a><a class="link" href="#configuration-options-4">Configuration Options</a></h3>
+<h3 id="configuration-options-5"><a class="anchor" href="#configuration-options-5"></a><a class="link" href="#configuration-options-5">Configuration Options</a></h3>
 <div class="paragraph">
 <p>The following properties can be configured inside a Pkldoc generator&#8217;s configuration block:</p>
 </div>
@@ -2604,7 +2650,7 @@ Hence, the above packager can be run with:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-5"><a class="anchor" href="#configuration-options-5"></a><a class="link" href="#configuration-options-5">Configuration Options</a></h3>
+<h3 id="configuration-options-6"><a class="anchor" href="#configuration-options-6"></a><a class="link" href="#configuration-options-6">Configuration Options</a></h3>
 <details>
 <summary class="title">projectDirectories: ConfigurableFileCollection</summary>
 <div class="content">
@@ -2879,7 +2925,7 @@ Hence, the above resolver can be run with:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-6"><a class="anchor" href="#configuration-options-6"></a><a class="link" href="#configuration-options-6">Configuration Options</a></h3>
+<h3 id="configuration-options-7"><a class="anchor" href="#configuration-options-7"></a><a class="link" href="#configuration-options-7">Configuration Options</a></h3>
 <details>
 <summary class="title">projectDirectories: ConfigurableFileCollection</summary>
 <div class="content">
@@ -3085,7 +3131,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-7"><a class="anchor" href="#configuration-options-7"></a><a class="link" href="#configuration-options-7">Configuration Options</a></h3>
+<h3 id="configuration-options-8"><a class="anchor" href="#configuration-options-8"></a><a class="link" href="#configuration-options-8">Configuration Options</a></h3>
 <details>
 <summary class="title">outputFormat: Property&lt;String&gt;</summary>
 <div class="content">

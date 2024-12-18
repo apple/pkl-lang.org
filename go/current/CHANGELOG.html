@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Changelog :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/go/current/CHANGELOG.html">
-    <link rel="prev" href="codegen.html">
+    <link rel="prev" href="external-readers.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="go" data-version="0.8.0">
+<div class="nav-container" data-component="go" data-version="0.9.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -105,6 +105,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="codegen.html">Code Generation</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-readers.html">External Readers</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="CHANGELOG.html">Changelog</a>
   </li>
@@ -116,7 +119,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Go Bindings</span>
-    <span class="version">0.8.0</span>
+    <span class="version">0.9.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -174,7 +177,10 @@
       <div class="title"><a href="index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.8.0</a>
+          <a href="index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.8.0/index.html">0.8.0</a>
         </li>
         <li class="version">
           <a href="../0.7.0/index.html">0.7.0</a>
@@ -253,15 +259,16 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.9.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.8.0</a>
+    <a class="version is-current" href="CHANGELOG.html">0.9.0</a>
+    <a class="version" href="../0.8.0/CHANGELOG.html">0.8.0</a>
     <a class="version" href="../0.7.0/CHANGELOG.html">0.7.0</a>
     <a class="version" href="../0.6.0/CHANGELOG.html">0.6.0</a>
     <a class="version" href="../0.5.3/CHANGELOG.html">0.5.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.8/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.9/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -270,14 +277,17 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.8.1"><a class="anchor" href="#release-0.8.1"></a><a class="link" href="#release-0.8.1">0.8.1 (2024-10-10)</a></h2>
+<h2 id="release-0.9.0"><a class="anchor" href="#release-0.9.0"></a><a class="link" href="#release-0.9.0">0.9.0 (2024-12-18)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fix an issue where <code>EvaluatorOptions.Http.Proxy.NoProxy</code> is being ignored (<a href="https://github.com/apple/pkl-go/pull/106">#106</a>).</p>
+<p>Add new struct fields to match added standard library properties in Pkl 0.27 (<a href="https://github.com/apple/pkl-go/pull/101">#101</a>, <a href="https://github.com/apple/pkl-go/pull/119">#119</a>).</p>
+</li>
+<li>
+<p>Add a new API called <code>ExternalReaderClient</code>, which provides a way to write an external module or resource reader (<a href="https://github.com/apple/pkl-go/pull/101">#101</a>).</p>
 </li>
 </ul>
 </div>
@@ -287,13 +297,64 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Documentation improvements (<a href="https://github.com/apple/pkl-go/pull/94">#94</a>, <a href="https://github.com/apple/pkl-go/pull/105">#105</a>).</p>
+<p>Codebase improvements (<a href="https://github.com/apple/pkl-go/pull/110">#110</a>, <a href="https://github.com/apple/pkl-go/pull/112">#112</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a memory leak where <code>NewProjectEvaluatorWithCommand</code> creates an ephemeral evaluator but does not close it (<a href="https://github.com/apple/pkl-go/pull/112">#112</a>).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kasugamirai">@kasugamirai</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.8.1"><a class="anchor" href="#release-0.8.1"></a><a class="link" href="#release-0.8.1">0.8.1 (2024-10-10)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix an issue where <code>EvaluatorOptions.Http.Proxy.NoProxy</code> is being ignored (<a href="https://github.com/apple/pkl-go/pull/106">#106</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation improvements (<a href="https://github.com/apple/pkl-go/pull/94">#94</a>, <a href="https://github.com/apple/pkl-go/pull/105">#105</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -317,7 +378,7 @@
 <h2 id="release-0.8.0"><a class="anchor" href="#release-0.8.0"></a><a class="link" href="#release-0.8.0">0.8.0 (2024-07-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -327,7 +388,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -340,7 +401,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -369,7 +430,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -390,7 +451,7 @@
 <h2 id="release-0.7.0"><a class="anchor" href="#release-0.7.0"></a><a class="link" href="#release-0.7.0">0.7.0 (2024-06-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
+<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -410,7 +471,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -435,7 +496,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
+<h3 id="miscellaneous-4"><a class="anchor" href="#miscellaneous-4"></a><a class="link" href="#miscellaneous-4">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -461,7 +522,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -491,7 +552,7 @@
 <h2 id="release-0.6.0"><a class="anchor" href="#release-0.6.0"></a><a class="link" href="#release-0.6.0">0.6.0 (2024-03-11)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
+<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -531,7 +592,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -552,7 +613,7 @@
 <h2 id="release-0.5.3"><a class="anchor" href="#release-0.5.3"></a><a class="link" href="#release-0.5.3">0.5.3 (2024-02-09)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -567,7 +628,7 @@
 <h2 id="release-0.5.2"><a class="anchor" href="#release-0.5.2"></a><a class="link" href="#release-0.5.2">0.5.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -605,7 +666,7 @@
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="codegen.html">Code Generation</a></span>
+  <span class="prev"><a href="external-readers.html">External Readers</a></span>
 </nav>
 </article>
   </div>

@@ -521,7 +521,7 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
 <span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-modules` flag</span>
 <span class="hljs-property">allowedModules</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
 
-<span class="hljs-comment">/// Regex patterns to dettermine which resources are allowed to be read.</span>
+<span class="hljs-comment">/// Regex patterns to determine which resources are allowed to be read.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-resources` flag</span>
 <span class="hljs-property">allowedResources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
@@ -576,7 +576,7 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-comment">/// The URI scheme this reader is responsible for reading.</span>
   <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
-  <span class="hljs-comment">/// Tells whether the path part of ths URI has a</span>
+  <span class="hljs-comment">/// Tells whether the path part of this URI has a</span>
   <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
@@ -594,7 +594,7 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-comment">/// The URI scheme this reader is responsible for reading.</span>
   <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
-  <span class="hljs-comment">/// Tells whether the path part of ths URI has a</span>
+  <span class="hljs-comment">/// Tells whether the path part of this URI has a</span>
   <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
@@ -904,7 +904,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-comment">/// The contents of the resource.</span>
 <span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-<span class="hljs-comment">/// The description of the error that occured when reading this resource.</span>
+<span class="hljs-comment">/// The description of the error that occurred when reading this resource.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
 
 <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
@@ -967,7 +967,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-comment">/// The string contents of the module.</span>
 <span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
 
-<span class="hljs-comment">/// The description of the error that occured when reading this resource.</span>
+<span class="hljs-comment">/// The description of the error that occurred when reading this resource.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
 </div>
 </div>
@@ -1023,7 +1023,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-comment">/// The elements at the provided base path.</span>
 <span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
 
-<span class="hljs-comment">/// The description of the error that occured when listing elements.</span>
+<span class="hljs-comment">/// The description of the error that occurred when listing elements.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">PathElement</span> <span class="hljs-punctuation">{</span>
@@ -1087,7 +1087,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-comment">/// The elements at the provided base path.</span>
 <span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
 
-<span class="hljs-comment">/// The description of the error that occured when listing elements.</span>
+<span class="hljs-comment">/// The description of the error that occurred when listing elements.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">PathElement</span> <span class="hljs-punctuation">{</span>

@@ -12,9 +12,12 @@ Releases of the website are triggered by commits to the main branch.
 
 === Install dependencies
 
+The Pkl HTML highlighter is written in Rust.
+For now, this project's build configuration requires `cargo` to be installed on the local system.
+
 [source,shell]
 ----
-$ ./gradlew downloadPklHtmlHighlighter npmInstall
+$ ./gradlew pklHtmlHighlighter npmInstall
 ----
 
 === Build Docs of Local Projects

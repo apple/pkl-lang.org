@@ -35,19 +35,19 @@
 (function () {
   'use strict'
 
-  var navbarBurger = document.querySelector('.navbar-burger')
+  const navbarBurger = document.querySelector('.navbar-burger');
   if (!navbarBurger) return
   navbarBurger.addEventListener('click', toggleNavbarMenu.bind(navbarBurger))
 
   function toggleNavbarMenu (e) {
     e.stopPropagation() // trap event
     document.classList.toggle('is-clipped--navbar')
-    navbarBurger.setAttribute('aria-expanded', document.classList.contains('is-clipped--navbar'))
-    var menu = document.getElementById("topbar-nav")
+    navbarBurger.setAttribute('aria-expanded', document.classList.contains('is-clipped--navbar').toString())
+    const menu = document.getElementById("topbar-nav");
     if (menu.classList.toggle('is-active')) {
       menu.style.maxHeight = ''
-      var expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top)
-      var actualMaxHeight = parseInt(window.getComputedStyle(menu).maxHeight, 10)
+      const expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top);
+      const actualMaxHeight = parseInt(window.getComputedStyle(menu).maxHeight, 10);
       if (actualMaxHeight !== expectedMaxHeight) menu.style.maxHeight = expectedMaxHeight + 'px'
     }
   }

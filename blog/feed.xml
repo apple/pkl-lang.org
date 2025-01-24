@@ -1,0 +1,2291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://pkl-lang.org/blog/index.html</id>
+    <title>Pkl Blog</title>
+    <updated>2024-10-15T00:00:00.000Z</updated>
+    <generator>Pkl Blog</generator>
+    <link rel="alternate" href="https://pkl-lang.org/blog/index.html"/>
+    <subtitle>Blog site from the maintainers of the Pkl configuration language</subtitle>
+    <icon>https://pkl-lang.org/_/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Class-as-a-Function Pattern]]></title>
+        <id>class-as-a-function</id>
+        <link href="https:/pkl-lang.org/blog/class-as-a-function.html"/>
+        <updated>2024-08-13T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/HT154">Josh Basch</a> on August 13th, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>In many languages, function and method parameters may be assigned default values allowing the argument to be omitted in calls.
+Many languages also offer named parameters, which aid in API self-documentation.
+Pkl <a href="../main/current/language-reference/index.html#methods" class="xref page">methods</a> do not provide either feature, but one way to achieve similar results is the "class-as-a-function" (CaaF) pattern.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage"><a class="anchor" href="#usage"></a><a class="link" href="#usage">Usage</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the class-as-a-function pattern, a class is created that accepts "input" properties and has one or more <code>fixed</code> "output" properties.</p>
+</div>
+<div class="paragraph">
+<p>Input properties are normal class properties. They are named, may have a type annotation, and may be defined with default values. Default values can be static values or may be derived from other properties.</p>
+</div>
+<div class="paragraph">
+<p>Output properties derive their value from the input properties. They are typically marked as <a href="../main/current/language-reference/index.html#fixed-properties" class="xref page"><code>fixed</code></a> so they may not be overridden when amending instances of the class.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example"><a class="anchor" href="#example"></a><a class="link" href="#example">Example</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The name that should be greeted.</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+  <span class="hljs-comment">/// The phrase used to greet [name].</span>
+  <span class="hljs-property">greeting</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+  <span class="hljs-comment">/// The derived greeting.</span>
+  fixed <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">greeting</span><span class="hljs-char escape_">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+
+<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span>; <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Good day&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A required input property.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>An optional input property with a default value.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>An output property, calculated from the input properties.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>result: <code>"Hello, Pigeon!"</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>result: <code>"Good day, Hawk!"</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tips"><a class="anchor" href="#tips"></a><a class="link" href="#tips">Tips</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Despite the name, the pattern can also be applied using a module.</p>
+</li>
+<li>
+<p>The CaaF pattern is especially compelling in cases where multiple outputs will be derived from the same set of inputs.
+Instead of defining multiple methods that accept the same parameters, a single class may be defined with multiple output properties.</p>
+</li>
+<li>
+<p>In some cases, it may make sense to use CaaF in conjunction with <a href="https://pkl-lang.org/package-docs/pkl/current/base/PcfRenderer#converters">output converters</a>. This allows the "un-called" function instance to be used in place of the result data and enables amending the arguments to the function while still producing the desired output type and value, eg.:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">GreetingFunction</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;こんばんは、鳩さん&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">GreetingFunction</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">farewellHawk</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">greetHawk</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bye&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-title class_">GreetingFunction</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A fully custom greeting not using <code>GreetingFunction</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>result: <code>"Hi, Hawk!"</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>result: <code>"Bye, Hawk!"</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Configuring a converter for <code>GreetingFunction</code> causes instances to be "evaluated" in the rendered output.</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="multi-directional-functions"><a class="anchor" href="#multi-directional-functions"></a><a class="link" href="#multi-directional-functions">Multi-directional Functions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl&#8217;s system of property default values and late binding enables using class-as-a-function to concisely express inverse and even circular relationships between properties.
+This allows the same property to be both input and output, depending on how the function type is used.</p>
+</div>
+<div class="paragraph">
+<p>Using this technique entails declaring properties with default values derived from the other properties of the type in a cyclic fashion.
+Ordinarily, a circular data reference of this kind would result in a stack overflow error, but instantiating the type with the appropriate input(s) overridden with concrete values breaks the circular reference.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">fahrenheit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">*</span> <span class="hljs-number">9</span> <span class="hljs-operator">/</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">32</span>
+  <span class="hljs-property">celsius</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">-</span> <span class="hljs-number">273.15</span>
+  <span class="hljs-property">kelvin</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">fahrenheit</span> <span class="hljs-operator">-</span> <span class="hljs-number">32</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span> <span class="hljs-operator">*</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">273.15</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">fToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span>
+<span class="hljs-property">fToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
+<span class="hljs-property">kToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
+<span class="hljs-property">kToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
+<span class="hljs-property">cToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
+<span class="hljs-property">cToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="building-abstractions"><a class="anchor" href="#building-abstractions"></a><a class="link" href="#building-abstractions">Building Abstractions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The class-as-a-function pattern can be used to build abstraction layers that provide simple APIs resulting in more complex configurations.
+This is sometimes called "embedding" a class.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://kubernetes.io">Kubernetes</a> is an example of a system that requires a lot of configuration to use.
+Often, deploying applications in Kubernetes requires repeating very similar configurations with only names and a few values changed.
+Here is an example of a CaaF module that uses class embedding to build a simple but extensible abstraction for basic web services:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">SimpleApplication</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/apps/v1/Deployment.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/core/v1/Service.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/Ingress.pkl&quot;</span>
+
+<span class="hljs-comment">// input properties:</span>
+<span class="hljs-comment">/// Web application name</span>
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// Container image tag</span>
+<span class="hljs-property">image</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// Application Pod replica count</span>
+<span class="hljs-property">replicas</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int32</span><span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+
+<span class="hljs-comment">/// HTTP listen port</span>
+<span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span> <span class="hljs-operator">=</span> <span class="hljs-number">8080</span>
+
+<span class="hljs-comment">/// URL Path to use for liveness checking</span>
+<span class="hljs-property">livenessPath</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/livez&quot;</span>
+
+<span class="hljs-comment">/// URL Path to use for readiness checking</span>
+<span class="hljs-property">readinessPath</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/readyz&quot;</span>
+
+<span class="hljs-comment">// output properties:</span>
+<span class="hljs-keyword">local</span> <span class="hljs-property">app</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">this</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-comment">/// Kubernetes labels used for all output resources and selectors</span>
+<span class="hljs-property">labels</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  [<span class="hljs-string">&quot;app.kubernetes.io/name&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-property">name</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// Kuberetes [Deployment] that manages the application Pods.</span>
+<span class="hljs-property">deployment</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Deployment</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">replicas</span>
+    <span class="hljs-property">template</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+      <span class="hljs-punctuation">}</span>
+      <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">containers</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
+            <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">image</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">livenessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+              <span class="hljs-property">livenessProbe</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">livenessPath</span>
+                <span class="hljs-punctuation">}</span>
+              <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">}</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">readinessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+              <span class="hljs-property">readinessProbe</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">readinessPath</span>
+                <span class="hljs-punctuation">}</span>
+              <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">}</span>
+          <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// Kubernetes [Service] that provides a cluster-internal VIP for the application.</span>
+<span class="hljs-property">service</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Service</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">selector</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">ports</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http&quot;</span>
+        <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.</span>
+<span class="hljs-property">ingress</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ingress</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">defaultBackend</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">service</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">?.</span><span class="hljs-property">metadata</span><span class="hljs-punctuation">?.</span><span class="hljs-property">name</span>!!
+        <span class="hljs-property">port</span>  <span class="hljs-punctuation">{</span>
+          <span class="hljs-property">number</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">.</span><span class="hljs-property">spec</span><span class="hljs-punctuation">?.</span><span class="hljs-property">ports</span>!![<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// All Kubernetes resources needed to deploy the application.</span>
+<span class="hljs-property">resources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="hljs-property">deployment</span>
+  <span class="hljs-property">service</span>
+  <span class="hljs-property">ingress</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This "captures" the <code>SimpleApplication</code> instance so its properties can be unambiguously referred to.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>labels</code> property is an "intermediary" property that serves as a customization point, it is calculated from inputs by default but is not itself an output.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The <code>deployment</code>, <code>service</code>, and <code>ingress</code> properties are the module&#8217;s primary output properties.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>For convenience, the <code>resources</code> property combines all of the above outputs into a single <code>Listing</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Notably, this example does not mark its output properties as <code>fixed</code>, which enables easy customization of these properties beyond what the module configures by default.
+Here are a few examples of using the <code>SimpleApplication</code> module:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;SimpleApplication.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/K8sResource.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.1.0#/api/networking/v1/NetworkPolicy.pkl&quot;</span>
+
+<span class="hljs-comment">/// The most basic [SimpleApplication] usage.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// The application image is expected to listen on port 8080 and provide `/livez` and `/readyz` paths</span>
+<span class="hljs-property">app1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app1&quot;</span>
+  <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app1:latest&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+
+<span class="hljs-comment">/// Usage of [SimpleApplication] with additional input properties overridden.</span>
+<span class="hljs-property">app2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app2&quot;</span>
+  <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app2:latest&quot;</span>
+  <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
+  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">9090</span>
+  <span class="hljs-property">livenessPath</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>
+  <span class="hljs-property">readinessPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/healthz&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+
+<span class="hljs-comment">/// Advanced [SimpleApplication] usage where output properties are amended.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]&#39;s simple API.</span>
+<span class="hljs-comment">/// It also amends [resources] to add an additional resource required specifically by this application.</span>
+<span class="hljs-property">app3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app3&quot;</span>
+  <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app3:latest&quot;</span>
+  <span class="hljs-property">labels</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>-staging&quot;</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">deployment</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">template</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-property">securityContext</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-property">runAsNonRoot</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+          <span class="hljs-punctuation">}</span>
+          <span class="hljs-property">initContainers</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+              <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;my-init-container&quot;</span>
+              <span class="hljs-comment">// ...</span>
+            <span class="hljs-punctuation">}</span>
+          <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">resources</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">NetworkPolicy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// ...</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span></code></pre>
+</div>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Josh Basch</name>
+            <uri>https://github.com/HT154</uri>
+        </author>
+        <published>2024-08-13T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introducing Pkl, a programming language for configuration]]></title>
+        <id>introducing-pkl</id>
+        <link href="https:/pkl-lang.org/blog/introducing-pkl.html"/>
+        <updated>2024-02-01T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by the Pkl Team on February 1st, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>We are delighted to announce the open source first release of Pkl (pronounced <em>Pickle</em>), a programming language for producing configuration.</p>
+</div>
+<div class="paragraph">
+<p>When thinking about configuration, it is common to think of static languages like JSON, YAML, or Property Lists.
+While these languages have their own merits, they tend to fall short when configuration grows in complexity.
+For example, their lack of expressivity means that code often gets repeated.
+Additionally, it can be easy to make configuration errors, because these formats do not provide any validation of their own.</p>
+</div>
+<div class="paragraph">
+<p>To address these shortcomings, sometimes formats get enhanced by ancillary tools that add special logic.
+For example, perhaps there’s a need to make code more <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"><abbr title="Don't Repeat Yourself">DRY</abbr></a>, so a special property is introduced that understands how to resolve references, and merge objects together.
+Alternatively, there’s a need to guard against validation errors, so some new way is created to validate a configuration value against an expected type.
+Before long, these formats almost become programming languages, but ones that are hard to understand and hard to write.</p>
+</div>
+<div class="paragraph">
+<p>On the other end of the spectrum, a general-purpose language might be used instead.
+Languages like Kotlin, Ruby, or JavaScript become the basis for <a href="https://en.wikipedia.org/wiki/Domain-specific_language"><abbr title="Domain-specific language">DSL</abbr></a>s that generate configuration data.
+While these languages are tremendously powerful, they can be awkward to use for describing configuration, because they are not oriented around defining and validating data.
+Additionally, these DSLs tend to be tied to their own ecosystems.
+It is a hard sell to use a Kotlin DSL as the configuration layer for an application written in Go.</p>
+</div>
+<div class="paragraph">
+<p>We created Pkl because we think that configuration is best expressed as a blend between a static language and a general-purpose programming language.
+We want to take the best of both worlds; to provide a language that is declarative and simple to read and write, but enhanced with capabilities borrowed from general-purpose languages.
+When writing Pkl, you are able to use the language features you&#8217;d expect, like classes, functions, conditionals, and loops.
+You can build abstraction layers, and share code by creating packages and publishing them.
+Most importantly, you can use Pkl to meet many different types of configuration needs.
+It can be used to produce static configuration files in any format, or be embedded as a library into another application runtime.</p>
+</div>
+<div class="paragraph">
+<p>We designed Pkl with three overarching goals:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To provide safety by catching validation errors before deployment.</p>
+</li>
+<li>
+<p>To scale from simple to complex use-cases.</p>
+</li>
+<li>
+<p>To be a joy to write, with our best-in-class IDE integrations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a-quick-tour-of-pkl"><a class="anchor" href="#a-quick-tour-of-pkl"></a><a class="link" href="#a-quick-tour-of-pkl">A Quick Tour of Pkl</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We created Pkl to have a familiar syntax to developers, and to be easy to learn. That is why we’ve included features like classes, functions, loops, and type annotations.</p>
+</div>
+<div class="paragraph">
+<p>For example, here is a Pkl file (module) that defines a configuration schema for an imaginary web application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This file defines types, and not data. This is a common pattern in Pkl, and we call this a <em>template</em>.
+</td>
+</tr>
+</table>
+</div>
+<div id="application-pkl" class="listingblock">
+<div class="title">Application.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Application</span>
+
+<span class="hljs-comment">/// The hostname that this server responds to.</span>
+<span class="hljs-property">hostname</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// The port to listen on.</span>
+<span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span>
+
+<span class="hljs-comment">/// The environment to deploy to.</span>
+<span class="hljs-property">environment</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Environment</span>
+
+<span class="hljs-comment">/// The database connection for this application</span>
+<span class="hljs-property">database</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Database</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Database</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The username for this database.</span>
+  <span class="hljs-property">username</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// The password for this database.</span>
+  <span class="hljs-property">password</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// The remote host for this database.</span>
+  <span class="hljs-property">host</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// The remote port for this database.</span>
+  <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span>
+
+  <span class="hljs-comment">/// The name of the database.</span>
+  <span class="hljs-property">dbName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Environment</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;dev&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;qa&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;prod&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And here is how configuration data might be defined:</p>
+</div>
+<div class="listingblock">
+<div class="title">localhost.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;Application.pkl&quot;</span>
+
+<span class="hljs-property">hostname</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;localhost&quot;</span>
+
+<span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">3599</span>
+
+<span class="hljs-property">environment</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;dev&quot;</span>
+
+<span class="hljs-property">database</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">host</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;localhost&quot;</span>
+  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">5786</span>
+  <span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;admin&quot;</span>
+  <span class="hljs-property">password</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:DATABASE_PASSWORD&quot;</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">dbName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myapp&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Built-in <a href="../main/current/language-reference/index.html#resources" class="xref page">read expression</a> for reading external resources.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It is easy to create variations of the same base data by <a href="../main/current/language-reference/index.html#amending-objects" class="xref page">amending</a>.
+For example, let&#8217;s imagine that we want to run four databases locally, as sidecars.
+This uses a <a href="../main/current/language-reference/index.html#for-generators" class="xref page">for generator</a> to produce four variations, each of which amends the base <code>db</code> and specifies a different port.</p>
+</div>
+<div class="listingblock">
+<div class="title">sidecars.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;Application.pkl&quot;</span>
+
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">db</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Application</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Database</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">host</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;localhost&quot;</span>
+  <span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;admin&quot;</span>
+  <span class="hljs-property">password</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:DATABASE_PASSWORD&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-property">dbName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myapp&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">sidecars</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">offset</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-property">db</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> <span class="hljs-property">offset</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pkl programs can be easily rendered to common formats.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-yaml" class="tab">
+<p>YAML</p>
+</li>
+<li id="tabs-1-json" class="tab">
+<p>JSON</p>
+</li>
+<li id="tabs-1-xml" class="tab">
+<p>XML</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-yaml--panel" class="tabpanel" aria-labelledby="tabs-1-yaml">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format yaml sidecars.pkl</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">sidecars:
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6000
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6001
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6002
+  dbName: myapp
+- username: admin
+  password: hunter2
+  host: localhost
+  port: 6003
+  dbName: myapp</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-json--panel" class="tabpanel" aria-labelledby="tabs-1-json">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format json sidecars.pkl</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "sidecars": [
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6000,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6001,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6002,
+      "dbName": "myapp"
+    },
+    {
+      "username": "admin",
+      "password": "hunter2",
+      "host": "localhost",
+      "port": 6003,
+      "dbName": "myapp"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-xml--panel" class="tabpanel" aria-labelledby="tabs-1-xml">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ export DATABASE_PASSWORD=hunter2
+$ pkl eval --format xml sidecars.pkl</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;sidecars&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6000&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6001&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6002&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+    &lt;Database&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;hunter2&lt;/password&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;6003&lt;/port&gt;
+      &lt;dbName&gt;myapp&lt;/dbName&gt;
+    &lt;/Database&gt;
+  &lt;/sidecars&gt;
+&lt;/root&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="built-in-validation"><a class="anchor" href="#built-in-validation"></a><a class="link" href="#built-in-validation">Built-in Validation</a></h3>
+<div class="paragraph">
+<p>Configuration is about data. And data needs to be valid.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl, validation is achieved using type annotations.
+And, type annotations can optionally have constraints defined on them.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example, that defines the following constraints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>age</code> must be between 0 and 130.</p>
+</li>
+<li>
+<p><code>name</code> to not be empty.</p>
+</li>
+<li>
+<p><code>zipCode</code> must be a string with five digits.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Person.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Person</span>
+
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isEmpty</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">130</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A failing constraint causes an evaluation error.</p>
+</div>
+<div class="listingblock">
+<div class="title">alessandra.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;Person.pkl&quot;</span>
+
+<span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Alessandra&quot;</span>
+
+<span class="hljs-property">age</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">5</span>
+
+<span class="hljs-property">zipCode</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;90210&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Evaluating this module fails:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl eval alessandra.pkl
+–– Pkl Error ––
+Type constraint `isBetween(0, 130)` violated.
+Value: -5
+
+5 | age: Int(isBetween(0, 130))
+             ^^^^^^^^^^^^^^^^^
+at Person#age (file:///Person.pkl)
+
+5 | age = -5
+          ^^
+at alessandra#age (file:///alessandra.pkl)
+
+106 | text = renderer.renderDocument(value)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+at pkl.base#Module.output.text (https://github.com/apple/pkl/blob/0.25.0/stdlib/base.pkl#L106)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Constraints are arbitrary expressions.
+This allows you to author types that can express any type of check that can be expressed in Pkl.
+Here is a sample type that must be a string with an odd length, and whose first letter matches the last letter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">length</span><span class="hljs-punctuation">.</span><span class="hljs-property">isOdd</span><span class="hljs-punctuation">,</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">first</span> <span class="hljs-operator">==</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">last</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sharing-packages"><a class="anchor" href="#sharing-packages"></a><a class="link" href="#sharing-packages">Sharing Packages</a></h3>
+<div class="paragraph">
+<p>Pkl provides the ability to publish <em>packages</em>, and to import them as dependencies in a project.
+This provides an easy way to share Pkl code that can be used in other projects.</p>
+</div>
+<div class="paragraph">
+<p>It is easy to create your own package and publish them as GitHub releases, or to upload them anywhere you wish.</p>
+</div>
+<div class="paragraph">
+<p>Packages can be imported via the absolute URI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-{pkl hljs" data-lang="{pkl">import "package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0#/toml.pkl"
+
+output {
+  renderer = new toml.Renderer {}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, they can be managed as dependencies of a <a href="../main/current/language-reference/index.html#projects" class="xref page">project</a>.
+Using a project allows Pkl to resolve version conflicts between different versions of the same dependency within a dependency graph.
+It also means that you can import packages by a simpler name.</p>
+</div>
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">dependencies</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/pkl.toml@1.0.0&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">myconfig.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@toml/toml.pkl&quot;</span>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-property">toml</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A set of packages are maintained by us, the Pkl team. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/apple/pkl-pantry" target="_blank" rel="noopener">pkl-pantry</a>&#8201;&#8212;&#8201;a monorepo that publishes many different packages.</p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-k8s" target="_blank" rel="noopener">pkl-k8s</a>&#8201;&#8212;&#8201;templates for defining Kubernetes descriptors.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="language-bindings"><a class="anchor" href="#language-bindings"></a><a class="link" href="#language-bindings">Language Bindings</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl can produce configuration as textual output, and it can also be embedded as a library into other languages via our language bindings.</p>
+</div>
+<div class="paragraph">
+<p>When binding to a language, Pkl schema can be generated as classes/structs in the target language.
+For example, the <a href="#application-pkl">Application.pkl</a> example from above can be generated into Swift, Go, Java, and Kotlin.
+Pkl even includes documentation comments in the target language.</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-swift" class="tab">
+<p>Swift</p>
+</li>
+<li id="tabs-2-go" class="tab">
+<p>Go</p>
+</li>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-swift--panel" class="tabpanel" aria-labelledby="tabs-2-swift">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-swift hljs" data-lang="swift">import PklSwift
+
+public enum Application {}
+
+extension Application {
+    public enum Environment: String, CaseIterable, Decodable, Hashable {
+        case dev = "dev"
+        case qa = "qa"
+        case prod = "prod"
+    }
+
+    public struct Module: PklRegisteredType, Decodable, Hashable {
+        public static var registeredIdentifier: String = "Application"
+
+        /// The hostname that this server responds to.
+        public var hostname: String
+
+        /// The port to listen on.
+        public var port: UInt16
+
+        /// The environment to deploy to.
+        public var environment: Environment
+
+        /// The database connection for this application
+        public var database: Database
+
+        public init(hostname: String, port: UInt16, environment: Environment, database: Database) {
+            self.hostname = hostname
+            self.port = port
+            self.environment = environment
+            self.database = database
+        }
+    }
+
+    public struct Database: PklRegisteredType, Decodable, Hashable {
+        public static var registeredIdentifier: String = "Application#Database"
+
+        /// The username for this database.
+        public var username: String
+
+        /// The password for this database.
+        public var password: String
+
+        /// The remote host for this database.
+        public var host: String
+
+        /// The remote port for this database.
+        public var port: UInt16
+
+        /// The name of the database.
+        public var dbName: String
+
+        public init(username: String, password: String, host: String, port: UInt16, dbName: String) {
+            self.username = username
+            self.password = password
+            self.host = host
+            self.port = port
+            self.dbName = dbName
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-go--panel" class="tabpanel" aria-labelledby="tabs-2-go">
+<div class="listingblock">
+<div class="title">Application.pkl.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package application
+
+type Application struct {
+	// The hostname that this server responds to.
+	Hostname string `pkl:"hostname"`
+
+	// The port to listen on.
+	Port uint16 `pkl:"port"`
+
+	// The environment to deploy to.
+	Environment environment.Environment `pkl:"environment"`
+
+	// The database connection for this application
+	Database *Database `pkl:"database"`
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Database.pkl.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">// Code generated from Pkl module `Application`. DO NOT EDIT.
+package application
+
+type Database struct {
+	// The username for this database.
+	Username string `pkl:"username"`
+
+	// The password for this database.
+	Password string `pkl:"password"`
+
+	// The remote host for this database.
+	Host string `pkl:"host"`
+
+	// The remote port for this database.
+	Port uint16 `pkl:"port"`
+
+	// The name of the database.
+	DbName string `pkl:"dbName"`
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">environment/Environment.pkl.go</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">// Code generated from Pkl module `Application`. DO NOT EDIT.
+package Environment
+
+import (
+	"encoding"
+	"fmt"
+)
+
+type Environment string
+
+const (
+	Dev  Environment = "dev"
+	Qa   Environment = "qa"
+	Prod Environment = "prod"
+)
+
+// String returns the string representation of Environment
+func (rcv Environment) String() string {
+	return string(rcv)
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.util.Objects;
+import org.pkl.config.java.mapper.Named;
+import org.pkl.config.java.mapper.NonNull;
+
+public final class Application {
+  /**
+   * The hostname that this server responds to.
+   */
+  public final @NonNull String hostname;
+
+  /**
+   * The port to listen on.
+   */
+  public final int port;
+
+  /**
+   * The environment to deploy to.
+   */
+  public final @NonNull Environment environment;
+
+  /**
+   * The database connection for this application
+   */
+  public final @NonNull Database database;
+
+  public Application(@Named("hostname") @NonNull String hostname, @Named("port") int port,
+      @Named("environment") @NonNull Environment environment,
+      @Named("database") @NonNull Database database) {
+    this.hostname = hostname;
+    this.port = port;
+    this.environment = environment;
+    this.database = database;
+  }
+
+  public static final class Database {
+    /**
+     * The username for this database.
+     */
+    public final @NonNull String username;
+
+    /**
+     * The password for this database.
+     */
+    public final @NonNull String password;
+
+    /**
+     * The remote host for this database.
+     */
+    public final @NonNull String host;
+
+    /**
+     * The remote port for this database.
+     */
+    public final int port;
+
+    /**
+     * The name of the database.
+     */
+    public final @NonNull String dbName;
+
+    public Database(@Named("username") @NonNull String username,
+        @Named("password") @NonNull String password, @Named("host") @NonNull String host,
+        @Named("port") long port, @Named("dbName") @NonNull String dbName) {
+      this.username = username;
+      this.password = password;
+      this.host = host;
+      this.port = port;
+      this.dbName = dbName;
+    }
+  }
+
+  public enum Environment {
+    DEV("dev"),
+
+    QA("qa"),
+
+    PROD("prod");
+
+    private String value;
+
+    private Environment(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import kotlin.Int
+import kotlin.Long
+import kotlin.String
+
+data class Application(
+  /**
+   * The hostname that this server responds to.
+   */
+  val hostname: String,
+  /**
+   * The port to listen on.
+   */
+  val port: Int,
+  /**
+   * The environment to deploy to.
+   */
+  val environment: Environment,
+  /**
+   * The database connection for this application
+   */
+  val database: Database
+) {
+  data class Database(
+    /**
+     * The username for this database.
+     */
+    val username: String,
+    /**
+     * The password for this database.
+     */
+    val password: String,
+    /**
+     * The remote host for this database.
+     */
+    val host: String,
+    /**
+     * The remote port for this database.
+     */
+    val port: Int,
+    /**
+     * The name of the database.
+     */
+    val dbName: String
+  )
+
+  enum class Environment(
+    val value: String
+  ) {
+    DEV("dev"),
+
+    QA("qa"),
+
+    PROD("prod");
+
+    override fun toString() = value
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Using code generation is just one of the many ways to embed Pkl within an application.
+Our language bindings also provide evaluator APIs to control Pkl evaluation at a low level, and users are free to interact with Pkl at the abstraction level that makes the most sense for their application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editor-support"><a class="anchor" href="#editor-support"></a><a class="link" href="#editor-support">Editor Support</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We believe that a programming language is only as good as the experience of writing it.
+That is why we aim to provide best-in-class editor support.
+When writing Pkl in an editor, users are guided through the process of filling in configuration data from a given template.
+Additionally, the editors provide instant feedback if any values are invalid, and documentation is immediately available when called upon.</p>
+</div>
+<div class="paragraph">
+<p>We are also releasing our <a href="../intellij/current/index.html" class="xref page">IntelliJ plugin</a>, which provides rich support for JetBrains editors, including IntelliJ, Webstorm, GoLand, and PyCharm. These plugins are able to analyze a Pkl program and provide features like autocompletion, go-to-definition, and refactoring support.</p>
+</div>
+<div class="paragraph">
+<p>Here are some of the features that are available:</p>
+</div>
+<div id="tabs-3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-autocompletion" class="tab">
+<p>Autocompletion</p>
+</li>
+<li id="tabs-3-navigation" class="tab">
+<p>Navigation</p>
+</li>
+<li id="tabs-3-validation" class="tab">
+<p>Validation</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-autocompletion--panel" class="tabpanel" aria-labelledby="tabs-3-autocompletion">
+<div class="imageblock">
+<div class="content">
+<img src="_images/introducing-pkl/intellij-autocomplete.gif" alt="Autocomplete in IntelliJ">
+</div>
+</div>
+</div>
+<div id="tabs-3-navigation--panel" class="tabpanel" aria-labelledby="tabs-3-navigation">
+<div class="imageblock">
+<div class="content">
+<img src="_images/introducing-pkl/intellij-navigation.gif" alt="Navigation in IntelliJ">
+</div>
+</div>
+</div>
+<div id="tabs-3-validation--panel" class="tabpanel" aria-labelledby="tabs-3-validation">
+<div class="imageblock">
+<div class="content">
+<img src="_images/introducing-pkl/intellij-validation.gif" alt="Validation in IntelliJ">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, we are also planning on supporting the <a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a>, which will provide a similar level of integration in other editors.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As of 2024/10/10, The <a href="#lsp:index.adoc" class="xref unresolved">Pkl Language Server</a> has been released.
+This enables rich editor support for our <a href="#vscode:index.adoc" class="xref unresolved">VS Code</a> and <a href="#neovim:index.adoc" class="xref unresolved">Neovim</a> plugins.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="next-steps"><a class="anchor" href="#next-steps"></a><a class="link" href="#next-steps">Next Steps</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We hope you like what we’ve shown you so far.
+For a more in-depth guide, take a look at our <a href="../main/current/language-tutorial/index.html" class="xref page">tutorial</a>.
+To learn more about the language itself, read through our <a href="../main/current/language-reference/index.html" class="xref page">language reference</a>.
+To connect with us, feel free to submit a topic on <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a>.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, feel free to browse our sample repositories to get an idea for what it’s like to use Pkl:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/apple/pkl-go-examples" class="bare">https://github.com/apple/pkl-go-examples</a></p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-jvm-examples" class="bare">https://github.com/apple/pkl-jvm-examples</a></p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-k8s-examples" class="bare">https://github.com/apple/pkl-k8s-examples</a></p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-swift-examples" class="bare">https://github.com/apple/pkl-swift-examples</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To try out Pkl locally, try downloading our CLI by following our <a href="../main/current/pkl-cli/index.html#installation" class="xref page">installation guide</a>.
+Additionally, try installing one of our various <a href="../main/current/tools.html" class="xref page">editor plugins</a> to get a glimpse of what it’s like to write Pkl yourself.</p>
+</div>
+<div class="paragraph">
+<p>We’re so excited to share Pkl with you, and we are just getting started.
+We are looking forward to seeing what you might do with it!</p>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>The Pkl Team</name>
+        </author>
+        <published>2024-02-01T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pkl Evolution]]></title>
+        <id>pkl-evolution</id>
+        <link href="https:/pkl-lang.org/blog/pkl-evolution.html"/>
+        <updated>2024-04-29T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/bioball">Dan Chao</a> on April 29th, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>Today, we launch <a href="https://github.com/apple/pkl-evolution">Pkl Evolution</a>, a new repository that holds Suggested Pkl Improvements, Changes, or Enhancements (SPICEs) for Pkl&#8217;s language, tooling, and ecosystem.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the Pkl Evolution repository is to provide visibility to the community how design decisions are made in Pkl.
+Additionally, it is a place for the Pkl maintainers to get feedback as in-flight proposals are being considered.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="process-for-spices"><a class="anchor" href="#process-for-spices"></a><a class="link" href="#process-for-spices">Process for SPICEs</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The process for a SPICE is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The SPICE is authored, and submitted as a pull request.<br>
+When authoring a SPICE, determine your SPICE number by adding one to the latest SPICE (inclusive of open pull requests).</p>
+</li>
+<li>
+<p>The contents of the SPICE are discussed and reviewed in the pull request.<br>
+It is then either accepted or rejected.</p>
+</li>
+<li>
+<p>The status of the SPICE is updated, and the pull request is merged. Both accepted and rejected SPICEs get merged into the main branch.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The acceptance of a SPICE does not need to block any implementation work.
+On the contrary, it can be quite useful to have an implementation ready to go during the process of review.</p>
+</div>
+<div class="paragraph">
+<p>The acceptance of a SPICE depends on consensus from the Pkl maintainers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributing-to-pkl-evolution"><a class="anchor" href="#contributing-to-pkl-evolution"></a><a class="link" href="#contributing-to-pkl-evolution">Contributing to Pkl Evolution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two main ways you can participate and contribute to Pkl Evolution.</p>
+</div>
+<div class="paragraph">
+<p>The first way is to participate in the pull request discussion for a SPICE.
+Your thoughts and opinions are valuable to us, and can help shape the direction of the language.</p>
+</div>
+<div class="paragraph">
+<p>The second way is to author SPICEs of your own.
+If you would like to contribute your own SPICE, we recommend you first the idea to <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a> to solicit feedback.
+This can help shape the direction of the SPICE before too much work goes in.
+It can also potentially filter out ideas that are non-starters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="status-of-pkl-evolution"><a class="anchor" href="#status-of-pkl-evolution"></a><a class="link" href="#status-of-pkl-evolution">Status of Pkl Evolution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some of you might recognize how similar this is to <a href="https://github.com/apple/swift-evolution">Swift Evolution</a>.
+If you&#8217;ve noticed that, you&#8217;re totally right!
+We borrowed much of this from the Swift folks.</p>
+</div>
+<div class="paragraph">
+<p>Compared to Swift Evolution, we are choosing to keep our process relatively light-weight.
+There is no review manager, and no designated review period.
+This is an intentional choice on our part, and we expect that our own process will evolve over time.</p>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Dan Chao</name>
+            <uri>https://github.com/bioball</uri>
+        </author>
+        <published>2024-04-29T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing in Pkl]]></title>
+        <id>testing-in-pkl</id>
+        <link href="https:/pkl-lang.org/blog/testing-in-pkl.html"/>
+        <updated>2024-04-09T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/bioball">Dan Chao</a> on April 9th, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>Pkl files are programs that get evaluated to produce a result.
+Like any other program, it can be useful to have tests that verify their business logic.
+To address this, Pkl provides tooling for writing and running tests.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="writing-tests"><a class="anchor" href="#writing-tests"></a><a class="link" href="#writing-tests">Writing Tests</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tests in Pkl are modules that amend standard library module <a href="https://pkl-lang.org/package-docs/pkl/current/test/index.html">pkl.test</a>.</p>
+</div>
+<div class="paragraph">
+<p>These modules can describe <a href="#facts"><code>facts</code></a>, and <a href="#examples"><code>examples</code></a>.</p>
+</div>
+<div class="sect2">
+<h3 id="facts"><a class="anchor" href="#facts"></a><a class="link" href="#facts">Facts</a></h3>
+<div class="paragraph">
+<p>Facts are boolean assertions.
+They are useful for unit tests, where the behavior of functions, types, or any expression can be tested.</p>
+</div>
+<div class="paragraph">
+<p>If an expression evaluates to <code>false</code>, the test case is considered failing.</p>
+</div>
+<div class="paragraph">
+<p>Below is a naïve test about the qualities of the integer <code>1</code>, where the last expression fails.</p>
+</div>
+<div class="listingblock">
+<div class="title">math.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;one&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-number">1</span><span class="hljs-punctuation">.</span><span class="hljs-property">isOdd</span>
+    <span class="hljs-number">1</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-number">1</span> <span class="hljs-operator">==</span> <span class="hljs-number">2</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running this test provides a report about the failing test.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test math.pkl
+module test
+  facts
+    ✘ one
+       1 == 2 (file:///math.pkl, line 7)
+
+0.0% tests pass [1/1 failed], 66.7% asserts pass [1/3 failed]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>facts</code> in Pkl are most useful for writing fine-grained assertions about specific behavior of your code.</p>
+</div>
+<div class="paragraph">
+<p>The tests for module <code>pkl.experimental.uri</code> are a good example of <code>facts</code> in practice. There are multiple facts, where each fact contains multiple assertions which cover different cases of business logic:</p>
+</div>
+<div class="listingblock">
+<div class="title"><a href="https://github.com/apple/pkl-pantry/blob/d63f6d9e8ee139c928500a698ec5fd0538ee7367/packages/pkl.experimental.uri/tests/URI.pkl#L27-L36">URI.pkl#L27-L36</a></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;encode&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/some path&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;https://example.com/some%20path&quot;</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">alphaLower</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">alphaLower</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">alphaUpper</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">alphaUpper</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">nums</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">nums</span>
+
+    <span class="hljs-keyword">local</span> <span class="hljs-property">safeChars</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;!#$&amp;&#39;()*+,-./:;=?@_~&quot;</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">safeChars</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">safeChars</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\u{ffff}</span>&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;%EF%BF%BF&quot;</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;🏀&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;%F0%9F%8F%80&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation"></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples"><a class="anchor" href="#examples"></a><a class="link" href="#examples">Examples</a></h3>
+<div class="paragraph">
+<p>Examples are values that get compared to <em>expected</em> values.
+When first testing an example, its value gets written to a sibling file that ends in <code>pkl-expected.pcf</code>.
+The next time the test is run, the example value is then asserted to be equal to that expected value.
+If they are not equal, the test fails.</p>
+</div>
+<div class="paragraph">
+<p>Here is a quick tutorial for writing an example.
+First, we create a test module with our example.
+In this case, we are checking the behavior of an imagined <code>Person</code> class.
+For simplicity&#8217;s sake, we are just declaring it as a local class.</p>
+</div>
+<div class="listingblock">
+<div class="title">person.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">firstName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-property">lastName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-property">fullName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">firstName</span><span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">lastName</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;person&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">firstName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Johnny&quot;</span>
+      <span class="hljs-property">lastName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Appleseed&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This test then gets run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl test person.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the first run, Pkl tells us that the corresponding expected value was written.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✍️ person
+
+1 examples written</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This creates a file called <code>person.pkl-expected.pcf</code> in the same directory.
+The directory tree now looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+├── person.pkl
+└── person.pkl-expected.pcf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can inspect the contents of the <code>pkl-expected.pcf</code> to see what the expected value is.</p>
+</div>
+<div class="listingblock">
+<div class="title">person.pkl-expected.pcf</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;person&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">firstName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Johnny&quot;</span>
+      <span class="hljs-property">lastName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Appleseed&quot;</span>
+      <span class="hljs-property">fullName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Johnny Appleseed&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running <code>pkl test person.pkl</code> again now shows that it passes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✔ person
+
+100.0% tests pass [1 passed], 100.0% asserts pass [1 passed]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we&#8217;ll change "Johnny" to "Sally", to demonstrate a test failure.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff"> examples {
+   ["person"] {
+     new Person {
+-      firstName = "Johnny"
++      firstName = "Sally"
+       lastName = "Appleseed"
+     }
+   }
+ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running <code>pkl test person.pkl</code> again fails.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  examples
+    ✘ person
+       #0: (file:///test.pkl, line 13)
+         Expected: (file:///test.pkl-expected.pcf, line 3)
+         new {
+           firstName = "Johnny"
+           lastName = "Appleseed"
+           fullName = "Johnny Appleseed"
+         }
+         Actual: (file:///test.pkl-actual.pcf, line 3)
+         new {
+           firstName = "Sally"
+           lastName = "Appleseed"
+           fullName = "Sally Appleseed"
+         }
+
+0.0% tests pass [1/1 failed], 0.0% asserts pass [1/1 failed]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because the test failed, Pkl writes a new file to the same directory. The directory tree now looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+├── person.pkl
+├── person.pkl-actual.pcf
+└── person.pkl-expected.pcf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It can be especially useful to use <code>diff</code> to compare the <code>pkl-actual.pcf</code> file with the <code>pkl-expected.pcf</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">diff -c person.pkl-actual.pcf person.pkl-expected.pcf</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">--- person.pkl-actual.pcf    2024-03-28 15:33:15
++++ person.pkl-expected.pcf  2024-03-28 15:15:00
+@@ -1,9 +1,9 @@
+ examples {
+   ["person"] {
+     new {
+-      firstName = "Sally"
++      firstName = "Johnny"
+       lastName = "Appleseed"
+-      fullName = "Sally Appleseed"
++      fullName = "Johnny Appleseed"
+     }
+   }
+ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For intentional changes, add the <code>--overwrite</code> flag. This will overwrite the expected output file, and also remove the <code>pkl-actual.pcf</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test person.pkl --overwrite
+module test
+  examples
+    ✍️ person
+
+1 examples written</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pattern-testing-json-yaml-and-other-module-output"><a class="anchor" href="#pattern-testing-json-yaml-and-other-module-output"></a><a class="link" href="#pattern-testing-json-yaml-and-other-module-output">Pattern: Testing JSON, YAML and other module output</a></h4>
+<div class="paragraph">
+<p>A common pattern is to use <code>examples</code> to test how Pkl renders into static configuration.</p>
+</div>
+<div class="paragraph">
+<p>Pkl is idiomatically split between <em>schema</em> and <em>data</em>.
+Base Pkl modules define schema and rendering logic (colloquially called templates), and downstream modules amend those base modules with just data.</p>
+</div>
+<div class="paragraph">
+<p>Here is an imagined Pkl template for configuring a logger.
+It defines some converters for <code>DataSize</code> and <code>Duration</code>, and also sets the output renderer to YAML.</p>
+</div>
+<div class="listingblock">
+<div class="title">Logger.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Logger</span>
+
+<span class="hljs-comment">/// The list of targets to send log output to.</span>
+<span class="hljs-property">targets</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">LogTarget</span><span class="hljs-punctuation">&gt;</span>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LogTarget</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The logging level to write at.</span>
+  <span class="hljs-property">logLevel</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;info&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;warn&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;error&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">RotatingFileTarget</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">LogTarget</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The max file size</span>
+  <span class="hljs-property">maxSize</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// The directory to write log lines to.</span>
+  <span class="hljs-property">directory</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">NetworkLogTarget</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">LogTarget</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The network URL to send log lines to.</span>
+  <span class="hljs-property">connectionString</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span>
+
+  <span class="hljs-comment">/// The timeout before the connection gets killed.</span>
+  <span class="hljs-property">timeout</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span><span class="hljs-operator">?</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">unit</span><span class="hljs-char escape_">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">value</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+      [<span class="hljs-title class_">Duration</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">isoString</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After having written this template, we&#8217;d like to test to see what our YAML output actually looks like.
+We&#8217;d also like to provide some sample code for our users, that demonstrate how to use our template.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we&#8217;ll first create some examples modules, in an <code>examples/</code> directory.</p>
+</div>
+<div class="listingblock">
+<div class="title">examples/rotatingLogger.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;../Logger.pkl&quot;</span>
+
+<span class="hljs-property">targets</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">RotatingFileTarget</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">maxSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span>
+    <span class="hljs-property">directory</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/vat/etc/log&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">examples/networkLogger.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;../Logger.pkl&quot;</span>
+
+<span class="hljs-property">targets</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">NetworkLogTarget</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-property">s</span>
+    <span class="hljs-property">connectionString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/foo/bar&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this set up, we can now use them as test examples.</p>
+</div>
+<div class="listingblock">
+<div class="title">tests/Logger.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-property">tests</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Logger</span>
+
+<span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-keyword">import*</span> <span class="hljs-string">&quot;../examples/*.pkl&quot;</span> <span class="hljs-keyword">as</span> <span class="hljs-property">allExamples</span>
+
+<span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">key</span> <span class="hljs-keyword">in</span> <span class="hljs-property">allExamples</span><span class="hljs-punctuation">.</span><span class="hljs-property">keys</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    [<span class="hljs-property">key</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">drop</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;../examples/&quot;</span><span class="hljs-punctuation">.</span><span class="hljs-property">length</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">replaceLast</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;pkl&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;yml&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+      <span class="hljs-property">allExamples</span>[<span class="hljs-property">key</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-property">output</span><span class="hljs-punctuation">.</span><span class="hljs-property">text</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Iterates over the keys only as a workaround for a current bug where <a href="https://github.com/apple/pkl/issues/398">for-generators are eager in values</a>. This ensures that any errors related to loading the module are captured as related to that specific example.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Sets the test name to <code>&lt;filename&gt;.yml</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>These tests are defined as evaluating each module&#8217;s <code>output.text</code> property.
+This emulates the behavior of the Pkl CLI when it evaluates a module through <code>pkl eval</code>.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the tests uses a <a href="../main/current/language-reference/index.html#globbed-imports" class="xref page">glob import</a> to bulk-import these example modules.
+This means that if we add new modules to the <code>examples/</code> directory, they are automatically added as a new test.</p>
+</div>
+<div class="paragraph">
+<p>Running this test creates expected output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test tests/Logger.pkl
+module tests.Logger
+  examples
+    ✍️ networkLogger.yml
+    ✍️ rotatingLogger.yml
+
+2 examples written</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reporting"><a class="anchor" href="#reporting"></a><a class="link" href="#reporting">Reporting</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, Pkl writes a simple test report to console.
+Optionally, it can also produce JUnit-style reports by setting the <code>--junit-reports</code> flag.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl test --junit-reports .out</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interaction-with-pklproject"><a class="anchor" href="#interaction-with-pklproject"></a><a class="link" href="#interaction-with-pklproject">Interaction with <code>pkl:Project</code></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Pkl, a <a href="../main/current/language-reference/index.html#projects" class="xref page">project</a> is a directory of Pkl modules that is tied together with the presence of a PklProject file.</p>
+</div>
+<div class="paragraph">
+<p>There are many reasons for wanting to define a project.
+One reason is to simplify the <code>pkl test</code> command.
+If <code>pkl test</code> is run without any input source modules, it will run all tests defined in the <code>PklProject</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">tests</span> <span class="hljs-punctuation">{</span>
+  ...<span class="hljs-built_in">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;tests/**.pkl&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">keys</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="a-note-on-apitests"><a class="anchor" href="#a-note-on-apitests"></a><a class="link" href="#a-note-on-apitests">A note on <code>apiTests</code></a></h3>
+<div class="paragraph">
+<p>When <a href="../main/current/language-reference/index.html#creating-a-package" class="xref page">creating a package</a>, it is also possible to specify <code>apiTests</code>.
+These are tests for the <em>external API</em> of this package.
+The intention of this is to allow checking for breaking changes when updating a version.
+When publishing a new version of the same package, running <code>apiTests</code> of a previous package can inform whether the package&#8217;s major version needs to be bumped or not.</p>
+</div>
+<div class="paragraph">
+<p>The <code>apiTests</code> are also run when the package is created via <code>pkl project package</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="future-improvements-power-assertions"><a class="anchor" href="#future-improvements-power-assertions"></a><a class="link" href="#future-improvements-power-assertions">Future improvements: power assertions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Testing in Pkl is already tremendously useful.
+With that said, there is still room improvements.</p>
+</div>
+<div class="paragraph">
+<p>One feature that we would like to implement is power assert style reporting.
+Power assertions are a form of reporting that displays a diagram that shows parts of the syntax tree, and their resolved values.</p>
+</div>
+<div class="paragraph">
+<p>A power-assertion report might look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">module test
+  facts
+    ✘ math
+        num1 == num2
+         |   |   |
+         | false |
+         1       2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This feature improves the developer experience when testing <a href="#facts">facts</a>.
+Currently, only the expression is printed, as well as a report that the test failed.</p>
+</div>
+<div class="paragraph">
+<p>In lieu of this feature, <a href="https://pkl-lang.org/main/current/language-reference/index.html#debugging"><code>trace()</code></a> expressions can be used to add more debugging output.</p>
+</div>
+<div class="paragraph">
+<p>Frameworks that provide power assertions include <a href="https://github.com/spockframework/spock">Spock</a>, <a href="https://github.com/power-assert-js/power-assert">power-assert-js</a>, and <a href="https://github.com/kishikawakatsumi/swift-power-assert">swift-power-assert</a>.</p>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Dan Chao</name>
+            <uri>https://github.com/bioball</uri>
+        </author>
+        <published>2024-04-09T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Taking types to the next level]]></title>
+        <id>using-types</id>
+        <link href="https:/pkl-lang.org/blog/using-types.html"/>
+        <updated>2024-10-15T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/stackoverflow">Islon Scherer</a> on October 15th, 2024</p>
+</div>
+</div>
+<div class="paragraph">
+<p>One of the main points of using Pkl is to describe what your configuration looks like.
+An often overlooked design goal (arguably, the most important), is to
+<strong>forbid</strong> invalid configurations. Pkl types allow a great degree of freedom
+and power in constraining what your data looks like.</p>
+</div>
+<div class="paragraph">
+<p>Some developers, especially those coming from more general purpose languages like
+Swift, Go, or Java, may have a pre-defined notion of how types can help them.
+So let&#8217;s have a look at how Pkl can go beyond most traditional types.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="beyond-strings"><a class="anchor" href="#beyond-strings"></a><a class="link" href="#beyond-strings">Beyond Strings</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>String</code> is a type we tend to see everywhere. This is especially true in configuration
+languages, where a <code>String</code> can be used as a "joker" type for many different values.</p>
+</div>
+<div class="sect2">
+<h3 id="enumerating-possibilities"><a class="anchor" href="#enumerating-possibilities"></a><a class="link" href="#enumerating-possibilities">Enumerating possibilities</a></h3>
+<div class="paragraph">
+<p>A typical usage of Strings is to define a finite set of values that your property can take:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The environment where this service is running.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// Valid possibilities are &quot;dev&quot;, &quot;qa&quot; and &quot;prod&quot;.</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This works, but has the problem that users of your template can provide invalid data, like <code>"foo"</code>.
+So let&#8217;s do better:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The environment where this service is running.</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dev&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;qa&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;prod&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now <code>env</code> will reject any invalid possibility. If you&#8217;re using an IDE, like the
+<a href="https://github.com/apple/pkl-intellij">IntelliJ plugin</a>, this has the added benefits
+of providing autocomplete and telling you when a given value is invalid.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl, strings are not only values; they can also be types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="matching-values"><a class="anchor" href="#matching-values"></a><a class="link" href="#matching-values">Matching values</a></h3>
+<div class="paragraph">
+<p>Another typical use for strings is to allow values that have a specific <strong>shape</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The IPv4 to connect</span>
+<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Again, we can do better to validate that the given ip is correct:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The IPv4 to connect</span>
+<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Strings can be constrained to match specific regular expressions.
+The new <code>serverIp</code> will only allow values of a specific shape, greatly reducing the possibility
+of invalid configs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="more-string-goodies"><a class="anchor" href="#more-string-goodies"></a><a class="link" href="#more-string-goodies">More String goodies</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isBlank</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">email</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">contains</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;@&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">swiftFile</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">endsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;.swift&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">contentType</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text/plain&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;text/html&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;application/json&quot;</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>name</code> cannot be empty or a blank String.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>email</code> must contain a <code>@</code> symbol.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>A Swift file must have the correct extension.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Declaring some common possibilities before the generic type
+is a useful pattern that results in better tooling support in IDEs.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are plenty of ways to make our types more fine-grained than just <code>String</code>,
+but strings are not the only types we can refine in Pkl.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="constraining-numbers"><a class="anchor" href="#constraining-numbers"></a><a class="link" href="#constraining-numbers">Constraining numbers</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl comes with some useful typealiases for numbers like <code>Int16</code>, <code>UInt8</code>, etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">serverPort</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Will only allow values between 0 and 65535, inclusive.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Builtin typealiases are not the only way to handle such cases, though.
+Numbers can be constrained to any value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">volume</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">11.0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">multiplier</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEven</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>volume</code> can only be in the range between 0 and 11.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>multiplier</code> cannot be odd.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="beyond-builtins"><a class="anchor" href="#beyond-builtins"></a><a class="link" href="#beyond-builtins">Beyond builtins</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Up to now, we only took a look at builtin functions, mostly functions of the type itself.
+We also limited our types to a single constraint. Pkl allows, though, for arbitrary functions as constraints,
+and we can provide multiple ones:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isPrime</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">n</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+  <span class="hljs-params">n</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span> <span class="hljs-operator">&amp;&amp;</span> <span class="hljs-title class_">IntSeq</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-params">n</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">every</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">x</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">n</span> <span class="hljs-operator">%</span> <span class="hljs-params">x</span> <span class="hljs-operator">!=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">hash</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isPrime</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">region</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;us-&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-property">length</span> <span class="hljs-operator">&lt;</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">==</span> <span class="hljs-title function_ invoke__">capitalize</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">building</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEmpty</span> <span class="hljs-operator">||</span> <span class="hljs-title function_ invoke__">toInt</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-property">grade</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-F][+-]?&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>User defined constraints.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Multiple constraints.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Arbitrary boolean expressions.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Multiple possibilities with different constraints.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="better-errors"><a class="anchor" href="#better-errors"></a><a class="link" href="#better-errors">Better errors</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One downside of using arbitrary expressions as constraints is that, sometimes, errors messages
+can be a bit hard to understand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `matches(Regex(#"\d{3}-\d{2}-\d{4}"#))` violated.
+Value: "123-123-123"
+
+1 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#))) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can do better than that.</p>
+</div>
+<div class="paragraph">
+<p>One trick to improve error messages is to create named lambdas:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isValidSocialSecurityNumber</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">str</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+  <span class="hljs-params">str</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isValidSocialSecurityNumber</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `isValidSocialSecurityNumber` violated.
+Value: "123-123-123"
+
+4 | ssn: String(isValidSocialSecurityNumber) = "123-123-123"
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s already better. Users now have a hint of what they did wrong.</p>
+</div>
+<div class="sect2">
+<h3 id="providing-custom-error-messages"><a class="anchor" href="#providing-custom-error-messages"></a><a class="link" href="#providing-custom-error-messages">Providing custom error messages</a></h3>
+<div class="paragraph">
+<p>Sometimes, it can be useful to provide your own custom error messages.
+Pkl doesn&#8217;t provide a built-in way to do this, but one pattern to hack around this limitation is to use <code>throw</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This approach can be a footgun. See <a href="#dangers-of-throw">Dangers of <code>throw</code></a> for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With the knowledge that failing constraints will throw an exception, we can provide a custom
+error message by throwing the exception ourselves:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-params">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span>
+  <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">ssn</span><span class="hljs-char escape_">)</span></span>.</span>
+<span class="hljs-string">  Valid ones should be in the form `XXX-XX-XXXX`</span>
+<span class="hljs-string">  where `X` is a number between 0 and 9.</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span>
+
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Invalid social security number: 123-123-123.
+Valid ones should be in the form `XXX-XX-XXXX`
+where `X` is a number between 0 and 9.
+
+8 | ssn: String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw(reportSSN(this))) = "123-123-123"
+                                                         ^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now users know exactly what the problem is and how to fix it.</p>
+</div>
+<div class="sect3">
+<h4 id="dangers-of-throw"><a class="anchor" href="#dangers-of-throw"></a><a class="link" href="#dangers-of-throw">Dangers of <code>throw</code></a></h4>
+<div class="paragraph">
+<p>Using <code>throw</code> to give a better error report is a powerful tool, but it comes with its own set
+of downsides that we have to be aware of.</p>
+</div>
+<div class="paragraph">
+<p>Throwing exceptions inside constraints will short-circuit and stop execution immediately, so it
+doesn&#8217;t compose very well:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">typealias</span> <span class="hljs-title class_">SSN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid SSN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-Z]{2}\d{6}[A-Z]&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid NIN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">taxId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">SSN</span><span class="hljs-operator">|</span><span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;AB123456C&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock text">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">–– Pkl Error ––
+Invalid SSN ...
+
+1 | typealias SSN = String(matches(Regex(#"\d{3}-\d{2}-\d{4}"#)) || throw("Invalid SSN ..."))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That wasn&#8217;t expected.</p>
+</div>
+<div class="paragraph">
+<p>Because of the eager nature of <code>throw</code>, we have to be careful when to use it and to not
+compose it with other constraints.</p>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Islon Scherer</name>
+            <uri>https://github.com/stackoverflow</uri>
+        </author>
+        <published>2024-10-15T00:00:00.000Z</published>
+    </entry>
+</feed>

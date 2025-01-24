@@ -127,3 +127,44 @@ output {
 This means that modules in deeper subdirectories are ignored (their `path.length` is greater than `3`).
 This is design choice in `AppEnvCluster.pkl`; another would be to provide an error for modules in the wrong place.
 Leaf nodes are flattened, because all of their properties express K8s objects that are expressed as their own K8s manifest (one file each, when producing multiple file output).
+
+== Example (revisited)
+
+You can see `AppEnvCluster.pkl` in operation by writing out (a minimal subset) of the example above.
+As seen from the top-level directory of the repository you can define `iscApp.pkl` as follows:
+
+[source,pkl]
+----
+amends "package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster@1.0.2#/AppEnvCluster.pkl"
+----
+
+Next, define `chat/dev/app-east-1/iscApp.pkl` as follows:
+
+[source,pkl]
+----
+amends "..."
+
+secrets {
+  ["hush"] {
+    stringData {
+      ["application"] = module.app
+      ["environment"] = module.env
+      ["cluster"] = module.cluster
+    }
+  }
+}
+----
+
+When you run `pkl eval \*/*/*/iscApp.pkl`, you now see that `AppEnvCluster.pkl` resolved `app`, `env`, and `cluster` as expected:
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hush
+stringData:
+  application: chat
+  environment: dev
+  cluster: app-east-1
+----

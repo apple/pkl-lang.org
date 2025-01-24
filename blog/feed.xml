@@ -1314,6 +1314,235 @@ We are looking forward to seeing what you might do with it!</p>
         <published>2024-02-01T00:00:00.000Z</published>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Know Your Place]]></title>
+        <id>know-your-place</id>
+        <link href="https:/pkl-lang.org/blog/know-your-place.html"/>
+        <updated>2024-01-24T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/holzensp">Philip Hölzenspies</a> on January 24th, 2025</p>
+</div>
+</div>
+<div class="paragraph">
+<p>Configuration generally, and Pkl code especially, tends to be organized hierarchically.
+When configurations grow, they typically spread across files in a directory structure along similar hierarchical organization.
+To make one more ergonomically fit the other, Pkl offers a few mechanisms that can be used in module definitions for, for example, validating that modules are organized as expected, or to populate default values.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="application-environment-cluster"><a class="anchor" href="#application-environment-cluster"></a><a class="link" href="#application-environment-cluster">Application, Environment, Cluster</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are many examples of large configurations that can be organized in file hierarchies in such a way that the whole configuration is easily accessible (you&#8217;ll find what you&#8217;re looking for where you expect it), DRY, and reliable (you can have confidence many mistakes are detected before you deploy the configuration).
+One such example concerns the Kubernetes manifests for a collection of services (or "apps").
+<a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster/current/AppEnvCluster/index.html">The <code>AppEnvCluster</code> template</a> was developed for such an example.
+Let&#8217;s see how it uses file location in its definition to simplify its use.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>This template assumes a three-level configuration hierarchy: application, environment, and cluster. Modules at the root of the configuration hierarchy directly amend this module. All other modules amend their parent.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Documentation of <code>AppEnvCluster.pkl</code>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example"><a class="anchor" href="#example"></a><a class="link" href="#example">Example</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As an example, consider the <em>Imaginary Service Company (ISC)</em>, which is running three services; <code>login</code>, <code>chat</code>, and <code>share</code>.
+All of these services are deployed across <code>prod</code>, <code>dev</code>, and <code>qa</code> environments, in regions in the US, Europe, and Asia-Pacific.
+ISC used to maintain a K8s manifest for each and every instance, but they want to improve their configuration to be non-repetitive (DRY), less error-prone, and clear, so they decide to use <code>AppEnvCluster</code>.</p>
+</div>
+<div class="paragraph">
+<p>They have a single repository describing the deployments of all of their services.
+The base configuration&#8201;&#8212;&#8201;shared between all services&#8201;&#8212;&#8201;is defined in module <code>./iscApp.pkl</code>.
+There is one top-level directory per service (so <code>./login/</code>, <code>./chat/</code>, and <code>./share/</code>), each containing one directory per environment, which finally contain a directory for every region to deploy in.
+In short, the repository looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+├── iscApp.pkl <i class="conum" data-value="1"></i><b>(1)</b>
+├── chat
+│   ├── iscApp.pkl <i class="conum" data-value="2"></i><b>(2)</b>
+│   ├── dev
+│   │   ├── iscApp.pkl <i class="conum" data-value="2"></i><b>(2)</b>
+│   │   ├── ap-east-1
+│   │   │   └── iscApp.pkl <i class="conum" data-value="3"></i><b>(3)</b>
+│   │   └── us-east-1
+│   │       └── iscApp.pkl
+│   ├── prod
+│   │   ├── ap-east-1
+│   │   │   └── iscApp.pkl
+│   │   ├── ap-east-2
+│   │   ...
+│   └── qa
+│       ├── eu-east-1
+│       │   └── iscApp.pkl
+│       └── us-west-1
+│           └── iscApp.pkl
+├── login
+│   ...
+└── share
+    ...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A "root" module, which <code>amends "package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster@1.0.2#/AppEnvCluster.pkl"</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Every app (and environment) can define a <code>iscApp.pkl</code> that (<code>amends "&#8230;&#8203;"</code> and) expresses configuration shared among all its instances.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Every instance has a <code>iscApp.pkl</code> file which <code>amends "&#8230;&#8203;"</code> (and often nothing else).</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Simply running <code>pkl eval -m out/ **/*.pkl</code> in their repository produces all the K8s manifests ISC needs to deploy all their services everywhere.
+Unless an instance requires specific configuration, the leaf modules only contain <code>amends "&#8230;&#8203;"</code> and are used solely to declare the existence of the instance.</p>
+</div>
+<div class="paragraph">
+<p><code>AppEnvCluster.pkl</code> uses this file organisation to determine which modules to produce output for (only those <code>iscApp.pkl</code> files that are in an <code>app/env/cluster</code> subdirectory) and it automatically derives values for the corresponding properties in these modules.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementation"><a class="anchor" href="#implementation"></a><a class="link" href="#implementation">Implementation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>How does <code>AppEnvCluster.pkl</code> accomplish this?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:reflect&quot;</span>
+
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">app</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">1</span><span class="hljs-punctuation">]</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">cluster</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span>
+
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">path</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-property">reflect</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Module</span><span class="hljs-punctuation">(</span><span class="hljs-type">module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">relativePathTo</span><span class="hljs-punctuation">(</span><span class="hljs-type">module</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-params">mod</span><span class="hljs-punctuation">:</span> <span class="hljs-property">reflect</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Module</span> <span class="hljs-operator">=</span>
+  <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span> <span class="hljs-operator">=</span> <span class="hljs-params">mod</span><span class="hljs-punctuation">.</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span> <span class="hljs-operator">==</span> <span class="hljs-literal">null</span> <span class="hljs-operator">||</span> <span class="hljs-operator">!</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">.</span><span class="hljs-property">isAmend</span><span class="hljs-punctuation">)</span> <span class="hljs-params">mod</span><span class="hljs-punctuation">.</span><span class="hljs-property">reflectee</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It only introduces one "new" concept and that is the concept of a "root" node.
+For <code>AppEnvCluster.pkl</code>, the root node is the one <em>amending the <code>AppEnvCluster.pkl</code> module from the <code>appEnvCluster</code> package</em>.
+The function <code>findRootModule</code> finds this, by taking the reflection of <code>module</code>, and following the amends-chain, until it finds a module, whose <code>supermodule</code> does not <code>amends</code> anything.
+When it finds that, it reflects back (<code>mod.reflectee</code>) to return the <code>Module</code> object.
+In <code>pkl:base</code>, <code>Module</code> is defined with a method <code>relativePath</code>, which returns the path of <code>module</code> relative to <code>this</code> module.
+The path is represented as a <code>List</code>, with one <code>String</code> per <em>directory</em>&#8201;&#8212;&#8201;no file name at the end.</p>
+</div>
+<div class="paragraph">
+<p>So far, you&#8217;ve seen how <code>AppEnvCluster.pkl</code> derives path information, but evaluating <code>chat/dev/iscApp.pkl</code> should now produce an error if you try to read its <code>cluster</code> property.
+Given that you can safely run <code>pkl eval -m out/ **/*.pkl</code>, the template must find a way to prevent this.
+Here is how:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isLeafModule</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span><span class="hljs-punctuation">.</span><span class="hljs-property">length</span> <span class="hljs-operator">==</span> <span class="hljs-number">3</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">value</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isLeafModule</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">values</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">flatMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">values</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="hljs-keyword">else</span>
+      <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A "leaf" module is on that has a <code>path.length</code> of precisely <code>3</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>For leaf modules, the top-level structure of <code>AppEnvCluster.pkl</code> is flattened.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Any non-leaf modules do not produce any output.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This means that modules in deeper subdirectories are ignored (their <code>path.length</code> is greater than <code>3</code>).
+This is design choice in <code>AppEnvCluster.pkl</code>; another would be to provide an error for modules in the wrong place.
+Leaf nodes are flattened, because all of their properties express K8s objects that are expressed as their own K8s manifest (one file each, when producing multiple file output).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-revisited"><a class="anchor" href="#example-revisited"></a><a class="link" href="#example-revisited">Example (revisited)</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can see <code>AppEnvCluster.pkl</code> in operation by writing out (a minimal subset) of the example above.
+As seen from the top-level directory of the repository you can define <code>iscApp.pkl</code> as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster@1.0.2#/AppEnvCluster.pkl&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, define <code>chat/dev/app-east-1/iscApp.pkl</code> as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;...&quot;</span>
+
+<span class="hljs-property">secrets</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;hush&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">stringData</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-string">&quot;application&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">app</span>
+      [<span class="hljs-string">&quot;environment&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">env</span>
+      [<span class="hljs-string">&quot;cluster&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">cluster</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you run <code>pkl eval */*/*/iscApp.pkl</code>, you now see that <code>AppEnvCluster.pkl</code> resolved <code>app</code>, <code>env</code>, and <code>cluster</code> as expected:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Secret
+metadata:
+  name: hush
+stringData:
+  application: chat
+  environment: dev
+  cluster: app-east-1</code></pre>
+</div>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Philip Hölzenspies</name>
+        </author>
+        <published>2024-01-24T00:00:00.000Z</published>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Pkl Evolution]]></title>
         <id>pkl-evolution</id>
         <link href="https:/pkl-lang.org/blog/pkl-evolution.html"/>

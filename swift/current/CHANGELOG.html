@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Changelog :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/swift/current/CHANGELOG.html">
-    <link rel="prev" href="codegen.html">
+    <link rel="prev" href="external-readers.html">
     <meta name="generator" content="Antora 3.1.9">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="swift" data-version="0.3.0">
+<div class="nav-container" data-component="swift" data-version="0.4.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -105,6 +105,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="codegen.html">Code Generation</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-readers.html">External Readers</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="CHANGELOG.html">Changelog</a>
   </li>
@@ -116,7 +119,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Swift Bindings</span>
-    <span class="version">0.3.0</span>
+    <span class="version">0.4.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -194,7 +197,10 @@
       <div class="title"><a href="index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.3.0</a>
+          <a href="index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.3.0/index.html">0.3.0</a>
         </li>
         <li class="version">
           <a href="../0.2.3/index.html">0.2.3</a>
@@ -216,7 +222,10 @@
       <div class="title"><a href="../../spring/current/index.html">Spring Boot Integration</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../spring/current/index.html">0.16.0</a>
+          <a href="../../spring/current/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.16.0/index.html">0.16.0</a>
         </li>
         <li class="version">
           <a href="../../spring/0.15.0/index.html">0.15.0</a>
@@ -256,13 +265,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.3.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.3.0</a>
+    <a class="version is-current" href="CHANGELOG.html">0.4.0</a>
+    <a class="version" href="../0.3.0/CHANGELOG.html">0.3.0</a>
     <a class="version" href="../0.2.3/CHANGELOG.html">0.2.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-swift/edit/release/0.3/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-swift/edit/release/0.4/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -271,10 +281,64 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.3.0"><a class="anchor" href="#release-0.3.0"></a><a class="link" href="#release-0.3.0">0.3.0 (2024-10-10)</a></h2>
+<h2 id="release-0.4.0"><a class="anchor" href="#release-0.4.0"></a><a class="link" href="#release-0.4.0">0.4.0 (2025-01-24)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add a new API for creating external readers, called <code>ExternalReaderClient</code> (<a href="https://github.com/apple/pkl-swift/pull/26">#26</a>).</p>
+</li>
+<li>
+<p>Add new fields to support new options available in Pkl 0.27 (<a href="https://github.com/apple/pkl-swift/pull/26">#26</a>, <a href="https://github.com/apple/pkl-swift/pull/32">#32</a>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In struct <code>EvaluatorOptions</code>: <code>externalModuleReaders</code> and <code>externalResourceReaders</code>.</p>
+</li>
+<li>
+<p>In struct <code>PklEvaluatorSettings</code>: <code>externalModuleReaders</code>, <code>externalResourceReaders</code>, and <code>color</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Make <code>PathElement.init</code> public (<a href="https://github.com/apple/pkl-swift/pull/31">#31</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jcubit">@jcubit</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.3.0"><a class="anchor" href="#release-0.3.0"></a><a class="link" href="#release-0.3.0">0.3.0 (2024-10-10)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -287,7 +351,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -323,7 +387,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -402,7 +466,7 @@
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="codegen.html">Code Generation</a></span>
+  <span class="prev"><a href="external-readers.html">External Readers</a></span>
 </nav>
 </article>
   </div>

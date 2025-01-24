@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="spring" data-version="0.16.0">
+<div class="nav-container" data-component="spring" data-version="0.17.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -113,7 +113,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Spring Boot Integration</span>
-    <span class="version">0.16.0</span>
+    <span class="version">0.17.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -191,7 +191,10 @@
       <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../swift/current/index.html">0.3.0</a>
+          <a href="../../swift/current/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.3.0/index.html">0.3.0</a>
         </li>
         <li class="version">
           <a href="../../swift/0.2.3/index.html">0.2.3</a>
@@ -213,7 +216,10 @@
       <div class="title"><a href="index.html">Spring Boot Integration</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.16.0</a>
+          <a href="index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.16.0/index.html">0.16.0</a>
         </li>
         <li class="version">
           <a href="../0.15.0/index.html">0.15.0</a>
@@ -253,13 +259,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.16.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.17.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="usage.html">0.16.0</a>
+    <a class="version is-current" href="usage.html">0.17.0</a>
+    <a class="version" href="../0.16.0/usage.html">0.16.0</a>
     <a class="version" href="../0.15.0/usage.html">0.15.0</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-spring/edit/release/0.16/docs/modules/ROOT/pages/usage.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-spring/edit/release/0.17/docs/modules/ROOT/pages/usage.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -340,7 +347,51 @@ in the Spring Boot documentation.</p>
 <li>
 <p>Use Pkl&#8217;s <a href="../../main/current/pkl-gradle/index.html" class="xref page">Gradle plugin</a> to generate Java config classes from the schema.
 Generated classes are placed in <code>generated/configClasses/</code> and compiled together with your production code.
-To run the generator directly (which isn&#8217;t typically necessary), type <code>./gradlew configClasses</code>.</p>
+To run the generator directly (which isn&#8217;t typically necessary), run command <code>./gradlew configClasses</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This example uses Spring Boot 3.</p>
+</div>
+<div class="paragraph">
+<p>To use <em>pkl-spring</em> with Spring Boot 3, the following requirements must be met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Config classes are generated with Pkl 0.27.0 or later.
+Typically, this is done by using version 0.27.0 or later of Pkl&#8217;s Gradle plugin.</p>
+</li>
+<li>
+<p>(Java) Config classes are compiled with the <code>-parameters</code> compiler argument.
+Spring Boot&#8217;s Gradle plugin handles this automatically.</p>
+</li>
+<li>
+<p>(Kotlin) Config classes are compiled with the <code>-java-parameters</code> compiler argument.
+Spring Boot&#8217;s Gradle plugin handles this automatically.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To use <em>pkl-spring</em> with Spring Boot 2, the following requirements must be met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Config classes are generated with Pkl 0.26 or earlier.
+Typically, this is done by using version 0.26.x or earlier of Pkl&#8217;s Gradle plugin.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div id="tabs-1" class="openblock tabs is-loading">
 <div class="content">
 <div class="ulist tablist">

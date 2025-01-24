@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Usage :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/spring/current/usage.html">
+    <link rel="prev" href="../current/changelog.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../index.html"><img src="../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="spring" data-version="0.16.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Spring Boot Integration</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../current/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../current/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="usage.html">Usage</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Spring Boot Integration</span>
+    <span class="version">0.16.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intellij/current/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/latest/index.html">0.28.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../go/current/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../lsp/current/index.html">pkl-lsp</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../lsp/current/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../index.html">ROOT</a></div>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../current/index.html">0.17.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../vscode/current/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Spring Boot Integration</a></li>
+    <li><a href="usage.html">Usage</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.16.0</button>
+  <div class="version-menu">
+    <a class="version" href="../current/usage.html">0.17.0</a>
+    <a class="version is-current" href="usage.html">0.16.0</a>
+    <a class="version" href="../0.15.0/usage.html">0.15.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-spring/edit/release/0.16/docs/modules/ROOT/pages/usage.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Usage</h1>
+<div class="paragraph">
+<p>Let&#8217;s walk through an example for configuring a Spring Boot application with Pkl.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The source code for this example is available on <a href="https://github.com/apple/pkl-spring/blob/main/samples/spring-boot">GitHub</a>.
+The equivalent Kotlin example is <a href="https://github.com/apple/pkl-spring/blob/main/samples/spring-boot-kotlin">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>For background information,
+see <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html">Externalized Configuration</a>,
+in particular <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-typesafe-configuration-properties">Type-safe Configuration Properties</a>,
+in the Spring Boot documentation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a id="schema"></a> Define a configuration <a href="../../main/current/language-reference/index.html#classes" class="xref page">schema</a> in <code>src/main/resources</code>:</p>
+<div class="listingblock">
+<div class="title">AppConfig.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">// this module name determines the package and</span>
+<span class="hljs-comment">// class name of the generated Java config class</span>
+<span class="hljs-keyword">module</span> <span class="hljs-property">samples</span><span class="hljs-punctuation">.</span><span class="hljs-property">boot</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">AppConfig</span>
+
+<span class="hljs-property">server</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Server</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Server</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">endpoints</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Endpoint</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Endpoint</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+  <span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Define an <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-application-property-files">Application Property File</a> next to the schema:</p>
+<div class="listingblock">
+<div class="title">application.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;modulepath:/appConfig.pkl&quot;</span>
+
+<span class="hljs-property">server</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">endpoints</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;endpoint1&quot;</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">1234</span>
+    <span class="hljs-punctuation">}</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;endpoint2&quot;</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">5678</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use Pkl&#8217;s <a href="../../main/current/pkl-gradle/index.html" class="xref page">Gradle plugin</a> to generate Java config classes from the schema.
+Generated classes are placed in <code>generated/configClasses/</code> and compiled together with your production code.
+To run the generator directly (which isn&#8217;t typically necessary), type <code>./gradlew configClasses</code>.</p>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
+<div class="listingblock">
+<div class="title">build.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
+  id "org.pkl-lang" version "$pklVersion"
+}
+
+pkl {
+  javaCodeGenerators {
+    configClasses {
+      generateGetters.set(true)
+      generateSpringBootConfig.set(true)
+      sourceModules.set(files("src/main/resources/AppConfig.pkl"))
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
+  repositories {
+    mavenCentral()
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+  id("org.pkl-lang") version "$pklVersion"
+}
+
+pkl {
+  javaCodeGenerators {
+    register("configClasses") {
+      generateGetters.set(true)
+      generateSpringBootConfig.set(true)
+      sourceModules.set(files("src/main/resources/AppConfig.pkl"))
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
+  repositories {
+    mavenCentral()
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Annotate your Boot application class with <code>@ConfigurationPropertiesScan</code>.
+(Alternatively, explicitly list configuration classes with <code>@EnableConfigurationProperties(&#8230;&#8203;)</code>.)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SpringBootApplication
+@ConfigurationPropertiesScan
+public class Application { ... }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Inject the generated config classes into your application&#8217;s components as appropriate.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Service
+public class Server {
+  public Server(AppConfig.Server config) { ... }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To get access to the entire configuration, inject the <code>AppConfig</code> class itself:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Service
+public class Server {
+  public Server(AppConfig config) { ... }
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This example demonstrates one way of configuring Spring Boot applications with Pkl.
+Some possible deviations are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use multiple config files, for example one per environment.</p>
+</li>
+<li>
+<p>Read config files from the file system instead of the class path.</p>
+</li>
+<li>
+<p>Write config classes by hand instead of generating them.</p>
+</li>
+<li>
+<p>Do not define a config schema. (Config classes cannot be generated in this case.)</p>
+</li>
+<li>
+<p>Use a build tool other than Gradle.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Declare a build dependency on <code>pkl-codegen-java</code>.</p>
+</li>
+<li>
+<p>Invoke the code generator&#8217;s <code>main</code> method during the build, passing the required arguments.</p>
+</li>
+<li>
+<p>Configure the build to compile generated config classes together with your production code.</p>
+</li>
+<li>
+<p>For more information, see the <a href="../../main/current/java-binding/codegen.html" class="xref page">Java code generator</a> docs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../current/changelog.html">Changelog</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/site-support.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

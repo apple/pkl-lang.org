@@ -1,0 +1,174 @@
+:author: Philip Hölzenspies
+:author-link: https://github.com/holzensp
+:date: January 24th, 2025
+
+= Know Your Place
+
+:use-link-attrs:
+:uri-AppEnvCluster: https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster/current/AppEnvCluster/index.html
+:uri-ZeroSpace: https://github.com/zerospace-gg/gg-iolin
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/holzensp[Philip Hölzenspies] on January 24th, 2025
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+Configuration generally, and Pkl code especially, tends to be organized hierarchically.
+When configurations grow, they typically spread across files in a directory structure along similar hierarchical organization.
+To make one more ergonomically fit the other, Pkl offers a few mechanisms that can be used in module definitions for, for example, validating that modules are organized as expected, or to populate default values.
+// end::excerpt[]
+
+== Application, Environment, Cluster
+
+There are many examples of large configurations that can be organized in file hierarchies in such a way that the whole configuration is easily accessible (you'll find what you're looking for where you expect it), DRY, and reliable (you can have confidence many mistakes are detected before you deploy the configuration).
+One such example concerns the Kubernetes manifests for a collection of services (or "apps").
+link:{uri-AppEnvCluster}[The `AppEnvCluster` template] was developed for such an example.
+Let's see how it uses file location in its definition to simplify its use.
+
+> This template assumes a three-level configuration hierarchy: application, environment, and cluster. Modules at the root of the configuration hierarchy directly amend this module. All other modules amend their parent.
+-- Documentation of `AppEnvCluster.pkl`
+
+== Example
+
+As an example, consider the _Imaginary Service Company (ISC)_, which is running three services; `login`, `chat`, and `share`.
+All of these services are deployed across `prod`, `dev`, and `qa` environments, in regions in the US, Europe, and Asia-Pacific.
+ISC used to maintain a K8s manifest for each and every instance, but they want to improve their configuration to be non-repetitive (DRY), less error-prone, and clear, so they decide to use `AppEnvCluster`.
+
+They have a single repository describing the deployments of all of their services.
+The base configuration -- shared between all services -- is defined in module `./iscApp.pkl`.
+There is one top-level directory per service (so `./login/`, `./chat/`, and `./share/`), each containing one directory per environment, which finally contain a directory for every region to deploy in.
+In short, the repository looks like this:
+[source]
+----
+.
+├── iscApp.pkl //<1>
+├── chat
+│   ├── iscApp.pkl //<2>
+│   ├── dev
+│   │   ├── iscApp.pkl //<2>
+│   │   ├── ap-east-1
+│   │   │   └── iscApp.pkl //<3>
+│   │   └── us-east-1
+│   │       └── iscApp.pkl
+│   ├── prod
+│   │   ├── ap-east-1
+│   │   │   └── iscApp.pkl
+│   │   ├── ap-east-2
+│   │   ...
+│   └── qa
+│       ├── eu-east-1
+│       │   └── iscApp.pkl
+│       └── us-west-1
+│           └── iscApp.pkl
+├── login
+│   ...
+└── share
+    ...
+----
+<1> A "root" module, which `amends "package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster@1.0.2#/AppEnvCluster.pkl"`.
+<2> Every app (and environment) can define a `iscApp.pkl` that (`amends "..."` and) expresses configuration shared among all its instances.
+<3> Every instance has a `iscApp.pkl` file which `amends "..."` (and often nothing else).
+
+Simply running `pkl eval -m out/ \**/*.pkl` in their repository produces all the K8s manifests ISC needs to deploy all their services everywhere.
+Unless an instance requires specific configuration, the leaf modules only contain `amends "..."` and are used solely to declare the existence of the instance.
+
+`AppEnvCluster.pkl` uses this file organisation to determine which modules to produce output for (only those `iscApp.pkl` files that are in an `app/env/cluster` subdirectory) and it automatically derives values for the corresponding properties in these modules.
+
+
+
+== Implementation
+
+How does `AppEnvCluster.pkl` accomplish this?
+
+[source,pkl]
+----
+import "pkl:reflect"
+
+hidden app: String = path[0]
+hidden env: String = path[1]
+hidden cluster: String = path[2]
+
+hidden path: List<String> = findRootModule(reflect.Module(module)).relativePathTo(module)
+
+local function findRootModule(mod: reflect.Module): Module =
+  let (supermodule = mod.supermodule)
+    if (supermodule == null || !supermodule.isAmend) mod.reflectee
+    else findRootModule(supermodule)
+----
+
+It only introduces one "new" concept and that is the concept of a "root" node.
+For `AppEnvCluster.pkl`, the root node is the one _amending the `AppEnvCluster.pkl` module from the `appEnvCluster` package_.
+The function `findRootModule` finds this, by taking the reflection of `module`, and following the amends-chain, until it finds a module, whose `supermodule` does not `amends` anything.
+When it finds that, it reflects back (`mod.reflectee`) to return the `Module` object.
+In `pkl:base`, `Module` is defined with a method `relativePath`, which returns the path of `module` relative to `this` module.
+The path is represented as a `List`, with one `String` per _directory_ -- no file name at the end.
+
+So far, you've seen how `AppEnvCluster.pkl` derives path information, but evaluating `chat/dev/iscApp.pkl` should now produce an error if you try to read its `cluster` property.
+Given that you can safely run `pkl eval -m out/ \**/*.pkl`, the template must find a way to prevent this.
+Here is how:
+
+[source,pkl]
+----
+function isLeafModule(): Boolean = path.length == 3 // <1>
+
+output {
+  value = if (isLeafModule())
+      module.toMap().values.flatMap((it) -> it.toMap().values) // <2>
+    else
+      List() // <3>
+}
+----
+<1> A "leaf" module is on that has a `path.length` of precisely `3`.
+<2> For leaf modules, the top-level structure of `AppEnvCluster.pkl` is flattened.
+<3> Any non-leaf modules do not produce any output.
+
+This means that modules in deeper subdirectories are ignored (their `path.length` is greater than `3`).
+This is design choice in `AppEnvCluster.pkl`; another would be to provide an error for modules in the wrong place.
+Leaf nodes are flattened, because all of their properties express K8s objects that are expressed as their own K8s manifest (one file each, when producing multiple file output).
+
+== Example (revisited)
+
+You can see `AppEnvCluster.pkl` in operation by writing out (a minimal subset) of the example above.
+As seen from the top-level directory of the repository you can define `iscApp.pkl` as follows:
+
+[source,pkl]
+----
+amends "package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.appEnvCluster@1.0.2#/AppEnvCluster.pkl"
+----
+
+Next, define `chat/dev/app-east-1/iscApp.pkl` as follows:
+
+[source,pkl]
+----
+amends "..."
+
+secrets {
+  ["hush"] {
+    stringData {
+      ["application"] = module.app
+      ["environment"] = module.env
+      ["cluster"] = module.cluster
+    }
+  }
+}
+----
+
+When you run `pkl eval \*/*/*/iscApp.pkl`, you now see that `AppEnvCluster.pkl` resolved `app`, `env`, and `cluster` as expected:
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hush
+stringData:
+  application: chat
+  environment: dev
+  cluster: app-east-1
+----

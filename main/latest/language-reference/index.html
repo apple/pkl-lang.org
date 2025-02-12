@@ -5852,10 +5852,7 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="sets"><a class="anchor" href="#sets"></a><a class="link" href="#sets">Sets</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Set">Set</a> is an ordered collection of unique <em>elements</em>.</p>
-</div>
-<div class="paragraph">
-<p>A set&#8217;s elements are eagerly evaluated.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Set">Set</a> is a collection of unique <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>Sets are constructed with the <code>Set()</code> method<sup class="footnoteref">[<a class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>:</p>
@@ -5885,6 +5882,34 @@ Here are just a few examples:</p>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
 <td>result: heterogeneous set that contains a list as its last element</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Sets retain the order of elements when constructed, which impacts how they are iterated over.
+However, this order is not considered when determining equality of two sets.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res1</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Set</span><span class="hljs-punctuation">(</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span>
+<span class="hljs-property">res2</span> <span class="hljs-operator">=</span> <span class="hljs-property">res1</span><span class="hljs-punctuation">.</span><span class="hljs-property">first</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">res3</span> <span class="hljs-operator">=</span> <span class="hljs-property">res1</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toListing</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">res4</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Set</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">res1</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>result: <code>4</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>result: <code>new Listing { 4; 3; 2 }</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>result: <code>true</code></td>
 </tr>
 </table>
 </div>
@@ -5941,7 +5966,7 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="maps"><a class="anchor" href="#maps"></a><a class="link" href="#maps">Maps</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">Map</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">Map</a> is a collection of <em>values</em> indexed by <em>key</em>.</p>
 </div>
 <div class="paragraph">
 <p>A map&#8217;s key-value pairs are called its <em>entries</em>.
@@ -6009,6 +6034,34 @@ Keys and values are eagerly evaluated.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl expression hljs" data-lang="pkl expression"><span class="hljs-title class_">Map</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">Dynamic</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-number">10</span><span class="hljs-punctuation">.</span><span class="hljs-property">gb</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Maps retain the order of entries when constructed, which impacts how they are iterated over.
+However, this order is not considered when determining equality of two maps.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res1</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Map</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;hello&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;world&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-property">res2</span> <span class="hljs-operator">=</span> <span class="hljs-property">res1</span><span class="hljs-punctuation">.</span><span class="hljs-property">entries</span><span class="hljs-punctuation">.</span><span class="hljs-property">first</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">res3</span> <span class="hljs-operator">=</span> <span class="hljs-property">res1</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMapping</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">res4</span> <span class="hljs-operator">=</span> <span class="hljs-property">res1</span> <span class="hljs-operator">==</span> <span class="hljs-title class_">Map</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;world&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;hello&quot;</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>result: <code>Pair(2, "hello")</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>result: <code>new Mapping { [2] = "hello"; [1] = "world" }</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>result: <code>true</code></td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>To merge maps, use the <code>+</code> operator:</p>

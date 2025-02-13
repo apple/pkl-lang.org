@@ -276,6 +276,8 @@
 </aside>
 <article class="doc">
 <h1 class="page">Installation</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>The extension is distributed as a Visual Studio Extension (<em>.vsix</em>) file.
 To install the extension,</p>
@@ -292,6 +294,25 @@ To install the extension,</p>
 </div>
 <div class="paragraph">
 <p>To confirm that the installation succeeded, open a <em>.pkl</em> file and verify that syntax highlighting works.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="java-requirement"><a class="anchor" href="#java-requirement"></a><a class="link" href="#java-requirement">Java requirement</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The extension currently requires Java 22+ in order to run the <a href="../../lsp/current/index.html" class="xref page">Pkl Language Server</a>.</p>
+</div>
+<div class="paragraph">
+<p>By default, it will look for the Java either in <code>PATH</code>, or in <code>JAVA_HOME</code>.</p>
+</div>
+<div class="paragraph">
+<p>The path to the Java executable can also be set via the <code>pkl.lsp.java.path</code> setting.</p>
+</div>
+<div class="paragraph">
+<p>The Java requirement will be removed when the Pkl Language Server is published as a native executable. For more details, see <a href="https://github.com/apple/pkl-lsp/issues/60" class="bare">https://github.com/apple/pkl-lsp/issues/60</a>.</p>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="index.html">VS Code Extension</a></span>

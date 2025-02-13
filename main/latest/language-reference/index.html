@@ -3573,6 +3573,43 @@ Submodules and subclasses can override them.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Like other object-oriented languages, methods defined on extended classes and modules may be overridden.
+The parent type&#8217;s method may be called via the <code>super</code> keyword.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-params">food</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;seeds&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">InsectivorousBird</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-params">food</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;insects&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">swallow</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InsectivorousBird</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Swallow&quot;</span> <span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">canEatSeeds</span> <span class="hljs-operator">=</span> <span class="hljs-property">swallow</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;seeds&quot;</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">canEatMeat</span> <span class="hljs-operator">=</span> <span class="hljs-property">swallow</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;insects&quot;</span><span class="hljs-punctuation">)</span>  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Call parent class instance method (on <code>this</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>result: <code>true</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>result: <code>true</code></td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>

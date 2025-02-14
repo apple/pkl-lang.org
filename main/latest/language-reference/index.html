@@ -3575,40 +3575,7 @@ Submodules and subclasses can override them.</p>
 </div>
 <div class="paragraph">
 <p>Like other object-oriented languages, methods defined on extended classes and modules may be overridden.
-The parent type&#8217;s method may be called via the <code>super</code> keyword.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-params">food</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;seeds&quot;</span>
-<span class="hljs-punctuation">}</span>
-
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">InsectivorousBird</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-params">food</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;insects&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="hljs-punctuation">}</span>
-
-<span class="hljs-property">swallow</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InsectivorousBird</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Swallow&quot;</span> <span class="hljs-punctuation">}</span>
-
-<span class="hljs-property">canEatSeeds</span> <span class="hljs-operator">=</span> <span class="hljs-property">swallow</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;seeds&quot;</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
-<span class="hljs-property">canEatMeat</span> <span class="hljs-operator">=</span> <span class="hljs-property">swallow</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;insects&quot;</span><span class="hljs-punctuation">)</span>  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Call parent class instance method (on <code>this</code>).</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>result: <code>true</code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>result: <code>true</code></td>
-</tr>
-</table>
+The parent type&#8217;s method may be called via the <a href="#super-keyword"><code>super</code> keyword</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5338,6 +5305,10 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#for-generators">For Generators</a><br>
 <a href="#spread-syntax">Spread Syntax</a><br>
 <a href="#member-predicates">Member Predicates (<code>[[&#8230;&#8203;]]</code>)</a><br>
+<a href="#this-keyword"><code>this</code> Keyword</a><br>
+<a href="#outer-keyword"><code>outer</code> Keyword</a><br>
+<a href="#super-keyword"><code>super</code> Keyword</a><br>
+<a href="#module-keyword"><code>module</code> Keyword</a><br>
 <a href="#glob-patterns">Glob Patterns</a><br>
 <a href="#doc-comments">Doc Comments</a><br>
 <a href="#name-resolution">Name Resolution</a><br>
@@ -7875,6 +7846,226 @@ Matching members are amended (<code>{ &#8230;&#8203; }</code>) or overridden (<c
 </div>
 </div>
 <div class="sect2">
+<h3 id="this-keyword"><a class="anchor" href="#this-keyword"></a><a class="link" href="#this-keyword"><code>this</code> keyword</a></h3>
+<div class="paragraph">
+<p>Normally, the <code>this</code> keyword references the enclosing object&#8217;s receiver.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">eatsInsects</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-title class_">InsectavorousBird</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When used inside a <a href="#type-constraints">type constraint</a>, <code>this</code> refers to the value being tested.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">port</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt16</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When used inside a <a href="#member-predicates">member predicate</a>, <code>this</code> refers to the value being matched against.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">animals</span> <span class="hljs-punctuation">{</span>
+  [[<span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-title class_">Bird</span>]] <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">canFly</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="receiver"><a class="anchor" href="#receiver"></a><a class="link" href="#receiver">Receiver</a></h4>
+<div class="paragraph">
+<p>The receiver is the bottom-most object in the <a href="#prototype-chain">Prototype Chain</a>.
+That means that, within the context of an amending object, the reciever is the amending object.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">hidden</span> <span class="hljs-property">lawyerBird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>, Esq.&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">polly</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">lawyerBird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Polly&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Polly has title <code>"Polly, Esq."</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="outer-keyword"><a class="anchor" href="#outer-keyword"></a><a class="link" href="#outer-keyword"><code>outer</code> keyword</a></h3>
+<div class="paragraph">
+<p>The <code>outer</code> keyword references the <a href="#receiver">receiver</a> of the immediately outer lexical object.</p>
+</div>
+<div class="paragraph">
+<p>It can be useful to disambiguate a lookup that might otherwise resolve elsewhere.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">foo</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">bar</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;bar&quot;</span>
+  <span class="hljs-property">qux</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">bar</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">outer</span><span class="hljs-punctuation">.</span><span class="hljs-property">bar</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>References <code>bar</code> one level higher.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Note that <code>outer</code> cannot be chained.
+In order to reference a value more than one level higher, a typical pattern is to declare a local property at that level.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">foo</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-property">self</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">this</span>
+  <span class="hljs-property">bar</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">baz</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">qux</span> <span class="hljs-operator">=</span> <span class="hljs-property">self</span><span class="hljs-punctuation">.</span><span class="hljs-property">qux</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="super-keyword"><a class="anchor" href="#super-keyword"></a><a class="link" href="#super-keyword"><code>super</code> keyword</a></h3>
+<div class="paragraph">
+<p>The <code>super</code> keyword references the parent object in the <a href="#prototype-chain">prototype chain</a>.</p>
+</div>
+<div class="paragraph">
+<p>When used within a class, it refers to the superclass&#8217;s prototype.
+When used within an object, it refers to the parent object in the amends chain.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Quail&quot;</span> <span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">bird2</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Ms. <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">foods</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span>
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-property">foods</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">contains</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">InsectavorousBird</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span>
+    <span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">canEat</span><span class="hljs-punctuation">(</span><span class="hljs-params">food</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-params">food</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;insect&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: <code>"Ms. Quail"</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Calls parent class method <code>canEat()</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>super</code> keyword must be followed by property/method access, or subscript.
+<code>super</code> by itself a syntax error; whereas <code>super.foo</code> and <code>super["foo"]</code> are valid expressions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module-keyword"><a class="anchor" href="#module-keyword"></a><a class="link" href="#module-keyword"><code>module</code> keyword</a></h3>
+<div class="paragraph">
+<p>The <code>module</code> keyword can be used as either a value, or as a type.</p>
+</div>
+<div class="paragraph">
+<p>When used as a value, it refers to the <a href="#receiver">receiver</a> of the module itself.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Quail&quot;</span>
+
+<span class="hljs-property">some</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">deep</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">object</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Resolves to <code>"Quail"</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When used as a type, it is the module&#8217;s class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Bird</span>
+
+<span class="hljs-property">friend</span><span class="hljs-punctuation">:</span> <span class="hljs-property">module</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Is class <code>Bird</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>module</code> type is a <em>self type</em>.
+If the module is extended by another module, the <code>module</code> type refers to the extending module when
+in the context of that module.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="glob-patterns"><a class="anchor" href="#glob-patterns"></a><a class="link" href="#glob-patterns">Glob Patterns</a></h3>
 <div class="paragraph">
 <p>Resources and modules may be imported at the same time by globbing with the <a href="#globbed-imports">Globbed Imports</a> and <a href="#globbed-reads">Globbed Reads</a> features.</p>
@@ -8045,8 +8236,8 @@ If incorporating escape characters into a glob pattern, use <a href="#custom-str
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*.pc[lf]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anything suffixed by <code>.pkl</code>, or <code>.pcf</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*.pk[lg]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anything suffixed by <code>.pkl</code>, or <code>.pkg</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>**.y{a,}ml</code></p></td>

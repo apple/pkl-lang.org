@@ -745,8 +745,18 @@ To run the CLI, execute the library Jar or its <code>org.pkl.doc.Main</code> cla
 <div class="content">
 <div class="paragraph">
 <p>Default: (none)<br>
-Example: <code>pkldoc</code>
+Example: <code>pkldoc</code><br>
 The directory where generated documentation is placed.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--no-symlinks</summary>
+<div class="content">
+<div class="paragraph">
+<p>Create copies of files and directories instead of symbolic links.
+In particular, this affects how the "current" directories containing documentation content for the last generated version should be created.
+By default, a symbolic link is created pointing to the last generated version. If symlinks are disabled, a full copy of the last generated version is created.</p>
 </div>
 </div>
 </details>

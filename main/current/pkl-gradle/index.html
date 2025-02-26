@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.27.2">
+<div class="nav-container" data-component="main" data-version="0.28.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -255,7 +258,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.27.2</span>
+    <span class="version">0.28.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -284,11 +287,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.28.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.28.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.27.2</a>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
         </li>
         <li class="version">
           <a href="../../0.26.3/index.html">0.26.3</a>
@@ -402,15 +408,16 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.27.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.28.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.28.0</a>
     <a class="version" href="../../latest/pkl-gradle/index.html">0.28.0-dev</a>
-    <a class="version is-current" href="index.html">0.27.2</a>
+    <a class="version" href="../../0.27.2/pkl-gradle/index.html">0.27.2</a>
     <a class="version" href="../../0.26.3/pkl-gradle/index.html">0.26.3</a>
     <a class="version" href="../../0.25.3/pkl-gradle/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.27/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.28/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -473,7 +480,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-  id("org.pkl-lang") version "0.27.2"
+  id("org.pkl-lang") version "0.28.0"
 }</code></pre>
 </div>
 </div>
@@ -493,7 +500,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
-  id "org.pkl-lang" version "0.27.2"
+  id "org.pkl-lang" version "0.28.0"
 }</code></pre>
 </div>
 </div>
@@ -1392,13 +1399,28 @@ Whether to generate private final fields and public getter methods rather than p
 </div>
 </details>
 <details>
-<summary class="title">preferJavaxInjectAnnotation: Boolean</summary>
+<summary class="title">paramsAnnotation: Property&lt;String&gt;</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>false</code><br>
-Example: <code>preferJavaxInjectAnnotation = true</code><br>
-Whether to annotate constructor parameters with <code>@javax.inject.Named</code> instead of <code>@org.pkl.config.java.mapper.Named</code>.
-If <code>true</code>, the generated code will have a compile dependency on <code>javax.inject:javax.inject:1</code>.</p>
+<p>Default: <code>null</code> if <code>generateSpringBootConfig</code> is <code>true</code>, <code>"org.pkl.config.java.mapper.Named"</code> otherwise+
+Example: <code>paramsAnnotation = "org.project.MyAnnotation"</code><br>
+Fully qualified name of the annotation type to use for annotating constructor parameters with their name.<br>
+The specified annotation type must have a <code>value</code> parameter of type <code>String</code> or the generated code may not compile.
+If set to <code>null</code>, constructor parameters are not annotated.
+Whether and how constructor parameters should be annotated depends on the library that instantiates the generated classes.
+For Spring Boot applications, and for users of <code>pkl-config-java</code> compiling the generated classes with <code>-parameters</code>, no annotation is required.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">nonNullAnnotation: Property&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>"org.pkl.config.java.mapper.NonNull"</code><br>
+Example: <code>nonNullAnnotation = "org.project.MyAnnotation"</code><br>
+Fully qualified name of the annotation type to use for annotating non-null types.<br>
+The specified annotation type must be annotated with <code>@java.lang.annotation.Target(ElementType.TYPE_USE)</code>
+or the generated code may not compile.</p>
 </div>
 </div>
 </details>
@@ -1451,6 +1473,16 @@ The Gradle source set that generated code is compiled together with.</p>
 <p>Default: <code>false</code><br>
 Example: <code>generateSpringBootConfig = true</code><br>
 Whether to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">implementSerializable: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>implementSerializable = true</code><br>
+Whether to generate classes that implement <code>java.io.Serializable</code>.</p>
 </div>
 </div>
 </details>
@@ -1831,9 +1863,20 @@ see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-kotlin"
 </div>
 <div class="sect2">
 <h3 id="configuration-options-3"><a class="anchor" href="#configuration-options-3"></a><a class="link" href="#configuration-options-3">Configuration Options</a></h3>
-<div class="paragraph">
-<p>(None)</p>
+
 </div>
+<div class="sect2">
+<h3 id="configuration-options-4"><a class="anchor" href="#configuration-options-4"></a><a class="link" href="#configuration-options-4">Configuration Options</a></h3>
+<details>
+<summary class="title">generateKdoc: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>generateKdoc = true</code><br>
+Whether to preserve Pkl doc comments by generating corresponding KDoc comments.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>Common code generation properties:</p>
 </div>
@@ -1883,6 +1926,16 @@ The Gradle source set that generated code is compiled together with.</p>
 <p>Default: <code>false</code><br>
 Example: <code>generateSpringBootConfig = true</code><br>
 Whether to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">implementSerializable: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>implementSerializable = true</code><br>
+Whether to generate classes that implement <code>java.io.Serializable</code>.</p>
 </div>
 </div>
 </details>
@@ -2260,7 +2313,7 @@ see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/pkldoc">pkldoc<
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-4"><a class="anchor" href="#configuration-options-4"></a><a class="link" href="#configuration-options-4">Configuration Options</a></h3>
+<h3 id="configuration-options-5"><a class="anchor" href="#configuration-options-5"></a><a class="link" href="#configuration-options-5">Configuration Options</a></h3>
 <div class="paragraph">
 <p>The following properties can be configured inside a Pkldoc generator&#8217;s configuration block:</p>
 </div>
@@ -2271,6 +2324,19 @@ see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/pkldoc">pkldoc<
 <p>Default: <code>layout.buildDirectory.dir("pkldoc/&lt;generator_name&gt;")</code><br>
 Example: <code>outputDir = layout.projectDirectory.dir("pkl-docs")</code><br>
 The directory where generated documentation is placed.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">noSymlinks: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code><br>
+Example: <code>noSymlinks = true</code><br>
+Create copies of files and directories instead of symbolic links.
+In particular, this affects how the "current" directories containing documentation content for the last generated version should be created.
+By default, a symbolic link is created pointing to the last generated version.
+If symlinks are disabled, a full copy of the last generated version is created.</p>
 </div>
 </div>
 </details>
@@ -2601,7 +2667,7 @@ Hence, the above packager can be run with:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-5"><a class="anchor" href="#configuration-options-5"></a><a class="link" href="#configuration-options-5">Configuration Options</a></h3>
+<h3 id="configuration-options-6"><a class="anchor" href="#configuration-options-6"></a><a class="link" href="#configuration-options-6">Configuration Options</a></h3>
 <details>
 <summary class="title">projectDirectories: ConfigurableFileCollection</summary>
 <div class="content">
@@ -2876,7 +2942,7 @@ Hence, the above resolver can be run with:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-6"><a class="anchor" href="#configuration-options-6"></a><a class="link" href="#configuration-options-6">Configuration Options</a></h3>
+<h3 id="configuration-options-7"><a class="anchor" href="#configuration-options-7"></a><a class="link" href="#configuration-options-7">Configuration Options</a></h3>
 <details>
 <summary class="title">projectDirectories: ConfigurableFileCollection</summary>
 <div class="content">
@@ -3082,7 +3148,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-options-7"><a class="anchor" href="#configuration-options-7"></a><a class="link" href="#configuration-options-7">Configuration Options</a></h3>
+<h3 id="configuration-options-8"><a class="anchor" href="#configuration-options-8"></a><a class="link" href="#configuration-options-8">Configuration Options</a></h3>
 <details>
 <summary class="title">outputFormat: Property&lt;String&gt;</summary>
 <div class="content">

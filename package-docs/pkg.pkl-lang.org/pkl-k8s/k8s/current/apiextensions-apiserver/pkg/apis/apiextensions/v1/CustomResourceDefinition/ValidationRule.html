@@ -47,7 +47,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">reason</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#346-346">Source</a></div>
+                <div class="member-signature"><span class="name-decl">reason</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#346-346">Source</a></div>
                 <div class="doc-comment"><p>reason provides a machine-readable validation failure reason that is returned to the caller when a request fails this validation rule.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The HTTP status code returned to the caller will match the reason of the reason of the first failed validation rule.
 The currently supported reasons are: &quot;FieldValueInvalid&quot;, &quot;FieldValueForbidden&quot;, &quot;FieldValueRequired&quot;, &quot;FieldValueDuplicate&quot;.
@@ -63,7 +63,7 @@ All future added reasons must be accepted by clients when reading this value and
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">messageExpression</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#357-357">Source</a></div>
+                <div class="member-signature"><span class="name-decl">messageExpression</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#357-357">Source</a></div>
                 <div class="doc-comment"><p>MessageExpression declares a CEL expression that evaluates to the validation failure message that is returned when this rule fails.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Since messageExpression is used as a failure message, it must evaluate to a string.
 If both message and messageExpression are present on a rule, then messageExpression will be used if validation fails.
@@ -81,7 +81,7 @@ Example: &quot;x must be less than max (&quot;+string(self.max)+&quot;)&quot;</p
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">fieldPath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#369-369">Source</a></div>
+                <div class="member-signature"><span class="name-decl">fieldPath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#369-369">Source</a></div>
                 <div class="doc-comment"><p>fieldPath represents the field path returned when the validation fails.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>It must be a relative JSON path (i.e. with array notation) scoped to the location of this x-kubernetes-validations extension in the schema and refer to an existing field.
 e.g. when validation checks if a specific attribute <code>foo</code> under a map <code>testMap</code>, the fieldPath could be set to <code>.testMap.foo</code> If the validation checks two lists must have unique attributes, the fieldPath could be set to either of the list: e.g. <code>.testList</code> It does not support list numeric index.
@@ -100,7 +100,7 @@ e.g. for attribute <code>foo.34$</code> appears in a list <code>testList</code>,
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">rule</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#423-423">Source</a></div>
+                <div class="member-signature"><span class="name-decl">rule</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#423-423">Source</a></div>
                 <div class="doc-comment"><p>Rule represents the expression which will be evaluated by CEL.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>ref: <a href="https://github.com/google/cel-spec">https://github.com/google/cel-spec</a> The Rule is scoped to the location of the x-kubernetes-validations extension in the schema.
 The <code>self</code> variable in the CEL expression is bound to the scoped value.
@@ -163,7 +163,7 @@ You can opt a transition rule into unconditional evaluation by setting <code>opt
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">message</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#431-431">Source</a></div>
+                <div class="member-signature"><span class="name-decl">message</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#431-431">Source</a></div>
                 <div class="doc-comment"><p>Message represents the message displayed when validation fails.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The message is required if the Rule contains line breaks.
 The message must not contain line breaks.
@@ -179,7 +179,7 @@ e.g. &quot;must be a URL with the host matching spec.host&quot;</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">optionalOldSelf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#443-443">Source</a></div>
+                <div class="member-signature"><span class="name-decl">optionalOldSelf</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.1.2/generated-package/apiextensions-apiserver/pkg/apis/apiextensions/v1/CustomResourceDefinition.pkl#443-443">Source</a></div>
                 <div class="doc-comment"><p>optionalOldSelf is used to opt a transition rule into evaluation even when the object is first created, or if the old object is missing the value.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When enabled <code>oldSelf</code> will be a CEL optional whose value will be <code>None</code> if there is no old value, or when the object is initially created.</p>
 <p>You may check for presence of oldSelf using <code>oldSelf.hasValue()</code> and unwrap it after checking using <code>oldSelf.value()</code>.
@@ -201,7 +201,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -213,7 +213,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L48-L48">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -228,7 +228,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="ValidationRule.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="ValidationRule.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="ValidationRule.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="ValidationRule.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -242,7 +242,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L1723-L1723">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L1723-L1723">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -255,7 +255,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L1728-L1728">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L1728-L1728">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -269,7 +269,7 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L1733-L1733">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L1733-L1733">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -282,8 +282,8 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L1736-L1736">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L1736-L1736">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -294,8 +294,8 @@ Check the CEL documentation for Optional types for more information: <a href="ht
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/base.pkl#L1739-L1739">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev+cf88924/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.0/stdlib/base.pkl#L1739-L1739">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

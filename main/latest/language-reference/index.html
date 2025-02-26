@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.28.0-dev">
+<div class="nav-container" data-component="main" data-version="0.29.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -258,7 +261,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.28.0-dev</span>
+    <span class="version">0.29.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -287,11 +290,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.29.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.28.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.28.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.27.2/index.html">0.27.2</a>
@@ -408,10 +411,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.28.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.29.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.29.0-dev</a>
     <a class="version" href="../../current/language-reference/index.html">0.28.0</a>
-    <a class="version is-current" href="index.html">0.28.0-dev</a>
     <a class="version" href="../../0.27.2/language-reference/index.html">0.27.2</a>
     <a class="version" href="../../0.26.3/language-reference/index.html">0.26.3</a>
     <a class="version" href="../../0.25.3/language-reference/index.html">0.25.3</a>
@@ -512,13 +515,13 @@ For details on their syntax, see <a href="#doc-comments">Doc Comments</a>.</p>
 <h2 id="numbers"><a class="anchor" href="#numbers"></a><a class="link" href="#numbers">Numbers</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl has two numeric types, <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Int">Int</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Float">Float</a>.
-Their common supertype is <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number">Number</a>.</p>
+<p>Pkl has two numeric types, <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Int">Int</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Float">Float</a>.
+Their common supertype is <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Number">Number</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="integers"><a class="anchor" href="#integers"></a><a class="link" href="#integers">Integers</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Int">Int</a> is a 64-bit signed integer.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Int">Int</a> is a 64-bit signed integer.</p>
 </div>
 <div class="paragraph">
 <p>Integer literals can be written in decimal, hexadecimal, binary, or octal notation:</p>
@@ -645,7 +648,7 @@ An underscore does not affect the integer&#8217;s value.</p>
 </div>
 <div class="paragraph">
 <p>To restrict an integer&#8217;s range, use one of the predefined <a href="#predefined-type-aliases">type aliases</a>
-or an <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number#isBetween">isBetween</a> <a href="#type-constraints">type constraint</a>:</p>
+or an <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Number#isBetween">isBetween</a> <a href="#type-constraints">type constraint</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -657,7 +660,7 @@ or an <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number#isBe
 <div class="sect2">
 <h3 id="floats"><a class="anchor" href="#floats"></a><a class="link" href="#floats">Floats</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Float">Float</a> is a 64-bit <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double-precision</a> floating point number.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Float">Float</a> is a 64-bit <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double-precision</a> floating point number.</p>
 </div>
 <div class="paragraph">
 <p>Float literals use decimal notation.
@@ -698,7 +701,7 @@ The integer and exponent parts are optional.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#NaN">NaN</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Infinity">Infinity</a> properties are defined in the standard library.</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#NaN">NaN</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Infinity">Infinity</a> properties are defined in the standard library.</p>
 </div>
 <div class="paragraph">
 <p>Floats support the same comparison and arithmetic operators as integers.
@@ -721,7 +724,7 @@ As integers are more convenient to use than floats with a fractional part of zer
 </table>
 </div>
 <div class="paragraph">
-<p>To restrict a float to a finite value, use the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number#isFinite">isFinite</a> <a href="#type-constraints">type constraint</a>:</p>
+<p>To restrict a float to a finite value, use the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Number#isFinite">isFinite</a> <a href="#type-constraints">type constraint</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -729,7 +732,7 @@ As integers are more convenient to use than floats with a fractional part of zer
 </div>
 </div>
 <div class="paragraph">
-<p>To restrict a float&#8217;s range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number#isBetween">isBetween</a> type constraint:</p>
+<p>To restrict a float&#8217;s range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Number#isBetween">isBetween</a> type constraint:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -743,11 +746,11 @@ As integers are more convenient to use than floats with a fractional part of zer
 <h2 id="booleans"><a class="anchor" href="#booleans"></a><a class="link" href="#booleans">Booleans</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Boolean">Boolean</a> is either <code>true</code> or <code>false</code>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Boolean">Boolean</a> is either <code>true</code> or <code>false</code>.</p>
 </div>
 <div class="paragraph">
 <p>Apart from the standard logical operators, <code>Boolean</code> has
-<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Boolean#xor()">xor</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Boolean#implies()">implies</a> methods.</p>
+<a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Boolean#xor()">xor</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Boolean#implies()">implies</a> methods.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -788,7 +791,7 @@ As integers are more convenient to use than floats with a fractional part of zer
 <h2 id="strings"><a class="anchor" href="#strings"></a><a class="link" href="#strings">Strings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/String">String</a> is a sequence of Unicode code points.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/String">String</a> is a sequence of Unicode code points.</p>
 </div>
 <div class="paragraph">
 <p>String literals are enclosed in double quotes:</p>
@@ -1006,7 +1009,7 @@ This also affects the escape character, which changes from <code>\</code> to <co
 <div class="sect2">
 <h3 id="string-api"><a class="anchor" href="#string-api"></a><a class="link" href="#string-api">String API</a></h3>
 <div class="paragraph">
-<p>The <code>String</code> class offers a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/String">rich API</a>.
+<p>The <code>String</code> class offers a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/String">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -1044,8 +1047,8 @@ Here are just a few examples:</p>
 <h2 id="durations"><a class="anchor" href="#durations"></a><a class="link" href="#durations">Durations</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Duration">Duration</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
-The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#DurationUnit">DurationUnit</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Duration">Duration</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
+The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#DurationUnit">DurationUnit</a>.</p>
 </div>
 <div class="paragraph">
 <p>Durations are constructed with the following <code>Number</code> properties:</p>
@@ -1064,7 +1067,7 @@ The unit component is constrained to the units defined in <a href="https://pkl-l
 <div class="paragraph">
 <p>A duration can be negative, as in <code>-5.min</code>.
 It can have a floating point value, as in <code>5.13.min</code>.
-The <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Duration#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Duration#unit">unit</a> properties provide access to the duration&#8217;s components.</p>
+The <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Duration#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Duration#unit">unit</a> properties provide access to the duration&#8217;s components.</p>
 </div>
 <div class="paragraph">
 <p>Durations support the standard comparison operators:</p>
@@ -1163,8 +1166,8 @@ The <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Duration#valu
 <h2 id="data-sizes"><a class="anchor" href="#data-sizes"></a><a class="link" href="#data-sizes">Data Sizes</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/DataSize">DataSize</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
-The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#DataSizeUnit">DataSizeUnit</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/DataSize">DataSize</a> has a <em>value</em> component of type <code>Number</code> and a <em>unit</em> component of type <code>String</code>.
+The unit component is constrained to the units defined in <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#DataSizeUnit">DataSizeUnit</a>.</p>
 </div>
 <div class="paragraph">
 <p>Data sizes with decimal units (factor 1000) are constructed with the following <code>Number</code> properties:</p>
@@ -1195,7 +1198,7 @@ The unit component is constrained to the units defined in <a href="https://pkl-l
 <div class="paragraph">
 <p>A data size can be negative, as in <code>-5.mb</code>.
 It can have a floating point value, as in <code>5.13.mb</code>.
-The <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/DataSize#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/DataSize#unit">unit</a> properties provide access to the data size&#8217;s components.</p>
+The <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/DataSize#value">value</a> and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/DataSize#unit">unit</a> properties provide access to the data size&#8217;s components.</p>
 </div>
 <div class="paragraph">
 <p>Data sizes support the standard comparison operators:</p>
@@ -1472,7 +1475,7 @@ Another difference is that in Pkl, object properties are late-bound. Read on to 
 </div>
 <div class="paragraph">
 <p>An amends declaration amends a property of the same name if the property exists within a parent module.
-Otherwise, an amends declaration implicitly amends <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Dynamic">Dynamic</a>.</p>
+Otherwise, an amends declaration implicitly amends <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Dynamic">Dynamic</a>.</p>
 </div>
 <div class="paragraph">
 <p>Another way to think about an amends declaration is that it is shorthand for assignment.
@@ -1610,7 +1613,7 @@ It is used extensively in Pkl code (especially in templates) and is the key to u
 <p>Convert the object to a map.</p>
 </li>
 <li>
-<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">rich API</a>.</p>
+<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Map">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the map back to an object.</p>
@@ -1660,12 +1663,12 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 <div class="ulist">
 <ul>
 <li>
-<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Dynamic">Dynamic</a> object has no predefined structure.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
+<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Dynamic">Dynamic</a> object has no predefined structure.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 When a dynamic object is amended, not only can existing properties be overridden or amended, but new properties can also be added.
 So far, we have only used dynamic objects in this chapter.</p>
 </li>
 <li>
-<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Typed">Typed</a> object has a fixed structure described by a class definition.
+<p>A <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Typed">Typed</a> object has a fixed structure described by a class definition.
 When a typed object is amended, its properties can be overridden or amended, but new properties cannot be added.
 In other words, the new object has the same class as the original object.</p>
 </li>
@@ -1800,7 +1803,7 @@ To dive deeper into this topic, continue with <a href="#classes">Classes</a>.</p
 <td class="content">
 <div class="title">Converting untyped objects to typed objects</div>
 <div class="paragraph">
-<p>When you have a <code>Dynamic</code> that has all the properties (with the right types and meeting all constraints), you can convert it to a <code>Typed</code> by using <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Dynamic#toTyped()"><code>toTyped(&lt;class&gt;)</code></a>:</p>
+<p>When you have a <code>Dynamic</code> that has all the properties (with the right types and meeting all constraints), you can convert it to a <code>Typed</code> by using <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Dynamic#toTyped()"><code>toTyped(&lt;class&gt;)</code></a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2332,7 +2335,7 @@ where it is defined.</p>
 <h2 id="listings"><a class="anchor" href="#listings"></a><a class="link" href="#listings">Listings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Listing">Listing</a> is an ordered, indexed collection of <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Listing">Listing</a> is an ordered, indexed collection of <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>A listing&#8217;s elements have zero-based indexes and are lazily evaluated on the first read.</p>
@@ -2655,7 +2658,7 @@ To reference the element at index <code>&lt;index&gt;</code>, use <code>this[&lt
 <p>Convert the listing to a list.</p>
 </li>
 <li>
-<p>Transform the list using <code>List</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/List">rich API</a>.</p>
+<p>Transform the list using <code>List</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/List">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the list back to a listing.</p>
@@ -2669,7 +2672,7 @@ To reference the element at index <code>&lt;index&gt;</code>, use <code>this[&lt
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ValueRenderer">value renderer</a>.
+Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ValueRenderer">value renderer</a>.
 Because most value renderers treat lists the same as listings, it is often not necessary to convert back to a listing.
 </td>
 </tr>
@@ -2756,7 +2759,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </table>
 </div>
 <div class="paragraph">
-<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Listing#default">property</a> defined in class <code>Listing</code>.
+<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Listing#default">property</a> defined in class <code>Listing</code>.
 If <code>birds</code> had a <a href="#listing-type-annotations">type annotation</a>, a suitable default element would be inferred from its type parameter.
 If, as in our example, no type annotation is provided or inherited, the default element is the empty <code>Dynamic</code> object.</p>
 </div>
@@ -2878,7 +2881,7 @@ it is not necessary to state the type of each list element
 <div class="sect3">
 <h4 id="distinct-elements"><a class="anchor" href="#distinct-elements"></a><a class="link" href="#distinct-elements">Distinct Elements</a></h4>
 <div class="paragraph">
-<p>To constrain a listing to distinct elements, use <code>Listing</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Listing#isDistinct">isDistinct</a> property:</p>
+<p>To constrain a listing to distinct elements, use <code>Listing</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Listing#isDistinct">isDistinct</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2894,7 +2897,7 @@ it is not necessary to state the type of each list element
 <p>This is as close as Pkl&#8217;s late-bound data types (objects, listings, and mappings) get to a <a href="#sets">Set</a>.</p>
 </div>
 <div class="paragraph">
-<p>To demand distinct names instead of distinct <code>Bird</code> objects, use <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Listing#isDistinctBy()">isDistinctBy()</a>:</p>
+<p>To demand distinct names instead of distinct <code>Bird</code> objects, use <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Listing#isDistinctBy()">isDistinctBy()</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2909,7 +2912,7 @@ it is not necessary to state the type of each list element
 <h2 id="mappings"><a class="anchor" href="#mappings"></a><a class="link" href="#mappings">Mappings</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Mapping">Mapping</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Mapping">Mapping</a> is an ordered collection of <em>values</em> indexed by <em>key</em>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3238,7 +3241,7 @@ To reference the value with key <code>&lt;key&gt;</code>, use <code>this[&lt;key
 <p>Convert the mapping to a map.</p>
 </li>
 <li>
-<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">rich API</a>.</p>
+<p>Transform the map using <code>Map</code>'s <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Map">rich API</a>.</p>
 </li>
 <li>
 <p>If necessary, convert the map back to a mapping.</p>
@@ -3252,7 +3255,7 @@ To reference the value with key <code>&lt;key&gt;</code>, use <code>this[&lt;key
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ValueRenderer">value renderer</a>.
+Often, transformations happen in a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PcfRenderer#converters">converter</a> of a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ValueRenderer">value renderer</a>.
 As most value renderers treat maps the same as mappings, it is often not necessary to convert back to a mapping.
 </td>
 </tr>
@@ -3339,7 +3342,7 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </table>
 </div>
 <div class="paragraph">
-<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Mapping#default">property</a> defined in class <code>Mapping</code>.
+<p><code>default</code> is a hidden (that is, not rendered) <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Mapping#default">property</a> defined in class <code>Mapping</code>.
 If <code>birds</code> had a <a href="#mapping-type-annotations">type annotation</a>, a suitable default value would be inferred from its second type parameter.
 If, as in our example, no type annotation is provided or inherited, the default value is the empty <code>Dynamic</code> object.</p>
 </div>
@@ -3464,7 +3467,7 @@ it is not necessary to state the type of each mapping value
 <div class="sectionbody">
 <div class="paragraph">
 <p>Classes are arranged in a single inheritance hierarchy.
-At the top of the hierarchy sits class <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Any">Any</a>; at the bottom, type <a href="#nothing-type">nothing</a>.</p>
+At the top of the hierarchy sits class <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Any">Any</a>; at the bottom, type <a href="#nothing-type">nothing</a>.</p>
 </div>
 <div class="paragraph">
 <p>Classes contain properties and methods, which can be <code>local</code> to their declaring scope.
@@ -3623,7 +3626,7 @@ By convention, module files have a <code>.pkl</code> extension.</p>
 <p>Modules have a <a href="#module-names">Module Name</a> and are loaded from a <a href="#module-uris">Module URI</a>.</p>
 </div>
 <div class="paragraph">
-<p>At runtime, modules are represented as objects of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Module">Module</a>.
+<p>At runtime, modules are represented as objects of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Module">Module</a>.
 The precise runtime type of a module is a subclass of <code>Module</code> containing the module&#8217;s property and method definitions.</p>
 </div>
 <div class="paragraph">
@@ -3800,7 +3803,7 @@ For more details, consult the <a href="#projects">project</a> section of the lan
 <div class="paragraph">
 <p>Standard library modules are named <code>pkl.&lt;simpleName&gt;</code> and have module URIs of the form <code>pkl:&lt;simpleName&gt;</code>.
 For example, module <code>pkl.math</code> has module URI <code>pkl:math</code>.
-See the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/">API Docs</a> for the complete list of standard library modules.</p>
+See the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/">API Docs</a> for the complete list of standard library modules.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4525,10 +4528,10 @@ b:
 <p>Now let&#8217;s do the same&#8201;&#8212;&#8201;and more&#8201;&#8212;&#8201;inside the language.</p>
 </div>
 <div class="paragraph">
-<p>Modules have an <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Module#output">output</a> property that controls what the module&#8217;s output is and how that output is rendered.</p>
+<p>Modules have an <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Module#output">output</a> property that controls what the module&#8217;s output is and how that output is rendered.</p>
 </div>
 <div class="paragraph">
-<p>To control <strong>what</strong> the output is, set the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ModuleOutput#value">output.value</a> property:</p>
+<p>To control <strong>what</strong> the output is, set the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ModuleOutput#value">output.value</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4550,7 +4553,7 @@ b:
 </div>
 </div>
 <div class="paragraph">
-<p>To control <em>how</em> the output is rendered, set the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ModuleOutput#renderer">output.renderer</a> property:</p>
+<p>To control <em>how</em> the output is rendered, set the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ModuleOutput#renderer">output.renderer</a> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4570,33 +4573,33 @@ b:
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/JsonRenderer">JsonRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/JsonRenderer">JsonRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/jsonnet/Renderer">jsonnet.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/jsonnet/Renderer">jsonnet.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PcfRenderer">PcfRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PcfRenderer">PcfRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PListRenderer">PListRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PListRenderer">PListRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PropertiesRenderer">PropertiesRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PropertiesRenderer">PropertiesRenderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/protobuf/Renderer">protobuf.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/protobuf/Renderer">protobuf.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/xml/Renderer">xml.Renderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/xml/Renderer">xml.Renderer</a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/YamlRenderer">YamlRenderer</a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/YamlRenderer">YamlRenderer</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To render a format that is not yet supported, you can implement your own renderer by extending the class <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ValueRenderer">ValueRenderer</a>.</p>
+<p>To render a format that is not yet supported, you can implement your own renderer by extending the class <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ValueRenderer">ValueRenderer</a>.</p>
 </div>
 <div class="paragraph">
 <p>The standard library renderers can be configured with <em>value converters</em>, which influence how particular values are rendered.</p>
@@ -4647,11 +4650,11 @@ However, we can teach it to:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For more on path-based converters, see <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/PcfRenderer#converters">PcfRenderer.converters</a>.</p>
+<p>For more on path-based converters, see <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/PcfRenderer#converters">PcfRenderer.converters</a>.</p>
 </div>
 <div class="paragraph">
 <p>Sometimes it is useful to directly compute the final module output, bypassing <code>output.value</code> and <code>output.converters</code>.
-To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ModuleOutput#text">output.text</a> property to a String value:</p>
+To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ModuleOutput#text">output.text</a> property to a String value:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4674,7 +4677,7 @@ To do so, set the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base
 <h4 id="multiple-file-output"><a class="anchor" href="#multiple-file-output"></a><a class="link" href="#multiple-file-output">Multiple File Output</a></h4>
 <div class="paragraph">
 <p>It is sometimes desirable for a single module to produce multiple output files.
-This is possible by configuring a module&#8217;s <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/ModuleOutput#files"><code>output.files</code></a> property
+This is possible by configuring a module&#8217;s <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/ModuleOutput#files"><code>output.files</code></a> property
 and specifying the <a href="../pkl-cli/index.html#multiple-file-output-path" class="xref page"><code>--multiple-file-output-path</code></a>
 (or <code>-m</code> for short) CLI option.</p>
 </div>
@@ -4813,7 +4816,7 @@ the appropriate file extensions can be obtained programmatically:</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The keyword <code>null</code> indicates the absence of a value.
-<code>null</code> is an instance of <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Null">Null</a>, a direct subclass of <code>Any</code>.</p>
+<code>null</code> is an instance of <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Null">Null</a>, a direct subclass of <code>Any</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="non-null-operator"><a class="anchor" href="#non-null-operator"></a><a class="link" href="#non-null-operator">Non-Null Operator</a></h3>
@@ -4971,7 +4974,7 @@ Here are some examples:</p>
 <div class="sect2">
 <h3 id="ifnonnull-method"><a class="anchor" href="#ifnonnull-method"></a><a class="link" href="#ifnonnull-method">ifNonNull Method</a></h3>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Null#ifNonNull()">ifNonNull()</a> method is a generalization of the <a href="#null-propagation">null propagation</a> operator.</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Null#ifNonNull()">ifNonNull()</a> method is a generalization of the <a href="#null-propagation">null propagation</a> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5071,22 +5074,22 @@ Result type is <code>String</code>.</p>
 <dt class="hdlist1">file: </dt>
 <dd>
 <p>Reads a file from the file system.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Resource">Resource</a>.</p>
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Resource">Resource</a>.</p>
 </dd>
 <dt class="hdlist1">http(s): </dt>
 <dd>
 <p>Reads an HTTP(S) resource.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Resource">Resource</a>.</p>
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Resource">Resource</a>.</p>
 </dd>
 <dt class="hdlist1">modulepath: </dt>
 <dd>
 <p>Reads a resource from the module path (<code>--module-path</code>) or JVM class path.
-Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Resource">Resource</a>.
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Resource">Resource</a>.
 See <a href="#module-path-uri">Module Path URI</a> for further information.</p>
 </dd>
 <dt class="hdlist1">package: </dt>
 <dd>
-<p>Reads a resource from a <em>package</em>. Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Resource">Resource</a>. See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
+<p>Reads a resource from a <em>package</em>. Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Resource">Resource</a>. See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
 </dd>
 </dl>
 </div>
@@ -5731,7 +5734,7 @@ If the type check succeeds, the operand is returned as-is; otherwise, an error i
 <div class="sect2">
 <h3 id="lists"><a class="anchor" href="#lists"></a><a class="link" href="#lists">Lists</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/List">List</a> is an ordered, indexed collection of <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/List">List</a> is an ordered, indexed collection of <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>A list&#8217;s elements have zero-based indexes and are eagerly evaluated.</p>
@@ -5817,7 +5820,7 @@ Note that listings can be converted to lists when the need arises.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>List</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/List">rich API</a>.
+<p>Class <code>List</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/List">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -5863,7 +5866,7 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="sets"><a class="anchor" href="#sets"></a><a class="link" href="#sets">Sets</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Set">Set</a> is a collection of unique <em>elements</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Set">Set</a> is a collection of unique <em>elements</em>.</p>
 </div>
 <div class="paragraph">
 <p>Sets are constructed with the <code>Set()</code> method<sup class="footnoteref">[<a class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>:</p>
@@ -5941,7 +5944,7 @@ However, this order is not considered when determining equality of two sets.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>Set</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Set">rich API</a>.
+<p>Class <code>Set</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Set">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -5977,7 +5980,7 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="maps"><a class="anchor" href="#maps"></a><a class="link" href="#maps">Maps</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">Map</a> is a collection of <em>values</em> indexed by <em>key</em>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Map">Map</a> is a collection of <em>values</em> indexed by <em>key</em>.</p>
 </div>
 <div class="paragraph">
 <p>A map&#8217;s key-value pairs are called its <em>entries</em>.
@@ -6108,7 +6111,7 @@ However, this order is not considered when determining equality of two maps.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Class <code>Map</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Map">rich API</a>.
+<p>Class <code>Map</code> offers a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Map">rich API</a>.
 Here are just a few examples:</p>
 </div>
 <div class="listingblock">
@@ -6149,10 +6152,10 @@ Here are just a few examples:</p>
 <div class="sect2">
 <h3 id="regular-expressions"><a class="anchor" href="#regular-expressions"></a><a class="link" href="#regular-expressions">Regular Expressions</a></h3>
 <div class="paragraph">
-<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Regex">Regex</a> is a regular expression with the same syntax and semantics as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regular expression</a>.</p>
+<p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Regex">Regex</a> is a regular expression with the same syntax and semantics as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regular expression</a>.</p>
 </div>
 <div class="paragraph">
-<p>Regular expressions are constructed with the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Regex()">Regex()</a> method:</p>
+<p>Regular expressions are constructed with the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Regex()">Regex()</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6164,7 +6167,7 @@ Here are just a few examples:</p>
 As a consequence, the regular expression&#8217;s backslash escape character no longer requires escaping.</p>
 </div>
 <div class="paragraph">
-<p>To test if a string fully matches a regular expression, use <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/String#matches()">String.matches()</a>:</p>
+<p>To test if a string fully matches a regular expression, use <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/String#matches()">String.matches()</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6182,8 +6185,8 @@ Here is an example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To find all matches of a regex in a string, use <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Regex#match">Regex.findMatchesIn()</a>.
-The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/RegexMatch">RegexMatch</a> objects containing details about each match:</p>
+<p>To find all matches of a regex in a string, use <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Regex#match">Regex.findMatchesIn()</a>.
+The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/RegexMatch">RegexMatch</a> objects containing details about each match:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6274,36 +6277,36 @@ The result is a list of <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-de
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Int8">Int8</a> (-128 to 127)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Int8">Int8</a> (-128 to 127)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Int16">Int16</a> (-32,768 to 32,767)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Int16">Int16</a> (-32,768 to 32,767)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Int32">Int32</a> (-2,147,483,648 to 2,147,483,647)</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#UInt8">UInt8</a> (0 to 255)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#UInt16">UInt16</a> (0 to 65,535)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#UInt32">UInt32</a> (0 to 4,294,967,295)</p>
-</li>
-<li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#UInt">UInt</a> (0 to 9,223,372,036,854,775,807)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Int32">Int32</a> (-2,147,483,648 to 2,147,483,647)</p>
 </li>
 </ul>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/#Uri">Uri</a> (any String value)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#UInt8">UInt8</a> (0 to 255)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#UInt16">UInt16</a> (0 to 65,535)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#UInt32">UInt32</a> (0 to 4,294,967,295)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#UInt">UInt</a> (0 to 9,223,372,036,854,775,807)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/#Uri">Uri</a> (any String value)</p>
 </li>
 </ul>
 </div>
@@ -6337,7 +6340,7 @@ Value: -1</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>To restrict a number to a custom range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Number#isBetween">isBetween</a> method:</p>
+<p>To restrict a number to a custom range, use the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Number#isBetween">isBetween</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7053,14 +7056,14 @@ under names such as <em>lamba expressions</em>, <em>arrow functions</em>, <em>fu
 <p>This anonymous function accepts a parameter named <code>n</code>, multiplies it by 3, and returns the result.</p>
 </div>
 <div class="paragraph">
-<p>Anonymous functions are values of type <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function">Function</a>, more specifically
-<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function0">Function0</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function1">Function1</a>,
-<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function2">Function2</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function3">Function3</a>,
-<a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function4">Function4</a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function5">Function5</a>.
+<p>Anonymous functions are values of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function">Function</a>, more specifically
+<a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function0">Function0</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function1">Function1</a>,
+<a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function2">Function2</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function3">Function3</a>,
+<a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function4">Function4</a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function5">Function5</a>.
 They cannot have more than five parameters.</p>
 </div>
 <div class="paragraph">
-<p>To invoke an anonymous function, call its <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Function1#apply()">apply</a> method:</p>
+<p>To invoke an anonymous function, call its <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Function1#apply()">apply</a> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7244,8 +7247,8 @@ applies the original function to them, and amends the returned object.</p>
 </div>
 <div class="paragraph">
 <p>Function amending is a special form of function composition.
-Thanks to function amending, <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Listing#default">Listing.default</a>
-and <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/base/Mapping#default">Mapping.default</a> can be treated as if they were objects,
+Thanks to function amending, <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Listing#default">Listing.default</a>
+and <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Mapping#default">Mapping.default</a> can be treated as if they were objects,
 only gradually revealing their true (single-parameter function) nature:</p>
 </div>
 <div class="listingblock">
@@ -8372,7 +8375,7 @@ The following Markdown features are supported:</p>
 </div>
 <div class="paragraph">
 <p>Doc comments are consumed by humans reading source code, the <em>Pkldoc</em> documentation generator, code generators, and editor/IDE plugins.
-They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.28.0-dev/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
+They are programmatically accessible via the <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/reflect/">pkl.reflect</a> Pkl API and <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/ModuleSchema.java">ModuleSchema</a> Java API.</p>
 </div>
 <div class="admonitionblock tip">
 <table>

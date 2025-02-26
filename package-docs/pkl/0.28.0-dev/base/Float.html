@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Float (pkl/base:0.28.0-dev) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.28.0-dev/base/Float.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.28.0-dev" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="Float" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <h1 id="declaration-title">Float<span id="declaration-version">0.28.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">external class <span class="name-decl">Float</span> extends <a href="Number.html" class="name-ref">Number</a></div>
+        <div class="doc-comment"><p>A 64-bit floating-point number conforming to the IEEE 754 binary64 format.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>The following binary operators are supported for <a href="Number.html"><code>Number</code></a>s:</p>
+<pre><code>-a     // negative
+a + b  // addition
+a - b  // subtraction
+a * b  // multiplication
+a / b  // division
+a ~/ b // integer division
+a % b  // remainder
+a ** b // exponentiation
+</code></pre>
+<p>Tip: To allow transparent use of <code>Float</code> and <a href="Int.html"><code>Int</code></a>,
+use <code>Number</code> instead of <code>Float</code> in type annotations.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="ns" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ns">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ns</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;ns&quot;</code> (nanoseconds).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="us" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#us">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">us</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;us&quot;</code> (microseconds).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ms" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ms">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ms</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;ms&quot;</code> (milliseconds).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="s" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#s">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">s</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;s&quot;</code> (seconds).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="min" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#min">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">min</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;min&quot;</code> (minutes).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="h" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#h">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">h</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;h&quot;</code> (hours).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="d" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#d">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">d</span>: <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A <a href="Duration.html"><code>Duration</code></a> with value <code>this</code> and unit <code>&quot;d&quot;</code> (days).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="b" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#b">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">b</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;b&quot;</code> (bytes).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="kb" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#kb">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">kb</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;kb&quot;</code> (kilobytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.kb == 1000.b
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mb" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#mb">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mb</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;mb&quot;</code> (megabytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.mb == 1000.kb
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="gb" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#gb">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">gb</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;gb&quot;</code> (gigabytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.gb == 1000.mb
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tb" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tb">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tb</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;tb&quot;</code> (terabytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.tb == 1000.gb
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pb" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pb">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pb</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;pb&quot;</code> (petabytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.pb == 1000.tb
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="kib" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#kib">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">kib</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;kib&quot;</code> (kibibytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.kib == 1024.b
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="mib" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#mib">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">mib</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;mib&quot;</code> (mebibytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.mib == 1024.kib
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="gib" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#gib">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">gib</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;gib&quot;</code> (gibibytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.gib == 1024.mib
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tib" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tib">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tib</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;tib&quot;</code> (tebibytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.tib == 1024.gib
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pib" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pib">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pib</span>: <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A <a href="DataSize.html"><code>DataSize</code></a> with value <code>this</code> and unit <code>&quot;pib&quot;</code> (pebibytes).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>1.pib == 1024.tib
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sign" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sign">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sign</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The sign of this number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>0</code> for <code>0</code>, <code>0.0</code>, <code>-0.0</code>, and <a href="index.html#NaN"><code>NaN</code></a>,
+<code>1</code> for positive numbers (including <a href="index.html#Infinity"><code>Infinity</code></a>),
+and <code>-1</code> for negative numbers (including <code>-</code><code>Infinity</code>).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="abs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#abs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">abs</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>The absolute value of this number.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>42.abs == 42
+-42.abs == 42
+0.0.abs == 0.0
+(-0.0).abs == 0.0
+Infinity.abs == Infinity
+(-Infinity).abs == Infinity
+NaN.abs == NaN
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ceil" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ceil">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ceil</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Rounds this number to the next mathematical integer towards <a href="index.html#Infinity"><code>Infinity</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is an <a href="Int.html"><code>Int</code></a>, returns <code>this</code>.
+If <code>this</code> is <a href="index.html#NaN"><code>NaN</code></a>, <a href="index.html#Infinity"><code>Infinity</code></a>, -<code>Infinity</code>, <code>0.0</code>, or <code>-0.0</code>, returns <code>this</code>.
+Otherwise, returns the smallest <a href="Float.html"><code>Float</code></a> that is greater than or equal to <code>this</code>
+and is equal to a mathematical integer.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="floor" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#floor">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">floor</span>: <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Rounds this number to the next mathematical integer towards -<a href="index.html#Infinity"><code>Infinity</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is an <a href="Int.html"><code>Int</code></a>, returns <code>this</code>.
+If <code>this</code> is <a href="index.html#NaN"><code>NaN</code></a>, <a href="index.html#Infinity"><code>Infinity</code></a>, -<code>Infinity</code>, <code>0.0</code>, or <code>-0.0</code>, returns <code>this</code>.
+Otherwise, returns the largest <a href="Float.html"><code>Float</code></a> that is less than or equal to <code>this</code>
+and is equal to a mathematical integer.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isPositive" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isPositive">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isPositive</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is greater than or equal to zero.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>0.isPositive
+(-0).isPositive
+0.0.isPositive
+(-0.0).isPositive
+3.isPositive
+3.14.isPositive
+Infinity.isPositive
+
+!(-3).isPositive
+!(-3.14).isPositive
+!(-Infinity).isPositive
+!NaN.isPositive
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isFinite" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isFinite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isFinite</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is neither <a href="index.html#NaN"><code>NaN</code></a> nor <a href="Float.html#isInfinite"><code>isInfinite</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isInfinite" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isInfinite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isInfinite</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is <a href="index.html#Infinity"><code>Infinity</code></a> or -<code>Infinity</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isNaN" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isNaN">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isNaN</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is <a href="index.html#NaN"><code>NaN</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Always use this method when testing for <a href="index.html#NaN"><code>NaN</code></a>.
+Note that <code>x == NaN</code> is <em>not</em> a correct way to test for <code>NaN</code> because <code>NaN != NaN</code> as per the IEEE spec.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isNonZero" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isNonZero">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isNonZero</span>: <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is not 0.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts this number to its decimal string representation.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Float.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Float.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="round()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#round()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">round</span>(): <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Rounds this number to the nearest mathematical integer, breaking ties in favor
+of the even integer.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is an <a href="Int.html"><code>Int</code></a>, returns <code>this</code>.
+If <code>this</code> is <a href="index.html#NaN"><code>NaN</code></a>, <a href="index.html#Infinity"><code>Infinity</code></a>, -<code>Infinity</code>, <code>0.0</code>, or <code>-0.0</code>, returns <code>this</code>.
+Otherwise, return the <a href="Float.html"><code>Float</code></a> that is nearest to <code>this</code> and is equal to a
+mathematical integer. If two mathematical integers are equally near, returns
+the even integer.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="truncate()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#truncate()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">truncate</span>(): <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Rounds this number to the next mathematical integer towards zero.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is an <a href="Int.html"><code>Int</code></a>, returns <code>this</code>.
+If <code>this</code> is <a href="index.html#NaN"><code>NaN</code></a>, <a href="index.html#Infinity"><code>Infinity</code></a>, -<code>Infinity</code>, <code>0.0</code>, or <code>-0.0</code>, returns <code>this</code>.
+If <code>this</code> is less than zero, returns the smallest <a href="Float.html"><code>Float</code></a> that is greater than or equal to <code>this</code>
+and is equal to a mathematical integer.
+Otherwise, returns the largest <code>Float</code> that is less than or equal to <code>this</code>
+and is equal to a mathematical integer.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toInt()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toInt()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toInt</span>(): <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>Converts this number to an <a href="Int.html"><code>Int</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is an <a href="Int.html"><code>Int</code></a>, returns <code>this</code>.
+If <code>this</code> is <a href="index.html#NaN"><code>NaN</code></a>, <a href="index.html#Infinity"><code>Infinity</code></a>, or -<code>Infinity</code>, throws an error.
+Otherwise, returns the <code>Int</code> representation for <code>this.truncate()</code>.
+If <code>this.truncate()</code> is not representable in (that is, too large for) <code>Int</code>, throws an error.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toFloat()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toFloat()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toFloat</span>(): <a href="Float.html" class="name-ref">Float</a></div>
+                <div class="doc-comment"><p>Converts this number to a <a href="Float.html"><code>Float</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If <code>this</code> is a <a href="Float.html"><code>Float</code></a>, returns <code>this</code>.
+Otherwise, returns the <code>Float</code> representation for <code>this</code>.
+If <code>this</code> is not representable in <code>Float</code>, returns the <code>Float</code> nearest to <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toFixed()" class="anchor"> </div>
+            <div id="toFixed().fractionDigits" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toFixed()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toFixed</span>(<span class="param1">fractionDigits</span>: <a href="Int.html" class="name-ref">Int</a>(this.isBetween(0, 20))): <a href="String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>Converts this number to a decimal fixed-point representation with <code>fractionDigits</code> digits after the decimal point.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDuration()" class="anchor"> </div>
+            <div id="toDuration().unit" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toDuration()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDuration</span>(<span class="param1">unit</span>: <a href="index.html#DurationUnit" class="name-ref">DurationUnit</a>): <a href="Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>Converts this number to a duration with <code>this</code> value and the given <code>unit</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDataSize()" class="anchor"> </div>
+            <div id="toDataSize().unit" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toDataSize()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDataSize</span>(<span class="param1">unit</span>: <a href="index.html#DataSizeUnit" class="name-ref">DataSizeUnit</a>): <a href="DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>Converts this number to a data size with <code>this</code> value and the given <code>unit</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isBetween()" class="anchor"> </div>
+            <div id="isBetween().start" class="anchor-param1"> </div>
+            <div id="isBetween().inclusiveEnd" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isBetween()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isBetween</span>(<span class="param1">start</span>: <a href="Number.html" class="name-ref">Number</a>, <span class="param2">inclusiveEnd</span>: <a href="Number.html" class="name-ref">Number</a>): <a href="Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this number is greater than or equal to <code>start</code> and less than or equal to <code>inclusiveEnd</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>3.2.isBetween(2.6, 4)
+3.2.isBetween(2.6, 3.2)
+3.2.isBetween(3.2, 4)
+!3.2.isBetween(1, 3.1)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

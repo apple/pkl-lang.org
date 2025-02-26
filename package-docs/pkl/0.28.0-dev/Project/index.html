@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project (pkl:0.28.0-dev) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.28.0-dev/Project/index.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.28.0-dev" data-package-url-prefix="../" data-module-name="pkl.Project" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a>
+      <h1 id="declaration-title">pkl.Project<span id="declaration-version">0.28.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">pkl.Project</span></div>
+        <div class="doc-comment"><p>A manifest that defines the presence of a project.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">pkl:Project</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.28.0 or higher</dd>
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>A project is useful for defining <a href="index.html#dependencies"><code>dependencies</code></a>, and also for defining common evaluator
+<a href="not_found"><code>settings</code></a>.</p>
+<p>A project is a directory that contains a project file at its root.
+The project file is a file named <code>PklProject</code> exactly, that amends or embeds <code>&quot;pkl:Project&quot;</code>.</p>
+<p>When evaluating from the CLI, the project directory can be specified explicitly using
+<code>--project-dir</code> flag, or is determined implicitly by walking up the working directory, looking
+for a directory containing a <code>PklProject</code> file.</p>
+<p>When using the API libraries (e.g. <em>pkl-swift</em>, <em>pkl-go</em> or <em>pkl-config-java</em>), the project must be
+explicitly stated via the evaluator builder.</p>
+<h2>Embedding <code>Project</code></h2>
+<p>In a project file, instead of amending <code>pkl:Project</code>, it is possible simply set the
+<code>output.value</code> property of a module to an instance of <code>Project</code>.
+This allows defining higher levels of abstraction that encapsulate an underlying <code>Project</code>
+definition.</p>
+<p>When defining an abstraction, it is important to:</p>
+<ol>
+<li>
+<p>Set the module's <code>output.value</code> to the underlying project output.</p>
+</li>
+<li>
+<p>Set <a href="index.html#projectFileUri"><code>projectFileUri</code></a> to the enclosing module's URI.
+This is necessary to determine the correct project directory, as well as for resolving
+local project dependencies correctly.</p>
+<p>The <a href="index.html#newInstance()"><code>newInstance()</code></a> helper method exists as a convenient way to set this when embedding
+project definitions.</p>
+</li>
+</ol>
+<p>Example:</p>
+<pre><code>module MyTeamProject
+
+import &quot;pkl:Project&quot;
+
+/// The package name, to be prefixed with `myteam`.
+packageName: String
+
+project: Project = (Project.newInstance(module)) {
+  package {
+    name = &quot;myteam.\(packageName)&quot;
+  }
+}
+
+output {
+  value = project
+}
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="../base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="package" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#package">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">package</span>: <a href="Package.html" class="name-ref">Package</a>?</div>
+                <div class="doc-comment"><p>The details for the package represented by this project.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This section is used if publishing this project as a package.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tests" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tests">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tests</span>: <a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;(isDistinct)</div>
+                <div class="doc-comment"><p>The tests of the project.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If set, allows running <code>pkl test</code> without specifying the paths to source modules.</p>
+<p>Relative paths are resolved against PklProject's enclosing directory.</p>
+<p>Glob imports can be useful for defining this property.</p>
+<p>Example:</p>
+<pre><code>tests = import*(&quot;**.test.pkl&quot;).keys.toListing()
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="dependencies" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#dependencies">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">dependencies</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>(!contains(&quot;/&quot;)), (<a href="RemoteDependency.html" class="name-ref">RemoteDependency</a>|<a href="index.html" class="name-ref">Project</a>(isValidLoadDependency))&gt;</div>
+                <div class="doc-comment"><p>The dependencies of this project.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A dependency is a group of Pkl modules and file resources that can be imported within the
+project.
+Within the project, a dependency can be referenced via <em>dependency notation</em>, where the name
+is prefixed with the <code>@</code> character.</p>
+<p>For example, given the following descriptor:</p>
+<pre><code>dependencies {
+  [&quot;birds&quot;] {
+    uri = &quot;package://example.com/birds@1.0.0&quot;
+  }
+}
+</code></pre>
+<p>This enables the following snippet:</p>
+<pre><code>import &quot;@birds/canary.pkl&quot; // Import a module from the `birds` dependency
+
+birdIndex = read(&quot;@birds/index.txt&quot;) // Read a file from the `birds` dependency
+</code></pre>
+<p>A dependency's coordinates can either be specified in the form of a <a href="RemoteDependency.html"><code>RemoteDependency</code></a>
+descriptor, which gets fetched over the network, or an import of another PklProject file, which
+represents a package that exists locally.</p>
+<p>Remote dependencies are fetched over HTTPS.
+When fetching a remote dependency, two HTTPS requests are made.
+Given dependency URI <code>package://example.com/foo@0.5.0</code>, the following requests are made:</p>
+<ol>
+<li><code>GET https://example.com/foo@0.5.0</code> to retrieve the metadata JSON file.</li>
+<li>Given the metadata JSON file, make a GET request to the package URI ZIP archive.</li>
+</ol>
+<p>If this project is published as a package, these dependencies are included within the published
+package metadata.</p>
+<h2>Local project dependencies</h2>
+<p>A local project can alternatively be used as a dependency.
+This is useful when structuring a single repository that publishes multiple packages.</p>
+<p>To specify a local project dependency, import the relative <code>PklProject</code> file.</p>
+<p>The local project dependency must define its own <a href="index.html#package"><code>package</code></a>.</p>
+<p>Example:</p>
+<pre><code>dependencies {
+  [&quot;penguins&quot;] = import(&quot;../penguins/PklProject&quot;)
+}
+</code></pre>
+<h2>Resolving dependencies</h2>
+<p>Dependencies must be <em>resolved</em> before they can be used.
+To resolve dependencies, run the CLI command <code>pkl project resolve</code>.
+This will generate a <code>PklProject.deps.json</code> file next to the <code>PklProject</code> file.</p>
+<h3>Minimum version selection</h3>
+<p>Pkl uses the
+<a href="https://research.swtch.com/vgo-mvs#algorithm_1">minimum version selection algorithm 1</a>
+to resolve dependencies.
+A dependency is identified by its package URI, as well as its major semver number.</p>
+<p>To determine the resolved dependencies of a project, the following algorithm is applied:</p>
+<ol>
+<li>Gather all dependencies, both direct and transitive.</li>
+<li>For each package's major version, determine the highest declared minor version.</li>
+<li>Write each resolved dependency to sibling file <code>PklProject.deps.json</code>.</li>
+</ol></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="evaluatorSettings" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#evaluatorSettings">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">evaluatorSettings</span>: <a href="../EvaluatorSettings/index.html" class="name-ref">EvaluatorSettings</a>((modulePath != null).implies(isFileBasedProject), (rootDir != null).implies(isFileBasedProject), (moduleCacheDir != null).implies(isFileBasedProject))</div>
+                <div class="doc-comment"><p>If set, controls the base evaluator settings when running the evaluator.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>These settings influence the behavior of the evaluator when running the <code>pkl eval</code>, <code>pkl test</code>,
+and <code>pkl repl</code> CLI commands.
+Command line flags passed to the CLI will override any settings defined here.</p>
+<p>Other integrations can possibly ignore these evaluator settings.</p>
+<p>Evaluator settings do not get published as part of a package.
+It is not possible for a package dependency to influence the evaluator settings of a project.</p>
+<p>The following values can only be set if this is a file-based project.</p>
+<ul>
+<li><a href="not_found">modulePath</a></li>
+<li><a href="not_found">rootDir</a></li>
+<li><a href="not_found">moduleCacheDir</a></li>
+</ul>
+<p>For each of these, relative paths are resolved against the project's enclosing directory.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="projectFileUri" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#projectFileUri">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">projectFileUri</span>: <a href="../base/String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The URI of the PklProject file.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This value is used to resolve relative paths when importing another local project as a
+dependency.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="../base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L1723-L1723">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L1728-L1728">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L1733-L1733">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L1736-L1736">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L1739-L1739">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="../base/Module.html" class="name-ref">Module</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/cf88924/stdlib/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
+then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
+(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="newInstance()" class="anchor"> </div>
+            <div id="newInstance().enclosingModule" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#newInstance()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">newInstance</span>(<span class="param1">enclosingModule</span>: <a href="../base/Module.html" class="name-ref">Module</a>): <a href="index.html" class="name-ref">Project</a></div>
+                <div class="doc-comment"><p>Instantiates a project definition within the enclosing module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This is a convenience method for setting <a href="index.html#projectFileUri"><code>projectFileUri</code></a> to the enclosing module's URI.</p>
+<p>Example:</p>
+<pre><code>myProject: Project = (Project.newInstance(module)) {
+  dependencies { /* etc */ }
+}
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="RemoteDependency" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RemoteDependency">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RemoteDependency.html" class="name-decl">RemoteDependency</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Checksums" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Checksums">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Checksums.html" class="name-decl">Checksums</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Package" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Package">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Package.html" class="name-decl">Package</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="PackageUri" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PackageUri">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PackageUri" class="name-decl">PackageUri</a> = <a href="../base/index.html#Uri" class="name-ref">Uri</a>(startsWith(&quot;package:&quot;), hasVersion)</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="EmailAddress" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#EmailAddress">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#EmailAddress" class="name-decl">EmailAddress</a> = <a href="../base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;.+@\S+|.+&lt;\S+@\S+&gt;&quot;#)))</div>
+                <div class="doc-comment"><p>An email address, conformant to the
+<a href="https://www.rfc-editor.org/rfc/rfc5322#section-3.4">RFC5322 mailbox</a> specification.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Can be in the form of an address spec, or a named address.</p>
+<p>Examples:</p>
+<ul>
+<li><code>&quot;johnny.appleseed@example.com&quot;</code></li>
+<li><code>&quot;Johnny Appleseed &lt;johnny.appleseed@example.com&gt;&quot;</code></li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="EvaluatorSettings" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#EvaluatorSettings">link</a>
+              <div class="member-left">
+                <div class="member-modifiers member-deprecated">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature member-deprecated"><a href="index.html#EvaluatorSettings" class="name-decl">EvaluatorSettings</a> = <a href="../EvaluatorSettings/index.html" class="name-ref">EvaluatorSettings</a></div>
+                <div class="doc-comment">Deprecated. Replace with: <code>EvaluatorSettingsModule</code></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CommonSpdxLicenseIdentifier" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#CommonSpdxLicenseIdentifier">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#CommonSpdxLicenseIdentifier" class="name-decl">CommonSpdxLicenseIdentifier</a> = &quot;Apache-2.0&quot;|&quot;MIT&quot;|&quot;BSD-2-Clause&quot;|&quot;BSD-3-Clause&quot;|&quot;ISC&quot;|&quot;GPL-3.0&quot;|&quot;GPL-2.0&quot;|&quot;MPL-2.0&quot;|&quot;MPL-1.1&quot;|&quot;MPL-1.0&quot;|&quot;AGPL-1.0-only&quot;|&quot;AGPL-1.0-or-later&quot;|&quot;AGPL-3.0-only&quot;|&quot;AGPL-3.0-or-later&quot;|&quot;LGPL-2.0-only&quot;|&quot;LGPL-2.0-or-later&quot;|&quot;LGPL-2.1-only&quot;|&quot;LGPL-2.1-or-later&quot;|&quot;LGPL-3.0-only&quot;|&quot;LGPL-3.0-or-later&quot;|&quot;EPL-1.0&quot;|&quot;EPL-2.0&quot;|&quot;UPL-1.0&quot;|&quot;BSL-1.0&quot;|&quot;Unlicense&quot;</div>
+                <div class="doc-comment"><p>Common software licenses in the <a href="https://spdx.org/licenses/">SPDX License List</a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IntSeq (pkl/base:0.29.0-dev) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.29.0-dev/base/IntSeq.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.29.0-dev" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="IntSeq" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
+      <h1 id="declaration-title">IntSeq<span id="declaration-version">0.29.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">external class <span class="name-decl">IntSeq</span> extends <a href="Any.html" class="name-ref">Any</a></div>
+        <div class="doc-comment"><p>A finite arithmetic sequence of integers.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>A sequence has a <a href="IntSeq.html#start"><code>start</code></a>, <a href="IntSeq.html#end"><code>end</code></a>, and <a href="IntSeq.html#step"><code>step</code></a>.
+It is either ascending (<code>step</code> &gt; 0) or descending (<code>step</code> &lt; 0).
+The default <code>step</code> is 1.</p>
+<p>The members of a sequence are defined as:</p>
+<ul>
+<li>seq(0) = <code>start</code> + 0 * <code>step</code></li>
+<li>seq(1) = <code>start</code> + 1 * <code>step</code></li>
+<li>seq(2) = <code>start</code> + 2 * <code>step</code></li>
+<li>etc. where seq(n) &lt;= <code>end</code> if <code>step</code> &gt; 0, and seq(n) &gt;= <code>end</code> if <code>step</code> &lt; 0</li>
+</ul>
+<h2>Construction</h2>
+<p>To construct a sequence, use method <a href="index.html#IntSeq()"><code>IntSeq()</code></a>:</p>
+<pre><code>ascending = IntSeq(2, 5)
+empty = IntSeq(5, 2)
+</code></pre>
+<p>To set a step other than 1, use method <a href="IntSeq.html#step()"><code>step()</code></a>:</p>
+<pre><code>descending = IntSeq(5, 2).step(-2)
+</code></pre>
+<h2>Iteration</h2>
+<p>To iterate over a sequence, use method <a href="IntSeq.html#map()"><code>map()</code></a>:</p>
+<pre><code>numbers = IntSeq(2, 5).map((n) -&gt; n * 2)
+</code></pre>
+<p>A sequence can also be iterated over in a <em>for-generator</em>:</p>
+<pre><code>numbers {
+  for (n in IntSeq(2, 5)) {
+    n * 2
+  }
+}
+</code></pre>
+<h2>Equality</h2>
+<p>Two sequences are equal if and only if they contain the same members in the same order.</p>
+<p>Facts:</p>
+<pre><code>IntSeq(2, 5) == IntSeq(2, 5)
+IntSeq(2, -3) == IntSeq(2, -2) // both empty
+IntSeq(2, 5).step(2) == IntSeq(2, 4).step(2)
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="start" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#start">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">start</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The start of this sequence.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>IntSeq(2, 5).start == 2
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="end" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#end">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">end</span>: <a href="Int.html" class="name-ref">Int</a></div>
+                <div class="doc-comment"><p>The inclusive end of this sequence.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Note that <code>end</code> may or may not be a member of this sequence.</p>
+<p>Facts:</p>
+<pre><code>IntSeq(2, 5).start == 5
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="step" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#step">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">step</span>: <a href="Int.html" class="name-ref">Int</a>(isNonZero)</div>
+                <div class="doc-comment"><p>The common difference of successive members of this sequence.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>IntSeq(5, 2).step == 1
+IntSeq(5, 2).step(-2).step == -2
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="String.html" class="name-ref">String</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="IntSeq.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="IntSeq.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="step()" class="anchor"> </div>
+            <div id="step().newValue" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#step()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">step</span>(<span class="param1">newValue</span>: <a href="Int.html" class="name-ref">Int</a>(isNonZero)): <a href="IntSeq.html" class="name-ref">IntSeq</a></div>
+                <div class="doc-comment"><p>Changes <a href="IntSeq.html#step"><code>step</code></a> to <code>newValue</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>IntSeq(5, 2).step == 1
+IntSeq(5, 2).step(-2).step == -2
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fold()" class="anchor"> </div>
+            <div id="fold().Result" class="anchor-param1"> </div>
+            <div id="fold().initial" class="anchor-param2"> </div>
+            <div id="fold().operator" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#fold()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fold</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="IntSeq.html#fold().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="IntSeq.html#fold().Result" class="name-ref">Result</a>, <a href="Int.html" class="name-ref">Int</a>) -&gt; <a href="IntSeq.html#fold().Result" class="name-ref">Result</a>): <a href="IntSeq.html#fold().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Folds this sequence in iteration order using <code>operator</code>, starting with <code>initial</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="map()" class="anchor"> </div>
+            <div id="map().Result" class="anchor-param1"> </div>
+            <div id="map().mapper" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#map()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">map</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">mapper</span>: (<a href="Int.html" class="name-ref">Int</a>) -&gt; <a href="IntSeq.html#map().Result" class="name-ref">Result</a>): <a href="List.html" class="name-ref">List</a>&lt;<a href="IntSeq.html#map().Result" class="name-ref">Result</a>&gt;</div>
+                <div class="doc-comment"><p>Applies <code>mapper</code> to each member of this sequence and returns the resulting values as a list.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>IntSeq(2, 5).map((it) -&gt; it) == List(2, 3, 4, 5)
+IntSeq(5, 2).map((it) -&gt; it) == List()
+IntSeq(5, 2).step(-1).map((it) -&gt; it * 2) == List(10, 8, 6, 4)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toList()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toList()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toList</span>(): <a href="List.html" class="name-ref">List</a>&lt;<a href="Int.html" class="name-ref">Int</a>&gt;</div>
+                <div class="doc-comment"><p>Converts the elements of this sequence to a <a href="List.html"><code>List</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toListing()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toListing()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toListing</span>(): <a href="Listing.html" class="name-ref">Listing</a>&lt;<a href="Int.html" class="name-ref">Int</a>&gt;</div>
+                <div class="doc-comment"><p>Converts the elements of this sequence to a <a href="Listing.html"><code>Listing</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

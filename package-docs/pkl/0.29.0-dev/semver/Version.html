@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Version (pkl/semver:0.29.0-dev) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../data/pkl/0.29.0-dev/semver/Version.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.29.0-dev" data-package-url-prefix="../" data-module-name="pkl.semver" data-class-name="Version" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.semver</a>
+      <h1 id="declaration-title">Version<span id="declaration-version">0.29.0-dev</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">Version</span></div>
+        <div class="doc-comment"><p>A <a href="https://semver.org/spec/v2.0.0.html">semantic version</a>.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>To test if two versions are equal according to semantic versioning rules, use <a href="Version.html#equals()"><code>equals()</code></a> instead of <code>==</code>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="major" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#major">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">major</span>: <a href="../base/index.html#UInt" class="name-ref">UInt</a></div>
+                <div class="doc-comment"><p>Major version zero (0.y.z) is for initial development.
+Anything MAY change at any time.
+The public API SHOULD NOT be considered stable.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Version 1.0.0 defines the public API.
+The way in which the version number is incremented after this release is dependent on this public API and how it changes.</p>
+<p>Major version X (X.y.z | X &gt; 0) MUST be incremented if any backwards incompatible changes are introduced to the public API.
+It MAY also include minor and patch level changes.
+Patch and minor version MUST be reset to 0 when major version is incremented.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="minor" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#minor">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">minor</span>: <a href="../base/index.html#UInt" class="name-ref">UInt</a></div>
+                <div class="doc-comment"><p>Minor version Y (x.Y.z | x &gt; 0) MUST be incremented if new, backwards compatible functionality is introduced to the public API.
+It MUST be incremented if any public API functionality is marked as deprecated.
+It MAY be incremented if substantial new functionality or improvements are introduced within the private code.
+It MAY include patch level changes.
+Patch version MUST be reset to 0 when minor version is incremented.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="patch" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#patch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">patch</span>: <a href="../base/index.html#UInt" class="name-ref">UInt</a></div>
+                <div class="doc-comment"><p>Patch version Z (x.y.Z | x &gt; 0) MUST be incremented if only backwards compatible bug fixes are introduced.
+A bug fix is defined as an internal change that fixes incorrect behavior.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="preRelease" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#preRelease">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">preRelease</span>: <a href="../base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*&quot;#)))?</div>
+                <div class="doc-comment"><p>A pre-release version MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version.
+Identifiers MUST comprise only ASCII alphanumerics and hyphens <code>[0-9A-Za-z-]</code>.
+Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes.
+Pre-release versions have a lower precedence than the associated normal version.
+A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Examples:</p>
+<ul>
+<li><code>&quot;1.0.0-alpha&quot;</code></li>
+<li><code>&quot;1.0.0-alpha.1&quot;</code></li>
+<li><code>&quot;1.0.0-0.3.7&quot;</code></li>
+<li><code>&quot;1.0.0-x.7.z.92&quot;</code></li>
+<li><code>&quot;1.0.0-x-y-z.–&quot;</code></li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="preReleaseIdentifiers" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#preReleaseIdentifiers">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">preReleaseIdentifiers</span>: <a href="../base/List.html" class="name-ref">List</a>&lt;(<a href="../base/Int.html" class="name-ref">Int</a>|<a href="../base/String.html" class="name-ref">String</a>)&gt;</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="build" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#build">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">build</span>: <a href="../base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*&quot;#)))?</div>
+                <div class="doc-comment"><p>Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version.
+Identifiers MUST comprise only ASCII alphanumerics and hyphens <code>[0-9A-Za-z-]</code>.
+Identifiers MUST NOT be empty.
+Build metadata MUST be ignored when determining version precedence.
+Thus two versions that differ only in the build metadata, have the same precedence.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Examples:</p>
+<ul>
+<li>`&quot;1.0.0-alpha+001&quot;</li>
+<li><code>&quot;1.0.0+20130313144700&quot;</code></li>
+<li><code>&quot;1.0.0-beta+exp.sha.5114f85&quot;</code></li>
+<li><code>&quot;1.0.0+21AF26D3—-117B344092BD&quot;</code></li>
+</ul>
+<p>Note: Unlike <code>==</code>, <a href="Version.html#equals()"><code>equals()</code></a> and comparison methods such as <a href="Version.html#isLessThan()"><code>isLessThan()</code></a> ignore <code>build</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="buildIdentifiers" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#buildIdentifiers">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">buildIdentifiers</span>: <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): unknown</div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="../base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Version.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Version.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L1723-L1723">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L1728-L1728">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L1733-L1733">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L1736-L1736">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/06d04878/stdlib/stdlib/base.pkl#L1739-L1739">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="equals()" class="anchor"> </div>
+            <div id="equals().other" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#equals()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">equals</span>(<span class="param1">other</span>: <a href="Version.html" class="name-ref">Version</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this version is equal to <code>other</code> according to semantic versioning rules.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>semver.Version(&quot;1.0.0&quot;).equals(semver.Version(&quot;1.0.0&quot;))
+!(semver.Version(&quot;1.0.0&quot;).equals(semver.Version(&quot;1.0.1&quot;)))
+semver.Version(&quot;1.0.0-alpha+001&quot;).equals(semver.Version(&quot;1.0.0-alpha+999&quot;))
+</code></pre>
+<p>Note: <code>version1.equals(version2)</code> differs from <code>version1 == version2</code> in that it ignores <a href="Version.html#build"><code>build</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isLessThan()" class="anchor"> </div>
+            <div id="isLessThan().other" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isLessThan()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isLessThan</span>(<span class="param1">other</span>: <a href="Version.html" class="name-ref">Version</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this version is less than <code>other</code> according to semantic versioning rules.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>semver.Version(&quot;1.0.0&quot;).isLessThan(semver.Version(&quot;2.0.0&quot;))
+semver.Version(&quot;2.0.0&quot;).isLessThan(semver.Version(&quot;2.1.0&quot;))
+semver.Version(&quot;2.1.0&quot;).isLessThan(semver.Version(&quot;2.1.1&quot;))
+
+semver.Version(&quot;1.0.0-alpha&quot;).isLessThan(&quot;1.0.0&quot;)
+
+semver.Version(&quot;1.0.0-alpha&quot;).isLessThan(semver.Version(&quot;1.0.0-alpha.1&quot;))
+semver.Version(&quot;1.0.0-alpha.1&quot;).isLessThan(semver.Version(&quot;1.0.0-alpha.beta&quot;))
+semver.Version(&quot;1.0.0-alpha.beta&quot;).isLessThan(semver.Version(&quot;1.0.0-beta&quot;))
+semver.Version(&quot;1.0.0-beta&quot;).isLessThan(semver.Version(&quot;1.0.0-beta.2&quot;))
+semver.Version(&quot;1.0.0-beta.2&quot;).isLessThan(semver.Version(&quot;1.0.0-beta.11&quot;))
+semver.Version(&quot;1.0.0-beta.11&quot;).isLessThan(semver.Version(&quot;1.0.0-rc.1&quot;))
+semver.Version(&quot;1.0.0-rc.1&quot;).isLessThan(semver.Version(&quot;1.0.0&quot;))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isLessThanOrEquals()" class="anchor"> </div>
+            <div id="isLessThanOrEquals().other" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isLessThanOrEquals()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isLessThanOrEquals</span>(<span class="param1">other</span>: <a href="Version.html" class="name-ref">Version</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this version is less than or equal to <code>other</code> according to semantic versioning rules.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isGreaterThan()" class="anchor"> </div>
+            <div id="isGreaterThan().other" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isGreaterThan()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isGreaterThan</span>(<span class="param1">other</span>: <a href="Version.html" class="name-ref">Version</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this version is greater than <code>other</code> according to semantic versioning rules.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isGreaterThanOrEquals()" class="anchor"> </div>
+            <div id="isGreaterThanOrEquals().other" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isGreaterThanOrEquals()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isGreaterThanOrEquals</span>(<span class="param1">other</span>: <a href="Version.html" class="name-ref">Version</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether this version is greater than or equal to <code>other</code> according to semantic versioning rules.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isNormal()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isNormal()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isNormal</span>(): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>A normal version number MUST take the form X.Y.Z where X, Y, and Z are non-negative integers, and MUST NOT contain leading zeroes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isStable()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isStable()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isStable</span>(): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this version has a non-zero <a href="Version.html#major"><code>major</code></a> and no <a href="Version.html#preRelease"><code>preRelease</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toNormal()" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#toNormal()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toNormal</span>(): <a href="Version.html" class="name-ref">Version</a></div>
+                <div class="doc-comment"><p>Strips <a href="Version.html#preRelease"><code>preRelease</code></a> and <a href="Version.html#build"><code>build</code></a> from this version.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

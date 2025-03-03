@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.28.0">
+<div class="nav-container" data-component="main" data-version="0.28.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -257,7 +257,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.28.0</span>
+    <span class="version">0.28.1</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -293,7 +293,7 @@
           <a href="../../latest/index.html">0.29.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.28.0</a>
+          <a href="../index.html">0.28.1</a>
         </li>
         <li class="version">
           <a href="../../0.27.2/index.html">0.27.2</a>
@@ -413,10 +413,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.28.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.28.1</button>
   <div class="version-menu">
     <a class="version" href="../../latest/release-notes/changelog.html">0.29.0-dev</a>
-    <a class="version is-current" href="changelog.html">0.28.0</a>
+    <a class="version is-current" href="changelog.html">0.28.1</a>
     <a class="version" href="../../0.27.2/release-notes/changelog.html">0.27.2</a>
     <a class="version" href="../../0.26.3/release-notes/changelog.html">0.26.3</a>
     <a class="version" href="../../0.25.3/release-notes/changelog.html">0.25.3</a>
@@ -431,6 +431,37 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
+<h2 id="release-0.28.1"><a class="anchor" href="#release-0.28.1"></a><a class="link" href="#release-0.28.1">0.28.1 (2025-03-03)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where Pkl Gradle tasks can possibly fail with <code>java.lang.UnsatisfiedLinkError</code> (<a href="https://github.com/apple/pkl/pull/995">#995</a>).</p>
+</li>
+<li>
+<p>Fixes an issue where the artifacts pkl-tools and pkl-config-java-all fail with <code>java.lang.ClassFormatError</code> (<a href="https://github.com/apple/pkl/pull/998">#998</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the ability to configure <code>native-image</code> build with Gradle system properties (<a href="https://github.com/apple/pkl/pull/1001">#1001</a>).</p>
+<div class="paragraph">
+<p>Now, any system property starting with <code>"pkl.native"</code> will have that prefix stripped, and the rest passed as CLI arguments to <code>native-image</code>. For example, the native-image resource cache can be configured by passing Gradle flag <code>-Dpkl.native-Dpolyglot.engine.userResourceCache=/my/cache/dir</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.28.0"><a class="anchor" href="#release-0.28.0"></a><a class="link" href="#release-0.28.0">0.28.0 (2025-02-26)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -442,7 +473,7 @@
 <h2 id="release-0.27.2"><a class="anchor" href="#release-0.27.2"></a><a class="link" href="#release-0.27.2">0.27.2 (2025-01-22)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -479,7 +510,7 @@
 <h2 id="release-0.27.1"><a class="anchor" href="#release-0.27.1"></a><a class="link" href="#release-0.27.1">0.27.1 (2024-12-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -539,7 +570,7 @@
 <h2 id="release-0.26.3"><a class="anchor" href="#release-0.26.3"></a><a class="link" href="#release-0.26.3">0.26.3 (2024-08-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -560,7 +591,7 @@
 <h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -575,7 +606,7 @@
 <h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -588,7 +619,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -622,7 +653,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -654,7 +685,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -703,7 +734,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -796,7 +827,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
+<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

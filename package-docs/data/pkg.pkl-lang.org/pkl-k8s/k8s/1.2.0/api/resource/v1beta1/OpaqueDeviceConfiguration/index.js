@@ -1,0 +1,2 @@
+runtimeData.links('known-versions','[{"text":"1.2.0","classes":"current-version"}]');
+runtimeData.links('known-usages','[{"text":"DeviceAllocationConfiguration","href":"../ResourceClaim/DeviceAllocationConfiguration.html"},{"text":"DeviceClaimConfiguration","href":"../ResourceClaimSpec/DeviceClaimConfiguration.html"},{"text":"DeviceClassConfiguration","href":"../DeviceClass/DeviceClassConfiguration.html"}]');

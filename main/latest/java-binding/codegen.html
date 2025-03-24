@@ -569,8 +569,52 @@ repositories {
 <div class="sect2">
 <h3 id="install-cli"><a class="anchor" href="#install-cli"></a><a class="link" href="#install-cli">CLI</a></h3>
 <div class="paragraph">
-<p>The CLI is bundled with the Java library.
-As we do not currently ship the CLI as a self-contained Jar, we recommend to provision it with a Maven compatible build tool as shown in <a href="#install-library">Java Library</a>.</p>
+<p>The CLI is available as a Java executable.</p>
+</div>
+<div class="paragraph">
+<p>It works on multiple platforms, and requires a Java 17 (or higher) runtime on the system path.</p>
+</div>
+<div class="paragraph">
+<p>To download:</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-macoslinux" class="tab">
+<p>macOS/Linux</p>
+</li>
+<li id="tabs-2-windows" class="tab">
+<p>Windows</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-2-macoslinux">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl-codegen-java 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar'
+chmod +x pkl-codegen-java
+./pkl-codegen-java --version</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-windows--panel" class="tabpanel" aria-labelledby="tabs-2-windows">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar' -OutFile pkl-codegen-java.bat
+.\pkl-codegen-java --version</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl-codegen-java 0.29.0-dev (macOS 14.2, Java 17.0.10)</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -598,11 +642,7 @@ For more information, refer to the Javadoc documentation.</p>
 <div class="sect2">
 <h3 id="cli"><a class="anchor" href="#cli"></a><a class="link" href="#cli">CLI</a></h3>
 <div class="paragraph">
-<p>As explained in <a href="#install-cli">Installation</a>, the CLI is bundled with the Java library.
-To run the CLI, execute the library Jar or its <code>org.pkl.codegen.java.Main</code> main class.</p>
-</div>
-<div class="paragraph">
-<p><strong>Synopsis:</strong> <code>java -cp &lt;classpath&gt; -jar pkl-codegen-java.jar [&lt;options&gt;] &lt;modules&gt;</code></p>
+<p><strong>Synopsis:</strong> <code>pkl-codegen-java [&lt;options&gt;] &lt;modules&gt;</code></p>
 </div>
 <div class="dlist">
 <dl>
@@ -962,7 +1002,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 <div class="sectionbody">
 <div class="paragraph">
 <p>For a ready-to-go example with full source code,
-see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-java">codegen-java</a> in the <em>pkl/pkl-examples</em> repository.</p>
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-java">codegen-java</a> in the <em>pkl-jvm-examples</em> repository.</p>
 </div>
 </div>
 </div>

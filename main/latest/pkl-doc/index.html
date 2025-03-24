@@ -636,8 +636,74 @@ repositories {
 <div class="sect2">
 <h3 id="install-cli"><a class="anchor" href="#install-cli"></a><a class="link" href="#install-cli">CLI</a></h3>
 <div class="paragraph">
-<p>The CLI is bundled with the library and does not currently ship as a native executable or a self-contained Jar.
-We recommend to provision it with a Maven compatible build tool as shown in <a href="#install-library">Library Installation</a>.</p>
+<p>The CLI comes in multiple flavors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Native macOS executable for amd64 (tested on macOS 10.15)</p>
+</li>
+<li>
+<p>Native Linux executable for amd64</p>
+</li>
+<li>
+<p>Native Linux executable for aarch64</p>
+</li>
+<li>
+<p>Native Alpine Linux executable for amd64 (cross-compiled and tested on Oracle Linux 8)</p>
+</li>
+<li>
+<p>Native Windows executable for amd64 (tested on Windows Server 2022)</p>
+</li>
+<li>
+<p>Java executable (tested with Java 17/21 on macOS and Oracle Linux)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">What is the Difference Between the Linux and Alpine Linux Executables?</div>
+<div class="paragraph">
+<p>The Linux executable is dynamically linked against <em>glibc</em> and <em>libstdc&#43;&#43;</em>,
+whereas, the Alpine Linux executable is statically linked against <em>musl libc</em> and <em>libstdc&#43;&#43;</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Java executable works on multiple platforms and has a smaller binary size than the native executables.
+However, it requires a Java 17 (or higher) runtime on the system path, and has a noticeable startup delay.</p>
+</div>
+<div class="paragraph">
+<p>Download links:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>macOS aarch64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-macos-aarch64&amp;e=bin" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-macos-aarch64&amp;e=bin</a></p>
+</li>
+<li>
+<p>macOS amd64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-macos-amd64&amp;e=bin" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-macos-amd64&amp;e=bin</a></p>
+</li>
+<li>
+<p>Linux aarch64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-linux-aarch64&amp;e=bin" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-linux-aarch64&amp;e=bin</a></p>
+</li>
+<li>
+<p>Linux amd64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-linux-amd64&amp;e=bin" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-linux-amd64&amp;e=bin</a></p>
+</li>
+<li>
+<p>Alpine Linux amd64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-alpine-linux-amd64&amp;e=bin" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-alpine-linux-amd64&amp;e=bin</a></p>
+</li>
+<li>
+<p>Windows amd64: <a href="https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-windows-amd64&amp;e=exe" class="bare">https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.29.0-SNAPSHOT&amp;a=pkldoc-windows-amd64&amp;e=exe</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -734,11 +800,7 @@ where <em>sourceCode</em> is configured in the <code>Package.sourceCode</code> p
 <div class="sect2">
 <h3 id="cli"><a class="anchor" href="#cli"></a><a class="link" href="#cli">CLI</a></h3>
 <div class="paragraph">
-<p>As mentioned in <a href="#install-cli">CLI Installation</a>, the CLI is bundled with the library.
-To run the CLI, execute the library Jar or its <code>org.pkl.doc.Main</code> class.</p>
-</div>
-<div class="paragraph">
-<p><strong>Synopsis:</strong> <code>java -cp &lt;classpath&gt; -jar pkl-doc.jar [&lt;options&gt;] &lt;modules&gt;</code></p>
+<p><strong>Synopsis:</strong> <code>pkldoc [&lt;options&gt;] &lt;modules&gt;</code></p>
 </div>
 <div class="dlist">
 <dl>
@@ -981,7 +1043,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 <div class="sectionbody">
 <div class="paragraph">
 <p>For a ready-to-go example with full source code and detailed walkthrough,
-see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/pkldoc">pkldoc</a> in the <em>pkl/pkl-examples</em> repository.</p>
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/pkldoc">pkldoc</a> in the <em>pkl-jvm-examples</em> repository.</p>
 </div>
 </div>
 </div>

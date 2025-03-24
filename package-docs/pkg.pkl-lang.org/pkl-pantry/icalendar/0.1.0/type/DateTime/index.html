@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ModulesGenerator (pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib:1.1.4) • Packages</title>
+    <title>DateTime (pkg.pkl-lang.org/pkl-pantry/icalendar:0.1.0) • Packages</title>
     <script src="../../../../../../scripts/pkldoc.js" defer="defer"></script>
     <script src="../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib/1.1.4/internal/ModulesGenerator/index.js" defer="defer"></script>
+    <script src="../../../../../../data/pkg.pkl-lang.org/pkl-pantry/icalendar/0.1.0/type/DateTime/index.js" defer="defer"></script>
     <link href="../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../images/apple-touch-icon.png">
@@ -15,22 +15,25 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib" data-package-version="1.1.4" data-package-url-prefix="../../" data-module-name="org.json_schema.contrib.internal.ModulesGenerator" data-root-url-prefix="../../../../../../"></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/icalendar" data-package-version="0.1.0" data-package-url-prefix="../../" data-module-name="icalendar.type.DateTime" data-root-url-prefix="../../../../../../"></div>
     </header>
-    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib</a>
-      <h1 id="declaration-title">org.json_schema.contrib.internal.ModulesGenerator<span id="declaration-version">1.1.4</span></h1>
+    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/icalendar</a>
+      <h1 id="declaration-title">icalendar.type.DateTime<span id="declaration-version">0.1.0</span></h1>
       <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
         <li><a href="#_properties">Properties</a></li>
         <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
       </ul>
       <div id="_overview" class="anchor"> </div>
-      <div id="_declaration" class="member">
-        <div class="member-signature">module <span class="name-decl">org.json_schema.contrib.internal.ModulesGenerator</span></div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">icalendar.type.DateTime</span></div>
+        <div class="doc-comment"><p>This value type is used to identify values that specify a precise calendar date and time of day.</p></div>
         <dl class="member-info">
           <dt class="">Module URI:</dt>
-          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib@1.1.4#/internal/ModulesGenerator.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/icalendar@0.1.0#/type/DateTime.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
           <dt class="">Source code:</dt>
-          <dd><a href="https://github.com/apple/pkl-pantry/blob/org.json_schema.contrib@1.1.4/packages/org.json_schema.contrib/internal/ModulesGenerator.pkl">ModulesGenerator.pkl</a></dd>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl">DateTime.pkl</a></dd>
           <dt class="runtime-data hidden">Known subtypes:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">Known usages:</dt>
@@ -38,6 +41,7 @@
           <dt class="runtime-data hidden">All versions:</dt>
           <dd id="known-versions" class="runtime-data hidden"></dd>
         </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.5</p></div>
       </div>
       <div class="member-group">
         <div id="_properties" class="anchor"> </div>
@@ -57,37 +61,36 @@
             </div>
           </li>
           <li>
-            <div id="rootSchema" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#rootSchema">link</a>
+            <div id="date" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#date">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">rootSchema</span>: <a href="../../../../../../org.json_schema/1.0.5/JsonSchema/index.html" class="name-ref">JsonSchema</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema.contrib@1.1.4/packages/org.json_schema.contrib/internal/ModulesGenerator.pkl#L25-25">Source</a></div>
-                <div class="doc-comment"><p>The root schema, used to resolve <a href="../../../../../../org.json_schema/1.0.5/JsonSchema/index.html#$ref"><code>JsonSchema.$ref</code></a> values.</p></div>
+                <div class="member-signature"><span class="name-decl">date</span>: <a href="../Date/index.html" class="name-ref">Date</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L27-27">Source</a></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="baseUri" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#baseUri">link</a>
+            <div id="time" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#time">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">baseUri</span>: <a href="../../../../../../pkl.experimental.uri/1.0.3/URI/index.html" class="name-ref">URI</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema.contrib@1.1.4/packages/org.json_schema.contrib/internal/ModulesGenerator.pkl#L28-28">Source</a></div>
-                <div class="doc-comment"><p>The URI representing the root schema, used to resolve <a href="../../../../../../org.json_schema/1.0.5/JsonSchema/index.html#$ref"><code>JsonSchema.$ref</code></a> values.</p></div>
+                <div class="member-signature"><span class="name-decl">time</span>: <a href="../Time/index.html" class="name-ref">Time</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L29-29">Source</a></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="modules" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#modules">link</a>
+            <div id="utc" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#utc">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">modules</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/List.html" class="name-ref">List</a>&lt;<a href="../ModuleGenerator/index.html" class="name-ref">ModuleGenerator</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema.contrib@1.1.4/packages/org.json_schema.contrib/internal/ModulesGenerator.pkl#L55-61">Source</a></div>
+                <div class="member-signature"><span class="name-decl">utc</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L32-32">Source</a></div>
+                <div class="doc-comment"><p>Indicates that <a href="index.html#time"><code>time</code></a> is UTC, not local.</p></div>
               </div>
             </div>
           </li>
@@ -111,12 +114,12 @@
           </li>
           <li>
             <div id="toString()" class="anchor"> </div>
-            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L34-34">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -224,15 +227,32 @@ path = rootModule.relativePathTo(module)
             </div>
           </li>
           <li>
-            <div id="gatherAllSchemas()" class="anchor"> </div>
-            <div id="gatherAllSchemas().schema" class="anchor-param1"> </div>
-            <div id="gatherAllSchemas().baseUri" class="anchor-param2"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#gatherAllSchemas()">link</a>
+            <div id="DateTime()" class="anchor"> </div>
+            <div id="DateTime().input" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DateTime()">link</a>
               <div class="member-left">
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">gatherAllSchemas</span>(<span class="param1">schema</span>: <a href="../../../../../../org.json_schema/1.0.5/JsonSchema/index.html" class="name-ref">JsonSchema</a>, <span class="param2">baseUri</span>: <a href="../../../../../../pkl.experimental.uri/1.0.3/URI/index.html" class="name-ref">URI</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Pair.html" class="name-ref">Pair</a>&lt;<a href="../../../../../../org.json_schema/1.0.5/JsonSchema/index.html" class="name-ref">JsonSchema</a>, <a href="../../../../../../pkl.experimental.uri/1.0.3/URI/index.html" class="name-ref">URI</a>&gt;&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.json_schema.contrib@1.1.4/packages/org.json_schema.contrib/internal/ModulesGenerator.pkl#L38-51">Source</a></div>
+                <div class="member-signature"><span class="name-decl">DateTime</span>(<span class="param1">input</span>: <a href="index.html#DateTimeString" class="name-ref">DateTimeString</a>): <a href="index.html" class="name-ref">DateTime</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L37-41">Source</a></div>
+                <div class="doc-comment"><p>Parse a <a href="index.html#DateTimeString"><code>DateTimeString</code></a> into a <a href="index.html"><code>DateTime</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="DateTimeString" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DateTimeString">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DateTimeString" class="name-decl">DateTimeString</a> = <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>(matches(Regex(&quot;\(Date.dateRegex)T\(Time.timeRegex)&quot;)))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.0/packages/icalendar/type/DateTime.pkl#L25-25">Source</a></div>
               </div>
             </div>
           </li>

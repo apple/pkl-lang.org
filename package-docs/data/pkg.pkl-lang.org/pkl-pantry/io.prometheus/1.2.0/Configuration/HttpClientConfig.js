@@ -1,2 +1,2 @@
-runtimeData.links('known-versions','[{"text":"1.2.0","classes":"current-version"}]');
+runtimeData.links('known-versions','[{"text":"1.3.0","href":"../../1.3.0/Configuration/HttpClientConfig.html"},{"text":"1.2.0","classes":"current-version"}]');
 runtimeData.links('known-subtypes','[{"text":"AlertManagerConfig","href":"AlertManagerConfig.html"},{"text":"HttpSdConfig","href":"HttpSdConfig.html"},{"text":"KubernetesSdConfig","href":"KubernetesSdConfig.html"},{"text":"RemoteReadConfig","href":"RemoteReadConfig.html"},{"text":"RemoteWriteConfig","href":"RemoteWriteConfig.html"},{"text":"ScrapeConfig","href":"ScrapeConfig.html"}]');

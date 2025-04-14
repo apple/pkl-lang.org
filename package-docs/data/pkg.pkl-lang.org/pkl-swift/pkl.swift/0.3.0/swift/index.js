@@ -1,1 +1,1 @@
-runtimeData.links('known-versions','[{"text":"0.4.1","href":"../../0.4.1/swift/index.html"},{"text":"0.4.0","href":"../../0.4.0/swift/index.html"},{"text":"0.3.0","classes":"current-version"},{"text":"0.2.3","href":"../../0.2.3/swift/index.html"}]');
+runtimeData.links('known-versions','[{"text":"0.4.2","href":"../../0.4.2/swift/index.html"},{"text":"0.4.1","href":"../../0.4.1/swift/index.html"},{"text":"0.4.0","href":"../../0.4.0/swift/index.html"},{"text":"0.3.0","classes":"current-version"},{"text":"0.2.3","href":"../../0.2.3/swift/index.html"}]');

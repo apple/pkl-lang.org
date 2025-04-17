@@ -57,7 +57,7 @@ from streaming (tcp, unix) or datagram (udp, unixgram) protocols.</p></div>
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L93-L107">Source</a></div>
                 <div class="doc-comment"><p>The output of this module.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
               </div>
@@ -70,7 +70,7 @@ from streaming (tcp, unix) or datagram (udp, unixgram) protocols.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">namepass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">namepass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only metrics whose measurement name matches a pattern in this list are emitted.</p></div>
               </div>
@@ -83,7 +83,7 @@ from streaming (tcp, unix) or datagram (udp, unixgram) protocols.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">namedrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">namedrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>The inverse of <a href="index.html#namepass"><code>namepass</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If a match is found the metric is discarded.
 This is tested on metrics after they have passed the <a href="index.html#namepass"><code>namepass</code></a> test.</p></div>
@@ -97,7 +97,7 @@ This is tested on metrics after they have passed the <a href="index.html#namepas
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tagpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">tagpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>A table mapping tag keys to arrays of glob pattern strings.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only metrics that contain a tag key in the table and a tag value matching one of its patterns is emitted.</p></div>
               </div>
@@ -110,7 +110,7 @@ This is tested on metrics after they have passed the <a href="index.html#namepas
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tagdrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">tagdrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>The inverse of <a href="index.html#tagpass"><code>tagpass</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If a match is found the metric is discarded.
 This is tested on metrics after they have passed the <a href="index.html#tagpass"><code>tagpass</code></a> test.</p></div>
@@ -124,7 +124,7 @@ This is tested on metrics after they have passed the <a href="index.html#tagpass
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">fieldpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">fieldpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only fields whose field key matches a pattern in this list are emitted.</p></div>
               </div>
@@ -137,7 +137,7 @@ This is tested on metrics after they have passed the <a href="index.html#tagpass
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">fielddrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">fielddrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>The inverse of <a href="index.html#fieldpass"><code>fieldpass</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Fields with a field key matching one of the patterns will be discarded from the metric.
 This is tested on metrics after they have passed the <a href="index.html#fieldpass"><code>fieldpass</code></a> test.</p></div>
@@ -151,7 +151,7 @@ This is tested on metrics after they have passed the <a href="index.html#fieldpa
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">taginclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">taginclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only tags with a tag key matching one of the patterns are emitted.
 In contrast to <a href="index.html#tagpass"><code>tagpass</code></a>, which will pass an entire metric based on its tag,
@@ -167,7 +167,7 @@ Any tag can be filtered including global tags and the agent <code>host</code> ta
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tagexclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">tagexclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
                 <div class="doc-comment"><p>The inverse of <a href="index.html#taginclude"><code>taginclude</code></a>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Tags with a tag key matching one of the patterns will be discarded from the metric.
 Any tag can be filtered including global tags and the agent <code>host</code> tag</p></div>
@@ -181,7 +181,7 @@ Any tag can be filtered including global tags and the agent <code>host</code> ta
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Duration.html" class="name-ref">Duration</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Duration.html" class="name-ref">Duration</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
                 <div class="doc-comment"><p>How often to gather this metric.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Normal plugins use a single global interval,
 but if one particular input should be run less or more often,
@@ -196,7 +196,7 @@ you can configure that here.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">name_override</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">name_override</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
                 <div class="doc-comment"><p>Override the base name of the measurement.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Default: name of the input</p></div>
               </div>
@@ -209,7 +209,7 @@ you can configure that here.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">name_prefix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">name_prefix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
                 <div class="doc-comment"><p>Specifies a prefix to attach to the measurement name.</p></div>
               </div>
             </div>
@@ -221,7 +221,7 @@ you can configure that here.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">name_suffix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">name_suffix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
                 <div class="doc-comment"><p>Specifies a suffix to attach to the measurement name.</p></div>
               </div>
             </div>
@@ -233,7 +233,7 @@ you can configure that here.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tags</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
+                <div class="member-signature"><span class="name-decl">tags</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../Input/index.html" class="name-ref">com.influxdata.telegraf.plugins.inputs.Input</a>)</span></div>
                 <div class="doc-comment"><p>A map of tags to apply to a specific input’s measurements.</p></div>
               </div>
             </div>
@@ -245,7 +245,7 @@ you can configure that here.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">service_address</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html#Uri" class="name-ref">Uri</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L43-43">Source</a></div>
+                <div class="member-signature"><span class="name-decl">service_address</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#Uri" class="name-ref">Uri</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L43-43">Source</a></div>
                 <div class="doc-comment"><p>URL to listen on.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Examples:</p>
 <pre><code>service_address = &quot;tcp://:8094&quot;
@@ -269,7 +269,7 @@ service_address = &quot;unixgram:///tmp/telegraf.sock&quot;
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">socket_mode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L55-55">Source</a></div>
+                <div class="member-signature"><span class="name-decl">socket_mode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L55-55">Source</a></div>
                 <div class="doc-comment"><p>Change the file mode bits on unix sockets.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>These permissions may not be respected by some platforms.
 To safely restrict write permissions, it is best to place the socket
@@ -287,7 +287,7 @@ into a directory that has previously been created with the desired permissions.<
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">max_connections</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html#UInt16" class="name-ref">UInt16</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L63-63">Source</a></div>
+                <div class="member-signature"><span class="name-decl">max_connections</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#UInt16" class="name-ref">UInt16</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L63-63">Source</a></div>
                 <div class="doc-comment"><p>Maximum number of concurrent connections.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only applies to stream sockets (e.g. TCP).
 0 (default) is unlimited.</p>
@@ -302,7 +302,7 @@ into a directory that has previously been created with the desired permissions.<
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">read_timeout</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L70-70">Source</a></div>
+                <div class="member-signature"><span class="name-decl">read_timeout</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L70-70">Source</a></div>
                 <div class="doc-comment"><p>Read timeout.
 Only applies to stream sockets (e.g. TCP).
 0 (default) is unlimited.</p></div>
@@ -317,7 +317,7 @@ Only applies to stream sockets (e.g. TCP).
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tls_cert</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L75-75">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tls_cert</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L75-75">Source</a></div>
                 <div class="doc-comment"><p>Optional TLS configuration.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only applies to stream sockets (e.g. TCP).</p></div>
               </div>
@@ -330,7 +330,7 @@ Only applies to stream sockets (e.g. TCP).
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tls_key</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L76-76">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tls_key</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L76-76">Source</a></div>
               </div>
             </div>
           </li>
@@ -341,7 +341,7 @@ Only applies to stream sockets (e.g. TCP).
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tls_allowed_cacerts</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L84-84">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tls_allowed_cacerts</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L84-84">Source</a></div>
                 <div class="doc-comment"><p>Enables client authentication if set.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Example:</p>
 <pre><code>tls_allowed_cacerts { &quot;/etc/telegraf/clientca.pem&quot; }
@@ -356,7 +356,7 @@ Only applies to stream sockets (e.g. TCP).
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">read_buffer_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/DataSize.html" class="name-ref">DataSize</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L92-92">Source</a></div>
+                <div class="member-signature"><span class="name-decl">read_buffer_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/DataSize.html" class="name-ref">DataSize</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L92-92">Source</a></div>
                 <div class="doc-comment"><p>Maximum socket buffer size (in bytes when no unit specified).</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>For stream sockets, once the buffer fills up, the sender will start backing up.
 For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
@@ -371,7 +371,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">keep_alive_period</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L100-100">Source</a></div>
+                <div class="member-signature"><span class="name-decl">keep_alive_period</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.5.0/packages/com.influxdata.telegraf/plugins/inputs/SocketListenerInput.pkl#L100-100">Source</a></div>
                 <div class="doc-comment"><p>Period between keep alive probes.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Only applies to TCP sockets.
 0 disables keep alive probes.</p>
@@ -419,7 +419,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -431,7 +431,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L48-L48">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -446,7 +446,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -460,7 +460,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L1723-L1723">Source</a></div>
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1723-L1723">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -473,7 +473,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L1728-L1728">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1728-L1728">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -487,7 +487,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L1733-L1733">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1733-L1733">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -500,8 +500,8 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L1736-L1736">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1736-L1736">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -512,8 +512,8 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L1739-L1739">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1739-L1739">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>
@@ -525,7 +525,7 @@ For datagram sockets, once the buffer fills up, metrics will start dropping.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.1/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L88-L88">Source</a></div>
                 <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
 <p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,

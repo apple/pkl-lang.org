@@ -1277,6 +1277,24 @@ pkl analyze imports src/*.pkl</code></pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="command-shell-completion"><a class="anchor" href="#command-shell-completion"></a><a class="link" href="#command-shell-completion"><code>pkl shell-completion</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl shell-completion &lt;shell&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Generate shell completion script. Supported shells are: <code>bash</code>, <code>zsh</code>, <code>fish</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Generate shell completion script for bash
+pkl shell-completion bash
+
+# Generate shell completion script for zsh
+pkl shell-completion zsh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
 <p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>

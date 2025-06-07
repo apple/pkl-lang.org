@@ -1007,7 +1007,34 @@ Example: <code>./build/test-results</code><br>
 Directory where to store JUnit reports.</p>
 </div>
 <div class="paragraph">
+<p>By default, one file will be created for each test module. This behavior can be changed with <code>--junit-aggregate-reports</code>, which will instead create a single JUnit report file with all test results.</p>
+</div>
+<div class="paragraph">
 <p>No JUnit reports will be generated if this option is not present.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-reports">
+<summary class="title">--junit-aggregate-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Aggregate JUnit reports into a single file.</p>
+</div>
+<div class="paragraph">
+<p>By default it will be <code>pkl-tests.xml</code> but you can override it using <code>--junit-aggregate-suite-name</code> flag.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-suite-name">
+<summary class="title">--junit-aggregate-suite-name</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>my-tests</code><br>
+The name of the root JUnit test suite.</p>
+</div>
+<div class="paragraph">
+<p>Used in combination with <code>--junit-aggregate-reports</code> flag.</p>
 </div>
 </div>
 </details>
@@ -1143,6 +1170,30 @@ Directory where to store JUnit reports.</p>
 </div>
 <div class="paragraph">
 <p>No JUnit reports will be generated if this option is not present.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-reports">
+<summary class="title">--junit-aggregate-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Aggregate JUnit reports into a single file.</p>
+</div>
+<div class="paragraph">
+<p>By default it will be <code>pkl-tests.xml</code> but you can override it using <code>--junit-aggregate-suite-name</code> flag.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-suite-name">
+<summary class="title">--junit-aggregate-suite-name</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>my-tests</code><br>
+The name of the root JUnit test suite.</p>
+</div>
+<div class="paragraph">
+<p>Used in combination with <code>--junit-aggregate-reports</code> flag.</p>
 </div>
 </div>
 </details>

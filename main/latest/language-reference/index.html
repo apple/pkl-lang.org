@@ -6165,6 +6165,64 @@ Here are just a few examples:</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="bytes"><a class="anchor" href="#bytes"></a><a class="link" href="#bytes">Bytes</a></h3>
+<div class="paragraph">
+<p>A value of type <code>Bytes</code> is a sequence of <code>UInt8</code> elements.</p>
+</div>
+<div class="paragraph">
+<p><code>Bytes</code> can be constructed by passing byte values into the constructor.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bytes1</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Bytes</span><span class="hljs-punctuation">(</span><span class="hljs-number">0xff</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0x00</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0x3f</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">bytes2</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Bytes</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: a <code>Bytes</code> with 3 elements</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Result: an empty <code>Bytes</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Bytes</code> can also be constructed from a base64-encoded string, via <code>base64DecodedBytes</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bytes3</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;cGFycm90&quot;</span><span class="hljs-punctuation">.</span><span class="hljs-property">base64DecodedBytes</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: <code>Bytes(112, 97, 114, 114, 111, 116)</code></td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="bytes-vs-listuint8"><a class="anchor" href="#bytes-vs-listuint8"></a><a class="link" href="#bytes-vs-listuint8"><code>Bytes</code> vs <code>List&lt;UInt8&gt;</code></a></h4>
+<div class="paragraph">
+<p><code>Bytes</code> is similar to <code>List&lt;UInt8&gt;</code> in that they are both sequences of <code>UInt8</code> elements.
+However, they are semantically distinct.
+<code>Bytes</code> represent binary data, and is typically rendered differently.
+For example, they are rendered as <code>&lt;data&gt;</code> tags when using <code>PListRenderer</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Bytes</code> also have different performance characteristics; a value of type <code>Bytes</code> tends to be managed as a contiguous memory block.
+Thus, they are more compact and consume less memory.
+However, they are not optimized for transformations.
+For example, given two values of size <code>M</code> and <code>N</code>, concatenating two <code>Bytes</code> values allocates O(M + N) space, whereas concatenating two <code>List</code> values allocates O(1) space.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="regular-expressions"><a class="anchor" href="#regular-expressions"></a><a class="link" href="#regular-expressions">Regular Expressions</a></h3>
 <div class="paragraph">
 <p>A value of type <a href="https://pkl-lang.org/package-docs/pkl/0.29.0-dev/base/Regex">Regex</a> is a regular expression with the same syntax and semantics as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regular expression</a>.</p>
@@ -7624,6 +7682,11 @@ Each entry is an object with properties <code>name</code> and <code>lifespan</co
 <td class="tableblock halign-left valign-top"><p class="tableblock">entry value (<code>Value</code>)</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">element index (<code>Int</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">element value (<code>UInt8</code>)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Listing&lt;Element&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">element index (<code>Int</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">element value (<code>Element</code>)</p></td>
@@ -7744,6 +7807,10 @@ The following table describes how different iterables turn into object members:<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>IntSeq</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 </tr>
 </tbody>

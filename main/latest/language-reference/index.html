@@ -3809,6 +3809,10 @@ A package is a shareable archive of modules and resources that are published to 
 <p>Packages can be managed as dependencies within a <em>project</em>.
 For more details, consult the <a href="#projects">project</a> section of the language reference.</p>
 </div>
+<div class="paragraph">
+<p>Packages can also be downloaded from a mirror.
+For more details, consult the <a href="#mirroring_packages">Mirroring packages</a> section of the language reference.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="standard-library-uri"><a class="anchor" href="#standard-library-uri"></a><a class="link" href="#standard-library-uri">Standard Library URI</a></h4>
@@ -5337,7 +5341,8 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#reserved-keywords">Reserved Keywords</a><br>
 <a href="#blank-identifiers">Blank Identifiers</a><br>
 <a href="#projects">Projects</a><br>
-<a href="#external-readers">External Readers</a></p>
+<a href="#external-readers">External Readers</a><br>
+<a href="#mirroring_packages">Mirroring packages</a></p>
 </div>
 <div class="sect2">
 <h3 id="meaning-of-new"><a class="anchor" href="#meaning-of-new"></a><a class="link" href="#meaning-of-new">Meaning of <code>new</code></a></h3>
@@ -9384,6 +9389,60 @@ To support both schemes during evaluation, both would need to be registered expl
 <pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl eval &lt;module&gt; --external-resource-reader ldap=pkl-ldap --external-resource-reader ldaps=pkl-ldap</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mirroring_packages"><a class="anchor" href="#mirroring_packages"></a><a class="link" href="#mirroring_packages">Mirroring packages</a></h3>
+<div class="paragraph">
+<p>A package is a shareable archive of modules and resources that are published to the internet.</p>
+</div>
+<div class="paragraph">
+<p>A package&#8217;s URI tells two things:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The name of the package.</p>
+</li>
+<li>
+<p>Where the package is downloaded from.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example, given the package name <code>package://example.com/mypackage@1.0.0</code>, Pkl will make an HTTPS request to <code>https://example.com/mypackage@1.0.0</code> to fetch package metadata.</p>
+</div>
+<div class="paragraph">
+<p>In situations where internet access is restricted, a mirror can be set up to allow use of packages that are published to the internet.</p>
+</div>
+<div class="paragraph">
+<p>To direct Pkl to a mirror, the <code>--http-rewrite</code> CLI option (and its equivalent options when using Pkl&#8217;s other evaluator APIs) must be used.
+For example, <code>--http-rewrite https://pkg.pkl-lang.org/=\https://my.internal.mirror/</code> will tell Pkl to download packages from host <code>my.internal.mirror</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To effectively mirror packages from pkg.pkl-lang.org, there must be two rewrites; one for <code>https://pkg.pkl-lang.org/</code> (where package metadata is downloaded), and one for <code>https://github.com/</code> (where package zip files are downloaded).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl does not provide any tooling to run a mirror server.
+To fully set up mirroring, an HTTP(s) server will need be running, and which mirrors the same assets byte-for-byte.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

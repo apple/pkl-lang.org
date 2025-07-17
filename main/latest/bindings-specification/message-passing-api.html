@@ -676,12 +676,17 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-comment">/// PEM format certificates to trust when making HTTP requests.</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// If [null], Pkl will trust its own built-in certificates.</span>
-  <span class="hljs-property">caCertificates</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span>
+  <span class="hljs-property">caCertificates</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
   <span class="hljs-comment">/// Configuration of the HTTP proxy to use.</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// If [null], uses the operating system&#39;s proxy configuration.</span>
   <span class="hljs-property">proxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Proxy</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// HTTP rewrites, from source prefix to target prefix.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Each rewrite must start with `http://` or `https://`, and must end with `/`.</span>
+  <span class="hljs-property">rewrites</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// Settings that control how Pkl talks to HTTP proxies.</span>
@@ -722,16 +727,14 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-comment">/// }</span>
   <span class="hljs-comment">/// ```</span>
   <span class="hljs-property">noProxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-property">isDistinct</span><span class="hljs-punctuation">)</span>
-<span class="hljs-punctuation">}</span>
-
-<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a> (not expressable in Pkl)</td>
+<td><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a></td>
 </tr>
 </table>
 </div>
@@ -841,19 +844,17 @@ If the evaluation is successful, the response is the Pkl value encoded in <a hre
 <span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
 
 <span class="hljs-comment">/// The evaluation contents, if successful.</span>
-<span class="hljs-property">result</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">result</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// A message detailing why evaluation failed.</span>
-<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
-
-<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><a href="binary-encoding.html" class="xref page">Pkl Binary Encoding</a> in <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a> (not expressable in Pkl)</td>
+<td><a href="binary-encoding.html" class="xref page">Pkl Binary Encoding</a> in <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a></td>
 </tr>
 </table>
 </div>
@@ -933,19 +934,17 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
 
 <span class="hljs-comment">/// The contents of the resource.</span>
-<span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// The description of the error that occurred when reading this resource.</span>
-<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
-
-<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>MessagePack&#8217;s <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format family</a> (not expressable in Pkl)</td>
+<td>MessagePack&#8217;s <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format family</a></td>
 </tr>
 </table>
 </div>

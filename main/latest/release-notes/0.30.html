@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Pkl 0.25 Release Notes :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/0.25.html">
-    <link rel="prev" href="0.26.html">
-    <link rel="next" href="changelog.html">
+    <title>Pkl 0.30 Release Notes :: Pkl Docs</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="0.29.html">
     <meta name="generator" content="Antora 3.1.9">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/site-extra.css">
@@ -87,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.28.2">
+<div class="nav-container" data-component="main" data-version="0.30.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -233,6 +232,12 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Release Notes</a>
 <ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.29.html">0.29 Release Notes</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="0.28.html">0.28 Release Notes</a>
   </li>
@@ -242,7 +247,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="0.26.html">0.26 Release Notes</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="0.25.html">0.25 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -258,7 +263,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.28.2</span>
+    <span class="version">0.30.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -290,14 +295,14 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
-        <li class="version">
-          <a href="../../latest/index.html">0.30.0-dev</a>
+        <li class="version is-current">
+          <a href="../index.html">0.30.0-dev</a>
         </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.29.0</a>
         </li>
-        <li class="version is-current">
-          <a href="../index.html">0.28.2</a>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
         </li>
         <li class="version">
           <a href="../../0.27.2/index.html">0.27.2</a>
@@ -422,41 +427,131 @@
   <ul>
     <li><a href="../index.html">Main Project</a></li>
     <li><a href="index.html">Release Notes</a></li>
-    <li><a href="0.25.html">0.25 Release Notes</a></li>
+    <li><a href="0.30.html">0.30 Release Notes</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.28.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.0-dev</button>
   <div class="version-menu">
-    <a class="version" href="../../latest/release-notes/0.25.html">0.30.0-dev</a>
-    <a class="version" href="../../current/release-notes/0.25.html">0.29.0</a>
-    <a class="version is-current" href="0.25.html">0.28.2</a>
-    <a class="version" href="../../0.27.2/release-notes/0.25.html">0.27.2</a>
-    <a class="version" href="../../0.26.3/release-notes/0.25.html">0.26.3</a>
-    <a class="version" href="../../0.25.3/release-notes/0.25.html">0.25.3</a>
+    <a class="version is-current" href="0.30.html">0.30.0-dev</a>
+    <a class="version is-missing" href="../../current/index.html">0.29.0</a>
+    <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
+    <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
+    <a class="version is-missing" href="../../0.26.3/index.html">0.26.3</a>
+    <a class="version is-missing" href="../../0.25.3/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.28/docs/modules/release-notes/pages/0.25.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/main/docs/modules/release-notes/pages/0.30.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Pkl 0.25 Release Notes</h1>
+<h1 class="page">Pkl 0.30 Release Notes</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Pkl 0.25 was released on February 1st, 2024.<br>
-<span class="small">The latest bugfix release is 0.25.1. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
+<p><a href="ROOT:partial$component-attributes.adoc" class="bare include">ROOT:partial$component-attributes.adoc</a></p>
 </div>
 <div class="paragraph">
-<p>This is the initial release of Pkl, a programming language for creating configuration.</p>
+<p>Pkl 0.30 was released on TBD.<br>
+<span class="small">The latest bugfix release is 0.30.0. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
 </div>
 <div class="paragraph">
-<p>To learn more about Pkl, refer to our <a href="../../../blog/introducing-pkl.html" class="xref page">blog post</a>.</p>
+<p>The next release (0.XX) is scheduled for ???..
+To see what&#8217;s coming in the future, follow the {uri-pkl-roadmap}[Pkl Roadmap].</p>
+</div>
+<div class="paragraph">
+<p>Please send feedback and questions to <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a>, or submit an issue on <a href="https://github.com/apple/pkl/issues/new">Github</a>.<br></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Pkl is hosted on <a href="https://github.com/apple/pkl">GitHub</a>.
+To get started, follow <a href="../pkl-cli/index.html#installation" class="xref page">Installation</a>.</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="highlights"><a class="anchor" href="#highlights"></a><a class="link" href="#highlights">Highlights <span class="small">💖</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>News you don&#8217;t want to miss.</p>
+</div>
+<div class="sect2">
+<h3 id="xxx"><a class="anchor" href="#xxx"></a><a class="link" href="#xxx">XXX</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="noteworthy"><a class="anchor" href="#noteworthy"></a><a class="link" href="#noteworthy">Noteworthy <span class="small">🎶</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ready when you need them.</p>
+</div>
+<div class="sect2">
+<h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes <span class="small">💔</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Things to watch out for when upgrading.</p>
+</div>
+<div class="sect2">
+<h3 id="xxx-3"><a class="anchor" href="#xxx-3"></a><a class="link" href="#xxx-3">XXX</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous <span class="small">🐸</span></a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>XXX</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bugs-fixed"><a class="anchor" href="#bugs-fixed"></a><a class="link" href="#bugs-fixed">Bugs fixed <span class="small">🐜</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following bugs have been fixed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>XXX (<a href="https://github.com/apple/pkl/issues/XXX">XXX</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors <span class="small">🙏</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We would like to thank the contributors to this release (in alphabetical order):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>XXX</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="0.26.html">0.26 Release Notes</a></span>
-  <span class="next"><a href="changelog.html">Changelog</a></span>
+  <span class="prev"><a href="index.html">Release Notes</a></span>
+  <span class="next"><a href="0.29.html">0.29 Release Notes</a></span>
 </nav>
 </article>
   </div>

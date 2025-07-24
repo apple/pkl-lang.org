@@ -55,7 +55,7 @@
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L93-L107">Source</a></div>
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L93-L108">Source</a></div>
                 <div class="doc-comment"><p>The output of this module.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
               </div>
@@ -79,7 +79,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tzid</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L44-44">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tzid</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L44-44">Source</a></div>
               </div>
             </div>
           </li>
@@ -102,7 +102,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(this &gt; 0)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L52-52">Source</a></div>
+                <div class="member-signature"><span class="name-decl">interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(this &gt; 0)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L52-52">Source</a></div>
                 <div class="doc-comment"><p>The INTERVAL rule part contains a positive integer representing at which intervals the recurrence rule repeats.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Defaults to 1 if not specified.</p></div>
               </div>
@@ -131,7 +131,7 @@ If not present, and the COUNT rule part is also not present, the &quot;RRULE&quo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">count</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(this &gt; 0)?(!(this != null &amp;&amp; until != null) || throw(&quot;count and until may not both be set&quot;))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L77-79">Source</a></div>
+                <div class="member-signature"><span class="name-decl">count</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(this &gt; 0)?(!(this != null &amp;&amp; until != null) || throw(&quot;count and until may not both be set&quot;))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L77-79">Source</a></div>
                 <div class="doc-comment"><p>The COUNT rule part defines the number of occurrences at which to range-bound the recurrence.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The &quot;DTSTART&quot; property value always counts as the first occurrence.</p></div>
               </div>
@@ -144,7 +144,7 @@ If not present, and the COUNT rule part is also not present, the &quot;RRULE&quo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bysecond</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 60))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L82-85">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bysecond</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 60))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L82-85">Source</a></div>
                 <div class="doc-comment"><p>The BYSECOND rule part specifies one or more seconds within a minute.</p></div>
               </div>
             </div>
@@ -156,7 +156,7 @@ If not present, and the COUNT rule part is also not present, the &quot;RRULE&quo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">byminute</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 59))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L88-91">Source</a></div>
+                <div class="member-signature"><span class="name-decl">byminute</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 59))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L88-91">Source</a></div>
                 <div class="doc-comment"><p>The BYMINUTE rule part specifies one or more minutes within an hour.</p></div>
               </div>
             </div>
@@ -168,7 +168,7 @@ If not present, and the COUNT rule part is also not present, the &quot;RRULE&quo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">byhour</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 23))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L94-97">Source</a></div>
+                <div class="member-signature"><span class="name-decl">byhour</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(0, 23))&gt;(!isEmpty, !(dtstart is Date))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L94-97">Source</a></div>
                 <div class="doc-comment"><p>The BYHOUR rule part specifies one or more hours of the day.</p></div>
               </div>
             </div>
@@ -180,7 +180,7 @@ If not present, and the COUNT rule part is also not present, the &quot;RRULE&quo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">byday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;(<a href="index.html#WeekdayString" class="name-ref">WeekdayString</a>|<a href="Weekday.html" class="name-ref">Weekday</a>((weeknum != null).implies(freq == &quot;MONTHLY&quot; || freq == &quot;YEARLY&quot;), (weeknum != null &amp;&amp; freq == &quot;YEARLY&quot;).implies(byweekno == null)))&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L108-116">Source</a></div>
+                <div class="member-signature"><span class="name-decl">byday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;(<a href="index.html#WeekdayString" class="name-ref">WeekdayString</a>|<a href="Weekday.html" class="name-ref">Weekday</a>((weeknum != null).implies(freq == &quot;MONTHLY&quot; || freq == &quot;YEARLY&quot;), (weeknum != null &amp;&amp; freq == &quot;YEARLY&quot;).implies(byweekno == null)))&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L108-116">Source</a></div>
                 <div class="doc-comment"><p>The BYDAY rule part specifies one or more days of the week.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Each BYDAY value can also be preceded by a positive (+n) or negative (-n) integer.
 If present, this indicates the nth occurrence of a specific day within the MONTHLY or YEARLY &quot;RRULE&quot;.
@@ -198,7 +198,7 @@ For example, within a MONTHLY rule, MO represents all Mondays within the month.<
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bymonthday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(isBetween(-31, 31), this != 0)&gt;(!isEmpty, freq != &quot;MONTHLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L122-125">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bymonthday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(isBetween(-31, 31), this != 0)&gt;(!isEmpty, freq != &quot;MONTHLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L122-125">Source</a></div>
                 <div class="doc-comment"><p>The BYMONTHDAY rule part specifies one or more days of the month.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Negative values represent days counting back from the end of a month.
 For example, -10 represents the tenth to the last day of the month.</p></div>
@@ -212,7 +212,7 @@ For example, -10 represents the tenth to the last day of the month.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">byyearday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(isBetween(-366, 366), this != 0)&gt;(!isEmpty, freq != &quot;DAILY&quot;, freq != &quot;WEEKLY&quot;, freq != &quot;MONTHLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L131-136">Source</a></div>
+                <div class="member-signature"><span class="name-decl">byyearday</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(isBetween(-366, 366), this != 0)&gt;(!isEmpty, freq != &quot;DAILY&quot;, freq != &quot;WEEKLY&quot;, freq != &quot;MONTHLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L131-136">Source</a></div>
                 <div class="doc-comment"><p>The BYYEARDAY rule part specifies one or more days of the year.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Negative values represent days counting back from the end of a year.
 For example, -1 represents the last day of the year (December 31st) and -306 represents the 306th to the last day of the year (March 1st).</p></div>
@@ -226,7 +226,7 @@ For example, -1 represents the last day of the year (December 31st) and -306 rep
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">byweekno</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(isBetween(-53, 53), this != 0)&gt;(!isEmpty, freq == &quot;YEARLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L145-148">Source</a></div>
+                <div class="member-signature"><span class="name-decl">byweekno</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(isBetween(-53, 53), this != 0)&gt;(!isEmpty, freq == &quot;YEARLY&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L145-148">Source</a></div>
                 <div class="doc-comment"><p>The BYWEEKNO rule part specifies one or more ordinals specifying weeks of the year.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This corresponds to weeks according to week numbering as defined in <a href="https://datatracker.ietf.org/doc/html/rfc5545#ref-ISO.8601.2004">ISO.8601.2004</a>.
 A week is defined as a seven day period, starting on the day of the week defined to be the week start (see <a href="index.html#wkst"><code>wkst</code></a>).
@@ -242,7 +242,7 @@ Week number one of the calendar year is the first week that contains at least fo
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bymonth</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(1, 12))&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L151-151">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bymonth</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html#UInt" class="name-ref">UInt</a>(isBetween(1, 12))&gt;(!isEmpty)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L151-151">Source</a></div>
                 <div class="doc-comment"><p>The BYMONTH rule part specifies one or more months of the year.</p></div>
               </div>
             </div>
@@ -269,7 +269,7 @@ Defaults to &quot;MO&quot; if not specified.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bysetpos</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Int.html" class="name-ref">Int</a>(isBetween(-366, 366), this != 0)&gt;(!isEmpty, List(bysecond, byminute, byhour, byday, bymonthday, byyearday, byweekno, bymonth)
+                <div class="member-signature"><span class="name-decl">bysetpos</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Int.html" class="name-ref">Int</a>(isBetween(-366, 366), this != 0)&gt;(!isEmpty, List(bysecond, byminute, byhour, byday, bymonthday, byyearday, byweekno, bymonth)
       .filterNonNull().length &gt; 0)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L164-168">Source</a></div>
                 <div class="doc-comment"><p>The BYSETPOS rule part specifies one or more values that corresponds to the nth occurrence within the set of recurrence instances specified by the rule.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>BYSETPOS operates on a set of recurrence instances in one interval of the recurrence rule.
@@ -290,7 +290,7 @@ For example, in a WEEKLY rule, the interval would be one week A set of recurrenc
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L43-L43">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -302,7 +302,7 @@ For example, in a WEEKLY rule, the interval would be one week A set of recurrenc
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L176-196">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/icalendar@0.1.1/packages/icalendar/type/Recur.pkl#L176-196">Source</a></div>
                 <div class="doc-comment"><p>Serialize the recurrence rule.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Note: this departs from the RFC around line lengths.
 The 75-character line limit and folding behavior are not enforced.
@@ -320,7 +320,7 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L53-L53">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
@@ -334,7 +334,7 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1723-L1723">Source</a></div>
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L1777-L1777">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -347,7 +347,7 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1728-L1728">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L1782-L1782">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -361,7 +361,7 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1733-L1733">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L1787-L1787">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -374,8 +374,8 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1736-L1736">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L1790-L1790">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -386,8 +386,8 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L1739-L1739">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L1793-L1793">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>
@@ -399,7 +399,7 @@ Ref: https://datatracker.ietf.org/doc/html/rfc5545#section-3.1</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.28.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.28.2/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.0/stdlib/base.pkl#L88-L88">Source</a></div>
                 <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
 <p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,

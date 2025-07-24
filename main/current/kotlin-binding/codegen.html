@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.28.2">
+<div class="nav-container" data-component="main" data-version="0.29.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -258,7 +261,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.28.2</span>
+    <span class="version">0.29.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -290,11 +293,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.29.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.29.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.28.2</a>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
         </li>
         <li class="version">
           <a href="../../0.27.2/index.html">0.27.2</a>
@@ -425,16 +431,17 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.28.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.29.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="codegen.html">0.29.0</a>
     <a class="version" href="../../latest/kotlin-binding/codegen.html">0.29.0-dev</a>
-    <a class="version is-current" href="codegen.html">0.28.2</a>
+    <a class="version" href="../../0.28.2/kotlin-binding/codegen.html">0.28.2</a>
     <a class="version" href="../../0.27.2/kotlin-binding/codegen.html">0.27.2</a>
     <a class="version" href="../../0.26.3/kotlin-binding/codegen.html">0.26.3</a>
     <a class="version" href="../../0.25.3/kotlin-binding/codegen.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.28/docs/modules/kotlin-binding/pages/codegen.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/kotlin-binding/pages/codegen.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -493,7 +500,7 @@ It requires Java 17 or higher and Kotlin 1.3 or higher.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-codegen-kotlin:0.28.2")
+  implementation("org.pkl-lang:pkl-codegen-kotlin:0.29.0")
 }
 
 repositories {
@@ -507,7 +514,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-codegen-kotlin:0.28.2"
+  implementation "org.pkl-lang:pkl-codegen-kotlin:0.29.0"
 }
 
 repositories {
@@ -530,7 +537,7 @@ repositories {
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
   &lt;artifactId&gt;pkl-codegen-kotlin&lt;/artifactId&gt;
-  &lt;version&gt;0.28.2&lt;/version&gt;
+  &lt;version&gt;0.29.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -539,8 +546,52 @@ repositories {
 <div class="sect2">
 <h3 id="install-cli"><a class="anchor" href="#install-cli"></a><a class="link" href="#install-cli">CLI</a></h3>
 <div class="paragraph">
-<p>The CLI is bundled with the library.
-As we do not currently ship the CLI as a self-contained Jar, we recommend to provision it with a Maven compatible build tool as shown in <a href="#install-library">Java Library</a>.</p>
+<p>The CLI is available as a Java executable.</p>
+</div>
+<div class="paragraph">
+<p>It works on multiple platforms, and requires a Java 17 (or higher) runtime on the system path.</p>
+</div>
+<div class="paragraph">
+<p>To download:</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-macoslinux" class="tab">
+<p>macOS/Linux</p>
+</li>
+<li id="tabs-2-windows" class="tab">
+<p>Windows</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-2-macoslinux">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl-codegen-kotlin 'https://github.com/apple/pkl/releases/download/0.29.0/pkl-codegen-kotlin'
+chmod +x pkl-codegen-kotlin
+./pkl-codegen-kotlin --version</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-windows--panel" class="tabpanel" aria-labelledby="tabs-2-windows">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.29.0/pkl-codegen-kotlin' -OutFile pkl-codegen-kotlin.bat
+.\pkl-codegen-kotlin --version</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl-codegen-kotlin 0.29.0 (macOS 14.2, Java 17.0.10)</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -568,11 +619,7 @@ For more information, refer to the KDoc documentation.</p>
 <div class="sect2">
 <h3 id="cli"><a class="anchor" href="#cli"></a><a class="link" href="#cli">CLI</a></h3>
 <div class="paragraph">
-<p>As mentioned in <a href="#install-cli">Installation</a>, the CLI is bundled with the library.
-To run the CLI, execute the library Jar or its <code>org.pkl.codegen.kotlin.Main</code> main class.</p>
-</div>
-<div class="paragraph">
-<p><strong>Synopsis:</strong> <code>java -cp &lt;classpath&gt; -jar pkl-codegen-kotlin.jar [&lt;options&gt;] &lt;modules&gt;</code></p>
+<p><strong>Synopsis:</strong> <code>pkl-codegen-kotlin [&lt;options&gt;] &lt;modules&gt;</code></p>
 </div>
 <div class="dlist">
 <dl>
@@ -633,6 +680,15 @@ Flag that indicates to generate config classes for use with Spring Boot.</p>
 <div class="paragraph">
 <p>Default: (not set)<br>
 Flag that indicates to generate classes that implement <code>java.io.Serializable</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--add-generated-annotation</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Flag that indicates to add the <code>org.pkl.config.java.Generated</code> annotation to generated types.</p>
 </div>
 </div>
 </details>
@@ -890,6 +946,19 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 </div>
 </div>
 </details>
+<details>
+<summary class="title">--http-rewrite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>https://pkg.pkl-lang.org/=https://my.internal.mirror/</code><br>
+Replace outbound HTTP(S) requests from one URL with another URL.
+The left-hand side describes the source prefix, and the right-hand describes the target prefix.
+This option is commonly used to enable package mirroring.
+The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -899,7 +968,7 @@ Hosts can be specified by name, IP address, or IP range using <a href="https://e
 <div class="sectionbody">
 <div class="paragraph">
 <p>For a ready-to-go example with full source code,
-see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-kotlin">codegen-kotlin</a> in the <em>pkl/pkl-examples</em> repository.</p>
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-kotlin">codegen-kotlin</a> in the <em>pkl-jvm-examples</em> repository.</p>
 </div>
 </div>
 </div>

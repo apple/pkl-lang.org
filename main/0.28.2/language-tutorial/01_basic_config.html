@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Basic Configuration :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/language-tutorial/01_basic_config.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="02_filling_out_a_template.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.28.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.28.2</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.29.0-dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Tutorial</a></li>
+    <li><a href="01_basic_config.html">Basic Configuration</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.28.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/language-tutorial/01_basic_config.html">0.29.0</a>
+    <a class="version" href="../../latest/language-tutorial/01_basic_config.html">0.29.0-dev</a>
+    <a class="version is-current" href="01_basic_config.html">0.28.2</a>
+    <a class="version" href="../../0.27.2/language-tutorial/01_basic_config.html">0.27.2</a>
+    <a class="version" href="../../0.26.3/language-tutorial/01_basic_config.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/language-tutorial/01_basic_config.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.28/docs/modules/language-tutorial/pages/01_basic_config.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Basic Configuration</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this first part of <a href="index.html" class="xref page">the Pkl tutorial</a>, you build familiarity with Pkl syntax and basic structure.
+You also learn different ways to invoke Pkl to produce different formats.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-values"><a class="anchor" href="#basic-values"></a><a class="link" href="#basic-values">Basic values</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consider the following example Pkl file.</p>
+</div>
+<div class="listingblock">
+<div class="title">intro.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl: Configure your Systems in New Ways&quot;</span>
+<span class="hljs-property">attendants</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>
+<span class="hljs-property">isInteractive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+<span class="hljs-property">amountLearned</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running Pkl on this file gives</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval /Users/me/tutorial/intro.pkl
+name = "Pkl: Configure your Systems in New Ways"
+attendants = 100
+isInteractive = true
+amountLearned = 13.37</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It may seem nothing happened.
+However, Pkl tells you that it <em>accepts the input</em>.
+In other words, you now know that <code>intro.pkl</code> does not contain any errors.</p>
+</div>
+<div class="paragraph">
+<p>You can ask Pkl to print this configuration in a different format, using the <code>-f</code> option.
+For example, JSON:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval -f json /Users/me/tutorial/intro.pkl
+{
+  "name": "Pkl: Configure your Systems in New Ways",
+  "attendants": 100,
+  "isInteractive": true,
+  "amountLearned": 13.37
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or <em>PropertyList</em> format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval -f plist /Users/me/tutorial/intro.pkl
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+  &lt;key&gt;name&lt;/key&gt;
+  &lt;string&gt;Pkl: Configure your Systems in New Ways&lt;/string&gt;
+  &lt;key&gt;attendants&lt;/key&gt;
+  &lt;integer&gt;100&lt;/integer&gt;
+  &lt;key&gt;isInteractive&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;amountLearned&lt;/key&gt;
+  &lt;real&gt;13.37&lt;/real&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that Pkl generated <code>&lt;string&gt;</code>, <code>&lt;integer&gt;</code>, <code>&lt;true/&gt;</code> and <code>&lt;real&gt;</code> for the values in your configuration.
+This means it has <em>both</em> correctly derived the types of the literal values <em>and</em> translated those types to the corresponding elements in the PropertyList.
+<a href="03_writing_a_template.html" class="xref page">Part III</a> goes into types in more detail.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="structure-classes-objects-modules"><a class="anchor" href="#structure-classes-objects-modules"></a><a class="link" href="#structure-classes-objects-modules">Structure: Classes, objects, modules</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A configuration often requires more than just basic values.
+Typically, you need some kind of (hierarchical) structure.
+Pkl provides <em>immutable objects</em> for this.</p>
+</div>
+<div class="paragraph">
+<p>Objects have three kinds of members: properties, elements and entries.
+First, look at the syntax for objects and their members.</p>
+</div>
+<div class="sect2">
+<h3 id="properties"><a class="anchor" href="#properties"></a><a class="link" href="#properties">Properties</a></h3>
+<div class="listingblock">
+<div class="title">simpleObjectWithProperties.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
+  <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This <em>defines</em> <code>bird</code> to be an object</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>For primitive values, Pkl has the <code>=</code> syntax (more on this later).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Just like <code>bird {</code>, but to show that objects can be nested.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This defines an object called <code>bird</code> with three <em>named properties</em>: <code>name</code>, <code>diet</code>, and <code>taxonomy</code>.
+The first two of these are strings, but <code>taxonomy</code> is another object.
+This means properties in an object can have different types and objects can be nested.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="elements"><a class="anchor" href="#elements"></a><a class="link" href="#elements">Elements</a></h3>
+<div class="paragraph">
+<p>Of course, you don&#8217;t always have names for every individual structure in your configuration.
+What if you want "just a bunch of things" without knowing how many?
+Pkl offers <em>elements</em> for this purpose.
+Elements are object members, just like properties.
+Where you index properties by their name, you index elements by an integer.
+You can think of an object that only contains elements as <em>array</em>.
+Much like arrays in many languages, you can use square brackets to access an element, for example, <code>myObject[42]</code>.</p>
+</div>
+<div class="paragraph">
+<p>You write an element, by writing only an expression.
+Pkl derives the index from the number of elements already in the object.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="title">simpleObjectsWithElements.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">exampleObjectWithJustIntElements</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-number">100</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-number">42</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">exampleObjectWithMixedElements</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-string">&quot;Bird Breeder Conference&quot;</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-number">2000</span> <span class="hljs-operator">+</span> <span class="hljs-number">23</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">exampleObjectWithJustIntElements</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>When you write only the value (without a name), you describe an <em>element</em>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Elements don&#8217;t have to be literal values; they can be arbitrary <em>expressions</em>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Elements can really be <em>any</em> value, not just primitive values.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="entries"><a class="anchor" href="#entries"></a><a class="link" href="#entries">Entries</a></h3>
+<div class="paragraph">
+<p>Objects can have one more kind of member; <em>entries</em>.
+Like a <em>property</em>, an <em>entry</em> is "named" (technically <em>keyed</em>).
+Unlike a property, the name does not need to be known at declaration time.
+Of course, we need a syntax to tell entries apart from properties.
+You write entry "names" by enclosing them in square brackets ("names" is quoted, because the names do not need to be strings; any value can index entries).</p>
+</div>
+<div class="listingblock">
+<div class="title">simpleObjectsWithEntries.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">pigeonShelter</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;bird&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
+    <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
+    <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;address&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;355 Bird St.&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">birdCount</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-property">pigeonShelter</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-number">42</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The difference with properties is the notation of the key: <code>[&lt;expression&gt;]</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>As with properties, entries can be primitive values or objects.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Any object can be used as a key for an entry.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mixed-members"><a class="anchor" href="#mixed-members"></a><a class="link" href="#mixed-members">Mixed members</a></h3>
+<div class="paragraph">
+<p>In the examples so far, you have seen objects with properties, object with elements and object with entries.
+These object members can be freely mixed.</p>
+</div>
+<div class="listingblock">
+<div class="title">mixedObject.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">mixedObject</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
+  <span class="hljs-string">&quot;wing&quot;</span>
+  <span class="hljs-string">&quot;claw&quot;</span>
+  [<span class="hljs-string">&quot;wing&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Not related to the _element_ <span class="hljs-char escape_">\&quot;</span>wing<span class="hljs-char escape_">\&quot;</span>&quot;</span>
+  <span class="hljs-number">42</span>
+  <span class="hljs-property">extinct</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+  [<span class="hljs-literal">false</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">description</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Construed object example&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice, how properties (<code>name</code>, <code>lifespan</code> and <code>extinct</code>), elements (<code>"wing"</code>, <code>"claw"</code>, <code>42</code>) and entries (<code>"wing"</code>, <code>false</code>) are mixed together in this one object.
+You don&#8217;t have to order them by kind, and you don&#8217;t require (other) special syntax.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="collections"><a class="anchor" href="#collections"></a><a class="link" href="#collections">Collections</a></h3>
+<div class="paragraph">
+<p>This free-for-all mixing of object members can become confusing.
+Also, target formats are often considerably more restrictive.
+In the following example, you see what happens when you try to produce JSON from <code>mixedObject</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval -f json /Users/me/tutorial/mixedObject.pkl
+–– Pkl Error ––
+Cannot render object with both properties/entries and elements as JSON.
+Object: "Pigeon"
+
+89 | text = renderer.renderDocument(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+at pkl.base#Module.output.text (https://github.com/apple/pkl/blob/0.24.0/stdlib/base.pkl#L90)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is why Pkl has two special types of object, namely <em>listings</em>, which contain <em>exclusively</em> elements, and <em>mappings</em>, which contain <em>exclusively</em> entries.
+Both listings and mappings <em>are</em> "just objects," so, they don&#8217;t require syntax besides that of objects:</p>
+</div>
+<div class="listingblock">
+<div class="title">collections.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birds</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-string">&quot;Parrot&quot;</span>
+  <span class="hljs-string">&quot;Barn owl&quot;</span>
+  <span class="hljs-string">&quot;Falcon&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">habitats</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  [<span class="hljs-string">&quot;Pigeon&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Streets&quot;</span>
+  [<span class="hljs-string">&quot;Parrot&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Parks&quot;</span>
+  [<span class="hljs-string">&quot;Barn owl&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Forests&quot;</span>
+  [<span class="hljs-string">&quot;Falcon&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Mountains&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A listing containing four elements.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A mapping containing four entries.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><em>Technically</em>, the correct way to define <code>birds</code> and <code>habitats</code> is by using <code>new Listing {&#8230;&#8203;}</code> and <code>new Mapping {&#8230;&#8203;}</code> explicitly.
+You will see what these mean in part <a href="03_writing_a_template.html" class="xref page">three</a> of this tutorial.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When you render <em>this</em> configuration as JSON, everything works:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "birds": [
+    "Pigeon",
+    "Parrot",
+    "Barn owl",
+    "Falcon"
+  ],
+  "habitats": {
+    "Pigeon": "Streets",
+    "Parrot": "Parks",
+    "Barn owl": "Forests",
+    "Falcon": "Mountains"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice particularly, that you rendered the listing as a JSON <em>array</em>.
+When you index the listing with an integer, you&#8217;re referring to the element inside the listing at the corresponding position (starting from <code>0</code>).
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="title">indexedListing.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birds</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-string">&quot;Parrot&quot;</span>
+  <span class="hljs-string">&quot;Barn owl&quot;</span>
+  <span class="hljs-string">&quot;Falcon&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">relatedToSnowOwl</span> <span class="hljs-operator">=</span> <span class="hljs-property">birds</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>results in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">birds</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-string">&quot;Parrot&quot;</span>
+  <span class="hljs-string">&quot;Barn owl&quot;</span>
+  <span class="hljs-string">&quot;Falcon&quot;</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">relatedToSnowOwl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Barn owl&quot;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercises"><a class="anchor" href="#exercises"></a><a class="link" href="#exercises">Exercises</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Given the following JSON snippet (taken from W3C examples), write the <code>.pkl</code> file that produces this JSON:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "Common wood pigeon",
+  "lifespan": 8,
+  "friends": {
+    "bird1": "Parrot",
+    "bird2": "Albatross",
+    "bird3": "Falcon"
+  }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For some reason, we decide we no longer need the birdX names of the different birds; we just need them as an array.
+Change your solution to the previous question to produce the following JSON result:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "Common wood pigeon",
+  "lifespan": 8,
+  "birds": ["Parrot", "Barn owl", "Falcon"]
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Tutorial</a></span>
+  <span class="next"><a href="02_filling_out_a_template.html">Filling out a Template</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

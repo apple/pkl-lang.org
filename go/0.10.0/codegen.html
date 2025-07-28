@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Code generation :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/go/current/codegen.html">
+    <link rel="prev" href="evaluation.html">
+    <link rel="next" href="external-readers.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../index.html"><img src="../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="go" data-version="0.10.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Pkl Go Bindings</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="quickstart.html">Quickstart</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="evaluation.html">Evaluator API</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="codegen.html">Code Generation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-readers.html">External Readers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="CHANGELOG.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Pkl Go Bindings</span>
+    <span class="version">0.10.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intellij/current/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/latest/index.html">0.30.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../current/index.html">0.11.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../lsp/current/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../vscode/current/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Pkl Go Bindings</a></li>
+    <li><a href="codegen.html">Code Generation</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.10.0</button>
+  <div class="version-menu">
+    <a class="version" href="../current/codegen.html">0.11.0</a>
+    <a class="version is-current" href="codegen.html">0.10.0</a>
+    <a class="version" href="../0.9.0/codegen.html">0.9.0</a>
+    <a class="version" href="../0.8.0/codegen.html">0.8.0</a>
+    <a class="version" href="../0.7.0/codegen.html">0.7.0</a>
+    <a class="version" href="../0.6.0/codegen.html">0.6.0</a>
+    <a class="version" href="../0.5.3/codegen.html">0.5.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.10/docs/modules/ROOT/pages/codegen.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Code generation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl code may turn into Go code by way of code generation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="running-code-generation"><a class="anchor" href="#running-code-generation"></a><a class="link" href="#running-code-generation">Running code generation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Code generation is done through the <code>pkl-gen-go</code> binary. To install:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">go install github.com/apple/pkl-go/cmd/pkl-gen-go@v0.10.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once installed, Go may be generated from Pkl:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl-gen-go config/AppConfig.pkl</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-the-code-generator"><a class="anchor" href="#configuring-the-code-generator"></a><a class="link" href="#configuring-the-code-generator">Configuring the code generator</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Options may be provided to the code generator either using CLI flags, or using a settings file.</p>
+</div>
+<div class="sect2">
+<h3 id="settings-file"><a class="anchor" href="#settings-file"></a><a class="link" href="#settings-file">Settings file</a></h3>
+<div class="paragraph">
+<p>The settings file is a Pkl file that amends module <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-go/pkl.golang/0.10.0/GeneratorSettings/index.html"><code>package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.10.0#/GeneratorSettings.pkl</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>By default, the code generator will look for a <code>generator-settings.pkl</code> file residing in the current working directory.
+If found, it is used to configure the code generator.</p>
+</div>
+<div class="paragraph">
+<p>The settings file may also be set using the <code>--generator-settings</code> flag.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="base-path"><a class="anchor" href="#base-path"></a><a class="link" href="#base-path">Base path</a></h3>
+<div class="paragraph">
+<p>The base path setting determines the relative path in which files get written to the working directory. It also acts
+as a filter to skip codegen for any modules that are external to the project.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a Pkl module corresponds to Go package <code>github.com/myorg/myproject/appconfig</code>, and the base path is <code>github.com/myorg/myproject</code>, the generated files are placed into output directory <code>appconfig/</code>.</p>
+</div>
+<div class="paragraph">
+<p>If a base path is not explicitly set, <code>pkl-gen-go</code> will also look for a <code>go.mod</code> file in the current working directory and use the Go module name as the base path.</p>
+</div>
+<div class="paragraph">
+<p>If the base path cannot be determined, the full package path is written to the current working directory.</p>
+</div>
+<div class="paragraph">
+<p>The base path may be set in the settings file, and also via the <code>--base-path</code> CLI flag.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the determined package name is not prefixed by the base path, it is skipped from code generation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="package-mappings"><a class="anchor" href="#package-mappings"></a><a class="link" href="#package-mappings">Package mappings</a></h3>
+<div class="paragraph">
+<p>During codegen, the generator requires a mapping from a Pkl module name to a Go package name.</p>
+</div>
+<div class="paragraph">
+<p>In normal cases, this should be provided using the <code>@go.Package</code> annotation. However, there are times when this is infeasible, for example, if the Pkl module is external to the project. For these situations, mappings can be provided using the <a href="https://github.com/apple/pkl-go/releases/download/v0.10.0/pkl.golang/current/GeneratorSettings/index.html#packageMappings">packageMappings</a> property in the settings file, or using the <code>--mapping</code> CLI flag.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="struct-tags"><a class="anchor" href="#struct-tags"></a><a class="link" href="#struct-tags">Struct tags</a></h3>
+<div class="paragraph">
+<p>By default, all struct fields receive a <code>pkl</code> tag. Additional tags can be configured either on a per-property basis, or globally for all properties.</p>
+</div>
+<div class="paragraph">
+<p>To configure tags on a per-property basis, use the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-go/pkl.golang/current/go/Field.html"><code>@go.Field</code></a> annotation on a property.</p>
+</div>
+<div class="paragraph">
+<p>To configure tags globally for all properties, use the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-go/pkl.golang/current/GeneratorSettings/index.html#structTags"><code>structTags</code></a> property the <a href="#settings-file">generator settings file</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example for setting struct tags for a single property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">structTags</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;%{name},omitempty&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">firstName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Add <code>toml:"firstName,omitempty"</code> as a struct tag</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To share struct tag settings across multiple properties, define a child class of <code>go.Field</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TomlField</span> <span class="hljs-keyword">extends</span> <span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">structTags</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;%{name},omitempty&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-operator">@</span><span class="hljs-title class_">TomlField</span>
+<span class="hljs-property">firstName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-operator">@</span><span class="hljs-title class_">TomlField</span>
+<span class="hljs-property">lastName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-pkl-is-turned-into-go"><a class="anchor" href="#how-pkl-is-turned-into-go"></a><a class="link" href="#how-pkl-is-turned-into-go">How Pkl is turned into Go</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="basic-types"><a class="anchor" href="#basic-types"></a><a class="link" href="#basic-types">Basic types</a></h3>
+<div class="paragraph">
+<p>The below table describes how Pkl types are mapped into Go types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pkl type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nil</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bool</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int8</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int8</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int16</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int32</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int32</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UInt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UInt8</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint8</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UInt16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint16</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UInt32</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Float</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>float64</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>float64</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[]T</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Listing&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[]T</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map&lt;K, V&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map[K]V</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mapping&lt;K, V&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map[K]V</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Set&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map[T]struct{}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Pair&lt;A, B&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.Pair[A, B]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Dynamic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.Object</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DataSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.DataSize</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.Duration</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>IntSeq</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.IntSeq</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Class</code> <sup class="footnote" id="_footnote_disclaimer">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.Class</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TypeAlias</code> <sup class="footnoteref">[<a class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*pkl.TypeAlias</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Any</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>any</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>any</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unions (<code>A|B|C</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>any</code> <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>pkl.Class</code>, <code>pkl.TypeAlias</code>, <code>pkl.IntSeq</code> and <code>pkl.Pair</code> only exist for compatibilty purposes because they are possible Pkl runtime values.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="classes"><a class="anchor" href="#classes"></a><a class="link" href="#classes">Classes</a></h3>
+<div class="paragraph">
+<p>Classes turn into a variation of structs and interfaces, depending on inheritance. Interfaces get generated because Go cannot model polymorphism with structs alone (e.g. a value that is a <code>Dog</code> struct is not assignable when an <code>Animal</code> struct is expected).</p>
+</div>
+<div class="paragraph">
+<p>When generating interfaces, a getter is generated for every property by prefixing <code>Get</code> to the property name.</p>
+</div>
+<div class="paragraph">
+<p>The below table describes how classes get generated.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pkl class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go struct</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>class Person</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;none&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type Person struct</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>open class Person</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type Person interface</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type PersonImpl struct</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>abstract class Person</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type Person interface</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;none&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>class Person extends Being</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type Person interface</code> <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type PersonImpl struct</code> <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the case of inheritance, the parent&#8217;s struct and interface are embedded.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enums"><a class="anchor" href="#enums"></a><a class="link" href="#enums">Enums</a></h3>
+<div class="paragraph">
+<p>If a typealias is defined as a union of string literals, it is turned into a new type backed by <code>string</code>. Each member of the union is generated as its own constant.</p>
+</div>
+<div class="paragraph">
+<p>The new type is placed into a subpackage of the module&#8217;s mapped Go package.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following Pkl code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">typealias</span> <span class="hljs-title class_">City</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;San Francisco&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;Cupertino&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;London&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Turns into something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">package city
+
+type City string
+
+const (
+	SanFrancisco City = "San Francisco"
+	Cupertino City    = "Cupertino"
+	London City       = "London"
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the names of the determined constants conflicts due to normalization rules, an enum is not generated, and a <code>string</code> type is instead inlined into the usage locations.</p>
+</div>
+<div class="paragraph">
+<p>If a typealias isn&#8217;t a union of string literals, its resolved type is inlined into the usage locations.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Pkl type <code>nothing</code> is ignored when a member of a union. Therefore, <code>typealias City = nothing|"San Francisco"|"Cupertino"|"London"</code> is still considered an enum.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="name-conflicts"><a class="anchor" href="#name-conflicts"></a><a class="link" href="#name-conflicts">Resolving name conflicts</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When turning Pkl names into Go names, the code generator follows these rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Any non-letter and non-digit characters get stripped, and each proceding letter gets capitalized.</p>
+</li>
+<li>
+<p>If a name does not start with a latin alphabet character, prefix with <code>N</code>.</p>
+</li>
+<li>
+<p>Capitalize so they get exported.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As a result, it is possible that two names collide and turn into the same Go name.
+To resolve these conflicts, the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-go/pkl.golang/current/go/Name.html"><code>@go.Name</code></a>
+annotation must be used on at least one of these declaractions so the resulting names are distinct.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Name</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MyCoolApplication&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">My_Application</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyApplication</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. The runtime value, not an instance
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Unions of string literals turn into enums if defined via a <code>typealias</code>. For reference, see <a href="#enums">enums</a>.
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. interface <code>Being</code> is embedded
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. struct <code>BeingImpl</code> is embedded
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="evaluation.html">Evaluator API</a></span>
+  <span class="next"><a href="external-readers.html">External Readers</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/site-support.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

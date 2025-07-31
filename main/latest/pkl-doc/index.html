@@ -582,7 +582,7 @@ It requires Java 17 or higher.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/content/groups/public" class="bare">https://s01.oss.sonatype.org/content/groups/public</a></code>.
+Snapshots are published to repository <code><a href="https://central.sonatype.com/repository/maven-snapshots" class="bare">https://central.sonatype.com/repository/maven-snapshots</a></code>.
 </td>
 </tr>
 </table>
@@ -613,7 +613,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 }
 
 repositories {
-  maven(url = "https://s01.oss.sonatype.org/content/groups/public")
+  maven(url = "{uri-sonatype}")
 }</code></pre>
 </div>
 </div>
@@ -627,7 +627,7 @@ repositories {
 }
 
 repositories {
-  maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+  maven { url "{uri-sonatype}" }
 }</code></pre>
 </div>
 </div>
@@ -653,7 +653,7 @@ repositories {
     &lt;repository&gt;
       &lt;id&gt;sonatype-s01&lt;/id&gt;
       &lt;name&gt;Sonatype S01&lt;/name&gt;
-      &lt;url&gt;https://s01.oss.sonatype.org/content/groups/public&lt;/url&gt;
+      &lt;url&gt;{uri-sonatype}&lt;/url&gt;
     &lt;/repository&gt;
   &lt;/repositories&gt;
 &lt;/project&gt;</code></pre>

@@ -504,7 +504,7 @@ Earlier Gradle versions are not supported.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Snapshots are published to repository <code><a href="https://s01.oss.sonatype.org/content/groups/public" class="bare">https://s01.oss.sonatype.org/content/groups/public</a></code>.
+Snapshots are published to repository <code><a href="https://central.sonatype.com/repository/maven-snapshots" class="bare">https://central.sonatype.com/repository/maven-snapshots</a></code>.
 </td>
 </tr>
 </table>
@@ -538,7 +538,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">pluginManagement {
     repositories {
-        maven(url = "https://s01.oss.sonatype.org/content/groups/public")
+        maven(url = "{uri-sonatype}")
     }
 }</code></pre>
 </div>
@@ -558,7 +558,7 @@ Snapshots are published to repository <code><a href="https://s01.oss.sonatype.or
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
     repositories {
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url "{uri-sonatype}" }
     }
 }</code></pre>
 </div>

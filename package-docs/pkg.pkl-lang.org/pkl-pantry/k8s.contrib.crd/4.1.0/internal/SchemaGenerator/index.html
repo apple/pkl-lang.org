@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>generate (pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd:4.1.0) • Packages</title>
-    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
-    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd/4.1.0/generate/index.js" defer="defer"></script>
-    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+    <title>SchemaGenerator (pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd:4.1.0) • Packages</title>
+    <script src="../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script src="../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <script src="../../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd/4.1.0/internal/SchemaGenerator/index.js" defer="defer"></script>
+    <link href="../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../images/favicon-16x16.png">
     <meta charset="UTF-8">
   </head>
   <body onload="onLoad()">
     <header>
-      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd" data-package-version="4.1.0" data-package-url-prefix="../" data-module-name="k8s.contrib.crd.generate" data-root-url-prefix="../../../../../"></div>
+      <div id="doc-title"><a href="../../../../../../index.html">Packages</a></div>
+      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd" data-package-version="4.1.0" data-package-url-prefix="../../" data-module-name="k8s.contrib.crd.internal.SchemaGenerator" data-root-url-prefix="../../../../../../"></div>
     </header>
-    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd</a>
-      <h1 id="declaration-title">k8s.contrib.crd.generate<span id="declaration-version">4.1.0</span></h1>
+    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd</a>
+      <h1 id="declaration-title">k8s.contrib.crd.internal.SchemaGenerator<span id="declaration-version">4.1.0</span></h1>
       <ul class="member-group-links">
-        <li><a href="#_overview">Overview</a></li>
         <li><a href="#_properties">Properties</a></li>
         <li><a href="#_methods">Methods</a></li>
       </ul>
       <div id="_overview" class="anchor"> </div>
-      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
-        <div class="member-signature">module <span class="name-decl">k8s.contrib.crd.generate</span></div>
-        <div class="doc-comment"><p>Generate Pkl sources from CustomResourceDefinition documents.</p></div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">module <span class="name-decl">k8s.contrib.crd.internal.SchemaGenerator</span></div>
         <dl class="member-info">
           <dt class="">Module URI:</dt>
-          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd@4.1.0#/generate.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
-          <dt class="">Pkl version:</dt>
-          <dd>0.25.0 or higher</dd>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd@4.1.0#/internal/SchemaGenerator.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
           <dt class="">Source code:</dt>
-          <dd><a href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl">generate.pkl</a></dd>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/internal/SchemaGenerator.pkl">SchemaGenerator.pkl</a></dd>
           <dt class="runtime-data hidden">Known subtypes:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">Known usages:</dt>
@@ -42,43 +38,6 @@
           <dt class="runtime-data hidden">All versions:</dt>
           <dd id="known-versions" class="runtime-data hidden"></dd>
         </dl>
-        <div class="doc-comment expandable hidden collapsed"><p>Limitations:</p>
-<ul>
-<li>Cannot generate <code>not</code>, <code>allOf</code>, or <code>anyOf</code> combinators correctly due to limitations in Pkl's model.
-<ul>
-<li>Union types exist, but they are logically the same as <code>oneOf</code> (only one subschema can match).</li>
-<li>Intersection types do not exist (can use this to model <code>allOf</code>).</li>
-</ul>
-</li>
-<li>Cannot generate tuple types (this is missing in Pkl).</li>
-<li>Properties called <code>default</code> cannot be generated (currently a limitation of the json parser).</li>
-</ul>
-<p>TODO:</p>
-<ul>
-<li>Handle usages of <code>allOf</code>. We can do this by merging subschemas into a larger schema.</li>
-<li>Copy doc comments from a class or typealias to its usage sites if there isn't a doc comment already.</li>
-<li>Handle if schema root is not an object type (Example: ansible's schema root has <code>&quot;type&quot;: &quot;array&quot;</code>).</li>
-<li>Handle if schema root should be a mapping (it has <code>additionalProperties</code> or <code>patternProperties</code> set).</li>
-</ul>
-<p>Sample CLI usage:</p>
-<pre><code>pkl eval package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd@&lt;version&gt;#/generate.pkl \
-  -m . \
-  -p source=&quot;https://raw.githubusercontent.com/monzo/egress-operator/master/config/crd/bases/egress.monzo.com_externalservices.yaml&quot;
-</code></pre>
-<p>Setting up replacement of Kube native types with types from the k8s standard library can be done with amending:</p>
-<pre><code class="language-pkl">amends &quot;package://pkg.pkl-lang.org/pkl-pantry/k8s.contrib.crd@&lt;version&gt;#/generate.pkl&quot;
-
-import &quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.1#/api/core/v1/ResourceRequirements.pkl&quot;
-
-source = &quot;https://raw.githubusercontent.com/monzo/egress-operator/master/config/crd/bases/egress.monzo.com_externalservices.yaml&quot;
-
-converters {
-  [&quot;externalservices.egress.monzo.com&quot;] {
-    [List(&quot;spec&quot;, &quot;resources&quot;)] = ResourceRequirements
-  }
-}
-</code></pre>
-<p>To figure out which paths you need to override, try running with <code>-p logPaths</code>.</p></div>
       </div>
       <div class="member-group">
         <div id="_properties" class="anchor"> </div>
@@ -98,140 +57,46 @@ converters {
             </div>
           </li>
           <li>
-            <div id="k8sVersion" class="anchor"> </div>
-            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#k8sVersion">link</a>
+            <div id="baseApiGroup" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#baseApiGroup">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">k8sVersion</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>(semver.isValid(this))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L72-72">Source</a></div>
-                <div class="doc-comment"><p>The version of the Pkl Kubernetes package to import.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>This property is not used if <a href="index.html#k8sImportPath"><code>k8sImportPath</code></a> is set directly.</p></div>
+                <div class="member-signature"><span class="name-decl">baseApiGroup</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/internal/SchemaGenerator.pkl#L24-24">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="crds" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#crds">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">crds</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../ModuleGenerator/index.html#CRD" class="name-ref">CRD</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/internal/SchemaGenerator.pkl#L26-26">Source</a></div>
               </div>
             </div>
           </li>
           <li>
             <div id="k8sImportPath" class="anchor"> </div>
-            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#k8sImportPath">link</a>
+            <div class="member"><a class="member-selflink material-icons" href="#k8sImportPath">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">k8sImportPath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L84-84">Source</a></div>
-                <div class="doc-comment"><p>The base path to use for the Kubernetes imports.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>Examples:</p>
-<pre><code>// Change the version
-k8sImportPath = &quot;package://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0#&quot;
-
-// Use dependency notation, assuming the dependency is called `@k8s`.
-k8sImportPath = &quot;@k8s&quot;
-</code></pre></div>
+                <div class="member-signature"><span class="name-decl">k8sImportPath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/internal/SchemaGenerator.pkl#L28-28">Source</a></div>
               </div>
             </div>
           </li>
           <li>
-            <div id="baseApiGroup" class="anchor"> </div>
-            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#baseApiGroup">link</a>
+            <div id="moduleNode" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#moduleNode">link</a>
               <div class="member-left">
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">baseApiGroup</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L89-89">Source</a></div>
-                <div class="doc-comment"><p>The base API group.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>Used to determine the output directory structure and which parts should be included in the path.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="generateSchema" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#generateSchema">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">generateSchema</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L93-93">Source</a></div>
-                <div class="doc-comment"><p>Enable or disable generating a k8sSchema.pkl at the root of the output.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="source" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#source">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">source</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L96-96">Source</a></div>
-                <div class="doc-comment"><p>Where to find the CRDs; can be a URI (<code>https:</code>, <code>file:</code> etc), an absolute file path, or a relative file path</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="sourceContents" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#sourceContents">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">sourceContents</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Resource.html" class="name-ref">Resource</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L110-110">Source</a></div>
-                <div class="doc-comment"><p>The CRD's source contents, as computed from <a href="index.html#source"><code>source</code></a>.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="logPaths" class="anchor"> </div>
-            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#logPaths">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">logPaths</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L115-115">Source</a></div>
-                <div class="doc-comment"><p>Whether to log out every path we find in each CRD to aid in setting converters.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>Default: <code>false</code>.</p></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="converters" class="anchor"> </div>
-            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#converters">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">converters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>&gt;, (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Module.html" class="name-ref">Module</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Class.html" class="name-ref">Class</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/TypeAlias.html" class="name-ref">TypeAlias</a>)&gt;&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L142-142">Source</a></div>
-                <div class="doc-comment"><p>Type conversions when generating property types.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>This is a two-dimensional mapping, where top-level entries designate CRD names (for example,
-&quot;restateclusters.restate.dev&quot;).</p>
-<p>The inner mapping specifies how individual paths within a CRD should be mapped to a custom type.</p>
-<p>Example:</p>
-<pre><code>converters {
-  [&quot;restateclusters.restate.dev&quot;] {
-    [List(&quot;spec&quot;, &quot;compute&quot;, &quot;env&quot;, &quot;env&quot;)] = EnvVar
-  }
-}
-</code></pre></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="modules" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#modules">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">modules</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../internal/ModuleGenerator/index.html" class="name-ref">ModuleGenerator</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L144-157">Source</a></div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="schema" class="anchor"> </div>
-            <div class="member"><a class="member-selflink material-icons" href="#schema">link</a>
-              <div class="member-left">
-                <div class="member-modifiers"></div>
-              </div>
-              <div class="member-main">
-                <div class="member-signature"><span class="name-decl">schema</span>: <a href="../internal/SchemaGenerator/index.html" class="name-ref">SchemaGenerator</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/generate.pkl#L159-163">Source</a></div>
+                <div class="member-signature"><span class="name-decl">moduleNode</span>: <a href="../../../../../../pkl.experimental.syntax/1.1.0/ModuleNode/index.html" class="name-ref">ModuleNode</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.contrib.crd@4.1.0/packages/k8s.contrib.crd/internal/SchemaGenerator.pkl#L30-106">Source</a></div>
               </div>
             </div>
           </li>

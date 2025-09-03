@@ -67,7 +67,7 @@ val cloneAdditionalSites by tasks.registering {
             "clone",
             "--branch",
             site.branch,
-            "git@github.com:apple/${site.repo}",
+            "https://github.com/apple/${site.repo}.git",
             layout.buildDirectory.dir(site.dirName).get()
           )
         }

@@ -1,0 +1,53 @@
+# Do not modify!
+# This file was generated from a template using https://github.com/StefMa/pkl-gha
+
+name: Build (main)
+'on':
+  push:
+    branches:
+    - main
+    tags-ignore:
+    - '*'
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: The source GitHub Action workflow run triggering this build
+        required: false
+        type: string
+jobs:
+  publish:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: temurin
+        cache: gradle
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        cache-workspaces: pkl-html-highlighter
+    - name: Configure cargo
+      run: |-
+        cat <<EOF > ~/.cargo/config
+        [net]
+        git-fetch-with-cli = true
+        EOF
+    - name: Triggered by
+      if: inputs.source_run != null
+      run: 'echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY'
+    - name: Run publish
+      run: |-
+        ./gradlew \
+          --console=plain \
+          pklHtmlHighlighter
+
+        ./gradlew \
+          --console=plain \
+          npmInstall buildRemoteSite publishRemoteSite

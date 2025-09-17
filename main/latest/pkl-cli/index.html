@@ -1377,6 +1377,42 @@ pkl shell-completion zsh</code></pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="command-format-check"><a class="anchor" href="#command-format-check"></a><a class="link" href="#command-format-check"><code>pkl format check</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl format check &lt;file-or-dir-path&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This command checks for format violations on the given file or directory and print their names to stdout.<br>
+It returns a non-zero status code in case violations are found.</p>
+</div>
+<div class="paragraph">
+<p>If the path is a directory, recursively looks for files with a <code>.pkl</code> extension, or files named <code>PklProject</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-format-apply"><a class="anchor" href="#command-format-apply"></a><a class="link" href="#command-format-apply"><code>pkl format apply</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl format apply [&lt;options&gt;] &lt;file-or-dir-path&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This command formats the given files overwriting them.</p>
+</div>
+<div class="paragraph">
+<p>If the path is a directory, recursively looks for files with a <code>.pkl</code> extension, or files named <code>PklProject</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="options-7"><a class="anchor" href="#options-7"></a><a class="link" href="#options-7">Options</a></h4>
+<details>
+<summary class="title">-s, --silent</summary>
+<div class="content">
+<div class="paragraph">
+<p>Do not write the name of wrongly formatted files to stdout.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
 <p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>

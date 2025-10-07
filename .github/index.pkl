@@ -1,0 +1,107 @@
+amends "@pkl.impl.ghactions/PklCI.pkl"
+
+import "@gha/actions/Setup.pkl"
+import "@gha/actions/Common.pkl"
+import "@gha/Workflow.pkl"
+
+local baseJob: Workflow.Job = new {
+  `runs-on` = "ubuntu-latest"
+  steps {
+    new Common.Checkout {
+      fetchDepth = 0
+    }
+    new Setup.Java {
+      name = "Setup Java"
+      javaVersion = "21"
+      distribution = "temurin"
+      cache = "gradle"
+    }
+    new {
+      name = "Setup Rust"
+      uses = "actions-rust-lang/setup-rust-toolchain@v1"
+      with {
+        ["cache-workspaces"] = "pkl-html-highlighter"
+      }
+    }
+    new {
+      name = "Configure cargo"
+      // language=bash
+      run = """
+        cat <<EOF > ~/.cargo/config
+        [net]
+        git-fetch-with-cli = true
+        EOF
+        """
+    }
+  }
+}
+
+local buildAndTest: Workflow = new {
+  jobs {
+    ["build-and-test"] = (baseJob) {
+      steps {
+        new {
+          name = "Run Gradle Tests"
+          // language=bash
+          run = #"""
+            ./gradlew \
+              --console=plain \
+              pklHtmlHighlighter
+
+            ./gradlew \
+              --console=plain \
+              npmInstall buildRemoteSite
+            """#
+        }
+      }
+    }
+  }
+}
+
+prb = buildAndTest
+
+build = buildAndTest
+
+main {
+  on {
+    workflow_dispatch {
+      inputs {
+        ["source_run"] {
+          type = "string"
+          required = false
+          description = "The source GitHub Action workflow run triggering this build"
+        }
+      }
+    }
+  }
+  jobs {
+    ["publish"] = (baseJob) {
+      permissions {
+        contents = "write"
+      }
+      steps = new {
+        new {
+          name = "Triggered by"
+          `if` = "inputs.source_run != null"
+          run = """
+            echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY
+            """
+        }
+        ...super.steps
+        new {
+          name = "Run publish"
+          // language=bash
+          run = #"""
+            ./gradlew \
+              --console=plain \
+              pklHtmlHighlighter
+
+            ./gradlew \
+              --console=plain \
+              npmInstall buildRemoteSite publishRemoteSite
+            """#
+        }
+      }
+    }
+  }
+}

@@ -20,6 +20,9 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
+    - name: Triggered by
+      if: inputs.source_run != null
+      run: 'echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY'
     - uses: actions/checkout@v5
       with:
         fetch-depth: 0
@@ -39,9 +42,6 @@ jobs:
         [net]
         git-fetch-with-cli = true
         EOF
-    - name: Triggered by
-      if: inputs.source_run != null
-      run: 'echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY'
     - name: Run publish
       run: |-
         ./gradlew \

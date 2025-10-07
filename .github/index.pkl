@@ -79,7 +79,7 @@ main {
       permissions {
         contents = "write"
       }
-      steps {
+      steps = new {
         new {
           name = "Triggered by"
           `if` = "inputs.source_run != null"
@@ -87,6 +87,7 @@ main {
             echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY
             """
         }
+        ...super.steps
         new {
           name = "Run publish"
           // language=bash

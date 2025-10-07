@@ -45,7 +45,7 @@ workflows {
     }
     `when` {
       equal {
-        "main"
+        "^main|gh-readonly-queue/main/pr-\\d+-[0-9a-f]{40}.*$"
         module.pipelineValues.`pipeline.git.branch`
       }
     }

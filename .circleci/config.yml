@@ -33,5 +33,5 @@ workflows:
     - deploy
     when:
       equal:
-      - main
+      - ^main|gh-readonly-queue/main/pr-\d+-[0-9a-f]{40}.*$
       - << pipeline.git.branch >>

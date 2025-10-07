@@ -1,7 +1,19 @@
-amends "package://pkg.pkl-lang.org/pkl-pantry/com.circleci.v2@1.6.1#/Config.pkl"
+amends "package://pkg.pkl-lang.org/pkl-project-commons/pkl.impl.circleci@1.1.1#/PklCI.pkl"
+
+prb {
+  jobs {
+    "test"
+  }
+}
+
+main {
+  jobs {
+    "deploy"
+  }
+}
 
 jobs {
-  ["deploy"] {
+  default {
     docker {
       new {
         image = "cimg/openjdk:17.0"
@@ -17,8 +29,35 @@ jobs {
           rustup default stable
           """
       }
+    }
+  }
+  ["test"] {
+    steps {
+      new RunStep {
+        name = "Running Gradle tests"
+        // TODO(oss) remove the SSH setup stuff and re-enable `validateRemoteSite`
+        command = #"""
+          . "$HOME/.cargo/env"
+          cat \<<EOF > ~/.cargo/config
+          [net]
+          git-fetch-with-cli = true
+          EOF
+          ./gradlew \
+            --console=plain \
+            pklHtmlHighlighter
+
+          ./gradlew \
+            --console=plain \
+            npmInstall buildRemoteSite
+          """#
+      }
+    }
+  }
+  ["deploy"] {
+    steps {
       new RunStep {
         name = "Running deployment"
+        // TODO(oss) remove the SSH setup stuff and re-add `validateRemoteSite`
         command = #"""
           . "$HOME/.cargo/env"
           cat \<<EOF > ~/.cargo/config
@@ -33,20 +72,6 @@ jobs {
             --console=plain \
             npmInstall buildRemoteSite publishRemoteSite
           """#
-      }
-    }
-  }
-}
-
-workflows {
-  ["main"] {
-    jobs {
-      "deploy"
-    }
-    `when` {
-      equal {
-        "^main|gh-readonly-queue/main/pr-\\d+-[0-9a-f]{40}.*$"
-        module.pipelineValues.`pipeline.git.branch`
       }
     }
   }

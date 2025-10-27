@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Pkl Binary Encoding :: Pkl Docs</title>
+    <title>pkl-binary Encoding :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/main/current/bindings-specification/binary-encoding.html">
     <link rel="prev" href="message-passing-api.html">
     <link rel="next" href="../tools.html">
@@ -469,12 +469,18 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Pkl Binary Encoding</h1>
+<h1 class="page"><code>pkl-binary</code> Encoding</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl values can be encoded into a binary format.
-This format is used for Pkl&#8217;s non-JVM language bindings, for example, for its Go and Swift bindings.</p>
+<p>Pkl values can be encoded into a binary format called "pkl-binary".
+This format is a lossless serialization of the underlying Pkl values.</p>
+</div>
+<div class="paragraph">
+<p>Pkl code can be rendered into this format using the <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/pklbinary">pkl:pklbinary</a> standard library module.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, many language bindings also provide methods to evaluate into <code>pkl-binary</code>, such as the <code>evaluateExpressionPklBinary</code> method in <a href="https://github.com/apple/pkl/tree/main/pkl-core/src/main/java/org/pkl/core/Evaluator.java">org.pkl.core.Evaluator</a>.</p>
 </div>
 <div class="paragraph">
 <p>The binary format is uses <a href="https://msgpack.org/index.html">MessagePack</a> encoding.</p>

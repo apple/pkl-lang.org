@@ -609,7 +609,7 @@ To ensure compatibility, use the <code>--grammar-version 1</code> CLI flag.</p>
 <h3 id="binary-renderer-parser"><a class="anchor" href="#binary-renderer-parser"></a><a class="link" href="#binary-renderer-parser"><code>pkl-binary</code> in-language Renderer</a></h3>
 <div class="paragraph">
 <p>A new in-language API has been added to render values into <a href="../bindings-specification/binary-encoding.html" class="xref page">pkl-binary encoding</a> (<a href="https://github.com/apple/pkl/pull/1203">#1203</a>,
-<a href="https://github.com/apple/pkl/pull/1250">#1250</a>).</p>
+<a href="https://github.com/apple/pkl/pull/1250">#1250</a>, <a href="https://github.com/apple/pkl/pull/1275">#1275</a>).</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s sometimes useful to separate Pkl evaluation from data consumption when used as application or service configuration.
@@ -685,7 +685,7 @@ Additionally, it is available through CLI flag <code>--format pkl-binary</code>.
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">var encodedData = fetchEncodedData(); // some byte[] or InputStream
-var config = Config.from(encodedData);
+var config = Config.fromPklBinary(encodedData);
 var appConfig = config.as(AppConfig.class);</code></pre>
 </div>
 </div>
@@ -694,7 +694,7 @@ var appConfig = config.as(AppConfig.class);</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val encodedData = fetchEncodedData() // some ByteArray or InputStream
-val config = Config.from(encodedData, ValueMapper.preconfigured().forKotlin())
+val config = Config.fromPklBinary(encodedData, ValueMapper.preconfigured().forKotlin())
 val appConfig = config.to&lt;AppConfig&gt;()</code></pre>
 </div>
 </div>
@@ -704,7 +704,7 @@ val appConfig = config.to&lt;AppConfig&gt;()</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">encodedData := fetchEncodedData() // some []byte
 var appConfig AppConfig
-if err := pkl.Unmarshal(encodedData, &amp;result); err != nil {
+if err := pkl.Unmarshal(encodedData, &amp;appConfig); err != nil {
   // handle error
 }</code></pre>
 </div>

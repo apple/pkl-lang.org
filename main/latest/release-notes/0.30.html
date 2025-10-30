@@ -850,6 +850,30 @@ Two trace modes are introduced:</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="better-support-for-bytes-when-rendering-yaml"><a class="anchor" href="#better-support-for-bytes-when-rendering-yaml"></a><a class="link" href="#better-support-for-bytes-when-rendering-yaml">Better support for <code>Bytes</code> when rendering YAML</a></h3>
+<div class="paragraph">
+<p>Previously, attempting to render a <code>Bytes</code> value using <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/YamlRenderer"><code>YamlRenderer</code></a> required the use of a <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/PcfRenderer#converters">converter</a>.
+Now, Pkl can natively render YAML containing <a href="https://yaml.org/type/binary.html">binary scalars</a> (<a href="https://github.com/apple/pkl/pull/1276">#1276</a>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">foo {
+  bar = Bytes(1, 2, 3)
+}
+
+rendered = new YamlRenderer {}.renderValue(foo) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: <code>bar: !!binary AQID</code></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="pkldoc-perf-improvements"><a class="anchor" href="#pkldoc-perf-improvements"></a><a class="link" href="#pkldoc-perf-improvements"><code>pkldoc</code> performance improvements</a></h3>
 <div class="paragraph">
 <p>The <code>pkldoc</code> documentation generator has been overhauled (<a href="https://github.com/apple/pkl/pull/1169">#1169</a>, <a href="https://github.com/apple/pkl/pull/1224">#1224</a>, <a href="https://github.com/apple/pkl/pull/1241">#1241</a>, <a href="https://github.com/apple/pkl/pull/1242">#1242</a>).</p>
@@ -1046,7 +1070,7 @@ That means that any code that currently references these names on implicit <code
 <p>Dependency updates (<a href="https://github.com/apple/pkl/pull/1184">#1184</a>, <a href="https://github.com/apple/pkl/pull/1225">#1225</a>, <a href="https://github.com/apple/pkl/pull/1226">#1226</a>, <a href="https://github.com/apple/pkl/pull/1228">#1228</a>).</p>
 </li>
 <li>
-<p>Enforce Pkl formatting of stdlib (<a href="https://github.com/apple/pkl/pull/1236">#1236</a>, <a href="https://github.com/apple/pkl/pull/1253">#1253</a>, <a href="https://github.com/apple/pkl/pull/1258">#1258</a>).</p>
+<p>Enforce Pkl formatting of stdlib (<a href="https://github.com/apple/pkl/pull/1236">#1236</a>, <a href="https://github.com/apple/pkl/pull/1253">#1253</a>, <a href="https://github.com/apple/pkl/pull/1258">#1258</a>, <a href="https://github.com/apple/pkl/pull/1278">#1278</a>).</p>
 </li>
 <li>
 <p>Add internal IntelliJ plugin that&#8217;s meant to assist with development of the Pkl codebase itself (<a href="https://github.com/apple/pkl/pull/1248">#1248</a>).</p>

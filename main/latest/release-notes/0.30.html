@@ -872,6 +872,30 @@ rendered = new YamlRenderer {}.renderValue(foo) <i class="conum" data-value="1">
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Similarly, <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/yaml/Parser"><code>yaml.Parser</code></a> now parses binary YAML values as Pkl <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/Bytes"><code>Bytes</code></a> values (<a href="https://github.com/apple/pkl/pull/1277">#1277</a>).
+This is a breaking change; previously these values were parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/String"><code>String</code></a> value containing the base64-encoded binary data.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">import "pkl:yaml"
+
+yamlData =
+  """
+  bytes: !!binary AQID
+  """
+
+parsed = new yaml.Parser {}.parse(yamlData).bytes <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: <code>Bytes(1, 2, 3)</code></td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="pkldoc-perf-improvements"><a class="anchor" href="#pkldoc-perf-improvements"></a><a class="link" href="#pkldoc-perf-improvements"><code>pkldoc</code> performance improvements</a></h3>
@@ -1035,6 +1059,13 @@ Because of this, existing sites must be migrated before using the <code>0.30</co
 <p>Things to watch out for when upgrading.</p>
 </div>
 <div class="sect2">
+<h3 id="binary-data-handling-yaml-parser"><a class="anchor" href="#binary-data-handling-yaml-parser"></a><a class="link" href="#binary-data-handling-yaml-parser">Binary data handling <code>yaml.Parser</code></a></h3>
+<div class="paragraph">
+<p><a href="https://yaml.org/type/binary.html">YAML binary scalars</a> are now parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/Bytes"><code>Bytes</code></a> values.
+Prior versions of Pkl parsed binary scalars as <a href="https://pkl-lang.org/package-docs/pkl/0.30.0-dev/base/String"><code>String</code></a> values containing the base64-encoded binary data.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="minimum-kotlin-version-bump"><a class="anchor" href="#minimum-kotlin-version-bump"></a><a class="link" href="#minimum-kotlin-version-bump">Minimum Kotlin version bump</a></h3>
 <div class="paragraph">
 <p>For users of Pkl&#8217;s Kotlin libraries, the minimum Kotlin version has been bumped to 2.1 (<a href="https://github.com/apple/pkl/pull/1232">#1232</a>).</p>
@@ -1070,7 +1101,7 @@ That means that any code that currently references these names on implicit <code
 <p>Dependency updates (<a href="https://github.com/apple/pkl/pull/1184">#1184</a>, <a href="https://github.com/apple/pkl/pull/1225">#1225</a>, <a href="https://github.com/apple/pkl/pull/1226">#1226</a>, <a href="https://github.com/apple/pkl/pull/1228">#1228</a>).</p>
 </li>
 <li>
-<p>Enforce Pkl formatting of stdlib (<a href="https://github.com/apple/pkl/pull/1236">#1236</a>, <a href="https://github.com/apple/pkl/pull/1253">#1253</a>, <a href="https://github.com/apple/pkl/pull/1258">#1258</a>, <a href="https://github.com/apple/pkl/pull/1278">#1278</a>).</p>
+<p>Enforce Pkl formatting of stdlib (<a href="https://github.com/apple/pkl/pull/1236">#1236</a>, <a href="https://github.com/apple/pkl/pull/1253">#1253</a>, <a href="https://github.com/apple/pkl/pull/1258">#1258</a>, <a href="https://github.com/apple/pkl/pull/1278">#1278</a>, <a href="https://github.com/apple/pkl/pull/1279">#1279</a>).</p>
 </li>
 <li>
 <p>Add internal IntelliJ plugin that&#8217;s meant to assist with development of the Pkl codebase itself (<a href="https://github.com/apple/pkl/pull/1248">#1248</a>).</p>

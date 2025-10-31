@@ -6,8 +6,11 @@ name: Build
   push:
     branches-ignore:
     - main
+    - release/*
     tags-ignore:
     - '*'
+permissions:
+  contents: read
 jobs:
   build-and-test:
     runs-on: ubuntu-latest

@@ -14,6 +14,8 @@ name: Build (main)
         description: The source GitHub Action workflow run triggering this build
         required: false
         type: string
+permissions:
+  contents: read
 jobs:
   publish:
     permissions:

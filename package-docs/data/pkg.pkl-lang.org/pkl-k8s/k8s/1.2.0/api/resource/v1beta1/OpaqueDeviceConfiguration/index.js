@@ -1,2 +1,0 @@
-runtimeData.links('known-versions','[{"text":"1.2.1","href":"../../../../../1.2.1/api/resource/v1beta1/OpaqueDeviceConfiguration/index.html"},{"text":"1.2.0","classes":"current-version"}]');
-runtimeData.links('known-usages','[{"text":"DeviceAllocationConfiguration","href":"../ResourceClaim/DeviceAllocationConfiguration.html"},{"text":"DeviceClaimConfiguration","href":"../ResourceClaimSpec/DeviceClaimConfiguration.html"},{"text":"DeviceClassConfiguration","href":"../DeviceClass/DeviceClassConfiguration.html"}]');

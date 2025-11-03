@@ -1,1 +1,0 @@
-runtimeData.links('known-versions','[{"text":"1.0.4","href":"../../1.0.4/structuredRead/ReadFailure.html"},{"text":"1.0.3","href":"../../1.0.3/structuredRead/ReadFailure.html"},{"text":"1.0.2","href":"../../1.0.2/structuredRead/ReadFailure.html"},{"text":"1.0.1","href":"../../1.0.1/structuredRead/ReadFailure.html"},{"text":"1.0.0","classes":"current-version"}]');

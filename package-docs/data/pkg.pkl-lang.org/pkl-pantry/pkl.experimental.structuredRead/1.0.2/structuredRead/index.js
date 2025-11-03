@@ -1,1 +1,0 @@
-runtimeData.links('known-versions','[{"text":"1.0.4","href":"../../1.0.4/structuredRead/index.html"},{"text":"1.0.3","href":"../../1.0.3/structuredRead/index.html"},{"text":"1.0.2","classes":"current-version"},{"text":"1.0.1","href":"../../1.0.1/structuredRead/index.html"},{"text":"1.0.0","href":"../../1.0.0/structuredRead/index.html"}]');

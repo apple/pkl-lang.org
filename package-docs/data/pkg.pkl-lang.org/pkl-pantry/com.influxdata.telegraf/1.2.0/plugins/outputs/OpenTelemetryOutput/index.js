@@ -1,2 +1,0 @@
-runtimeData.links('known-versions','[{"text":"1.5.0","href":"../../../../1.5.0/plugins/outputs/OpenTelemetryOutput/index.html"},{"text":"1.4.0","href":"../../../../1.4.0/plugins/outputs/OpenTelemetryOutput/index.html"},{"text":"1.3.0","href":"../../../../1.3.0/plugins/outputs/OpenTelemetryOutput/index.html"},{"text":"1.2.1","href":"../../../../1.2.1/plugins/outputs/OpenTelemetryOutput/index.html"},{"text":"1.2.0","classes":"current-version"}]');
-runtimeData.links('known-usages','[{"text":"Outputs","href":"../../../Telegraf/Outputs.html"}]');

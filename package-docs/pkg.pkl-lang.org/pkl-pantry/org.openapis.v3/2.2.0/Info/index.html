@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
+    <meta charset="UTF-8">
     <title>Info (pkg.pkl-lang.org/pkl-pantry/org.openapis.v3:2.2.0) • Packages</title>
     <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/_/Info/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/2.2.0/Info/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "2.2.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
     <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/2.2.0/Info/index.js" defer="defer"></script>
     <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
-    <meta charset="UTF-8">
   </head>
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.openapis.v3" data-package-version="2.2.0" data-package-url-prefix="../" data-module-name="org.openapis.v3.Info" data-root-url-prefix="../../../../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.openapis.v3" data-package-version="2.2.0" data-package-url-prefix="../" data-module-name="org.openapis.v3.Info" data-root-url-prefix="../../../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/org.openapis.v3</a>
       <h1 id="declaration-title">org.openapis.v3.Info<span id="declaration-version">2.2.0</span></h1>
@@ -33,9 +40,9 @@
           <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/org.openapis.v3@2.2.0#/Info.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
           <dt class="">Source code:</dt>
           <dd><a href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl">Info.pkl</a></dd>
-          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
-          <dt class="runtime-data hidden">Known usages:</dt>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
           <dd id="known-usages" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">All versions:</dt>
           <dd id="known-versions" class="runtime-data hidden"></dd>
@@ -54,9 +61,10 @@ tools for convenience.</p></div>
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L93-L108">Source</a></div>
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L100-L133">Source</a></div>
                 <div class="doc-comment"><p>The output of this module.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the command line.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
               </div>
             </div>
           </li>
@@ -67,7 +75,7 @@ tools for convenience.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">title</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L27-27">Source</a></div>
+                <div class="member-signature"><span class="name-decl">title</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L27-27">Source</a></div>
                 <div class="doc-comment"><p>The title of the API</p></div>
               </div>
             </div>
@@ -79,7 +87,7 @@ tools for convenience.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">version</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L31-31">Source</a></div>
+                <div class="member-signature"><span class="name-decl">version</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L31-31">Source</a></div>
                 <div class="doc-comment"><p>The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API
 implementation version).</p></div>
               </div>
@@ -92,7 +100,7 @@ implementation version).</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">description</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L37-37">Source</a></div>
+                <div class="member-signature"><span class="name-decl">description</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L37-37">Source</a></div>
                 <div class="doc-comment"><p>A short description of the API.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>CommonMark syntax MAY be used for rich text representation.</p></div>
               </div>
@@ -105,7 +113,7 @@ implementation version).</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">termsOfService</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html#Uri" class="name-ref">Uri</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L42-42">Source</a></div>
+                <div class="member-signature"><span class="name-decl">termsOfService</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html#Uri" class="name-ref">Uri</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L42-42">Source</a></div>
                 <div class="doc-comment"><p>A URL to the Terms of Service for the API.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>MUST be in the format of a URL.</p></div>
               </div>
@@ -142,7 +150,7 @@ implementation version).</p></div>
                 <div class="member-modifiers">hidden </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">extensions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../Extension/index.html#Key" class="name-ref">Key</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Any.html" class="name-ref">Any</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L57-57">Source</a></div>
+                <div class="member-signature"><span class="name-decl">extensions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../Extension/index.html#Key" class="name-ref">Key</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Any.html" class="name-ref">Any</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.0/packages/org.openapis.v3/Info.pkl#L57-57">Source</a></div>
                 <div class="doc-comment"><p>Custom properties starting with x- extend OpenAPI with additional information
 or functionality.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This is a child property because Pkl modules cannot express both known names
@@ -164,7 +172,7 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L46-L46">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -176,7 +184,7 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L51-L51">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -191,9 +199,10 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L57-L57">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
             </div>
           </li>
@@ -205,7 +214,7 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1777-L1777">Source</a></div>
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1872-L1872">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -218,7 +227,7 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1782-L1782">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1877-L1877">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -232,7 +241,7 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1787-L1787">Source</a></div>
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1882-L1882">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -245,8 +254,8 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1790-L1790">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -257,8 +266,8 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1793-L1793">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>
@@ -270,13 +279,15 @@ and arbitrary names.</p>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L88-L88">Source</a></div>
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L94-L94">Source</a></div>
                 <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
-<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path <code>/dir1/dir2/dir3/mod2.pkl</code>,
-then <code>mod1.relativePathTo(mod2)</code> will return <code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
-<p>A common use case is to compute the directory path between a template located at the root of a hierarchy
-(say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the <code>module</code> keyword):</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
 <pre><code>import &quot;rootModule.pkl&quot; // self-import
 path = rootModule.relativePathTo(module)
 </code></pre></div>

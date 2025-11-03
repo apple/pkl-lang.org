@@ -1,1 +1,0 @@
-runtimeData.links('known-versions','[{"text":"1.0.4","href":"../../1.0.4/structuredRead/CoerceFailure.html"},{"text":"1.0.3","classes":"current-version"},{"text":"1.0.2","href":"../../1.0.2/structuredRead/CoerceFailure.html"},{"text":"1.0.1","href":"../../1.0.1/structuredRead/CoerceFailure.html"},{"text":"1.0.0","href":"../../1.0.0/structuredRead/CoerceFailure.html"}]');

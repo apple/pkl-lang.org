@@ -3,8 +3,15 @@
   <head>
     <title>Class (pkl/base:0.25.1) • Packages</title>
     <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../data/pkl/_/base/Class.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.25.1/base/Class.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.25.1");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+    </script>
     <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../data/pkl/0.25.1/base/Class.js" defer="defer"></script>
     <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">

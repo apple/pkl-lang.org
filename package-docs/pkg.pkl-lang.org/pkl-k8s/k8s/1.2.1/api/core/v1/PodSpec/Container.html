@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
+    <meta charset="UTF-8">
     <title>Container (pkg.pkl-lang.org/pkl-k8s/k8s:1.2.1) • Packages</title>
     <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/_/api/core/v1/PodSpec/Container.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/1.2.1/api/core/v1/PodSpec/Container.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.2.1");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
     <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../../../../data/pkg.pkl-lang.org/pkl-k8s/k8s/1.2.1/api/core/v1/PodSpec/Container.js" defer="defer"></script>
     <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
-    <meta charset="UTF-8">
   </head>
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
-      <div id="search"><i id="search-icon" class="material-icons">search</i><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-k8s/k8s" data-package-version="1.2.1" data-package-url-prefix="../../../../" data-module-name="k8s.api.core.v1.PodSpec" data-class-name="Container" data-root-url-prefix="../../../../../../../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-k8s/k8s" data-package-version="1.2.1" data-package-url-prefix="../../../../" data-module-name="k8s.api.core.v1.PodSpec" data-class-name="Container" data-root-url-prefix="../../../../../../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-k8s/k8s</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.api.core.v1.PodSpec</a>
       <h1 id="declaration-title">Container<span id="declaration-version">1.2.1</span></h1>
@@ -28,9 +35,9 @@
         <div class="member-signature">class <span class="name-decl">Container</span></div>
         <div class="doc-comment"><p>A single application container that you want to run within a pod.</p></div>
         <dl class="member-info">
-          <dt class="runtime-data hidden">Known subtypes:</dt>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
-          <dt class="runtime-data hidden">Known usages:</dt>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
           <dd id="known-usages" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">All versions:</dt>
           <dd id="known-versions" class="runtime-data hidden"></dd>
@@ -47,7 +54,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">volumeDevices</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../VolumeDevice/index.html" class="name-ref">VolumeDevice</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#661-661">Source</a></div>
+                <div class="member-signature"><span class="name-decl">volumeDevices</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../VolumeDevice/index.html" class="name-ref">VolumeDevice</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#661-661">Source</a></div>
                 <div class="doc-comment"><p>volumeDevices is the list of block devices to be used by the container.</p></div>
               </div>
             </div>
@@ -59,7 +66,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">image</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#666-666">Source</a></div>
+                <div class="member-signature"><span class="name-decl">image</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#666-666">Source</a></div>
                 <div class="doc-comment"><p>Container image name.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>More info: <a href="https://kubernetes.io/docs/concepts/containers/images">https://kubernetes.io/docs/concepts/containers/images</a> This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.</p></div>
               </div>
@@ -103,7 +110,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">stdin</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#687-687">Source</a></div>
+                <div class="member-signature"><span class="name-decl">stdin</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#687-687">Source</a></div>
                 <div class="doc-comment"><p>Whether this container should allocate a buffer for stdin in the container runtime.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If this is not set, reads from stdin in the container will always result in EOF.
 Default is false.</p></div>
@@ -117,7 +124,7 @@ Default is false.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">terminationMessagePolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#696-696">Source</a></div>
+                <div class="member-signature"><span class="name-decl">terminationMessagePolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#696-696">Source</a></div>
                 <div class="doc-comment"><p>Indicate how the termination message should be populated.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>File will use the contents of terminationMessagePath to populate the container status message on both success and failure.
 FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error.
@@ -134,7 +141,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">terminationMessagePath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#705-705">Source</a></div>
+                <div class="member-signature"><span class="name-decl">terminationMessagePath</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#705-705">Source</a></div>
                 <div class="doc-comment"><p>Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Message written is intended to be brief final status, such as an assertion failure message.
 Will be truncated by the node if greater than 4096 bytes.
@@ -151,7 +158,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">workingDir</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#711-711">Source</a></div>
+                <div class="member-signature"><span class="name-decl">workingDir</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#711-711">Source</a></div>
                 <div class="doc-comment"><p>Container's working directory.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If not specified, the container runtime's default will be used, which might be configured in the container image.
 Cannot be updated.</p></div>
@@ -210,7 +217,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">env</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../EnvVar/index.html" class="name-ref">EnvVar</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#737-737">Source</a></div>
+                <div class="member-signature"><span class="name-decl">env</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../EnvVar/index.html" class="name-ref">EnvVar</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#737-737">Source</a></div>
                 <div class="doc-comment"><p>List of environment variables to set in the container.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Cannot be updated.</p></div>
               </div>
@@ -223,7 +230,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">ports</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../ContainerPort/index.html" class="name-ref">ContainerPort</a>&gt;(module.hasUniquePortNames(this))?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#746-746">Source</a></div>
+                <div class="member-signature"><span class="name-decl">ports</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../ContainerPort/index.html" class="name-ref">ContainerPort</a>&gt;(module.hasUniquePortNames(this))?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#746-746">Source</a></div>
                 <div class="doc-comment"><p>List of ports to expose from the container.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Not specifying a port here DOES NOT prevent that port from being exposed.
 Any port which is listening on the default &quot;0.0.0.0&quot; address inside a container will be accessible from the network.
@@ -240,7 +247,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">restartPolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#758-758">Source</a></div>
+                <div class="member-signature"><span class="name-decl">restartPolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#758-758">Source</a></div>
                 <div class="doc-comment"><p>RestartPolicy defines the restart behavior of individual containers in a pod.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This field may only be set for init containers, and the only allowed value is &quot;Always&quot;.
 For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type.
@@ -259,7 +266,7 @@ Instead, the next init container starts immediately after this init container is
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">command</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#770-770">Source</a></div>
+                <div class="member-signature"><span class="name-decl">command</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#770-770">Source</a></div>
                 <div class="doc-comment"><p>Entrypoint array.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Not executed within a shell.
 The container image's ENTRYPOINT is used if this is not provided.
@@ -279,7 +286,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/inject-data-application/def
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">volumeMounts</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../VolumeMount/index.html" class="name-ref">VolumeMount</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#775-775">Source</a></div>
+                <div class="member-signature"><span class="name-decl">volumeMounts</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../VolumeMount/index.html" class="name-ref">VolumeMount</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#775-775">Source</a></div>
                 <div class="doc-comment"><p>Pod volumes to mount into the container's filesystem.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Cannot be updated.</p></div>
               </div>
@@ -292,7 +299,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/inject-data-application/def
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">args</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#786-786">Source</a></div>
+                <div class="member-signature"><span class="name-decl">args</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#786-786">Source</a></div>
                 <div class="doc-comment"><p>Arguments to the entrypoint.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The container image's CMD is used if this is not provided.
 Variable references $(VAR_NAME) are expanded using the container's environment.
@@ -338,7 +345,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tty</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#802-802">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tty</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#802-802">Source</a></div>
                 <div class="doc-comment"><p>Whether this container should allocate a TTY for itself, also requires 'stdin' to be true.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Default is false.</p></div>
               </div>
@@ -366,7 +373,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">resizePolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../ContainerResizePolicy/index.html" class="name-ref">ContainerResizePolicy</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#813-813">Source</a></div>
+                <div class="member-signature"><span class="name-decl">resizePolicy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../ContainerResizePolicy/index.html" class="name-ref">ContainerResizePolicy</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#813-813">Source</a></div>
                 <div class="doc-comment"><p>Resources resize policy for the container.</p></div>
               </div>
             </div>
@@ -378,7 +385,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">stdinOnce</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#821-821">Source</a></div>
+                <div class="member-signature"><span class="name-decl">stdinOnce</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#821-821">Source</a></div>
                 <div class="doc-comment"><p>Whether the container runtime should close the stdin channel after it has been opened by a single attach.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>When stdin is true the stdin stream will remain open across multiple attach sessions.
 If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted.
@@ -394,7 +401,7 @@ Default is false</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">envFrom</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../EnvFromSource/index.html" class="name-ref">EnvFromSource</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#830-830">Source</a></div>
+                <div class="member-signature"><span class="name-decl">envFrom</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../EnvFromSource/index.html" class="name-ref">EnvFromSource</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.2.1/generated-package/api/core/v1/PodSpec.pkl#830-830">Source</a></div>
                 <div class="doc-comment"><p>List of sources to populate environment variables in the container.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The keys defined within a source must be a C_IDENTIFIER.
 All invalid keys will be reported as an event when the container is starting.
@@ -417,7 +424,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L43-L43">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L46-L46">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -429,7 +436,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L48-L48">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L51-L51">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -444,9 +451,10 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Container.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Container.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L53-L53">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Container.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Container.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L57-L57">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
-                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's <code>map</code> and <code>flatMap</code> methods.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
               </div>
             </div>
           </li>
@@ -458,7 +466,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1777-L1777">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1872-L1872">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -471,7 +479,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1782-L1782">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1877-L1877">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -485,7 +493,7 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1787-L1787">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1882-L1882">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -498,8 +506,8 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1790-L1790">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -510,8 +518,8 @@ Cannot be updated.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.29.1/stdlib/base.pkl#L1793-L1793">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.0/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

@@ -3,8 +3,15 @@
   <head>
     <title>Package (pkg.pkl-lang.org/pkl-go/pkl.golang:0.5.2) • Packages</title>
     <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-go/pkl.golang/_/go/Package.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-go/pkl.golang/0.5.2/go/Package.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.5.2");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+    </script>
     <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
-    <script src="../../../../../data/pkg.pkl-lang.org/pkl-go/pkl.golang/0.5.2/go/Package.js" defer="defer"></script>
     <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">

@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.29.1">
+<div class="nav-container" data-component="main" data-version="0.30.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -261,7 +264,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.29.1</span>
+    <span class="version">0.30.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -300,7 +303,10 @@
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.29.1</a>
+          <a href="../index.html">0.30.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
         </li>
         <li class="version">
           <a href="../../0.28.2/index.html">0.28.2</a>
@@ -446,17 +452,18 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.29.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.0</button>
   <div class="version-menu">
     <a class="version" href="../../latest/pkl-cli/index.html">0.31.0-dev</a>
-    <a class="version is-current" href="index.html">0.29.1</a>
+    <a class="version is-current" href="index.html">0.30.0</a>
+    <a class="version" href="../../0.29.1/pkl-cli/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-cli/index.html">0.28.2</a>
     <a class="version" href="../../0.27.2/pkl-cli/index.html">0.27.2</a>
     <a class="version" href="../../0.26.3/pkl-cli/index.html">0.26.3</a>
     <a class="version" href="../../0.25.3/pkl-cli/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -562,10 +569,10 @@ brew upgrade pkl   # or just `brew upgrade`</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Install and activate Pkl globally
-mise use -g pkl@0.29.1
+mise use -g pkl@0.30.0
 
 # Install and activate Pkl locally
-mise use pkl@0.29.1</code></pre>
+mise use pkl@0.30.0</code></pre>
 </div>
 </div>
 </div>
@@ -604,7 +611,7 @@ mise use pkl@0.29.1</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-macos-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-macos-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -614,7 +621,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-macos-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-macos-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -624,7 +631,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.29.1 (macOS, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.0 (macOS, native)</code></pre>
 </div>
 </div>
 </div>
@@ -639,7 +646,7 @@ For a statically linked executable, see <a href="#alpine-linux-executable">Alpin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-linux-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-linux-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -649,7 +656,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -659,7 +666,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.29.1 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.0 (Linux, native)</code></pre>
 </div>
 </div>
 </div>
@@ -671,7 +678,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-alpine-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-alpine-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -681,7 +688,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.29.1 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.0 (Linux, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -701,7 +708,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 <h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-windows-amd64.exe' -OutFile pkl.exe
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.30.0/pkl-windows-amd64.exe' -OutFile pkl.exe
 .\pkl --version</code></pre>
 </div>
 </div>
@@ -710,7 +717,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.29.1 (Windows 10.0, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.0 (Windows 10.0, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -749,7 +756,7 @@ We currently do not support the aarch64 architecture for Windows.
 <div id="tabs-1-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-1-macoslinux">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.29.1/pkl-cli-java-0.29.1.jar'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.0/pkl-cli-java-0.30.0.jar'
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>
@@ -758,7 +765,7 @@ chmod +x jpkl
 <div id="tabs-1-windows--panel" class="tabpanel" aria-labelledby="tabs-1-windows">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.29.1/pkl-cli-java-0.29.1.jar' -OutFile jpkl.bat
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.0/pkl-cli-java-0.30.0.jar' -OutFile jpkl.bat
 .\jpkl --version</code></pre>
 </div>
 </div>
@@ -770,7 +777,7 @@ chmod +x jpkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.29.1 (macOS 14.2, Java 17.0.10)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.30.0 (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1413,6 +1420,72 @@ pkl shell-completion zsh</code></pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="command-format"><a class="anchor" href="#command-format"></a><a class="link" href="#command-format"><code>pkl format</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl format &lt;options&gt; [&lt;paths&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>This command formats or checks formatting of Pkl files.<br>
+Exit codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>0: No violations found.</p>
+</li>
+<li>
+<p>1: An unexpected error happened (ex.: IO error)</p>
+</li>
+<li>
+<p>11: Violations were found.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the path is a directory, recursively looks for files with a <code>.pkl</code> extension, or files named <code>PklProject</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default, the input files are formatted, and written to standard out.</p>
+</div>
+<div class="sect3">
+<h4 id="options-7"><a class="anchor" href="#options-7"></a><a class="link" href="#options-7">Options</a></h4>
+<details>
+<summary class="title">--grammar-version</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>2</code> (latest version)<br>
+Select the grammar compatibility version for the formatter.
+New versions are created for each backward incompatible grammar change.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-s, --silent</summary>
+<div class="content">
+<div class="paragraph">
+<p>Skip writing to standard out. Mutually exclusive with <code>--diff-name-only</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-w, --write</summary>
+<div class="content">
+<div class="paragraph">
+<p>Format files in place, overwriting them. Implies <code>--diff-name-only</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--diff-name-only</summary>
+<div class="content">
+<div class="paragraph">
+<p>Write the path of files with formatting violations to stdout.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
 <p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
@@ -1626,6 +1699,16 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">--trace-mode</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>compact</code><br>
+Specifies how <code>trace()</code> output is formatted.
+Possible options are <code>compact</code> and <code>pretty</code>.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands also take the following options:</p>
 </div>
@@ -1781,7 +1864,7 @@ The separator can be customized using the <code>--module-output-separator</code>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
-Welcome to Pkl 0.29.1.
+Welcome to Pkl 0.30.0.
 Type an expression to have it evaluated.
 Type :help or :examples for more information.
 
@@ -1978,7 +2061,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/settings/">pkl.settings</a>.</p>
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/settings/">pkl.settings</a>.</p>
 </div>
 </div>
 </div>
@@ -1986,7 +2069,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <h2 id="ca-certs"><a class="anchor" href="#ca-certs"></a><a class="link" href="#ca-certs">CA Certificates</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.29.1/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
+<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
 These certificates can be overridden via either of the two options:</p>
 </div>
 <div class="ulist">

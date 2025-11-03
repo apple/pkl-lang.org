@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.29.1">
+<div class="nav-container" data-component="main" data-version="0.30.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -261,7 +264,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.29.1</span>
+    <span class="version">0.30.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -300,7 +303,10 @@
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.29.1</a>
+          <a href="../index.html">0.30.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
         </li>
         <li class="version">
           <a href="../../0.28.2/index.html">0.28.2</a>
@@ -447,17 +453,18 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.29.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.0</button>
   <div class="version-menu">
     <a class="version" href="../../latest/pkl-doc/index.html">0.31.0-dev</a>
-    <a class="version is-current" href="index.html">0.29.1</a>
+    <a class="version is-current" href="index.html">0.30.0</a>
+    <a class="version" href="../../0.29.1/pkl-doc/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-doc/index.html">0.28.2</a>
     <a class="version" href="../../0.27.2/pkl-doc/index.html">0.27.2</a>
     <a class="version" href="../../0.26.3/pkl-doc/index.html">0.26.3</a>
     <a class="version" href="../../0.25.3/pkl-doc/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/pkl-doc/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/pkl-doc/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -472,7 +479,7 @@
 </div>
 <div class="paragraph">
 <p>Pkldoc&#8217;s look and feel is inspired by Scaladoc.
-To get a first impression, browse the <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/">Standard Library API Docs</a>.</p>
+To get a first impression, browse the <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/">Standard Library API Docs</a>.</p>
 </div>
 </div>
 </div>
@@ -520,7 +527,7 @@ See <a href="../language-reference/index.html#member-links" class="xref page">Me
 <div class="sect2">
 <h3 id="member-search"><a class="anchor" href="#member-search"></a><a class="link" href="#member-search">Member Search</a></h3>
 <div class="paragraph">
-<p>To get a first impression of Pkldoc&#8217;s member search, let&#8217;s try and find property <code>MinFiniteFloat</code> in the <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/">standard library docs</a>:</p>
+<p>To get a first impression of Pkldoc&#8217;s member search, let&#8217;s try and find property <code>MinFiniteFloat</code> in the <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/">standard library docs</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -600,7 +607,7 @@ It requires Java 17 or higher.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-doc:0.29.1")
+  implementation("org.pkl-lang:pkl-doc:0.30.0")
 }
 
 repositories {
@@ -614,7 +621,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-doc:0.29.1"
+  implementation "org.pkl-lang:pkl-doc:0.30.0"
 }
 
 repositories {
@@ -638,7 +645,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-doc&lt;/artifactId&gt;
-    &lt;version&gt;0.29.1&lt;/version&gt;
+    &lt;version&gt;0.30.0&lt;/version&gt;
   &lt;/dependency&gt;
 &lt;/project&gt;</code></pre>
 </div>
@@ -698,22 +705,22 @@ However, it requires a Java 17 (or higher) runtime on the system path, and has a
 <div class="ulist">
 <ul>
 <li>
-<p>macOS aarch64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-macos-aarch64" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-macos-aarch64</a></p>
+<p>macOS aarch64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-macos-aarch64" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-macos-aarch64</a></p>
 </li>
 <li>
-<p>macOS amd64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-macos-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-macos-amd64</a></p>
+<p>macOS amd64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-macos-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-macos-amd64</a></p>
 </li>
 <li>
-<p>Linux aarch64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-linux-aarch64" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-linux-aarch64</a></p>
+<p>Linux aarch64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-linux-aarch64" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-linux-aarch64</a></p>
 </li>
 <li>
-<p>Linux amd64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-linux-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-linux-amd64</a></p>
+<p>Linux amd64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-linux-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-linux-amd64</a></p>
 </li>
 <li>
-<p>Alpine Linux amd64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-alpine-linux-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-alpine-linux-amd64</a></p>
+<p>Alpine Linux amd64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-alpine-linux-amd64" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-alpine-linux-amd64</a></p>
 </li>
 <li>
-<p>Windows amd64: <a href="https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-windows-amd64.exe" class="bare">https://github.com/apple/pkl/releases/download/0.29.1/pkldoc-windows-amd64.exe</a></p>
+<p>Windows amd64: <a href="https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-windows-amd64.exe" class="bare">https://github.com/apple/pkl/releases/download/0.30.0/pkldoc-windows-amd64.exe</a></p>
 </li>
 </ul>
 </div>
@@ -728,12 +735,12 @@ However, it requires a Java 17 (or higher) runtime on the system path, and has a
 It can generate documentation either for modules directly, or generate documentation for <em>package uris</em>.</p>
 </div>
 <div class="paragraph">
-<p>The tool requires an argument of a module named <em>docsite-info.pkl</em>, that amends <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/DocsiteInfo/">pkl.DocsiteInfo</a>.</p>
+<p>The tool requires an argument of a module named <em>docsite-info.pkl</em>, that amends <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/DocsiteInfo/">pkl.DocsiteInfo</a>.</p>
 </div>
 <h4 id="generating-documentation-for-modules-directly" class="discrete">Generating documentation for modules directly</h4>
 <div class="paragraph">
 <p>Modules can be passed directly to Pkldoc for documentation generation.
-When generating documentation for these modules, there must also be a module named <em>doc-package-info.pkl</em> that amends <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/DocPackageInfo/">pkl.DocPackageInfo</a>.</p>
+When generating documentation for these modules, there must also be a module named <em>doc-package-info.pkl</em> that amends <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/DocPackageInfo/">pkl.DocPackageInfo</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <em>doc-package-info.pkl</em> module defines a <em>doc package</em>, which describes how modules are grouped and versioned together.</p>
@@ -798,10 +805,10 @@ where <em>sourceCode</em> is configured in the <code>Package.sourceCode</code> p
 <div class="ulist">
 <ul>
 <li>
-<p>A high-level <a href="https://github.com/apple/pkl/tree/0.29.1/pkl-doc/src/main/kotlin/org/pkl/doc/CliDocGenerator.kt">CliDocGenerator</a> API whose feature set corresponds to the CLI.</p>
+<p>A high-level <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-doc/src/main/kotlin/org/pkl/doc/CliDocGenerator.kt">CliDocGenerator</a> API whose feature set corresponds to the CLI.</p>
 </li>
 <li>
-<p>A low-level <a href="https://github.com/apple/pkl/tree/0.29.1/pkl-doc/src/main/kotlin/org/pkl/doc/DocGenerator.kt">DocGenerator</a> API that offers additional features and control.</p>
+<p>A low-level <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-doc/src/main/kotlin/org/pkl/doc/DocGenerator.kt">DocGenerator</a> API that offers additional features and control.</p>
 </li>
 </ul>
 </div>
@@ -1056,6 +1063,16 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--trace-mode</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>compact</code><br>
+Specifies how <code>trace()</code> output is formatted.
+Possible options are <code>compact</code> and <code>pretty</code>.</p>
 </div>
 </div>
 </details>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Pkl Binary Encoding :: Pkl Docs</title>
+    <title>pkl-binary Encoding :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/main/current/bindings-specification/binary-encoding.html">
     <link rel="prev" href="message-passing-api.html">
     <link rel="next" href="../tools.html">
@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.29.1">
+<div class="nav-container" data-component="main" data-version="0.30.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -234,6 +234,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -261,7 +264,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.29.1</span>
+    <span class="version">0.30.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -300,7 +303,10 @@
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.29.1</a>
+          <a href="../index.html">0.30.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
         </li>
         <li class="version">
           <a href="../../0.28.2/index.html">0.28.2</a>
@@ -449,29 +455,36 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.29.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.0</button>
   <div class="version-menu">
     <a class="version" href="../../latest/bindings-specification/binary-encoding.html">0.31.0-dev</a>
-    <a class="version is-current" href="binary-encoding.html">0.29.1</a>
+    <a class="version is-current" href="binary-encoding.html">0.30.0</a>
+    <a class="version" href="../../0.29.1/bindings-specification/binary-encoding.html">0.29.1</a>
     <a class="version" href="../../0.28.2/bindings-specification/binary-encoding.html">0.28.2</a>
     <a class="version" href="../../0.27.2/bindings-specification/binary-encoding.html">0.27.2</a>
     <a class="version" href="../../0.26.3/bindings-specification/binary-encoding.html">0.26.3</a>
     <a class="version" href="../../0.25.3/bindings-specification/binary-encoding.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/bindings-specification/pages/binary-encoding.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/bindings-specification/pages/binary-encoding.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Pkl Binary Encoding</h1>
+<h1 class="page"><code>pkl-binary</code> Encoding</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl values can be encoded into a binary format.
-This format is used for Pkl&#8217;s non-JVM language bindings, for example, for its Go and Swift bindings.</p>
+<p>Pkl values can be encoded into a binary format called "pkl-binary".
+This format is a lossless serialization of the underlying Pkl values.</p>
+</div>
+<div class="paragraph">
+<p>Pkl code can be rendered into this format using the <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/pklbinary">pkl:pklbinary</a> standard library module.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, many language bindings also provide methods to evaluate into <code>pkl-binary</code>, such as the <code>evaluateExpressionPklBinary</code> method in <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/Evaluator.java">org.pkl.core.Evaluator</a>.</p>
 </div>
 <div class="paragraph">
 <p>The binary format is uses <a href="https://msgpack.org/index.html">MessagePack</a> encoding.</p>
@@ -497,23 +510,23 @@ This format is used for Pkl&#8217;s non-JVM language bindings, for example, for 
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Int">Int</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Int">Int</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#int-format-family">int</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Float">Float</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Float">Float</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#float-format-family">float</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/String">String</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/String">String</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">string</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Boolean">Boolean</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Boolean">Boolean</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bool-format-family">bool</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Null">Null</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Null">Null</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#nil-format">nil</a></p></td>
 </tr>
 </tbody>
@@ -538,10 +551,12 @@ For example, value <code>8</code> gets encoded as MessagePack <code>int8</code> 
 <div class="sectionbody">
 <div class="paragraph">
 <p>All non-primitive values are encoded as MessagePack arrays.
-The first slot of the array designates the value&#8217;s type. The remaining slots have fixed meanings depending on the type.</p>
+The first slot of the array designates the value&#8217;s type.
+The remaining slots have fixed meanings depending on the type.
+Additional slots may be added to types in future Pkl releases. Decoders <strong>must</strong> be designed to defensively discard values beyond the number of known slots for a type or provide meaningful error messages.</p>
 </div>
 <div class="paragraph">
-<p>The array&#8217;s length is the number of slots that are filled. For example, <a href="#https://pkl-lang.org/package-docs/pkl/0.29.1/base/List">List</a> is encoded as an MessagePack array with two elements.</p>
+<p>The array&#8217;s length is the number of slots that are filled. For example, <a href="#https://pkl-lang.org/package-docs/pkl/0.30.0/base/List">List</a> is encoded as an MessagePack array with two elements.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -575,18 +590,18 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Typed">Typed</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Dynamic">Dynamic</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Typed">Typed</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Dynamic">Dynamic</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x01</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified class name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#type-name-encoding">Class name</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enclosing module URI</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#array-format-family">array</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Array of <a href="#object-members">object members</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Map">Map</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Map">Map</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x02</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#map-format-family">map</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Map of <code>&lt;value&gt;</code> to <code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -595,8 +610,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Mapping">Mapping</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Mapping">Mapping</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x03</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#map-format-family">map</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Map of <code>&lt;value&gt;</code> to <code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -605,8 +620,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/List">List</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/List">List</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x04</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#array-format-family">array</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Array of <code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -615,8 +630,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Listing">Listing</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Listing">Listing</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x05</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#array-format-family">array</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Array of <code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -625,8 +640,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Set">Set</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Set">Set</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x06</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#array-format-family">array</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Array of <code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -635,28 +650,28 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Duration">Duration</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x7</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Duration">Duration</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x07</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#float-format-family">float64</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Duration value</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/#DurationUnit">Duration unit</a> (<code>"ns"</code>, <code>"ms"</code>, etc.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/#DurationUnit">Duration unit</a> (<code>"ns"</code>, <code>"ms"</code>, etc.)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/DataSize">DataSize</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x8</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/DataSize">DataSize</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x08</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#float-format-family">float64</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Value (float64)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/#DataSizeUnit">DataSize unit</a> (<code>"b"</code>, <code>"kb"</code>, etc.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/#DataSizeUnit">DataSize unit</a> (<code>"b"</code>, <code>"kb"</code>, etc.)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Pair">Pair</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Pair">Pair</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x09</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;value&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">First value</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;value&gt;</code></p></td>
@@ -665,8 +680,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/IntSeq">IntSeq</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xA</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/IntSeq">IntSeq</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0A</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#int-format-family">int</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#int-format-family">int</a></p></td>
@@ -675,8 +690,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Regex">Regex</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Regex">Regex</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0B</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Regex string representation</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -685,8 +700,28 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Class">Class</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xC</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Class">Class</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#type-name-encoding">Class name</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module URI</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/TypeAlias">TypeAlias</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#type-name-encoding">TypeAlias name</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#str-format-family">str</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module URI</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Function">Function</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0E</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -695,28 +730,8 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/TypeAlias">TypeAlias</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xD</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Function">Function</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xE</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Bytes">Bytes</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0xF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pkl-lang.org/package-docs/pkl/0.30.0/base/Bytes">Bytes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0x0F</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Binary contents</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -726,6 +741,50 @@ The first slot of the array designates the value&#8217;s type. The remaining slo
 </tr>
 </tbody>
 </table>
+<div id="type-name-encoding" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Type names have specific encoding rules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When the module URI is <code>pkl:base</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the type name is <code>ModuleClass</code>, this type represents the module class of <code>pkl:base</code>.</p>
+</li>
+<li>
+<p>Otherwise, the type name corresponds to a type in <code>pkl:base</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For all other module URIs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When the type name contains <code>#</code>, the string after the <code>#</code> character corresponds to a type in that module. The string before the <code>#</code> is the name of the module.</p>
+</li>
+<li>
+<p>Otherwise, the type name is the name of the module and represents the class of the module.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">

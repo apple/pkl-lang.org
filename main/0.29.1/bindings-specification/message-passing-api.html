@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Message Passing API :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/bindings-specification/message-passing-api.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="binary-encoding.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.29.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.29.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.30.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="../language.html">Language</a></li>
+    <li><a href="../language-bindings.html">Language Bindings</a></li>
+    <li><a href="index.html">Specification</a></li>
+    <li><a href="message-passing-api.html">Message Passing API</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.29.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/bindings-specification/message-passing-api.html">0.31.0-dev</a>
+    <a class="version" href="../../current/bindings-specification/message-passing-api.html">0.30.0</a>
+    <a class="version is-current" href="message-passing-api.html">0.29.1</a>
+    <a class="version" href="../../0.28.2/bindings-specification/message-passing-api.html">0.28.2</a>
+    <a class="version" href="../../0.27.2/bindings-specification/message-passing-api.html">0.27.2</a>
+    <a class="version" href="../../0.26.3/bindings-specification/message-passing-api.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/bindings-specification/message-passing-api.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/bindings-specification/pages/message-passing-api.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Message Passing API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>All messages are encoded in <a href="https://msgpack.org/index.html">MessagePack</a>, as an array with two elements.</p>
+</div>
+<div class="paragraph">
+<p>The first element of the array is a code that designates the message&#8217;s type, encoded as an int.
+The second element of the array is the message body, encoded as a map.</p>
+</div>
+<div class="paragraph">
+<p>Messages are passed between the <em>client</em> and the <em>server</em>.
+When hosting Pkl (for example, the Swift application when using pkl-swift), the <em>client</em> is the host program and the <em>server</em> is the entity that provides controls for interacting with Pkl.
+When implementing an <a href="../language-reference/index.html#external-readers" class="xref page">external reader</a>, the <em>client</em> is the external reader process and the <em>server</em> is the Pkl evaluator.</p>
+</div>
+<div class="paragraph">
+<p>For example, in JSON representation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  1,                           <i class="conum" data-value="1"></i><b>(1)</b>
+  { "someKey": "someValue" }   <i class="conum" data-value="2"></i><b>(2)</b>
+]</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Code indicating message type</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Message body</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="message-types"><a class="anchor" href="#message-types"></a><a class="link" href="#message-types">Message types</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="client-message"><a class="anchor" href="#client-message"></a><a class="link" href="#client-message">Client Message</a></h3>
+<div class="paragraph">
+<p>A message passed from the client to the server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="server-message"><a class="anchor" href="#server-message"></a><a class="link" href="#server-message">Server Message</a></h3>
+<div class="paragraph">
+<p>A message passed from the server to the client.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="request-message"><a class="anchor" href="#request-message"></a><a class="link" href="#request-message">Request Message</a></h3>
+<div class="paragraph">
+<p>A message sent with a <code>requestId</code> value.
+The <code>requestId</code> should be a unique number at the time of message send.
+The other side is expected to respond with a <a href="#response-message">Response Message</a> with the same <code>requestId</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="response-message"><a class="anchor" href="#response-message"></a><a class="link" href="#response-message">Response Message</a></h3>
+<div class="paragraph">
+<p>A message that is the response to a <a href="#request-message">Request Message</a>.
+It contains the same <code>requestId</code> of the request message.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="one-way-message"><a class="anchor" href="#one-way-message"></a><a class="link" href="#one-way-message">One Way Message</a></h3>
+<div class="paragraph">
+<p>A fire-and-forget message where no response is expected.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="messages"><a class="anchor" href="#messages"></a><a class="link" href="#messages">Messages</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All messages have their schema described in Pkl.
+A nullable type means that the property should be omitted (as opposed to the property&#8217;s value being <code>nil</code>).</p>
+</div>
+<div class="sect2">
+<h3 id="create-evaluator-request"><a class="anchor" href="#create-evaluator-request"></a><a class="link" href="#create-evaluator-request">Create Evaluator Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x20</code><br>
+Type: <a href="#client-message">Client</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Create an evaluator with the provided evaluator settings.
+Upon creating the evaluator, the server sends back a <a href="#create-evaluator-response">Create Evaluator Response</a> message.</p>
+</div>
+<div class="paragraph">
+<p>Schema:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// Regex patterns to determine which modules are allowed for import.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-modules` flag</span>
+<span class="hljs-property">allowedModules</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Regex patterns to determine which resources are allowed to be read.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-resources` flag</span>
+<span class="hljs-property">allowedResources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Register client-side module readers.</span>
+<span class="hljs-property">clientModuleReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">ClientModuleReader</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Register client-side resource readers.</span>
+<span class="hljs-property">clientResourceReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">ClientResourceReader</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Directories, ZIP archives, or JAR archives</span>
+<span class="hljs-comment">/// to search when resolving `modulepath:` URIs.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--module-path` flag.</span>
+<span class="hljs-property">modulePaths</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Environment variable to set.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--env-var` flag.</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// External properties to set.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--properties` flag.</span>
+<span class="hljs-property">properties</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Duration, in seconds, after which evaluation of a source module will be timed out.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// API version of the CLI&#39;s `--timeout` flag.</span>
+<span class="hljs-property">timeoutSeconds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Restricts access to file-based modules and resources to those located under the root directory.</span>
+<span class="hljs-property">rootDir</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The cache directory for storing packages.</span>
+<span class="hljs-property">cacheDir</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The format to generate.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// This sets the `pkl.outputFormat` external property.</span>
+<span class="hljs-property">outputFormat</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The project dependency settings.</span>
+<span class="hljs-property">project</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Project</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// Configuration of outgoing HTTP(s) requests.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// Added in Pkl 0.26.0.</span>
+<span class="hljs-property">http</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Http</span><span class="hljs-operator">?</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientResourceReader</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The URI scheme this reader is responsible for reading.</span>
+  <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Tells whether the path part of this URI has a</span>
+  <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
+  <span class="hljs-comment">/// `/path/to/my/file` designates a nested path through the `/` character.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
+  <span class="hljs-comment">/// any form of hierarchy.</span>
+  <span class="hljs-property">hasHierarchicalUris</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+  <span class="hljs-comment">/// Tells whether this reader supports globbing.</span>
+  <span class="hljs-property">isGlobbable</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientModuleReader</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The URI scheme this reader is responsible for reading.</span>
+  <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Tells whether the path part of this URI has a</span>
+  <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
+  <span class="hljs-comment">/// `/path/to/my/file` designates a nested path through the `/` character.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
+  <span class="hljs-comment">/// any form of hierarchy.</span>
+  <span class="hljs-property">hasHierarchicalUris</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+  <span class="hljs-comment">/// Tells whether this reader supports globbing.</span>
+  <span class="hljs-property">isGlobbable</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+  <span class="hljs-comment">/// Tells whether the module is local to the system.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// A local resource that [hasHierarchicalUris] supports triple-dot imports.</span>
+  <span class="hljs-property">isLocal</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Project</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;local&quot;</span>
+
+  <span class="hljs-comment">/// The canonical URI of this project&#39;s package</span>
+  <span class="hljs-property">packageUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// The URI pointing to the location of the project file.</span>
+  <span class="hljs-property">projectFileUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// The dependencies of this project.</span>
+  <span class="hljs-property">dependencies</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Project</span><span class="hljs-operator">|</span><span class="hljs-title class_">RemoteDependency</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">RemoteDependency</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;remote&quot;</span>
+
+  <span class="hljs-comment">/// The canonical URI of this dependency</span>
+  <span class="hljs-property">packageUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// The checksums of this remote dependency</span>
+  <span class="hljs-property">checksums</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Checksums</span><span class="hljs-operator">?</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Checksums</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The sha-256 checksum of this dependency&#39;s metadata.</span>
+  <span class="hljs-property">sha256</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// PEM format certificates to trust when making HTTP requests.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// If [null], Pkl will trust its own built-in certificates.</span>
+  <span class="hljs-property">caCertificates</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+  <span class="hljs-comment">/// Configuration of the HTTP proxy to use.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// If [null], uses the operating system&#39;s proxy configuration.</span>
+  <span class="hljs-property">proxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Proxy</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// HTTP rewrites, from source prefix to target prefix.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Each rewrite must start with `http://` or `https://`, and must end with `/`.</span>
+  <span class="hljs-property">rewrites</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">/// Settings that control how Pkl talks to HTTP proxies.</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Proxy</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The proxy to use for HTTP(S) connections.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// At the moment, only HTTP proxies are supported.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Example:</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-comment">/// address = &quot;http://my.proxy.example.com:5080&quot;</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-property">address</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;http://&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
+
+  <span class="hljs-comment">/// Hosts to which all connections should bypass a proxy.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Values can be either hostnames, or IP addresses.</span>
+  <span class="hljs-comment">/// IP addresses can optionally be provided using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// The only wildcard is `&quot;*&quot;`, which disables all proxying.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// A hostname matches all subdomains.</span>
+  <span class="hljs-comment">/// For example, `example.com` matches `foo.example.com`, but not `fooexample.com`.</span>
+  <span class="hljs-comment">/// A hostname that is prefixed with a dot matches the hostname itself,</span>
+  <span class="hljs-comment">/// so `.example.com` matches `example.com`.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Optionally, a port can be specified.</span>
+  <span class="hljs-comment">/// If a port is omitted, all ports are matched.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// Example:</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-comment">/// noProxy {</span>
+  <span class="hljs-comment">///   &quot;127.0.0.1&quot;</span>
+  <span class="hljs-comment">///   &quot;169.254.0.0/16&quot;</span>
+  <span class="hljs-comment">///   &quot;example.com&quot;</span>
+  <span class="hljs-comment">///   &quot;localhost:5050&quot;</span>
+  <span class="hljs-comment">/// }</span>
+  <span class="hljs-comment">/// ```</span>
+  <span class="hljs-property">noProxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-property">isDistinct</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">[
+  0x20,
+  {
+    "requestId": 193501,
+    "allowedModules": ["pkl:", "repl:"],
+    "allowedResources": ["file:", "package:", "projectpackage:"]
+  }
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-evaluator-response"><a class="anchor" href="#create-evaluator-response"></a><a class="link" href="#create-evaluator-response">Create Evaluator Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x21</code><br>
+Type: <a href="#server-message">Server</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The response for a <a href="#create-evaluator-request">Create Evaluator Request</a>.
+If the evaluator was created successfully, <code>evaluatorId</code> is set. Otherwise, <code>error</code> is set to the resulting error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying the created evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// A message detailing why the evaluator was not created.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="close-evaluator"><a class="anchor" href="#close-evaluator"></a><a class="link" href="#close-evaluator">Close Evaluator</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x22</code><br>
+Type: <a href="#client-message">Client</a> <a href="#one-way-message">One Way</a></p>
+</div>
+<div class="paragraph">
+<p>Tells the Pkl server to close an evaluator, releasing any resources it may be holding.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="evaluate-request"><a class="anchor" href="#evaluate-request"></a><a class="link" href="#evaluate-request">Evaluate Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x23</code><br>
+Type: <a href="#client-message">Client</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Evaluate a module.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The absolute URI of the module to be evaluated.</span>
+<span class="hljs-property">moduleUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// The module&#39;s contents.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// If [null], Pkl will load the module at runtime.</span>
+<span class="hljs-property">moduleText</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The Pkl expression to be evaluated within the module.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// If [null], evaluates the whole module.</span>
+<span class="hljs-property">expr</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="evaluate-response"><a class="anchor" href="#evaluate-response"></a><a class="link" href="#evaluate-response">Evaluate Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x24</code><br>
+Type: <a href="#server-message">Server</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The server&#8217;s response to <a href="#evaluate-request">Evaluate Request</a>.
+If the evaluation is successful, the response is the Pkl value encoded in <a href="binary-encoding.html" class="xref page">binary encoding</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The requestId of the Evaluate request</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The evaluation contents, if successful.</span>
+<span class="hljs-property">result</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-comment">/// A message detailing why evaluation failed.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><a href="binary-encoding.html" class="xref page">Pkl Binary Encoding</a> in <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="log"><a class="anchor" href="#log"></a><a class="link" href="#log">Log</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x25</code><br>
+Type: <a href="#server-message">Server</a> <a href="#one-way-message">One Way</a></p>
+</div>
+<div class="paragraph">
+<p>Tells the client to emit a log message, during the execution of a Pkl program.
+A log can occur through a <a href="../language-reference/index.html#debugging" class="xref page">trace()</a> expression, or through a warning (for example, when encountering a <a href="https://pkl-lang.org/package-docs/pkl/0.29.1/base/Deprecated">Deprecated</a> value.)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying the log level.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// - 0: trace</span>
+<span class="hljs-comment">/// - 1: warn</span>
+<span class="hljs-property">level</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">==</span> <span class="hljs-number">0</span> <span class="hljs-operator">||</span> <span class="hljs-keyword">this</span> <span class="hljs-operator">==</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-comment">/// The message to be logged</span>
+<span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-comment">/// A string representing the source location within Pkl code producing this log output.</span>
+<span class="hljs-property">frameUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-resource-request"><a class="anchor" href="#read-resource-request"></a><a class="link" href="#read-resource-request">Read Resource Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x26</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Read a resource at the given URI.
+This message occurs when a read expression (<code>read</code>/<code>read?</code>/<code>read*</code>) is encountered within a program, and its scheme matches a client resource reader.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The URI of the resource.</span>
+<span class="hljs-property">uri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-resource-response"><a class="anchor" href="#read-resource-response"></a><a class="link" href="#read-resource-response">Read Resource Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x27</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The response to <a href="#read-resource-request">Read Resource Request</a>.
+If successful, <code>contents</code> is set.
+Otherwise, <code>error</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>If neither is set, <code>contents</code> defaults to an empty byte array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The contents of the resource.</span>
+<span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bytes</span><span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-comment">/// The description of the error that occurred when reading this resource.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>MessagePack&#8217;s <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format family</a></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-module-request"><a class="anchor" href="#read-module-request"></a><a class="link" href="#read-module-request">Read Module Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x28</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Read a module at the given URI.
+This message occurs during the evaluation of an import statement or expression (<code>import</code>/<code>import*</code>), when a scheme matches a client module reader.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The URI of the module.</span>
+<span class="hljs-property">uri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-module-response"><a class="anchor" href="#read-module-response"></a><a class="link" href="#read-module-response">Read Module Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x29</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The response to <a href="#read-module-request">Read Module Request</a>.
+If successful, <code>contents</code> is set.
+Otherwise, <code>error</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>If neither is set, <code>contents</code> defaults to an empty string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The string contents of the module.</span>
+<span class="hljs-property">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The description of the error that occurred when reading this resource.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-resources-request"><a class="anchor" href="#list-resources-request"></a><a class="link" href="#list-resources-request">List Resources Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2a</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>List resources at the specified base path.
+This message occurs during the evaluation of a <a href="../language-reference/index.html#globbed-reads" class="xref page">globbed read</a>, when a scheme matches a client resource reader&#8217;s scheme.</p>
+</div>
+<div class="paragraph">
+<p>If the resource reader does not have hierarchical URIs, <code>dummy</code> is used as the path, and the response is expected to contain all resource elements for that scheme.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The base URI to list resources.</span>
+<span class="hljs-property">uri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-resources-response"><a class="anchor" href="#list-resources-response"></a><a class="link" href="#list-resources-response">List Resources Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2b</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The response to <a href="#list-resources-request">List Resources Request</a>.
+If successful, <code>pathElements</code> is set.
+Otherwise, <code>error</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>If neither are set, <code>pathElements</code> default to an empty list.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The elements at the provided base path.</span>
+<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The description of the error that occurred when listing elements.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">PathElement</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The name of the element at this path</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Tells whether the element is a directory.</span>
+  <span class="hljs-property">isDirectory</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-modules-request"><a class="anchor" href="#list-modules-request"></a><a class="link" href="#list-modules-request">List Modules Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2c</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>List modules at the specified base path.
+This message occurs during the evaluation of a <a href="../language-reference/index.html#globbed-imports" class="xref page">globbed import</a>, when a scheme matches a client resource reader&#8217;s scheme.</p>
+</div>
+<div class="paragraph">
+<p>If the module reader does not have hierarchical URIs, <code>dummy</code> is used as the path, and the response is expected to contain all module elements for that scheme.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The base URI to list modules.</span>
+<span class="hljs-property">uri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-modules-response"><a class="anchor" href="#list-modules-response"></a><a class="link" href="#list-modules-response">List Modules Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2d</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>The response to <a href="#list-modules-request">List Modules Request</a>.
+If successful, <code>pathElements</code> is set.
+Otherwise, <code>error</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>If neither are set, <code>pathElements</code> default to an empty list.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// A number identifying this evaluator.</span>
+<span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The elements at the provided base path.</span>
+<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+
+<span class="hljs-comment">/// The description of the error that occurred when listing elements.</span>
+<span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">PathElement</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// The name of the element at this path</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Tells whether the element is a directory.</span>
+  <span class="hljs-property">isDirectory</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialize-module-reader-request"><a class="anchor" href="#initialize-module-reader-request"></a><a class="link" href="#initialize-module-reader-request">Initialize Module Reader Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2e</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Initialize an <a href="../language-reference/index.html#external-readers" class="xref page">External Module Reader</a>.
+This message is sent to external reader processes the first time a module scheme it is registered for is read.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The module scheme to initialize.</span>
+<span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialize-module-reader-response"><a class="anchor" href="#initialize-module-reader-response"></a><a class="link" href="#initialize-module-reader-response">Initialize Module Reader Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x2f</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>Return the requested external module reader specification.
+The <code>spec</code> field should be set to <code>null</code> when the external process does not implement the requested module scheme.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// Client-side module reader spec.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// Null when the external process does not implement the requested module scheme.</span>
+<span class="hljs-property">spec</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">ClientModuleReader</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ClientModuleReader</code> is defined above by <a href="#create-evaluator-request">Create Evaluator Request</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialize-resource-reader-request"><a class="anchor" href="#initialize-resource-reader-request"></a><a class="link" href="#initialize-resource-reader-request">Initialize Resource Reader Request</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x30</code><br>
+Type: <a href="#server-message">Server</a> <a href="#request-message">Request</a></p>
+</div>
+<div class="paragraph">
+<p>Initialize an <a href="../language-reference/index.html#external-readers" class="xref page">External Resource Reader</a>.
+This message is sent to external reader processes the first time a resource scheme it is registered for is read.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// The resource scheme to initialize.</span>
+<span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialize-resource-reader-response"><a class="anchor" href="#initialize-resource-reader-response"></a><a class="link" href="#initialize-resource-reader-response">Initialize Resource Reader Response</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x31</code><br>
+Type: <a href="#client-message">Client</a> <a href="#response-message">Response</a></p>
+</div>
+<div class="paragraph">
+<p>Return the requested external resource reader specification.
+The <code>spec</code> field should be set to <code>null</code> when the external process does not implement the requested resource scheme.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// A number identifying this request.</span>
+<span class="hljs-property">requestId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-comment">/// Client-side resource reader spec.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// Null when the external process does not implement the requested resource scheme.</span>
+<span class="hljs-property">spec</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">ClientResourceReader</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ClientResourceReader</code> is defined above by <a href="#create-evaluator-request">Create Evaluator Request</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="close-external-process"><a class="anchor" href="#close-external-process"></a><a class="link" href="#close-external-process">Close External Process</a></h3>
+<div class="paragraph">
+<p>Code: <code>0x32</code><br>
+Type: <a href="#server-message">Server</a> <a href="#one-way-message">One Way</a></p>
+</div>
+<div class="paragraph">
+<p>Initiate graceful shutdown of the external reader process.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// This message has no properties.</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Specification</a></span>
+  <span class="next"><a href="binary-encoding.html">Pkl Binary Encoding</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

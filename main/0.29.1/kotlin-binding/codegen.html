@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kotlin Code Generator :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/kotlin-binding/codegen.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="pkl-config-kotlin.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.29.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.29.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.30.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="../language.html">Language</a></li>
+    <li><a href="../language-bindings.html">Language Bindings</a></li>
+    <li><a href="index.html">Kotlin</a></li>
+    <li><a href="codegen.html">Code Generator</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.29.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/kotlin-binding/codegen.html">0.31.0-dev</a>
+    <a class="version" href="../../current/kotlin-binding/codegen.html">0.30.0</a>
+    <a class="version is-current" href="codegen.html">0.29.1</a>
+    <a class="version" href="../../0.28.2/kotlin-binding/codegen.html">0.28.2</a>
+    <a class="version" href="../../0.27.2/kotlin-binding/codegen.html">0.27.2</a>
+    <a class="version" href="../../0.26.3/kotlin-binding/codegen.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/kotlin-binding/codegen.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.29/docs/modules/kotlin-binding/pages/codegen.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Kotlin Code Generator</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Kotlin source code generator reads Pkl classes and generates corresponding Kotlin classes with equally named properties.</p>
+</div>
+<div class="paragraph">
+<p>Together with <a href="../java-binding/pkl-config-java.html#object-mapping" class="xref page">Object Mapping</a>, code generation provides a complete solution for consuming Pkl configuration as statically typed Kotlin objects.
+Kotlin code never drifts from the configuration structure defined in Pkl, and the entire configuration tree can be code-completed in Kotlin IDEs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The code generator is offered as Gradle plugin, Java library, and CLI.</p>
+</div>
+<div class="sect2">
+<h3 id="gradle-plugin"><a class="anchor" href="#gradle-plugin"></a><a class="link" href="#gradle-plugin">Gradle Plugin</a></h3>
+<div class="paragraph">
+<p>See <a href="../pkl-gradle/index.html#installation" class="xref page">Installation</a> in the Gradle plugin chapter.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install-library"><a class="anchor" href="#install-library"></a><a class="link" href="#install-library">Java Library</a></h3>
+<div class="paragraph">
+<p>The <code>pkl-codegen-kotlin</code> library is available <a href="https://central.sonatype.com/artifact/org.pkl-lang/pkl-codegen-kotlin">from Maven Central</a>.
+It requires Java 17 or higher and Kotlin 1.3 or higher.</p>
+</div>
+<div class="sect3">
+<h4 id="gradle"><a class="anchor" href="#gradle"></a><a class="link" href="#gradle">Gradle</a></h4>
+<div class="paragraph">
+<p>To use the library in a Gradle project, declare the following dependency:</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+<li id="tabs-1-groovy" class="tab">
+<p>Groovy</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+  implementation("org.pkl-lang:pkl-codegen-kotlin:0.29.1")
+}
+
+repositories {
+  mavenCentral()
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-groovy--panel" class="tabpanel" aria-labelledby="tabs-1-groovy">
+<div class="listingblock">
+<div class="title">build.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+  implementation "org.pkl-lang:pkl-codegen-kotlin:0.29.1"
+}
+
+repositories {
+  mavenCentral()
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="maven"><a class="anchor" href="#maven"></a><a class="link" href="#maven">Maven</a></h4>
+<div class="paragraph">
+<p>To use the library in a Maven project, declare the following dependency:</p>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
+  &lt;artifactId&gt;pkl-codegen-kotlin&lt;/artifactId&gt;
+  &lt;version&gt;0.29.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install-cli"><a class="anchor" href="#install-cli"></a><a class="link" href="#install-cli">CLI</a></h3>
+<div class="paragraph">
+<p>The CLI is available as a Java executable.</p>
+</div>
+<div class="paragraph">
+<p>It works on multiple platforms, and requires a Java 17 (or higher) runtime on the system path.</p>
+</div>
+<div class="paragraph">
+<p>To download:</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-macoslinux" class="tab">
+<p>macOS/Linux</p>
+</li>
+<li id="tabs-2-windows" class="tab">
+<p>Windows</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-2-macoslinux">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl-codegen-kotlin 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-codegen-kotlin'
+chmod +x pkl-codegen-kotlin
+./pkl-codegen-kotlin --version</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-windows--panel" class="tabpanel" aria-labelledby="tabs-2-windows">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.29.1/pkl-codegen-kotlin' -OutFile pkl-codegen-kotlin.bat
+.\pkl-codegen-kotlin --version</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl-codegen-kotlin 0.29.1 (macOS 14.2, Java 17.0.10)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage"><a class="anchor" href="#usage"></a><a class="link" href="#usage">Usage</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The code generator is offered as Gradle plugin, Java library, and CLI.</p>
+</div>
+<div class="sect2">
+<h3 id="gradle-plugin-2"><a class="anchor" href="#gradle-plugin-2"></a><a class="link" href="#gradle-plugin-2">Gradle Plugin</a></h3>
+<div class="paragraph">
+<p>See <a href="../pkl-gradle/index.html#kotlin-code-gen" class="xref page">Kotlin Code Generation</a> in the Gradle plugin chapter.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-library"><a class="anchor" href="#java-library"></a><a class="link" href="#java-library">Java Library</a></h3>
+<div class="paragraph">
+<p>The library offers two APIs: a high-level API that corresponds to the CLI, and a lower-level API that provides additional features and control.
+The entry points for these APIs are <code>org.pkl.codegen.kotlin.CliKotlinCodeGenerator</code> and <code>org.pkl.codegen.kotlin.KotlinCodeGenerator</code>, respectively.
+For more information, refer to the KDoc documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cli"><a class="anchor" href="#cli"></a><a class="link" href="#cli">CLI</a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl-codegen-kotlin [&lt;options&gt;] &lt;modules&gt;</code></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&lt;modules&gt;</code></dt>
+<dd>
+<p>The absolute or relative URIs of the modules to generate classes for.
+Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options"><a class="anchor" href="#options"></a><a class="link" href="#options">Options</a></h4>
+<details>
+<summary class="title">--generate-kdoc</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (flag not set)<br>
+Flag that indicates to preserve Pkl doc comments by generating corresponding KDoc comments.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Common code generator options:</p>
+</div>
+<details>
+<summary class="title">--indent</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>"  "</code> (two spaces)<br>
+Example: <code>"\t"</code> (one tab)<br>
+The characters to use for indenting generated source code.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-o, --output-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Example: <code>generated/</code><br>
+The directory where generated source code is placed.
+Relative paths are resolved against the working directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--generate-spring-boot</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Flag that indicates to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--implement-serializable</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Flag that indicates to generate classes that implement <code>java.io.Serializable</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--add-generated-annotation</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (not set)<br>
+Flag that indicates to add the <code>org.pkl.config.java.Generated</code> annotation to generated types.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--rename</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>foo.=com.example.foo.</code><br>
+Allows to change default class and package names (derived from Pkl module names) in the generated code.</p>
+</div>
+<div class="paragraph">
+<p>When you need the generated class or package names to be different from the default names derived from the Pkl module names, you can define a rename mapping, where the key is the original Pkl module name prefix, and the value is its replacement.
+When you do, the generated code&#8217;s <code>package</code> declarations, class names, as well as file locations, will be modified according to this mapping.</p>
+</div>
+<div class="paragraph">
+<p>The prefixes are replaced literally, which means that dots at the end are important.
+If you want to rename packages only, in most cases, you must ensure that you have an ending dot on both sides of a mapping (except for an empty mapping, if you use it), otherwise you may get unexpected results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following arguments:
+--rename com.foo.=x  // Dot on the left only
+--rename org.bar=y.  // Dot on the right only
+--rename net.baz=z   // No dots
+
+// The following renames will be made:
+"com.foo.bar" -&gt; "xbar"       // Target prefix merged into the suffix
+"org.bar.baz" -&gt; "y..baz"     // Double dot, invalid name
+"net.baz.qux" -&gt; "z.qux"      // Looks okay, but...
+"net.bazqux"  -&gt; "zqux"       // ...may cut the name in the middle.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When computing the appropriate target name, the longest matching prefix is used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Assuming the following arguments:
+--rename com.foo.Main=w.Main
+--rename com.foo.=x.
+--rename com.=y.
+--rename =z.
+
+// The following renames will be made:
+com.foo.Main -&gt; w.Main
+com.foo.bar  -&gt; x.bar
+com.baz.qux  -&gt; y.baz.qux
+org.foo.bar  -&gt; z.org.foo.bar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repeat this option to define multiple mappings.
+Keys can be arbitrary strings, including an empty string.
+Values must be valid dot-separated fully qualified class name prefixes, possibly terminated by a dot.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Common CLI options:</p>
+</div>
+<details id="allowed-modules">
+<summary class="title">--allowed-modules</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>pkl:,file:,modulepath:,https:,repl:,package:,projectpackage:</code><br>
+Comma-separated list of URI patterns that determine which modules can be loaded and evaluated.
+Patterns are matched against the beginning of module URIs.
+(File paths have been converted to <code>file:</code> URLs at this stage.)
+At least one pattern needs to match for a module to be loadable.</p>
+</div>
+</div>
+</details>
+<details id="allowed-resources">
+<summary class="title">--allowed-resources</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>env:,prop:,package:,projectpackage:</code><br>
+Comma-separated list of URI patterns that determine which external resources can be read.
+Patterns are matched against the beginning of resource URIs.
+At least one pattern needs to match for a resource to be readable.</p>
+</div>
+</div>
+</details>
+<details id="color">
+<summary class="title">--color</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>auto</code><br>
+When to format messages with ANSI color codes.
+Possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"never"</code>: Never format</p>
+</li>
+<li>
+<p><code>"auto"</code>: Format if <code>stdin</code>, <code>stdout</code>, or <code>stderr</code> are connected to a console.</p>
+</li>
+<li>
+<p><code>"always"</code>: Always format</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details id="cache-dir">
+<summary class="title">--cache-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>~/.pkl/cache</code><br>
+Example: <code>/path/to/module/cache/</code><br>
+The cache directory for storing packages.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--no-cache</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disable caching of packages.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-e, --env-var</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: OS environment variables for the current process<br>
+Example: <code>MY_VAR=myValue</code><br>
+Sets an environment variable that can be read by Pkl code with <code>read("env:&lt;envVarName&gt;")</code>.
+Repeat this option to set multiple environment variables.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-h, --help</summary>
+<div class="content">
+<div class="paragraph">
+<p>Display help information.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--module-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (empty)<br>
+Example: <code>dir1:zip1.zip:jar1.jar</code><br>
+Directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
+Paths are separated by the platform-specific path separator (<code>:</code> on *nix, <code>;</code> on Windows).
+Relative paths are resolved against the working directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-p, --property</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>myProp=myValue</code><br>
+Sets an external property that can be read by Pkl code with <code>read("prop:&lt;propertyName&gt;")</code>.
+Repeat this option to set multiple external properties.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--root-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>/some/path</code><br>
+Root directory for <code>file:</code> modules and resources.
+If set, access to file-based modules and resources is restricted to those located under the specified root directory.
+Any symlinks are resolved before this check is performed.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--settings</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>mySettings.pkl</code><br>
+File path of the Pkl settings file to use.
+If not set, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-t, --timeout</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>30</code><br>
+Duration, in seconds, after which evaluation of a source module will be timed out.
+Note that a timeout is treated the same as a program error in that any subsequent source modules will not be evaluated.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-v, --version</summary>
+<div class="content">
+<div class="paragraph">
+<p>Display version information.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-w, --working-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Base path that relative module paths passed as command-line arguments are resolved against.
+Defaults to the current working directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--ca-certificates</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>/some/path/certificates.pem</code><br>
+Path to a file containing CA certificates to be used for TLS connections.</p>
+</div>
+<div class="paragraph">
+<p>Setting this option replaces the existing set of CA certificates bundled into the CLI.
+Certificates need to be X.509 certificates in PEM format.</p>
+</div>
+<div class="paragraph">
+<p>For other methods of configuring certificates, see <a href="../pkl-cli/index.html#ca-certs" class="xref page">CA Certificates</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>http://proxy.example.com:1234</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-no-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>example.com,169.254.0.0/16</code><br>
+Comma separated list of hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-rewrite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>https://pkg.pkl-lang.org/=https://my.internal.mirror/</code><br>
+Replace outbound HTTP(S) requests from one URL with another URL.
+The left-hand side describes the source prefix, and the right-hand describes the target prefix.
+This option is commonly used to enable package mirroring.
+The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="full-example"><a class="anchor" href="#full-example"></a><a class="link" href="#full-example">Full Example</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For a ready-to-go example with full source code,
+see <a href="https://github.com/apple/pkl-jvm-examples/tree/main/codegen-kotlin">codegen-kotlin</a> in the <em>pkl-jvm-examples</em> repository.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Kotlin</a></span>
+  <span class="next"><a href="pkl-config-kotlin.html">pkl-config-kotlin Library</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

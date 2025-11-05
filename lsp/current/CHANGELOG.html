@@ -86,7 +86,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="lsp" data-version="0.4.0">
+<div class="nav-container" data-component="lsp" data-version="0.5.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -110,7 +110,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Language Server</span>
-    <span class="version">0.4.0</span>
+    <span class="version">0.5.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -209,7 +209,10 @@
       <div class="title"><a href="index.html">Pkl Language Server</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.4.0</a>
+          <a href="index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.4.0/index.html">0.4.0</a>
         </li>
         <li class="version">
           <a href="../0.3.2/index.html">0.3.2</a>
@@ -298,15 +301,16 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.5.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.4.0</a>
+    <a class="version is-current" href="CHANGELOG.html">0.5.0</a>
+    <a class="version" href="../0.4.0/CHANGELOG.html">0.4.0</a>
     <a class="version" href="../0.3.2/CHANGELOG.html">0.3.2</a>
     <a class="version" href="../0.2.0/CHANGELOG.html">0.2.0</a>
     <a class="version" href="../0.1.2/CHANGELOG.html">0.1.2</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.4/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.5/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -315,14 +319,17 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.4.0"><a class="anchor" href="#release-0.4.0"></a><a class="link" href="#release-0.4.0">0.4.0 (2025-07-28)</a></h2>
+<h2 id="release-0.5.0"><a class="anchor" href="#release-0.5.0"></a><a class="link" href="#release-0.5.0">0.5.0 (2025-11-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixes a deadlock that arises when computing diagnostics (<a href="https://github.com/apple/pkl-lsp/pull/92">#92</a>).</p>
+<p>Improve type checking around <code>is NonNull</code> checks (<a href="https://github.com/apple/pkl-lsp/pull/102">#102</a>).</p>
+</li>
+<li>
+<p>Fix an edge case when type checking complex union types (<a href="https://github.com/apple/pkl-lsp/pull/105">#105</a>).</p>
 </li>
 </ul>
 </div>
@@ -332,20 +339,80 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Improves modifier analysis (<a href="https://github.com/apple/pkl-lsp/pull/90">#90</a>).</p>
+<p>Update Pkl to 0.30 (<a href="https://github.com/apple/pkl-lsp/pull/107">#107</a>).</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adds quickfix to add <code>local</code> modifier.</p>
+<p>Update the grammar to add support for trailing commas.</p>
 </li>
 <li>
-<p>Adds diagnostic for non-local object properties with type annotations.</p>
+<p>Update the fallback standard library.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Switches publishing to sonatype central (<a href="https://github.com/apple/pkl-lsp/pull/96">#96</a>).</p>
+<p>Add support for formatting (<a href="https://github.com/apple/pkl-lsp/pull/107">#107</a>).<br></p>
+<div class="paragraph">
+<p>This adds new workspace configuration request item: <code>pkl.formatter.grammarVersion</code>. Valid values are <code>1</code> (Pkl 0.25 - 0.29) and <code>2</code> (Pkl 0.30+).</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.4.0"><a class="anchor" href="#release-0.4.0"></a><a class="link" href="#release-0.4.0">0.4.0 (2025-07-28)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a deadlock that arises when computing diagnostics (<a href="https://github.com/apple/pkl-lsp/pull/92">#92</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve modifier analysis (<a href="https://github.com/apple/pkl-lsp/pull/90">#90</a>).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Add quickfix to add <code>local</code> modifier.</p>
+</li>
+<li>
+<p>Add diagnostic for non-local object properties with type annotations.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Switch publishing to sonatype central (<a href="https://github.com/apple/pkl-lsp/pull/96">#96</a>).</p>
 </li>
 </ul>
 </div>
@@ -355,13 +422,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Adds support for Pkl 0.29 (<a href="https://github.com/apple/pkl-lsp/pull/95">#95</a>).</p>
+<p>Add support for Pkl 0.29 (<a href="https://github.com/apple/pkl-lsp/pull/95">#95</a>).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -382,14 +449,14 @@
 <h2 id="release-0.3.2"><a class="anchor" href="#release-0.3.2"></a><a class="link" href="#release-0.3.2">0.3.2 (2025-04-24)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixes an issue that causes the type-check analyzer to short-circuit (<a href="https://github.com/apple/pkl-lsp/pull/86">#86</a>).</p>
+<p>Fix an issue that causes the type-check analyzer to short-circuit (<a href="https://github.com/apple/pkl-lsp/pull/86">#86</a>).</p>
 </li>
 <li>
-<p>Fixes analysis of local properties with type annotations (<a href="https://github.com/apple/pkl-lsp/pull/87">#87</a>).</p>
+<p>Fix analysis of local properties with type annotations (<a href="https://github.com/apple/pkl-lsp/pull/87">#87</a>).</p>
 </li>
 </ul>
 </div>
@@ -400,11 +467,11 @@
 <h2 id="release-0.3.1"><a class="anchor" href="#release-0.3.1"></a><a class="link" href="#release-0.3.1">0.3.1 (2025-04-17)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixes an issue with analyzing nullish propagation, which can lead to incorrect diagnostics (<a href="https://github.com/apple/pkl-lsp/pull/84">#84</a>).</p>
+<p>Fix an issue with analyzing nullish propagation, which can lead to incorrect diagnostics (<a href="https://github.com/apple/pkl-lsp/pull/84">#84</a>).</p>
 </li>
 </ul>
 </div>
@@ -418,38 +485,38 @@
 <p>This change adds many more diagnostics to better match the capabilities of pkl-intellij.</p>
 </div>
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixes a runtime crash that happens when interpolation start tokens are used within an invalid syntactic block (<a href="https://github.com/apple/pkl-lsp/pull/67">#67</a>).</p>
+<p>Fix a runtime crash that happens when interpolation start tokens are used within an invalid syntactic block (<a href="https://github.com/apple/pkl-lsp/pull/67">#67</a>).</p>
 </li>
 <li>
-<p>Fixes stack overflow exceptions when analyzing recursive methods (<a href="https://github.com/apple/pkl-lsp/pull/68">#68</a>).</p>
+<p>Fix stack overflow exceptions when analyzing recursive methods (<a href="https://github.com/apple/pkl-lsp/pull/68">#68</a>).</p>
 </li>
 <li>
-<p>Fixes parsing of modifier nodes (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
+<p>Fix parsing of modifier nodes (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
 </li>
 <li>
-<p>Fixes an issue where some nodes are constructed twice, causing analysis to fail (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
+<p>Fix an issue where some nodes are constructed twice, causing analysis to fail (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
 </li>
 <li>
-<p>Fixes an issue where stdlib modules can possibly be initialized multiple times, causing analysis to fail (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
+<p>Fix an issue where stdlib modules can possibly be initialized multiple times, causing analysis to fail (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
 </li>
 <li>
 <p>Improve cache-ing of expensive operations (<a href="https://github.com/apple/pkl-lsp/pull/74">#74</a>).</p>
 </li>
 <li>
-<p>Fixes an issue that causes the language server to hang indefinitely (<a href="https://github.com/apple/pkl-lsp/pull/78">#78</a>).</p>
+<p>Fix an issue that causes the language server to hang indefinitely (<a href="https://github.com/apple/pkl-lsp/pull/78">#78</a>).</p>
 </li>
 <li>
-<p>Fixes a false positive warning on nullable spreads (<a href="https://github.com/apple/pkl-lsp/pull/79">#79</a>).</p>
+<p>Fix a false positive warning on nullable spreads (<a href="https://github.com/apple/pkl-lsp/pull/79">#79</a>).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -481,7 +548,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -505,7 +572,7 @@
 <h2 id="release-0.2.0"><a class="anchor" href="#release-0.2.0"></a><a class="link" href="#release-0.2.0">0.2.0 (2025-02-27)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
+<h3 id="changes-4"><a class="anchor" href="#changes-4"></a><a class="link" href="#changes-4">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -515,7 +582,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -540,7 +607,7 @@
 <h2 id="release-0.1.2"><a class="anchor" href="#release-0.1.2"></a><a class="link" href="#release-0.1.2">0.1.2 (2024-11-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-4"><a class="anchor" href="#changes-4"></a><a class="link" href="#changes-4">Changes</a></h3>
+<h3 id="changes-5"><a class="anchor" href="#changes-5"></a><a class="link" href="#changes-5">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -563,7 +630,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>

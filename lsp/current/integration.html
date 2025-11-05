@@ -87,7 +87,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="lsp" data-version="0.4.0">
+<div class="nav-container" data-component="lsp" data-version="0.5.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -111,7 +111,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Language Server</span>
-    <span class="version">0.4.0</span>
+    <span class="version">0.5.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -210,7 +210,10 @@
       <div class="title"><a href="index.html">Pkl Language Server</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.4.0</a>
+          <a href="index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.4.0/index.html">0.4.0</a>
         </li>
         <li class="version">
           <a href="../0.3.2/index.html">0.3.2</a>
@@ -299,15 +302,16 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.5.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="integration.html">0.4.0</a>
+    <a class="version is-current" href="integration.html">0.5.0</a>
+    <a class="version" href="../0.4.0/integration.html">0.4.0</a>
     <a class="version" href="../0.3.2/integration.html">0.3.2</a>
     <a class="version" href="../0.2.0/integration.html">0.2.0</a>
     <a class="version" href="../0.1.2/integration.html">0.1.2</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.4/docs/modules/ROOT/pages/integration.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.5/docs/modules/ROOT/pages/integration.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -433,17 +437,44 @@ For example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="pkl-cli-configuration"><a class="anchor" href="#pkl-cli-configuration"></a><a class="link" href="#pkl-cli-configuration">Pkl CLI configuration</a></h2>
+<h2 id="configuration-requests"><a class="anchor" href="#configuration-requests"></a><a class="link" href="#configuration-requests">Configuration Requests</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To support flows like sync projects, and package downloading, the server will look for a path to the Pkl CLI.</p>
+<p>Some settings are fetched using the <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#workspace_configuration"><code>workspace/configuration</code> request</a>, if supported by the client:</p>
 </div>
 <div class="paragraph">
-<p>By default, the server will look for the CLI within the environment&#8217;s <code>$PATH</code>.</p>
+<p>The language server uses "Pkl" for its scope URI.</p>
 </div>
-<div class="paragraph">
-<p>If the client supports the <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#workspace_configuration">Configuration Request</a>, it will look for the configuration value <code>pkl.cli.path</code> at scope <code>Pkl</code>.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pkl.cli.path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path for the configured Pkl CLI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determined by looking in <code>$PATH</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pkl.formatter.grammarVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Int (<code>1</code> or <code>2</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The grammar version to use when formatting Pkl code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">

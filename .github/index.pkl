@@ -8,17 +8,21 @@ local baseJob: Workflow.Job = new {
   `runs-on` = "ubuntu-latest"
   steps {
     new Common.Checkout {
-      fetchDepth = 0
+      with {
+        `fetch-depth` = 0
+      }
     }
     new Setup.Java {
       name = "Setup Java"
-      javaVersion = "21"
-      distribution = "temurin"
-      cache = "gradle"
+      with {
+        `java-version` = "21"
+        distribution = "temurin"
+        cache = "gradle"
+      }
     }
     new {
       name = "Setup Rust"
-      uses = "actions-rust-lang/setup-rust-toolchain@v1"
+      uses = "actions-rust-lang/setup-rust-toolchain@063a3b947b5c5bf7d5f87076c3e5e9784b776aa8"
       with {
         ["cache-workspaces"] = "pkl-html-highlighter"
       }

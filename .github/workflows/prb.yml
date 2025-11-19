@@ -4,6 +4,9 @@
 name: Pull Request
 'on':
   pull_request: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -14,13 +17,13 @@ jobs:
       with:
         fetch-depth: 0
     - name: Setup Java
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5
       with:
         java-version: '21'
         distribution: temurin
         cache: gradle
     - name: Setup Rust
-      uses: actions-rust-lang/setup-rust-toolchain@v1
+      uses: actions-rust-lang/setup-rust-toolchain@063a3b947b5c5bf7d5f87076c3e5e9784b776aa8
       with:
         cache-workspaces: pkl-html-highlighter
     - name: Configure cargo
@@ -38,3 +41,40 @@ jobs:
         ./gradlew \
           --console=plain \
           npmInstall buildRemoteSite
+  upload-event-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload event file
+      if: '!cancelled()'
+      uses: actions/upload-artifact@v5
+      with:
+        name: test-results-event-file
+        path: ${{ github.event_path }}
+  check-pkl-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - name: Setup Pkl
+      id: setup-pkl
+      env:
+        PKL_VERSION: 0.30.0
+        PKL_FILENAME: pkl
+        PKL_DOWNLOAD_URL: https://github.com/apple/pkl/releases/download/0.30.0/pkl-linux-amd64
+      shell: bash
+      run: |-
+        DIR="$(mktemp -d /tmp/pkl-$PKL_VERSION-XXXXXX)"
+        PKL_EXEC="$DIR/$PKL_FILENAME"
+        curl -sfL -o $PKL_EXEC "$PKL_DOWNLOAD_URL"
+        chmod +x $PKL_EXEC
+        echo "$DIR" >> "$GITHUB_PATH"
+        echo "pkl_exec=$PKL_EXEC" >> "$GITHUB_OUTPUT"
+    - shell: bash
+      run: pkl eval -m .github/ --project-dir .github/ .github/index.pkl
+    - name: check git status
+      shell: bash
+      run: |-
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Running pkl resulted in a diff! You likely need to run 'pkl eval' and commit the changes."
+          git diff --name-only
+          exit 1
+        fi

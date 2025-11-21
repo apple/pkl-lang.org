@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using packages in air-gapped environments :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/blog/using-packages-in-air-gapped-environments.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<link rel="stylesheet" href="../_/css/search.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicon-16x16.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../index.html"><img src="../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="blog" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Pkl Blog</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="using-packages-in-air-gapped-environments.html">Using packages in air-gapped environments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="know-your-place.html">Know Your Place</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-types.html">Taking types to the next level</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="class-as-a-function.html">Class-as-a-Function Pattern</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="pkl-evolution.html">Pkl Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing-in-pkl.html">Testing in Pkl</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introducing-pkl.html">Introducing Pkl, a programming language for configuration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Pkl Blog</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../intellij/current/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../main/latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../main/current/index.html">0.30.0</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../go/current/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../lsp/current/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../swift/current/index.html">0.7.1</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../vscode/current/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Pkl Blog</a></li>
+    <li><a href="using-packages-in-air-gapped-environments.html">Using packages in air-gapped environments</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/using-packages-in-air-gapped-environments.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using packages in air-gapped environments</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/bioball">Dan Chao</a> on November 21, 2025</p>
+</div>
+</div>
+<div class="paragraph">
+<p>In some cases, Pkl evaluation needs to occur in environments that do not have internet access.
+At the same time, these evaluations can use packages that are published to the internet.
+To enable using such packages, Pkl provides three approaches: HTTP proxying, mirroring, and vendoring.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-proxying"><a class="anchor" href="#http-proxying"></a><a class="link" href="#http-proxying">HTTP proxying</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl can connect through an HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT">CONNECT</a> proxy server when downloading packages (and making any other HTTP requests).</p>
+</div>
+<div class="paragraph">
+<p>For users of the CLI, the HTTP proxy can either be configured on the OS user level, (in <code>~/.pkl/settings.pkl</code>), on the project level (in <code>PklProject</code>), or using the <code>--http-proxy</code> and <code>--http-no-proxy</code> <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#common-options">CLI flags</a>.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-os-user" class="tab">
+<p>OS user</p>
+</li>
+<li id="tabs-1-project" class="tab">
+<p>project</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-os-user--panel" class="tabpanel" aria-labelledby="tabs-1-os-user">
+<div class="listingblock">
+<div class="title">~/.pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">proxy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">address</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http://my.proxy.address&quot;</span>
+    <span class="hljs-property">noProxy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// don&#39;t proxy if the host is `localhost`</span>
+      <span class="hljs-string">&quot;localhost&quot;</span>
+      <span class="hljs-comment">// don&#39;t proxy if the IP address starts with `127.0`</span>
+      <span class="hljs-string">&quot;127.0.0.0/16&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-project--panel" class="tabpanel" aria-labelledby="tabs-1-project">
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">proxy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">address</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http://my.proxy.address&quot;</span>
+      <span class="hljs-property">noProxy</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// don&#39;t proxy if the host is `localhost`</span>
+        <span class="hljs-string">&quot;localhost&quot;</span>
+        <span class="hljs-comment">// don&#39;t proxy if the IP address starts with `127.0`</span>
+        <span class="hljs-string">&quot;127.0.0.0/16&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Those that use Pkl as a library in a host language have similarly named options when building the evaluator.</p>
+</div>
+<div class="paragraph">
+<p>To read more about proxying, see the <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#http-proxy">documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mirror-server"><a class="anchor" href="#mirror-server"></a><a class="link" href="#mirror-server">Mirror server</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s also possible to set up a server that mirrors the assets available from the internet.</p>
+</div>
+<div class="paragraph">
+<p>To connect to a mirror server, the HTTP rewrites setting is used.
+Like proxying, this can be configured on either the OS user level, on the project level, or using the <code>--http-rewrite</code> <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#common-options">CLI flag</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, this configures rewrites for packages from <code>pkg.pkl-lang.org</code>:</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-os-user" class="tab">
+<p>OS user</p>
+</li>
+<li id="tabs-2-project" class="tab">
+<p>project</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-os-user--panel" class="tabpanel" aria-labelledby="tabs-2-os-user">
+<div class="listingblock">
+<div class="title">~/.pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">rewrites</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;https://pkg.pkl-lang.org/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/pkg.pkl-lang.org/&quot;</span>
+    <span class="hljs-comment">// github rewrites are also required in order to fetch package ZIP assets.</span>
+    [<span class="hljs-string">&quot;https://github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+    [<span class="hljs-string">&quot;https://www.github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-project--panel" class="tabpanel" aria-labelledby="tabs-2-project">
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">rewrites</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-string">&quot;https://pkg.pkl-lang.org/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/pkg.pkl-lang.org/&quot;</span>
+      <span class="hljs-comment">// github rewrites are also required in order to fetch package ZIP assets.</span>
+      [<span class="hljs-string">&quot;https://github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+      [<span class="hljs-string">&quot;https://www.github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Beneath the hood, the <code>pkg.pkl-lang.org</code> service simply redirects to GitHub.
+So, a mirror server for such packages only needs to mirror GitHub assets.
+Here is a simple nginx configuration that handles mirroring given the above settings.</p>
+</div>
+<div class="listingblock">
+<div class="title">nginx.conf</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nginx hljs" data-lang="nginx">server {
+  proxy_set_header Host "github.com";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_redirect off;
+
+  location ~ ^/pkg\.pkl-lang\.org/github\.com/(?&lt;org&gt;[^/]+)/(?&lt;repo&gt;[^/]+)/(?&lt;asset&gt;.*)$ {
+    proxy_pass https://github.com/$org/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/pkg\.pkl-lang\.org/(?&lt;repo&gt;[^/]+)/(?&lt;asset&gt;.*)$ {
+    proxy_pass https://github.com/apple/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/github\.com/(?&lt;path&gt;.*)$ {
+    proxy_pass https://github.com/$path;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that pkg.pkl-lang.org is not a straight-up prefix replacement.
+Therefore, the server needs to mirror according to the same redirect scheme.
+Effectively, the two redirects are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">/:repo/:pkg                 -&gt; https://github.com/apple/:repo/releases/download/:pkg/:pkg
+/github.com/:org/:repo/:pkg -&gt; https://github.com/:org/:repo/releases/download/:pkg/:pkg</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vendoring-dependencies"><a class="anchor" href="#vendoring-dependencies"></a><a class="link" href="#vendoring-dependencies">Vendoring dependencies</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Strictly speaking, Pkl does not have a feature for vendoring dependencies.
+However, it provides derivative tools to determine the coordinates of dependencies, to download these dependencies to a set path, and to tell Pkl to load packages from there.</p>
+</div>
+<div class="sect2">
+<h3 id="downloading-dependencies"><a class="anchor" href="#downloading-dependencies"></a><a class="link" href="#downloading-dependencies">Downloading dependencies</a></h3>
+<div class="paragraph">
+<p>When using projects, the <code>PklProject.deps.json</code> file describes all the dependencies of the project.
+Using the <code>jq</code>, <code>xargs</code>, and <code>curl</code> tools, these dependencies can be downloaded to a vendor directory.</p>
+</div>
+<div class="paragraph">
+<p>Here is a sample script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+# Download all project dependencies based on the generated `PklProject.deps.json` file
+cat PklProject.deps.json \
+  | jq -r '.resolvedDependencies[] | select(.type == "remote") | .uri[7:] + "::sha256:" + .checksums.sha256' \
+  | xargs -I {} pkl download-package --no-transitive {} --cache-dir "$VENDOR_DIRECTORY"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="handling-directly-imported-packages"><a class="anchor" href="#handling-directly-imported-packages"></a><a class="link" href="#handling-directly-imported-packages">Handling directly imported packages</a></h3>
+<div class="paragraph">
+<p>Sometimes, Pkl code is not evaluated within the context of a PklProject.
+In these cases, modules within packages are imported directly using the full package URI (e.g. <code>import "package://&#8230;&#8203;"</code> instead of <code>import "@myDep/&#8230;&#8203;"</code>).</p>
+</div>
+<div class="paragraph">
+<p>Without a project, there is no <code>PklProject.deps.json</code>. So, the <code>pkl analyze imports</code> command should be used instead.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s uncommon and generally not advised to import packages directly if there is a <code>PklProject</code> present.
+Instead, these should be imported as project dependencies.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+pkl analyze imports -f json config.pkl \
+  | jq -r '[.resolvedImports[] | split("#/")[0] | select(startswith("package://"))] | unique | .[]' \
+  | xargs -I {} pkl download-package {} --cache-dir "$VENDOR_DIRECTORY"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-the-cache-directory"><a class="anchor" href="#configuring-the-cache-directory"></a><a class="link" href="#configuring-the-cache-directory">Configuring the cache directory</a></h3>
+<div class="paragraph">
+<p>For those using the Pkl CLI, the most straightforward way to configure the cache directory is through the <code>--cache-dir</code> flag.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval --cache-dir vendor myModule.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For those using projects, the cache directory can be set in the <code>PklProject</code> file.
+This means that you do not need to specify the <code>--cache-dir</code> flag during evaluation.</p>
+</div>
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">moduleCacheDir</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;vendor&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those that use Pkl as a library within a host language have similarly named settings when constructing the evaluator.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+</footer>
+<script src="../_/js/site.js"></script>
+<script src="../_/js/site-support.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>

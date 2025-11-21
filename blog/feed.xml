@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://pkl-lang.org/blog/index.html</id>
     <title>Pkl Blog</title>
-    <updated>2025-01-24T00:00:00.000Z</updated>
+    <updated>2025-11-21T00:00:00.000Z</updated>
     <generator>Pkl Blog</generator>
     <link rel="alternate" href="https://pkl-lang.org/blog/index.html"/>
     <subtitle>Blog site from the maintainers of the Pkl configuration language</subtitle>
@@ -2150,6 +2150,302 @@ Currently, only the expression is printed, as well as a report that the test fai
             <uri>https://github.com/bioball</uri>
         </author>
         <published>2024-04-09T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using packages in air-gapped environments]]></title>
+        <id>using-packages-in-air-gapped-environments</id>
+        <link href="https:/pkl-lang.org/blog/using-packages-in-air-gapped-environments.html"/>
+        <updated>2025-11-21T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/bioball">Dan Chao</a> on November 21, 2025</p>
+</div>
+</div>
+<div class="paragraph">
+<p>In some cases, Pkl evaluation needs to occur in environments that do not have internet access.
+At the same time, these evaluations can use packages that are published to the internet.
+To enable using such packages, Pkl provides three approaches: HTTP proxying, mirroring, and vendoring.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-proxying"><a class="anchor" href="#http-proxying"></a><a class="link" href="#http-proxying">HTTP proxying</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl can connect through an HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT">CONNECT</a> proxy server when downloading packages (and making any other HTTP requests).</p>
+</div>
+<div class="paragraph">
+<p>For users of the CLI, the HTTP proxy can either be configured on the OS user level, (in <code>~/.pkl/settings.pkl</code>), on the project level (in <code>PklProject</code>), or using the <code>--http-proxy</code> and <code>--http-no-proxy</code> <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#common-options">CLI flags</a>.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-os-user" class="tab">
+<p>OS user</p>
+</li>
+<li id="tabs-1-project" class="tab">
+<p>project</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-os-user--panel" class="tabpanel" aria-labelledby="tabs-1-os-user">
+<div class="listingblock">
+<div class="title">~/.pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">proxy</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">address</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http://my.proxy.address&quot;</span>
+    <span class="hljs-property">noProxy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// don&#39;t proxy if the host is `localhost`</span>
+      <span class="hljs-string">&quot;localhost&quot;</span>
+      <span class="hljs-comment">// don&#39;t proxy if the IP address starts with `127.0`</span>
+      <span class="hljs-string">&quot;127.0.0.0/16&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-project--panel" class="tabpanel" aria-labelledby="tabs-1-project">
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">proxy</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">address</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http://my.proxy.address&quot;</span>
+      <span class="hljs-property">noProxy</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// don&#39;t proxy if the host is `localhost`</span>
+        <span class="hljs-string">&quot;localhost&quot;</span>
+        <span class="hljs-comment">// don&#39;t proxy if the IP address starts with `127.0`</span>
+        <span class="hljs-string">&quot;127.0.0.0/16&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Those that use Pkl as a library in a host language have similarly named options when building the evaluator.</p>
+</div>
+<div class="paragraph">
+<p>To read more about proxying, see the <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#http-proxy">documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mirror-server"><a class="anchor" href="#mirror-server"></a><a class="link" href="#mirror-server">Mirror server</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s also possible to set up a server that mirrors the assets available from the internet.</p>
+</div>
+<div class="paragraph">
+<p>To connect to a mirror server, the HTTP rewrites setting is used.
+Like proxying, this can be configured on either the OS user level, on the project level, or using the <code>--http-rewrite</code> <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#common-options">CLI flag</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, this configures rewrites for packages from <code>pkg.pkl-lang.org</code>:</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-os-user" class="tab">
+<p>OS user</p>
+</li>
+<li id="tabs-2-project" class="tab">
+<p>project</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-os-user--panel" class="tabpanel" aria-labelledby="tabs-2-os-user">
+<div class="listingblock">
+<div class="title">~/.pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">rewrites</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;https://pkg.pkl-lang.org/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/pkg.pkl-lang.org/&quot;</span>
+    <span class="hljs-comment">// github rewrites are also required in order to fetch package ZIP assets.</span>
+    [<span class="hljs-string">&quot;https://github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+    [<span class="hljs-string">&quot;https://www.github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-project--panel" class="tabpanel" aria-labelledby="tabs-2-project">
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">rewrites</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-string">&quot;https://pkg.pkl-lang.org/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/pkg.pkl-lang.org/&quot;</span>
+      <span class="hljs-comment">// github rewrites are also required in order to fetch package ZIP assets.</span>
+      [<span class="hljs-string">&quot;https://github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+      [<span class="hljs-string">&quot;https://www.github.com/&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://my.mirror/github.com/&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Beneath the hood, the <code>pkg.pkl-lang.org</code> service simply redirects to GitHub.
+So, a mirror server for such packages only needs to mirror GitHub assets.
+Here is a simple nginx configuration that handles mirroring given the above settings.</p>
+</div>
+<div class="listingblock">
+<div class="title">nginx.conf</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nginx hljs" data-lang="nginx">server {
+  proxy_set_header Host "github.com";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_redirect off;
+
+  location ~ ^/pkg\.pkl-lang\.org/github\.com/(?&lt;org&gt;[^/]+)/(?&lt;repo&gt;[^/]+)/(?&lt;asset&gt;.*)$ {
+    proxy_pass https://github.com/$org/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/pkg\.pkl-lang\.org/(?&lt;repo&gt;[^/]+)/(?&lt;asset&gt;.*)$ {
+    proxy_pass https://github.com/apple/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/github\.com/(?&lt;path&gt;.*)$ {
+    proxy_pass https://github.com/$path;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that pkg.pkl-lang.org is not a straight-up prefix replacement.
+Therefore, the server needs to mirror according to the same redirect scheme.
+Effectively, the two redirects are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">/:repo/:pkg                 -&gt; https://github.com/apple/:repo/releases/download/:pkg/:pkg
+/github.com/:org/:repo/:pkg -&gt; https://github.com/:org/:repo/releases/download/:pkg/:pkg</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vendoring-dependencies"><a class="anchor" href="#vendoring-dependencies"></a><a class="link" href="#vendoring-dependencies">Vendoring dependencies</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Strictly speaking, Pkl does not have a feature for vendoring dependencies.
+However, it provides derivative tools to determine the coordinates of dependencies, to download these dependencies to a set path, and to tell Pkl to load packages from there.</p>
+</div>
+<div class="sect2">
+<h3 id="downloading-dependencies"><a class="anchor" href="#downloading-dependencies"></a><a class="link" href="#downloading-dependencies">Downloading dependencies</a></h3>
+<div class="paragraph">
+<p>When using projects, the <code>PklProject.deps.json</code> file describes all the dependencies of the project.
+Using the <code>jq</code>, <code>xargs</code>, and <code>curl</code> tools, these dependencies can be downloaded to a vendor directory.</p>
+</div>
+<div class="paragraph">
+<p>Here is a sample script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+# Download all project dependencies based on the generated `PklProject.deps.json` file
+cat PklProject.deps.json \
+  | jq -r '.resolvedDependencies[] | select(.type == "remote") | .uri[7:] + "::sha256:" + .checksums.sha256' \
+  | xargs -I {} pkl download-package --no-transitive {} --cache-dir "$VENDOR_DIRECTORY"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="handling-directly-imported-packages"><a class="anchor" href="#handling-directly-imported-packages"></a><a class="link" href="#handling-directly-imported-packages">Handling directly imported packages</a></h3>
+<div class="paragraph">
+<p>Sometimes, Pkl code is not evaluated within the context of a PklProject.
+In these cases, modules within packages are imported directly using the full package URI (e.g. <code>import "package://&#8230;&#8203;"</code> instead of <code>import "@myDep/&#8230;&#8203;"</code>).</p>
+</div>
+<div class="paragraph">
+<p>Without a project, there is no <code>PklProject.deps.json</code>. So, the <code>pkl analyze imports</code> command should be used instead.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s uncommon and generally not advised to import packages directly if there is a <code>PklProject</code> present.
+Instead, these should be imported as project dependencies.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+pkl analyze imports -f json config.pkl \
+  | jq -r '[.resolvedImports[] | split("#/")[0] | select(startswith("package://"))] | unique | .[]' \
+  | xargs -I {} pkl download-package {} --cache-dir "$VENDOR_DIRECTORY"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-the-cache-directory"><a class="anchor" href="#configuring-the-cache-directory"></a><a class="link" href="#configuring-the-cache-directory">Configuring the cache directory</a></h3>
+<div class="paragraph">
+<p>For those using the Pkl CLI, the most straightforward way to configure the cache directory is through the <code>--cache-dir</code> flag.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval --cache-dir vendor myModule.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For those using projects, the cache directory can be set in the <code>PklProject</code> file.
+This means that you do not need to specify the <code>--cache-dir</code> flag during evaluation.</p>
+</div>
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">evaluatorSettings</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">moduleCacheDir</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;vendor&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those that use Pkl as a library within a host language have similarly named settings when constructing the evaluator.</p>
+</div>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Dan Chao</name>
+            <uri>https://github.com/bioball</uri>
+        </author>
+        <published>2025-11-21T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[Taking types to the next level]]></title>

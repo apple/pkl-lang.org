@@ -1,0 +1,223 @@
+:date: 2025-11-21
+:author: Dan Chao
+:author-url: https://github.com/bioball
+
+= Using packages in air-gapped environments
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by https://github.com/bioball[Dan Chao] on November 21, 2025
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+In some cases, Pkl evaluation needs to occur in environments that do not have internet access.
+Often, these evaluations import packages that are published to the internet.
+To enable using such packages, Pkl provides three approaches: HTTP proxying, mirroring, and vendoring.
+// end::excerpt[]
+
+== HTTP proxying
+
+Pkl can connect through an HTTP https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT[CONNECT] proxy server when downloading packages (and making any other HTTP requests).
+
+For users of the CLI, the HTTP proxy can either be configured on the machine user level (in `~/.pkl/settings.pkl`), on the project level (in `PklProject`).
+
+[tabs]
+====
+machine user::
++
+.~/.pkl/settings.pkl
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  proxy {
+    address = "http://my.proxy.address"
+    noProxy {
+      // don't proxy if the host is `localhost`
+      "localhost"
+      // don't proxy if the IP address starts with `127.0`
+      "127.0.0.0/16"
+    }
+  }
+}
+----
+
+project::
++
+.PklProject
+[source,pkl]
+----
+amends "pkl:Project"
+
+evaluatorSettings {
+  http {
+    proxy {
+      address = "http://my.proxy.address"
+      noProxy {
+        // don't proxy if the host is `localhost`
+        "localhost"
+        // don't proxy if the IP address starts with `127.0`
+        "127.0.0.0/16"
+      }
+    }
+  }
+}
+----
+====
+
+Those that use Pkl as a library in a host language have similarly named options when building the evaluator.
+
+To read more about proxying, see the https://pkl-lang.org/main/current/pkl-cli/index.html#http-proxy[documentation].
+
+== Mirror server
+
+It's also possible to set up a server that mirrors the assets available from the internet.
+
+To connect to a mirror server, the HTTP rewrites setting is used.
+Like proxying, this can be configured on either the machine user level, or the project level.
+
+For example, this configures rewrites for packages from `pkg.pkl-lang.org`:
+
+[tabs]
+====
+machine user::
++
+.~/.pkl/settings.pkl
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  rewrites {
+    ["https://pkg.pkl-lang.org/"] = "https://my.mirror/pkg.pkl-lang.org/"
+    // github rewrites are also required in order to fetch package ZIP assets.
+    ["https://github.com/"] = "https://my.mirror/github.com/"
+    ["https://www.github.com/"] = "https://my.mirror/github.com/"
+  }
+}
+----
+
+project::
++
+.PklProject
+[source,pkl]
+----
+amends "pkl:Project"
+
+evaluatorSettings {
+  http {
+    rewrites {
+      ["https://pkg.pkl-lang.org/"] = "https://my.mirror/pkg.pkl-lang.org/"
+      // github rewrites are also required in order to fetch package ZIP assets.
+      ["https://github.com/"] = "https://my.mirror/github.com/"
+      ["https://www.github.com/"] = "https://my.mirror/github.com/"
+    }
+  }
+}
+----
+====
+
+Underneath the hood, the `pkg.pkl-lang.org` is simply a redirect server to GitHub.
+So, a mirror server for such packages only needs to mirror GitHub assets.
+Here is a simple nginx configuration that handles mirroring given the above settings.
+
+.nginx.conf
+[source,nginx]
+----
+server {
+  proxy_set_header Host "github.com";
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_redirect off;
+
+  location ~ ^/pkg\.pkl-lang\.org/github\.com/(?<org>[^/]+)/(?<repo>[^/]+)/(?<asset>.*)$ {
+    proxy_pass https://github.com/$org/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/pkg\.pkl-lang\.org/(?<repo>[^/]+)/(?<asset>.*)$ {
+    proxy_pass https://github.com/apple/$repo/releases/download/$asset/$asset;
+  }
+
+  location ~ ^/github\.com/(?<path>.*)$ {
+    proxy_pass https://github.com/$path;
+  }
+}
+----
+
+== Vendoring dependencies
+
+Strictly speaking, Pkl does not have a feature for vendoring dependencies.
+However, it provides derivative tools to determine the coordinates of dependencies, to download these dependencies to a set path, and to tell Pkl to load packages from there.
+
+=== Downloading dependencies
+
+When using projects, the `PklProject.deps.json` file describes all the dependencies of the project.
+Using the `jq`, `xargs`, and `curl` tools, these dependencies can be downloaded to a vendor directory.
+
+Here is a sample script:
+
+[source,bash]
+----
+#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+# Download all project dependencies based on the generated `PklProject.deps.json` file
+cat PklProject.deps.json \
+  | jq -r '.resolvedDependencies[] | select(.type == "remote") | .uri[7:] + "::sha256:" + .checksums.sha256' \
+  | xargs -I {} pkl download-package --no-transitive {} --cache-dir "$VENDOR_DIRECTORY"
+----
+
+=== Handling directly imported packages
+
+Sometimes, Pkl code is not evaluated within the context of a PklProject.
+In these cases, modules within packages are imported directly using the full package URI (e.g. `import "package://..."` instead of `import "@myDep/..."`).
+
+Without a project, there is no `PklProject.deps.json`. So, the `pkl analyze imports` command should be used instead.
+
+NOTE: It's uncommon and generally not advised to import packages directly if there is a `PklProject` present.
+Instead, these should be imported as project dependencies.
+
+[source,bash]
+----
+#!/usr/bin/env bash
+
+VENDOR_DIRECTORY=vendor
+
+pkl analyze imports -f json config.pkl \
+  | jq -r '[.resolvedImports[] | split("#/")[0] | select(startswith("package://"))] | unique | .[]' \
+  | xargs -I {} pkl download-package {} --cache-dir "$VENDOR_DIRECTORY"
+----
+
+=== Configuring the cache directory
+
+For those using the Pkl CLI, the most straightforward way to configure the cache directory is through the `--cache-dir` flag.
+
+[source,shell]
+----
+pkl eval --cache-dir vendor myModule.pkl
+----
+
+For those using projects, the cache directory can be set in the `PklProject` file.
+This means that you do not need to specify the `--cache-dir` flag during evaluation.
+
+.PklProject
+[source,pkl]
+----
+amends "pkl:Project"
+
+evaluatorSettings {
+  moduleCacheDir = "vendor"
+}
+----
+
+Those that use Pkl as a library within a host language have similarly named settings when constructing the evaluator.

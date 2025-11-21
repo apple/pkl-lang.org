@@ -153,6 +153,16 @@ server {
 }
 ----
 
+Note that pkg.pkl-lang.org is not a straight-up prefix replacement.
+Therefore, the server needs to mirror according to the same redirect scheme.
+Effectively, the two redirects are:
+
+[source]
+----
+/:repo/:pkg                 -> https://github.com/apple/:repo/releases/download/:pkg/:pkg
+/github.com/:org/:repo/:pkg -> https://github.com/:org/:repo/releases/download/:pkg/:pkg
+----
+
 == Vendoring dependencies
 
 Strictly speaking, Pkl does not have a feature for vendoring dependencies.

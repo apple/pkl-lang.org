@@ -18,7 +18,7 @@ by https://github.com/bioball[Dan Chao] on November 21, 2025
 
 // tag::excerpt[]
 In some cases, Pkl evaluation needs to occur in environments that do not have internet access.
-Often, these evaluations import packages that are published to the internet.
+At the same time, these evaluations can use packages that are published to the internet.
 To enable using such packages, Pkl provides three approaches: HTTP proxying, mirroring, and vendoring.
 // end::excerpt[]
 
@@ -26,11 +26,11 @@ To enable using such packages, Pkl provides three approaches: HTTP proxying, mir
 
 Pkl can connect through an HTTP https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT[CONNECT] proxy server when downloading packages (and making any other HTTP requests).
 
-For users of the CLI, the HTTP proxy can either be configured on the machine user level (in `~/.pkl/settings.pkl`), or on the project level (in `PklProject`).
+For users of the CLI, the HTTP proxy can either be configured on the OS user level, (in `~/.pkl/settings.pkl`), on the project level (in `PklProject`), or using the `--http-proxy` and `--http-no-proxy` https://pkl-lang.org/main/current/pkl-cli/index.html#common-options[CLI flags].
 
 [tabs]
 ====
-machine user::
+OS user::
 +
 .~/.pkl/settings.pkl
 [source,pkl]
@@ -82,13 +82,13 @@ To read more about proxying, see the https://pkl-lang.org/main/current/pkl-cli/i
 It's also possible to set up a server that mirrors the assets available from the internet.
 
 To connect to a mirror server, the HTTP rewrites setting is used.
-Like proxying, this can be configured on either the machine user level, or the project level.
+Like proxying, this can be configured on either the OS user level, on the project level, or using the `--http-rewrite` https://pkl-lang.org/main/current/pkl-cli/index.html#common-options[CLI flag].
 
 For example, this configures rewrites for packages from `pkg.pkl-lang.org`:
 
 [tabs]
 ====
-machine user::
+OS user::
 +
 .~/.pkl/settings.pkl
 [source,pkl]

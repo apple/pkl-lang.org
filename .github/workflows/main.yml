@@ -49,6 +49,8 @@ jobs:
         git-fetch-with-cli = true
         EOF
     - name: Run publish
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       run: |-
         ./gradlew \
           --console=plain \

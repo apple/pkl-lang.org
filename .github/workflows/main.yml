@@ -30,6 +30,7 @@ jobs:
       run: 'echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY'
     - uses: actions/checkout@v5
       with:
+        persist-credentials: false
         fetch-depth: 0
     - name: Setup Java
       uses: actions/setup-java@v5

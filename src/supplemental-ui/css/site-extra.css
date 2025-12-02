@@ -8,7 +8,7 @@ code, pre {
 }
 
 header .navbar, footer.footer {
-    background-color: #2b471b;
+    background-color: var(--color-navbar-bg);
     transition: background-color 150ms linear;
 }
 
@@ -42,7 +42,7 @@ header .navbar.navbar-top {
 }
 
 footer.footer {
-    color: #fff;
+    color: var(--color-footer-text);
 }
 
 code {
@@ -61,22 +61,11 @@ code {
  * Prevent code blocks from overriding link colors
  */
 .doc a > code {
-    color: #1565c0;
+    color: var(--color-link);
 }
 
 .doc a > code:hover {
-    color: #104d92;
-}
-
-.hljs-variable {
-    color: #333333;
-}
-
-/**
- * make escapes a slightly darker red. same color as `hljs-title`.
- */
-.hljs-char.escape_ {
-    color: #900;
+    color: var(--color-link-hover);
 }
 
 /**
@@ -85,6 +74,7 @@ code {
 .tabpanel {
     border: 0 !important;
     padding: 1.25em 0 !important;
+    background-color: var(--color-background) !important;
 }
 
 .article .tablist > ul li {
@@ -93,20 +83,24 @@ code {
     border-right: none;
     border-top: none;
     border-bottom-width: 5px;
-    border-bottom-color: #0a99d5;
+    border-bottom-color: var(--color-tab-border);
     border-bottom-style: solid;
     border-radius: 4px 4px 0 0;
     font-weight: 500;
 }
 
 .article .tablist > ul li:hover, .article .tabs:not(.is-loading) .tablist li:not(.is-selected):hover {
-    background-color: #f7f7f7;
+    background-color: var(--color-tab-hover);
 }
 
 .article .tabs:not(.is-loading) .tablist li:not(.is-selected) {
     border-bottom-color: transparent;
     background-color: transparent;
     border-radius: 4px;
+}
+
+.tabs.is-loading .tablist li:first-child::after, .tabs:not(.is-loading) .tablist li.is-selected::after {
+    background-color: var(--color-background) !important;
 }
 
 /**
@@ -117,7 +111,7 @@ code {
 }
 
 .blog-byline {
-    color: #5c6370;
+    color: var(--color-text-muted);
 }
 
 .blog-feed {

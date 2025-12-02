@@ -1,0 +1,471 @@
+/**
+ * CSS Custom Properties for Light and Dark Themes
+ * Based on the Spring Antora UI implementation pattern
+ */
+
+:root {
+  /* Light theme (default) colors */
+  --color-background: #ffffff;
+  --color-background-alt: #fafafa;
+  --color-background-code: #f5f5f5;
+  --color-text: #333333;
+  --color-text-muted: #5c6370;
+  --color-link: #1565c0;
+  --color-link-hover: #104d92;
+  --color-navbar-bg: #2b471b;
+  --color-navbar-text: #ffffff;
+  --color-footer-bg: #2b471b;
+  --color-footer-text: #ffffff;
+  --color-border: #e0e0e0;
+  --color-table-border: #dddddd;
+  --color-code-text: #333333;
+
+  /* Syntax highlighting - light theme (based off GitHub light) */
+  --color-syntax-bg: #f5f5f5;
+  --color-syntax-keyword: #333;
+  --color-syntax-string: #d14;
+  --color-syntax-string-escape: #900;
+  --color-syntax-type: #458;
+  --color-syntax-comment: #6a737d;
+  --color-syntax-function: #6f42c1;
+  --color-syntax-symbol: #990073;
+  --color-syntax-builtin: #0086b3;
+  --color-syntax-meta: #999;
+  --color-syntax-number: #005cc5;
+  --color-syntax-tag: #000080;
+  --color-syntax-variable: #333333;
+  --color-syntax-regexp: #009926;
+  --color-syntax-addition-bg: #dfd;
+  --color-syntax-deletion-bg: #fdd;
+
+  /* Tab colors */
+  --color-tab-hover: #f7f7f7;
+  --color-tab-border: #0a99d5;
+
+  /* Admonition colors */
+  --color-admonition-note: #e7f2fa;
+  --color-admonition-tip: #e6f9e6;
+  --color-admonition-warning: #fff8e6;
+  --color-admonition-caution: #ffe6e6;
+  --color-admonition-important: #ffe6e6;
+}
+
+/* Dark theme overrides */
+.dark-theme {
+  --color-background: #1b1f23;
+  --color-background-alt: #24292e;
+  --color-background-code: #2d3339;
+  --color-text: #e1e4e8;
+  --color-text-header: #e1e4e8;
+  --color-text-muted: #8b949e;
+  --color-link: #58a6ff;
+  --color-link-hover: #79c0ff;
+  --color-navbar-bg: #1a2e14;
+  --color-navbar-text: #e1e4e8;
+  --color-footer-bg: #1a2e14;
+  --color-footer-text: #e1e4e8;
+  --color-border: #30363d;
+  --color-table-border: #30363d;
+  --color-code-text: #e1e4e8;
+
+  /* Syntax highlighting - dark theme (based off GitHub Dark) */
+  --color-syntax-bg: #0d1117;
+  --color-syntax-keyword: #fff;
+  --color-syntax-string: #dea7a3;
+  --color-syntax-string-escape: #cf8079;
+  --color-syntax-type: #88a6ff;
+  --color-syntax-tag: #88a6ff;
+  --color-syntax-builtin: #51bade;
+  --color-syntax-comment: #8b949e;
+  --color-syntax-function: #d2a8ff;
+  --color-syntax-number: #79c0ff;
+  --color-syntax-variable: #F0F6FC;
+  --color-syntax-addition-bg: #142b1e;
+  --color-syntax-deletion-bg: #2c191d;
+
+  /* Tab colors - dark */
+  --color-tab-hover: #2d3339;
+  --color-tab-border: #58a6ff;
+
+  /* Admonition colors - dark */
+  --color-admonition-note: #1f3a50;
+  --color-admonition-tip: #1f3a1f;
+  --color-admonition-warning: #3a331f;
+  --color-admonition-caution: #3a1f1f;
+  --color-admonition-important: #3a1f1f;
+}
+
+/* Apply theme colors to elements */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.doc {
+  color: var(--color-text);
+}
+
+.dark-theme .article {
+  border-color: var(--color-border);
+}
+
+.dark-theme main {
+  border-color: var(--color-border);
+}
+
+.dark-theme .doc {
+  border-color: var(--color-border);
+}
+
+.doc h1, .doc h2, .doc h3, .doc h4, .doc h5, .doc h6 {
+  color: var(--color-text-header);
+}
+
+.doc a {
+  color: var(--color-link);
+}
+
+.doc a:hover {
+  color: var(--color-link-hover);
+}
+
+.doc a > code {
+  color: var(--color-link);
+}
+
+.doc a > code:hover {
+  color: var(--color-link-hover);
+}
+
+/* Code blocks */
+pre, code {
+  background-color: var(--color-background-code);
+  color: var(--color-code-text);
+}
+
+.dark-theme pre,
+.dark-theme code {
+  /* override antora-ui-bundle's higher precedence rule: `.doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code` */
+  background-color: var(--color-background-code) !important;
+  color: var(--color-code-text);
+}
+
+.dark-theme .doc code:not(.hljs) {
+  background-color: var(--color-background-code);
+  color: var(--color-code-text);
+}
+
+.dark-theme p > code,
+.dark-theme li > code,
+.dark-theme td > code,
+.dark-theme th > code {
+  background-color: var(--color-background-code);
+  color: var(--color-code-text);
+}
+
+.dark-theme .listingblock pre {
+  background-color: var(--color-background-code);
+}
+
+.dark-theme .doc pre {
+  background-color: var(--color-background-code);
+}
+
+/* Tables */
+table {
+  border-color: var(--color-table-border);
+}
+
+td, th {
+  border-color: var(--color-table-border);
+}
+
+.dark-theme table {
+  border-color: var(--color-table-border);
+}
+
+.dark-theme td,
+.dark-theme th {
+  border-color: var(--color-table-border);
+}
+
+.dark-theme .doc table thead th {
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
+  border-color: var(--color-table-border);
+}
+
+.dark-theme .doc table td {
+  border-color: var(--color-table-border);
+}
+
+/* Navbar - keep the green theme but adjust for dark mode */
+header .navbar {
+  background-color: var(--color-navbar-bg);
+}
+
+footer.footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+}
+
+/* Navbar dropdowns */
+.dark-theme .navbar-dropdown {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-theme .navbar-dropdown .navbar-item {
+  color: var(--color-text);
+}
+
+.dark-theme .navbar-dropdown .navbar-item:hover {
+  background-color: var(--color-background-code);
+  color: var(--color-link);
+}
+
+.dark-theme .navbar-item.has-dropdown:hover .navbar-link {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tabs */
+.article .tablist > ul li:hover,
+.article .tabs:not(.is-loading) .tablist li:not(.is-selected):hover {
+  background-color: var(--color-tab-hover);
+}
+
+.article .tablist > ul li {
+  border-bottom-color: var(--color-tab-border);
+}
+
+/* Navigation sidebar */
+.nav-container {
+  background-color: var(--color-background-alt);
+}
+
+.nav-menu {
+  background-color: var(--color-background-alt);
+}
+
+.dark-theme .nav-text {
+  color: var(--color-text);
+}
+
+.dark-theme .nav-menu h3.title {
+  color: var(--color-text-muted);
+}
+
+.dark-theme .nav-link {
+  color: var(--color-text);
+}
+
+.dark-theme .nav-link:hover {
+  color: var(--color-link);
+}
+
+.dark-theme .nav-item-toggle {
+  color: var(--color-text);
+}
+
+/* Navigation panel explore (version selector) */
+.dark-theme .nav-panel-explore {
+  background-color: var(--color-background-alt);
+}
+
+.dark-theme .nav-panel-explore .context {
+  color: var(--color-text);
+  box-shadow: 0 -1px 0 var(--color-border);
+}
+
+.dark-theme .nav-panel-explore .version {
+  color: var(--color-text-muted);
+}
+
+/* Sidebar and TOC */
+.toc .toc-menu {
+  background-color: var(--color-background-alt);
+}
+
+.dark-theme .toc-menu a {
+  background-color: var(--color-background-alt);
+  border-left-color: var(--color-border);
+}
+
+.dark-theme .toc-menu h3 {
+  color: var(--color-text-muted);
+}
+
+.dark-theme .toc-menu a {
+  color: var(--color-text);
+}
+
+.dark-theme .toc-menu a:hover {
+  color: var(--color-link);
+}
+
+.dark-theme .toc-menu a.is-active {
+  color: var(--color-link);
+}
+
+/* Admonitions */
+.admonitionblock.note {
+  background-color: var(--color-admonition-note);
+}
+
+.admonitionblock.tip {
+  background-color: var(--color-admonition-tip);
+}
+
+.admonitionblock.warning {
+  background-color: var(--color-admonition-warning);
+}
+
+.admonitionblock.caution {
+  background-color: var(--color-admonition-caution);
+}
+
+.admonitionblock.important {
+  background-color: var(--color-admonition-important);
+}
+
+.dark-theme .admonitionblock {
+  color: var(--color-text);
+}
+
+.dark-theme .admonitionblock.note {
+  background-color: var(--color-admonition-note);
+}
+
+.dark-theme .admonitionblock.tip {
+  background-color: var(--color-admonition-tip);
+}
+
+.dark-theme .admonitionblock.warning {
+  background-color: var(--color-admonition-warning);
+}
+
+.dark-theme .admonitionblock.caution {
+  background-color: var(--color-admonition-caution);
+}
+
+.dark-theme .admonitionblock.important {
+  background-color: var(--color-admonition-important);
+}
+
+.dark-theme .admonitionblock td.content {
+  color: var(--color-text);
+  background-color: var(--color-background-alt);
+}
+
+.dark-theme .admonitionblock a {
+  color: var(--color-link);
+}
+
+.dark-theme .admonitionblock a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Toolbar (breadcrumb bar) */
+.toolbar {
+  background-color: var(--color-background-alt);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.dark-theme .toolbar a {
+  color: var(--color-text);
+}
+
+.dark-theme .toolbar a:hover {
+  color: var(--color-link);
+}
+
+.dark-theme .toolbar svg {
+  fill: var(--color-text);
+}
+
+.dark-theme .breadcrumbs a,
+.dark-theme .nav-breadcrumbs a {
+  color: var(--color-text-muted);
+}
+
+.dark-theme .breadcrumbs a:hover,
+.dark-theme .nav-breadcrumbs a:hover {
+  color: var(--color-link);
+}
+
+/* Search input */
+.dark-theme .navbar #search-input,
+.dark-theme .navbar input[type="text"] {
+  background-color: var(--color-background-code);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.dark-theme .navbar #search-input::placeholder,
+.dark-theme .navbar input[type="text"]::placeholder {
+  color: var(--color-text-muted);
+}
+
+.dark-theme .doc h2:not(.discrete) {
+  border-bottom-color: var(--color-border);
+}
+
+.dark-theme nav.pagination {
+  border-top-color: var(--color-border);
+}
+
+.doc .admonitionblock .title, .doc .exampleblock .title, .doc .imageblock .title, .doc .listingblock .title, .doc .literalblock .title, .doc .openblock .title, .doc .videoblock .title, .doc table.tableblock caption {
+  color: var(--color-text-header);
+}
+
+.doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code {
+  box-shadow: inset 0 0 1.75px var(--color-border);
+}
+
+.doc .quoteblock {
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
+}
+
+.dark-theme .doc kbd {
+  background-color: var(--color-background-alt);
+  box-shadow: 0 1px 0 #383838,inset 0 0 0 .1em #222;
+  border-color: #383838;
+}
+
+.dark-theme .nav-toggle {
+  background-image: url(../img/menu-light.svg);
+}
+
+.dark-theme .nav-toggle.is-active {
+  background-image: url(../img/back-light.svg);
+}
+
+.dark-theme .home-link {
+  background-image: url(../img/home-o-light.svg);
+}
+
+.dark-theme .home-link.is-current,
+.dark-theme .home-link:hover {
+  background-image: url(../img/home-light.svg);
+}
+
+.dark-theme .nav-item-toggle {
+  background-image: url(../img/caret-light.svg);
+}
+
+.dark-theme .nav-panel-explore .context .version::after {
+  background-image: url(../img/chevron-light.svg);
+}
+
+.dark-theme .page-versions .version-menu-toggle {
+  background-image: url(../img/chevron-light.svg);
+}
+
+.dark-theme .nav-menu-toggle {
+  background-image: url(../img/octicons-16-light.svg#view-unfold);
+}
+
+.dark-theme .nav-menu-toggle.is-active {
+  background-image: url(../img/octicons-16-light.svg#view-fold);
+}

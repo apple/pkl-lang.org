@@ -53,7 +53,7 @@
 /* Dark theme overrides */
 .dark-theme {
   --color-background: #1b1f23;
-  --color-background-alt: #24292e;
+  --color-background-alt: #202428;
   --color-background-code: #2d3339;
   --color-text: #e1e4e8;
   --color-text-header: #e1e4e8;
@@ -460,6 +460,7 @@ footer.footer {
 
 .dark-theme .page-versions .version-menu-toggle {
   background-image: url(../img/chevron-light.svg);
+  color: var(--color-text);
 }
 
 .dark-theme .nav-menu-toggle {
@@ -468,4 +469,21 @@ footer.footer {
 
 .dark-theme .nav-menu-toggle.is-active {
   background-image: url(../img/octicons-16-light.svg#view-fold);
+}
+
+.page-versions .version-menu {
+  background: var(--color-background-alt) !important;
+}
+
+.nav-panel-explore .components {
+  background: var(--color-background-alt) !important;
+}
+
+.nav-panel-explore .component .version a {
+  color: var(--color-text) !important;
+  background: var(--color-background) !important;
+}
+
+.dark-theme .nav-panel-explore .components {
+  box-shadow: 0 1px 5px #0b0b0b inset;
 }

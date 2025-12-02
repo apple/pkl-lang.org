@@ -93,11 +93,14 @@ main {
             """
         }
         ...super.steps
+        new Common.Checkout {
+          with {
+            `fetch-depth` = 0
+            `persist-credentials` = true
+          }
+        }
         new {
           name = "Run publish"
-          env {
-            ["GITHUB_TOKEN"] = Context.github.token
-          }
           // language=bash
           run = #"""
             ./gradlew \

@@ -48,9 +48,11 @@ jobs:
         [net]
         git-fetch-with-cli = true
         EOF
+    - uses: actions/checkout@v5
+      with:
+        persist-credentials: true
+        fetch-depth: 0
     - name: Run publish
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
       run: |-
         ./gradlew \
           --console=plain \

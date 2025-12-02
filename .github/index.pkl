@@ -2,6 +2,7 @@ amends "@pkl.impl.ghactions/PklCI.pkl"
 
 import "@gha/actions/Setup.pkl"
 import "@gha/actions/Common.pkl"
+import "@gha/Context.pkl"
 import "@gha/Workflow.pkl"
 
 local baseJob: Workflow.Job = new {
@@ -94,6 +95,9 @@ main {
         ...super.steps
         new {
           name = "Run publish"
+          env {
+            ["GITHUB_TOKEN"] = Context.github.token
+          }
           // language=bash
           run = #"""
             ./gradlew \

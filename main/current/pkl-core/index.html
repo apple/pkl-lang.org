@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.30.0">
+<div class="nav-container" data-component="main" data-version="0.30.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -268,7 +268,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.30.0</span>
+    <span class="version">0.30.1</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -313,7 +313,7 @@
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.30.0</a>
+          <a href="../index.html">0.30.1</a>
         </li>
         <li class="version">
           <a href="../../0.29.1/index.html">0.29.1</a>
@@ -477,10 +477,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.30.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.1</button>
   <div class="version-menu">
     <a class="version" href="../../latest/pkl-core/index.html">0.31.0-dev</a>
-    <a class="version is-current" href="index.html">0.30.0</a>
+    <a class="version is-current" href="index.html">0.30.1</a>
     <a class="version" href="../../0.29.1/pkl-core/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-core/index.html">0.28.2</a>
     <a class="version" href="../../0.27.2/pkl-core/index.html">0.27.2</a>
@@ -534,7 +534,7 @@ It requires Java 17 or higher.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-core:0.30.0")
+  implementation("org.pkl-lang:pkl-core:0.30.1")
 }
 
 repositories {
@@ -548,7 +548,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-core:0.30.0"
+  implementation "org.pkl-lang:pkl-core:0.30.1"
 }
 
 repositories {
@@ -572,7 +572,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-core&lt;/artifactId&gt;
-    &lt;version&gt;0.30.0&lt;/version&gt;
+    &lt;version&gt;0.30.1&lt;/version&gt;
   &lt;/dependency&gt;
 &lt;/project&gt;</code></pre>
 </div>
@@ -584,12 +584,12 @@ repositories {
 <h2 id="usage"><a class="anchor" href="#usage"></a><a class="link" href="#usage">Usage</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/Evaluator.java"><code>Evaluator</code></a> is the core evaluator that exposes multiple methods of evaluation.</p>
+<p><a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/Evaluator.java"><code>Evaluator</code></a> is the core evaluator that exposes multiple methods of evaluation.</p>
 </div>
 <div class="paragraph">
 <p>The main evaluation method is <code>evaluate</code>, which returns a Java representation of the Pkl module object.
-If evaluation succeeds, a <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/PModule.java"><code>PModule</code></a> object representing the fully evaluated module is returned.
-Otherwise, an <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> with error details is thrown.</p>
+If evaluation succeeds, a <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/PModule.java"><code>PModule</code></a> object representing the fully evaluated module is returned.
+Otherwise, an <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/PklException.java"><code>PklException</code></a> with error details is thrown.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s look at an example:</p>
@@ -635,14 +635,14 @@ Note that objects returned by the evaluator remain valid after calling <code>clo
 </table>
 </div>
 <div id="value-visitor" class="paragraph">
-<p>Often, <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/ValueVisitor.java"><code>ValueVisitor</code></a> is a better way to process a module.
-See <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/PcfRenderer.java"><code>PcfRenderer</code></a>, <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/JsonRenderer.java"><code>JsonRenderer</code></a>, <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/YamlRenderer.java"><code>YamlRenderer</code></a> and <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/PListRenderer.java"><code>PListRenderer</code></a> for examples.</p>
+<p>Often, <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/ValueVisitor.java"><code>ValueVisitor</code></a> is a better way to process a module.
+See <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/PcfRenderer.java"><code>PcfRenderer</code></a>, <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/JsonRenderer.java"><code>JsonRenderer</code></a>, <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/YamlRenderer.java"><code>YamlRenderer</code></a> and <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/PListRenderer.java"><code>PListRenderer</code></a> for examples.</p>
 </div>
 <div id="security-manager-spi" class="paragraph">
-<p>The (Pkl, not Java) security manager can be configured and customized using <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/SecurityManagers.java"><code>SecurityManagers</code></a> and related classes.</p>
+<p>The (Pkl, not Java) security manager can be configured and customized using <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/SecurityManagers.java"><code>SecurityManagers</code></a> and related classes.</p>
 </div>
 <div id="module-loader-spi" class="paragraph">
-<p>Module loaders can be configured and customized using <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core/module/ModuleKeyFactories.java"><code>ModuleKeyFactories</code></a> and related classes.</p>
+<p>Module loaders can be configured and customized using <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core/module/ModuleKeyFactories.java"><code>ModuleKeyFactories</code></a> and related classes.</p>
 </div>
 </div>
 </div>
@@ -650,7 +650,7 @@ See <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org
 <h2 id="further-information"><a class="anchor" href="#further-information"></a><a class="link" href="#further-information">Further Information</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the Javadoc and sources published with the library, or browse the library&#8217;s <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/main/java/org/pkl/core">main</a> and <a href="https://github.com/apple/pkl/tree/0.30.0/pkl-core/src/test/kotlin/org/pkl/core">test</a> sources.</p>
+<p>Refer to the Javadoc and sources published with the library, or browse the library&#8217;s <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/main/java/org/pkl/core">main</a> and <a href="https://github.com/apple/pkl/tree/0.30.1/pkl-core/src/test/kotlin/org/pkl/core">test</a> sources.</p>
 </div>
 </div>
 </div>

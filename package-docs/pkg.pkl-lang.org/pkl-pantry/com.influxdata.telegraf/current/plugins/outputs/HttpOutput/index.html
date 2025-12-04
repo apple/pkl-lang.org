@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>HttpOutput (pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf:1.6.0) • Packages</title>
+    <script src="../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf/_/plugins/outputs/HttpOutput/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf/1.6.0/plugins/outputs/HttpOutput/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.6.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf" data-package-version="1.6.0" data-package-url-prefix="../../../" data-module-name="com.influxdata.telegraf.plugins.outputs.HttpOutput" data-root-url-prefix="../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../index.html">pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf</a>
+      <h1 id="declaration-title">com.influxdata.telegraf.plugins.outputs.HttpOutput<span id="declaration-version">1.6.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">com.influxdata.telegraf.plugins.outputs.HttpOutput</span> extends <a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a></div>
+        <div class="doc-comment"><p>The HTTP output plugin writes metrics to a HTTP endpoint.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/com.influxdata.telegraf@1.6.0#/plugins/outputs/HttpOutput.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl">HttpOutput.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>This plugin uses one of the supported
+<a href="https://github.com/influxdata/telegraf/blob/master/docs/DATA_FORMATS_OUTPUT.md">data formats</a>.
+For data formats supporting batching, metrics are sent in batches by default. Each data format
+has its own unique set of configuration options which can be added to the output configuration.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L100-L133">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="namepass" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#namepass">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">namepass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only metrics whose measurement name matches a pattern in this list are emitted.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="namedrop" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#namedrop">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">namedrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>The inverse of <a href="index.html#namepass"><code>namepass</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If a match is found the metric is discarded.
+This is tested on metrics after they have passed the <a href="index.html#namepass"><code>namepass</code></a> test.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tagpass" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tagpass">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tagpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>A table mapping tag keys to arrays of glob pattern strings.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only metrics that contain a tag key in the table and a tag value matching one of its patterns is emitted.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tagdrop" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tagdrop">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tagdrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>The inverse of <a href="index.html#tagpass"><code>tagpass</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If a match is found the metric is discarded.
+This is tested on metrics after they have passed the <a href="index.html#tagpass"><code>tagpass</code></a> test.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fieldpass" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fieldpass">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fieldpass</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only fields whose field key matches a pattern in this list are emitted.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fielddrop" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fielddrop">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fielddrop</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>The inverse of <a href="index.html#fieldpass"><code>fieldpass</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Fields with a field key matching one of the patterns will be discarded from the metric.
+This is tested on metrics after they have passed the <a href="index.html#fieldpass"><code>fieldpass</code></a> test.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="taginclude" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#taginclude">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">taginclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>An array of glob pattern strings.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only tags with a tag key matching one of the patterns are emitted.
+In contrast to <a href="index.html#tagpass"><code>tagpass</code></a>, which will pass an entire metric based on its tag,
+<code>taginclude</code> removes all non matching tags from the metric.
+Any tag can be filtered including global tags and the agent <code>host</code> tag.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tagexclude" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#tagexclude">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tagexclude</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<span class="context"> (<a href="../../Plugin/index.html" class="name-ref">com.influxdata.telegraf.plugins.Plugin</a>)</span></div>
+                <div class="doc-comment"><p>The inverse of <a href="index.html#taginclude"><code>taginclude</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Tags with a tag key matching one of the patterns will be discarded from the metric.
+Any tag can be filtered including global tags and the agent <code>host</code> tag</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="alias" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#alias">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">alias</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>Name an instance of a plugin.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flush_interval" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#flush_interval">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flush_interval</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Duration.html" class="name-ref">Duration</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>The maximum time between flushes.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Use this setting to override the agent <code>flush_interval</code> on a per plugin basis.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="flush_jitter" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#flush_jitter">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">flush_jitter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Duration.html" class="name-ref">Duration</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>The amount of time to jitter the flush interval.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Use this setting to override the agent <code>flush_jitter</code> on a per plugin basis.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="metric_batch_size" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#metric_batch_size">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">metric_batch_size</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Number.html" class="name-ref">Number</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>The maximum number of metrics to send at once.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Use this setting to override the agent <code>metric_batch_size</code> on a per plugin basis.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="metric_buffer_limit" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#metric_buffer_limit">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">metric_buffer_limit</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Number.html" class="name-ref">Number</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>The maximum number of unsent metrics to buffer.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Use this setting to override the agent <code>metric_buffer_limit</code> on a per plugin basis.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name_override" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#name_override">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name_override</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>Override the original name of the measurement.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name_prefix" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#name_prefix">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name_prefix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>Specifies a prefix to attach to the measurement name.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name_suffix" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#name_suffix">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name_suffix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="../Output/index.html" class="name-ref">com.influxdata.telegraf.plugins.outputs.Output</a>)</span></div>
+                <div class="doc-comment"><p>Specifies a suffix to attach to the measurement name.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="url" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#url">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">url</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L29-29">Source</a></div>
+                <div class="doc-comment"><p>The address to send metrics to.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="timeout" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#timeout">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">timeout</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L34-34">Source</a></div>
+                <div class="doc-comment"><p>Timeout for HTTP message.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default: <code>5.s</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="method" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#method">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">method</span>: &quot;POST&quot;|&quot;PUT&quot;|&quot;PATCH&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L37-37">Source</a></div>
+                <div class="doc-comment"><p>HTTP method.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="username" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#username">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">username</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L40-40">Source</a></div>
+                <div class="doc-comment"><p>HTTP Basic Auth credentials.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="password" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#password">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">password</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L41-41">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="client_id" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#client_id">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">client_id</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L44-44">Source</a></div>
+                <div class="doc-comment"><p>OAuth2 Client Credentials Grant</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="client_secret" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#client_secret">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">client_secret</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L45-45">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="token_url" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#token_url">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">token_url</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L46-46">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="audience" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#audience">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">audience</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L47-47">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="scopes" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#scopes">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">scopes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L48-48">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="google_application_credentials" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#google_application_credentials">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">google_application_credentials</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L51-51">Source</a></div>
+                <div class="doc-comment"><p>Goole API Auth</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="use_system_proxy" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#use_system_proxy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">use_system_proxy</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L54-54">Source</a></div>
+                <div class="doc-comment"><p>HTTP Proxy support</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="http_proxy_url" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#http_proxy_url">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">http_proxy_url</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L55-55">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tls_ca" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#tls_ca">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tls_ca</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L58-58">Source</a></div>
+                <div class="doc-comment"><p>Optional TLS Config.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tls_cert" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#tls_cert">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tls_cert</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L59-59">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="tls_key" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#tls_key">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">tls_key</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L60-60">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="insecure_skip_verify" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#insecure_skip_verify">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">insecure_skip_verify</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L65-65">Source</a></div>
+                <div class="doc-comment"><p>Use TLS but skip chain &amp; host verification.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default: false</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_url" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_url">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_url</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L68-68">Source</a></div>
+                <div class="doc-comment"><p>Optional Cookie authentication</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_method" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_method">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_method</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L69-69">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_username" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_username">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_username</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L70-70">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_password" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_password">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_password</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L71-71">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_headers" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_headers">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_headers</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L72-72">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_body" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cookie_auth_body">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_body</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L73-73">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cookie_auth_renewal" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#cookie_auth_renewal">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">cookie_auth_renewal</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Duration.html" class="name-ref">Duration</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L79-79">Source</a></div>
+                <div class="doc-comment"><p>Cookie auth renewal interval.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>E.g. &quot;5m&quot;
+If not set or set to &quot;0&quot;, cookie will not be renewed.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="data_format" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#data_format">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">data_format</span>: <a href="../../serializers/OutputDataFormat/index.html" class="name-ref">OutputDataFormat</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L86-86">Source</a></div>
+                <div class="doc-comment"><p>Data format to output.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Each data format has its own unique set of configuration options, read
+more about them here:
+https://github.com/influxdata/telegraf/blob/master/docs/DATA_FORMATS_OUTPUT.md</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="use_batch_format" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#use_batch_format">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">use_batch_format</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L93-93">Source</a></div>
+                <div class="doc-comment"><p>Use batch serialization format (default) instead of line based format.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default: true
+Batch format is more efficient and should be used unless line based
+format is really needed.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="content_encoding" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#content_encoding">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">content_encoding</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L98-98">Source</a></div>
+                <div class="doc-comment"><p>HTTP Content-Encoding for write request body.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Can be set to &quot;gzip&quot; to compress body or &quot;identity&quot; to apply no encoding.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="max_idle_conn" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#max_idle_conn">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">max_idle_conn</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L103-103">Source</a></div>
+                <div class="doc-comment"><p>Maximum number of idle (keep-alive) connections across all hosts.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Zero means no limit.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="max_idle_conn_per_host" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#max_idle_conn_per_host">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">max_idle_conn_per_host</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L108-108">Source</a></div>
+                <div class="doc-comment"><p>The maximum idle (keep-alive) connections to keep per-host.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If zero, default(2) will be is used.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="idle_conn_timeout" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#idle_conn_timeout">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">idle_conn_timeout</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#UInt" class="name-ref">UInt</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L113-113">Source</a></div>
+                <div class="doc-comment"><p>Maximum amount of time before idle connection is closed.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Zero means no limit.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="region" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#region">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">region</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L116-116">Source</a></div>
+                <div class="doc-comment"><p>Amazon Region</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="aws_service" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#aws_service">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">aws_service</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L123-123">Source</a></div>
+                <div class="doc-comment"><p>Amazon Credentials</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Amazon Credentials are not built unless the following aws_service
+setting is set to a non-empty string. It may need to match the name of
+the service output to as well</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="access_key" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#access_key">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">access_key</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L135-135">Source</a></div>
+                <div class="doc-comment"><p>Credentials configuration.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Credentials are loaded in the following order</p>
+<ol>
+<li>Web identity provider credentials via STS if role_arn and web_identity_token_file are specified</li>
+<li>Assumed credentials via STS if role_arn is specified</li>
+<li>explicit credentials from 'access_key' and 'secret_key'</li>
+<li>shared profile from 'profile'</li>
+<li>environment variables</li>
+<li>shared credentials file</li>
+<li>EC2 Instance Profile</li>
+</ol></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="secret_key" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#secret_key">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">secret_key</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L136-136">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="token" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#token">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">token</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L137-137">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="role_arn" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#role_arn">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">role_arn</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L138-138">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="web_identity_token_file" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#web_identity_token_file">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">web_identity_token_file</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L139-139">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="role_session_name" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#role_session_name">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">role_session_name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L140-140">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="profile" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#profile">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">profile</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L141-141">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="shared_credential_file" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#shared_credential_file">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">shared_credential_file</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L142-142">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="non_retryable_statuscodes" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#non_retryable_statuscodes">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">non_retryable_statuscodes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#UInt" class="name-ref">UInt</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L145-145">Source</a></div>
+                <div class="doc-comment"><p>Optional list of statuscodes (&lt;200 or &gt;300) upon which requests should not be retried.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="headers" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#headers">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">headers</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.influxdata.telegraf@1.6.0/packages/com.influxdata.telegraf/plugins/outputs/HttpOutput.pkl#L148-148">Source</a></div>
+                <div class="doc-comment"><p>Optional HTTP headers.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L94-L94">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

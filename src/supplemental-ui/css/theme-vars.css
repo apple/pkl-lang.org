@@ -7,7 +7,6 @@
   /* Light theme (default) colors */
   --color-background: #ffffff;
   --color-background-alt: #fafafa;
-  --color-background-code: #f5f5f5;
   --color-text: #333333;
   --color-text-muted: #5c6370;
   --color-link: #1565c0;
@@ -54,7 +53,6 @@
 .dark-theme {
   --color-background: #1b1f23;
   --color-background-alt: #202428;
-  --color-background-code: #2d3339;
   --color-text: #e1e4e8;
   --color-text-header: #e1e4e8;
   --color-text-muted: #8b949e;
@@ -139,19 +137,19 @@ body {
 
 /* Code blocks */
 pre, code {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
   color: var(--color-code-text);
 }
 
-.dark-theme pre,
-.dark-theme code {
-  /* override antora-ui-bundle's higher precedence rule: `.doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code` */
-  background-color: var(--color-background-code) !important;
+/* override antora-ui-bundle's higher precedence rule: `.doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code` */
+.dark-theme .doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code,
+.dark-theme .doc .listingblock pre:not(.highlight), .doc .literalblock pre, .doc pre.highlight>code {
+  background-color: var(--color-syntax-bg);
   color: var(--color-code-text);
 }
 
 .dark-theme .doc code:not(.hljs) {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
   color: var(--color-code-text);
 }
 
@@ -159,16 +157,16 @@ pre, code {
 .dark-theme li > code,
 .dark-theme td > code,
 .dark-theme th > code {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
   color: var(--color-code-text);
 }
 
 .dark-theme .listingblock pre {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
 }
 
 .dark-theme .doc pre {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
 }
 
 /* Tables */
@@ -220,7 +218,7 @@ footer.footer {
 }
 
 .dark-theme .navbar-dropdown .navbar-item:hover {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
   color: var(--color-link);
 }
 
@@ -396,7 +394,7 @@ footer.footer {
 /* Search input */
 .dark-theme .navbar #search-input,
 .dark-theme .navbar input[type="text"] {
-  background-color: var(--color-background-code);
+  background-color: var(--color-syntax-bg);
   color: var(--color-text);
   border: 1px solid var(--color-border);
 }
@@ -486,4 +484,14 @@ footer.footer {
 
 .dark-theme .nav-panel-explore .components {
   box-shadow: 0 1px 5px #0b0b0b inset;
+}
+
+@media screen and (max-width:1023.5px) {
+  .navbar-menu {
+    background: var(--color-background);
+  }
+}
+
+.navbar-item, .navbar-link {
+  color: var(--color-text);
 }

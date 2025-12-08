@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>With (pkg.pkl-lang.org/pkl-pantry/com.github.actionst:1.1.0) • Packages</title>
+    <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/actions/checkout/v6/Checkout/With.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.1.0/actions/checkout/v6/Checkout/With.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.1.0" data-package-url-prefix="../../../../" data-module-name="com.github.actions.actions.checkout.v6.Checkout" data-class-name="With" data-root-url-prefix="../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a> &gt; <a class="declaration-parent-link" href="index.html">com.github.actions.actions.checkout.v6.Checkout</a>
+      <h1 id="declaration-title">With<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">With</span></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="repository" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#repository">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">repository</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L31-31">Source</a></div>
+                <div class="doc-comment"><p>Repository name with owner. For example, actions/checkout</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;${{ github.repository }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ref" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ref">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ref</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L34-34">Source</a></div>
+                <div class="doc-comment"><p>The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="token" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#token">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">token</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L43-43">Source</a></div>
+                <div class="doc-comment"><p>Personal access token (PAT) used to fetch the repository. The PAT is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the PAT.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>We recommend using a service account with the least permissions necessary. Also when generating a new PAT, select the least scopes necessary.</p>
+<p><a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets">Learn more about creating and using encrypted secrets</a></p>
+<p>Default if unspecified: <code>&quot;${{ github.token }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ssh-key" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ssh-key">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ssh-key`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L50-50">Source</a></div>
+                <div class="doc-comment"><p>SSH key used to fetch the repository. The SSH key is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the SSH key.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>We recommend using a service account with the least permissions necessary.</p>
+<p><a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets">Learn more about creating and using encrypted secrets</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ssh-known-hosts" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ssh-known-hosts">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ssh-known-hosts`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L53-53">Source</a></div>
+                <div class="doc-comment"><p>Known hosts in addition to the user and global host key database. The public SSH keys for a host may be obtained using the utility <code>ssh-keyscan</code>. For example, <code>ssh-keyscan github.com</code>. The public key for github.com is always implicitly added.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ssh-strict" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ssh-strict">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ssh-strict`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L58-58">Source</a></div>
+                <div class="doc-comment"><p>Whether to perform strict host key checking. When true, adds the options <code>StrictHostKeyChecking=yes</code> and <code>CheckHostIP=no</code> to the SSH command line. Use the input <code>ssh-known-hosts</code> to configure additional hosts.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ssh-user" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ssh-user">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ssh-user`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L63-63">Source</a></div>
+                <div class="doc-comment"><p>The user to use when connecting to the remote SSH host. By default 'git' is used.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;git&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="persist-credentials" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#persist-credentials">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`persist-credentials`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L68-68">Source</a></div>
+                <div class="doc-comment"><p>Whether to configure the token or SSH key with the local git config</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="path" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#path">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">path</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L71-71">Source</a></div>
+                <div class="doc-comment"><p>Relative path under $GITHUB_WORKSPACE to place the repository</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="clean" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#clean">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">clean</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L76-76">Source</a></div>
+                <div class="doc-comment"><p>Whether to execute <code>git clean -ffdx &amp;&amp; git reset --hard HEAD</code> before fetching</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="filter" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#filter">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">filter</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L79-79">Source</a></div>
+                <div class="doc-comment"><p>Partially clone against a given filter. Overrides sparse-checkout if set.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sparse-checkout" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sparse-checkout">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`sparse-checkout`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L82-82">Source</a></div>
+                <div class="doc-comment"><p>Do a sparse checkout on given patterns. Each pattern should be separated with new lines.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sparse-checkout-cone-mode" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sparse-checkout-cone-mode">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`sparse-checkout-cone-mode`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L87-87">Source</a></div>
+                <div class="doc-comment"><p>Specifies whether to use cone-mode when doing a sparse checkout.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fetch-depth" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fetch-depth">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`fetch-depth`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L92-92">Source</a></div>
+                <div class="doc-comment"><p>Number of commits to fetch. 0 indicates all history for all branches and tags.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>1</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fetch-tags" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fetch-tags">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`fetch-tags`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L97-97">Source</a></div>
+                <div class="doc-comment"><p>Whether to fetch tags, even if fetch-depth &gt; 0.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>false</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="show-progress" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#show-progress">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`show-progress`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L102-102">Source</a></div>
+                <div class="doc-comment"><p>Whether to show progress status output when fetching.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="lfs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#lfs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">lfs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L107-107">Source</a></div>
+                <div class="doc-comment"><p>Whether to download Git-LFS files</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>false</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="submodules" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#submodules">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">submodules</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>|&quot;recursive&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L114-114">Source</a></div>
+                <div class="doc-comment"><p>Whether to checkout submodules: <code>true</code> to checkout submodules or <code>recursive</code> to recursively checkout submodules.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>When the <code>ssh-key</code> input is not provided, SSH URLs beginning with <code>git@github.com:</code> are converted to HTTPS.</p>
+<p>Default if unspecified: <code>false</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="set-safe-directory" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#set-safe-directory">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`set-safe-directory`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L119-119">Source</a></div>
+                <div class="doc-comment"><p>Add repository path as safe.directory for Git global config by running <code>git config --global --add safe.directory &lt;path&gt;</code></p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>true</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="github-server-url" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#github-server-url">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`github-server-url`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/checkout/v6/Checkout.pkl#L122-122">Source</a></div>
+                <div class="doc-comment"><p>The base URL for the GitHub instance that you are trying to clone from, will use environment defaults to fetch from the same instance that the workflow is running from unless specified. Example URLs are https://github.com or https://my-ghes-server.example.com</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

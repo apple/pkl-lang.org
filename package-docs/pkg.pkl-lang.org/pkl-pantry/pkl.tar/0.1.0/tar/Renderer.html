@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Renderer (pkg.pkl-lang.org/pkl-pantry/pkl.tar:0.1.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.tar/_/tar/Renderer.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/pkl.tar/0.1.0/tar/Renderer.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/pkl.tar" data-package-version="0.1.0" data-package-url-prefix="../" data-module-name="pkl.tar.tar" data-class-name="Renderer" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/pkl.tar</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.tar.tar</a>
+      <h1 id="declaration-title">Renderer<span id="declaration-version">0.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">Renderer</span> extends <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BytesRenderer.html" class="name-ref">BytesRenderer</a></div>
+        <div class="doc-comment"><p>A renderer for <a href="https://en.wikipedia.org/wiki/Tar_(computing)">tar</a> archives.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Implements the <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pax.html">pax</a>
+(default) and <a href="https://en.wikipedia.org/wiki/Tar_(computing)#UStar_format">UStar</a> formats.</p>
+<p>Pax archives do not impose size or length restrictions on any file properties.</p>
+<p>UStar archives impose these restrictions:</p>
+<ul>
+<li>Paths may be no more than 256 characters long, often less.
+<ul>
+<li>Specifically, the path may consist of two segments joined over a <code>/</code>.</li>
+<li>The first segment may be up to 155 bytes long.</li>
+<li>The second segment may be up to 100 bytes long.</li>
+<li>Characters must be in the <a href="https://en.wikipedia.org/wiki/Portable_character_set">POSIX portable character set</a>.</li>
+</ul>
+</li>
+<li>Link target paths may consist of up to 100 bytes.
+<ul>
+<li>Characters must be in the <a href="https://en.wikipedia.org/wiki/Portable_character_set">POSIX portable character set</a>.</li>
+</ul>
+</li>
+<li>Files must be less than 2^33 bytes long (8 GiB).</li>
+<li>File modification timestamp must be less than 2^33.</li>
+<li>Owner uid and gid must be less than 2^21.</li>
+</ul></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="converters" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#converters">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BaseValueRenderer.html" class="name-ref">BaseValueRenderer</a>.</span><span class="name-decl">converters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;(<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>), (unknown) -&gt; <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L350-L350">Source</a></div>
+                <div class="doc-comment"><p>Value converters to apply before values are rendered.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A value converter is a function that converts a value to another value
+immediately before the value is rendered (and after the value has been type-checked).
+The converted value is then rendered by the renderer's hardwired rendering logic.</p>
+<p>When a converter returns a value of type <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Object.html"><code>Object</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Collection.html"><code>Collection</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>, or <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Pair.html"><code>Pair</code></a>,
+converters are recursively applied to the returned value's components (object properties,
+list elements, etc.).</p>
+<p>At most one converter is applied per value.
+If multiple converters are applicable, a winner is chosen as follows:</p>
+<ul>
+<li>A converter with <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html"><code>String</code></a> key wins over a converter with <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html"><code>Class</code></a> key.</li>
+<li>Between multiple <code>String</code> key converters, the converter defined earlier
+(according to the mapping's definition order) wins.</li>
+<li>Between multiple <code>Class</code> key converters, the most specific class (according to class
+hierarchy) wins.</li>
+</ul>
+<p>A converter's key specifies which values the converter should be applied to.
+A converter with <code>Class</code> key is applied to values of that class, including values of its
+subclasses.
+A converter with <code>String</code> key is applied to values whose path matches the <em>path spec</em>
+described by the string.</p>
+<p>Path specs can have the following components:</p>
+<ul>
+<li><code>^</code> matches the top-level value passed to <code>renderDocument()</code> or <code>renderValue()</code> (often the
+module object)</li>
+<li><code>pigeon</code> matches property <code>pigeon</code> at any hierarchy level</li>
+<li><code>[pigeon]</code> matches map(ping) entry with String key <code>&quot;pigeon&quot;</code> at any hierarchy level</li>
+<li><code>*</code> matches any property</li>
+<li><code>[*]</code> matches any list(ing) element or map(ping) entry</li>
+</ul>
+<p>Here are some examples of valid property paths:</p>
+<ul>
+<li><code>&quot;server&quot;</code></li>
+<li><code>&quot;server.timeout&quot;</code></li>
+<li><code>&quot;^server.timeout&quot;</code> (matches <code>server.timeout</code>, but not <code>racks[12345].server.timeout</code>)</li>
+<li><code>&quot;racks[12345].server&quot;</code></li>
+<li><code>&quot;racks[*].server</code></li>
+</ul>
+<p>Paths are matched against path specs component-wise in reverse order.
+For example, paths <code>server.timeout</code> and <code>racks[*].server.timeout</code>
+both match path spec <code>server.timeout</code>, whereas path <code>server.timeout.millis</code> does not.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="extension" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#extension">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BaseValueRenderer.html" class="name-ref">BaseValueRenderer</a>.</span><span class="name-decl">extension</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L354-L354">Source</a></div>
+                <div class="doc-comment"><p>The file extension associated with this output format,
+or <code>null</code> if this format does not have an extension.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pax" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pax">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pax</span>: <a href="Pax.html" class="name-ref">Pax</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.tar@0.1.0/packages/pkl.tar/tar.pkl#L74-74">Source</a></div>
+                <div class="doc-comment"><p>Configurations for pax format archives.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If null, no pax headers will be included and the result will be a UStar archive.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="defaultFileInfo" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#defaultFileInfo">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">defaultFileInfo</span>: <a href="../File/Info.html" class="name-ref">Info</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.tar@0.1.0/packages/pkl.tar/tar.pkl#L78-85">Source</a></div>
+                <div class="doc-comment"><p>Default file information to use for any <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/FileOutput.html"><code>FileOutput</code></a> values or <a href="../File/index.html"><code>File</code></a> values
+with no specified file info in the rendered <a href="index.html#FileSystem"><code>FileSystem</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Renderer.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Renderer.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="renderDocument()" class="anchor"> </div>
+            <div id="renderDocument().value" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#renderDocument()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">renderDocument</span>(<span class="param1">value</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Bytes.html" class="name-ref">Bytes</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.tar@0.1.0/packages/pkl.tar/tar.pkl#L116-116">Source</a></div>
+                <div class="doc-comment"><p>Create an archive from a <a href="index.html#FileSystem"><code>FileSystem</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A tar document ends with two blocks (1024 bytes) of 0x00 bytes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="renderValue()" class="anchor"> </div>
+            <div id="renderValue().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#renderValue()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">renderValue</span>(<span class="param1">value</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Bytes.html" class="name-ref">Bytes</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/pkl.tar@0.1.0/packages/pkl.tar/tar.pkl#L88-111">Source</a></div>
+                <div class="doc-comment"><p>Create an archive from a <a href="index.html#FileSystem"><code>FileSystem</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

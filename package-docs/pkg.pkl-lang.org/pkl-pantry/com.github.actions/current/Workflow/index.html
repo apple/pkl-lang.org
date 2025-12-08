@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workflow (pkg.pkl-lang.org/pkl-pantry/com.github.actions:1.1.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/Workflow/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.1.0/Workflow/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="com.github.actions.Workflow" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a>
+      <h1 id="declaration-title">com.github.actions.Workflow<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">com.github.actions.Workflow</span></div>
+        <div class="doc-comment"><p>A Pkl template for writing GitHub Action workflows.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/com.github.actions@1.1.0#/Workflow.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl">Workflow.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>This module provides a set of definitions for GitHub Action workflows,
+including triggers, jobs, steps, and environment variables.</p>
+<h2>Using context</h2>
+<p>There is a helper for referencing
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/context">context</a> values directly off of the
+this module.</p>
+<p>When amending <code>Workflow</code>, the context can be referenced using <code>module.context</code>.</p>
+<p>Example:</p>
+<pre><code>amends &quot;@com.github.actions/Workflow.pkl&quot;
+
+jobs {
+  [&quot;build&quot;] {
+    `runs-on` = &quot;ubuntu-latest&quot;
+    steps {
+      new {
+        run =
+          &quot;&quot;&quot;
+          echo &quot;My ref is \(module.context.github.ref)&quot;
+          &quot;&quot;&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h2>Using typed steps</h2>
+<p>Pkl provides helpers to steps which call into externally defined actions in a typesafe way.
+For example, it provides code assistance for calling the <code>actions/checkout</code> action while
+providing completions and typechecking for each input.</p>
+<p>These steps are defined as classes (or modules) that extend module <a href="not_found"><code>AbstractTypedStep</code></a>.</p>
+<h3>Using the catalog</h3>
+<p>This package includes a catalog of typed steps, within the <code>actions/</code> subpath.
+Additionally, the <code>catalog.pkl</code> module is an index module of all catalogs.</p>
+<p>To use a catalog item, simply import <code>catalog.pkl</code> when defining a workspace.
+For example:</p>
+<pre><code>amends &quot;@com.github.actions/Workflow.pkl&quot;
+
+import &quot;@com.github.actions/catalog.pkl&quot;
+
+jobs {
+  [&quot;build&quot;] {
+    `runs-on` = &quot;ubuntu-latest&quot;
+    steps {
+      // use the checkout action without any further parameterization
+      catalog.`actions/checkout@v6`
+
+      // use the cache/restore action with some extra parameters
+      (catalog.`actions/cache/restore@v4`) {
+        with {
+          key = &quot;my-cache-key&quot;
+          pathList { &quot;foo&quot;; &quot;bar&quot; }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3>Generating more action types</h3>
+<p>It is possible to generate more action types, using the <code>generate-action</code> script from the
+<code>com.github.actions.contrib</code> package.</p>
+<p>These actions turn into their own modules, and should be checked into source code.
+For further instructions, see its
+<a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/com.github.actions.contrib/current/generate-action/index.html">documentation</a>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L100-L133">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#name">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L128-128">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="on" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#on">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">on</span>: <a href="On.html" class="name-ref">On</a>(onIsSet)<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L167-167">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="env" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#env">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">env</span>: <a href="index.html#EnvironmentVariables" class="name-ref">EnvironmentVariables</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L180-180">Source</a></div>
+                <div class="doc-comment"><p>A map of variables that are available to the steps of all jobs in the workflow.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>You can also set variables that are only available to the steps of a single job or to a single
+step.
+For more information, see <a href="not_found"><code>DefaultJob.env</code></a> and <code>Step.env</code>.
+When more than one environment variable is defined with the same name, GitHub uses the most
+specific variable.
+For example, an environment variable defined in a step will override job and workflow
+environment variables with the same name, while the step executes.
+An environment variable defined for a job will override a workflow variable with the same name,
+while the job executes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="concurrency" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#concurrency">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">concurrency</span>: <a href="Concurrency.html" class="name-ref">Concurrency</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L206-206">Source</a></div>
+                <div class="doc-comment"><p>Use concurrency to ensure that only a single job or workflow using the same concurrency group
+will run at a time.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A concurrency group can be any string or expression.
+The expression can only use
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context"><code>github</code></a>,
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#inputs-context"><code>inputs</code></a>
+and
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#vars-context"><code>vars</code></a>
+contexts.
+For more information about expressions, see
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/expressions">Evaluate expressions in workflows and actions</a>.
+You can also specify concurrency at the job level.
+For more information, see <a href="not_found"><code>BaseJob.concurrency</code></a>.
+This means that there can be at most one running and one pending job in a concurrency group at
+any time.
+When a concurrent job or workflow is queued, if another job or workflow using the same
+concurrency group in the repository is in progress, the queued job or workflow will be pending.
+Any existing pending job or workflow in the same concurrency group, if it exists, will be
+canceled and the new queued job or workflow will take its place.
+To also cancel any currently running job or workflow in the same concurrency group, specify
+cancel-in-progress: true.
+To conditionally cancel currently running jobs or workflows in the same concurrency group, you
+can specify cancel-in-progress as an expression with any of the allowed expression contexts.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="permissions" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#permissions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">permissions</span>: (<a href="Permissions.html" class="name-ref">Permissions</a>|&quot;read-all&quot;|&quot;write-all&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L226-226">Source</a></div>
+                <div class="doc-comment"><p>You can use permissions to modify the default permissions granted to the <code>GITHUB_TOKEN</code>, adding
+or removing access as required, so that you only allow the minimum required access.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For more information, see
+<a href="https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#permissions-for-the-github_token">Use GITHUB_TOKEN for authentication in workflows</a>.
+You can use permissions either as a top-level key, to apply to all jobs in the workflow, or
+within specific jobs.
+When you add the permissions key within a specific job, all actions and run commands within that
+job that use the <code>GITHUB_TOKEN</code> gain the access rights you specify.
+For more information, see <a href="not_found"><code>BaseJob.permissions</code></a>.
+Owners of an organization can restrict write access for the <code>GITHUB_TOKEN</code> at the repository
+level.
+For more information, see
+<a href="https://docs.github.com/en/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization">Disabling or limiting GitHub Actions for your organization</a>.
+When a workflow is triggered by the <code>pull_request_target</code> event, the <code>GITHUB_TOKEN</code> is granted
+read/write repository permission, even when it is triggered from a public fork.
+For more information, see
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target">Events that trigger workflows</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="jobs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#jobs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">jobs</span>: <a href="index.html#Jobs" class="name-ref">Jobs</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L244-244">Source</a></div>
+                <div class="doc-comment"><p>A workflow run is made up of one or more jobs, which run in parallel by default.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>To run jobs sequentially, you can define dependencies on other jobs using the
+<a href="not_found">needs</a> keyword.
+Each job runs in a runner environment specified by runs-on.
+You can run an unlimited number of jobs as long as you are within the workflow usage limits.
+For more information, see
+<a href="https://docs.github.com/en/actions/concepts/billing-and-usage">Billing and usage</a> for
+GitHub-hosted runners and
+<a href="https://docs.github.com/en/actions/reference/limits">Actions limits</a> for self-hosted runner
+usage limits.
+If you need to find the unique identifier of a job running in a workflow run, you can use the
+GitHub API.</p>
+<p>For more information, see
+<a href="https://docs.github.com/en/rest/actions?apiVersion=2022-11-28#workflow-jobs">REST API endpoints for GitHub Actions</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="context" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#context">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">context</span>: <a href="../context/index.html" class="name-ref">context</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L247-247">Source</a></div>
+                <div class="doc-comment"><p>The contextual values available within a GitHub Action.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L94-L94">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Trigger" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Trigger">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Trigger.html" class="name-decl">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L258-270">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BaseTrigger" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#BaseTrigger">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="BaseTrigger.html" class="name-decl">BaseTrigger</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L273-275">Source</a></div>
+                <div class="doc-comment"><p>The base trigger, with no event types associated</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BranchProtectionRule" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#BranchProtectionRule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="BranchProtectionRule.html" class="name-decl">BranchProtectionRule</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L277-279">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CheckRun" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#CheckRun">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="CheckRun.html" class="name-decl">CheckRun</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L283-285">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CheckSuite" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#CheckSuite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="CheckSuite.html" class="name-decl">CheckSuite</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L289-291">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Discussion" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Discussion">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Discussion.html" class="name-decl">Discussion</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L294-296">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DiscussionComment" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#DiscussionComment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="DiscussionComment.html" class="name-decl">DiscussionComment</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L312-314">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="IssueComment" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#IssueComment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="IssueComment.html" class="name-decl">IssueComment</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L317-319">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Issues" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Issues">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Issues.html" class="name-decl">Issues</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L322-324">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Label" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Label.html" class="name-decl">Label</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L343-345">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MergeGroup" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MergeGroup">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MergeGroup.html" class="name-decl">MergeGroup</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L348-350">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Milestone" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Milestone">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Milestone.html" class="name-decl">Milestone</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L353-355">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Project" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Project">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Project.html" class="name-decl">Project</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L358-360">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ProjectCard" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ProjectCard">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ProjectCard.html" class="name-decl">ProjectCard</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L363-365">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ProjectColumn" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ProjectColumn">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ProjectColumn.html" class="name-decl">ProjectColumn</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L368-370">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequest" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PullRequest">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PullRequest.html" class="name-decl">PullRequest</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L373-424">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestReview" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PullRequestReview">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PullRequestReview.html" class="name-decl">PullRequestReview</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L450-452">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestReviewComment" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PullRequestReviewComment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PullRequestReviewComment.html" class="name-decl">PullRequestReviewComment</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L455-457">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Push" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Push">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Push.html" class="name-decl">Push</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L479-548">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RegistryPackage" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RegistryPackage">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RegistryPackage.html" class="name-decl">RegistryPackage</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L550-552">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Release" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Release">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Release.html" class="name-decl">Release</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L555-557">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RepositoryDispatch" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RepositoryDispatch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RepositoryDispatch.html" class="name-decl">RepositoryDispatch</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L561-563">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Schedule" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Schedule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Schedule.html" class="name-decl">Schedule</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L565-568">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowCall" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowCall">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowCall.html" class="name-decl">WorkflowCall</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L573-577">Source</a></div>
+                <div class="doc-comment"><p>Allows workflows to be reused by other workflows.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowCallOutput" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowCallOutput">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowCallOutput.html" class="name-decl">WorkflowCallOutput</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L579-582">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowCallSecrets" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowCallSecrets">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowCallSecrets.html" class="name-decl">WorkflowCallSecrets</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L583-586">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowDispatch" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowDispatch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowDispatch.html" class="name-decl">WorkflowDispatch</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L588-590">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowInput" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowInput">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowInput.html" class="name-decl">WorkflowInput</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L592-599">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowRun" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#WorkflowRun">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="WorkflowRun.html" class="name-decl">WorkflowRun</a> extends <a href="Trigger.html" class="name-ref">Trigger</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L602-607">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="On" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#On">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="On.html" class="name-decl">On</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L610-890">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Permissions" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Permissions">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Permissions.html" class="name-decl">Permissions</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L898-1014">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Concurrency" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Concurrency">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Concurrency.html" class="name-decl">Concurrency</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L1018-1021">Source</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="Jobs" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Jobs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Jobs" class="name-decl">Jobs</a> = <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>(matches(Regex(&quot;[a-zA-Z_][a-zA-Z0-9_-]*&quot;))), <a href="index.html#Job" class="name-ref">Job</a>&gt;(!isEmpty)<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L249-249">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Job" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Job">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Job" class="name-decl">Job</a> = <a href="../Job/index.html" class="name-ref">Job</a>|<a href="../AbstractTypedJob/index.html" class="name-ref">AbstractTypedJob</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L252-252">Source</a></div>
+                <div class="doc-comment"><p>A job within a workflow run.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Step" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Step">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Step" class="name-decl">Step</a> = <a href="../AbstractJob/index.html#Step" class="name-ref">Step</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L255-255">Source</a></div>
+                <div class="doc-comment"><p>A step within a job.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BranchProtectionRuleType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#BranchProtectionRuleType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#BranchProtectionRuleType" class="name-decl">BranchProtectionRuleType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L281-281">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CheckRunType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#CheckRunType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#CheckRunType" class="name-decl">CheckRunType</a> = &quot;created&quot;|&quot;rerequested&quot;|&quot;completed&quot;|&quot;requested_action&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L287-287">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CheckSuiteType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#CheckSuiteType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#CheckSuiteType" class="name-decl">CheckSuiteType</a> = &quot;completed&quot;|&quot;requested&quot;|&quot;rerequested&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L292-292">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DiscussionType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DiscussionType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DiscussionType" class="name-decl">DiscussionType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;|&quot;transferred&quot;|&quot;pinned&quot;|&quot;unpinned&quot;|&quot;labeled&quot;|&quot;unlabeled&quot;|&quot;locked&quot;|&quot;unlocked&quot;|&quot;category_changed&quot;|&quot;answered&quot;|&quot;unanswered&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L297-310">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DiscussionCommentType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DiscussionCommentType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DiscussionCommentType" class="name-decl">DiscussionCommentType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L315-315">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="IssueCommentType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#IssueCommentType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#IssueCommentType" class="name-decl">IssueCommentType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L320-320">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="IssuesType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#IssuesType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#IssuesType" class="name-decl">IssuesType</a> = &quot;opened&quot;|&quot;edited&quot;|&quot;deleted&quot;|&quot;transferred&quot;|&quot;pinned&quot;|&quot;unpinned&quot;|&quot;closed&quot;|&quot;reopened&quot;|&quot;assigned&quot;|&quot;unassigned&quot;|&quot;labeled&quot;|&quot;unlabeled&quot;|&quot;locked&quot;|&quot;unlocked&quot;|&quot;milestoned&quot;|&quot;demilestoned&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L325-341">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="LabelType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#LabelType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#LabelType" class="name-decl">LabelType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L346-346">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MergeGroupType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#MergeGroupType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#MergeGroupType" class="name-decl">MergeGroupType</a> = &quot;checked_requested&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L351-351">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MilestoneType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#MilestoneType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#MilestoneType" class="name-decl">MilestoneType</a> = &quot;created&quot;|&quot;closed&quot;|&quot;opened&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L356-356">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ProjectType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ProjectType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ProjectType" class="name-decl">ProjectType</a> = &quot;created&quot;|&quot;updated&quot;|&quot;closed&quot;|&quot;reopened&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L361-361">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ProjectCardType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ProjectCardType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ProjectCardType" class="name-decl">ProjectCardType</a> = &quot;created&quot;|&quot;moved&quot;|&quot;converted&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L366-366">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ProjectColumnType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ProjectColumnType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ProjectColumnType" class="name-decl">ProjectColumnType</a> = &quot;created&quot;|&quot;updated&quot;|&quot;moved&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L371-371">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PullRequestType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PullRequestType" class="name-decl">PullRequestType</a> = &quot;assigned&quot;|&quot;unassigned&quot;|&quot;review_requested&quot;|&quot;review_request_removed&quot;|&quot;labeled&quot;|&quot;unlabeled&quot;|&quot;opened&quot;|&quot;edited&quot;|&quot;closed&quot;|&quot;reopened&quot;|&quot;synchronize&quot;|&quot;ready_for_review&quot;|&quot;locked&quot;|&quot;unlocked&quot;|&quot;converted_to_draft&quot;|&quot;demilestoned&quot;|&quot;milestoned&quot;|&quot;auto_merge_enabled&quot;|&quot;auto_merge_disabled&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L426-448">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestReviewType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PullRequestReviewType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PullRequestReviewType" class="name-decl">PullRequestReviewType</a> = &quot;submitted&quot;|&quot;edited&quot;|&quot;dismissed&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L453-453">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestReviewCommentType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PullRequestReviewCommentType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PullRequestReviewCommentType" class="name-decl">PullRequestReviewCommentType</a> = &quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L458-458">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestTargetType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PullRequestTargetType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PullRequestTargetType" class="name-decl">PullRequestTargetType</a> = &quot;assigned&quot;|&quot;unassigned&quot;|&quot;labeled&quot;|&quot;unlabeled&quot;|&quot;opened&quot;|&quot;edited&quot;|&quot;closed&quot;|&quot;reopened&quot;|&quot;synchronize&quot;|&quot;converted_to_draft&quot;|&quot;ready_for_review&quot;|&quot;locked&quot;|&quot;unlocked&quot;|&quot;review_requested&quot;|&quot;review_request_removed&quot;|&quot;auto_merge_enabled&quot;|&quot;auto_merge_disabled&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L460-477">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RegistryPackageType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#RegistryPackageType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#RegistryPackageType" class="name-decl">RegistryPackageType</a> = &quot;published&quot;|&quot;updated&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L553-553">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ReleaseType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ReleaseType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ReleaseType" class="name-decl">ReleaseType</a> = &quot;published&quot;|&quot;unpublished&quot;|&quot;created&quot;|&quot;edited&quot;|&quot;deleted&quot;|&quot;prereleased&quot;|&quot;released&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L558-559">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowInputType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#WorkflowInputType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#WorkflowInputType" class="name-decl">WorkflowInputType</a> = &quot;boolean&quot;|&quot;string&quot;|&quot;choice&quot;|&quot;environment&quot;|&quot;number&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L600-600">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="WorkflowRunType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#WorkflowRunType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#WorkflowRunType" class="name-decl">WorkflowRunType</a> = &quot;requested&quot;|&quot;completed&quot;|&quot;in_progress&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L608-608">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="EnvironmentVariables" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#EnvironmentVariables">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#EnvironmentVariables" class="name-decl">EnvironmentVariables</a> = <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>|<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Number.html" class="name-ref">Number</a>)&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L895-895">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Permission" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Permission">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Permission" class="name-decl">Permission</a> = &quot;read&quot;|&quot;write&quot;|&quot;none&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L1016-1016">Source</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

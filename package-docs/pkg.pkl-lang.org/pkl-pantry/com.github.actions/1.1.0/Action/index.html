@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Action (pkg.pkl-lang.org/pkl-pantry/com.github.actions:1.1.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/Action/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.1.0/Action/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="com.github.actions.Action" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a>
+      <h1 id="declaration-title">com.github.actions.Action<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">com.github.actions.Action</span></div>
+        <div class="doc-comment"><p>The action metadata, to be placed as <code>action.yml</code> in a repository.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/com.github.actions@1.1.0#/Action.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl">Action.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>NOTE: To use GitHub Actions in a repo (e.g. what goes inside <code>.github/workflows</code>), define a <em>workflow</em>
+instead.
+For defining workflows, see <code>Workflow.pkl</code> in this package.</p>
+<p>Documentation: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax">https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax</a></p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L100-L133">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="name" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#name">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L28-28">Source</a></div>
+                <div class="doc-comment"><p>The name of your action.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>GitHub displays the <code>name</code> in the Actions tab to help visually identify actions in each job.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="author" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#author">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">author</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L31-31">Source</a></div>
+                <div class="doc-comment"><p>The name of the action's author.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="description" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#description">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">description</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L34-34">Source</a></div>
+                <div class="doc-comment"><p>A short description of the action.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="inputs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#inputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">inputs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>(matches(Regex(&quot;^[_a-zA-Z][a-zA-Z0-9_-]*$&quot;))), <a href="Input.html" class="name-ref">Input</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L41-41">Source</a></div>
+                <div class="doc-comment"><p>Input parameters allow you to specify data that the action expects to use during runtime.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>GitHub stores input parameters as environment variables.
+Input ids with uppercase letters are converted to lowercase during runtime.
+We recommended using lowercase input ids.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="outputs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#outputs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">outputs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>(matches(Regex(&quot;^[_a-zA-Z][a-zA-Z0-9_-]*$&quot;))), <a href="Output.html" class="name-ref">Output</a>((value != null).implies(runs is RunsComposite))&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L55-58">Source</a></div>
+                <div class="doc-comment"><p>Output parameters allow you to declare data that an action sets.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Actions that run later in a workflow can use the output data set in previously run actions.
+For example, if you had an action that performed the addition of two inputs (x + y = z), the
+action could output the sum (z) for other actions to use as an input.
+Outputs can be a maximum of 1 MB per job.
+The total of all outputs in a workflow run can be a maximum of 50 MB.
+Size is approximated based on UTF-16 encoding.
+If you don't declare an output in your action metadata file, you can still set outputs and use
+them in a workflow.
+For more information on setting outputs in an action, see
+<a href="https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-output-parameter">Workflow commands for GitHub Actions</a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="runs" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#runs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">runs</span>: <a href="RunsJavascript.html" class="name-ref">RunsJavascript</a>|<a href="RunsComposite.html" class="name-ref">RunsComposite</a>|<a href="RunsDocker.html" class="name-ref">RunsDocker</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L62-62">Source</a></div>
+                <div class="doc-comment"><p>Specifies whether this is a JavaScript action, a composite action, or a Docker container action
+and how the action is executed.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="branding" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#branding">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">branding</span>: <a href="Branding.html" class="name-ref">Branding</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L68-68">Source</a></div>
+                <div class="doc-comment"><p>You can use a color and Feather icon to create a badge to personalize and distinguish your
+action.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Badges are shown next to your action name in GitHub Marketplace.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L94-L94">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Input" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Input">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Input.html" class="name-decl">Input</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L76-90">Source</a></div>
+                <div class="doc-comment"><p>A string identifier to associate with the input.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Output" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Output.html" class="name-decl">Output</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L92-102">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Branding" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Branding">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Branding.html" class="name-decl">Branding</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L108-375">Source</a></div>
+                <div class="doc-comment"><p>You can use a color and Feather icon to create a badge to personalize and distinguish your
+action.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RunsJavascript" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RunsJavascript">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RunsJavascript.html" class="name-decl">RunsJavascript</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L378-413">Source</a></div>
+                <div class="doc-comment"><p>Configures the path to the action's code and the application used to execute the code.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RunsComposite" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RunsComposite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RunsComposite.html" class="name-decl">RunsComposite</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L416-422">Source</a></div>
+                <div class="doc-comment"><p>Configures the path to the composite action, and the application used to execute the code.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Step" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Step">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Step.html" class="name-decl">Step</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L424-468">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="RunsDocker" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#RunsDocker">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="RunsDocker.html" class="name-decl">RunsDocker</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Action.pkl#L471-531">Source</a></div>
+                <div class="doc-comment"><p>Configures the image used for the Docker action.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

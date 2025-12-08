@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>With (pkg.pkl-lang.org/pkl-pantry/com.github.actions:1.1.0) • Packages</title>
+    <script src="../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/actions/stale/v10/Stale/With.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.1.0/actions/stale/v10/Stale/With.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.1.0" data-package-url-prefix="../../../../" data-module-name="com.github.actions.actions.stale.v10.Stale" data-class-name="With" data-root-url-prefix="../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a> &gt; <a class="declaration-parent-link" href="index.html">com.github.actions.actions.stale.v10.Stale</a>
+      <h1 id="declaration-title">With<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">With</span></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="repo-token" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#repo-token">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`repo-token`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L31-31">Source</a></div>
+                <div class="doc-comment"><p>Token for the repository. Can be passed in using <code>{{ secrets.GITHUB_TOKEN }}</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;${{ github.token }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="stale-issue-message" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#stale-issue-message">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`stale-issue-message`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L34-34">Source</a></div>
+                <div class="doc-comment"><p>The message to post on the issue when tagging it. If none provided, will not mark issues stale.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="stale-pr-message" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#stale-pr-message">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`stale-pr-message`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L37-37">Source</a></div>
+                <div class="doc-comment"><p>The message to post on the pull request when tagging it. If none provided, will not mark pull requests stale.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="close-issue-message" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#close-issue-message">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`close-issue-message`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L40-40">Source</a></div>
+                <div class="doc-comment"><p>The message to post on the issue when closing it. If none provided, will not comment when closing an issue.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="close-pr-message" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#close-pr-message">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`close-pr-message`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L43-43">Source</a></div>
+                <div class="doc-comment"><p>The message to post on the pull request when closing it. If none provided, will not comment when closing a pull requests.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-stale" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#days-before-stale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-stale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Float.html" class="name-ref">Float</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L48-48">Source</a></div>
+                <div class="doc-comment"><p>The number of days old an issue or a pull request can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;60&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-issue-stale" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#days-before-issue-stale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-issue-stale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L51-51">Source</a></div>
+                <div class="doc-comment"><p>The number of days old an issue can be before marking it stale. Set to -1 to never mark issues as stale automatically. Override &quot;days-before-stale&quot; option regarding only the issues.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-pr-stale" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#days-before-pr-stale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-pr-stale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L54-54">Source</a></div>
+                <div class="doc-comment"><p>The number of days old a pull request can be before marking it stale. Set to -1 to never mark pull requests as stale automatically. Override &quot;days-before-stale&quot; option regarding only the pull requests.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-close" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#days-before-close">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-close`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L59-59">Source</a></div>
+                <div class="doc-comment"><p>The number of days to wait to close an issue or a pull request after it being marked stale. Set to -1 to never close stale issues or pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;7&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-issue-close" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#days-before-issue-close">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-issue-close`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L62-62">Source</a></div>
+                <div class="doc-comment"><p>The number of days to wait to close an issue after it being marked stale. Set to -1 to never close stale issues. Override &quot;days-before-close&quot; option regarding only the issues.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="days-before-pr-close" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#days-before-pr-close">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`days-before-pr-close`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L65-65">Source</a></div>
+                <div class="doc-comment"><p>The number of days to wait to close a pull request after it being marked stale. Set to -1 to never close stale pull requests. Override &quot;days-before-close&quot; option regarding only the pull requests.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="stale-issue-label" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#stale-issue-label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`stale-issue-label`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L70-70">Source</a></div>
+                <div class="doc-comment"><p>The label to apply when an issue is stale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;Stale&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="close-issue-label" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#close-issue-label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`close-issue-label`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L73-73">Source</a></div>
+                <div class="doc-comment"><p>The label to apply when an issue is closed.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L78-78">Source</a></div>
+                <div class="doc-comment"><p>The labels that mean an issue is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L85-85">Source</a></div>
+                <div class="doc-comment"><p>The labels that mean an issue is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-issue-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="close-issue-reason" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#close-issue-reason">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`close-issue-reason`</span>: (&quot;completed&quot;|&quot;not_planned&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L90-90">Source</a></div>
+                <div class="doc-comment"><p>The reason to use when closing an issue.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;not_planned&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="stale-pr-label" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#stale-pr-label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`stale-pr-label`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L95-95">Source</a></div>
+                <div class="doc-comment"><p>The label to apply when a pull request is stale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;Stale&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="close-pr-label" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#close-pr-label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`close-pr-label`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L98-98">Source</a></div>
+                <div class="doc-comment"><p>The label to apply when a pull request is closed.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L103-103">Source</a></div>
+                <div class="doc-comment"><p>The labels that mean a pull request is exempt from being marked as stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L110-110">Source</a></div>
+                <div class="doc-comment"><p>The labels that mean a pull request is exempt from being marked as stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-pr-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-milestones-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-milestones-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-milestones-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L115-115">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean an issue or a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L122-122">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean an issue or a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-milestones-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-milestones-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-milestones-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-milestones-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L127-127">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean an issue is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;). Override &quot;exempt-milestones&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L134-134">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean an issue is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;). Override &quot;exempt-milestones&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-issue-milestones-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-milestones-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-milestones-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-milestones-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L139-139">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;). Override &quot;exempt-milestones&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L146-146">Source</a></div>
+                <div class="doc-comment"><p>The milestones that mean a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. &quot;milestone1,milestone2&quot;). Override &quot;exempt-milestones&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-pr-milestones-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L151-151">Source</a></div>
+                <div class="doc-comment"><p>Exempt all issues and pull requests with milestones from being marked as stale. Default to false.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-issue-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-issue-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-issue-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L156-156">Source</a></div>
+                <div class="doc-comment"><p>Exempt all issues with milestones from being marked as stale. Override &quot;exempt-all-milestones&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-pr-milestones" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-pr-milestones">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-pr-milestones`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L161-161">Source</a></div>
+                <div class="doc-comment"><p>Exempt all pull requests with milestones from being marked as stale. Override &quot;exempt-all-milestones&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L166-166">Source</a></div>
+                <div class="doc-comment"><p>Only issues or pull requests with all of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L173-173">Source</a></div>
+                <div class="doc-comment"><p>Only issues or pull requests with all of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>only-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L178-178">Source</a></div>
+                <div class="doc-comment"><p>Only issues or pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L185-185">Source</a></div>
+                <div class="doc-comment"><p>Only issues or pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>any-of-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-issue-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-issue-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-issue-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L190-190">Source</a></div>
+                <div class="doc-comment"><p>Only issues with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override &quot;any-of-labels&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-issue-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-issue-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-issue-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L197-197">Source</a></div>
+                <div class="doc-comment"><p>Only issues with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override &quot;any-of-labels&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>any-of-issue-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-pr-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-pr-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-pr-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L202-202">Source</a></div>
+                <div class="doc-comment"><p>Only pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override &quot;any-of-labels&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="any-of-pr-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#any-of-pr-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`any-of-pr-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L209-209">Source</a></div>
+                <div class="doc-comment"><p>Only pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override &quot;any-of-labels&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>any-of-pr-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-issue-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-issue-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-issue-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L214-214">Source</a></div>
+                <div class="doc-comment"><p>Only issues with all of these labels are checked if stale. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of labels. Override &quot;only-labels&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-issue-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-issue-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-issue-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L221-221">Source</a></div>
+                <div class="doc-comment"><p>Only issues with all of these labels are checked if stale. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of labels. Override &quot;only-labels&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>only-issue-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-pr-labels-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-pr-labels-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-pr-labels-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L226-226">Source</a></div>
+                <div class="doc-comment"><p>Only pull requests with all of these labels are checked if stale. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of labels. Override &quot;only-labels&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-pr-labels" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-pr-labels">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-pr-labels`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L233-233">Source</a></div>
+                <div class="doc-comment"><p>Only pull requests with all of these labels are checked if stale. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of labels. Override &quot;only-labels&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>only-pr-labels-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="operations-per-run" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#operations-per-run">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`operations-per-run`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L238-238">Source</a></div>
+                <div class="doc-comment"><p>The maximum number of operations per run, used to control rate limiting (GitHub API CRUD related).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;30&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remove-stale-when-updated" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#remove-stale-when-updated">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`remove-stale-when-updated`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L243-243">Source</a></div>
+                <div class="doc-comment"><p>Remove stale labels from issues and pull requests when they are updated or commented on.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;true&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remove-issue-stale-when-updated" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#remove-issue-stale-when-updated">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`remove-issue-stale-when-updated`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L248-248">Source</a></div>
+                <div class="doc-comment"><p>Remove stale labels from issues when they are updated or commented on. Override &quot;remove-stale-when-updated&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="remove-pr-stale-when-updated" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#remove-pr-stale-when-updated">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`remove-pr-stale-when-updated`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L253-253">Source</a></div>
+                <div class="doc-comment"><p>Remove stale labels from pull requests when they are updated or commented on. Override &quot;remove-stale-when-updated&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="debug-only" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#debug-only">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`debug-only`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L258-258">Source</a></div>
+                <div class="doc-comment"><p>Run the processor in debug mode without actually performing any operations on live issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ascending" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ascending">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ascending</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L263-263">Source</a></div>
+                <div class="doc-comment"><p>The order to get issues or pull requests. Defaults to false, which is descending.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sort-by" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#sort-by">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`sort-by`</span>: (&quot;created&quot;|&quot;updated&quot;|&quot;comments&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L268-268">Source</a></div>
+                <div class="doc-comment"><p>What to sort results by. Valid options are <code>created</code>, <code>updated</code>, and <code>comments</code>. Defaults to <code>created</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;created&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="delete-branch" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#delete-branch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`delete-branch`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L273-273">Source</a></div>
+                <div class="doc-comment"><p>Delete the git branch after closing a stale pull request.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="start-date" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#start-date">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`start-date`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L278-278">Source</a></div>
+                <div class="doc-comment"><p>The date used to skip the stale action on issue/pull request created before it (ISO 8601 or RFC 2822).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-assignees-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-assignees-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-assignees-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L283-283">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt an issue or a pull request from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L290-290">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt an issue or a pull request from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-assignees-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-assignees-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-assignees-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-assignees-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L295-295">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt an issue from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;). Override &quot;exempt-assignees&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-issue-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-issue-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-issue-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L302-302">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt an issue from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;). Override &quot;exempt-assignees&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-issue-assignees-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-assignees-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-assignees-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-assignees-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L307-307">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt a pull request from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;). Override &quot;exempt-assignees&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-pr-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-pr-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-pr-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L314-314">Source</a></div>
+                <div class="doc-comment"><p>The assignees which exempt a pull request from being marked as stale. Separate multiple assignees with commas (eg. &quot;user1,user2&quot;). Override &quot;exempt-assignees&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>exempt-pr-assignees-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L319-319">Source</a></div>
+                <div class="doc-comment"><p>Exempt all issues and pull requests with assignees from being marked as stale. Default to false.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-issue-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-issue-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-issue-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L324-324">Source</a></div>
+                <div class="doc-comment"><p>Exempt all issues with assignees from being marked as stale. Override &quot;exempt-all-assignees&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-all-pr-assignees" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-all-pr-assignees">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-all-pr-assignees`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L329-329">Source</a></div>
+                <div class="doc-comment"><p>Exempt all pull requests with assignees from being marked as stale. Override &quot;exempt-all-assignees&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="exempt-draft-pr" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#exempt-draft-pr">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`exempt-draft-pr`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L334-334">Source</a></div>
+                <div class="doc-comment"><p>Exempt draft pull requests from being marked as stale. Default to false.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="enable-statistics" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#enable-statistics">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`enable-statistics`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L339-339">Source</a></div>
+                <div class="doc-comment"><p>Display some statistics at the end regarding the stale workflow (only when the logs are enabled).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;true&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-add-when-unstale-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-add-when-unstale-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-add-when-unstale-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L344-344">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to add when an issue or pull request becomes unstale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-add-when-unstale" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-add-when-unstale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-add-when-unstale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L351-351">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to add when an issue or pull request becomes unstale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>labels-to-add-when-unstale-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-remove-when-stale-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-remove-when-stale-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-remove-when-stale-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L356-356">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to remove when an issue or pull request becomes stale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-remove-when-stale" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-remove-when-stale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-remove-when-stale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L363-363">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to remove when an issue or pull request becomes stale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>labels-to-remove-when-stale-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-remove-when-unstale-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-remove-when-unstale-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-remove-when-unstale-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L368-368">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to remove when an issue or pull request becomes unstale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="labels-to-remove-when-unstale" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#labels-to-remove-when-unstale">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`labels-to-remove-when-unstale`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L375-375">Source</a></div>
+                <div class="doc-comment"><p>A comma delimited list of labels to remove when an issue or pull request becomes unstale.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>labels-to-remove-when-unstale-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ignore-updates" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ignore-updates">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ignore-updates`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L380-380">Source</a></div>
+                <div class="doc-comment"><p>Any update (update/comment) can reset the stale idle time on the issues and pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ignore-issue-updates" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ignore-issue-updates">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ignore-issue-updates`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L385-385">Source</a></div>
+                <div class="doc-comment"><p>Any update (update/comment) can reset the stale idle time on the issues. Override &quot;ignore-updates&quot; option regarding only the issues.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ignore-pr-updates" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ignore-pr-updates">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`ignore-pr-updates`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L390-390">Source</a></div>
+                <div class="doc-comment"><p>Any update (update/comment) can reset the stale idle time on the pull requests. Override &quot;ignore-updates&quot; option regarding only the pull requests.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="include-only-assigned" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#include-only-assigned">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`include-only-assigned`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L395-395">Source</a></div>
+                <div class="doc-comment"><p>Only the issues or the pull requests with an assignee will be marked as stale automatically.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-issue-types-list" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-issue-types-list">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-issue-types-list`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L400-400">Source</a></div>
+                <div class="doc-comment"><p>Only issues with a matching type are processed as stale/closed. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of issue types.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="only-issue-types" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#only-issue-types">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`only-issue-types`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/actions/stale/v10/Stale.pkl#L407-407">Source</a></div>
+                <div class="doc-comment"><p>Only issues with a matching type are processed as stale/closed. Defaults to <code>[]</code> (disabled) and can be a comma-separated list of issue types.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;&quot;</code></p>
+<p>To set as a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html"><code>Listing</code></a>, use <a href="not_found"><code>only-issue-types-list</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

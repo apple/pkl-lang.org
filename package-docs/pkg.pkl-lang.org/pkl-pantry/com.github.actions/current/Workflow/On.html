@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>On (pkg.pkl-lang.org/pkl-pantry/com.github.actions:1.1.0) • Packages</title>
+    <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/Workflow/On.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.1.0/Workflow/On.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.1.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.1.0" data-package-url-prefix="../" data-module-name="com.github.actions.Workflow" data-class-name="On" data-root-url-prefix="../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a> &gt; <a class="declaration-parent-link" href="index.html">com.github.actions.Workflow</a>
+      <h1 id="declaration-title">On<span id="declaration-version">1.1.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">On</span></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="branch_protection_rule" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#branch_protection_rule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">branch_protection_rule</span>: <a href="BranchProtectionRule.html" class="name-ref">BranchProtectionRule</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L616-616">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>branch_protection_rule</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#branch_protection_rule">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#branch_protection_rule</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="check_run" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#check_run">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">check_run</span>: <a href="CheckRun.html" class="name-ref">CheckRun</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L623-623">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the check_run event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_run">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_run</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="check_suite" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#check_suite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">check_suite</span>: <a href="CheckSuite.html" class="name-ref">CheckSuite</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L630-630">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>check_suite</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_suite">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_suite</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="create" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#create">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">create</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L637-637">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime someone creates a branch or tag, which triggers the create event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For information about the REST API, see <a href="https://developer.github.com/v3/git/refs/#create-a-reference">https://developer.github.com/v3/git/refs/#create-a-reference</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#create">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#create</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="delete" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#delete">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`delete`</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L645-645">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For information about the APIs to delete a Git reference, see <a href="https://docs.github.com/en/graphql/reference/mutations#deleteref">Mutations</a> in the GraphQL API documentation or
+<a href="https://docs.github.com/en/rest/git/refs#delete-a-reference">REST API endpoints for Git references</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#delete">https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#delete</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="deployment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#deployment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">deployment</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L652-652">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime someone creates a deployment, which triggers the deployment event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Deployments created with a commit SHA may not have a Git ref.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#deployment">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#deployment</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="deployment_status" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#deployment_status">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">deployment_status</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L659-659">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime a third party provides a deployment status, which triggers the <code>deployment_status</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Deployments created with a commit SHA may not have a Git ref.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#deployment_status">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#deployment_status</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="discussion" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#discussion">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">discussion</span>: <a href="Discussion.html" class="name-ref">Discussion</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L666-666">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the discussion event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#discussion">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#discussion</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="discussion_comment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#discussion_comment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">discussion_comment</span>: <a href="DiscussionComment.html" class="name-ref">DiscussionComment</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L673-673">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the discussion_comment event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#discussion_comment">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#discussion_comment</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fork" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fork">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fork</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L678-678">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime when someone forks a repository, which triggers the <code>fork</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#fork">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#fork</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="gollum" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#gollum">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">gollum</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L683-683">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow when someone creates or updates a Wiki page, which triggers the <code>gollum</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#gollum">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#gollum</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="issue_comment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#issue_comment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">issue_comment</span>: <a href="IssueComment.html" class="name-ref">IssueComment</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L690-690">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>issue_comment</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="issues" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#issues">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">issues</span>: <a href="Issues.html" class="name-ref">Issues</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L697-697">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>issues</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="label" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#label">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">label</span>: <a href="Label.html" class="name-ref">Label</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L704-704">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>label</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#label">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#label</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="merge_group" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#merge_group">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">merge_group</span>: <a href="MergeGroup.html" class="name-ref">MergeGroup</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L711-711">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For information about the merge queue, see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue</a>.</p>
+<p>See <a href="https://help.github.com/en/github/automating-your-workflow-with-github-actions/events-that-trigger-workflows#merge_group">https://help.github.com/en/github/automating-your-workflow-with-github-actions/events-that-trigger-workflows#merge_group</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="milestone" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#milestone">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">milestone</span>: <a href="Milestone.html" class="name-ref">Milestone</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L718-718">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>milestone</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#milestone">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#milestone</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="page_build" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#page_build">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">page_build</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L723-723">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime someone pushes to a GitHub Pages-enabled branch, which triggers the <code>page_build</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#page_build">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#page_build</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="project" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#project">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">project</span>: <a href="Project.html" class="name-ref">Project</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L730-730">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the project event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="project_card" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#project_card">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">project_card</span>: <a href="ProjectCard.html" class="name-ref">ProjectCard</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L737-737">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>project_card</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project_card">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project_card</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="project_column" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#project_column">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">project_column</span>: <a href="ProjectColumn.html" class="name-ref">ProjectColumn</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L745-745">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>project_column</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.
+For information about the REST API, see <a href="https://developer.github.com/v3/projects/columns">https://developer.github.com/v3/projects/columns</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project_column">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#project_column</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="public" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#public">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">public</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L752-752">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime someone makes a private repository public, which triggers the <code>public</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For information about the REST API, see <a href="https://developer.github.com/v3/repos/#edit">https://developer.github.com/v3/repos/#edit</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#public">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#public</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pull_request" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pull_request">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pull_request</span>: <a href="PullRequest.html" class="name-ref">PullRequest</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L768-768">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>pull_request</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.
+For information about the REST API, see <a href="https://developer.github.com/v3/pulls">https://developer.github.com/v3/pulls</a>.</p>
+<p>Note: Workflows do not run on private base repositories when you open a pull request from a forked repository.
+When you create a pull request from a forked repository to the base repository,
+GitHub sends the <code>pull_request</code> event to the base repository and no pull request events occur on the forked repository.
+Workflows don't run on forked repositories by default.
+You must enable GitHub Actions in the Actions tab of the forked repository.
+The permissions for the <code>GITHUB_TOKEN</code> in forked repositories is read-only.
+For more information about the <code>GITHUB_TOKEN</code>, see <a href="https://help.github.com/en/articles/virtual-environments-for-github-actions">https://help.github.com/en/articles/virtual-environments-for-github-actions</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pull_request_review" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pull_request_review">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pull_request_review</span>: <a href="PullRequestReview.html" class="name-ref">PullRequestReview</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L783-783">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>pull_request_review</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>Note: Workflows do not run on private base repositories when you open a pull request from a forked repository.
+When you create a pull request from a forked repository to the base repository,
+GitHub sends the pull_request event to the base repository and no pull request events occur on the forked repository.
+Workflows don't run on forked repositories by default.
+You must enable GitHub Actions in the Actions tab of the forked repository.
+The permissions for the GITHUB_TOKEN in forked repositories is read-only.
+For more information about the GITHUB_TOKEN, see https://help.github.com/en/articles/virtual-environments-for-github-actions.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_review">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_review</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pull_request_review_comment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pull_request_review_comment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pull_request_review_comment</span>: <a href="PullRequestReviewComment.html" class="name-ref">PullRequestReviewComment</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L791-791">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime a comment on a pull request's unified diff is modified, which triggers the
+<code>pull_request_review_comment</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_review_comment">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_review_comment</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pull_request_target" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pull_request_target">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pull_request_target</span>: <a href="PullRequest.html" class="name-ref">PullRequest</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L803-803">Source</a></div>
+                <div class="doc-comment"><p>This event is similar to <a href="On.html#pull_request"><code>pull_request</code></a>, except that it runs in the context of the base repository of the pull
+request, rather than in the merge commit.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This means that you can more safely make your secrets available to the workflows triggered by the pull request,
+because only workflows defined in the commit on the base repository are run.</p>
+<p>For example, this event allows you to create workflows that label and comment on pull requests, based on the
+contents of the event payload.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="push" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#push">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">push</span>: <a href="Push.html" class="name-ref">Push</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L813-813">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow when someone pushes to a repository branch, which triggers the <code>push</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Note: The webhook payload available to GitHub Actions does not include the added, removed, and modified attributes
+in the commit object.
+You can retrieve the full commit object using the REST API.
+For more information, see <a href="https://developer.github.com/v3/repos/commits/#get-a-single-commit.">https://developer.github.com/v3/repos/commits/#get-a-single-commit.</a></p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="registry_package" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#registry_package">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">registry_package</span>: <a href="RegistryPackage.html" class="name-ref">RegistryPackage</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L820-820">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime a package is published or updated.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For more information, see <a href="https://help.github.com/en/github/managing-packages-with-github-packages">https://help.github.com/en/github/managing-packages-with-github-packages</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#registry_package">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#registry_package</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="release" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#release">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">release</span>: <a href="Release.html" class="name-ref">Release</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L828-828">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the release event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.
+For information about the REST API, see <a href="https://developer.github.com/v3/repos/releases/">https://developer.github.com/v3/repos/releases/</a> in the GitHub Developer documentation.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="repository_dispatch" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#repository_dispatch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">repository_dispatch</span>: <a href="RepositoryDispatch.html" class="name-ref">RepositoryDispatch</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L839-839">Source</a></div>
+                <div class="doc-comment"><p>You can use the GitHub API to trigger a webhook event called <code>repository_dispatch</code> when you want to trigger a
+workflow for activity that happens outside of GitHub.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For more information, see <a href="https://developer.github.com/v3/repos/#create-a-repository-dispatch-event">https://developer.github.com/v3/repos/#create-a-repository-dispatch-event</a>.
+To trigger the custom <code>repository_dispatch</code> webhook event, you must send a POST request to a GitHub API endpoint
+and provide an <code>event_type</code> name to describe the activity type.
+To trigger a workflow run, you must also configure your workflow to use the <code>repository_dispatch</code> event.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#repository_dispatch">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#repository_dispatch</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="schedule" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#schedule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">schedule</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="Schedule.html" class="name-ref">Schedule</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L853-853">Source</a></div>
+                <div class="doc-comment"><p>You can schedule a workflow to run at specific UTC times using POSIX cron syntax
+(https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Scheduled workflows run on the latest commit on the default or base branch.
+The shortest interval you can run scheduled workflows is once every 5 minutes.
+Note: GitHub Actions does not support the non-standard syntax @yearly, @monthly, @weekly, @daily, @hourly,
+and @reboot.
+You can use crontab guru (<a href="https://crontab.guru/">https://crontab.guru/</a>) to help generate your cron syntax and confirm what time it will
+run.
+To help you get started, there is also a list of crontab guru examples (<a href="https://crontab.guru/examples.html">https://crontab.guru/examples.html</a>).</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="status" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#status">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">status</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L860-860">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the status of a Git commit changes, which triggers the <code>status</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For information about the REST API, see <a href="https://developer.github.com/v3/repos/statuses/">https://developer.github.com/v3/repos/statuses/</a>.</p>
+<p>See <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#status">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#status</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="watch" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#watch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">watch</span>: <a href="BaseTrigger.html" class="name-ref">BaseTrigger</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L868-868">Source</a></div>
+                <div class="doc-comment"><p>Runs your workflow anytime the <code>watch</code> event occurs.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>More than one activity type triggers this event.
+For information about the REST API, see <a href="https://developer.github.com/v3/activity/starring/">https://developer.github.com/v3/activity/starring/</a></p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#watch">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#watch</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="workflow_call" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#workflow_call">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">workflow_call</span>: <a href="WorkflowCall.html" class="name-ref">WorkflowCall</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L873-873">Source</a></div>
+                <div class="doc-comment"><p>Allows workflows to be reused by other workflows.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_call">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_call</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="workflow_dispatch" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#workflow_dispatch">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">workflow_dispatch</span>: <a href="WorkflowDispatch.html" class="name-ref">WorkflowDispatch</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L880-880">Source</a></div>
+                <div class="doc-comment"><p>You can now create workflows that are manually triggered with the new <code>workflow_dispatch</code> event.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>You will then see a 'Run workflow' button on the Actions tab, enabling you to easily trigger a run.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch</a></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="workflow_run" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#workflow_run">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">workflow_run</span>: <a href="WorkflowRun.html" class="name-ref">WorkflowRun</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.1.0/packages/com.github.actions/Workflow.pkl#L889-889">Source</a></div>
+                <div class="doc-comment"><p>This event occurs when a workflow run is requested or completed, and allows you to execute a workflow based on the
+finished result of another workflow.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For example, if your <a href="On.html#pull_request"><code>pull_request</code></a> workflow generates build artifacts, you can create a new workflow that uses
+<code>workflow_run</code> to analyze the results and add a comment to the original pull request.</p>
+<p>See <a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_run">https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#workflow_run</a></p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="On.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="On.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

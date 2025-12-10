@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dependabot (pkg.pkl-lang.org/pkl-pantry/com.github.dependabot:1.0.0) • Packages</title>
+    <script src="../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.dependabot/_/v2/Dependabot/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.dependabot/1.0.0/v2/Dependabot/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.0.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.dependabot" data-package-version="1.0.0" data-package-url-prefix="../../" data-module-name="com.github.dependabot.v2.Dependabot" data-root-url-prefix="../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.dependabot</a>
+      <h1 id="declaration-title">com.github.dependabot.v2.Dependabot<span id="declaration-version">1.0.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">module <span class="name-decl">com.github.dependabot.v2.Dependabot</span></div>
+        <div class="doc-comment"><p>Template for authoring dependabot.yml.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/com.github.dependabot@1.0.0#/v2/Dependabot.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Source code:</dt>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl">Dependabot.pkl</a></dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>The dependabot.yml file defines how Dependabot maintains dependencies using version updates.</p>
+<p>You must store the resulting file in <code>.github/dependabot.yml</code> within your repository in the
+default branch.
+When you add or update the <code>dependabot.yml</code> file, this triggers an immediate check for version
+updates.
+For more information and an example, see
+<a href="https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates">Configuring Dependabot version updates</a>.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L100-L133">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="version" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#version">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">version</span>: unknown<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L29-29">Source</a></div>
+                <div class="doc-comment"><p>The version of dependabot.yml.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="enable-beta-ecosystems" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#enable-beta-ecosystems">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`enable-beta-ecosystems`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L32-32">Source</a></div>
+                <div class="doc-comment"><p>Enable ecosystems that have beta-level support</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="updates" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#updates">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">updates</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="Update.html" class="name-ref">Update</a>&gt;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L34-34">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="registries" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#registries">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">registries</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>(matches(Regex(&quot;.+&quot;))), <a href="Registry.html" class="name-ref">Registry</a>&gt;(length &gt;= 1)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L40-40">Source</a></div>
+                <div class="doc-comment"><p>The top-level registries key is optional.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It allows you to specify authentication details that
+Dependabot can use to access private package registries.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="multi-ecosystem-groups" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#multi-ecosystem-groups">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`multi-ecosystem-groups`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, <a href="MultiEcosystemGroup.html" class="name-ref">MultiEcosystemGroup</a>&gt;(length &gt;= 1)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L44-44">Source</a></div>
+                <div class="doc-comment"><p>Define groups that span multiple package ecosystems, allowing consolidated pull requests across
+different ecosystems</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Module.html" class="name-ref">Module</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/List.html" class="name-ref">List</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.1/stdlib/base.pkl#L94-L94">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Update" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Update">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Update.html" class="name-decl">Update</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L46-131">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Allow" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Allow">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Allow.html" class="name-decl">Allow</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L133-137">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CommitMessage" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#CommitMessage">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="CommitMessage.html" class="name-decl">CommitMessage</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L141-158">Source</a></div>
+                <div class="doc-comment"><p>Dependabot attempts to detect your commit message preferences and use similar patterns. Use this
+option to specify your preferences explicitly.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Cooldown" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Cooldown">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Cooldown.html" class="name-decl">Cooldown</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L163-184">Source</a></div>
+                <div class="doc-comment"><p>Defines a cooldown period for dependency updates, allowing updates to be delayed for a configurable
+number of days. This feature enables users to customize how often Dependabot generates new version
+updates, offering greater control over update frequency.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Group" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Group">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Group.html" class="name-decl">Group</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L186-203">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Ignore" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Ignore">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Ignore.html" class="name-decl">Ignore</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L205-217">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PullRequestBranchName" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#PullRequestBranchName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="PullRequestBranchName.html" class="name-decl">PullRequestBranchName</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L220-225">Source</a></div>
+                <div class="doc-comment"><p>Pull request branch name preferences</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Schedule" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Schedule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Schedule.html" class="name-decl">Schedule</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L228-242">Source</a></div>
+                <div class="doc-comment"><p>Schedule preferences</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Registry" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Registry">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Registry.html" class="name-decl">Registry</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L244-289">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MultiEcosystemGroup" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MultiEcosystemGroup">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MultiEcosystemGroup.html" class="name-decl">MultiEcosystemGroup</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L293-315">Source</a></div>
+                <div class="doc-comment"><p>Define a group that spans multiple package ecosystems, allowing consolidated pull requests across
+different ecosystems</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MultiEcosystemGroupSchedule" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MultiEcosystemGroupSchedule">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MultiEcosystemGroupSchedule.html" class="name-decl">MultiEcosystemGroupSchedule</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L318-332">Source</a></div>
+                <div class="doc-comment"><p>Schedule preferences for the group</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MultiEcosystemGroupCommitMessage" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MultiEcosystemGroupCommitMessage">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MultiEcosystemGroupCommitMessage.html" class="name-decl">MultiEcosystemGroupCommitMessage</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L335-345">Source</a></div>
+                <div class="doc-comment"><p>Commit message preferences for the group</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="MultiEcosystemGroupPullRequestBranchName" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#MultiEcosystemGroupPullRequestBranchName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="MultiEcosystemGroupPullRequestBranchName.html" class="name-decl">MultiEcosystemGroupPullRequestBranchName</a><a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L348-353">Source</a></div>
+                <div class="doc-comment"><p>Pull request branch name preferences for the group</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="Timezone" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#Timezone">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#Timezone" class="name-decl">Timezone</a> = &quot;Africa/Abidjan&quot;|&quot;Africa/Accra&quot;|&quot;Africa/Addis_Ababa&quot;|&quot;Africa/Algiers&quot;|&quot;Africa/Asmara&quot;|&quot;Africa/Asmera&quot;|&quot;Africa/Bamako&quot;|&quot;Africa/Bangui&quot;|&quot;Africa/Banjul&quot;|&quot;Africa/Bissau&quot;|&quot;Africa/Blantyre&quot;|&quot;Africa/Brazzaville&quot;|&quot;Africa/Bujumbura&quot;|&quot;Africa/Cairo&quot;|&quot;Africa/Casablanca&quot;|&quot;Africa/Ceuta&quot;|&quot;Africa/Conakry&quot;|&quot;Africa/Dakar&quot;|&quot;Africa/Dar_es_Salaam&quot;|&quot;Africa/Djibouti&quot;|&quot;Africa/Douala&quot;|&quot;Africa/El_Aaiun&quot;|&quot;Africa/Freetown&quot;|&quot;Africa/Gaborone&quot;|&quot;Africa/Harare&quot;|&quot;Africa/Johannesburg&quot;|&quot;Africa/Juba&quot;|&quot;Africa/Kampala&quot;|&quot;Africa/Khartoum&quot;|&quot;Africa/Kigali&quot;|&quot;Africa/Kinshasa&quot;|&quot;Africa/Lagos&quot;|&quot;Africa/Libreville&quot;|&quot;Africa/Lome&quot;|&quot;Africa/Luanda&quot;|&quot;Africa/Lubumbashi&quot;|&quot;Africa/Lusaka&quot;|&quot;Africa/Malabo&quot;|&quot;Africa/Maputo&quot;|&quot;Africa/Maseru&quot;|&quot;Africa/Mbabane&quot;|&quot;Africa/Mogadishu&quot;|&quot;Africa/Monrovia&quot;|&quot;Africa/Nairobi&quot;|&quot;Africa/Ndjamena&quot;|&quot;Africa/Niamey&quot;|&quot;Africa/Nouakchott&quot;|&quot;Africa/Ouagadougou&quot;|&quot;Africa/Porto-Novo&quot;|&quot;Africa/Sao_Tome&quot;|&quot;Africa/Timbuktu&quot;|&quot;Africa/Tripoli&quot;|&quot;Africa/Tunis&quot;|&quot;Africa/Windhoek&quot;|&quot;America/Adak&quot;|&quot;America/Anchorage&quot;|&quot;America/Anguilla&quot;|&quot;America/Antigua&quot;|&quot;America/Araguaina&quot;|&quot;America/Argentina/Buenos_Aires&quot;|&quot;America/Argentina/Catamarca&quot;|&quot;America/Argentina/ComodRivadavia&quot;|&quot;America/Argentina/Cordoba&quot;|&quot;America/Argentina/Jujuy&quot;|&quot;America/Argentina/La_Rioja&quot;|&quot;America/Argentina/Mendoza&quot;|&quot;America/Argentina/Rio_Gallegos&quot;|&quot;America/Argentina/Salta&quot;|&quot;America/Argentina/San_Juan&quot;|&quot;America/Argentina/San_Luis&quot;|&quot;America/Argentina/Tucuman&quot;|&quot;America/Argentina/Ushuaia&quot;|&quot;America/Aruba&quot;|&quot;America/Asuncion&quot;|&quot;America/Atikokan&quot;|&quot;America/Atka&quot;|&quot;America/Bahia&quot;|&quot;America/Bahia_Banderas&quot;|&quot;America/Barbados&quot;|&quot;America/Belem&quot;|&quot;America/Belize&quot;|&quot;America/Blanc-Sablon&quot;|&quot;America/Boa_Vista&quot;|&quot;America/Bogota&quot;|&quot;America/Boise&quot;|&quot;America/Buenos_Aires&quot;|&quot;America/Cambridge_Bay&quot;|&quot;America/Campo_Grande&quot;|&quot;America/Cancun&quot;|&quot;America/Caracas&quot;|&quot;America/Catamarca&quot;|&quot;America/Cayenne&quot;|&quot;America/Cayman&quot;|&quot;America/Chicago&quot;|&quot;America/Chihuahua&quot;|&quot;America/Coral_Harbour&quot;|&quot;America/Cordoba&quot;|&quot;America/Costa_Rica&quot;|&quot;America/Creston&quot;|&quot;America/Cuiaba&quot;|&quot;America/Curacao&quot;|&quot;America/Danmarkshavn&quot;|&quot;America/Dawson&quot;|&quot;America/Dawson_Creek&quot;|&quot;America/Denver&quot;|&quot;America/Detroit&quot;|&quot;America/Dominica&quot;|&quot;America/Edmonton&quot;|&quot;America/Eirunepe&quot;|&quot;America/El_Salvador&quot;|&quot;America/Ensenada&quot;|&quot;America/Fort_Nelson&quot;|&quot;America/Fort_Wayne&quot;|&quot;America/Fortaleza&quot;|&quot;America/Glace_Bay&quot;|&quot;America/Godthab&quot;|&quot;America/Goose_Bay&quot;|&quot;America/Grand_Turk&quot;|&quot;America/Grenada&quot;|&quot;America/Guadeloupe&quot;|&quot;America/Guatemala&quot;|&quot;America/Guayaquil&quot;|&quot;America/Guyana&quot;|&quot;America/Halifax&quot;|&quot;America/Havana&quot;|&quot;America/Hermosillo&quot;|&quot;America/Indiana/Indianapolis&quot;|&quot;America/Indiana/Knox&quot;|&quot;America/Indiana/Marengo&quot;|&quot;America/Indiana/Petersburg&quot;|&quot;America/Indiana/Tell_City&quot;|&quot;America/Indiana/Vevay&quot;|&quot;America/Indiana/Vincennes&quot;|&quot;America/Indiana/Winamac&quot;|&quot;America/Indianapolis&quot;|&quot;America/Inuvik&quot;|&quot;America/Iqaluit&quot;|&quot;America/Jamaica&quot;|&quot;America/Jujuy&quot;|&quot;America/Juneau&quot;|&quot;America/Kentucky/Louisville&quot;|&quot;America/Kentucky/Monticello&quot;|&quot;America/Knox_IN&quot;|&quot;America/Kralendijk&quot;|&quot;America/La_Paz&quot;|&quot;America/Lima&quot;|&quot;America/Los_Angeles&quot;|&quot;America/Louisville&quot;|&quot;America/Lower_Princes&quot;|&quot;America/Maceio&quot;|&quot;America/Managua&quot;|&quot;America/Manaus&quot;|&quot;America/Marigot&quot;|&quot;America/Martinique&quot;|&quot;America/Matamoros&quot;|&quot;America/Mazatlan&quot;|&quot;America/Mendoza&quot;|&quot;America/Menominee&quot;|&quot;America/Merida&quot;|&quot;America/Metlakatla&quot;|&quot;America/Mexico_City&quot;|&quot;America/Miquelon&quot;|&quot;America/Moncton&quot;|&quot;America/Monterrey&quot;|&quot;America/Montevideo&quot;|&quot;America/Montreal&quot;|&quot;America/Montserrat&quot;|&quot;America/Nassau&quot;|&quot;America/New_York&quot;|&quot;America/Nipigon&quot;|&quot;America/Nome&quot;|&quot;America/Noronha&quot;|&quot;America/North_Dakota/Beulah&quot;|&quot;America/North_Dakota/Center&quot;|&quot;America/North_Dakota/New_Salem&quot;|&quot;America/Nuuk&quot;|&quot;America/Ojinaga&quot;|&quot;America/Panama&quot;|&quot;America/Pangnirtung&quot;|&quot;America/Paramaribo&quot;|&quot;America/Phoenix&quot;|&quot;America/Port-au-Prince&quot;|&quot;America/Port_of_Spain&quot;|&quot;America/Porto_Acre&quot;|&quot;America/Porto_Velho&quot;|&quot;America/Puerto_Rico&quot;|&quot;America/Punta_Arenas&quot;|&quot;America/Rainy_River&quot;|&quot;America/Rankin_Inlet&quot;|&quot;America/Recife&quot;|&quot;America/Regina&quot;|&quot;America/Resolute&quot;|&quot;America/Rio_Branco&quot;|&quot;America/Rosario&quot;|&quot;America/Santa_Isabel&quot;|&quot;America/Santarem&quot;|&quot;America/Santiago&quot;|&quot;America/Santo_Domingo&quot;|&quot;America/Sao_Paulo&quot;|&quot;America/Scoresbysund&quot;|&quot;America/Shiprock&quot;|&quot;America/Sitka&quot;|&quot;America/St_Barthelemy&quot;|&quot;America/St_Johns&quot;|&quot;America/St_Kitts&quot;|&quot;America/St_Lucia&quot;|&quot;America/St_Thomas&quot;|&quot;America/St_Vincent&quot;|&quot;America/Swift_Current&quot;|&quot;America/Tegucigalpa&quot;|&quot;America/Thule&quot;|&quot;America/Thunder_Bay&quot;|&quot;America/Tijuana&quot;|&quot;America/Toronto&quot;|&quot;America/Tortola&quot;|&quot;America/Vancouver&quot;|&quot;America/Virgin&quot;|&quot;America/Whitehorse&quot;|&quot;America/Winnipeg&quot;|&quot;America/Yakutat&quot;|&quot;America/Yellowknife&quot;|&quot;Antarctica/Casey&quot;|&quot;Antarctica/Davis&quot;|&quot;Antarctica/DumontDUrville&quot;|&quot;Antarctica/Macquarie&quot;|&quot;Antarctica/Mawson&quot;|&quot;Antarctica/McMurdo&quot;|&quot;Antarctica/Palmer&quot;|&quot;Antarctica/Rothera&quot;|&quot;Antarctica/South_Pole&quot;|&quot;Antarctica/Syowa&quot;|&quot;Antarctica/Troll&quot;|&quot;Antarctica/Vostok&quot;|&quot;Arctic/Longyearbyen&quot;|&quot;Asia/Aden&quot;|&quot;Asia/Almaty&quot;|&quot;Asia/Amman&quot;|&quot;Asia/Anadyr&quot;|&quot;Asia/Aqtau&quot;|&quot;Asia/Aqtobe&quot;|&quot;Asia/Ashgabat&quot;|&quot;Asia/Ashkhabad&quot;|&quot;Asia/Atyrau&quot;|&quot;Asia/Baghdad&quot;|&quot;Asia/Bahrain&quot;|&quot;Asia/Baku&quot;|&quot;Asia/Bangkok&quot;|&quot;Asia/Barnaul&quot;|&quot;Asia/Beirut&quot;|&quot;Asia/Bishkek&quot;|&quot;Asia/Brunei&quot;|&quot;Asia/Calcutta&quot;|&quot;Asia/Chita&quot;|&quot;Asia/Choibalsan&quot;|&quot;Asia/Chongqing&quot;|&quot;Asia/Chungking&quot;|&quot;Asia/Colombo&quot;|&quot;Asia/Dacca&quot;|&quot;Asia/Damascus&quot;|&quot;Asia/Dhaka&quot;|&quot;Asia/Dili&quot;|&quot;Asia/Dubai&quot;|&quot;Asia/Dushanbe&quot;|&quot;Asia/Famagusta&quot;|&quot;Asia/Gaza&quot;|&quot;Asia/Harbin&quot;|&quot;Asia/Hebron&quot;|&quot;Asia/Ho_Chi_Minh&quot;|&quot;Asia/Hong_Kong&quot;|&quot;Asia/Hovd&quot;|&quot;Asia/Irkutsk&quot;|&quot;Asia/Istanbul&quot;|&quot;Asia/Jakarta&quot;|&quot;Asia/Jayapura&quot;|&quot;Asia/Jerusalem&quot;|&quot;Asia/Kabul&quot;|&quot;Asia/Kamchatka&quot;|&quot;Asia/Karachi&quot;|&quot;Asia/Kashgar&quot;|&quot;Asia/Kathmandu&quot;|&quot;Asia/Katmandu&quot;|&quot;Asia/Khandyga&quot;|&quot;Asia/Kolkata&quot;|&quot;Asia/Krasnoyarsk&quot;|&quot;Asia/Kuala_Lumpur&quot;|&quot;Asia/Kuching&quot;|&quot;Asia/Kuwait&quot;|&quot;Asia/Macao&quot;|&quot;Asia/Macau&quot;|&quot;Asia/Magadan&quot;|&quot;Asia/Makassar&quot;|&quot;Asia/Manila&quot;|&quot;Asia/Muscat&quot;|&quot;Asia/Nicosia&quot;|&quot;Asia/Novokuznetsk&quot;|&quot;Asia/Novosibirsk&quot;|&quot;Asia/Omsk&quot;|&quot;Asia/Oral&quot;|&quot;Asia/Phnom_Penh&quot;|&quot;Asia/Pontianak&quot;|&quot;Asia/Pyongyang&quot;|&quot;Asia/Qatar&quot;|&quot;Asia/Qostanay&quot;|&quot;Asia/Qyzylorda&quot;|&quot;Asia/Rangoon&quot;|&quot;Asia/Riyadh&quot;|&quot;Asia/Saigon&quot;|&quot;Asia/Sakhalin&quot;|&quot;Asia/Samarkand&quot;|&quot;Asia/Seoul&quot;|&quot;Asia/Shanghai&quot;|&quot;Asia/Singapore&quot;|&quot;Asia/Srednekolymsk&quot;|&quot;Asia/Taipei&quot;|&quot;Asia/Tashkent&quot;|&quot;Asia/Tbilisi&quot;|&quot;Asia/Tehran&quot;|&quot;Asia/Tel_Aviv&quot;|&quot;Asia/Thimbu&quot;|&quot;Asia/Thimphu&quot;|&quot;Asia/Tokyo&quot;|&quot;Asia/Tomsk&quot;|&quot;Asia/Ujung_Pandang&quot;|&quot;Asia/Ulaanbaatar&quot;|&quot;Asia/Ulan_Bator&quot;|&quot;Asia/Urumqi&quot;|&quot;Asia/Ust-Nera&quot;|&quot;Asia/Vientiane&quot;|&quot;Asia/Vladivostok&quot;|&quot;Asia/Yakutsk&quot;|&quot;Asia/Yangon&quot;|&quot;Asia/Yekaterinburg&quot;|&quot;Asia/Yerevan&quot;|&quot;Atlantic/Azores&quot;|&quot;Atlantic/Bermuda&quot;|&quot;Atlantic/Canary&quot;|&quot;Atlantic/Cape_Verde&quot;|&quot;Atlantic/Faeroe&quot;|&quot;Atlantic/Faroe&quot;|&quot;Atlantic/Jan_Mayen&quot;|&quot;Atlantic/Madeira&quot;|&quot;Atlantic/Reykjavik&quot;|&quot;Atlantic/South_Georgia&quot;|&quot;Atlantic/St_Helena&quot;|&quot;Atlantic/Stanley&quot;|&quot;Australia/ACT&quot;|&quot;Australia/Adelaide&quot;|&quot;Australia/Brisbane&quot;|&quot;Australia/Broken_Hill&quot;|&quot;Australia/Canberra&quot;|&quot;Australia/Currie&quot;|&quot;Australia/Darwin&quot;|&quot;Australia/Eucla&quot;|&quot;Australia/Hobart&quot;|&quot;Australia/LHI&quot;|&quot;Australia/Lindeman&quot;|&quot;Australia/Lord_Howe&quot;|&quot;Australia/Melbourne&quot;|&quot;Australia/North&quot;|&quot;Australia/NSW&quot;|&quot;Australia/Perth&quot;|&quot;Australia/Queensland&quot;|&quot;Australia/South&quot;|&quot;Australia/Sydney&quot;|&quot;Australia/Tasmania&quot;|&quot;Australia/Victoria&quot;|&quot;Australia/West&quot;|&quot;Australia/Yancowinna&quot;|&quot;Brazil/Acre&quot;|&quot;Brazil/DeNoronha&quot;|&quot;Brazil/East&quot;|&quot;Brazil/West&quot;|&quot;Canada/Atlantic&quot;|&quot;Canada/Central&quot;|&quot;Canada/Eastern&quot;|&quot;Canada/Mountain&quot;|&quot;Canada/Newfoundland&quot;|&quot;Canada/Pacific&quot;|&quot;Canada/Saskatchewan&quot;|&quot;Canada/Yukon&quot;|&quot;Chile/Continental&quot;|&quot;Chile/EasterIsland&quot;|&quot;Cuba&quot;|&quot;Egypt&quot;|&quot;Eire&quot;|&quot;Etc/GMT&quot;|&quot;Etc/GMT+0&quot;|&quot;Etc/GMT+1&quot;|&quot;Etc/GMT+10&quot;|&quot;Etc/GMT+11&quot;|&quot;Etc/GMT+12&quot;|&quot;Etc/GMT+2&quot;|&quot;Etc/GMT+3&quot;|&quot;Etc/GMT+4&quot;|&quot;Etc/GMT+5&quot;|&quot;Etc/GMT+6&quot;|&quot;Etc/GMT+7&quot;|&quot;Etc/GMT+8&quot;|&quot;Etc/GMT+9&quot;|&quot;Etc/GMT-0&quot;|&quot;Etc/GMT-1&quot;|&quot;Etc/GMT-10&quot;|&quot;Etc/GMT-11&quot;|&quot;Etc/GMT-12&quot;|&quot;Etc/GMT-13&quot;|&quot;Etc/GMT-14&quot;|&quot;Etc/GMT-2&quot;|&quot;Etc/GMT-3&quot;|&quot;Etc/GMT-4&quot;|&quot;Etc/GMT-5&quot;|&quot;Etc/GMT-6&quot;|&quot;Etc/GMT-7&quot;|&quot;Etc/GMT-8&quot;|&quot;Etc/GMT-9&quot;|&quot;Etc/GMT0&quot;|&quot;Etc/Greenwich&quot;|&quot;Etc/UCT&quot;|&quot;Etc/Universal&quot;|&quot;Etc/UTC&quot;|&quot;Etc/Zulu&quot;|&quot;Europe/Amsterdam&quot;|&quot;Europe/Andorra&quot;|&quot;Europe/Astrakhan&quot;|&quot;Europe/Athens&quot;|&quot;Europe/Belfast&quot;|&quot;Europe/Belgrade&quot;|&quot;Europe/Berlin&quot;|&quot;Europe/Bratislava&quot;|&quot;Europe/Brussels&quot;|&quot;Europe/Bucharest&quot;|&quot;Europe/Budapest&quot;|&quot;Europe/Busingen&quot;|&quot;Europe/Chisinau&quot;|&quot;Europe/Copenhagen&quot;|&quot;Europe/Dublin&quot;|&quot;Europe/Gibraltar&quot;|&quot;Europe/Guernsey&quot;|&quot;Europe/Helsinki&quot;|&quot;Europe/Isle_of_Man&quot;|&quot;Europe/Istanbul&quot;|&quot;Europe/Jersey&quot;|&quot;Europe/Kaliningrad&quot;|&quot;Europe/Kiev&quot;|&quot;Europe/Kirov&quot;|&quot;Europe/Kyiv&quot;|&quot;Europe/Lisbon&quot;|&quot;Europe/Ljubljana&quot;|&quot;Europe/London&quot;|&quot;Europe/Luxembourg&quot;|&quot;Europe/Madrid&quot;|&quot;Europe/Malta&quot;|&quot;Europe/Mariehamn&quot;|&quot;Europe/Minsk&quot;|&quot;Europe/Monaco&quot;|&quot;Europe/Moscow&quot;|&quot;Europe/Nicosia&quot;|&quot;Europe/Oslo&quot;|&quot;Europe/Paris&quot;|&quot;Europe/Podgorica&quot;|&quot;Europe/Prague&quot;|&quot;Europe/Riga&quot;|&quot;Europe/Rome&quot;|&quot;Europe/Samara&quot;|&quot;Europe/San_Marino&quot;|&quot;Europe/Sarajevo&quot;|&quot;Europe/Saratov&quot;|&quot;Europe/Simferopol&quot;|&quot;Europe/Skopje&quot;|&quot;Europe/Sofia&quot;|&quot;Europe/Stockholm&quot;|&quot;Europe/Tallinn&quot;|&quot;Europe/Tirane&quot;|&quot;Europe/Tiraspol&quot;|&quot;Europe/Ulyanovsk&quot;|&quot;Europe/Uzhgorod&quot;|&quot;Europe/Vaduz&quot;|&quot;Europe/Vatican&quot;|&quot;Europe/Vienna&quot;|&quot;Europe/Vilnius&quot;|&quot;Europe/Volgograd&quot;|&quot;Europe/Warsaw&quot;|&quot;Europe/Zagreb&quot;|&quot;Europe/Zaporozhye&quot;|&quot;Europe/Zurich&quot;|&quot;GB&quot;|&quot;GB-Eire&quot;|&quot;Hongkong&quot;|&quot;Iceland&quot;|&quot;Indian/Antananarivo&quot;|&quot;Indian/Chagos&quot;|&quot;Indian/Christmas&quot;|&quot;Indian/Cocos&quot;|&quot;Indian/Comoro&quot;|&quot;Indian/Kerguelen&quot;|&quot;Indian/Mahe&quot;|&quot;Indian/Maldives&quot;|&quot;Indian/Mauritius&quot;|&quot;Indian/Mayotte&quot;|&quot;Indian/Reunion&quot;|&quot;Iran&quot;|&quot;Israel&quot;|&quot;Jamaica&quot;|&quot;Japan&quot;|&quot;Kwajalein&quot;|&quot;Libya&quot;|&quot;Mexico/BajaNorte&quot;|&quot;Mexico/BajaSur&quot;|&quot;Mexico/General&quot;|&quot;Navajo&quot;|&quot;NZ&quot;|&quot;NZ-CHAT&quot;|&quot;Pacific/Apia&quot;|&quot;Pacific/Auckland&quot;|&quot;Pacific/Bougainville&quot;|&quot;Pacific/Chatham&quot;|&quot;Pacific/Chuuk&quot;|&quot;Pacific/Easter&quot;|&quot;Pacific/Efate&quot;|&quot;Pacific/Enderbury&quot;|&quot;Pacific/Fakaofo&quot;|&quot;Pacific/Fiji&quot;|&quot;Pacific/Funafuti&quot;|&quot;Pacific/Galapagos&quot;|&quot;Pacific/Gambier&quot;|&quot;Pacific/Guadalcanal&quot;|&quot;Pacific/Guam&quot;|&quot;Pacific/Honolulu&quot;|&quot;Pacific/Johnston&quot;|&quot;Pacific/Kanton&quot;|&quot;Pacific/Kiritimati&quot;|&quot;Pacific/Kosrae&quot;|&quot;Pacific/Kwajalein&quot;|&quot;Pacific/Majuro&quot;|&quot;Pacific/Marquesas&quot;|&quot;Pacific/Midway&quot;|&quot;Pacific/Nauru&quot;|&quot;Pacific/Niue&quot;|&quot;Pacific/Norfolk&quot;|&quot;Pacific/Noumea&quot;|&quot;Pacific/Pago_Pago&quot;|&quot;Pacific/Palau&quot;|&quot;Pacific/Pitcairn&quot;|&quot;Pacific/Pohnpei&quot;|&quot;Pacific/Ponape&quot;|&quot;Pacific/Port_Moresby&quot;|&quot;Pacific/Rarotonga&quot;|&quot;Pacific/Saipan&quot;|&quot;Pacific/Samoa&quot;|&quot;Pacific/Tahiti&quot;|&quot;Pacific/Tarawa&quot;|&quot;Pacific/Tongatapu&quot;|&quot;Pacific/Truk&quot;|&quot;Pacific/Wake&quot;|&quot;Pacific/Wallis&quot;|&quot;Pacific/Yap&quot;|&quot;Poland&quot;|&quot;Portugal&quot;|&quot;PRC&quot;|&quot;ROC&quot;|&quot;Singapore&quot;|&quot;US/Alaska&quot;|&quot;US/Aleutian&quot;|&quot;US/Arizona&quot;|&quot;US/Central&quot;|&quot;US/East-Indiana&quot;|&quot;US/Eastern&quot;|&quot;US/Hawaii&quot;|&quot;US/Indiana-Starke&quot;|&quot;US/Michigan&quot;|&quot;US/Mountain&quot;|&quot;US/Pacific&quot;|&quot;US/Samoa&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L355-927">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="DependencyType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#DependencyType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#DependencyType" class="name-decl">DependencyType</a> = &quot;direct&quot;|&quot;indirect&quot;|&quot;all&quot;|&quot;production&quot;|&quot;development&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L929-929">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="UpdateType" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#UpdateType">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#UpdateType" class="name-decl">UpdateType</a> = &quot;version-update:semver-major&quot;|&quot;version-update:semver-minor&quot;|&quot;version-update:semver-patch&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L931-932">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="InsecureExternalCodeExecution" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#InsecureExternalCodeExecution">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#InsecureExternalCodeExecution" class="name-decl">InsecureExternalCodeExecution</a> = &quot;allow&quot;|&quot;deny&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L934-934">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="VersioningStrategy" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#VersioningStrategy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#VersioningStrategy" class="name-decl">VersioningStrategy</a> = &quot;auto&quot;|&quot;increase&quot;|&quot;increase-if-necessary&quot;|&quot;lockfile-only&quot;|&quot;widen&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L936-937">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="PackageEcosystem" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#PackageEcosystem">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#PackageEcosystem" class="name-decl">PackageEcosystem</a> = &quot;bun&quot;|&quot;bundler&quot;|&quot;cargo&quot;|&quot;composer&quot;|&quot;devcontainers&quot;|&quot;docker&quot;|&quot;docker-compose&quot;|&quot;dotnet-sdk&quot;|&quot;elm&quot;|&quot;gitsubmodule&quot;|&quot;github-actions&quot;|&quot;gomod&quot;|&quot;gradle&quot;|&quot;helm&quot;|&quot;maven&quot;|&quot;mix&quot;|&quot;npm&quot;|&quot;nuget&quot;|&quot;pip&quot;|&quot;pub&quot;|&quot;rust-toolchain&quot;|&quot;swift&quot;|&quot;terraform&quot;|&quot;uv&quot;|&quot;vcpkg&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L939-964">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ScheduleDay" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ScheduleDay">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ScheduleDay" class="name-decl">ScheduleDay</a> = &quot;monday&quot;|&quot;tuesday&quot;|&quot;wednesday&quot;|&quot;thursday&quot;|&quot;friday&quot;|&quot;saturday&quot;|&quot;sunday&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L966-967">Source</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ScheduleInterval" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ScheduleInterval">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#ScheduleInterval" class="name-decl">ScheduleInterval</a> = &quot;daily&quot;|&quot;weekly&quot;|&quot;monthly&quot;|&quot;quarterly&quot;|&quot;semiannually&quot;|&quot;yearly&quot;|&quot;cron&quot;<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.dependabot@1.0.0/packages/com.github.dependabot/v2/Dependabot.pkl#L969-970">Source</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

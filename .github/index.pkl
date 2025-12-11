@@ -29,7 +29,8 @@ local baseJob: Workflow.Job = new {
     new {
       name = "Configure cargo"
       // language=bash
-      run = """
+      run =
+        """
         cat <<EOF > ~/.cargo/config
         [net]
         git-fetch-with-cli = true
@@ -46,7 +47,8 @@ local buildAndTest: Workflow = new {
         new {
           name = "Run Gradle Tests"
           // language=bash
-          run = #"""
+          run =
+            #"""
             ./gradlew \
               --console=plain \
               pklHtmlHighlighter
@@ -86,7 +88,8 @@ main {
         new {
           name = "Triggered by"
           `if` = "inputs.source_run != null"
-          run = """
+          run =
+            """
             echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY
             """
         }
@@ -100,7 +103,8 @@ main {
         new {
           name = "Run publish"
           // language=bash
-          run = #"""
+          run =
+            #"""
             ./gradlew \
               --console=plain \
               pklHtmlHighlighter

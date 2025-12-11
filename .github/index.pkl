@@ -1,19 +1,17 @@
 amends "@pkl.impl.ghactions/PklCI.pkl"
 
-import "@gha/actions/Setup.pkl"
-import "@gha/actions/Common.pkl"
-import "@gha/Context.pkl"
-import "@gha/Workflow.pkl"
+import "@com.github.actions/catalog.pkl"
+import "@com.github.actions/Workflow.pkl"
 
 local baseJob: Workflow.Job = new {
   `runs-on` = "ubuntu-latest"
   steps {
-    new Common.Checkout {
+    (catalog.`actions/checkout@v6`) {
       with {
         `fetch-depth` = 0
       }
     }
-    new Setup.Java {
+    (catalog.`actions/setup-java@v5`) {
       name = "Setup Java"
       with {
         `java-version` = "21"
@@ -23,7 +21,7 @@ local baseJob: Workflow.Job = new {
     }
     new {
       name = "Setup Rust"
-      uses = "actions-rust-lang/setup-rust-toolchain@063a3b947b5c5bf7d5f87076c3e5e9784b776aa8"
+      uses = "actions-rust-lang/setup-rust-toolchain@v1"
       with {
         ["cache-workspaces"] = "pkl-html-highlighter"
       }
@@ -92,8 +90,8 @@ main {
             echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY
             """
         }
-        ...super.steps
-        new Common.Checkout {
+        ...(super.steps)
+        (catalog.`actions/checkout@v6`) {
           with {
             `fetch-depth` = 0
             `persist-credentials` = true

@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.30.1">
+<div class="nav-container" data-component="main" data-version="0.30.2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -268,7 +268,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.30.1</span>
+    <span class="version">0.30.2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -313,7 +313,7 @@
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">0.30.1</a>
+          <a href="../index.html">0.30.2</a>
         </li>
         <li class="version">
           <a href="../../0.29.1/index.html">0.29.1</a>
@@ -475,10 +475,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.30.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.2</button>
   <div class="version-menu">
     <a class="version" href="../../latest/release-notes/0.30.html">0.31.0-dev</a>
-    <a class="version is-current" href="0.30.html">0.30.1</a>
+    <a class="version is-current" href="0.30.html">0.30.2</a>
     <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
     <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
     <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
@@ -498,7 +498,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Pkl 0.30 was released on November 3rd, 2025.<br>
-<span class="small">The latest bugfix release is 0.30.1. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
+<span class="small">The latest bugfix release is 0.30.2. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
 </div>
 <div class="paragraph">
 <p>This release introduces a code formatter, and an in-language API for producing <code>pkl-binary</code> output.</p>
@@ -652,7 +652,7 @@ Only the host languages have access to this API (for example, <a href="https://s
 This means that one-off logic must be written to render this format in the host language.</p>
 </div>
 <div class="paragraph">
-<p>In 0.30, this renderer is added as an in-language API, through the <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/pklbinary"><code>pkl:pklbinary</code></a> standard library module.
+<p>In 0.30, this renderer is added as an in-language API, through the <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/pklbinary"><code>pkl:pklbinary</code></a> standard library module.
 Additionally, it is available through CLI flag <code>--format pkl-binary</code>.</p>
 </div>
 <div class="paragraph">
@@ -879,7 +879,7 @@ Two trace modes are introduced:</p>
 <div class="sect2">
 <h3 id="better-support-for-bytes-when-rendering-yaml"><a class="anchor" href="#better-support-for-bytes-when-rendering-yaml"></a><a class="link" href="#better-support-for-bytes-when-rendering-yaml">Better support for <code>Bytes</code> when rendering YAML</a></h3>
 <div class="paragraph">
-<p>Previously, attempting to render a <code>Bytes</code> value using <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/YamlRenderer"><code>YamlRenderer</code></a> required the use of a <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/PcfRenderer#converters">converter</a>.
+<p>Previously, attempting to render a <code>Bytes</code> value using <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/YamlRenderer"><code>YamlRenderer</code></a> required the use of a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/PcfRenderer#converters">converter</a>.
 Now, Pkl can natively render YAML containing <a href="https://yaml.org/type/binary.html">binary scalars</a> (<a href="https://github.com/apple/pkl/pull/1276">#1276</a>).</p>
 </div>
 <div class="listingblock">
@@ -900,8 +900,8 @@ rendered = new YamlRenderer {}.renderValue(foo) <i class="conum" data-value="1">
 </table>
 </div>
 <div class="paragraph">
-<p>Similarly, <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/yaml/Parser"><code>yaml.Parser</code></a> now parses binary YAML values as Pkl <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Bytes"><code>Bytes</code></a> values (<a href="https://github.com/apple/pkl/pull/1277">#1277</a>).
-This is a breaking change; previously these values were parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String"><code>String</code></a> value containing the base64-encoded binary data.</p>
+<p>Similarly, <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/yaml/Parser"><code>yaml.Parser</code></a> now parses binary YAML values as Pkl <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Bytes"><code>Bytes</code></a> values (<a href="https://github.com/apple/pkl/pull/1277">#1277</a>).
+This is a breaking change; previously these values were parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String"><code>String</code></a> value containing the base64-encoded binary data.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1001,16 +1001,16 @@ Because of this, existing sites must be migrated before using the <code>0.30</co
 <div class="ulist">
 <ul>
 <li>
-<p>New class: <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BaseValueRenderer"><code>BaseValueRenderer</code></a></p>
+<p>New class: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/BaseValueRenderer"><code>BaseValueRenderer</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/ValueRenderer"><code>ValueRenderer</code></a> (now a subclass of <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BaseValueRenderer"><code>BaseValueRenderer</code></a>)</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/ValueRenderer"><code>ValueRenderer</code></a> (now a subclass of <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/BaseValueRenderer"><code>BaseValueRenderer</code></a>)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/BytesRenderer"><code>BytesRenderer</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/BytesRenderer"><code>BytesRenderer</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/RenderDirective#bytes"><code>RenderDirective.bytes</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/RenderDirective#bytes"><code>RenderDirective.bytes</code></a></p>
 </li>
 </ul>
 </div>
@@ -1020,7 +1020,7 @@ Because of this, existing sites must be migrated before using the <code>0.30</co
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/EvaluatorSettings#traceMode"><code>traceMode</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/EvaluatorSettings#traceMode"><code>traceMode</code></a></p>
 </li>
 </ul>
 </div>
@@ -1030,16 +1030,16 @@ Because of this, existing sites must be migrated before using the <code>0.30</co
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/reflect/Class#allMethods"><code>Class.allMethods</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/reflect/Class#allMethods"><code>Class.allMethods</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/reflect/Class#allProperties"><code>Class.allProperties</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/reflect/Class#allProperties"><code>Class.allProperties</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/reflect/Property#allAnnotations"><code>Propterty.allAnnotations</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/reflect/Property#allAnnotations"><code>Propterty.allAnnotations</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.1/reflect/Propterty#allModifiers"><code>Propterty.allModifiers</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/reflect/Propterty#allModifiers"><code>Propterty.allModifiers</code></a></p>
 </li>
 </ul>
 </div>
@@ -1088,8 +1088,8 @@ Because of this, existing sites must be migrated before using the <code>0.30</co
 <div class="sect2">
 <h3 id="binary-data-handling-yaml-parser"><a class="anchor" href="#binary-data-handling-yaml-parser"></a><a class="link" href="#binary-data-handling-yaml-parser">Binary data handling <code>yaml.Parser</code></a></h3>
 <div class="paragraph">
-<p><a href="https://yaml.org/type/binary.html">YAML binary scalars</a> are now parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/Bytes"><code>Bytes</code></a> values.
-Prior versions of Pkl parsed binary scalars as <a href="https://pkl-lang.org/package-docs/pkl/0.30.1/base/String"><code>String</code></a> values containing the base64-encoded binary data.</p>
+<p><a href="https://yaml.org/type/binary.html">YAML binary scalars</a> are now parsed as <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Bytes"><code>Bytes</code></a> values.
+Prior versions of Pkl parsed binary scalars as <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String"><code>String</code></a> values containing the base64-encoded binary data.</p>
 </div>
 </div>
 <div class="sect2">

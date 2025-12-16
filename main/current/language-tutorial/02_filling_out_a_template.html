@@ -524,7 +524,7 @@ Consider the following example.</p>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">parrot</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">parrot</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Parrot&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
@@ -598,14 +598,14 @@ Consider the following example.</p>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">woodPigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">stockPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">woodPigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>stockPigeon<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
     <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">dodo</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">woodPigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">dodo</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>woodPigeon<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
   <span class="hljs-property">extinct</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
@@ -691,7 +691,7 @@ What if you include <em>elements</em> or <em>entries</em> in an amends expressio
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">adultBirdFoods</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">favoriteFoods</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">adultBirdFoods</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>favoriteFoods<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   [<span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;pebbles&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="hljs-string">&quot;worms&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
   [<span class="hljs-string">&quot;Falcon&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
@@ -782,7 +782,7 @@ Going back to the example above, you can write <code>pigeon</code> as a separate
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pigeon.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-<span class="hljs-property">parrot</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">pigeon</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">parrot</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pigeon<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Great green macaw&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
   <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
@@ -805,7 +805,7 @@ Looking at the result, however, you see a (possibly) unexpected difference.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">$</span> <span class="hljs-property">pkl</span> <span class="hljs-property">eval</span> <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span><span class="hljs-property">me</span><span class="hljs-operator">/</span><span class="hljs-property">tutorial</span><span class="hljs-operator">/</span><span class="hljs-property">pigeon</span><span class="hljs-punctuation">.</span><span class="hljs-property">pkl</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">$ pkl eval <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span>me<span class="hljs-operator">/</span>tutorial<span class="hljs-operator">/</span>pigeon<span class="hljs-punctuation">.</span>pkl
 <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Common wood pigeon&quot;</span>
 <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
 <span class="hljs-property">taxonomy</span> <span class="hljs-punctuation">{</span>
@@ -814,7 +814,7 @@ Looking at the result, however, you see a (possibly) unexpected difference.</p>
   <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Columba palumbus&quot;</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">$</span> <span class="hljs-property">pkl</span> <span class="hljs-property">eval</span> <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span><span class="hljs-property">me</span><span class="hljs-operator">/</span><span class="hljs-property">tutorial</span><span class="hljs-operator">/</span><span class="hljs-property">parrot</span><span class="hljs-punctuation">.</span><span class="hljs-property">pkl</span>
+$ pkl eval <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span>me<span class="hljs-operator">/</span>tutorial<span class="hljs-operator">/</span>parrot<span class="hljs-punctuation">.</span>pkl
 <span class="hljs-property">parrot</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Great green macaw&quot;</span>
   <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
@@ -880,10 +880,10 @@ In other words: just by looking at Pkl code, you can&#8217;t tell whether it is 
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">AcmeCICD</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Pipeline</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">nameRequiresBranchName</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>nameRequiresBranchName<span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
 
-  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameRequiresBranchName</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">_</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
-      <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-property">branchName</span> <span class="hljs-operator">==</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameRequiresBranchName</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>_<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>branchName <span class="hljs-operator">==</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span>
         <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Pipelines that set a &#39;name&#39; must also set a &#39;branchName&#39;.&quot;</span><span class="hljs-punctuation">)</span>
       <span class="hljs-keyword">else</span> <span class="hljs-literal">true</span>
 
@@ -892,7 +892,7 @@ In other words: just by looking at Pkl code, you can&#8217;t tell whether it is 
 
 <span class="hljs-property">timeout</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">&gt;=</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">pipelines</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Pipeline</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-property">pipelines</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Pipeline</span><span class="hljs-operator">&gt;</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
@@ -1072,11 +1072,11 @@ When constraints are complicated or very application specific, template authors 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">$</span> <span class="hljs-property">pkl</span> <span class="hljs-property">eval</span> <span class="hljs-operator">-</span><span class="hljs-property">f</span> <span class="hljs-property">yml</span> <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span><span class="hljs-property">me</span><span class="hljs-operator">/</span><span class="hljs-property">tutorial</span><span class="hljs-operator">/</span><span class="hljs-property">cicd</span><span class="hljs-punctuation">.</span><span class="hljs-property">pkl</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">$ pkl eval <span class="hljs-operator">-</span>f yml <span class="hljs-operator">/</span><span class="hljs-title class_">Users</span><span class="hljs-operator">/</span>me<span class="hljs-operator">/</span>tutorial<span class="hljs-operator">/</span>cicd<span class="hljs-punctuation">.</span>pkl
 <span class="hljs-property">timeout</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span>
-<span class="hljs-property">pipelines</span><span class="hljs-punctuation">:</span>
-<span class="hljs-operator">-</span> <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-property">prb</span>
-  <span class="hljs-property">branchName</span><span class="hljs-punctuation">:</span> <span class="hljs-property">main</span></code></pre>
+pipelines<span class="hljs-punctuation">:</span>
+<span class="hljs-operator">-</span> <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> prb
+  <span class="hljs-property">branchName</span><span class="hljs-punctuation">:</span> main</code></pre>
 </div>
 </div>
 </div>

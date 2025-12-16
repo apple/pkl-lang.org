@@ -53,12 +53,12 @@ Pkl <a href="../main/current/language-reference/index.html#methods" class="xref 
   <span class="hljs-property">greeting</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
   <span class="hljs-comment">/// The derived greeting.</span>
-  fixed <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">greeting</span><span class="hljs-char escape_">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-keyword">fixed</span> <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>greeting<span class="hljs-punctuation">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
 
-<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span>; <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Good day&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span>; <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Good day&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -107,14 +107,14 @@ Instead of defining multiple methods that accept the same parameters, a single c
 
 <span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">GreetingFunction</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-property">farewellHawk</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">greetHawk</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">farewellHawk</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>greetHawk<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bye&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-title class_">GreetingFunction</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+      [<span class="hljs-title class_">GreetingFunction</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -159,17 +159,17 @@ Ordinarily, a circular data reference of this kind would result in a stack overf
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">fahrenheit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">*</span> <span class="hljs-number">9</span> <span class="hljs-operator">/</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">32</span>
-  <span class="hljs-property">celsius</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">-</span> <span class="hljs-number">273.15</span>
-  <span class="hljs-property">kelvin</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">fahrenheit</span> <span class="hljs-operator">-</span> <span class="hljs-number">32</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span> <span class="hljs-operator">*</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">273.15</span>
+  <span class="hljs-property">fahrenheit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> celsius <span class="hljs-operator">*</span> <span class="hljs-number">9</span> <span class="hljs-operator">/</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">32</span>
+  <span class="hljs-property">celsius</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> kelvin <span class="hljs-operator">-</span> <span class="hljs-number">273.15</span>
+  <span class="hljs-property">kelvin</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>fahrenheit <span class="hljs-operator">-</span> <span class="hljs-number">32</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span> <span class="hljs-operator">*</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">273.15</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">fToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span>
-<span class="hljs-property">fToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
-<span class="hljs-property">kToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
-<span class="hljs-property">kToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
-<span class="hljs-property">cToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
-<span class="hljs-property">cToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span></code></pre>
+<span class="hljs-property">fToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">kelvin</span>
+<span class="hljs-property">fToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">celsius</span>
+<span class="hljs-property">kToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">fahrenheit</span>
+<span class="hljs-property">kToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">celsius</span>
+<span class="hljs-property">cToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">fahrenheit</span>
+<span class="hljs-property">cToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">kelvin</span></code></pre>
 </div>
 </div>
 </div>
@@ -218,40 +218,40 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-keyword">local</span> <span class="hljs-property">app</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">this</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// Kubernetes labels used for all output resources and selectors</span>
-<span class="hljs-property">labels</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
-  [<span class="hljs-string">&quot;app.kubernetes.io/name&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-property">name</span>
+<span class="hljs-property">labels</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  [<span class="hljs-string">&quot;app.kubernetes.io/name&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> name
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// Kuberetes [Deployment] that manages the application Pods.</span>
 <span class="hljs-property">deployment</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Deployment</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">replicas</span>
+    <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">replicas</span>
     <span class="hljs-property">template</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+        <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
       <span class="hljs-punctuation">}</span>
       <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-property">containers</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-            <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">image</span>
-            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">livenessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+            <span class="hljs-property">image</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">image</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span>livenessPath <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
               <span class="hljs-property">livenessProbe</span> <span class="hljs-punctuation">{</span>
                 <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
-                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
-                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">livenessPath</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> livenessPath
                 <span class="hljs-punctuation">}</span>
               <span class="hljs-punctuation">}</span>
             <span class="hljs-punctuation">}</span>
-            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">readinessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span>readinessPath <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
               <span class="hljs-property">readinessProbe</span> <span class="hljs-punctuation">{</span>
                 <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
-                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
-                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">readinessPath</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> readinessPath
                 <span class="hljs-punctuation">}</span>
               <span class="hljs-punctuation">}</span>
             <span class="hljs-punctuation">}</span>
@@ -265,15 +265,15 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-comment">/// Kubernetes [Service] that provides a cluster-internal VIP for the application.</span>
 <span class="hljs-property">service</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Service</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">selector</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">selector</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
     <span class="hljs-property">ports</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http&quot;</span>
-        <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+        <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
@@ -282,15 +282,15 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-comment">/// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.</span>
 <span class="hljs-property">ingress</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ingress</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">defaultBackend</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-property">service</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">?.</span><span class="hljs-property">metadata</span><span class="hljs-punctuation">?.</span><span class="hljs-property">name</span>!!
+        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">service</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">metadata</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">name</span>!!
         <span class="hljs-property">port</span>  <span class="hljs-punctuation">{</span>
-          <span class="hljs-property">number</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">.</span><span class="hljs-property">spec</span><span class="hljs-punctuation">?.</span><span class="hljs-property">ports</span>!![<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+          <span class="hljs-property">number</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">service</span><span class="hljs-punctuation">.</span><span class="hljs-variable">spec</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">ports</span>!![<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
         <span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
@@ -298,10 +298,10 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// All Kubernetes resources needed to deploy the application.</span>
-<span class="hljs-property">resources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="hljs-property">deployment</span>
-  <span class="hljs-property">service</span>
-  <span class="hljs-property">ingress</span>
+<span class="hljs-property">resources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  deployment
+  service
+  ingress
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -338,30 +338,30 @@ Here are a few examples of using the <code>SimpleApplication</code> module:</p>
 <span class="hljs-comment">/// The most basic [SimpleApplication] usage.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// The application image is expected to listen on port 8080 and provide `/livez` and `/readyz` paths</span>
-<span class="hljs-property">app1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app1&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app1:latest&quot;</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span>
 
 <span class="hljs-comment">/// Usage of [SimpleApplication] with additional input properties overridden.</span>
-<span class="hljs-property">app2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app2&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app2:latest&quot;</span>
   <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
   <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">9090</span>
   <span class="hljs-property">livenessPath</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>
   <span class="hljs-property">readinessPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/healthz&quot;</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span>
 
 <span class="hljs-comment">/// Advanced [SimpleApplication] usage where output properties are amended.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]&#39;s simple API.</span>
 <span class="hljs-comment">/// It also amends [resources] to add an additional resource required specifically by this application.</span>
-<span class="hljs-property">app3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app3&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app3:latest&quot;</span>
   <span class="hljs-property">labels</span> <span class="hljs-punctuation">{</span>
-    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>-staging&quot;</span>
+    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>-staging&quot;</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">deployment</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
@@ -385,7 +385,7 @@ Here are a few examples of using the <code>SimpleApplication</code> module:</p>
       <span class="hljs-comment">// ...</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span></code></pre>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span></code></pre>
 </div>
 </div>
 </div>
@@ -563,9 +563,9 @@ This uses a <a href="../main/current/language-reference/index.html#for-generator
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">sidecars</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">offset</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-punctuation">(</span><span class="hljs-property">db</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> <span class="hljs-property">offset</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>offset <span class="hljs-keyword">in</span> <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span>db<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> offset
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -743,11 +743,11 @@ And, type annotations can optionally have constraints defined on them.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Person</span>
 
-<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isEmpty</span><span class="hljs-punctuation">)</span>
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>isEmpty<span class="hljs-punctuation">)</span>
 
 <span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">130</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
+<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -795,7 +795,7 @@ Here is a sample type that must be a string with an odd length, and whose first 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">length</span><span class="hljs-punctuation">.</span><span class="hljs-property">isOdd</span><span class="hljs-punctuation">,</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">first</span> <span class="hljs-operator">==</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">last</span><span class="hljs-punctuation">)</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>length<span class="hljs-punctuation">.</span><span class="hljs-variable">isOdd</span><span class="hljs-punctuation">,</span> chars<span class="hljs-punctuation">.</span><span class="hljs-variable">first</span> <span class="hljs-operator">==</span> chars<span class="hljs-punctuation">.</span><span class="hljs-variable">last</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -841,7 +841,7 @@ It also means that you can import packages by a simpler name.</p>
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@toml/toml.pkl&quot;</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-property">toml</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> toml<span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -1430,16 +1430,16 @@ Unless an instance requires specific configuration, the leaf modules only contai
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:reflect&quot;</span>
 
-<span class="hljs-keyword">hidden</span> <span class="hljs-property">app</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span>
-<span class="hljs-keyword">hidden</span> <span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">1</span><span class="hljs-punctuation">]</span>
-<span class="hljs-keyword">hidden</span> <span class="hljs-property">cluster</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span>[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">app</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> path[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> path[<span class="hljs-number">1</span><span class="hljs-punctuation">]</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">cluster</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> path[<span class="hljs-number">2</span><span class="hljs-punctuation">]</span>
 
-<span class="hljs-keyword">hidden</span> <span class="hljs-property">path</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-property">reflect</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Module</span><span class="hljs-punctuation">(</span><span class="hljs-type">module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">relativePathTo</span><span class="hljs-punctuation">(</span><span class="hljs-type">module</span><span class="hljs-punctuation">)</span>
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">path</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span>reflect<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Module</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">relativePathTo</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">module</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-params">mod</span><span class="hljs-punctuation">:</span> <span class="hljs-property">reflect</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Module</span> <span class="hljs-operator">=</span>
-  <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span> <span class="hljs-operator">=</span> <span class="hljs-params">mod</span><span class="hljs-punctuation">.</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">)</span>
-    <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span> <span class="hljs-operator">==</span> <span class="hljs-literal">null</span> <span class="hljs-operator">||</span> <span class="hljs-operator">!</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">.</span><span class="hljs-property">isAmend</span><span class="hljs-punctuation">)</span> <span class="hljs-params">mod</span><span class="hljs-punctuation">.</span><span class="hljs-property">reflectee</span>
-    <span class="hljs-keyword">else</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-property">supermodule</span><span class="hljs-punctuation">)</span></code></pre>
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">findRootModule</span><span class="hljs-punctuation">(</span><span class="hljs-params">mod</span><span class="hljs-punctuation">:</span> reflect<span class="hljs-punctuation">.</span><span class="hljs-title class_">Module</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Module</span> <span class="hljs-operator">=</span>
+  <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span>supermodule <span class="hljs-operator">=</span> mod<span class="hljs-punctuation">.</span><span class="hljs-variable">supermodule</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>supermodule <span class="hljs-operator">==</span> <span class="hljs-literal">null</span> <span class="hljs-operator">||</span> <span class="hljs-operator">!</span>supermodule<span class="hljs-punctuation">.</span><span class="hljs-variable">isAmend</span><span class="hljs-punctuation">)</span> mod<span class="hljs-punctuation">.</span><span class="hljs-variable">reflectee</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-title function_ invoke__">findRootModule</span><span class="hljs-punctuation">(</span>supermodule<span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1457,13 +1457,13 @@ Here is how:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isLeafModule</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-property">path</span><span class="hljs-punctuation">.</span><span class="hljs-property">length</span> <span class="hljs-operator">==</span> <span class="hljs-number">3</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isLeafModule</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> path<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span> <span class="hljs-operator">==</span> <span class="hljs-number">3</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">value</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isLeafModule</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
-      <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">values</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">flatMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">values</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+      <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">values</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">flatMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toMap</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">values</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
     <span class="hljs-keyword">else</span>
-      <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+      <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -1512,9 +1512,9 @@ As seen from the top-level directory of the repository you can define <code>iscA
 <span class="hljs-property">secrets</span> <span class="hljs-punctuation">{</span>
   [<span class="hljs-string">&quot;hush&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">stringData</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-string">&quot;application&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">app</span>
-      [<span class="hljs-string">&quot;environment&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">env</span>
-      [<span class="hljs-string">&quot;cluster&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-type">module</span><span class="hljs-punctuation">.</span><span class="hljs-property">cluster</span>
+      [<span class="hljs-string">&quot;application&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-variable">app</span>
+      [<span class="hljs-string">&quot;environment&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-variable">env</span>
+      [<span class="hljs-string">&quot;cluster&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-variable">cluster</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -1679,7 +1679,7 @@ They are useful for unit tests, where the behavior of functions, types, or any e
 
 <span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
   [<span class="hljs-string">&quot;one&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-number">1</span><span class="hljs-punctuation">.</span><span class="hljs-property">isOdd</span>
+    <span class="hljs-number">1</span><span class="hljs-punctuation">.</span><span class="hljs-variable">isOdd</span>
     <span class="hljs-number">1</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span>
     <span class="hljs-number">1</span> <span class="hljs-operator">==</span> <span class="hljs-number">2</span>
   <span class="hljs-punctuation">}</span>
@@ -1712,12 +1712,12 @@ module test
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
   [<span class="hljs-string">&quot;encode&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/some path&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;https://example.com/some%20path&quot;</span>
-    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">alphaLower</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">alphaLower</span>
-    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">alphaUpper</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">alphaUpper</span>
-    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">nums</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">nums</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span>alphaLower<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> alphaLower
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span>alphaUpper<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> alphaUpper
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span>nums<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> nums
 
     <span class="hljs-keyword">local</span> <span class="hljs-property">safeChars</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;!#$&amp;&#39;()*+,-./:;=?@_~&quot;</span>
-    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-property">safeChars</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-property">safeChars</span>
+    <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span>safeChars<span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> safeChars
     <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\u{ffff}</span>&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;%EF%BF%BF&quot;</span>
     <span class="hljs-title class_">URI</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">encode</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;🏀&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;%F0%9F%8F%80&quot;</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation"></span></code></pre>
@@ -1748,7 +1748,7 @@ For simplicity&#8217;s sake, we are just declaring it as a local class.</p>
 
   <span class="hljs-property">lastName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
-  <span class="hljs-property">fullName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">firstName</span><span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">lastName</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+  <span class="hljs-property">fullName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>firstName<span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lastName<span class="hljs-punctuation">)</span></span>&quot;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
@@ -1931,7 +1931,7 @@ It defines some converters for <code>DataSize</code> and <code>Duration</code>, 
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Logger</span>
 
 <span class="hljs-comment">/// The list of targets to send log output to.</span>
-<span class="hljs-property">targets</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">LogTarget</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-property">targets</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">LogTarget</span><span class="hljs-operator">&gt;</span>
 
 <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LogTarget</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-comment">/// The logging level to write at.</span>
@@ -1957,8 +1957,8 @@ It defines some converters for <code>DataSize</code> and <code>Duration</code>, 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">unit</span><span class="hljs-char escape_">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">value</span><span class="hljs-char escape_">)</span></span>&quot;</span>
-      [<span class="hljs-title class_">Duration</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">isoString</span>
+      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-punctuation">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-punctuation">)</span></span>&quot;</span>
+      [<span class="hljs-title class_">Duration</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">isoString</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -1978,7 +1978,7 @@ We&#8217;d also like to provide some sample code for our users, that demonstrate
 
 <span class="hljs-property">targets</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-keyword">new</span> <span class="hljs-title class_">RotatingFileTarget</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">maxSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span>
+    <span class="hljs-property">maxSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mb</span>
     <span class="hljs-property">directory</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/vat/etc/log&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -1991,7 +1991,7 @@ We&#8217;d also like to provide some sample code for our users, that demonstrate
 
 <span class="hljs-property">targets</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-keyword">new</span> <span class="hljs-title class_">NetworkLogTarget</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-property">s</span>
+    <span class="hljs-property">timeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-variable">s</span>
     <span class="hljs-property">connectionString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/foo/bar&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -2003,16 +2003,16 @@ We&#8217;d also like to provide some sample code for our users, that demonstrate
 <div class="listingblock">
 <div class="title">tests/Logger.pkl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-property">tests</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Logger</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> tests<span class="hljs-punctuation">.</span><span class="hljs-title class_">Logger</span>
 
 <span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
 
-<span class="hljs-keyword">import*</span> <span class="hljs-string">&quot;../examples/*.pkl&quot;</span> <span class="hljs-keyword">as</span> <span class="hljs-property">allExamples</span>
+<span class="hljs-keyword">import*</span> <span class="hljs-string">&quot;../examples/*.pkl&quot;</span> <span class="hljs-keyword">as</span> allExamples
 
 <span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">key</span> <span class="hljs-keyword">in</span> <span class="hljs-property">allExamples</span><span class="hljs-punctuation">.</span><span class="hljs-property">keys</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
-    [<span class="hljs-property">key</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">drop</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;../examples/&quot;</span><span class="hljs-punctuation">.</span><span class="hljs-property">length</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">replaceLast</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;pkl&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;yml&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
-      <span class="hljs-property">allExamples</span>[<span class="hljs-property">key</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-property">output</span><span class="hljs-punctuation">.</span><span class="hljs-property">text</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>key <span class="hljs-keyword">in</span> allExamples<span class="hljs-punctuation">.</span><span class="hljs-variable">keys</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    [key<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">drop</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;../examples/&quot;</span><span class="hljs-punctuation">.</span><span class="hljs-variable">length</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">replaceLast</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;pkl&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;yml&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+      allExamples[key<span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -2090,7 +2090,7 @@ If <code>pkl test</code> is run without any input source modules, it will run al
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
 
 <span class="hljs-property">tests</span> <span class="hljs-punctuation">{</span>
-  ...<span class="hljs-built_in">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;tests/**.pkl&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-property">keys</span>
+  ...<span class="hljs-keyword">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;tests/**.pkl&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">keys</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -2528,7 +2528,7 @@ of providing autocomplete and telling you when a given value is invalid.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The IPv4 to connect</span>
-<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">serverIp</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2541,7 +2541,7 @@ of invalid configs.</p>
 <h3 id="more-string-goodies"><a class="anchor" href="#more-string-goodies"></a><a class="link" href="#more-string-goodies">More String goodies</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isBlank</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>isBlank<span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-property">email</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">contains</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;@&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
@@ -2605,7 +2605,7 @@ Numbers can be constrained to any value.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">volume</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">11.0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-<span class="hljs-property">multiplier</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEven</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<span class="hljs-property">multiplier</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span>isEven<span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2633,17 +2633,17 @@ and we can provide multiple ones:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isPrime</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">n</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
-  <span class="hljs-params">n</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span> <span class="hljs-operator">&amp;&amp;</span> <span class="hljs-title class_">IntSeq</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-params">n</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">every</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">x</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">n</span> <span class="hljs-operator">%</span> <span class="hljs-params">x</span> <span class="hljs-operator">!=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">)</span>
+  n <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span> <span class="hljs-operator">&amp;&amp;</span> <span class="hljs-title function_ invoke__">IntSeq</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> n <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">every</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">x</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> n <span class="hljs-operator">%</span> x <span class="hljs-operator">!=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">hash</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-property">isPrime</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">hash</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span>isPrime<span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-<span class="hljs-property">region</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;us-&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-property">length</span> <span class="hljs-operator">&lt;</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">region</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;us-&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> length <span class="hljs-operator">&lt;</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
 <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">==</span> <span class="hljs-title function_ invoke__">capitalize</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
 
-<span class="hljs-property">building</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isEmpty</span> <span class="hljs-operator">||</span> <span class="hljs-title function_ invoke__">toInt</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-property">building</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>isEmpty <span class="hljs-operator">||</span> <span class="hljs-title function_ invoke__">toInt</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
 
-<span class="hljs-property">grade</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-F][+-]?&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+<span class="hljs-property">grade</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-F][+-]?&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2677,7 +2677,7 @@ can be a bit hard to understand:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2700,9 +2700,9 @@ Value: "123-123-123"
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">isValidSocialSecurityNumber</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">str</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
-  <span class="hljs-params">str</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  str<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">isValidSocialSecurityNumber</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>isValidSocialSecurityNumber<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2745,12 +2745,12 @@ error message by throwing the exception ourselves:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-params">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span>
   <span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">ssn</span><span class="hljs-char escape_">)</span></span>.</span>
+<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>ssn<span class="hljs-punctuation">)</span></span>.</span>
 <span class="hljs-string">  Valid ones should be in the form `XXX-XX-XXXX`</span>
 <span class="hljs-string">  where `X` is a number between 0 and 9.</span>
 <span class="hljs-string">  &quot;&quot;&quot;</span>
 
-<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
+<span class="hljs-property">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123-123-123&quot;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2780,8 +2780,8 @@ doesn&#8217;t compose very well:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">typealias</span> <span class="hljs-title class_">SSN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid SSN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
-<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-Z]{2}\d{6}[A-Z]&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid NIN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">typealias</span> <span class="hljs-title class_">SSN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;\d{3}-\d{2}-\d{4}&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid SSN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">#&quot;[A-Z]{2}\d{6}[A-Z]&quot;#</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">||</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Invalid NIN ...&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
 
 <span class="hljs-property">taxId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">SSN</span><span class="hljs-operator">|</span><span class="hljs-title class_">NIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;AB123456C&quot;</span></code></pre>
 </div>

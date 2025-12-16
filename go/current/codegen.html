@@ -462,7 +462,7 @@ If the determined package name is not prefixed by the base path, it is skipped f
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span>go<span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">structTags</span> <span class="hljs-punctuation">{</span>
     [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;%{name},omitempty&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="hljs-punctuation">}</span>
@@ -483,7 +483,7 @@ If the determined package name is not prefixed by the base path, it is skipped f
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TomlField</span> <span class="hljs-keyword">extends</span> <span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TomlField</span> <span class="hljs-keyword">extends</span> go<span class="hljs-punctuation">.</span><span class="hljs-title class_">Field</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">structTags</span> <span class="hljs-punctuation">{</span>
     [<span class="hljs-string">&quot;toml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;%{name},omitempty&quot;</span>
   <span class="hljs-punctuation">}</span>
@@ -775,7 +775,7 @@ annotation must be used on at least one of these declaractions so the resulting 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-property">go</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Name</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MyCoolApplication&quot;</span> <span class="hljs-punctuation">}</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span>go<span class="hljs-punctuation">.</span><span class="hljs-title class_">Name</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MyCoolApplication&quot;</span> <span class="hljs-punctuation">}</span>
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">My_Application</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyApplication</span></code></pre>

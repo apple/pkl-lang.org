@@ -592,34 +592,34 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
 <span class="hljs-comment">/// Regex patterns to determine which modules are allowed for import.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-modules` flag</span>
-<span class="hljs-property">allowedModules</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">allowedModules</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Regex patterns to dettermine which resources are allowed to be read.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--allowed-resources` flag</span>
-<span class="hljs-property">allowedResources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">allowedResources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Register client-side module readers.</span>
-<span class="hljs-property">clientModuleReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">ClientModuleReader</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">clientModuleReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">ClientModuleReader</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Register client-side resource readers.</span>
-<span class="hljs-property">clientResourceReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">ClientResourceReader</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">clientResourceReaders</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">ClientResourceReader</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Directories, ZIP archives, or JAR archives</span>
 <span class="hljs-comment">/// to search when resolving `modulepath:` URIs.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--module-path` flag.</span>
-<span class="hljs-property">modulePaths</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">modulePaths</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Environment variable to set.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--env-var` flag.</span>
-<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">env</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// External properties to set.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// API version of the CLI&#39;s `--properties` flag.</span>
-<span class="hljs-property">properties</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">properties</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// Duration, in seconds, after which evaluation of a source module will be timed out.</span>
 <span class="hljs-comment">///</span>
@@ -650,13 +650,13 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
   <span class="hljs-comment">/// Tells whether the path part of ths URI has a</span>
-  <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
-  <span class="hljs-comment">/// `/path/to/my/file` designates a nested path through the `/` character.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
-  <span class="hljs-comment">/// any form of hierarchy.</span>
+<span class="hljs-comment">  /// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
+<span class="hljs-comment">  /// `/path/to/my/file` designates a nested path through the `/` character.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
+<span class="hljs-comment">  /// any form of hierarchy.</span>
   <span class="hljs-property">hasHierarchicalUris</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
 
   <span class="hljs-comment">/// Tells whether this reader supports globbing.</span>
@@ -668,21 +668,21 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-property">scheme</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
   <span class="hljs-comment">/// Tells whether the path part of ths URI has a</span>
-  <span class="hljs-comment">/// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
-  <span class="hljs-comment">/// `/path/to/my/file` designates a nested path through the `/` character.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
-  <span class="hljs-comment">/// any form of hierarchy.</span>
+<span class="hljs-comment">  /// [hier-part](https://datatracker.ietf.org/doc/html/rfc3986#section-3).</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// An example of a hierarchical URI is `file:///path/to/my/file`, where</span>
+<span class="hljs-comment">  /// `/path/to/my/file` designates a nested path through the `/` character.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// An example of a non-hierarchical URI is `pkl.base`, where the `base` does not denote</span>
+<span class="hljs-comment">  /// any form of hierarchy.</span>
   <span class="hljs-property">hasHierarchicalUris</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
 
   <span class="hljs-comment">/// Tells whether this reader supports globbing.</span>
   <span class="hljs-property">isGlobbable</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
 
   <span class="hljs-comment">/// Tells whether the module is local to the system.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// A local resource that [hasHierarchicalUris] supports triple-dot imports.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// A local resource that [hasHierarchicalUris] supports triple-dot imports.</span>
   <span class="hljs-property">isLocal</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
 <span class="hljs-punctuation">}</span>
 
@@ -696,7 +696,7 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
   <span class="hljs-property">projectFileUri</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
   <span class="hljs-comment">/// The dependencies of this project.</span>
-  <span class="hljs-property">dependencies</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Project</span><span class="hljs-operator">|</span><span class="hljs-title class_">RemoteDependency</span><span class="hljs-punctuation">&gt;</span>
+  <span class="hljs-property">dependencies</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Project</span><span class="hljs-operator">|</span><span class="hljs-title class_">RemoteDependency</span><span class="hljs-operator">&gt;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">RemoteDependency</span> <span class="hljs-punctuation">{</span>
@@ -716,54 +716,54 @@ Upon creating the evaluator, the server sends back a <a href="#create-evaluator-
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Http</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-comment">/// PEM format certificates to trust when making HTTP requests.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// If [null], Pkl will trust its own built-in certificates.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// If [null], Pkl will trust its own built-in certificates.</span>
   <span class="hljs-property">caCertificates</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Binary</span><span class="hljs-operator">?</span>
 
   <span class="hljs-comment">/// Configuration of the HTTP proxy to use.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// If [null], uses the operating system&#39;s proxy configuration.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// If [null], uses the operating system&#39;s proxy configuration.</span>
   <span class="hljs-property">proxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Proxy</span><span class="hljs-operator">?</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// Settings that control how Pkl talks to HTTP proxies.</span>
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Proxy</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-comment">/// The proxy to use for HTTP(S) connections.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// At the moment, only HTTP proxies are supported.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// Example:</span>
-  <span class="hljs-comment">/// ```</span>
-  <span class="hljs-comment">/// address = &quot;http://my.proxy.example.com:5080&quot;</span>
-  <span class="hljs-comment">/// ```</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// At the moment, only HTTP proxies are supported.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// Example:</span>
+<span class="hljs-comment">  /// ```</span>
+<span class="hljs-comment">  /// address = &quot;http://my.proxy.example.com:5080&quot;</span>
+<span class="hljs-comment">  /// ```</span>
   <span class="hljs-property">address</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">startsWith</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;http://&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">?</span>
 
   <span class="hljs-comment">/// Hosts to which all connections should bypass a proxy.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// Values can be either hostnames, or IP addresses.</span>
-  <span class="hljs-comment">/// IP addresses can optionally be provided using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// The only wildcard is `&quot;*&quot;`, which disables all proxying.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// A hostname matches all subdomains.</span>
-  <span class="hljs-comment">/// For example, `example.com` matches `foo.example.com`, but not `fooexample.com`.</span>
-  <span class="hljs-comment">/// A hostname that is prefixed with a dot matches the hostname itself,</span>
-  <span class="hljs-comment">/// so `.example.com` matches `example.com`.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// Optionally, a port can be specified.</span>
-  <span class="hljs-comment">/// If a port is omitted, all ports are matched.</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// Example:</span>
-  <span class="hljs-comment">///</span>
-  <span class="hljs-comment">/// ```</span>
-  <span class="hljs-comment">/// noProxy {</span>
-  <span class="hljs-comment">///   &quot;127.0.0.1&quot;</span>
-  <span class="hljs-comment">///   &quot;169.254.0.0/16&quot;</span>
-  <span class="hljs-comment">///   &quot;example.com&quot;</span>
-  <span class="hljs-comment">///   &quot;localhost:5050&quot;</span>
-  <span class="hljs-comment">/// }</span>
-  <span class="hljs-comment">/// ```</span>
-  <span class="hljs-property">noProxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-property">isDistinct</span><span class="hljs-punctuation">)</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// Values can be either hostnames, or IP addresses.</span>
+<span class="hljs-comment">  /// IP addresses can optionally be provided using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// The only wildcard is `&quot;*&quot;`, which disables all proxying.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// A hostname matches all subdomains.</span>
+<span class="hljs-comment">  /// For example, `example.com` matches `foo.example.com`, but not `fooexample.com`.</span>
+<span class="hljs-comment">  /// A hostname that is prefixed with a dot matches the hostname itself,</span>
+<span class="hljs-comment">  /// so `.example.com` matches `example.com`.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// Optionally, a port can be specified.</span>
+<span class="hljs-comment">  /// If a port is omitted, all ports are matched.</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// Example:</span>
+<span class="hljs-comment">  ///</span>
+<span class="hljs-comment">  /// ```</span>
+<span class="hljs-comment">  /// noProxy {</span>
+<span class="hljs-comment">  ///   &quot;127.0.0.1&quot;</span>
+<span class="hljs-comment">  ///   &quot;169.254.0.0/16&quot;</span>
+<span class="hljs-comment">  ///   &quot;example.com&quot;</span>
+<span class="hljs-comment">  ///   &quot;localhost:5050&quot;</span>
+<span class="hljs-comment">  /// }</span>
+<span class="hljs-comment">  /// ```</span>
+  <span class="hljs-property">noProxy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span>isDistinct<span class="hljs-punctuation">)</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Binary</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Any</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
@@ -1094,7 +1094,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
 
 <span class="hljs-comment">/// The elements at the provided base path.</span>
-<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// The description of the error that occured when listing elements.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
@@ -1158,7 +1158,7 @@ Otherwise, <code>error</code> is set.</p>
 <span class="hljs-property">evaluatorId</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
 
 <span class="hljs-comment">/// The elements at the provided base path.</span>
-<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-punctuation">&gt;</span><span class="hljs-operator">?</span>
+<span class="hljs-property">pathElements</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">PathElement</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span>
 
 <span class="hljs-comment">/// The description of the error that occured when listing elements.</span>
 <span class="hljs-property">error</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-operator">?</span>
@@ -1274,7 +1274,7 @@ Type: <a href="#server-message">Server</a> <a href="#one-way-message">One Way</a
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// This message has no properties.</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">/// This message has no properties.</code></pre>
 </div>
 </div>
 </div>

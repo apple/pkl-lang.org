@@ -382,12 +382,12 @@ Pkl <a href="../main/current/language-reference/index.html#methods" class="xref 
   <span class="hljs-property">greeting</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
   <span class="hljs-comment">/// The derived greeting.</span>
-  fixed <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">greeting</span><span class="hljs-char escape_">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-keyword">fixed</span> <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>greeting<span class="hljs-punctuation">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
 
-<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span>; <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Good day&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span>; <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Good day&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -436,14 +436,14 @@ Instead of defining multiple methods that accept the same parameters, a single c
 
 <span class="hljs-property">greetHawk</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">GreetingFunction</span><span class="hljs-operator">|</span><span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hawk&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-property">farewellHawk</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">greetHawk</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">farewellHawk</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>greetHawk<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bye&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-title class_">GreetingFunction</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-params">it</span><span class="hljs-punctuation">.</span><span class="hljs-property">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
+      [<span class="hljs-title class_">GreetingFunction</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -488,17 +488,17 @@ Ordinarily, a circular data reference of this kind would result in a stack overf
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">fahrenheit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">*</span> <span class="hljs-number">9</span> <span class="hljs-operator">/</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">32</span>
-  <span class="hljs-property">celsius</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">-</span> <span class="hljs-number">273.15</span>
-  <span class="hljs-property">kelvin</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">fahrenheit</span> <span class="hljs-operator">-</span> <span class="hljs-number">32</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span> <span class="hljs-operator">*</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">273.15</span>
+  <span class="hljs-property">fahrenheit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> celsius <span class="hljs-operator">*</span> <span class="hljs-number">9</span> <span class="hljs-operator">/</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">32</span>
+  <span class="hljs-property">celsius</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> kelvin <span class="hljs-operator">-</span> <span class="hljs-number">273.15</span>
+  <span class="hljs-property">kelvin</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>fahrenheit <span class="hljs-operator">-</span> <span class="hljs-number">32</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span> <span class="hljs-operator">*</span> <span class="hljs-number">5</span> <span class="hljs-operator">+</span> <span class="hljs-number">273.15</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">fToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span>
-<span class="hljs-property">fToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
-<span class="hljs-property">kToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
-<span class="hljs-property">kToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">celsius</span>
-<span class="hljs-property">cToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">fahrenheit</span>
-<span class="hljs-property">cToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">kelvin</span></code></pre>
+<span class="hljs-property">fToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">kelvin</span>
+<span class="hljs-property">fToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">fahrenheit</span> <span class="hljs-operator">=</span> <span class="hljs-number">72.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">celsius</span>
+<span class="hljs-property">kToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">fahrenheit</span>
+<span class="hljs-property">kToC</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">kelvin</span> <span class="hljs-operator">=</span> <span class="hljs-number">300.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">celsius</span>
+<span class="hljs-property">cToF</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">fahrenheit</span>
+<span class="hljs-property">cToK</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Temperature</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">celsius</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">kelvin</span></code></pre>
 </div>
 </div>
 </div>
@@ -547,40 +547,40 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-keyword">local</span> <span class="hljs-property">app</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">this</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-comment">/// Kubernetes labels used for all output resources and selectors</span>
-<span class="hljs-property">labels</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
-  [<span class="hljs-string">&quot;app.kubernetes.io/name&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-property">name</span>
+<span class="hljs-property">labels</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  [<span class="hljs-string">&quot;app.kubernetes.io/name&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> name
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// Kuberetes [Deployment] that manages the application Pods.</span>
 <span class="hljs-property">deployment</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Deployment</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">replicas</span>
+    <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">replicas</span>
     <span class="hljs-property">template</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+        <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
       <span class="hljs-punctuation">}</span>
       <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-property">containers</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-            <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">image</span>
-            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">livenessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+            <span class="hljs-property">image</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">image</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span>livenessPath <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
               <span class="hljs-property">livenessProbe</span> <span class="hljs-punctuation">{</span>
                 <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
-                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
-                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">livenessPath</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> livenessPath
                 <span class="hljs-punctuation">}</span>
               <span class="hljs-punctuation">}</span>
             <span class="hljs-punctuation">}</span>
-            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span><span class="hljs-property">readinessPath</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-keyword">when</span> <span class="hljs-punctuation">(</span>readinessPath <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
               <span class="hljs-property">readinessProbe</span> <span class="hljs-punctuation">{</span>
                 <span class="hljs-property">httpGet</span> <span class="hljs-punctuation">{</span>
-                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
-                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> <span class="hljs-property">readinessPath</span>
+                  <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
+                  <span class="hljs-property">path</span> <span class="hljs-operator">=</span> readinessPath
                 <span class="hljs-punctuation">}</span>
               <span class="hljs-punctuation">}</span>
             <span class="hljs-punctuation">}</span>
@@ -594,15 +594,15 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-comment">/// Kubernetes [Service] that provides a cluster-internal VIP for the application.</span>
 <span class="hljs-property">service</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Service</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">selector</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">selector</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
     <span class="hljs-property">ports</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;http&quot;</span>
-        <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+        <span class="hljs-property">port</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
@@ -611,15 +611,15 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-comment">/// Kubernetes [Ingress] that exposes a VIP for the application outside the cluster.</span>
 <span class="hljs-property">ingress</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ingress</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span>
-    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">labels</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span>
+    <span class="hljs-property">labels</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">labels</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">defaultBackend</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-property">service</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">?.</span><span class="hljs-property">metadata</span><span class="hljs-punctuation">?.</span><span class="hljs-property">name</span>!!
+        <span class="hljs-property">name</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">service</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">metadata</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">name</span>!!
         <span class="hljs-property">port</span>  <span class="hljs-punctuation">{</span>
-          <span class="hljs-property">number</span> <span class="hljs-operator">=</span> <span class="hljs-property">app</span><span class="hljs-punctuation">.</span><span class="hljs-property">service</span><span class="hljs-punctuation">.</span><span class="hljs-property">spec</span><span class="hljs-punctuation">?.</span><span class="hljs-property">ports</span>!![<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-property">port</span>
+          <span class="hljs-property">number</span> <span class="hljs-operator">=</span> app<span class="hljs-punctuation">.</span><span class="hljs-variable">service</span><span class="hljs-punctuation">.</span><span class="hljs-variable">spec</span><span class="hljs-punctuation">?.</span><span class="hljs-variable">ports</span>!![<span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>
         <span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
@@ -627,10 +627,10 @@ Here is an example of a CaaF module that uses class embedding to build a simple 
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-comment">/// All Kubernetes resources needed to deploy the application.</span>
-<span class="hljs-property">resources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="hljs-property">deployment</span>
-  <span class="hljs-property">service</span>
-  <span class="hljs-property">ingress</span>
+<span class="hljs-property">resources</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  deployment
+  service
+  ingress
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -667,30 +667,30 @@ Here are a few examples of using the <code>SimpleApplication</code> module:</p>
 <span class="hljs-comment">/// The most basic [SimpleApplication] usage.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// The application image is expected to listen on port 8080 and provide `/livez` and `/readyz` paths</span>
-<span class="hljs-property">app1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app1&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app1:latest&quot;</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span>
 
 <span class="hljs-comment">/// Usage of [SimpleApplication] with additional input properties overridden.</span>
-<span class="hljs-property">app2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app2&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app2:latest&quot;</span>
   <span class="hljs-property">replicas</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
   <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">9090</span>
   <span class="hljs-property">livenessPath</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>
   <span class="hljs-property">readinessPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/healthz&quot;</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span>
 
 <span class="hljs-comment">/// Advanced [SimpleApplication] usage where output properties are amended.</span>
 <span class="hljs-comment">///</span>
 <span class="hljs-comment">/// This example amends [deployment] directly to set properties not exposed by [SimpleApplication]&#39;s simple API.</span>
 <span class="hljs-comment">/// It also amends [resources] to add an additional resource required specifically by this application.</span>
-<span class="hljs-property">app3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">app3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">K8sResource</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleApplication</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app3&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app3:latest&quot;</span>
   <span class="hljs-property">labels</span> <span class="hljs-punctuation">{</span>
-    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">name</span><span class="hljs-char escape_">)</span></span>-staging&quot;</span>
+    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>-staging&quot;</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">deployment</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
@@ -714,7 +714,7 @@ Here are a few examples of using the <code>SimpleApplication</code> module:</p>
       <span class="hljs-comment">// ...</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-property">resources</span></code></pre>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">resources</span></code></pre>
 </div>
 </div>
 </div>

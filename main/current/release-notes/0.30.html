@@ -663,7 +663,7 @@ Additionally, it is available through CLI flag <code>--format pkl-binary</code>.
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:pklbinary&quot;</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-property">pklbinary</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> pklbinary<span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -766,42 +766,42 @@ let appConfig = try PklDecoder.decode(AppConfig.self, from: encodedData)</code><
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span><span class="hljs-punctuation">(</span>
   <span class="hljs-params">bar</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-params">baz</span><span class="hljs-punctuation">,</span><span class="hljs-params"></span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-params">bar</span> <span class="hljs-operator">+</span> <span class="hljs-params">baz</span>
+  <span class="hljs-params">baz</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> bar <span class="hljs-operator">+</span> baz
 
 <span class="hljs-property">foo</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">add</span><span class="hljs-punctuation">(</span>
   <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-property"></span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="hljs-punctuation">)</span>
 
 <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">MyMapping</span><span class="hljs-operator">&lt;</span>
   <span class="hljs-title class_">Key</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-title class_">Value</span><span class="hljs-punctuation">,</span><span class="hljs-property"></span> <i class="conum" data-value="3"></i><b>(3)</b>
-<span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Key</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Value</span><span class="hljs-punctuation">&gt;</span>
+  <span class="hljs-title class_">Value</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Key</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Value</span><span class="hljs-operator">&gt;</span>
 
-<span class="hljs-property">bar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span>
+<span class="hljs-property">bar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span>
   <span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span><span class="hljs-property"></span> <i class="conum" data-value="4"></i><b>(4)</b>
-<span class="hljs-punctuation">&gt;</span>
+  <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="hljs-operator">&gt;</span>
 
 <span class="hljs-property">baz</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">(</span>
   <span class="hljs-operator">!</span><span class="hljs-title function_ invoke__">containsKey</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;forbidden key&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-operator">!</span><span class="hljs-title function_ invoke__">containsKey</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;forbidden value&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-property"></span> <i class="conum" data-value="5"></i><b>(5)</b>
+  <span class="hljs-operator">!</span><span class="hljs-title function_ invoke__">containsKey</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;forbidden value&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="5"></i><b>(5)</b>
 <span class="hljs-punctuation">)</span>
 
 <span class="hljs-property">qux</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">(</span>
   <span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span><span class="hljs-property"></span> <i class="conum" data-value="6"></i><b>(6)</b>
+  <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="6"></i><b>(6)</b>
 <span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-title class_">Dynamic</span> <span class="hljs-operator">=</span>
   <span class="hljs-punctuation">(</span><span class="hljs-params">paramA</span><span class="hljs-punctuation">,</span> <span class="hljs-params">paramB</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dynamic</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-property">quux</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">paramA</span><span class="hljs-char escape_">)</span></span>: <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-params">paramB</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+    <span class="hljs-property">quux</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>paramA<span class="hljs-punctuation">)</span></span>: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>paramB<span class="hljs-punctuation">)</span></span>&quot;</span>
   <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">corge</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">qux</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">corge</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>qux<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-params">paramA</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-params">paramB</span><span class="hljs-punctuation">,</span><span class="hljs-params"></span> <i class="conum" data-value="7"></i><b>(7)</b>
+  <span class="hljs-params">paramB</span><span class="hljs-punctuation">,</span> <i class="conum" data-value="7"></i><b>(7)</b>
   <span class="hljs-punctuation">-&gt;</span>
-  <span class="hljs-property">grault</span> <span class="hljs-operator">=</span> <span class="hljs-params">paramA</span><span class="hljs-punctuation">.</span><span class="hljs-property">length</span> <span class="hljs-operator">*</span> <span class="hljs-params">paramB</span>
+  <span class="hljs-property">grault</span> <span class="hljs-operator">=</span> paramA<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span> <span class="hljs-operator">*</span> paramB
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>

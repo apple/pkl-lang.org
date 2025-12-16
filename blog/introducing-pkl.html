@@ -503,9 +503,9 @@ This uses a <a href="../main/current/language-reference/index.html#for-generator
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">sidecars</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span><span class="hljs-property">offset</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-punctuation">(</span><span class="hljs-property">db</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> <span class="hljs-property">offset</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>offset <span class="hljs-keyword">in</span> <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span>db<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">port</span> <span class="hljs-operator">=</span> <span class="hljs-number">6000</span> <span class="hljs-operator">+</span> offset
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -683,11 +683,11 @@ And, type annotations can optionally have constraints defined on them.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Person</span>
 
-<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span><span class="hljs-property">isEmpty</span><span class="hljs-punctuation">)</span>
+<span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>isEmpty<span class="hljs-punctuation">)</span>
 
 <span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isBetween</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">130</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
 
-<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
+<span class="hljs-property">zipCode</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">matches</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Regex</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>d{5}&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -735,7 +735,7 @@ Here is a sample type that must be a string with an odd length, and whose first 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span><span class="hljs-property">length</span><span class="hljs-punctuation">.</span><span class="hljs-property">isOdd</span><span class="hljs-punctuation">,</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">first</span> <span class="hljs-operator">==</span> <span class="hljs-property">chars</span><span class="hljs-punctuation">.</span><span class="hljs-property">last</span><span class="hljs-punctuation">)</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>length<span class="hljs-punctuation">.</span><span class="hljs-variable">isOdd</span><span class="hljs-punctuation">,</span> chars<span class="hljs-punctuation">.</span><span class="hljs-variable">first</span> <span class="hljs-operator">==</span> chars<span class="hljs-punctuation">.</span><span class="hljs-variable">last</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -781,7 +781,7 @@ It also means that you can import packages by a simpler name.</p>
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@toml/toml.pkl&quot;</span>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-property">toml</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> toml<span class="hljs-punctuation">.</span><span class="hljs-title class_">Renderer</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>

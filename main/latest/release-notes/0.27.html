@@ -565,7 +565,7 @@ Generally, Pkl only evaluates code that affects program output.</p>
   <span class="hljs-property">canFly</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;uh oh&quot;</span><span class="hljs-punctuation">)</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">birdName</span> <span class="hljs-operator">=</span> <span class="hljs-property">bird</span><span class="hljs-punctuation">.</span><span class="hljs-property">name</span></code></pre>
+<span class="hljs-property">birdName</span> <span class="hljs-operator">=</span> bird<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -592,8 +592,8 @@ Mapping <em>keys</em> are still eagerly checked.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">myNumbers</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-number">1</span>; <span class="hljs-number">2</span>; <span class="hljs-string">&quot;uh oh&quot;</span> <span class="hljs-punctuation">}</span>
-<span class="hljs-property">result</span> <span class="hljs-operator">=</span> <span class="hljs-property">myNumbers</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">myNumbers</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-number">1</span>; <span class="hljs-number">2</span>; <span class="hljs-string">&quot;uh oh&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-property">result</span> <span class="hljs-operator">=</span> myNumbers[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -605,13 +605,13 @@ In Pkl 0.27, the same program succeeds, because only element <code>myNumbers[0]<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">allBirds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;**/bird.pkl&quot;</span><span class="hljs-punctuation">)</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">allBirds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;**/bird.pkl&quot;</span><span class="hljs-punctuation">)</span>
 
 <span class="hljs-property">environment</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;prod&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;qa&quot;</span>
 
 <span class="hljs-property">cluster</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
-<span class="hljs-property">myBird</span> <span class="hljs-operator">=</span> <span class="hljs-property">allBirds</span>[<span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">environment</span><span class="hljs-char escape_">)</span></span>/<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-property">cluster</span><span class="hljs-char escape_">)</span></span>/bird.pkl&quot;</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">myBird</span> <span class="hljs-operator">=</span> allBirds[<span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>environment<span class="hljs-punctuation">)</span></span>/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>cluster<span class="hljs-punctuation">)</span></span>/bird.pkl&quot;</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -792,7 +792,7 @@ This introduces an artificial pain point.</p>
 
 <span class="hljs-keyword">local</span> <span class="hljs-property">northAmerica</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;North America&quot;</span>
 
-<span class="hljs-keyword">local</span> <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NorthAmericanBird</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">.</span><span class="hljs-property">origin</span> <span class="hljs-operator">==</span> <span class="hljs-property">northAmerica</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">NorthAmericanBird</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">.</span><span class="hljs-variable">origin</span> <span class="hljs-operator">==</span> northAmerica<span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1149,7 +1149,7 @@ This API treats the inputs as entrypoints, and produces a graph representing the
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:analyze&quot;</span>
 
-<span class="hljs-property">importGraph</span><span class="hljs-punctuation">:</span> <span class="hljs-property">analyze</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">ImportGraph</span> <span class="hljs-operator">=</span> <span class="hljs-property">analyze</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">importGraph</span><span class="hljs-punctuation">(</span><span class="hljs-title class_">Set</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;file:///path/to/my/module.pkl&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
+<span class="hljs-property">importGraph</span><span class="hljs-punctuation">:</span> analyze<span class="hljs-punctuation">.</span><span class="hljs-title class_">ImportGraph</span> <span class="hljs-operator">=</span> analyze<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">importGraph</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">Set</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;file:///path/to/my/module.pkl&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1322,8 +1322,8 @@ This can happen when erroneous code is never evaluated because it does not affec
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">myNumbers</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-punctuation">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-number">1</span>; <span class="hljs-number">2</span>; <span class="hljs-string">&quot;uh oh&quot;</span> <span class="hljs-punctuation">}</span>
-<span class="hljs-property">result</span> <span class="hljs-operator">=</span> <span class="hljs-property">myNumbers</span>[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-property">myNumbers</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-number">1</span>; <span class="hljs-number">2</span>; <span class="hljs-string">&quot;uh oh&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-property">result</span> <span class="hljs-operator">=</span> myNumbers[<span class="hljs-number">0</span><span class="hljs-punctuation">]</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">

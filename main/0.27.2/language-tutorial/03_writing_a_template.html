@@ -521,9 +521,9 @@ Before you can write types for them, you need to know how to write the types for
 
 <span class="hljs-property">amountLearned</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span>
 
-<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
 
-<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span></code></pre>
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mb</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -602,7 +602,7 @@ Pkl does not render types in its output,<sup class="footnote">[<a id="_footnoter
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">$</span> <span class="hljs-property">pkl</span> <span class="hljs-property">eval</span> <span class="hljs-property">simpleClass</span><span class="hljs-punctuation">.</span><span class="hljs-property">pkl</span>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">$ pkl eval simpleClass<span class="hljs-punctuation">.</span>pkl
 <span class="hljs-property">bestForConfig</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -640,16 +640,16 @@ We will discuss this further in the next section.</p>
   <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
   <span class="hljs-property">hasExercises</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
   <span class="hljs-property">amountLearned</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span>
-  <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
-  <span class="hljs-property">bandwidthRequirementPerSecond</span> <span class="hljs-operator">=</span> <span class="hljs-number">50</span><span class="hljs-punctuation">.</span><span class="hljs-property">mib</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toUnit</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;mb&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-property">bandwidthRequirementPerSecond</span> <span class="hljs-operator">=</span> <span class="hljs-number">50</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mib</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toUnit</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;mb&quot;</span><span class="hljs-punctuation">)</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">pklTutorialPart2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">pklTutorialPart1</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">pklTutorialPart2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pklTutorialPart1<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
   <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">pklTutorialPart3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-property">pklTutorialPart1</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-property">pklTutorialPart3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pklTutorialPart1<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
   <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -722,9 +722,9 @@ Instead of starting from a particular tutorial part, you can define the module <
 
 <span class="hljs-property">amountLearned</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-property">mb</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mb</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -819,7 +819,7 @@ Consider this example:</p>
 <span class="hljs-property">interactive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
 <span class="hljs-property">seats</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>
 <span class="hljs-property">occupancy</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.85</span>
-<span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.5</span><span class="hljs-punctuation">.</span><span class="hljs-property">h</span>
+<span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.5</span><span class="hljs-punctuation">.</span><span class="hljs-variable">h</span>
 <span class="hljs-property">`abstract`</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
 <span class="hljs-string">  With more systems to configure, the software industry is drowning in repetitive and brittle configuration files.</span>
 <span class="hljs-string">  YAML and other configuration formats have been turned into programming languages against their will.</span>
@@ -840,11 +840,11 @@ Consider this example:</p>
 <span class="hljs-property">sessions</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
-    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
-    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 
@@ -857,17 +857,17 @@ Consider this example:</p>
   [<span class="hljs-string">&quot;beginners&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic Configuration&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
-    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
   <span class="hljs-punctuation">}</span>
   [<span class="hljs-string">&quot;intermediates&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
-    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
   <span class="hljs-punctuation">}</span>
   [<span class="hljs-string">&quot;experts&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
     <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
-    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-property">min</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
@@ -916,7 +916,7 @@ Pkl offers the <code>Listing</code> type for this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -930,7 +930,7 @@ Pkl offers the <code>Listing</code> type for this:</p>
   <span class="hljs-property">date</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-punctuation">&gt;</span></code></pre>
+<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-operator">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -938,7 +938,7 @@ Pkl offers the <code>Listing</code> type for this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -949,7 +949,7 @@ You already defined <code>TutorialPart.pkl</code> as its own module, so you shou
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;TutorialPart.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
-<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-punctuation">&gt;</span></code></pre>
+<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-operator">&gt;</span></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -990,7 +990,7 @@ You already defined <code>TutorialPart.pkl</code> as its own module, so you shou
 
 <span class="hljs-property">event</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Event</span>
 
-<span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Session</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">time</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
@@ -998,11 +998,11 @@ You already defined <code>TutorialPart.pkl</code> as its own module, so you shou
   <span class="hljs-property">date</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-operator">&gt;</span>
 
-<span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">&gt;</span>
+<span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
 
-<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-punctuation">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-punctuation">&gt;</span></code></pre>
+<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-operator">&gt;</span></code></pre>
 </div>
 </div>
 </div>

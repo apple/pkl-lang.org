@@ -1,5 +1,5 @@
 // ===----------------------------------------------------------------------===//
-// Copyright © 2024 Apple Inc. and the Pkl project authors. All rights reserved.
+// Copyright © 2024-2025 Apple Inc. and the Pkl project authors. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,22 +13,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // ===----------------------------------------------------------------------===//
-use std::process::exit;
-use std::{fs, io};
-use std::io::Read;
+
 use clap::Parser;
+use std::io;
+use std::io::Read;
 use tree_sitter_highlight::{HighlightConfiguration, Highlighter, HtmlRenderer};
 use tree_sitter_pkl;
+
+const QUERIES: &str = include_str!("../queries/highlights.scm");
 
 #[derive(Parser)]
 struct CliArgs {
     /// Highlight as a Pkl expression instead of a document.
     #[clap(long)]
     expr: bool,
-
-    /// A tree-sitter queries document to use for highlighting.
-    #[clap(long)]
-    queries: Option<String>,
 }
 
 static QUERY_NAMES: [&str; 26] = [
@@ -57,26 +55,26 @@ static QUERY_NAMES: [&str; 26] = [
     "title.function.invoke",
     "params",
     "comment",
-    "doctag"
+    "doctag",
 ];
 
-fn highlight_expr(contents: String, highlights_query: String) -> String {
-    let highlighted = highlight(format!("expr = {}", contents), highlights_query, false);
-    let stripped = highlighted.strip_prefix("<span class=\"hljs-property\">expr</span> <span class=\"hljs-operator\">=</span> ").unwrap();
-    return String::from(stripped);
+fn highlight_expr(contents: String) -> String {
+    let highlighted = highlight(format!("expr = {}", contents), false);
+    let stripped = highlighted
+        .strip_prefix(
+            "<span class=\"hljs-property\">expr</span> <span class=\"hljs-operator\">=</span> ",
+        )
+        .unwrap();
+    String::from(stripped)
 }
 
-pub fn highlight(contents: String, highlights_query: String, is_expr: bool) -> String {
+pub fn highlight(contents: String, is_expr: bool) -> String {
     // highlight each line as if it were an expression.
     if is_expr {
-        return highlight_expr(contents, highlights_query);
+        return highlight_expr(contents);
     }
-    let mut pkl_config = HighlightConfiguration::new(
-        tree_sitter_pkl::language(),
-        highlights_query.as_str(),
-        tree_sitter_pkl::INJECTIONS_QUERY,
-        tree_sitter_pkl::LOCALS_QUERY,
-    ).unwrap();
+    let pkl_language = tree_sitter_pkl::LANGUAGE.into();
+    let mut pkl_config = HighlightConfiguration::new(pkl_language, "pkl", QUERIES, "", "").unwrap();
     let attrs = &QUERY_NAMES.map(|it| {
         let classes = it
             .split(".")
@@ -84,45 +82,81 @@ pub fn highlight(contents: String, highlights_query: String, is_expr: bool) -> S
             // The first scope is prefixed with hljs-.
             // Subscopes receive N number of underscores.
             // https://highlightjs.readthedocs.io/en/stable/css-classes-reference.html#a-note-on-scopes-with-sub-scopes
-            .map(|(idx, it)|
-                 if idx == 0 {
-                     format!("hljs-{}", it)
-                 } else {
-                     format!("{}{}", it, "_".repeat(idx))
-                 }
-            )
+            .map(|(idx, it)| {
+                if idx == 0 {
+                    format!("hljs-{}", it)
+                } else {
+                    format!("{}{}", it, "_".repeat(idx))
+                }
+            })
             .collect::<Vec<String>>()
             .join(" ");
         format!("class=\"{}\"", classes)
     });
     pkl_config.configure(&QUERY_NAMES);
 
-
     let mut highlighter = Highlighter::new();
-    let events = highlighter.highlight(
-        &pkl_config,
-        contents.as_bytes(),
-        None,
-        |_| None
-    ).unwrap();
+    let events = highlighter
+        .highlight(&pkl_config, contents.as_bytes(), None, |_| None)
+        .unwrap();
     let mut renderer = HtmlRenderer::new();
-    renderer.render(
-        events,
-        contents.as_bytes(),
-        &move |it| &attrs[it.0].as_bytes()
-    ).unwrap();
+    renderer
+        .render(
+            events,
+            contents.as_bytes(),
+            &|highlight, out: &mut Vec<u8>| {
+                out.extend_from_slice(attrs[highlight.0].as_bytes());
+            },
+        )
+        .unwrap();
     renderer.lines().collect::<Vec<&str>>().join("")
 }
 
 fn main() {
     let args: CliArgs = CliArgs::parse();
-    if args.queries.is_none() {
-        print!("Missing required argument: --queries <query>");
-        exit(1)
-    }
-    let queries = fs::read_to_string(args.queries.unwrap().as_str()).unwrap();
     let mut buf = String::new();
-    io::stdin().read_to_string(&mut buf).expect("Failed to read stdin!");
-    let result = highlight(buf, queries, args.expr);
+    io::stdin()
+        .read_to_string(&mut buf)
+        .expect("Failed to read stdin!");
+    let result = highlight(buf, args.expr);
     print!("{}", result)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_highlight() {
+        let pkl_code = r#"name = "Alice"
+age = 42
+"#;
+        let result = highlight(pkl_code.to_string(), false);
+
+        assert_eq!(
+            result,
+            r#"<span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Alice&quot;</span>
+<span class="hljs-property">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">42</span>
+"#
+        );
+    }
+
+    #[test]
+    fn test_highlight_class() {
+        let pkl_code = r#"class Foo extends Bar"#;
+
+        let result = highlight(pkl_code.to_string(), false);
+
+        assert_eq!(
+            result,
+            r#"<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Bar</span>
+"#
+        );
+    }
+
+    #[test]
+    fn test_highlight_expr() {
+        let result = highlight_expr("123".to_string());
+        assert!(result.contains("hljs-number"));
+    }
 }

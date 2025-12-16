@@ -25,11 +25,7 @@ export function highlightPkl(source: string, lang: string): string {
   // pkl-html-highlighter is a subproject of this repo
   const cmd = spawnSync(
     pklHtmlHighlighterPath,
-    [
-      "--queries",
-      path.join(__dirname, "queries/highlights.scm"),
-      ...(lang == "pkl expression" ? ["--expr"] : [])
-    ],
+    lang == "pkl expression" ? ["--expr"] : [],
     {
       encoding: "utf-8",
       input: source

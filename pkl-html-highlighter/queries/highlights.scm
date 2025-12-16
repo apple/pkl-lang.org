@@ -5,7 +5,7 @@
 (clazz (identifier) @title.class)
 (typeAlias (identifier) @title.class)
 ((identifier) @title.class
- (match? @title.class "^[A-Z]"))
+  (#match? @title.class "^[A-Z]"))
 
 (typeArgumentList
   "<" @punctuation
@@ -13,8 +13,14 @@
 
 ; Method calls
 
-(methodCallExpr
-  (identifier) @title.function.invoke)
+(qualifiedAccessExpr
+  (identifier) @variable)
+
+(qualifiedAccessExpr
+  (identifier) @title.function.invoke (argumentList))
+
+(unqualifiedAccessExpr
+  (identifier) @title.function.invoke (argumentList))
 
 ; Method definitions
 
@@ -23,34 +29,32 @@
 
 ; Identifiers
 
-(classProperty (identifier) @variable)
-(objectProperty (identifier) @variable)
+(classProperty (identifier) @property)
+(objectProperty (identifier) @property)
 
 (parameterList (typedIdentifier (identifier) @params))
 (objectBodyParameters (typedIdentifier (identifier) @params))
 
-(identifier) @variable
-
 ; Literals
 
 (stringConstant) @string
-(slStringLiteral) @string
-(mlStringLiteral) @string
+(slStringLiteralExpr) @string
+(mlStringLiteralExpr) @string
 
 (escapeSequence) @char.escape
 
-(intLiteral) @number
-(floatLiteral) @number
+(intLiteralExpr) @number
+(floatLiteralExpr) @number
 
-(interpolationExpr
+(stringInterpolation
   "\\(" @char.escape
   ")" @char.escape) @subst
 
-(interpolationExpr
- "\\#(" @char.escape
- ")" @char.escape) @subst
+(stringInterpolation
+  "\\#(" @char.escape
+  ")" @char.escape) @subst
 
-(interpolationExpr
+(stringInterpolation
   "\\##(" @char.escape
   ")" @char.escape) @subst
 
@@ -91,8 +95,6 @@
 ":" @punctuation
 "." @punctuation
 "?." @punctuation
-"..."  @punctuation
-"...?" @punctuation
 
 "(" @punctuation
 ")" @punctuation
@@ -110,15 +112,17 @@
 "else" @keyword
 "extends" @keyword
 "external" @keyword
-(falseLiteral) @literal
-(trueLiteral) @literal
-(nullLiteral) @literal
+(falseLiteralExpr) @literal
+(trueLiteralExpr) @literal
+(nullLiteralExpr) @literal
 "for" @keyword
 "function" @keyword
 "hidden" @keyword
+"fixed" @keyword
+"const" @keyword
 "if" @keyword
 (importExpr "import" @built_in)
-(importGlobExpr "import*" @built_in)
+(importExpr "import*" @built_in)
 "import" @keyword
 "import*" @keyword
 "in" @keyword
@@ -127,7 +131,7 @@
 "local" @keyword
 (moduleExpr "module" @type)
 "new" @keyword
-"nothing" @type
+(nothingType) @type
 "open" @keyword
 "out" @keyword
 "module" @keyword
@@ -140,5 +144,5 @@
 "throw" @built_in
 "trace" @built_in
 "typealias" @keyword
-"unknown" @type
+(unknownType) @type
 "when" @keyword

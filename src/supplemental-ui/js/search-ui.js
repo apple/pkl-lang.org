@@ -15,12 +15,12 @@
 // ===----------------------------------------------------------------------===//
 ;(function (globalScope) {
   /* eslint-disable no-var */
-  var config = document.getElementById('search-ui-script').dataset
-  var snippetLength = parseInt(config.snippetLength || 100, 10)
-  var siteRootPath = config.siteRootPath || ''
+  const config = document.getElementById('search-ui-script').dataset;
+  const snippetLength = parseInt(config.snippetLength || 100, 10);
+  const siteRootPath = config.siteRootPath || '';
   appendStylesheet(config.stylesheet)
-  var searchInput = document.getElementById('search-input')
-  var searchResult = document.createElement('div')
+  const searchInput = document.getElementById('search-input');
+  const searchResult = document.createElement('div');
   searchResult.classList.add('search-result-dropdown-menu')
   searchInput.parentNode.appendChild(searchResult)
 
@@ -30,19 +30,19 @@
   }
 
   function highlightText (doc, position) {
-    var hits = []
-    var start = position[0]
-    var length = position[1]
+    const hits = [];
+    const start = position[0];
+    const length = position[1];
 
-    var text = doc.text
-    var highlightSpan = document.createElement('span')
+    const text = doc.text;
+    const highlightSpan = document.createElement('span');
     highlightSpan.classList.add('search-result-highlight')
     highlightSpan.innerText = text.substr(start, length)
 
-    var end = start + length
-    var textEnd = text.length - 1
-    var contextAfter = end + snippetLength > textEnd ? textEnd : end + snippetLength
-    var contextBefore = start - snippetLength < 0 ? 0 : start - snippetLength
+    const end = start + length;
+    const textEnd = text.length - 1;
+    const contextAfter = end + snippetLength > textEnd ? textEnd : end + snippetLength;
+    const contextBefore = start - snippetLength < 0 ? 0 : start - snippetLength;
     if (start === 0 && end === textEnd) {
       hits.push(highlightSpan)
     } else if (start === 0) {
@@ -60,13 +60,13 @@
   }
 
   function highlightTitle (hash, doc, position) {
-    var hits = []
-    var start = position[0]
-    var length = position[1]
+    const hits = [];
+    const start = position[0];
+    const length = position[1];
 
-    var highlightSpan = document.createElement('span')
+    const highlightSpan = document.createElement('span');
     highlightSpan.classList.add('search-result-highlight')
-    var title
+    let title;
     if (hash) {
       title = doc.titles.filter(function (item) {
         return item.id === hash
@@ -76,8 +76,8 @@
     }
     highlightSpan.innerText = title.substr(start, length)
 
-    var end = start + length
-    var titleEnd = title.length - 1
+    const end = start + length;
+    const titleEnd = title.length - 1;
     if (start === 0 && end === titleEnd) {
       hits.push(highlightSpan)
     } else if (start === 0) {
@@ -95,13 +95,13 @@
   }
 
   function highlightHit (metadata, hash, doc) {
-    var hits = []
-    for (var token in metadata) {
-      var fields = metadata[token]
-      for (var field in fields) {
-        var positions = fields[field]
+    let hits = [];
+    for (const token in metadata) {
+      const fields = metadata[token];
+      for (const field in fields) {
+        const positions = fields[field];
         if (positions.position) {
-          var position = positions.position[0] // only higlight the first match
+          const position = positions.position[0]; // only higlight the first match
           if (field === 'title') {
             hits = highlightTitle(hash, doc, position)
           } else if (field === 'text') {
@@ -115,32 +115,32 @@
 
   function createSearchResult (result, store, searchResultDataset) {
     result.forEach(function (item) {
-      var url = item.ref
-      var hash
+      let url = item.ref;
+      let hash;
       if (url.includes('#')) {
         hash = url.substring(url.indexOf('#') + 1)
         url = url.replace('#' + hash, '')
       }
-      var doc = store[url]
-      var metadata = item.matchData.metadata
-      var hits = highlightHit(metadata, hash, doc)
+      const doc = store[url];
+      const metadata = item.matchData.metadata;
+      const hits = highlightHit(metadata, hash, doc);
       searchResultDataset.appendChild(createSearchResultItem(doc, item, hits))
     })
   }
 
   function createSearchResultItem (doc, item, hits) {
-    var documentTitle = document.createElement('div')
+    const documentTitle = document.createElement('div');
     documentTitle.classList.add('search-result-document-title')
     documentTitle.innerText = doc.title
-    var documentHit = document.createElement('div')
+    const documentHit = document.createElement('div');
     documentHit.classList.add('search-result-document-hit')
-    var documentHitLink = document.createElement('a')
+    const documentHitLink = document.createElement('a');
     documentHitLink.href = siteRootPath + item.ref
     documentHit.appendChild(documentHitLink)
     hits.forEach(function (hit) {
       documentHitLink.appendChild(hit)
     })
-    var searchResultItem = document.createElement('div')
+    const searchResultItem = document.createElement('div');
     searchResultItem.classList.add('search-result-item')
     searchResultItem.appendChild(documentTitle)
     searchResultItem.appendChild(documentHit)
@@ -151,11 +151,11 @@
   }
 
   function createNoResult (text) {
-    var searchResultItem = document.createElement('div')
+    const searchResultItem = document.createElement('div');
     searchResultItem.classList.add('search-result-item')
-    var documentHit = document.createElement('div')
+    const documentHit = document.createElement('div');
     documentHit.classList.add('search-result-document-hit')
-    var message = document.createElement('strong')
+    const message = document.createElement('strong');
     message.innerText = 'No results found for query "' + text + '"'
     documentHit.appendChild(message)
     searchResultItem.appendChild(documentHit)
@@ -169,7 +169,7 @@
 
   function search (index, text) {
     // execute an exact match search
-    var result = index.search(text)
+    let result = index.search(text);
     if (result.length > 0) {
       return result
     }
@@ -188,8 +188,8 @@
     if (text.trim() === '') {
       return
     }
-    var result = search(index, text)
-    var searchResultDataset = document.createElement('div')
+    const result = search(index, text);
+    const searchResultDataset = document.createElement('div');
     searchResultDataset.classList.add('search-result-dataset')
     searchResult.appendChild(searchResultDataset)
     if (result.length > 0) {
@@ -204,15 +204,15 @@
   }
 
   function debounce (func, wait, immediate) {
-    var timeout
+    let timeout;
     return function () {
-      var context = this
-      var args = arguments
-      var later = function () {
+      const context = this;
+      const args = arguments;
+      const later = function () {
         timeout = null
         if (!immediate) func.apply(context, args)
-      }
-      var callNow = immediate && !timeout
+      };
+      const callNow = immediate && !timeout;
       clearTimeout(timeout)
       timeout = setTimeout(later, wait)
       if (callNow) func.apply(context, args)
@@ -220,14 +220,14 @@
   }
 
   function initSearch (lunr, data) {
-    var index = Object.assign({ index: lunr.Index.load(data.index), store: data.store })
-    var debug = 'URLSearchParams' in globalScope && new URLSearchParams(globalScope.location.search).has('lunr-debug')
+    const index = Object.assign({index: lunr.Index.load(data.index), store: data.store});
+    const debug = 'URLSearchParams' in globalScope && new URLSearchParams(globalScope.location.search).has('lunr-debug');
     searchInput.addEventListener(
       'keydown',
       debounce(function (e) {
+        const query = searchInput.value;
         if (e.key === 'Escape' || e.key === 'Esc') return clearSearchResults(true)
         try {
-          var query = searchInput.value
           if (!query) return clearSearchResults()
           searchIndex(index.index, index.store, searchInput.value)
         } catch (err) {

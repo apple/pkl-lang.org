@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Spec (pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway:1.0.0) • Packages</title>
+    <script src="../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway/_/v1beta1/HTTPRoute/Spec.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway/1.0.0/v1beta1/HTTPRoute/Spec.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.0.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway" data-package-version="1.0.0" data-package-url-prefix="../../" data-module-name="k8s.networking.gateway.v1beta1.HTTPRoute" data-class-name="Spec" data-root-url-prefix="../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.networking.gateway.v1beta1.HTTPRoute</a>
+      <h1 id="declaration-title">Spec<span id="declaration-version">1.0.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">Spec</span></div>
+        <div class="doc-comment"><p>Spec defines the desired state of HTTPRoute.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="hostnames" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#hostnames">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hostnames</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>(length.isBetween(1, 253), matches(Regex(#&quot;^(\*\.)?[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$&quot;#)))&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1beta1/HTTPRoute.pkl#L96-101">Source</a></div>
+                <div class="doc-comment"><p>Hostnames defines a set of hostnames that should match against the HTTP Host
+header to select a HTTPRoute used to process the request. Implementations
+MUST ignore any port value specified in the HTTP Host header while
+performing a match and (absent of any applicable header modification
+configuration) MUST forward this header unmodified to the backend.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Valid values for Hostnames are determined by RFC 1123 definition of a
+hostname with 2 notable exceptions:</p>
+<ol>
+<li>IPs are not allowed.</li>
+<li>A hostname may be prefixed with a wildcard label (<code>*.</code>). The wildcard
+label must appear by itself as the first label.</li>
+</ol>
+<p>If a hostname is specified by both the Listener and HTTPRoute, there
+must be at least one intersecting hostname for the HTTPRoute to be
+attached to the Listener. For example:</p>
+<ul>
+<li>A Listener with <code>test.example.com</code> as the hostname matches HTTPRoutes
+that have either not specified any hostnames, or have specified at
+least one of <code>test.example.com</code> or <code>*.example.com</code>.</li>
+<li>A Listener with <code>*.example.com</code> as the hostname matches HTTPRoutes
+that have either not specified any hostnames or have specified at least
+one hostname that matches the Listener hostname. For example,
+<code>*.example.com</code>, <code>test.example.com</code>, and <code>foo.test.example.com</code> would
+all match. On the other hand, <code>example.com</code> and <code>test.example.net</code> would
+not match.</li>
+</ul>
+<p>Hostnames that are prefixed with a wildcard label (<code>*.</code>) are interpreted
+as a suffix match. That means that a match for <code>*.example.com</code> would match
+both <code>test.example.com</code>, and <code>foo.test.example.com</code>, but not <code>example.com</code>.</p>
+<p>If both the Listener and HTTPRoute have specified hostnames, any
+HTTPRoute hostnames that do not match the Listener hostname MUST be
+ignored. For example, if a Listener specified <code>*.example.com</code>, and the
+HTTPRoute specified <code>test.example.com</code> and <code>test.example.net</code>,
+<code>test.example.net</code> must not be considered for a match.</p>
+<p>If both the Listener and HTTPRoute have specified hostnames, and none
+match with the criteria above, then the HTTPRoute is not accepted. The
+implementation must raise an 'Accepted' Condition with a status of
+<code>False</code> in the corresponding RouteParentStatus.</p>
+<p>In the event that multiple HTTPRoutes specify intersecting hostnames (e.g.
+overlapping wildcard matching and exact matching hostnames), precedence must
+be given to rules from the HTTPRoute with the largest number of:</p>
+<ul>
+<li>Characters in a matching non-wildcard hostname.</li>
+<li>Characters in a matching hostname.</li>
+</ul>
+<p>If ties exist across multiple Routes, the matching precedence rules for
+HTTPRouteMatches takes over.</p>
+<p>Support: Core</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="parentRefs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#parentRefs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">parentRefs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="ParentRef.html" class="name-ref">ParentRef</a>&gt;(length &lt;= 32)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1beta1/HTTPRoute.pkl#L153-153">Source</a></div>
+                <div class="doc-comment"><p>ParentRefs references the resources (usually Gateways) that a Route wants
+to be attached to. Note that the referenced parent resource needs to
+allow this for the attachment to be complete. For Gateways, that means
+the Gateway needs to allow attachment from Routes of this kind and
+namespace. For Services, that means the Service must either be in the same
+namespace for a &quot;producer&quot; route, or the mesh implementation must support
+and allow &quot;consumer&quot; routes for the referenced Service. ReferenceGrant is
+not applicable for governing ParentRefs to Services - it is not possible to
+create a &quot;producer&quot; route for a Service in a different namespace from the
+Route.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>There are two kinds of parent resources with &quot;Core&quot; support:</p>
+<ul>
+<li>Gateway (Gateway conformance profile)</li>
+<li>Service (Mesh conformance profile, ClusterIP Services only)</li>
+</ul>
+<p>This API may be extended in the future to support additional kinds of parent
+resources.</p>
+<p>ParentRefs must be <em>distinct</em>. This means either that:</p>
+<ul>
+<li>They select different objects.  If this is the case, then parentRef
+entries are distinct. In terms of fields, this means that the
+multi-part key defined by <code>group</code>, <code>kind</code>, <code>namespace</code>, and <code>name</code> must
+be unique across all parentRef entries in the Route.</li>
+<li>They do not select different objects, but for each optional field used,
+each ParentRef that selects the same object must set the same set of
+optional fields to different values. If one ParentRef sets a
+combination of optional fields, all must set the same combination.</li>
+</ul>
+<p>Some examples:</p>
+<ul>
+<li>If one ParentRef sets <code>sectionName</code>, all ParentRefs referencing the
+same object must also set <code>sectionName</code>.</li>
+<li>If one ParentRef sets <code>port</code>, all ParentRefs referencing the same
+object must also set <code>port</code>.</li>
+<li>If one ParentRef sets <code>sectionName</code> and <code>port</code>, all ParentRefs
+referencing the same object must also set <code>sectionName</code> and <code>port</code>.</li>
+</ul>
+<p>It is possible to separately reference multiple distinct objects that may
+be collapsed by an implementation. For example, some implementations may
+choose to merge compatible Gateway Listeners together. If that is the
+case, the list of routes attached to those resources should also be
+merged.</p>
+<p>Note that for ParentRefs that cross namespace boundaries, there are specific
+rules. Cross-namespace references are only valid if they are explicitly
+allowed by something in the namespace they are referring to. For example,
+Gateway has the AllowedRoutes field, and ReferenceGrant provides a
+generic way to enable other kinds of cross-namespace reference.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rules" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#rules">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rules</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="Rule.html" class="name-ref">Rule</a>&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1beta1/HTTPRoute.pkl#L156-156">Source</a></div>
+                <div class="doc-comment"><p>Rules are a list of HTTP matchers, filters and actions.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Spec.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Spec.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

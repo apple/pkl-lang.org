@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Validation (pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway:1.0.0) • Packages</title>
+    <script src="../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway/_/v1/BackendTLSPolicy/Validation.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../data/pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway/1.0.0/v1/BackendTLSPolicy/Validation.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.0.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway" data-package-version="1.0.0" data-package-url-prefix="../../" data-module-name="k8s.networking.gateway.v1.BackendTLSPolicy" data-class-name="Validation" data-root-url-prefix="../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../index.html">pkg.pkl-lang.org/pkl-pantry/k8s.networking.gateway</a> &gt; <a class="declaration-parent-link" href="index.html">k8s.networking.gateway.v1.BackendTLSPolicy</a>
+      <h1 id="declaration-title">Validation<span id="declaration-version">1.0.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">Validation</span></div>
+        <div class="doc-comment"><p>Validation contains backend TLS validation configuration.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="caCertificateRefs" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#caCertificateRefs">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">caCertificateRefs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="CaCertificateRef.html" class="name-ref">CaCertificateRef</a>&gt;(length &lt;= 8)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/BackendTLSPolicy.pkl#L184-184">Source</a></div>
+                <div class="doc-comment"><p>CACertificateRefs contains one or more references to Kubernetes objects that
+contain a PEM-encoded TLS CA certificate bundle, which is used to
+validate a TLS handshake between the Gateway and backend Pod.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If CACertificateRefs is empty or unspecified, then WellKnownCACertificates must be
+specified. Only one of CACertificateRefs or WellKnownCACertificates may be specified,
+not both. If CACertificateRefs is empty or unspecified, the configuration for
+WellKnownCACertificates MUST be honored instead if supported by the implementation.</p>
+<p>A CACertificateRef is invalid if:</p>
+<ul>
+<li>
+<p>It refers to a resource that cannot be resolved (e.g., the referenced resource
+does not exist) or is misconfigured (e.g., a ConfigMap does not contain a key
+named <code>ca.crt</code>). In this case, the Reason must be set to <code>InvalidCACertificateRef</code>
+and the Message of the Condition must indicate which reference is invalid and why.</p>
+</li>
+<li>
+<p>It refers to an unknown or unsupported kind of resource. In this case, the Reason
+must be set to <code>InvalidKind</code> and the Message of the Condition must explain which
+kind of resource is unknown or unsupported.</p>
+</li>
+<li>
+<p>It refers to a resource in another namespace. This may change in future
+spec updates.</p>
+</li>
+</ul>
+<p>Implementations MAY choose to perform further validation of the certificate
+content (e.g., checking expiry or enforcing specific formats). In such cases,
+an implementation-specific Reason and Message must be set for the invalid reference.</p>
+<p>In all cases, the implementation MUST ensure the <code>ResolvedRefs</code> Condition on
+the BackendTLSPolicy is set to <code>status: False</code>, with a Reason and Message
+that indicate the cause of the error. Connections using an invalid
+CACertificateRef MUST fail, and the client MUST receive an HTTP 5xx error
+response. If ALL CACertificateRefs are invalid, the implementation MUST also
+ensure the <code>Accepted</code> Condition on the BackendTLSPolicy is set to
+<code>status: False</code>, with a Reason <code>NoValidCACertificate</code>.</p>
+<p>A single CACertificateRef to a Kubernetes ConfigMap kind has &quot;Core&quot; support.
+Implementations MAY choose to support attaching multiple certificates to
+a backend, but this behavior is implementation-specific.</p>
+<p>Support: Core - An optional single reference to a Kubernetes ConfigMap,
+with the CA certificate in a key named <code>ca.crt</code>.</p>
+<p>Support: Implementation-specific - More than one reference, other kinds
+of resources, or a single reference that includes multiple certificates.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hostname" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#hostname">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hostname</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>(length.isBetween(1, 253), matches(Regex(#&quot;^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$&quot;#)))<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/BackendTLSPolicy.pkl#L197-200">Source</a></div>
+                <div class="doc-comment"><p>Hostname is used for two purposes in the connection between Gateways and
+backends:</p></div>
+                <div class="doc-comment expandable hidden collapsed"><ol>
+<li>Hostname MUST be used as the SNI to connect to the backend (RFC 6066).</li>
+<li>Hostname MUST be used for authentication and MUST match the certificate
+served by the matching backend, unless SubjectAltNames is specified.</li>
+<li>If SubjectAltNames are specified, Hostname can be used for certificate selection
+but MUST NOT be used for authentication. If you want to use the value
+of the Hostname field for authentication, you MUST add it to the SubjectAltNames list.</li>
+</ol>
+<p>Support: Core</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="subjectAltNames" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#subjectAltNames">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">subjectAltNames</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="SubjectAltName.html" class="name-ref">SubjectAltName</a>&gt;(length &lt;= 5)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/BackendTLSPolicy.pkl#L207-207">Source</a></div>
+                <div class="doc-comment"><p>SubjectAltNames contains one or more Subject Alternative Names.
+When specified the certificate served from the backend MUST
+have at least one Subject Alternate Name matching one of the specified SubjectAltNames.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Support: Extended</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="wellKnownCACertificates" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#wellKnownCACertificates">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">wellKnownCACertificates</span>: &quot;System&quot;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/BackendTLSPolicy.pkl#L221-221">Source</a></div>
+                <div class="doc-comment"><p>WellKnownCACertificates specifies whether system CA certificates may be used in
+the TLS handshake between the gateway and backend pod.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If WellKnownCACertificates is unspecified or empty (&quot;&quot;), then CACertificateRefs
+must be specified with at least one entry for a valid configuration. Only one of
+CACertificateRefs or WellKnownCACertificates may be specified, not both.
+If an implementation does not support the WellKnownCACertificates field, or
+the supplied value is not recognized, the implementation MUST ensure the
+<code>Accepted</code> Condition on the BackendTLSPolicy is set to <code>status: False</code>, with
+a Reason <code>Invalid</code>.</p>
+<p>Support: Implementation-specific</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Validation.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Validation.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1885-L1885">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1888-L1888">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

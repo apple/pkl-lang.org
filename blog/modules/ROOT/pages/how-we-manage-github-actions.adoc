@@ -55,7 +55,7 @@ GitHub's core actions (actions that are within the https://github.com/actions[ac
 
 These actions have their schema also defined in Pkl, which means that you have all the goodies you might expect, including typechecking and documentation.
 
-Additionally, the type for some properties has been improved.
+Additionally, the typings for some properties has been improved.
 For example, the `paths` property of the upload-artifacts action is really just a list, represented as a newline-separated string.
 Our catalog provides a property called `pathList`, which defines this as a `Listing` and joins it back to a string for you before rendering.
 
@@ -146,7 +146,7 @@ The module contains the following logic:
 
 This module is published to https://github.com/apple/pkl-pantry[pkl-pantry], and available for anybody to use!
 
-To use it, you would typically create a `.github/PklProject` and a `.github/index.pkl` which amends `DependabotManagedActions`.
+To use it, you would typically create a `.github/PklProject` with `com.github.actions` and `pkl.github.dependabotManagedActions` as dependencies.
 
 ..github/PklProject
 [source,pkl]
@@ -163,6 +163,18 @@ dependencies {
 }
 ----
 
+Then resolve the project.
+This creates a `PklProject.deps.json` file that also should be checked into version control.
+This command only needs to be run when dependencies have changed.
+
+[source,bash]
+----
+pkl project resolve
+----
+
+With that setup out of the way, you then create a root entrypoint module that contains all of your workflows.
+Typically, this is called `.github/index.pkl`.
+
 ..github/index.pkl
 [source,pkl]
 ----
@@ -178,7 +190,7 @@ workflows {
 }
 ----
 
-Then, use `pkl eval` to turn Pkl into the resulting YAML files:
+You then use `pkl eval` to turn Pkl into the resulting YAML files:
 
 [source,bash]
 ----

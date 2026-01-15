@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How we manage GitHub Actions :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/blog/how-we-manage-github-actions.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/theme-vars.css">
+<link rel="stylesheet" href="../_/css/theme-switch.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<link rel="stylesheet" href="../_/css/search.css">
+<link rel="stylesheet" href="../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicon-16x16.png">
+<script src="../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../index.html"><img src="../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="blog" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Pkl Blog</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="how-we-manage-github-actions.html">How we manage GitHub Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-packages-in-air-gapped-environments.html">Using packages in air-gapped environments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="know-your-place.html">Know Your Place</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-types.html">Taking types to the next level</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="class-as-a-function.html">Class-as-a-Function Pattern</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="pkl-evolution.html">Pkl Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing-in-pkl.html">Testing in Pkl</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introducing-pkl.html">Introducing Pkl, a programming language for configuration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Pkl Blog</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../intellij/current/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../main/latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../main/current/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../go/current/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../lsp/current/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../swift/current/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../vscode/current/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Pkl Blog</a></li>
+    <li><a href="how-we-manage-github-actions.html">How we manage GitHub Actions</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/blog/modules/ROOT/pages/how-we-manage-github-actions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">How we manage GitHub Actions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/bioball">Dan Chao</a> on January 15th, 2026.</p>
+</div>
+</div>
+<div class="paragraph">
+<p>The Pkl project comprises multiple repositories on GitHub (23 at the time of this writing).
+These repositories are built in different ways, and thus require different CI configurations.</p>
+</div>
+<div class="paragraph">
+<p>At the same time, we have common patterns that are applied across codebases.
+Some of these are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Every repo should have different workflows for "prb", "build", and "release".</p>
+</li>
+<li>
+<p>We want to avert security issues:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Calling into actions should pin to the checksum (e.g. <code>actions/checkout@abc123&#8230;&#8203;</code> instead of <code>actions/checkout@v6</code>).</p>
+</li>
+<li>
+<p>Running <code>actions/checkout</code> should, by default, set <code>persist-credentials: false</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>We want our workflows to be typechecked, and minimize the chances of creating invalid workflows.</p>
+</li>
+<li>
+<p>We want our builds to publish test reports.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Naturally, we turn to Pkl to help us address all of these problems!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="defining-workflows-using-the-com-github-actions-package"><a class="anchor" href="#defining-workflows-using-the-com-github-actions-package"></a><a class="link" href="#defining-workflows-using-the-com-github-actions-package">Defining workflows using the <code>com.github.actions</code> package</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To define workflows, we start by using the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/com.github.actions/current/index.html">com.github.actions</a> Pkl package.</p>
+</div>
+<div class="paragraph">
+<p>This package defines the classes and types that go into authoring the eventual workflow YAML files.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This package was originally forked from <a href="https://github.com/stefma/pkl-gha" class="bare">https://github.com/stefma/pkl-gha</a>.
+Thanks to <a href="https://github.com/StefMa">StefMa</a> for his work!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>At a basic level, defining a workflow in Pkl is similar to defining a workflow in YAML, but includes the benefits of Pkl&#8217;s rich toolings: code-completion, documentation, and typechecking.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/how-we-manage-github-actions/workflow_basic.png" alt="Authoring a basic workflow">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>com.github.actions</code> package provides some extra goodies when defining workflows.</p>
+</div>
+<div class="sect2">
+<h3 id="actions-catalog"><a class="anchor" href="#actions-catalog"></a><a class="link" href="#actions-catalog">Actions catalog</a></h3>
+<div class="paragraph">
+<p>The <code>com.github.actions</code> includes a "catalog" of
+GitHub&#8217;s core actions (actions that are within the <a href="https://github.com/actions">actions org</a>).</p>
+</div>
+<div class="paragraph">
+<p>These actions have their schema also defined in Pkl, which means that you have all the goodies you might expect, including typechecking and documentation.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the typings for some properties has been improved.
+For example, the <code>paths</code> property of the upload-artifacts action is really just a list, represented as a newline-separated string.
+Our catalog provides a property called <code>pathList</code>, which defines this as a <code>Listing</code> and joins it back to a string for you before rendering.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@com.github.actions/catalog.pkl&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">uploadAction</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>catalog<span class="hljs-punctuation">.</span><span class="hljs-variable">`upload-artifact@v5`</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">with</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Pkl will error if you specify an int or a boolean here.</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;build-results&quot;</span>
+
+    <span class="hljs-comment">// no need to use a newline-separated string!</span>
+    <span class="hljs-comment">// Pkl will fuse this back into a string for you.</span>
+    <span class="hljs-property">pathList</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-string">&quot;*.sh&quot;</span>
+      <span class="hljs-string">&quot;*.bin&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-your-own-typed-actions"><a class="anchor" href="#creating-your-own-typed-actions"></a><a class="link" href="#creating-your-own-typed-actions">Creating your own typed actions</a></h4>
+<div class="paragraph">
+<p>The catalog contains <em>typed steps</em>; steps whose input properties have fine-grained types.
+However, it only contains definitions for things within the <a href="https://github.com/actions">core actions repo</a>.
+But, no worries!
+You can create your own typed steps either by hand-rolling their definitions, or by generating them.</p>
+</div>
+<div class="paragraph">
+<p>To generate a typed step for your action, use the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/com.github.actions.contrib/current/generate-action/index.html">generate-action</a> Pkl script.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl eval package://pkg.pkl-lang.org/pkl-pantry/com.github.actions.contrib@1.0.6#/generate-action.pkl \
+  -m .github \
+  -p action-name=docker/build-push-action@v5 \
+  # Specify the simple name of your GitHub Actions package
+  -p action-package-name=com.github.actions</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will generate a file at path <code>.github/docker/build-push-action/v5/BuildPushAction.pkl</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can also use the <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/com.github.actions.contrib/current/ActionGenerator/index.html">ActionGenerator</a> API for finer-grained control.
+For example, this provides a way to <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/com.github.actions.contrib/current/ActionGenerator/index.html#actionTypes">specialize the types</a> for this action&#8217;s inputs.</p>
+</div>
+<div class="paragraph">
+<p>You can even create your own catalog which extends the upstream catalog:</p>
+</div>
+<div class="listingblock">
+<div class="title">.github/catalog.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;@com.github.actions/catalog.pkl&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;docker/build-push-action/v5/BuildPushAction&quot;</span>
+
+<span class="hljs-property">`docker/build-push-action@v5`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">BuildPushAction</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pinning-actions-to-git-shas"><a class="anchor" href="#pinning-actions-to-git-shas"></a><a class="link" href="#pinning-actions-to-git-shas">Pinning actions to git SHAs</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Actions versions are typically specified as tags or branches (e.g. <code>uses: actions/checkout@v6</code>).
+However, doing so leaves your pipelines vulnerable to a supply chain attack: if an attacker gains write access to an action&#8217;s repository, they can swap out your build definition and inject malicious code.
+This has compromised many pipelines in the past. For example, see <a href="https://www.cve.org/CVERecord?id=CVE-2025-30066">CVE-2025-30066</a>.</p>
+</div>
+<div class="paragraph">
+<p>One mitigation is to pin to a git SHA.
+This causes GitHub to look up an immutable commit, instead of a mutable tag or branch.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">-uses: actions/checkout@v6
++uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To help with this, we&#8217;ve created a template called <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions/current/DependabotManagedActions/index.html">DependabotManagedActions</a>.</p>
+</div>
+<div class="paragraph">
+<p>This template replaces each action&#8217;s version with its resolved git SHA.
+Additionally, it uses a fake workflow called <code>__lockfile__.yml</code> to help it generate your workflows.
+The module contains the following logic:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Load the existing lockfile if it exists.</p>
+</li>
+<li>
+<p>For each action, look up its resolved version in the existing lockfile</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the action does not exist in the lockfile, or if the lockfile does not exist, resolve it from GitHub and add it to the lockfile.</p>
+</li>
+<li>
+<p>Remove any actions from the lockfile if they aren&#8217;t being used in any workflows.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create all workflow YAML files, replacing any <code>uses</code> with the resolved git SHA, and a YAML comment with the original version.</p>
+</li>
+<li>
+<p>Create the new lockfile (no-op if no actions have changed).</p>
+</li>
+<li>
+<p>Create a <code>.github/dependabot.yml</code> that is configured to update GitHub Actions.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This module is published to <a href="https://github.com/apple/pkl-pantry">pkl-pantry</a>, and available for anybody to use!</p>
+</div>
+<div class="paragraph">
+<p>To use it, you would typically create a <code>.github/PklProject</code> with <code>com.github.actions</code> and <code>pkl.github.dependabotManagedActions</code> as dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="title">.github/PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">dependencies</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;com.github.actions&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/com.github.actions@1.3.0&quot;</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;pkl.github.dependabotManagedActions&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions@1.0.0&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then resolve the project.
+This creates a <code>PklProject.deps.json</code> file that also should be checked into version control.
+This command only needs to be run when dependencies have changed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl project resolve</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With that setup out of the way, you then create a root entrypoint module that contains all of your workflows.
+Typically, this is called <code>.github/index.pkl</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">.github/index.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;@pkl.github.dependabotManagedActions/DependabotManagedActions.pkl&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@com.github.actions/catalog.pkl&quot;</span>
+
+<span class="hljs-property">workflows</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;workflows/build.yml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span>
+    <span class="hljs-comment">// define your workflows as normal!</span>
+    <span class="hljs-comment">// they can either be defined inline, or imported from elsewhere.</span>
+    <span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;build.pkl&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You then use <code>pkl eval</code> to turn Pkl into the resulting YAML files:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd .github
+pkl eval -m . index.pkl
+
+# or if you're in the project root
+pkl eval --project-dir .github/ -m .github/ .github/index.pkl</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="abstraction-layer"><a class="anchor" href="#abstraction-layer"></a><a class="link" href="#abstraction-layer">Defining shared workflows and creating our own abstraction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have some common workflows that we want pretty much every one of our repositories to have.
+Having a consistent CI experience across every repo improves the contributor experience and streamlines maintenance.
+For example, there are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>prb.yml</code>&#8201;&#8212;&#8201;The workflow that gets triggered when users submit or commit to pull requests.</p>
+</li>
+<li>
+<p><code>build (main).yml</code>&#8201;&#8212;&#8201;The workflow that gets triggered when commits land on the main branch.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, we want our workflows to publish test results to be made available within our GitHub Actions.</p>
+</div>
+<div class="paragraph">
+<p>To address these needs, we&#8217;ve defined an abstraction just for our purposes.
+It does quite a lot; some of the things it does include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Define pull request and push triggers for each different type of workflows.</p>
+</li>
+<li>
+<p>Define permissions that make sense for each type of workflow.</p>
+</li>
+<li>
+<p>Add additional steps for uploading test report artifacts.</p>
+</li>
+<li>
+<p>Add additional job for processing test reports.</p>
+</li>
+<li>
+<p>Add a workflow for processing test reports just for pull requests (this is how <a href="https://github.com/EnricoMi/publish-unit-test-result-action?tab=readme-ov-file#support-fork-repositories-and-dependabot-branches">EnricoMi/publish-unit-test-result-action</a> works).</p>
+</li>
+<li>
+<p>Pass all of these workflows to <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions/current/DependabotManagedActions/index.html">DependabotManagedActions</a> for version locking.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There&#8217;s quite a lot going on in PklCI, but the actual API surface area is quite small.</p>
+</div>
+<div class="paragraph">
+<p>For example, on the consumption side, it looks something like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">.github/index.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;@pkl.impl.ghactions/PklCI.pkl&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@com.github.actions/Workflow.pkl&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">myWorkflow</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Workflow</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">jobs</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;build&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-variable">catalog</span><span class="hljs-punctuation">.</span><span class="hljs-variable">`actions/checkout@v6`</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-property">run</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;make build&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">// run the same build definition when running pull request builds,</span>
+<span class="hljs-comment">// and when building the main branch.</span>
+<span class="hljs-property">prb</span> <span class="hljs-operator">=</span> myWorkflow
+
+<span class="hljs-property">main</span> <span class="hljs-operator">=</span> myWorkflow
+
+<span class="hljs-comment">// add steps to each workflow to publish unit test results.</span>
+<span class="hljs-comment">// look for JUnit test reports within directory build/test-reports.</span>
+<span class="hljs-property">testReports</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">junit</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-string">&quot;build/test-reports/**/*.xml&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re curious about how our stuff works, our source code is <a href="https://github.com/apple/pkl-project-commons/tree/main/packages/pkl.impl.ghactions">publicly available</a> for all to browse.</p>
+</div>
+<div class="sect2">
+<h3 id="updating-all-of-our-repositories"><a class="anchor" href="#updating-all-of-our-repositories"></a><a class="link" href="#updating-all-of-our-repositories">Updating all of our repositories</a></h3>
+<div class="paragraph">
+<p>Pkl is a large project, and it&#8217;s pretty untenable to be manually updating all 23 repos every time one of our library dependencies change.
+So, when we adjust the logic in <a href="#abstraction-layer">our abstraction layer</a>, we use helper scripts to generate, review, and merge pull requests.</p>
+</div>
+<div class="paragraph">
+<p>These are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/apple/pkl-project-commons/blob/main/scripts/update_downstream_ci.sh">update_downstream_ci.sh</a>: generate pull requests for every repository.</p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-project-commons/blob/main/scripts/approve_downstream_prs.sh">approve_downstream_prs.sh</a>: approve pull requests for each repository.</p>
+</li>
+<li>
+<p><a href="https://github.com/apple/pkl-project-commons/blob/main/scripts/merge_downstream_prs.sh‎">merge_downstream_prs.sh‎</a>: merge approved pull requests with passing checks for each repository.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="try-it-out-yourself"><a class="anchor" href="#try-it-out-yourself"></a><a class="link" href="#try-it-out-yourself">Try it out yourself</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Try writing your own actions using Pkl!</p>
+</div>
+<div class="paragraph">
+<p>Here is a quickstart guide:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set up your local environment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the Pkl plugin for your <a href="https://pkl-lang.org/main/current/tools.html">editor of choice</a>.</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/main/current/pkl-cli/index.html#installation">Install the <code>pkl</code> CLI</a> for your machine.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create your <code>PklProject</code><br></p>
+<div class="listingblock">
+<div class="title">.github/PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">dependencies</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;com.github.actions&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/com.github.actions@1.3.0&quot;</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-comment">// optional; use this if you want your actions to be locked to git SHAs.</span>
+  [<span class="hljs-string">&quot;pkl.github.dependabotManagedActions&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions@1.0.0&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run <code>pkl project resolve .github</code> to create your <code>PklProject.deps.json</code></p>
+</li>
+<li>
+<p>Write Pkl-based workflows</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create new Pkl modules that amend <code>Workflow.pkl</code></p>
+<div class="listingblock">
+<div class="title">.github/build.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;@com.github.actions/Workflow.pkl&quot;</span>
+
+<span class="hljs-property">on</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">push</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">jobs</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;build&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">steps</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// etc</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If not using <code>index.pkl</code> (see the next step): eval this into YAML:<br></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd .github
+pkl eval build.pkl -o workflows/build.yml</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(Optional) Create an entrypoint with DependabotManagedActions.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create your <code>index.pkl</code> file</p>
+<div class="listingblock">
+<div class="title">.github/index.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;@pkl.github.dependabotManagedActions/DependabotManagedActions.pkl&quot;</span>
+
+<span class="hljs-property">workflows</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;workflows/build.yml&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;build.pkl&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run <code>pkl eval</code><br></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd .github/
+pkl eval -m . index.pkl</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="acknowledgments"><a class="anchor" href="#acknowledgments"></a><a class="link" href="#acknowledgments">Acknowledgments</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks to <a href="https://github.com/StefMa/">@StefMa</a> for creating the <a href="https://github.com/StefMa/pkl-gha">original pkl-gha package</a>, and also thanks to the folks at <a href="https://github.com/typesafegithub">typesafegithub</a> for providing typings for existing actions!</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../_/js/site.js"></script>
+<script src="../_/js/site-support.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>

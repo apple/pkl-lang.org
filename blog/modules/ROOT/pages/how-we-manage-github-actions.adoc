@@ -40,10 +40,9 @@ To define workflows, we start by using the https://pkl-lang.org/package-docs/pkg
 This package defines the classes and types that go into authoring the eventual workflow YAML files.
 
 NOTE: This package was originally forked from https://github.com/stefma/pkl-gha.
-Thanks to https://github.com/StefMa[StefMa] for their work!
+Thanks to https://github.com/StefMa[StefMa] for his work!
 
-At the most basic level, defining a workflow in Pkl is almost the same as defining a workflow in YAML.
-Except, the editor provides code-completion, documentation, and typechecking.
+At a basic level, defining a workflow in Pkl is similar to defining a workflow in YAML, but includes the benefits of Pkl's rich toolings: code-completion, documentation, and typechecking.
 
 image::how-we-manage-github-actions/workflow_basic.png[Authoring a basic workflow]
 
@@ -52,7 +51,7 @@ The `com.github.actions` package provides some extra goodies when defining workf
 === Actions catalog
 
 The `com.github.actions` includes a "catalog" of
-GitHub's core actions (actions that are within https://github.com/actions[actions org]).
+GitHub's core actions (actions that are within the https://github.com/actions[actions org]).
 
 These actions have their schema also defined in Pkl, which means that you have all the goodies you might expect, including typechecking and documentation.
 
@@ -134,7 +133,7 @@ This causes GitHub to look up an immutable commit, instead of a mutable tag or b
 To help with this, we've created a template called https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions/current/DependabotManagedActions/index.html[DependabotManagedActions].
 
 This template replaces each action's version with its resolved git sha.
-Additionally, it uses a dummy workflow called `+__lockfile__+.yml` to help it generate your workflows.
+Additionally, it uses a fake workflow called `+__lockfile__+.yml` to help it generate your workflows.
 The module contains the following logic:
 
 . Load the existing lockfile if it exists.
@@ -194,6 +193,7 @@ pkl eval --project-dir .github/ -m .github/ .github/index.pkl
 == Defining shared workflows and creating our own abstraction
 
 We have some common workflows that we want pretty much every one of our repositories to have.
+Having a consistent CI experience across every repo improves the contributor experience and streamlines maintenance.
 For example, there are:
 
 * `prb.yml` -- The workflow that gets triggered when users submit or commit to pull requests.
@@ -208,7 +208,7 @@ It does quite a lot; some of the things it does include:
 * Define permissions that make sense for each type of workflow.
 * Add additional steps for uploading test report artifacts.
 * Add additional job for processing test reports.
-* Add a workflow for processing test reports just for pull requests (this is how https://github.com/EnricoMi/publish-unit-test-result-action?tab=readme-ov-file#support-fork-repositories-and-dependabot-branches[EnricoMi/publish-unit-test-result-action works]).
+* Add a workflow for processing test reports just for pull requests (this is how https://github.com/EnricoMi/publish-unit-test-result-action?tab=readme-ov-file#support-fork-repositories-and-dependabot-branches[EnricoMi/publish-unit-test-result-action] works).
 * Pass all of these workflows to https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-pantry/pkl.github.dependabotManagedActions/current/DependabotManagedActions/index.html[DependabotManagedActions] for version locking.
 
 There's quite a lot going on in PklCI, but the actual API surface area is quite small.
@@ -253,16 +253,17 @@ If you're curious about how our stuff works, our source code is https://github.c
 === Updating all of our repositories
 
 Pkl is a large project, and it's pretty untenable to be manually updating all 23 repos every time one of our library dependencies change.
-So, when we adjust the logic in <<abstraction-layer,our abstraction layer>>, we use script helpers to generate pull requests, and for someone else to approve.
+So, when we adjust the logic in <<abstraction-layer,our abstraction layer>>, we use helper scripts to generate, review, and merge pull requests.
 
 These are:
 
 * https://github.com/apple/pkl-project-commons/blob/main/scripts/update_downstream_ci.sh[update_downstream_ci.sh]: generate pull requests for every repository.
 * https://github.com/apple/pkl-project-commons/blob/main/scripts/approve_downstream_prs.sh[approve_downstream_prs.sh]: approve pull requests for each repository.
+* https://github.com/apple/pkl-project-commons/blob/main/scripts/merge_downstream_prs.sh‎[merge_downstream_prs.sh‎]: merge approved pull requests with passing checks for each repository.
 
 == Try it out yourself
 
-Try out writing your own actions using Pkl!
+Try writing your own actions using Pkl!
 
 Here is a quickstart guide:
 

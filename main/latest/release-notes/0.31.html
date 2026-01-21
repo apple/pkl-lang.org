@@ -522,8 +522,106 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <p>News you don&#8217;t want to miss.</p>
 </div>
 <div class="sect2">
-<h3 id="xxx"><a class="anchor" href="#xxx"></a><a class="link" href="#xxx">XXX</a></h3>
+<h3 id="power-assertions"><a class="anchor" href="#power-assertions"></a><a class="link" href="#power-assertions">Power Assertions</a></h3>
+<div class="paragraph">
+<p>Pkl&#8217;s test output and error output has been improved with power assertions (<a href="https://github.com/apple/pkl/pull/1384">#1384</a>)!</p>
+</div>
+<div class="paragraph">
+<p>Pkl has two places that are effectively assertions.
+These are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type constraint expressions</p>
+</li>
+<li>
+<p>Test facts</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Currently, when these assertions fail, the error message prints the assertion&#8217;s source section.
+However, this information can sometimes be lacking.
+It tells you what the mechanics of the assertion is, but doesn&#8217;t tell you <em>why</em> the assertion is failing.</p>
+</div>
+<div class="paragraph">
+<p>For example, here is the current error output of a failing typecheck.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `name.endsWith(lastName)` violated.
+Value: new Person { name = "Bub Johnson" }
 
+7 | passenger: Person(name.endsWith(lastName)) = new { name = "Bub Johnson" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just from this error message, we don&#8217;t know what the last name is supposed to be.
+What is <code>name</code> supposed to end with?
+We just know it&#8217;s some property called <code>lastName</code> but, we don&#8217;t know what it <em>is</em>.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.31, the error output becomes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `name.endsWith(lastName)` violated.
+Value: new Person { name = "Bub Johnson" }
+
+    name.endsWith(lastName)
+    │    │        │
+    │    false    "Smith"
+    "Bub Johnson"
+
+7 | passenger: Person(name.endsWith(lastName)) = new { name = "Bub Johnson" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we know what the expecation actually is.</p>
+</div>
+<div class="paragraph">
+<p>This type of diagram is also added to test facts.
+When tests fail, Pkl emits a diagram of the expression, and the values produced.</p>
+</div>
+<div class="paragraph">
+<p>For example, given the following test:</p>
+</div>
+<div class="listingblock">
+<div class="title">math.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span><span class="hljs-punctuation">(</span><span class="hljs-params">a</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <span class="hljs-params">b</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> a <span class="hljs-operator">*</span> b
+  <span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">divide</span><span class="hljs-punctuation">(</span><span class="hljs-params">a</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <span class="hljs-params">b</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> a <span class="hljs-operator">%</span> b
+  [<span class="hljs-string">&quot;math&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-title function_ invoke__">add</span><span class="hljs-punctuation">(</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-number">7</span>
+    <span class="hljs-title function_ invoke__">divide</span><span class="hljs-punctuation">(</span><span class="hljs-number">8</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-number">4</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The error output now includes a power assertion diagram, which helps explain why the test failed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">module math
+  facts
+    ✘ math
+       add(3, 4) == 7 (math.pkl:9)
+       │         │
+       12        false
+       divide(8, 2) == 4 (math.pkl:10)
+       │            │
+       0            false
+
+0.0% tests pass [1/1 failed], 0.0% asserts pass [2/2 failed]</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -579,7 +677,7 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <p>Things to watch out for when upgrading.</p>
 </div>
 <div class="sect2">
-<h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
+<h3 id="xxx"><a class="anchor" href="#xxx"></a><a class="link" href="#xxx">XXX</a></h3>
 
 </div>
 </div>

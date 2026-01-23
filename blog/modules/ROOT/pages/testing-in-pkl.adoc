@@ -47,23 +47,28 @@ facts {
   ["one"] {
     1.isOdd
     1.isBetween(0, 3)
-    1 == 2
+    1 + 5 == 3
   }
 }
 ----
 
 Running this test provides a report about the failing test.
 
-[source]
+[source,text]
 ----
 $ pkl test math.pkl
-module test
+module math
   facts
     ✘ one
-       1 == 2 (file:///math.pkl, line 7)
+       1 + 5 == 3 (file:///math.pkl, line 8)
+         │   │
+         6   false
 
-0.0% tests pass [1/1 failed], 66.7% asserts pass [1/3 failed]
+0.0% tests pass [1/1 failed], 66.6% asserts pass [1/3 failed]
 ----
+
+Test failures show a _power assertion_ about the failing test (introduced in Pkl 0.31).
+This is a diagram that displays the values produced by sub-expressions in the test.
 
 `facts` in Pkl are most useful for writing fine-grained assertions about specific behavior of your code.
 
@@ -422,31 +427,3 @@ The intention of this is to allow checking for breaking changes when updating a 
 When publishing a new version of the same package, running `apiTests` of a previous package can inform whether the package's major version needs to be bumped or not.
 
 The `apiTests` are also run when the package is created via `pkl project package`.
-
-== Future improvements: power assertions
-
-Testing in Pkl is already tremendously useful.
-With that said, there is still room improvements.
-
-One feature that we would like to implement is power assert style reporting.
-Power assertions are a form of reporting that displays a diagram that shows parts of the syntax tree, and their resolved values.
-
-A power-assertion report might look like:
-
-[source]
-----
-module test
-  facts
-    ✘ math
-        num1 == num2
-         |   |   |
-         | false |
-         1       2
-----
-
-This feature improves the developer experience when testing <<facts,facts>>.
-Currently, only the expression is printed, as well as a report that the test failed.
-
-In lieu of this feature, link:https://pkl-lang.org/main/current/language-reference/index.html#debugging[`trace()`] expressions can be used to add more debugging output.
-
-Frameworks that provide power assertions include link:https://github.com/spockframework/spock[Spock], link:https://github.com/power-assert-js/power-assert[power-assert-js], and link:https://github.com/kishikawakatsumi/swift-power-assert[swift-power-assert].

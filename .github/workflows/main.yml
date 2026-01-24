@@ -26,7 +26,7 @@ jobs:
     - name: Triggered by
       if: inputs.source_run != null
       run: 'echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY'
-    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       with:
         persist-credentials: false
         fetch-depth: 0
@@ -46,7 +46,7 @@ jobs:
         [net]
         git-fetch-with-cli = true
         EOF
-    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       with:
         persist-credentials: true
         fetch-depth: 0

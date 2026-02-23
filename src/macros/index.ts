@@ -15,9 +15,13 @@
 // ===----------------------------------------------------------------------===//
 import { Asciidoctor } from "asciidoctor";
 import Registry = Asciidoctor.Extensions.Registry;
+import pkldoc from "./pkldoc";
 import pr from "./pr";
 
 export function register(registry: Registry) {
+    registry.inlineMacro("pkldoc", function () {
+        this.process(pkldoc);
+    })
     registry.inlineMacro("pr", function () {
         this.process(pr);
     })

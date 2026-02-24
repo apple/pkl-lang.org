@@ -28,7 +28,18 @@ export default function pkldoc(this: InlineMacroProcessor, parent: Asciidoctor.D
     let pklVersion = parent.getDocument().getAttribute("pkl-version", "current")
     let linkName = target.replace(modulePath.replaceAll("/", ".") + ".", "")
     let url = `https://pkl-lang.org/package-docs/pkl/${pklVersion}/${modulePath}/${linkName}`
-    let displayName = (target.startsWith("#") ? target.substring(1) : target).replaceAll("#", ".")
-    let monospace = this.createInline(parent, "quoted", displayName, { type: "monospaced" })
-    return this.createInline(parent, "anchor", monospace.convert(), { type: "link", target: url, attributes: { ...attributes, window: "blank" } })
+    let linkText
+    if (attributes["text"] !== undefined) {
+        linkText = attributes["text"]
+    } else {
+        let displayName =
+            target == "#" ? moduleUri :
+                (target.startsWith("#") ? target.substring(1) : target).replaceAll("#", ".")
+        linkText = this.createInline(parent, "quoted", displayName, {type: "monospaced"}).convert()
+    }
+    return this.createInline(parent, "anchor", linkText, {
+        type: "link",
+        target: url,
+        attributes: {...attributes, window: "blank"}
+    })
 };

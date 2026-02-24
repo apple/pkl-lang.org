@@ -19,5 +19,9 @@ import InlineMacroProcessor = Asciidoctor.Extensions.InlineMacroProcessor;
 export default function pr(this: InlineMacroProcessor, parent: Asciidoctor.Document, target: string, attributes: any) {
     let parts = target.split("/")
     let num = parts[parts.length - 1]
-    return this.createInline(parent, "anchor", `#${num}`, { type: "link", target: target, attributes: { ...attributes, window: "blank" } })
+    return this.createInline(parent, "anchor", `#${num}`, {
+        type: "link",
+        target: target,
+        attributes: {...attributes, window: "blank"}
+    })
 };

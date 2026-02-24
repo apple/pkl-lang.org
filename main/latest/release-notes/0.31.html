@@ -499,11 +499,11 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl 0.31 was released on TBD.<br>
-<span class="small">The latest bugfix release is 0.XX.0. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
+<p>Pkl 0.31 was released on February 26th, 2026.<br>
+<span class="small">The latest bugfix release is 0.31.0. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
 </div>
 <div class="paragraph">
-<p>The next release (0.XX) is scheduled for ???..
+<p>The next release (0.32) is scheduled for July 2026.
 To see what&#8217;s coming in the future, follow the <a href="https://github.com/orgs/apple/projects/12/views/1">Pkl Roadmap</a>.</p>
 </div>
 <div class="paragraph">
@@ -518,13 +518,10 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <div class="sect1">
 <h2 id="highlights"><a class="anchor" href="#highlights"></a><a class="link" href="#highlights">Highlights <span class="small">💖</span></a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>News you don&#8217;t want to miss.</p>
-</div>
 <div class="sect2">
 <h3 id="power-assertions"><a class="anchor" href="#power-assertions"></a><a class="link" href="#power-assertions">Power Assertions</a></h3>
 <div class="paragraph">
-<p>Pkl&#8217;s test output and error output has been improved with power assertions (<a href="https://github.com/apple/pkl/pull/1384">#1384</a>)!</p>
+<p>Pkl&#8217;s test output and error output has been improved with power assertions (<a href="https://github.com/apple/pkl/pull/1384" target="blank">#1384</a>, <a href="https://github.com/apple/pkl/pull/1419" target="blank">#1419</a>)!</p>
 </div>
 <div class="paragraph">
 <p>Pkl has two places that are effectively assertions.
@@ -622,47 +619,323 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 0.0% tests pass [1/1 failed], 0.0% asserts pass [2/2 failed]</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0026-power-assertions.adoc">SPICE-0026</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cli-framework"><a class="anchor" href="#cli-framework"></a><a class="link" href="#cli-framework">CLI Framework</a></h3>
+<div class="paragraph">
+<p>Pkl 0.31 introduces a new framework for implementing CLI tools in Pkl (<a href="https://github.com/apple/pkl/pull/1367" target="blank">#1367</a>, <a href="https://github.com/apple/pkl/pull/1431" target="blank">#1431</a>, <a href="https://github.com/apple/pkl/pull/1432" target="blank">#1432</a>, <a href="https://github.com/apple/pkl/pull/1436" target="blank">#1436</a>).</p>
+</div>
+<div class="paragraph">
+<p>The framework provides a way to build command line tools with user experience idioms that will be immediately familiar to users.
+CLI tools implemented in Pkl have largely the same capabilities as normal Pkl evaluation (i.e. writing to standard output and files), but this may be extended using <a href="../language-reference/index.html#external-readers" class="xref page">external readers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Commands are defined by extending the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> module:</p>
+</div>
+<div class="listingblock">
+<div class="title">bird-generator.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// Mapping of &lt;bird&gt;=&lt;bird age&gt; pairs defining the list of birds.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Argument</span>
+  <span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Number</span><span class="hljs-operator">&gt;</span>
+
+  <span class="hljs-comment">/// Aggregation function to apply to all bird ages.</span>
+  <span class="hljs-property">aggregate</span><span class="hljs-punctuation">:</span> <span class="hljs-operator">*</span><span class="hljs-string">&quot;sum&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;mean&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;count&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// Name of the bird.</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Age of the bird in years.</span>
+  <span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Number</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>_name<span class="hljs-punctuation">,</span> _age <span class="hljs-keyword">in</span> options<span class="hljs-punctuation">.</span><span class="hljs-variable">birds</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> _name; <span class="hljs-property">age</span> <span class="hljs-operator">=</span> _age <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">result</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Number</span> <span class="hljs-operator">=</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>options<span class="hljs-punctuation">.</span><span class="hljs-variable">aggregate</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;sum&quot;</span><span class="hljs-punctuation">)</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">result</span><span class="hljs-punctuation">,</span> <span class="hljs-params">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> result <span class="hljs-operator">+</span> bird<span class="hljs-punctuation">.</span><span class="hljs-variable">age</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>options<span class="hljs-punctuation">.</span><span class="hljs-variable">aggregate</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;mean&quot;</span><span class="hljs-punctuation">)</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">result</span><span class="hljs-punctuation">,</span> <span class="hljs-params">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> result <span class="hljs-operator">+</span> bird<span class="hljs-punctuation">.</span><span class="hljs-variable">age</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> birds<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span>
+  <span class="hljs-keyword">else</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commands are executed using the <code>pkl run</code> CLI subcommand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run bird-generator.pkl pigeon --aggregate=mean Pigeon=1 Hawk=8 Eagle=3
+birds {
+  new {
+    name = "Pigeon"
+    age = 1
+  }
+  new {
+    name = "Hawk"
+    age = 8
+  }
+  new {
+    name = "Eagle"
+    age = 3
+  }
+}
+result = 4.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Automatic CLI help is provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run test.pkl -h
+Usage: test.pkl [&lt;options&gt;] [&lt;birds&gt;]... &lt;command&gt; [&lt;args&gt;]...
+
+Options:
+  --aggregate=&lt;count, mean, sum&gt;  Aggregation function to apply to all bird ages.
+  -h, --help                      Show this message and exit
+
+Arguments:
+  &lt;birds&gt;  Mapping of &lt;bird&gt;=&lt;bird age&gt; pairs defining the list of birds.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="../pkl-cli/index.html#cli-tools" class="xref page">the documentation</a> and <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0025-pkl-run-cli-framework.adoc">SPICE-0025</a>.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="noteworthy"><a class="anchor" href="#noteworthy"></a><a class="link" href="#noteworthy">Noteworthy <span class="small">🎶</span></a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="syntax-highlighting"><a class="anchor" href="#syntax-highlighting"></a><a class="link" href="#syntax-highlighting">Syntax Highlighting</a></h3>
 <div class="paragraph">
-<p>Ready when you need them.</p>
+<p>The Pkl CLI displays Pkl code in several locations: stack frames within errors messages, <a href="#power-assertions">power assertions</a>, and in the <a href="../pkl-cli/index.html#repl" class="xref page">REPL</a>.
+This code is now syntax highlighted to improve readability (<a href="https://github.com/apple/pkl/pull/1385" target="blank">#1385</a>, <a href="https://github.com/apple/pkl/pull/1409" target="blank">#1409</a>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/syntax-highlight-error.png" alt="syntax highlighted output">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library changes</a></h3>
+<h3 id="cli-dependency-notation"><a class="anchor" href="#cli-dependency-notation"></a><a class="link" href="#cli-dependency-notation">CLI Support for Dependency Notation</a></h3>
 <div class="paragraph">
-<p>New properties have been added to the standard library (<a href="https://github.com/apple/pkl/pull/1396">#1396</a>).</p>
+<p>The Pkl CLI now supports specifying modules using <a href="../language-reference/index.html#project-dependencies" class="xref page">dependency notation</a> (<a href="https://github.com/apple/pkl/pull/1434" target="blank">#1434</a>).
+This is especially helpful for <a href="#cli-framework">CLI commands</a> defined in Packages:</p>
 </div>
-<div class="sect3">
-<h4 id="additions-to-pklbase"><a class="anchor" href="#additions-to-pklbase"></a><a class="link" href="#additions-to-pklbase">Additions to <code>pkl:base</code></a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run @my-tool/cmd.pkl ...</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>The following APIs have been added:</p>
+<p>This enhancement applies to the <code>pkl eval</code>, <code>pkl run</code>, <code>pkl test</code>, and <code>pkl analyze imports</code> commands.
+It also applies to the <code>pkldoc</code>, <code>pkl-codegen-java</code>, and <code>pkl-codegen-kotlin</code> tools.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Dependency notation only works for remote package dependencies. <a href="../language-reference/index.html#local-dependencies" class="xref page">Local dependencies</a> are not supported.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="property-converter-annotations"><a class="anchor" href="#property-converter-annotations"></a><a class="link" href="#property-converter-annotations">Property Converter Annotations</a></h3>
+<div class="paragraph">
+<p>Pkl provides the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/BaseValueRenderers#converters" target="blank"><code>BaseValueRenderers.converters</code></a> mechanism for transforming values during rendering.
+Converters are flexible, but their design makes some transformations awkward.
+In particular, modifying property names during rendering required a lot of extra code.</p>
+</div>
+<div class="paragraph">
+<p>The new <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a> annotation adds a way to express parameterized per-property name and value transformations (<a href="https://github.com/apple/pkl/pull/1333" target="blank">#1333</a>).</p>
+</div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0024-annotation-converters.adoc">SPICE-0024</a>.</p>
+</div>
+<div class="paragraph">
+<p>Additional new Pkl APIs for per-format property renaming will be added for many built-in renderers:</p>
+</div>
+<div class="listingblock">
+<div class="title">fmt.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:json&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:yaml&quot;</span>
+
+<span class="hljs-operator">@</span>json<span class="hljs-punctuation">.</span><span class="hljs-title class_">Property</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;foo_bar&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-operator">@</span>yaml<span class="hljs-punctuation">.</span><span class="hljs-title class_">Property</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;foo-bar&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-property">fooBar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello world&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminaloutput hljs" data-lang="terminaloutput">$ pkl eval fmt.pkl -f json
+{
+  "foo_bar": "hello world"
+}
+
+$ pkl eval fmt.pkl -f yaml
+foo-bar: hello world</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-api-changes"><a class="anchor" href="#java-api-changes"></a><a class="link" href="#java-api-changes">Java API changes</a></h3>
+<div class="sect3">
+<h4 id="new-classes"><a class="anchor" href="#new-classes"></a><a class="link" href="#new-classes">New classes</a></h4>
+<div class="paragraph">
+<p>New classes are introduced to the Java API.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/List#isNotEmpty"><code>List.isNotEmpty</code></a></p>
+<p><code>org.pkl.core.CommandSpec</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-methods"><a class="anchor" href="#new-methods"></a><a class="link" href="#new-methods">New methods</a></h4>
+<div class="paragraph">
+<p>New methods are introduced to the Java API.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.pkl.core.Evaluator.evaluateCommand</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Map#isNotEmpty"><code>Map.isNotEmpty</code></a></p>
+<p><code>org.pkl.core.EvaluatorBuilder.setPowerAssertionsEnabled</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Set#isNotEmpty"><code>Set.isNotEmpty</code></a></p>
+<p><code>org.pkl.core.EvaluatorBuilder.getPowerAssertionsEnabled</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Listing#isNotEmpty"><code>Listing.isNotEmpty</code></a></p>
+<p><code>org.pkl.core.SecurityManager.resolveSecurePath</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Mapping#isNotEmpty"><code>Mapping.isNotEmpty</code></a></p>
+<p><code>org.pkl.config.java.ConfigEvaluator.evaluateOutputValue</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotEmpty"><code>String.isNotEmpty</code></a></p>
+<p><code>org.pkl.coznfig.java.ConfigEvaluator.evaluateExpression</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library changes</a></h3>
+<div class="paragraph">
+<p>New properties have been added to the standard library (<a href="https://github.com/apple/pkl/pull/1396" target="blank">#1396</a>).</p>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklbase"><a class="anchor" href="#additions-to-pklbase"></a><a class="link" href="#additions-to-pklbase">Additions to <code>pkl:base</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/List#isNotEmpty" target="blank"><code>List.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotBlank"><code>String.isNotBlank</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Map#isNotEmpty" target="blank"><code>Map.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Set#isNotEmpty" target="blank"><code>Set.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Listing#isNotEmpty" target="blank"><code>Listing.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Mapping#isNotEmpty" target="blank"><code>Mapping.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotEmpty" target="blank"><code>String.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotBlank" target="blank"><code>String.isNotBlank</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/BaseValueRenderer#convertPropertyTransformers" target="blank"><code>BaseValueRenderer.convertPropertyTransformers</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-module-pklcommand"><a class="anchor" href="#new-module-pklcommand"></a><a class="link" href="#new-module-pklcommand">New module <code>pkl:Command</code></a></h4>
+<div class="paragraph">
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> standard library module is added.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pkljson"><a class="anchor" href="#additions-to-pkljson"></a><a class="link" href="#additions-to-pkljson">Additions to <code>pkl:json</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/json/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pkljsonnet"><a class="anchor" href="#additions-to-pkljsonnet"></a><a class="link" href="#additions-to-pkljsonnet">Additions to <code>pkl:jsonnet</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/jsonnet/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklprotobuf"><a class="anchor" href="#additions-to-pklprotobuf"></a><a class="link" href="#additions-to-pklprotobuf">Additions to <code>pkl:protobuf</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/protobuf/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklxml"><a class="anchor" href="#additions-to-pklxml"></a><a class="link" href="#additions-to-pklxml">Additions to <code>pkl:xml</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/xml/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklyaml"><a class="anchor" href="#additions-to-pklyaml"></a><a class="link" href="#additions-to-pklyaml">Additions to <code>pkl:yaml</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/yaml/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -677,8 +950,19 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 <p>Things to watch out for when upgrading.</p>
 </div>
 <div class="sect2">
-<h3 id="xxx"><a class="anchor" href="#xxx"></a><a class="link" href="#xxx">XXX</a></h3>
-
+<h3 id="removal-of-argfile-support"><a class="anchor" href="#removal-of-argfile-support"></a><a class="link" href="#removal-of-argfile-support">Removal of <code>@argfile</code> support</a></h3>
+<div class="paragraph">
+<p>Prior versions of Pkl had an undocumented feature allowing inclusion of CLI arguments from files using <code>@path/to/file</code>.
+In order to support <a href="#cli-dependency-notation">dependency notation</a> on the CLI, <code>@argfile</code> support has been removed from Pkl.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removal-of-collectiontranspose"><a class="anchor" href="#removal-of-collectiontranspose"></a><a class="link" href="#removal-of-collectiontranspose">Removal of <code>Collection#transpose()</code></a></h3>
+<div class="paragraph">
+<p>Prior versions of Pkl defined a <code>transpose()</code> method on the <code>Collection</code> class.
+This method was never implemented and threw an error when called.
+As it was never functional, it has been removed entirely without a deprecation warning (<a href="https://github.com/apple/pkl/pull/1437" target="blank">#1437</a>).</p>
+</div>
 </div>
 </div>
 </div>
@@ -688,7 +972,25 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 <div class="ulist">
 <ul>
 <li>
-<p>Improve formatting of imports to keep surrounding comments (<a href="https://github.com/apple/pkl/pull/1424">#1424</a>).</p>
+<p>Improve formatting of imports to keep surrounding comments (<a href="https://github.com/apple/pkl/pull/1424" target="blank">#1424</a>).</p>
+</li>
+<li>
+<p>Add support for evaluating module output and expressions to <code>ConfigEvaluator</code> (<a href="https://github.com/apple/pkl/pull/1297" target="blank">#1297</a>).</p>
+</li>
+<li>
+<p>The <code>pkl format --write</code> command now exits successfully when formatting violations are found and updated (<a href="https://github.com/apple/pkl/pull/1340" target="blank">#1340</a>).</p>
+</li>
+<li>
+<p>Add <code>pkl-bom</code> module to aid in aligning Pkl Java dependencies (<a href="https://github.com/apple/pkl/pull/1390" target="blank">#1390</a>).</p>
+</li>
+<li>
+<p>Improve error message when writing <code>PklProject.deps.json</code> fails (<a href="https://github.com/apple/pkl/pull/1405" target="blank">#1405</a>).</p>
+</li>
+<li>
+<p>Add information about <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Annotation" target="blank"><code>Annotation</code></a>s to the language reference (<a href="https://github.com/apple/pkl/pull/1427" target="blank">#1427</a>).</p>
+</li>
+<li>
+<p>Improved usability for the <code>org.pkl.formatter.Formatter</code> Java API (<a href="https://github.com/apple/pkl/pull/1428" target="blank">#1428</a>).</p>
 </li>
 </ul>
 </div>
@@ -703,7 +1005,25 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 <div class="ulist">
 <ul>
 <li>
-<p>Incorrect Function.toString() (<a href="https://github.com/apple/pkl/issues/1410">#1410</a>).</p>
+<p><code>Function.toString()</code> returns incorrect result (<a href="https://github.com/apple/pkl/pull/1411" target="blank">#1411</a>).</p>
+</li>
+<li>
+<p>Failure when <code>--multiple-file-output-path</code> is a symlink (<a href="https://github.com/apple/pkl/pull/1389" target="blank">#1389</a>).</p>
+</li>
+<li>
+<p>The <code>module</code> type in a non-final module has default value of type <code>Dynamic</code> (<a href="https://github.com/apple/pkl/pull/1392" target="blank">#1392</a>).</p>
+</li>
+<li>
+<p>The <code>module</code> type is cached incorrectly in some cases (<a href="https://github.com/apple/pkl/pull/1393" target="blank">#1393</a>).</p>
+</li>
+<li>
+<p>A possible race condition involving symlinks could bypass <code>--root-dir</code> during module and resource reading (<a href="https://github.com/apple/pkl/pull/1426" target="blank">#1426</a>).</p>
+</li>
+<li>
+<p><code>pkl format</code> produces internal stack traces when lexing fails (<a href="https://github.com/apple/pkl/pull/1430" target="blank">#1430</a>).</p>
+</li>
+<li>
+<p><code>super</code> access expressions are parsed incorrectly inside the spread operator (<a href="https://github.com/apple/pkl/pull/1364" target="blank">#1364</a>).</p>
 </li>
 </ul>
 </div>
@@ -718,7 +1038,19 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 <div class="ulist">
 <ul>
 <li>
-<p>XXX</p>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/eddie4941">@eddie4941</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+<li>
+<p><a href="https://github.com/StefMa">@StefMa</a></p>
 </li>
 </ul>
 </div>

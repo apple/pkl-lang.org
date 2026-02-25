@@ -2146,10 +2146,10 @@ The <code>convert</code> property is a <a href="../language-reference/index.html
 The <code>transformAll</code> property is a function that overrides how <em>all</em> parsed option values become the final property value.</p>
 </div>
 <div class="paragraph">
-<p>The <code>convert</code> function may return an <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/Import"><code>Import</code></a> value that is replaced during option parsing with the actual value of the module specified by its <code>uri</code> property.
+<p>The <code>convert</code> and <code>transformAll</code> functions may return an <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/Import" target="blank"><code>Import</code></a> value that is replaced during option parsing with the actual value of the module specified by its <code>uri</code> property.
 If <code>glob</code> is <code>true</code>, the replacement value is a <code>Mapping</code>; its keys are the <em>absolute</em> URIs of the matched modules and its values are the actual module values.
 When specifying glob import options on the command line, it is often necessary to quote the value to avoid it being interpreted by the shell.
-If the return value of <code>convert</code> is a <code>List</code>, <code>Set</code>, <code>Map</code>, or <code>Pair</code>, each contained value (elements and entry keys/values) that are <code>Import</code> values are also replaced.</p>
+If the return value of <code>convert</code> or <code>transformAll</code> is a <code>List</code>, <code>Set</code>, <code>Map</code>, or <code>Pair</code>, each contained value (elements and entry keys/values) that are <code>Import</code> values are also replaced.</p>
 </div>
 <div class="admonitionblock important">
 <table>

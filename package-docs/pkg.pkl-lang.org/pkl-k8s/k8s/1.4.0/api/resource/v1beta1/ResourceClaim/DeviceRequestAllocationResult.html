@@ -54,7 +54,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">request</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#135-135">Source</a></div>
+                <div class="member-signature"><span class="name-decl">request</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#135-135">Source</a></div>
                 <div class="doc-comment"><p>Request is the name of the request in the claim which caused this device to be allocated.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.</p>
 <p>Multiple devices may have been allocated per request.</p></div>
@@ -68,7 +68,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">adminAccess</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#143-143">Source</a></div>
+                <div class="member-signature"><span class="name-decl">adminAccess</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#143-143">Source</a></div>
                 <div class="doc-comment"><p>AdminAccess indicates that this device was allocated for administrative access.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>See the corresponding request field for a definition of mode.</p>
 <p>This is an alpha field and requires enabling the DRAAdminAccess feature gate.
@@ -83,7 +83,7 @@ Admin access is disabled if this field is unset or set to false, otherwise it is
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">tolerations</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../DeviceToleration/index.html" class="name-ref">DeviceToleration</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#152-152">Source</a></div>
+                <div class="member-signature"><span class="name-decl">tolerations</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../DeviceToleration/index.html" class="name-ref">DeviceToleration</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#152-152">Source</a></div>
                 <div class="doc-comment"><p>A copy of all tolerations specified in the request at the time when the device got allocated.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The maximum number of tolerations is 16.</p>
 <p>This is an alpha field and requires enabling the DRADeviceTaints feature gate.</p></div>
@@ -97,7 +97,7 @@ Admin access is disabled if this field is unset or set to false, otherwise it is
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">driver</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#159-159">Source</a></div>
+                <div class="member-signature"><span class="name-decl">driver</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#159-159">Source</a></div>
                 <div class="doc-comment"><p>Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.
 It should use only lower case characters.</p></div>
@@ -111,7 +111,7 @@ It should use only lower case characters.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bindingFailureConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#166-166">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bindingFailureConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#166-166">Source</a></div>
                 <div class="doc-comment"><p>BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.</p></div>
               </div>
@@ -124,7 +124,7 @@ It should use only lower case characters.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">pool</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#172-172">Source</a></div>
+                <div class="member-signature"><span class="name-decl">pool</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#172-172">Source</a></div>
                 <div class="doc-comment"><p>This name together with the driver name and the device name field identify which device was allocated (<code>&lt;driver name&gt;/&lt;pool name&gt;/&lt;device name&gt;</code>).</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.</p></div>
               </div>
@@ -137,7 +137,7 @@ It should use only lower case characters.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">shareID</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#178-178">Source</a></div>
+                <div class="member-signature"><span class="name-decl">shareID</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#178-178">Source</a></div>
                 <div class="doc-comment"><p>ShareID uniquely identifies an individual allocation share of the device, used when the device supports multiple simultaneous allocations.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>It serves as an additional map key to differentiate concurrent shares of the same device.</p></div>
               </div>
@@ -150,7 +150,7 @@ It should use only lower case characters.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">consumedCapacity</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, <a href="../../../../K8sObject/index.html#Quantity" class="name-ref">Quantity</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#189-189">Source</a></div>
+                <div class="member-signature"><span class="name-decl">consumedCapacity</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, <a href="../../../../K8sObject/index.html#Quantity" class="name-ref">Quantity</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#189-189">Source</a></div>
                 <div class="doc-comment"><p>ConsumedCapacity tracks the amount of capacity consumed per device as part of the claim request.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device’s requestPolicy if applicable (i.e., may not be less than the requested amount).</p>
 <p>The total consumed capacity for each device must not exceed the DeviceCapacity's Value.</p>
@@ -166,7 +166,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">device</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#194-194">Source</a></div>
+                <div class="member-signature"><span class="name-decl">device</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#194-194">Source</a></div>
                 <div class="doc-comment"><p>Device references one device instance via its name in the driver's resource pool.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>It must be a DNS label.</p></div>
               </div>
@@ -179,7 +179,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bindingConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#201-201">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bindingConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceClaim.pkl#201-201">Source</a></div>
                 <div class="doc-comment"><p>BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.</p></div>
               </div>
@@ -198,7 +198,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L50-L50">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -210,7 +210,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L55-L55">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -225,7 +225,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="DeviceRequestAllocationResult.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="DeviceRequestAllocationResult.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="DeviceRequestAllocationResult.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="DeviceRequestAllocationResult.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L61-L61">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
 <code>map</code> and <code>flatMap</code> methods.</p></div>
@@ -240,7 +240,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1977-L1977">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -253,7 +253,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1982-L1982">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -267,7 +267,7 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1987-L1987">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -280,8 +280,8 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1885-L1885">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1990-L1990">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -292,8 +292,8 @@ All capacity entries are included, even if the consumed amount is zero.</p></div
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1888-L1888">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1993-L1993">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

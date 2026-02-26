@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.31.0-dev">
+<div class="nav-container" data-component="main" data-version="0.32.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,6 +238,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.32.html">0.32 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -271,7 +274,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.31.0-dev</span>
+    <span class="version">0.32.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -312,11 +315,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.32.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.31.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.31.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.30.2/index.html">0.30.2</a>
@@ -480,10 +483,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.31.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.32.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.32.0-dev</a>
     <a class="version" href="../../current/pkl-cli/index.html">0.31.0</a>
-    <a class="version is-current" href="index.html">0.31.0-dev</a>
     <a class="version" href="../../0.30.2/pkl-cli/index.html">0.30.2</a>
     <a class="version" href="../../0.29.1/pkl-cli/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-cli/index.html">0.28.2</a>
@@ -604,7 +607,7 @@ Except where noted otherwise, the rest of this page discusses the native executa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-macos-aarch64&amp;e=bin'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-macos-aarch64&amp;e=bin'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -614,7 +617,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-macos-amd64&amp;e=bin'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-macos-amd64&amp;e=bin'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -624,7 +627,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0-dev (macOS, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.32.0-dev (macOS, native)</code></pre>
 </div>
 </div>
 </div>
@@ -639,7 +642,7 @@ For a statically linked executable, see <a href="#alpine-linux-executable">Alpin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-linux-aarch64&amp;e=bin'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-linux-aarch64&amp;e=bin'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -649,7 +652,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-linux-amd64&amp;e=bin'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-linux-amd64&amp;e=bin'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -659,7 +662,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0-dev (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.32.0-dev (Linux, native)</code></pre>
 </div>
 </div>
 </div>
@@ -671,7 +674,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-alpine-linux-amd64&amp;e=bin'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-alpine-linux-amd64&amp;e=bin'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -681,7 +684,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0-dev (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.32.0-dev (Linux, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -701,7 +704,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 <h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-windows-amd64&amp;e=exe' -OutFile pkl.exe
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-windows-amd64&amp;e=exe' -OutFile pkl.exe
 .\pkl --version</code></pre>
 </div>
 </div>
@@ -710,7 +713,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0-dev (Windows 10.0, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.32.0-dev (Windows 10.0, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -749,7 +752,7 @@ We currently do not support the aarch64 architecture for Windows.
 <div id="tabs-1-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-1-macoslinux">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-java&amp;e=jar'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-java&amp;e=jar'
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>
@@ -758,7 +761,7 @@ chmod +x jpkl
 <div id="tabs-1-windows--panel" class="tabpanel" aria-labelledby="tabs-1-windows">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-java&amp;e=jar' -OutFile jpkl.bat
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-java&amp;e=jar' -OutFile jpkl.bat
 .\jpkl --version</code></pre>
 </div>
 </div>
@@ -770,7 +773,7 @@ chmod +x jpkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.31.0-dev (macOS 14.2, Java 17.0.10)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.32.0-dev (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2028,16 +2031,16 @@ Properties must have <a href="../language-reference/index.html#type-annotations"
 <div class="ulist">
 <ul>
 <li>
-<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/Flag"><code>@Flag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that accept a value.</p>
+<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/Flag"><code>@Flag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that accept a value.</p>
 </li>
 <li>
-<p><code>Boolean</code> properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/BooleanFlag"><code>@BooleanFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> and <code>--no-&lt;property name&gt;</code> that result in <code>true</code> and <code>false</code> values, respectively.</p>
+<p><code>Boolean</code> properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/BooleanFlag"><code>@BooleanFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> and <code>--no-&lt;property name&gt;</code> that result in <code>true</code> and <code>false</code> values, respectively.</p>
 </li>
 <li>
-<p><code>Int</code> (and type aliases of <code>Int</code>) properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/CountedFlag"><code>@CountedFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that produce a value equal to the number of times they are present on the command line.</p>
+<p><code>Int</code> (and type aliases of <code>Int</code>) properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/CountedFlag"><code>@CountedFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that produce a value equal to the number of times they are present on the command line.</p>
 </li>
 <li>
-<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/Argument"><code>@Argument</code></a> become positional CLI arguments and are parsed in the order they appear in the class.</p>
+<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/Argument"><code>@Argument</code></a> become positional CLI arguments and are parsed in the order they appear in the class.</p>
 </li>
 <li>
 <p>Properties with no annotation are treated the same as <code>@Flag</code> with no further customization.</p>
@@ -2150,7 +2153,7 @@ The <code>convert</code> property is a <a href="../language-reference/index.html
 The <code>transformAll</code> property is a function that overrides how <em>all</em> parsed option values become the final property value.</p>
 </div>
 <div class="paragraph">
-<p>The <code>convert</code> and <code>transformAll</code> functions may return an <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/Import" target="blank"><code>Import</code></a> value that is replaced during option parsing with the actual value of the module specified by its <code>uri</code> property.
+<p>The <code>convert</code> and <code>transformAll</code> functions may return an <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/Import" target="blank"><code>Import</code></a> value that is replaced during option parsing with the actual value of the module specified by its <code>uri</code> property.
 If <code>glob</code> is <code>true</code>, the replacement value is a <code>Mapping</code>; its keys are the <em>absolute</em> URIs of the matched modules and its values are the actual module values.
 When specifying glob import options on the command line, it is often necessary to quote the value to avoid it being interpreted by the shell.
 If the return value of <code>convert</code> or <code>transformAll</code> is a <code>List</code>, <code>Set</code>, <code>Map</code>, or <code>Pair</code>, each contained value (elements and entry keys/values) that are <code>Import</code> values are also replaced.</p>
@@ -2376,7 +2379,7 @@ There are two recommended workarounds for this limitation:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
-Welcome to Pkl 0.31.0-dev.
+Welcome to Pkl 0.32.0-dev.
 Type an expression to have it evaluated.
 Type :help or :examples for more information.
 
@@ -2573,7 +2576,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/settings/">pkl.settings</a>.</p>
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/settings/">pkl.settings</a>.</p>
 </div>
 </div>
 </div>

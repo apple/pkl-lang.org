@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Pkl 0.31 Release Notes :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/0.31.html">
-    <link rel="prev" href="index.html">
+    <link rel="prev" href="0.32.html">
     <link rel="next" href="0.30.html">
     <meta name="generator" content="Antora 3.1.9">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.31.0-dev">
+<div class="nav-container" data-component="main" data-version="0.32.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -237,6 +237,9 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Release Notes</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.32.html">0.32 Release Notes</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="0.31.html">0.31 Release Notes</a>
   </li>
@@ -271,7 +274,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.31.0-dev</span>
+    <span class="version">0.32.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -312,11 +315,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.32.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.31.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.31.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.30.2/index.html">0.30.2</a>
@@ -481,10 +484,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.31.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.32.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="0.31.html">0.32.0-dev</a>
     <a class="version" href="../../current/release-notes/0.31.html">0.31.0</a>
-    <a class="version is-current" href="0.31.html">0.31.0-dev</a>
     <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
     <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
     <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
@@ -638,7 +641,7 @@ When tests fail, Pkl emits a diagram of the expression, and the values produced.
 CLI tools implemented in Pkl have largely the same capabilities as normal Pkl evaluation (i.e. writing to standard output and files), but this may be extended using <a href="../language-reference/index.html#external-readers" class="xref page">external readers</a>.</p>
 </div>
 <div class="paragraph">
-<p>Commands are defined by extending the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> module:</p>
+<p>Commands are defined by extending the <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> module:</p>
 </div>
 <div class="listingblock">
 <div class="title">bird-generator.pkl</div>
@@ -770,12 +773,12 @@ Dependency notation only works for remote package dependencies. <a href="../lang
 <div class="sect2">
 <h3 id="property-converter-annotations"><a class="anchor" href="#property-converter-annotations"></a><a class="link" href="#property-converter-annotations">Property Converter Annotations</a></h3>
 <div class="paragraph">
-<p>Pkl provides the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/BaseValueRenderers#converters" target="blank"><code>BaseValueRenderers.converters</code></a> mechanism for transforming values during rendering.
+<p>Pkl provides the <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/BaseValueRenderers#converters" target="blank"><code>BaseValueRenderers.converters</code></a> mechanism for transforming values during rendering.
 Converters are flexible, but their design makes some transformations awkward.
 In particular, modifying property names during rendering required a lot of extra code.</p>
 </div>
 <div class="paragraph">
-<p>The new <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a> annotation adds a way to express parameterized per-property name and value transformations (<a href="https://github.com/apple/pkl/pull/1333" target="blank">#1333</a>).</p>
+<p>The new <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a> annotation adds a way to express parameterized per-property name and value transformations (<a href="https://github.com/apple/pkl/pull/1333" target="blank">#1333</a>).</p>
 </div>
 <div class="paragraph">
 <p>To learn more about this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0024-annotation-converters.adoc">SPICE-0024</a>.</p>
@@ -860,31 +863,31 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/List#isNotEmpty" target="blank"><code>List.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/List#isNotEmpty" target="blank"><code>List.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Map#isNotEmpty" target="blank"><code>Map.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Map#isNotEmpty" target="blank"><code>Map.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Set#isNotEmpty" target="blank"><code>Set.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Set#isNotEmpty" target="blank"><code>Set.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Listing#isNotEmpty" target="blank"><code>Listing.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Listing#isNotEmpty" target="blank"><code>Listing.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Mapping#isNotEmpty" target="blank"><code>Mapping.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Mapping#isNotEmpty" target="blank"><code>Mapping.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotEmpty" target="blank"><code>String.isNotEmpty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/String#isNotEmpty" target="blank"><code>String.isNotEmpty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/String#isNotBlank" target="blank"><code>String.isNotBlank</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/String#isNotBlank" target="blank"><code>String.isNotBlank</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/BaseValueRenderer#convertPropertyTransformers" target="blank"><code>BaseValueRenderer.convertPropertyTransformers</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/BaseValueRenderer#convertPropertyTransformers" target="blank"><code>BaseValueRenderer.convertPropertyTransformers</code></a></p>
 </li>
 </ul>
 </div>
@@ -892,7 +895,7 @@ foo-bar: hello world</code></pre>
 <div class="sect3">
 <h4 id="new-module-pklcommand"><a class="anchor" href="#new-module-pklcommand"></a><a class="link" href="#new-module-pklcommand">New module <code>pkl:Command</code></a></h4>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> standard library module is added.</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Command/#" target="blank"><code>pkl:Command</code></a> standard library module is added.</p>
 </div>
 </div>
 <div class="sect3">
@@ -900,7 +903,7 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/json/Property" target="blank"><code>Property</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/json/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -910,7 +913,7 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/jsonnet/Property" target="blank"><code>Property</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/jsonnet/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -920,7 +923,7 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/protobuf/Property" target="blank"><code>Property</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/protobuf/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -930,7 +933,7 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/xml/Property" target="blank"><code>Property</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/xml/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -940,7 +943,7 @@ foo-bar: hello world</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/yaml/Property" target="blank"><code>Property</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/yaml/Property" target="blank"><code>Property</code></a></p>
 </li>
 </ul>
 </div>
@@ -992,7 +995,7 @@ As it was never functional, it has been removed entirely without a deprecation w
 <p>Improve error message when writing <code>PklProject.deps.json</code> fails (<a href="https://github.com/apple/pkl/pull/1405" target="blank">#1405</a>).</p>
 </li>
 <li>
-<p>Add information about <a href="https://pkl-lang.org/package-docs/pkl/0.31.0-dev/base/Annotation" target="blank"><code>Annotation</code></a>s to the language reference (<a href="https://github.com/apple/pkl/pull/1427" target="blank">#1427</a>).</p>
+<p>Add information about <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Annotation" target="blank"><code>Annotation</code></a>s to the language reference (<a href="https://github.com/apple/pkl/pull/1427" target="blank">#1427</a>).</p>
 </li>
 <li>
 <p>Improved usability for the <code>org.pkl.formatter.Formatter</code> Java API (<a href="https://github.com/apple/pkl/pull/1428" target="blank">#1428</a>).</p>
@@ -1065,7 +1068,7 @@ As it was never functional, it has been removed entirely without a deprecation w
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Release Notes</a></span>
+  <span class="prev"><a href="0.32.html">0.32 Release Notes</a></span>
   <span class="next"><a href="0.30.html">0.30 Release Notes</a></span>
 </nav>
 </article>

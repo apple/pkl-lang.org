@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.31.0-dev">
+<div class="nav-container" data-component="main" data-version="0.32.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,6 +238,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.32.html">0.32 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -271,7 +274,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.31.0-dev</span>
+    <span class="version">0.32.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -312,11 +315,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.32.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.31.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.31.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.30.2/index.html">0.30.2</a>
@@ -483,10 +486,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.31.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.32.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="codegen.html">0.32.0-dev</a>
     <a class="version" href="../../current/java-binding/codegen.html">0.31.0</a>
-    <a class="version is-current" href="codegen.html">0.31.0-dev</a>
     <a class="version" href="../../0.30.2/java-binding/codegen.html">0.30.2</a>
     <a class="version" href="../../0.29.1/java-binding/codegen.html">0.29.1</a>
     <a class="version" href="../../0.28.2/java-binding/codegen.html">0.28.2</a>
@@ -581,7 +584,7 @@ Snapshots are published to repository <code><a href="https://central.sonatype.co
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-  implementation("org.pkl-lang:pkl-codegen-java:0.31.0-SNAPSHOT")
+  implementation("org.pkl-lang:pkl-codegen-java:0.32.0-SNAPSHOT")
 }
 
 repositories {
@@ -595,7 +598,7 @@ repositories {
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  implementation "org.pkl-lang:pkl-codegen-java:0.31.0-SNAPSHOT"
+  implementation "org.pkl-lang:pkl-codegen-java:0.32.0-SNAPSHOT"
 }
 
 repositories {
@@ -619,7 +622,7 @@ repositories {
   &lt;dependency&gt;
     &lt;groupId&gt;org.pkl-lang&lt;/groupId&gt;
     &lt;artifactId&gt;pkl-codegen-java&lt;/artifactId&gt;
-    &lt;version&gt;0.31.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;0.32.0-SNAPSHOT&lt;/version&gt;
   &lt;/dependency&gt;
   &lt;repositories&gt;
     &lt;repository&gt;
@@ -659,7 +662,7 @@ repositories {
 <div id="tabs-2-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-2-macoslinux">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl-codegen-java 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl-codegen-java 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar'
 chmod +x pkl-codegen-java
 ./pkl-codegen-java --version</code></pre>
 </div>
@@ -668,7 +671,7 @@ chmod +x pkl-codegen-java
 <div id="tabs-2-windows--panel" class="tabpanel" aria-labelledby="tabs-2-windows">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.31.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar' -OutFile pkl-codegen-java.bat
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.pkl-lang&amp;v=0.32.0-SNAPSHOT&amp;a=pkl-cli-codegen-java&amp;e=jar' -OutFile pkl-codegen-java.bat
 .\pkl-codegen-java --version</code></pre>
 </div>
 </div>
@@ -680,7 +683,7 @@ chmod +x pkl-codegen-java
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl-codegen-java 0.31.0-dev (macOS 14.2, Java 17.0.10)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl-codegen-java 0.32.0-dev (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
 </div>
 </div>

@@ -56,7 +56,7 @@ an API object (backendRefs).</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">backendRefs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="BackendRef.html" class="name-ref">BackendRef</a>&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L309-309">Source</a></div>
+                <div class="member-signature"><span class="name-decl">backendRefs</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="BackendRef.html" class="name-ref">BackendRef</a>&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L309-309">Source</a></div>
                 <div class="doc-comment"><p>BackendRefs defines the backend(s) where matching requests should be
 sent.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Failure behavior here depends on how many BackendRefs are specified and
@@ -92,7 +92,7 @@ MUST also apply for responses that return a 503.</p>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">filters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="RuleFilter.html" class="name-ref">RuleFilter</a>&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L347-347">Source</a></div>
+                <div class="member-signature"><span class="name-decl">filters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="RuleFilter.html" class="name-ref">RuleFilter</a>&gt;(length &lt;= 16)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L347-347">Source</a></div>
                 <div class="doc-comment"><p>Filters define the filters that are applied to requests that match
 this rule.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Wherever possible, implementations SHOULD implement filters in the order
@@ -133,7 +133,7 @@ this configuration error.</p>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">matches</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="Match.html" class="name-ref">Match</a>&gt;(length &lt;= 64)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L405-405">Source</a></div>
+                <div class="member-signature"><span class="name-decl">matches</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="Match.html" class="name-ref">Match</a>&gt;(length &lt;= 64)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L405-405">Source</a></div>
                 <div class="doc-comment"><p>Matches define conditions used for matching the rule against incoming
 HTTP requests. Each match is independent, i.e. this rule will be matched
 if <strong>any</strong> one of the matches is satisfied.</p></div>
@@ -192,7 +192,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>(length.isBetween(1, 253), matches(Regex(#&quot;^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$&quot;#)))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L410-413">Source</a></div>
+                <div class="member-signature"><span class="name-decl">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>(length.isBetween(1, 253), matches(Regex(#&quot;^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$&quot;#)))?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/k8s.networking.gateway@1.0.0/packages/k8s.networking.gateway/v1/HTTPRoute.pkl#L410-413">Source</a></div>
                 <div class="doc-comment"><p>Name is the name of the route rule. This name MUST be unique within a Route if it is set.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Support: Extended</p></div>
               </div>
@@ -224,7 +224,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L50-L50">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -236,7 +236,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L55-L55">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -251,7 +251,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Rule.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Rule.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="Rule.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Rule.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L61-L61">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
 <code>map</code> and <code>flatMap</code> methods.</p></div>
@@ -266,7 +266,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1977-L1977">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -279,7 +279,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1982-L1982">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -293,7 +293,7 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1987-L1987">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -306,8 +306,8 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1885-L1885">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1990-L1990">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -318,8 +318,8 @@ parent a request is coming from, a HTTP 404 status code MUST be returned.</p></d
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1888-L1888">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1993-L1993">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

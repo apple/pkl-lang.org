@@ -54,7 +54,7 @@
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">nodeName</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#146-146">Source</a></div>
+                <div class="member-signature"><span class="name-decl">nodeName</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#146-146">Source</a></div>
                 <div class="doc-comment"><p>NodeName identifies the node where the device is available.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Must only be set if Spec.PerDeviceNodeSelection is set to true.
 At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
@@ -68,7 +68,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">allowMultipleAllocations</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#153-153">Source</a></div>
+                <div class="member-signature"><span class="name-decl">allowMultipleAllocations</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#153-153">Source</a></div>
                 <div class="doc-comment"><p>AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.</p></div>
               </div>
@@ -81,7 +81,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">consumesCounters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="DeviceCounterConsumption.html" class="name-ref">DeviceCounterConsumption</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#162-162">Source</a></div>
+                <div class="member-signature"><span class="name-decl">consumesCounters</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="DeviceCounterConsumption.html" class="name-ref">DeviceCounterConsumption</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#162-162">Source</a></div>
                 <div class="doc-comment"><p>ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>There can only be a single entry per counterSet.</p>
 <p>The maximum number of device counter consumptions per device is 2.</p></div>
@@ -95,7 +95,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bindingFailureConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#175-175">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bindingFailureConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#175-175">Source</a></div>
                 <div class="doc-comment"><p>BindingFailureConditions defines the conditions for binding failure.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>They may be set in the per-device status conditions.
 If any is true, a binding failure occurred.</p>
@@ -112,7 +112,7 @@ If any is true, a binding failure occurred.</p>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">attributes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, <a href="DeviceAttribute.html" class="name-ref">DeviceAttribute</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#182-182">Source</a></div>
+                <div class="member-signature"><span class="name-decl">attributes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, <a href="DeviceAttribute.html" class="name-ref">DeviceAttribute</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#182-182">Source</a></div>
                 <div class="doc-comment"><p>Attributes defines the set of attributes for this device.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The name of each attribute must be unique in that set.</p>
 <p>The maximum number of attributes and capacities combined is 32.</p></div>
@@ -126,7 +126,7 @@ If any is true, a binding failure occurred.</p>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">taints</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="DeviceTaint.html" class="name-ref">DeviceTaint</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#192-192">Source</a></div>
+                <div class="member-signature"><span class="name-decl">taints</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="DeviceTaint.html" class="name-ref">DeviceTaint</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#192-192">Source</a></div>
                 <div class="doc-comment"><p>If specified, these are the driver-defined taints.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The maximum number of taints is 16.
 If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.</p>
@@ -141,7 +141,7 @@ If taints are set for any device in a ResourceSlice, then the maximum number of 
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">allNodes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#200-200">Source</a></div>
+                <div class="member-signature"><span class="name-decl">allNodes</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#200-200">Source</a></div>
                 <div class="doc-comment"><p>AllNodes indicates that all nodes have access to the device.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Must only be set if Spec.PerDeviceNodeSelection is set to true.
 At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
@@ -155,7 +155,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bindsToNode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#208-208">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bindsToNode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#208-208">Source</a></div>
                 <div class="doc-comment"><p>BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.</p>
 <p>This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.</p></div>
@@ -169,7 +169,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">bindingConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#220-220">Source</a></div>
+                <div class="member-signature"><span class="name-decl">bindingConditions</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing.html" class="name-ref">Listing</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#220-220">Source</a></div>
                 <div class="doc-comment"><p>BindingConditions defines the conditions for proceeding with binding.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.</p>
 <p>The maximum number of binding conditions is 4.</p>
@@ -185,7 +185,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">capacity</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, <a href="DeviceCapacity.html" class="name-ref">DeviceCapacity</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#227-227">Source</a></div>
+                <div class="member-signature"><span class="name-decl">capacity</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, <a href="DeviceCapacity.html" class="name-ref">DeviceCapacity</a>&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-k8s/blob/1.4.0/generated-package/api/resource/v1beta1/ResourceSlice.pkl#227-227">Source</a></div>
                 <div class="doc-comment"><p>Capacity defines the set of capacities for this device.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The name of each capacity must be unique in that set.</p>
 <p>The maximum number of attributes and capacities combined is 32.</p></div>
@@ -220,7 +220,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L46-L46">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L50-L50">Source</a></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -232,7 +232,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L55-L55">Source</a></div>
                 <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
               </div>
@@ -247,7 +247,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="BasicDevice.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="BasicDevice.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L57-L57">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="BasicDevice.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="BasicDevice.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L61-L61">Source</a></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
 <code>map</code> and <code>flatMap</code> methods.</p></div>
@@ -262,7 +262,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1872-L1872">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1977-L1977">Source</a></div>
                 <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
               </div>
             </div>
@@ -275,7 +275,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1877-L1877">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1982-L1982">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
               </div>
@@ -289,7 +289,7 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1882-L1882">Source</a></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1987-L1987">Source</a></div>
                 <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
               </div>
@@ -302,8 +302,8 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1885-L1885">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1990-L1990">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
               </div>
             </div>
           </li>
@@ -314,8 +314,8 @@ At most one of NodeName, NodeSelector and AllNodes can be set.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.30.2/stdlib/base.pkl#L1888-L1888">Source</a></div>
-                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/base/Map.html"><code>Map</code></a>.</p></div>
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/base.pkl#L1993-L1993">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map.html"><code>Map</code></a>.</p></div>
               </div>
             </div>
           </li>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Command (pkl:0.31.0) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../data/pkl/_/Command/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.31.0/Command/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.31.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.31.0" data-package-url-prefix="../" data-module-name="pkl.Command" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a>
+      <h1 id="declaration-title">pkl.Command<span id="declaration-version">0.31.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">open module <span class="name-decl">pkl.Command</span></div>
+        <div class="doc-comment"><p>Defines inputs and outputs for CLI commands implemented in Pkl.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">pkl:Command</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.31.0 or higher</dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Modules extending <code>pkl:Command</code> may configure <a href="../base/ModuleOutput.html#text"><code>ModuleOutput.text</code></a>, <a href="../base/ModuleOutput.html#bytes"><code>ModuleOutput.bytes</code></a>, and/or
+<a href="../base/ModuleOutput.html#files"><code>ModuleOutput.files</code></a> of <a href="../base/index.html#output"><code>output</code></a> to influence the effect of the command.</p>
+<p>Command modules should override <a href="index.html#options"><code>options</code></a> and provide their own class declaring options:</p>
+<pre><code>extends &quot;pkl:Command&quot;
+
+options: Options
+
+class Options {
+  // ...
+}
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="../base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L104-L137">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="command" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#command">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">command</span>: <a href="CommandInfo.html" class="name-ref">CommandInfo</a></div>
+                <div class="doc-comment"><p>Command configuration.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="options" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#options">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">options</span>: <a href="../base/Typed.html" class="name-ref">Typed</a></div>
+                <div class="doc-comment"><p>Command line options.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This property is set by the runtime during command execution.
+It must not be amended or overridden by modules or classes extending <a href="index.html"><code>Command</code></a>.</p>
+<p>Command modules should override this property and provide their own options type.
+The properties of the specified type declare the command line flags and arguments accepted by
+the command.</p>
+<p>Example:</p>
+<pre><code>extends &quot;pkl:Command&quot;
+
+options: Options
+
+class Options {
+  /// Maximum number of tries to attempt operation before giving up.
+  `max-tries`: UInt = 3
+
+  /// Duration after which operation will be timed out.
+  @Flag { convert = module.convertDuration; metavar = &quot;duration&quot; }
+  `connection-timeout`: Duration = 30.s
+
+  /// Whether to use cache data locally.
+  @BooleanFlag
+  cache: Boolean = true
+
+  /// Log verbosity.
+  @CountedFlag { shortName = &quot;v&quot; }
+  verbose: Int
+
+  /// File paths to operate on.
+  @Argument { completionCandidates = &quot;paths&quot; }
+  path: Listing&lt;String&gt;
+}
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="parent" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#parent">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">parent</span>: <a href="index.html" class="name-ref">Command</a>?</div>
+                <div class="doc-comment"><p>The value of the parent command with parsed options.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This property is set by the runtime during command execution.
+It must not be amended or overridden by modules or classes extending <a href="index.html"><code>Command</code></a>.</p>
+<p>The parent command is <code>null</code> for root commands.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="root" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#root">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">root</span>: <a href="index.html" class="name-ref">Command</a>?</div>
+                <div class="doc-comment"><p>The value of the root command with parsed options.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This property is set by the runtime during command execution.</p>
+<p>The root command is <code>null</code> for root commands.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="convertDuration" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#convertDuration">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">convertDuration</span>: (<a href="../base/String.html" class="name-ref">String</a>) -&gt; <a href="../base/Duration.html" class="name-ref">Duration</a></div>
+                <div class="doc-comment"><p>A convert function for <a href="../base/Duration.html"><code>Duration</code></a> values.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For use with <a href="Flag.html#convert"><code>Flag.convert</code></a> and <a href="Argument.html#convert"><code>Argument.convert</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="convertDataSize" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#convertDataSize">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">convertDataSize</span>: (<a href="../base/String.html" class="name-ref">String</a>) -&gt; <a href="../base/DataSize.html" class="name-ref">DataSize</a></div>
+                <div class="doc-comment"><p>A convert function for <a href="../base/DataSize.html"><code>DataSize</code></a> values.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>For use with <a href="Flag.html#convert"><code>Flag.convert</code></a> and <a href="Argument.html#convert"><code>Argument.convert</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L50-L50">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L55-L55">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="../base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L61-L61">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L1977-L1977">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L1982-L1982">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L1987-L1987">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L1990-L1990">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L1993-L1993">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="../base/Module.html" class="name-ref">Module</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.0/stdlib/stdlib/base.pkl#L98-L98">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="CommandInfo" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#CommandInfo">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="CommandInfo.html" class="name-decl">CommandInfo</a></div>
+                <div class="doc-comment"><p>Command configuration.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BaseFlag" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#BaseFlag">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">abstract class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="BaseFlag.html" class="name-decl">BaseFlag</a> extends <a href="../base/Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Annotates <a href="index.html#options"><code>options</code></a> properties to configure them as named CLI flags.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Flag" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Flag">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Flag.html" class="name-decl">Flag</a> extends <a href="BaseFlag.html" class="name-ref">BaseFlag</a></div>
+                <div class="doc-comment"><p>Annotates an <a href="index.html#options"><code>options</code></a> property to configure it as a named CLI flag that accepts a value.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="BooleanFlag" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#BooleanFlag">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="BooleanFlag.html" class="name-decl">BooleanFlag</a> extends <a href="BaseFlag.html" class="name-ref">BaseFlag</a></div>
+                <div class="doc-comment"><p>Annotates <a href="../base/Boolean.html"><code>Boolean</code></a> <a href="index.html#options"><code>options</code></a> properties to configure them as named CLI flags that may be
+specified zero or one times.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="CountedFlag" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#CountedFlag">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="CountedFlag.html" class="name-decl">CountedFlag</a> extends <a href="BaseFlag.html" class="name-ref">BaseFlag</a></div>
+                <div class="doc-comment"><p>Annotates <a href="not_found"><code>Integer</code></a> <a href="index.html#options"><code>options</code></a> properties to configure them as named CLI flags that may be
+specified zero or more times.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Argument" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Argument">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Argument.html" class="name-decl">Argument</a> extends <a href="../base/Annotation.html" class="name-ref">Annotation</a></div>
+                <div class="doc-comment"><p>Annotates an <a href="index.html#options"><code>options</code></a> property to configure it as a positional CLI argument.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Import" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Import">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Import.html" class="name-decl">Import</a></div>
+                <div class="doc-comment"><p>A value used in <a href="Flag.html#convert"><code>Flag.convert</code></a> and <a href="Argument.html#convert"><code>Argument.convert</code></a> to declare an option as a dynamic
+import.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

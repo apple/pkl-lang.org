@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CLI :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/pkl-cli/index.html">
+    <link rel="prev" href="../introduction/comparison.html">
+    <link rel="next" href="../language-tutorial/index.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+<script src="../../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.30.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.30.2</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.31.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="#installation">Installation</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/pkl-cli/index.html">0.31.0</a>
+    <a class="version" href="../../latest/pkl-cli/index.html">0.31.0-dev</a>
+    <a class="version is-current" href="index.html">0.30.2</a>
+    <a class="version" href="../../0.29.1/pkl-cli/index.html">0.29.1</a>
+    <a class="version" href="../../0.28.2/pkl-cli/index.html">0.28.2</a>
+    <a class="version" href="../../0.27.2/pkl-cli/index.html">0.27.2</a>
+    <a class="version" href="../../0.26.3/pkl-cli/index.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/pkl-cli/index.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">CLI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>pkl</code> command-line interface (CLI) evaluates Pkl modules and writes their output to the console or a file.
+For interactive development, the CLI includes a Read-Eval-Print Loop (REPL).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">Installation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The CLI comes in multiple flavors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Native macOS executable for amd64 (tested on macOS 10.15)</p>
+</li>
+<li>
+<p>Native Linux executable for amd64</p>
+</li>
+<li>
+<p>Native Linux executable for aarch64</p>
+</li>
+<li>
+<p>Native Alpine Linux executable for amd64 (cross-compiled and tested on Oracle Linux 8)</p>
+</li>
+<li>
+<p>Native Windows executable for amd64 (tested on Windows Server 2022)</p>
+</li>
+<li>
+<p>Java executable (tested with Java 17/21 on macOS and Oracle Linux)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>On macOS, Linux, and Windows, we recommend using the native executables.
+They are self-contained, start up instantly, and run complex Pkl code much faster than the Java executable.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">What is the Difference Between the Linux and Alpine Linux Executables?</div>
+<div class="paragraph">
+<p>The Linux executable is dynamically linked against <em>glibc</em> and <em>libstdc&#43;&#43;</em>,
+whereas, the Alpine Linux executable is statically linked against <em>musl libc</em> and <em>libstdc&#43;&#43;</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Java executable works on multiple platforms and has a smaller binary size than the native executables.
+However, it requires a Java 17 (or higher) runtime on the system path, and has a noticeable startup delay.</p>
+</div>
+<div class="paragraph">
+<p>All flavors are built from the same codebase and undergo the same automated testing.
+Except where noted otherwise, the rest of this page discusses the native executables.</p>
+</div>
+<div class="sect2">
+<h3 id="homebrew"><a class="anchor" href="#homebrew"></a><a class="link" href="#homebrew">Homebrew</a></h3>
+<div class="paragraph">
+<p>On macOS and Linux, release versions can be installed with <a href="https://brew.sh">Homebrew</a>.</p>
+</div>
+<div class="paragraph">
+<p>To install Pkl, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">brew install pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To update Pkl, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">brew update
+brew upgrade pkl   # or just `brew upgrade`</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mise"><a class="anchor" href="#mise"></a><a class="link" href="#mise">Mise</a></h3>
+<div class="paragraph">
+<p>On macOS, Linux, and Windows, release versions can be installed with <a href="https://mise.jdx.dev">Mise</a>.</p>
+</div>
+<div class="paragraph">
+<p>To install Pkl, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Install and activate Pkl globally
+mise use -g pkl@0.30.2
+
+# Install and activate Pkl locally
+mise use pkl@0.30.2</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="winget"><a class="anchor" href="#winget"></a><a class="link" href="#winget">Windows Package Manager</a></h3>
+<div class="paragraph">
+<p>On Windows, release versions can be installed with <a href="https://learn.microsoft.com/en-us/windows/package-manager/">Windows Package Manager</a>.</p>
+</div>
+<div class="paragraph">
+<p>To install Pkl, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">winget install Apple.Pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To update Pkl, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">winget upgrade Apple.Pkl</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="download"><a class="anchor" href="#download"></a><a class="link" href="#download">Download</a></h3>
+<div class="paragraph">
+<p>Development and release versions can be downloaded and installed manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="macos-executable"><a class="anchor" href="#macos-executable"></a><a class="link" href="#macos-executable">macOS Executable</a></h3>
+<div class="paragraph">
+<p>On aarch64:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-aarch64'
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On amd64:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-amd64'
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (macOS, native)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="linux-executable"><a class="anchor" href="#linux-executable"></a><a class="link" href="#linux-executable">Linux Executable</a></h3>
+<div class="paragraph">
+<p>The Linux executable is dynamically linked against <em>glibc</em> and <em>libstdc&#43;&#43;</em> for the amd64 and aarch64 architectures.
+For a statically linked executable, see <a href="#alpine-linux-executable">Alpine Linux Executable</a>.</p>
+</div>
+<div class="paragraph">
+<p>On aarch64:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-aarch64'
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On amd64:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-amd64'
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Linux, native)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="alpine-linux-executable"><a class="anchor" href="#alpine-linux-executable"></a><a class="link" href="#alpine-linux-executable">Alpine Linux Executable</a></h3>
+<div class="paragraph">
+<p>The Alpine Linux executable is statically linked against <em>musl libc</em> and <em>libstdc&#43;&#43;</em>.
+For a dynamically linked executable, see <a href="#linux-executable">Linux Executable</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-alpine-linux-amd64'
+chmod +x pkl
+./pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Linux, native)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We currently do not support the aarch64 architecture for Alpine Linux.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-windows-amd64.exe' -OutFile pkl.exe
+.\pkl --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Windows 10.0, native)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We currently do not support the aarch64 architecture for Windows.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-executable"><a class="anchor" href="#java-executable"></a><a class="link" href="#java-executable">Java Executable</a></h3>
+<div class="paragraph">
+<p>The Java executable is a jar that can be executed directly on macOS, Linux, and Windows.</p>
+</div>
+<div class="paragraph">
+<p>It requires <code>java</code> to be installed, and available on <code>$PATH</code>.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-macoslinux" class="tab">
+<p>macOS/Linux</p>
+</li>
+<li id="tabs-1-windows" class="tab">
+<p>Windows</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-1-macoslinux">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.2/pkl-cli-java-0.30.2.jar'
+chmod +x jpkl
+./jpkl --version</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-windows--panel" class="tabpanel" aria-labelledby="tabs-1-windows">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.2/pkl-cli-java-0.30.2.jar' -OutFile jpkl.bat
+.\jpkl --version</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This should print something similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.30.2 (macOS 14.2, Java 17.0.10)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Java executable is named <code>jpkl</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage"><a class="anchor" href="#usage"></a><a class="link" href="#usage">Usage</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl &lt;subcommand&gt; [&lt;options&gt;] [&lt;args&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>For a brief description of available options, run <code>pkl -h</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Java executable is named <code>jpkl</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="command-eval"><a class="anchor" href="#command-eval"></a><a class="link" href="#command-eval"><code>pkl eval</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl eval [&lt;options&gt;] [&lt;modules&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Evaluate the given Pkl <code>&lt;modules&gt;</code> and produce their rendering results.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;modules&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the modules to evaluate.
+Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options"><a class="anchor" href="#options"></a><a class="link" href="#options">Options</a></h4>
+<details id="format">
+<summary class="title">-f, --format</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>yaml</code><br>
+The output format to generate.
+The default output renderer for a module supports the following formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>json</code></p>
+</li>
+<li>
+<p><code>jsonnet</code></p>
+</li>
+<li>
+<p><code>pcf</code></p>
+</li>
+<li>
+<p><code>plist</code></p>
+</li>
+<li>
+<p><code>properties</code></p>
+</li>
+<li>
+<p><code>textproto</code></p>
+</li>
+<li>
+<p><code>xml</code></p>
+</li>
+<li>
+<p><code>yaml</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no format is set, the default renderer chooses <code>pcf</code>.</p>
+</div>
+</div>
+</details>
+<details id="output-path">
+<summary class="title">-o, --output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: "config.yaml"<br>
+The file path where the output file is placed.
+Relative paths are resolved against the project directory.</p>
+</div>
+<div class="paragraph">
+<p>This option is mutually exclusive with <a href="#multiple-file-output-path"><code>--multiple-file-output-path</code></a>.
+If neither option is set, each module&#8217;s <code>output.text</code> is written to standard output.</p>
+</div>
+<div class="paragraph">
+<p>If multiple source modules are given, placeholders can be used to map them to different output files.
+The following placeholders are supported:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>%{moduleDir}</code></dt>
+<dd>
+<p>The directory path of the module, relative to the working directory.
+Only available when evaluating file-based modules.</p>
+</dd>
+<dt class="hdlist1"><code>%{moduleName}</code></dt>
+<dd>
+<p>The simple module name as inferred from the module URI.
+For hierarchical URIs such as <code>file:///foo/bar/baz.pkl</code>, this is the last path segment without file extension.</p>
+</dd>
+<dt class="hdlist1"><code>%{outputFormat}</code></dt>
+<dd>
+<p>The requested output format.
+Only available if <code>--format</code> is set.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If multiple source modules are mapped to the same output file, their outputs are concatenated.
+By default, module outputs are separated with <code>---</code>, as in a YAML stream.
+The separator can be customized using the <a href="#module-output-separator"><code>--module-output-separator</code></a> option.</p>
+</div>
+</div>
+</details>
+<details id="module-output-separator">
+<summary class="title">--module-output-separator</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>---</code> (as in a YAML stream)<br>
+The separator to use when multiple module outputs are written to the same file, or to standard output.</p>
+</div>
+</div>
+</details>
+<details id="multiple-file-output-path">
+<summary class="title">-m, --multiple-file-output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: "output/"<br>
+The directory where a module&#8217;s output files are placed.</p>
+</div>
+<div class="paragraph">
+<p>Setting this option causes Pkl to evaluate a module&#8217;s <code>output.files</code> property
+and write the files specified therein.
+Within <code>output.files</code>, a key determines a file&#8217;s path relative to <code>--multiple-file-output-path</code>,
+and a value determines the file&#8217;s contents.</p>
+</div>
+<div class="paragraph">
+<p>This option cannot be used together with any of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#output-path"><code>--output-path</code></a></p>
+</li>
+<li>
+<p><a href="#expression"><code>--expression</code></a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This option supports the same placeholders as <a href="#output-path"><code>--output-path</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Write files to `output/`
+pkl eval -m output/ myFiles.pkl
+
+# Write files to the current working directory
+pkl eval -m . myFiles.pkl
+
+# Write foo.pkl's files to the `foo` directory, and bar.pkl's files
+# to the `bar` directory
+pkl eval -m "%{moduleName}" foo.pkl bar.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For additional details, see <a href="../language-reference/index.html#multiple-file-output" class="xref page">Multiple File Output</a>
+in the language reference.</p>
+</div>
+</div>
+</details>
+<details id="expression">
+<summary class="title">-x, --expression</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+The expression to be evaluated within the module.</p>
+</div>
+<div class="paragraph">
+<p>This option causes Pkl to evaluate the provided expression instead of the module&#8217;s <code>output.text</code> or <code>output.files</code> properties.
+The resulting value is then stringified, and written to either standard out, or the designated output file.</p>
+</div>
+<div class="paragraph">
+<p>For example, consider the following Pkl module:</p>
+</div>
+<div class="listingblock">
+<div class="title">pigeon.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following command prints <code>Pigeon</code> to the console:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval -x metadata.species pigeon.pkl
+# =&gt; Pigeon</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Setting an <code>--expression</code> flag can be thought of as substituting the expression in place of a module&#8217;s <code>output.text</code> property.
+Running the previous command is conceptually the same as if the below module were evaluated without the <code>--expression</code> flag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">metadata</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">text</span> <span class="hljs-operator">=</span> metadata<span class="hljs-punctuation">.</span><span class="hljs-variable">species</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-server"><a class="anchor" href="#command-server"></a><a class="link" href="#command-server"><code>pkl server</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl server</code></p>
+</div>
+<div class="paragraph">
+<p>Run as a server that communicates over standard input/output.</p>
+</div>
+<div class="paragraph">
+<p>This option is used for embedding Pkl in an external client, such as <a href="../../../swift/current/index.html" class="xref page">pkl-swift</a> or <a href="../../../go/current/index.html" class="xref page">pkl-go</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-test"><a class="anchor" href="#command-test"></a><a class="link" href="#command-test"><code>pkl test</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl test [&lt;options&gt;] [&lt;modules&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Evaluate the given <code>&lt;modules&gt;</code> as <em>tests</em>, producing a test report and appropriate exit code.</p>
+</div>
+<div class="paragraph">
+<p>Renderers defined in test files will be ignored by the <code>test</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Tests that result in writing <code>pkl-expected.pcf</code> files are considered failing tests.
+If these are the only failures, the command exits with exit code 10.
+Otherwise, failures result in exit code 1.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;modules&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the modules to test. Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options-2"><a class="anchor" href="#options-2"></a><a class="link" href="#options-2">Options</a></h4>
+<details id="junit-reports">
+<summary class="title">--junit-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>./build/test-results</code><br>
+Directory where to store JUnit reports.</p>
+</div>
+<div class="paragraph">
+<p>By default, one file will be created for each test module. This behavior can be changed with <code>--junit-aggregate-reports</code>, which will instead create a single JUnit report file with all test results.</p>
+</div>
+<div class="paragraph">
+<p>No JUnit reports will be generated if this option is not present.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-reports">
+<summary class="title">--junit-aggregate-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Aggregate JUnit reports into a single file.</p>
+</div>
+<div class="paragraph">
+<p>By default it will be <code>pkl-tests.xml</code> but you can override it using <code>--junit-aggregate-suite-name</code> flag.</p>
+</div>
+</div>
+</details>
+<details id="junit-aggregate-suite-name">
+<summary class="title">--junit-aggregate-suite-name</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>my-tests</code><br>
+The name of the root JUnit test suite.</p>
+</div>
+<div class="paragraph">
+<p>Used in combination with <code>--junit-aggregate-reports</code> flag.</p>
+</div>
+</div>
+</details>
+<details id="overwrite">
+<summary class="title">--overwrite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Force generation of expected examples.<br>
+The old expected files will be deleted if present.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-repl"><a class="anchor" href="#command-repl"></a><a class="link" href="#command-repl"><code>pkl repl</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl repl [&lt;options&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Start a REPL session.</p>
+</div>
+<div class="paragraph">
+<p>This command takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-project-package"><a class="anchor" href="#command-project-package"></a><a class="link" href="#command-project-package"><code>pkl project package</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl project package &lt;project-dir&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This command prepares a project to be published as a package.
+Given a project directory, it creates the following artifacts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;name&gt;@&lt;version&gt;</code> - the package metadata file</p>
+</li>
+<li>
+<p><code>&lt;name&gt;@&lt;version&gt;.sha256</code> - the dependency metadata file&#8217;s SHA-256 checksum</p>
+</li>
+<li>
+<p><code>&lt;name&gt;@&lt;version&gt;.zip</code> - the package archive</p>
+</li>
+<li>
+<p><code>&lt;name&gt;@&lt;version&gt;.zip.sha256</code> - the package archive&#8217;s SHA-256 checksum</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These artifacts are expected to be published to an HTTPS server, such that the metadata and zip files can be fetched at their expected locations.</p>
+</div>
+<div class="paragraph">
+<p>The package ZIP should be available at the <code>packageZipUrl</code> location specified in the <code>PklProject</code> file
+The package metadata should be available at the package URI&#8217;s derived HTTPS URL.
+For example, given package <code>package://example.com/mypackage@1.0.0</code>, the metadata file should be published to <code>https://example.com/mypackage@1.0.0</code>.</p>
+</div>
+<div class="paragraph">
+<p>During packaging, this command runs these additional steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Run the package&#8217;s API tests, if any are defined.</p>
+</li>
+<li>
+<p>Validates that if the package has already been published, that the package&#8217;s metadata is identical. This step can be skipped using the <code>--skip-publish-check</code> flag.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Search the current working directory for a project, and package it.
+pkl project package
+
+# Package all projects within the `packages/` directory to `.out`, writing each package's artifacts to its own directory.
+pkl project package --output-path ".out/%{name}@%{version}/" packages/*/</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="options-3"><a class="anchor" href="#options-3"></a><a class="link" href="#options-3">Options</a></h4>
+<details>
+<summary class="title">--output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>.out</code></p>
+</div>
+<div class="paragraph">
+<p>The directory to write artifacts to.
+Accepts the following placeholders:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>%{name}</code></dt>
+<dd>
+<p>The name of the package</p>
+</dd>
+<dt class="hdlist1"><code>%{version}</code></dt>
+<dd>
+<p>The version of the package</p>
+</dd>
+</dl>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--skip-publish-check</summary>
+<div class="content">
+<div class="paragraph">
+<p>Skips checking whether a package has already been published with different contents.</p>
+</div>
+<div class="paragraph">
+<p>By default, the packager will check whether a package at the same version has already been published.
+If the package has been published, it validates that the package&#8217;s metadata is identical to the locally generated metadata.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--junit-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>./build/test-results</code><br>
+Directory where to store JUnit reports.</p>
+</div>
+<div class="paragraph">
+<p>No JUnit reports will be generated if this option is not present.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--junit-aggregate-reports</summary>
+<div class="content">
+<div class="paragraph">
+<p>Aggregate JUnit reports into a single file.</p>
+</div>
+<div class="paragraph">
+<p>By default it will be <code>pkl-tests.xml</code> but you can override it using <code>--junit-aggregate-suite-name</code> flag.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--junit-aggregate-suite-name</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>my-tests</code><br>
+The name of the root JUnit test suite.</p>
+</div>
+<div class="paragraph">
+<p>Used in combination with <code>--junit-aggregate-reports</code> flag.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--overwrite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Force generation of expected examples.<br>
+The old expected files will be deleted if present.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-project-resolve"><a class="anchor" href="#command-project-resolve"></a><a class="link" href="#command-project-resolve"><code>pkl project resolve</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl project resolve &lt;project-dir&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This command takes the dependencies of a project, and writes the resolved versions a file at path <code>PklProject.deps.json</code>.</p>
+</div>
+<div class="paragraph">
+<p>It builds a dependency list, taking the latest minor version in case of version conflicts.
+For more details, see the <a href="../language-reference/index.html#resolving-dependencies" class="xref page">resolving dependencies</a> section of the language reference.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Search the current working directory for a project, and resolve its dependencies.
+pkl project resolve
+
+# Resolve dependencies for all projects within the `packages/` directory.
+pkl project resolve packages/*/</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="options-4"><a class="anchor" href="#options-4"></a><a class="link" href="#options-4">Options</a></h4>
+<div class="paragraph">
+<p>This command accepts <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-download-package"><a class="anchor" href="#command-download-package"></a><a class="link" href="#command-download-package"><code>pkl download-package</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl download-package &lt;package-uri&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This command downloads the specified packages to the cache directory.
+If the
+package already exists in the cache directory, this command is a no-op.</p>
+</div>
+<div class="sect3">
+<h4 id="options-5"><a class="anchor" href="#options-5"></a><a class="link" href="#options-5">Options</a></h4>
+<div class="paragraph">
+<p>This command accepts <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-analyze-imports"><a class="anchor" href="#command-analyze-imports"></a><a class="link" href="#command-analyze-imports"><code>pkl analyze imports</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl analyze imports [&lt;modules&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>This command builds a graph of imports declared in the provided modules.</p>
+</div>
+<div class="paragraph">
+<p>This is a lower level command that is meant to be useful for Pkl-related tooling.
+For example, this command feeds into the <a href="../pkl-gradle/index.html" class="xref page">Gradle Plugin</a> to determine if tasks are considered up-to-date or not.</p>
+</div>
+<div class="paragraph">
+<p>This command produces an object with two properties, <code>imports</code> and <code>resolvedImports</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>imports</code> property is a mapping of a module&#8217;s absolute URI, to the set of imports declared within that module.</p>
+</div>
+<div class="paragraph">
+<p>The <code>resolvedImports</code> property is a mapping of a module&#8217;s absolute URI (as stated in <code>imports</code>), to the resolved absolute URI that might be useful for fetching the module&#8217;s contents.
+For example, a <a href="../language-reference/index.html#local-dependencies" class="xref page">local dependency</a> import will have an in-language URI with scheme <code>projectpackage:</code>, and may have resolved URI with scheme <code>file:</code> (assuming that the project is file-based).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Analyze the imports of a single module
+pkl analyze imports myModule.pkl
+
+# Same as the previous command, but output in JSON.
+pkl analyze imports -f json myModule.pkl
+
+# Analyze imports of all modules declared within src/
+pkl analyze imports src/*.pkl</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;modules&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the modules to analyze. Relative URIs are resolved against the working directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="options-6"><a class="anchor" href="#options-6"></a><a class="link" href="#options-6">Options</a></h4>
+<details>
+<summary class="title">-f, --format</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#format">-f, --format</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-o, --output-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Same meaning as <a href="#output-path">-o, --output-path</a> in <a href="#command-eval"><code>pkl eval</code></a>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-shell-completion"><a class="anchor" href="#command-shell-completion"></a><a class="link" href="#command-shell-completion"><code>pkl shell-completion</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl shell-completion &lt;shell&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Generate shell completion script. Supported shells are: <code>bash</code>, <code>zsh</code>, <code>fish</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Generate shell completion script for bash
+pkl shell-completion bash
+
+# Generate shell completion script for zsh
+pkl shell-completion zsh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-format"><a class="anchor" href="#command-format"></a><a class="link" href="#command-format"><code>pkl format</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis</strong>: <code>pkl format &lt;options&gt; [&lt;paths&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>This command formats or checks formatting of Pkl files.<br>
+Exit codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>0: No violations found.</p>
+</li>
+<li>
+<p>1: An unexpected error happened (ex.: IO error)</p>
+</li>
+<li>
+<p>11: Violations were found.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the path is a directory, recursively looks for files with a <code>.pkl</code> extension, or files named <code>PklProject</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default, the input files are formatted, and written to standard out.</p>
+</div>
+<div class="sect3">
+<h4 id="options-7"><a class="anchor" href="#options-7"></a><a class="link" href="#options-7">Options</a></h4>
+<details>
+<summary class="title">--grammar-version</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>2</code> (latest version)<br>
+Select the grammar compatibility version for the formatter.
+New versions are created for each backward incompatible grammar change.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-s, --silent</summary>
+<div class="content">
+<div class="paragraph">
+<p>Skip writing to standard out. Mutually exclusive with <code>--diff-name-only</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-w, --write</summary>
+<div class="content">
+<div class="paragraph">
+<p>Format files in place, overwriting them. Implies <code>--diff-name-only</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--diff-name-only</summary>
+<div class="content">
+<div class="paragraph">
+<p>Write the path of files with formatting violations to stdout.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
+<div class="paragraph">
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
+</div>
+<details id="allowed-modules">
+<summary class="title">--allowed-modules</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>pkl:,file:,modulepath:,https:,repl:,package:,projectpackage:</code><br>
+Comma-separated list of URI patterns that determine which modules can be loaded and evaluated.
+Patterns are matched against the beginning of module URIs.
+(File paths have been converted to <code>file:</code> URLs at this stage.)
+At least one pattern needs to match for a module to be loadable.</p>
+</div>
+</div>
+</details>
+<details id="allowed-resources">
+<summary class="title">--allowed-resources</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>env:,prop:,package:,projectpackage:</code><br>
+Comma-separated list of URI patterns that determine which external resources can be read.
+Patterns are matched against the beginning of resource URIs.
+At least one pattern needs to match for a resource to be readable.</p>
+</div>
+</div>
+</details>
+<details id="color">
+<summary class="title">--color</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>auto</code><br>
+When to format messages with ANSI color codes.
+Possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"never"</code>: Never format</p>
+</li>
+<li>
+<p><code>"auto"</code>: Format if <code>stdin</code>, <code>stdout</code>, or <code>stderr</code> are connected to a console.</p>
+</li>
+<li>
+<p><code>"always"</code>: Always format</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details id="cache-dir">
+<summary class="title">--cache-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>~/.pkl/cache</code><br>
+Example: <code>/path/to/module/cache/</code><br>
+The cache directory for storing packages.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--no-cache</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disable caching of packages.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-e, --env-var</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: OS environment variables for the current process<br>
+Example: <code>MY_VAR=myValue</code><br>
+Sets an environment variable that can be read by Pkl code with <code>read("env:&lt;envVarName&gt;")</code>.
+Repeat this option to set multiple environment variables.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-h, --help</summary>
+<div class="content">
+<div class="paragraph">
+<p>Display help information.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--module-path</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (empty)<br>
+Example: <code>dir1:zip1.zip:jar1.jar</code><br>
+Directories, ZIP archives, or JAR archives to search when resolving <code>modulepath:</code> URIs.
+Paths are separated by the platform-specific path separator (<code>:</code> on *nix, <code>;</code> on Windows).
+Relative paths are resolved against the working directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-p, --property</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>myProp=myValue</code><br>
+Sets an external property that can be read by Pkl code with <code>read("prop:&lt;propertyName&gt;")</code>.
+Repeat this option to set multiple external properties.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--root-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>/some/path</code><br>
+Root directory for <code>file:</code> modules and resources.
+If set, access to file-based modules and resources is restricted to those located under the specified root directory.
+Any symlinks are resolved before this check is performed.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--settings</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>mySettings.pkl</code><br>
+File path of the Pkl settings file to use.
+If not set, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-t, --timeout</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>30</code><br>
+Duration, in seconds, after which evaluation of a source module will be timed out.
+Note that a timeout is treated the same as a program error in that any subsequent source modules will not be evaluated.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">-w, --working-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Base path that relative module paths passed as command-line arguments are resolved against.
+Defaults to the current working directory.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--ca-certificates</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>/some/path/certificates.pem</code><br>
+Path to a file containing CA certificates to be used for TLS connections.</p>
+</div>
+<div class="paragraph">
+<p>Setting this option replaces the existing set of CA certificates bundled into the CLI.
+Certificates need to be X.509 certificates in PEM format.</p>
+</div>
+<div class="paragraph">
+<p>For other methods of configuring certificates, see <a href="#ca-certs">CA Certificates</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>http://proxy.example.com:1234</code><br>
+Configures HTTP connections to connect to the provided proxy address.
+The URI must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-no-proxy</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>example.com,169.254.0.0/16</code><br>
+Comma separated list of hosts to which all connections should bypass the proxy.
+Hosts can be specified by name, IP address, or IP range using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--http-rewrite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>https://pkg.pkl-lang.org/=https://my.internal.mirror/</code><br>
+Replace outbound HTTP(S) requests from one URL with another URL.
+The left-hand side describes the source prefix, and the right-hand describes the target prefix.
+This option is commonly used to enable package mirroring.
+The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">--trace-mode</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>compact</code><br>
+Specifies how <code>trace()</code> output is formatted.
+Possible options are <code>compact</code> and <code>pretty</code>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands also take the following options:</p>
+</div>
+<details id="project-dir">
+<summary class="title">--project-dir</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>/some/path</code><br>
+Directory where the project lives.</p>
+</div>
+<div class="paragraph">
+<p>A project is a directory that contains a <code>PklProject</code> file, which is used to declare package dependencies, as well as common evaluator settings to be applied in the project.</p>
+</div>
+<div class="paragraph">
+<p>If omitted, this is determined by searching up from the working directory for a directory that contains a <code>PklProject</code> file, until <code>--root-dir</code> or the file system root is reached.</p>
+</div>
+</div>
+</details>
+<details id="omit-project-settings">
+<summary class="title">--omit-project-settings</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disables loading evaluator settings from the PklProject file.</p>
+</div>
+</div>
+</details>
+<details id="no-project">
+<summary class="title">--no-project</summary>
+<div class="content">
+<div class="paragraph">
+<p>Disables all behavior related to projects.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="root-options"><a class="anchor" href="#root-options"></a><a class="link" href="#root-options">Root options</a></h3>
+<div class="paragraph">
+<p>The root <code>pkl</code> command supports the following options:</p>
+</div>
+<details>
+<summary class="title">-v, --version</summary>
+<div class="content">
+<div class="paragraph">
+<p>Display version information.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="evaluating-modules"><a class="anchor" href="#evaluating-modules"></a><a class="link" href="#evaluating-modules">Evaluating Modules</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Say we have the following module:</p>
+</div>
+<div id="config.pkl" class="listingblock">
+<div class="title">config.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">parrot</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Parrot&quot;</span>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To evaluate this module and write its output to standard output, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval config.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Seeds&quot;</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">parrot</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">species</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Parrot&quot;</span>
+  <span class="hljs-property">diet</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Berries&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To render output as JSON, YAML, XML property list, or Java properties,
+use <code>--format json</code>, <code>--format yaml</code>, <code>--format plist</code>, or <code>--format properties</code>, respectively.</p>
+</div>
+<div class="paragraph">
+<p>To control the output format from within Pkl code, see <a href="../language-reference/index.html#module-output" class="xref page">Module Output</a>.</p>
+</div>
+<div class="paragraph">
+<p>To read a source module from standard input rather than a file, use <code>-</code> as a module name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">echo mod2.pkl | pkl eval mod1.pkl - mod3.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is especially useful in environments that don&#8217;t support <code>/dev/stdin</code>.</p>
+</div>
+<div class="paragraph">
+<p>To write output to a file rather than standard output, use <code>--output-path some/file.ext</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="batch-evaluation"><a class="anchor" href="#batch-evaluation"></a><a class="link" href="#batch-evaluation">Batch Evaluation</a></h3>
+<div class="paragraph">
+<p>Multiple modules can be evaluated at once:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval config1.pkl config2.pkl config3.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To write module outputs to separate output files, <code>--output-path</code> supports the following placeholders:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>%{moduleDir}</code></dt>
+<dd>
+<p>the directory path of the source module, relative to the working directory (only available for file based modules)</p>
+</dd>
+<dt class="hdlist1"><code>%{moduleName}</code></dt>
+<dd>
+<p>the last path segment of the module URI, without file extension</p>
+</dd>
+<dt class="hdlist1"><code>%{outputFormat}</code></dt>
+<dd>
+<p>the target format (only available if <code>--format</code> is set)</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The following run produces three JSON files placed next to the given source modules:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl eval --format=json --output-path=%{moduleDir}/%{moduleName}.json config1.pkl config2.pkl config3.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If multiple module outputs are written to the same file, or to standard output, their outputs are concatenated.
+By default, module outputs are separated with <code>---</code>, as in a YAML stream.
+The separator can be customized using the <code>--module-output-separator</code> option.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="repl"><a class="anchor" href="#repl"></a><a class="link" href="#repl">Working with the REPL</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To start a REPL session, run <code>pkl repl</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
+Welcome to Pkl 0.30.2.
+Type an expression to have it evaluated.
+Type :help or :examples for more information.
+
+pkl&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loading-modules"><a class="anchor" href="#loading-modules"></a><a class="link" href="#loading-modules">Loading Modules</a></h3>
+<div class="paragraph">
+<p>To load <a href="#config.pkl"><code>config.pkl</code></a> into the REPL, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; :load config.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To evaluate the <code>bird.species</code> property, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; bird.species
+"Pigeon"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To evaluate the entire module, force-evaluate <code>this</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; :force this</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="repl-commands"><a class="anchor" href="#repl-commands"></a><a class="link" href="#repl-commands">REPL Commands</a></h3>
+<div class="paragraph">
+<p>Commands start with <code>:</code> and can be tab-completed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; :<kbd>Tab</kbd>
+clear       examples    force       help        load        quit        reset
+pkl&gt; :q<kbd>Tab</kbd>
+pkl&gt; :quit<kbd>Return</kbd>
+$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commands can be abbreviated with any unique name prefix:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; :q<kbd>Return</kbd>
+$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To learn more about each command, run the <code>:help</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Some commands support further command-specific tab completion.
+For example, the <code>:load</code> command supports completing file paths.</p>
+</div>
+<div class="paragraph">
+<p>With commands out of the way, let&#8217;s move on to evaluating code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="evaluating-code"><a class="anchor" href="#evaluating-code"></a><a class="link" href="#evaluating-code">Evaluating Code</a></h3>
+<div class="paragraph">
+<p>To evaluate an expression, type the expression and hit <kbd>Return</kbd>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; 2 + 4
+6</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Apart from expressions, the REPL also accepts property, function, and class definitions.
+(See the <a href="../language-reference/index.html" class="xref page">Language Reference</a> to learn more about these language concepts.)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; hello = "Hello, World!"
+pkl&gt; hello
+"Hello, World!"
+pkl&gt; function double(n) = 2 * n
+pkl&gt; double(5)
+10
+pkl&gt; class Bird { species: String }
+pkl&gt; new Bird { species = "Pigeon" }
+{
+  name = ?
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Top-level expressions are only supported in the REPL.
+In a regular module, every expression is contained in a definition, and only definitions exist at the top level.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redefining-members"><a class="anchor" href="#redefining-members"></a><a class="link" href="#redefining-members">Redefining Members</a></h3>
+<div class="paragraph">
+<p>Existing members can be redefined:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; species = "Pigeon"
+pkl&gt; species
+"Pigeon"
+pkl&gt; species = "Barn"
+pkl&gt; species
+"Barn"
+pkl&gt; species + " Owl"
+pkl&gt; species
+"Barn Owl"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Due to Pkl&#8217;s late binding semantics, redefining a member affects dependent members:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pkl&gt; name = "Barn"
+pkl&gt; species = "\(name) Owl"
+pkl&gt; species
+"Barn Owl"
+pkl&gt; name = "Elf"
+pkl&gt; species
+"Elf Owl"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Redefining members is only supported in the REPL. Under the hood,
+it works as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The REPL environment is represented as a synthetic Pkl module.</p>
+</li>
+<li>
+<p>When a new member is defined, it is added to the current REPL module.</p>
+</li>
+<li>
+<p>When an existing member is redefined, it is added to a new REPL module that <a href="../language-reference/index.html#module-amend" class="xref page">amends</a> the previous REPL module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="settings-file"><a class="anchor" href="#settings-file"></a><a class="link" href="#settings-file">Settings File</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Pkl settings file allows to customize the CLI experience.</p>
+</div>
+<div class="paragraph">
+<p>A settings file is a Pkl module amending the <code>pkl.settings</code> standard library module.
+Its default location is <code>~/.pkl/settings.pkl</code>.
+To use a different settings file, set the <code>--settings</code> command line option, for example <code>--settings mysettings.pkl</code>.
+To enforce default settings, use <code>--settings pkl:settings</code>.
+The settings file is also honored by (and configurable through) the Gradle plugin and <code>CliEvaluator</code> API.</p>
+</div>
+<div class="paragraph">
+<p>Here is a typical settings file:</p>
+</div>
+<div class="listingblock">
+<div class="title">~/.pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">editor</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Idea</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A settings file should amend the <code>pkl.settings</code> standard library module.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Configures IntelliJ IDEA as the preferred editor.
+Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextMate</code>, <code>Sublime</code>, <code>Atom</code>, and <code>VsCode</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/settings/">pkl.settings</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ca-certs"><a class="anchor" href="#ca-certs"></a><a class="link" href="#ca-certs">CA Certificates</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.30.2/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
+These certificates can be overridden via either of the two options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set them directly via the CLI option <code>--ca-certificates &lt;path&gt;</code>.</p>
+</li>
+<li>
+<p>Add them to a directory at path <code>~/.pkl/cacerts/</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both these options will <strong>replace</strong> the default CA certificates bundled with Pkl.<br>
+The CLI option takes precedence over the certificates in <code>~/.pkl/cacerts/</code>.<br>
+Certificates need to be X.509 certificates in PEM format.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-proxy"><a class="anchor" href="#http-proxy"></a><a class="link" href="#http-proxy">HTTP Proxying</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When making HTTP(s) requests, Pkl can possibly make use of an HTTP proxy.</p>
+</div>
+<div class="paragraph">
+<p>There are two values that determine proxy settings; the proxy address and list of noproxy rules.
+When determining proxy settings, Pkl will look at the following locations, in order of precedence (lowest to highest):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OS settings (on macOS, Windows, and GNOME environments)</p>
+</li>
+<li>
+<p><a href="#settings-file">Settings file</a></p>
+</li>
+<li>
+<p><a href="../language-reference/index.html#projects" class="xref page">PklProject file</a></p>
+</li>
+<li>
+<p><code>--http-proxy</code> and <code>--http-no-proxy</code> CLI flags</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The proxy and noproxy values are individually set.
+For example, using the <code>--http-no-proxy</code> flag but not the <code>--http-proxy</code> flag will cause Pkl to look at the PklProject file, then the settings file, then system settings for the proxy address.</p>
+</div>
+<div class="paragraph">
+<p>One exception to this rule is that setting a proxy address will cause Pkl to ignore any noproxy values set at the OS level.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pkl only supports HTTP proxies, so neither HTTPS nor SOCKS proxies are supported.
+Pkl does not support authentication with a proxy.</p>
+</div>
+<div class="paragraph">
+<p>When specifying a proxy address, it must have scheme <code>http</code>, and may not contain anything other than a host and port.</p>
+</div>
+<div class="sect2">
+<h3 id="proxy-exclusions"><a class="anchor" href="#proxy-exclusions"></a><a class="link" href="#proxy-exclusions">Proxy exclusions</a></h3>
+<div class="paragraph">
+<p>Pkl can be configured to bypass the proxy for specific requests via a proxy exclusion rule (i.e. the <code>--http-no-proxy</code> flag).
+It may be provided either as a hostname, an IP address, or an IP range via <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>.
+When determining whether a proxy should be excluded, hostnames do not get resolved to their IP address.
+For example, a request to <code>localhost</code> will not match <code>--http-no-proxy=127.0.0.1</code>.</p>
+</div>
+<div class="paragraph">
+<p>For individual hosts (not CIDRs), ports can be specified.
+When no port is specified for a given host, connections to all ports bypass the proxy.</p>
+</div>
+<div class="paragraph">
+<p>A hostname will match all of its subdomains.
+For example, <code>example.com</code> will match <code>foo.example.com</code>, and <code>bar.foo.example.com</code>, but not <code>fooexample.com</code>.</p>
+</div>
+<div class="paragraph">
+<p>The value <code>*</code> is a special wildcard that matches all hosts.</p>
+</div>
+<div class="paragraph">
+<p>A port can optionally be specified. If omitted, it matches all ports.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl follows the rules described in <a href="https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/#standardizing-no_proxy">Standardizing <code>no_proxy</code></a>, except it does not look at environment variables.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../introduction/comparison.html">Comparison</a></span>
+  <span class="next"><a href="../language-tutorial/index.html">Tutorial</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

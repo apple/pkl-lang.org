@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pkl 0.31 Release Notes :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/0.31.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="0.30.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+<script src="../../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.31.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="0.31.html">0.31 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.31.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.31.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version">
+          <a href="../../0.30.2/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Release Notes</a></li>
+    <li><a href="0.31.html">0.31 Release Notes</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.31.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="0.31.html">0.31.0</a>
+    <a class="version" href="../../latest/release-notes/0.31.html">0.31.0-dev</a>
+    <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
+    <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
+    <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
+    <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
+    <a class="version is-missing" href="../../0.26.3/index.html">0.26.3</a>
+    <a class="version is-missing" href="../../0.25.3/index.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.31/docs/modules/release-notes/pages/0.31.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Pkl 0.31 Release Notes</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl 0.31 was released on February 26th, 2026.<br>
+<span class="small">The latest bugfix release is 0.31.0. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
+</div>
+<div class="paragraph">
+<p>The next release (0.32) is scheduled for July 2026.
+To see what&#8217;s coming in the future, follow the <a href="https://github.com/orgs/apple/projects/12/views/1">Pkl Roadmap</a>.</p>
+</div>
+<div class="paragraph">
+<p>Please send feedback and questions to <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a>, or submit an issue on <a href="https://github.com/apple/pkl/issues/new">GitHub</a>.<br></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Pkl is hosted on <a href="https://github.com/apple/pkl">GitHub</a>.
+To get started, follow <a href="../pkl-cli/index.html#installation" class="xref page">Installation</a>.</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="highlights"><a class="anchor" href="#highlights"></a><a class="link" href="#highlights">Highlights <span class="small">💖</span></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="power-assertions"><a class="anchor" href="#power-assertions"></a><a class="link" href="#power-assertions">Power Assertions</a></h3>
+<div class="paragraph">
+<p>Pkl&#8217;s test output and error output has been improved with power assertions (<a href="https://github.com/apple/pkl/pull/1384" target="blank">#1384</a>, <a href="https://github.com/apple/pkl/pull/1419" target="blank">#1419</a>)!</p>
+</div>
+<div class="paragraph">
+<p>Pkl has two places that are effectively assertions.
+These are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type constraint expressions</p>
+</li>
+<li>
+<p>Test facts</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Currently, when these assertions fail, the error message prints the assertion&#8217;s source section.
+However, this information can sometimes be lacking.
+It tells you what the mechanics of the assertion is, but doesn&#8217;t tell you <em>why</em> the assertion is failing.</p>
+</div>
+<div class="paragraph">
+<p>For example, here is the current error output of a failing typecheck.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `name.endsWith(lastName)` violated.
+Value: new Person { name = "Bub Johnson" }
+
+7 | passenger: Person(name.endsWith(lastName)) = new { name = "Bub Johnson" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just from this error message, we don&#8217;t know what the last name is supposed to be.
+What is <code>name</code> supposed to end with?
+We just know it&#8217;s some property called <code>lastName</code> but, we don&#8217;t know what it <em>is</em>.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.31, the error output becomes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">–– Pkl Error ––
+Type constraint `name.endsWith(lastName)` violated.
+Value: new Person { name = "Bub Johnson" }
+
+    name.endsWith(lastName)
+    │    │        │
+    │    false    "Smith"
+    "Bub Johnson"
+
+7 | passenger: Person(name.endsWith(lastName)) = new { name = "Bub Johnson" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we know what the expecation actually is.</p>
+</div>
+<div class="paragraph">
+<p>This type of diagram is also added to test facts.
+When tests fail, Pkl emits a diagram of the expression, and the values produced.</p>
+</div>
+<div class="paragraph">
+<p>For example, given the following test:</p>
+</div>
+<div class="listingblock">
+<div class="title">math.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-property">facts</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span><span class="hljs-punctuation">(</span><span class="hljs-params">a</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <span class="hljs-params">b</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> a <span class="hljs-operator">*</span> b
+  <span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">divide</span><span class="hljs-punctuation">(</span><span class="hljs-params">a</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">,</span> <span class="hljs-params">b</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> a <span class="hljs-operator">%</span> b
+  [<span class="hljs-string">&quot;math&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-title function_ invoke__">add</span><span class="hljs-punctuation">(</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-number">7</span>
+    <span class="hljs-title function_ invoke__">divide</span><span class="hljs-punctuation">(</span><span class="hljs-number">8</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">==</span> <span class="hljs-number">4</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The error output now includes a power assertion diagram, which helps explain why the test failed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">module math
+  facts
+    ✘ math
+       add(3, 4) == 7 (math.pkl:9)
+       │         │
+       12        false
+       divide(8, 2) == 4 (math.pkl:10)
+       │            │
+       0            false
+
+0.0% tests pass [1/1 failed], 0.0% asserts pass [2/2 failed]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0026-power-assertions.adoc">SPICE-0026</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cli-framework"><a class="anchor" href="#cli-framework"></a><a class="link" href="#cli-framework">CLI Framework</a></h3>
+<div class="paragraph">
+<p>Pkl 0.31 introduces a new framework for implementing CLI tools in Pkl (<a href="https://github.com/apple/pkl/pull/1367" target="blank">#1367</a>, <a href="https://github.com/apple/pkl/pull/1431" target="blank">#1431</a>, <a href="https://github.com/apple/pkl/pull/1432" target="blank">#1432</a>, <a href="https://github.com/apple/pkl/pull/1436" target="blank">#1436</a>, <a href="https://github.com/apple/pkl/pull/1440" target="blank">#1440</a>, <a href="https://github.com/apple/pkl/pull/1444" target="blank">#1444</a>).</p>
+</div>
+<div class="paragraph">
+<p>The framework provides a way to build command line tools with user experience idioms that will be immediately familiar to users.
+CLI tools implemented in Pkl have largely the same capabilities as normal Pkl evaluation (i.e. writing to standard output and files), but this may be extended using <a href="../language-reference/index.html#external-readers" class="xref page">external readers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Commands are defined by extending the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/#" target="blank"><code>pkl:Command</code></a> module:</p>
+</div>
+<div class="listingblock">
+<div class="title">bird-generator.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// Mapping of &lt;bird&gt;=&lt;bird age&gt; pairs defining the list of birds.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Argument</span>
+  <span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Number</span><span class="hljs-operator">&gt;</span>
+
+  <span class="hljs-comment">/// Aggregation function to apply to all bird ages.</span>
+  <span class="hljs-property">aggregate</span><span class="hljs-punctuation">:</span> <span class="hljs-operator">*</span><span class="hljs-string">&quot;sum&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;mean&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;count&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// Name of the bird.</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-comment">/// Age of the bird in years.</span>
+  <span class="hljs-property">age</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Number</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>_name<span class="hljs-punctuation">,</span> _age <span class="hljs-keyword">in</span> options<span class="hljs-punctuation">.</span><span class="hljs-variable">birds</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> _name; <span class="hljs-property">age</span> <span class="hljs-operator">=</span> _age <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">result</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Number</span> <span class="hljs-operator">=</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>options<span class="hljs-punctuation">.</span><span class="hljs-variable">aggregate</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;sum&quot;</span><span class="hljs-punctuation">)</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">result</span><span class="hljs-punctuation">,</span> <span class="hljs-params">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> result <span class="hljs-operator">+</span> bird<span class="hljs-punctuation">.</span><span class="hljs-variable">age</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>options<span class="hljs-punctuation">.</span><span class="hljs-variable">aggregate</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;mean&quot;</span><span class="hljs-punctuation">)</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toList</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">result</span><span class="hljs-punctuation">,</span> <span class="hljs-params">bird</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> result <span class="hljs-operator">+</span> bird<span class="hljs-punctuation">.</span><span class="hljs-variable">age</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span> birds<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span>
+  <span class="hljs-keyword">else</span>
+    birds<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commands are executed using the <code>pkl run</code> CLI subcommand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run bird-generator.pkl pigeon --aggregate=mean Pigeon=1 Hawk=8 Eagle=3
+birds {
+  new {
+    name = "Pigeon"
+    age = 1
+  }
+  new {
+    name = "Hawk"
+    age = 8
+  }
+  new {
+    name = "Eagle"
+    age = 3
+  }
+}
+result = 4.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Automatic CLI help is provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run test.pkl -h
+Usage: test.pkl [&lt;options&gt;] [&lt;birds&gt;]... &lt;command&gt; [&lt;args&gt;]...
+
+Options:
+  --aggregate=&lt;count, mean, sum&gt;  Aggregation function to apply to all bird ages.
+  -h, --help                      Show this message and exit
+
+Arguments:
+  &lt;birds&gt;  Mapping of &lt;bird&gt;=&lt;bird age&gt; pairs defining the list of birds.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="../pkl-cli/index.html#cli-tools" class="xref page">the documentation</a> and <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0025-pkl-run-cli-framework.adoc">SPICE-0025</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="noteworthy"><a class="anchor" href="#noteworthy"></a><a class="link" href="#noteworthy">Noteworthy <span class="small">🎶</span></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="syntax-highlighting"><a class="anchor" href="#syntax-highlighting"></a><a class="link" href="#syntax-highlighting">Syntax Highlighting</a></h3>
+<div class="paragraph">
+<p>The Pkl CLI displays Pkl code in several locations: stack frames within errors messages, <a href="#power-assertions">power assertions</a>, and in the <a href="../pkl-cli/index.html#repl" class="xref page">REPL</a>.
+This code is now syntax highlighted to improve readability (<a href="https://github.com/apple/pkl/pull/1385" target="blank">#1385</a>, <a href="https://github.com/apple/pkl/pull/1409" target="blank">#1409</a>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/syntax-highlight-error.png" alt="syntax highlighted output">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cli-dependency-notation"><a class="anchor" href="#cli-dependency-notation"></a><a class="link" href="#cli-dependency-notation">CLI Support for Dependency Notation</a></h3>
+<div class="paragraph">
+<p>The Pkl CLI now supports specifying modules using <a href="../language-reference/index.html#project-dependencies" class="xref page">dependency notation</a> (<a href="https://github.com/apple/pkl/pull/1434" target="blank">#1434</a>, <a href="https://github.com/apple/pkl/pull/1439" target="blank">#1439</a>).
+This is especially helpful for <a href="#cli-framework">CLI commands</a> defined in Packages:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run @my-tool/cmd.pkl ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This enhancement applies to the <code>pkl eval</code>, <code>pkl run</code>, <code>pkl test</code>, and <code>pkl analyze imports</code> commands.
+It also applies to the <code>pkldoc</code>, <code>pkl-codegen-java</code>, and <code>pkl-codegen-kotlin</code> tools.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Dependency notation only works for remote package dependencies. <a href="../language-reference/index.html#local-dependencies" class="xref page">Local dependencies</a> are not supported.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="property-converter-annotations"><a class="anchor" href="#property-converter-annotations"></a><a class="link" href="#property-converter-annotations">Property Converter Annotations</a></h3>
+<div class="paragraph">
+<p>Pkl provides the <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/BaseValueRenderers#converters" target="blank"><code>BaseValueRenderers.converters</code></a> mechanism for transforming values during rendering.
+Converters are flexible, but their design makes some transformations awkward.
+In particular, modifying property names during rendering required a lot of extra code.</p>
+</div>
+<div class="paragraph">
+<p>The new <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a> annotation adds a way to express parameterized per-property name and value transformations (<a href="https://github.com/apple/pkl/pull/1333" target="blank">#1333</a>).</p>
+</div>
+<div class="paragraph">
+<p>To learn more about this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0024-annotation-converters.adoc">SPICE-0024</a>.</p>
+</div>
+<div class="paragraph">
+<p>Additional new Pkl APIs for per-format property renaming will be added for many built-in renderers:</p>
+</div>
+<div class="listingblock">
+<div class="title">fmt.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:json&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:yaml&quot;</span>
+
+<span class="hljs-operator">@</span>json<span class="hljs-punctuation">.</span><span class="hljs-title class_">Property</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;foo_bar&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-operator">@</span>yaml<span class="hljs-punctuation">.</span><span class="hljs-title class_">Property</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;foo-bar&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-property">fooBar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello world&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminaloutput hljs" data-lang="terminaloutput">$ pkl eval fmt.pkl -f json
+{
+  "foo_bar": "hello world"
+}
+
+$ pkl eval fmt.pkl -f yaml
+foo-bar: hello world</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-api-changes"><a class="anchor" href="#java-api-changes"></a><a class="link" href="#java-api-changes">Java API changes</a></h3>
+<div class="sect3">
+<h4 id="new-classes"><a class="anchor" href="#new-classes"></a><a class="link" href="#new-classes">New classes</a></h4>
+<div class="paragraph">
+<p>New classes are introduced to the Java API.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.pkl.core.CommandSpec</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-methods"><a class="anchor" href="#new-methods"></a><a class="link" href="#new-methods">New methods</a></h4>
+<div class="paragraph">
+<p>New methods are introduced to the Java API.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.pkl.core.Evaluator.evaluateCommand</code></p>
+</li>
+<li>
+<p><code>org.pkl.core.EvaluatorBuilder.setPowerAssertionsEnabled</code></p>
+</li>
+<li>
+<p><code>org.pkl.core.EvaluatorBuilder.getPowerAssertionsEnabled</code></p>
+</li>
+<li>
+<p><code>org.pkl.core.SecurityManager.resolveSecurePath</code></p>
+</li>
+<li>
+<p><code>org.pkl.config.java.ConfigEvaluator.evaluateOutputValue</code></p>
+</li>
+<li>
+<p><code>org.pkl.coznfig.java.ConfigEvaluator.evaluateExpression</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library changes</a></h3>
+<div class="paragraph">
+<p>New properties have been added to the standard library (<a href="https://github.com/apple/pkl/pull/1396" target="blank">#1396</a>).</p>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklbase"><a class="anchor" href="#additions-to-pklbase"></a><a class="link" href="#additions-to-pklbase">Additions to <code>pkl:base</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/List#isNotEmpty" target="blank"><code>List.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Map#isNotEmpty" target="blank"><code>Map.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Set#isNotEmpty" target="blank"><code>Set.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Listing#isNotEmpty" target="blank"><code>Listing.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Mapping#isNotEmpty" target="blank"><code>Mapping.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String#isNotEmpty" target="blank"><code>String.isNotEmpty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/String#isNotBlank" target="blank"><code>String.isNotBlank</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/ConvertProperty" target="blank"><code>ConvertProperty</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/BaseValueRenderer#convertPropertyTransformers" target="blank"><code>BaseValueRenderer.convertPropertyTransformers</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-module-pklcommand"><a class="anchor" href="#new-module-pklcommand"></a><a class="link" href="#new-module-pklcommand">New module <code>pkl:Command</code></a></h4>
+<div class="paragraph">
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/#" target="blank"><code>pkl:Command</code></a> standard library module is added.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pkljson"><a class="anchor" href="#additions-to-pkljson"></a><a class="link" href="#additions-to-pkljson">Additions to <code>pkl:json</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/json/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pkljsonnet"><a class="anchor" href="#additions-to-pkljsonnet"></a><a class="link" href="#additions-to-pkljsonnet">Additions to <code>pkl:jsonnet</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/jsonnet/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklprotobuf"><a class="anchor" href="#additions-to-pklprotobuf"></a><a class="link" href="#additions-to-pklprotobuf">Additions to <code>pkl:protobuf</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/protobuf/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklxml"><a class="anchor" href="#additions-to-pklxml"></a><a class="link" href="#additions-to-pklxml">Additions to <code>pkl:xml</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/xml/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="additions-to-pklyaml"><a class="anchor" href="#additions-to-pklyaml"></a><a class="link" href="#additions-to-pklyaml">Additions to <code>pkl:yaml</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.31.0/yaml/Property" target="blank"><code>Property</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes <span class="small">💔</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Things to watch out for when upgrading.</p>
+</div>
+<div class="sect2">
+<h3 id="removal-of-argfile-support"><a class="anchor" href="#removal-of-argfile-support"></a><a class="link" href="#removal-of-argfile-support">Removal of <code>@argfile</code> support</a></h3>
+<div class="paragraph">
+<p>Prior versions of Pkl had an undocumented feature allowing inclusion of CLI arguments from files using <code>@path/to/file</code>.
+In order to support <a href="#cli-dependency-notation">dependency notation</a> on the CLI, <code>@argfile</code> support has been removed from Pkl.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removal-of-collectiontranspose"><a class="anchor" href="#removal-of-collectiontranspose"></a><a class="link" href="#removal-of-collectiontranspose">Removal of <code>Collection#transpose()</code></a></h3>
+<div class="paragraph">
+<p>Prior versions of Pkl defined a <code>transpose()</code> method on the <code>Collection</code> class.
+This method was never implemented and threw an error when called.
+As it was never functional, it has been removed entirely without a deprecation warning (<a href="https://github.com/apple/pkl/pull/1437" target="blank">#1437</a>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous <span class="small">🐸</span></a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Improve formatting of imports to keep surrounding comments (<a href="https://github.com/apple/pkl/pull/1424" target="blank">#1424</a>).</p>
+</li>
+<li>
+<p>Add support for evaluating module output and expressions to <code>ConfigEvaluator</code> (<a href="https://github.com/apple/pkl/pull/1297" target="blank">#1297</a>).</p>
+</li>
+<li>
+<p>The <code>pkl format --write</code> command now exits successfully when formatting violations are found and updated (<a href="https://github.com/apple/pkl/pull/1340" target="blank">#1340</a>).</p>
+</li>
+<li>
+<p>Add <code>pkl-bom</code> module to aid in aligning Pkl Java dependencies (<a href="https://github.com/apple/pkl/pull/1390" target="blank">#1390</a>).</p>
+</li>
+<li>
+<p>Improve error message when writing <code>PklProject.deps.json</code> fails (<a href="https://github.com/apple/pkl/pull/1405" target="blank">#1405</a>).</p>
+</li>
+<li>
+<p>Add information about <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/base/Annotation" target="blank"><code>Annotation</code></a>s to the language reference (<a href="https://github.com/apple/pkl/pull/1427" target="blank">#1427</a>).</p>
+</li>
+<li>
+<p>Improved usability for the <code>org.pkl.formatter.Formatter</code> Java API (<a href="https://github.com/apple/pkl/pull/1428" target="blank">#1428</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bugs-fixed"><a class="anchor" href="#bugs-fixed"></a><a class="link" href="#bugs-fixed">Bugs fixed <span class="small">🐜</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following bugs have been fixed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Function.toString()</code> returns incorrect result (<a href="https://github.com/apple/pkl/pull/1411" target="blank">#1411</a>).</p>
+</li>
+<li>
+<p>Failure when <code>--multiple-file-output-path</code> is a symlink (<a href="https://github.com/apple/pkl/pull/1389" target="blank">#1389</a>).</p>
+</li>
+<li>
+<p>The <code>module</code> type in a non-final module has default value of type <code>Dynamic</code> (<a href="https://github.com/apple/pkl/pull/1392" target="blank">#1392</a>).</p>
+</li>
+<li>
+<p>The <code>module</code> type is cached incorrectly in some cases (<a href="https://github.com/apple/pkl/pull/1393" target="blank">#1393</a>).</p>
+</li>
+<li>
+<p>A possible race condition involving symlinks could bypass <code>--root-dir</code> during module and resource reading (<a href="https://github.com/apple/pkl/pull/1426" target="blank">#1426</a>).</p>
+</li>
+<li>
+<p><code>pkl format</code> produces internal stack traces when lexing fails (<a href="https://github.com/apple/pkl/pull/1430" target="blank">#1430</a>).</p>
+</li>
+<li>
+<p><code>super</code> access expressions are parsed incorrectly inside the spread operator (<a href="https://github.com/apple/pkl/pull/1364" target="blank">#1364</a>).</p>
+</li>
+<li>
+<p>Modules and resources with <code>jar:file:</code> URIs were not properly sandboxed by <code>--root-dir</code> (<a href="https://github.com/apple/pkl/pull/1442" target="blank">#1442</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors <span class="small">🙏</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We would like to thank the contributors to this release (in alphabetical order):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/eddie4941">@eddie4941</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+<li>
+<p><a href="https://github.com/StefMa">@StefMa</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Release Notes</a></span>
+  <span class="next"><a href="0.30.html">0.30 Release Notes</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

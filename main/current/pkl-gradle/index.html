@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.30.2">
+<div class="nav-container" data-component="main" data-version="0.31.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,6 +238,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -268,7 +271,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.30.2</span>
+    <span class="version">0.31.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -309,11 +312,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.31.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.30.2</a>
+        <li class="version">
+          <a href="../../0.30.2/index.html">0.30.2</a>
         </li>
         <li class="version">
           <a href="../../0.29.1/index.html">0.29.1</a>
@@ -475,10 +481,11 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.30.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.31.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.31.0</a>
     <a class="version" href="../../latest/pkl-gradle/index.html">0.31.0-dev</a>
-    <a class="version is-current" href="index.html">0.30.2</a>
+    <a class="version" href="../../0.30.2/pkl-gradle/index.html">0.30.2</a>
     <a class="version" href="../../0.29.1/pkl-gradle/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-gradle/index.html">0.28.2</a>
     <a class="version" href="../../0.27.2/pkl-gradle/index.html">0.27.2</a>
@@ -486,7 +493,7 @@
     <a class="version" href="../../0.25.3/pkl-gradle/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.31/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -549,7 +556,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-  id("org.pkl-lang") version "0.30.2"
+  id("org.pkl-lang") version "0.31.0"
 }</code></pre>
 </div>
 </div>
@@ -569,7 +576,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
-  id "org.pkl-lang" version "0.30.2"
+  id "org.pkl-lang" version "0.31.0"
 }</code></pre>
 </div>
 </div>
@@ -1070,6 +1077,18 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -1162,6 +1181,17 @@ The name of the root JUnit test suite.</p>
 <div class="paragraph">
 <p>Default: <code>false</code><br>
 Whether to ignore expected example files and generate them again.</p>
+</div>
+</div>
+</details>
+<details id="power-assertions-test">
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>true</code> (for test tasks)<br>
+Example: <code>powerAssertions = false</code><br>
+Enable or disable power assertions for detailed assertion failure messages.
+When enabled, test failures will show intermediate values in the assertion expression, making it easier to understand why a test failed.</p>
 </div>
 </div>
 </details>
@@ -1422,6 +1452,18 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
 </div>
 </div>
 </details>
@@ -1927,6 +1969,18 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -2403,6 +2457,18 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -2759,6 +2825,18 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -3060,6 +3138,18 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </div>
 </details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -3286,6 +3376,18 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
 </div>
 </div>
 </details>
@@ -3620,6 +3722,18 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>false</code> (except for test tasks, which default to <code>true</code>)<br>
+Example: <code>powerAssertions = true</code><br>
+Enable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+This option has a performance impact when constraint failures occur.</p>
 </div>
 </div>
 </details>

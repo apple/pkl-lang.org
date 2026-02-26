@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.30.2">
+<div class="nav-container" data-component="main" data-version="0.31.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,6 +238,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -268,7 +271,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.30.2</span>
+    <span class="version">0.31.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -309,11 +312,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.31.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.31.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.30.2</a>
+        <li class="version">
+          <a href="../../0.30.2/index.html">0.30.2</a>
         </li>
         <li class="version">
           <a href="../../0.29.1/index.html">0.29.1</a>
@@ -474,10 +480,11 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.30.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.31.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.31.0</a>
     <a class="version" href="../../latest/pkl-cli/index.html">0.31.0-dev</a>
-    <a class="version is-current" href="index.html">0.30.2</a>
+    <a class="version" href="../../0.30.2/pkl-cli/index.html">0.30.2</a>
     <a class="version" href="../../0.29.1/pkl-cli/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-cli/index.html">0.28.2</a>
     <a class="version" href="../../0.27.2/pkl-cli/index.html">0.27.2</a>
@@ -485,7 +492,7 @@
     <a class="version" href="../../0.25.3/pkl-cli/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.31/docs/modules/pkl-cli/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -591,10 +598,10 @@ brew upgrade pkl   # or just `brew upgrade`</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Install and activate Pkl globally
-mise use -g pkl@0.30.2
+mise use -g pkl@0.31.0
 
 # Install and activate Pkl locally
-mise use pkl@0.30.2</code></pre>
+mise use pkl@0.31.0</code></pre>
 </div>
 </div>
 </div>
@@ -633,7 +640,7 @@ mise use pkl@0.30.2</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-macos-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -643,7 +650,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-macos-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-macos-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -653,7 +660,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (macOS, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0 (macOS, native)</code></pre>
 </div>
 </div>
 </div>
@@ -668,7 +675,7 @@ For a statically linked executable, see <a href="#alpine-linux-executable">Alpin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-aarch64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-linux-aarch64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -678,7 +685,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -688,7 +695,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0 (Linux, native)</code></pre>
 </div>
 </div>
 </div>
@@ -700,7 +707,7 @@ For a dynamically linked executable, see <a href="#linux-executable">Linux Execu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-alpine-linux-amd64'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o pkl 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-alpine-linux-amd64'
 chmod +x pkl
 ./pkl --version</code></pre>
 </div>
@@ -710,7 +717,7 @@ chmod +x pkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Linux, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0 (Linux, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -730,7 +737,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 <h3 id="windows-executable"><a class="anchor" href="#windows-executable"></a><a class="link" href="#windows-executable">Windows Executable</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.30.2/pkl-windows-amd64.exe' -OutFile pkl.exe
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://github.com/apple/pkl/releases/download/0.31.0/pkl-windows-amd64.exe' -OutFile pkl.exe
 .\pkl --version</code></pre>
 </div>
 </div>
@@ -739,7 +746,7 @@ We currently do not support the aarch64 architecture for Alpine Linux.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.30.2 (Windows 10.0, native)</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Pkl 0.31.0 (Windows 10.0, native)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -778,7 +785,7 @@ We currently do not support the aarch64 architecture for Windows.
 <div id="tabs-1-macoslinux--panel" class="tabpanel" aria-labelledby="tabs-1-macoslinux">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.2/pkl-cli-java-0.30.2.jar'
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -L -o jpkl 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.31.0/pkl-cli-java-0.31.0.jar'
 chmod +x jpkl
 ./jpkl --version</code></pre>
 </div>
@@ -787,7 +794,7 @@ chmod +x jpkl
 <div id="tabs-1-windows--panel" class="tabpanel" aria-labelledby="tabs-1-windows">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.30.2/pkl-cli-java-0.30.2.jar' -OutFile jpkl.bat
+<pre class="highlightjs highlight"><code class="language-PowerShell hljs" data-lang="PowerShell">Invoke-WebRequest 'https://repo1.maven.org/maven2/org/pkl-lang/pkl-cli-java/0.31.0/pkl-cli-java-0.31.0.jar' -OutFile jpkl.bat
 .\jpkl --version</code></pre>
 </div>
 </div>
@@ -799,7 +806,7 @@ chmod +x jpkl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.30.2 (macOS 14.2, Java 17.0.10)</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Pkl 0.31.0 (macOS 14.2, Java 17.0.10)</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1051,6 +1058,17 @@ Running the previous command is conceptually the same as if the below module wer
 </div>
 </div>
 </details>
+<details id="power-assertions-eval">
+<summary class="title">--power-assertions, --no-power-assertions</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: enabled<br>
+Enable or disable power assertions for detailed assertion failure messages.
+When enabled, type constraint failures will show intermediate values in the assertion expression.
+Use <code>--no-power-assertions</code> to disable this feature if you prefer simpler output or better performance.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>This command also takes <a href="#common-options">common options</a>.</p>
 </div>
@@ -1088,7 +1106,9 @@ Otherwise, failures result in exit code 1.</p>
 <dl>
 <dt class="hdlist1">&lt;modules&gt;</dt>
 <dd>
-<p>The absolute or relative URIs of the modules to test. Relative URIs are resolved against the working directory.</p>
+<p>The absolute or relative URIs of the modules to test.
+The module must extend <code>pkl:test</code>.
+Relative URIs are resolved against the working directory.</p>
 </dd>
 </dl>
 </div>
@@ -1143,9 +1163,46 @@ The old expected files will be deleted if present.</p>
 </div>
 </div>
 </details>
+<details id="power-assertions-test">
+<summary class="title">--power-assertions, --no-power-assertions</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: enabled<br>
+Enable or disable power assertions for detailed assertion failure messages.
+When enabled, test failures will show intermediate values in the assertion expression, making it easier to understand why a test failed.
+Use <code>--no-power-assertions</code> to disable this feature if you prefer simpler output.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>This command also takes <a href="#common-options">common options</a>.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-run"><a class="anchor" href="#command-run"></a><a class="link" href="#command-run"><code>pkl run</code></a></h3>
+<div class="paragraph">
+<p><strong>Synopsis:</strong> <code>pkl run [&lt;options&gt;] [&lt;module&gt;] [&lt;command options&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Evaluate a <a href="#cli-tools">CLI command</a> defined by <code>&lt;module&gt;</code>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;module&gt;</dt>
+<dd>
+<p>The absolute or relative URIs of the command module to run.
+The module must extend <code>pkl:Command</code>.
+Relative URIs are resolved against the working directory.</p>
+</dd>
+<dt class="hdlist1">&lt;command options&gt;</dt>
+<dd>
+<p>Additional CLI options and arguments defined by <code>&lt;module&gt;</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This command also takes <a href="#common-options">common options</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1453,13 +1510,13 @@ Exit codes:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>0: No violations found.</p>
+<p>0: No violations found or files were updated.</p>
 </li>
 <li>
 <p>1: An unexpected error happened (ex.: IO error)</p>
 </li>
 <li>
-<p>11: Violations were found.</p>
+<p>11: Violations were found (when running without <code>--write</code>).</p>
 </li>
 </ul>
 </div>
@@ -1510,7 +1567,7 @@ New versions are created for each backward incompatible grammar change.</p>
 <div class="sect2">
 <h3 id="common-options"><a class="anchor" href="#common-options"></a><a class="link" href="#common-options">Common options</a></h3>
 <div class="paragraph">
-<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
+<p>The <a href="#command-eval"><code>pkl eval</code></a>, <a href="#command-test"><code>pkl test</code></a>, <a href="#command-run"><code>pkl run</code></a>, <a href="#command-repl"><code>pkl repl</code></a>, <a href="#command-project-resolve"><code>pkl project resolve</code></a>, <a href="#command-project-package"><code>pkl project package</code></a>, <a href="#command-download-package"><code>pkl download-package</code></a>, and <a href="#command-analyze-imports"><code>pkl analyze imports</code></a> commands support the following common options:</p>
 </div>
 <details id="allowed-modules">
 <summary class="title">--allowed-modules</summary>
@@ -1884,6 +1941,469 @@ The separator can be customized using the <code>--module-output-separator</code>
 </div>
 </div>
 <div class="sect1">
+<h2 id="cli-tools"><a class="anchor" href="#cli-tools"></a><a class="link" href="#cli-tools">Implementing CLI Tools</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CLI tools can be implemented in Pkl by modules extending the <code>pkl:Command</code> module.
+With <code>pkl:Command</code>, you can define a script in Pkl that is executed by your shell, providing a better CLI experience.</p>
+</div>
+<div class="paragraph">
+<p>Regular evaluation requires use of <a href="../language-reference/index.html#resources" class="xref page">resources</a> like properties and evironment variables to provide parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl eval script.pkl -p username=me -p password=password</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commands provide a native, familiar CLI experience:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ pkl run script.pkl --username=admin --password=hunter2
+$ ./script.pkl --username=admin --password=hunter2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pkl commands have a few properties that distinguish them from standard module evaluation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users provide input to commands using familiar command line idioms, providing a better experience than deriving inputs from <a href="../language-reference/index.html#resources" class="xref page">resources</a> like external properties or environment variables.</p>
+</li>
+<li>
+<p>Commands can dynamically import modules when they are specified as command line options.</p>
+</li>
+<li>
+<p>Commands may write to standard output (via <code>output.text</code> or <code>output.bytes</code>) and the filesystem (via <code>output.files</code>) in the same evaluation.</p>
+</li>
+<li>
+<p>Command file output may write to any absolute path (not only relative to the <code>--multiple-file-output-path</code> option).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relative output paths are written relative to the current working directory (or <code>--working-dir</code>, if specified).</p>
+</li>
+<li>
+<p>Paths of output file are printed to the command&#8217;s standard error.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Users of <code>pkl run</code> must be aware of the security implications of this behavior.
+Using <code>pkl eval</code> prevents accidental overwrites by not allowing absolute paths, but <code>pkl run</code> does not offer this protection.
+Commands may write to any path the invoking user has permissions to modify.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Commands are implemented as regular modules and declare their supported command line flags and positional arguments using a class with annotated properties.</p>
+</div>
+<div class="sect2">
+<h3 id="defining-commands"><a class="anchor" href="#defining-commands"></a><a class="link" href="#defining-commands">Defining Commands</a></h3>
+<div class="paragraph">
+<p>Commands are defined by creating a module that extends <code>pkl:Command</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">my-tool.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">/// This doc comment becomes part of the command's CLI help!
+/// Markdown formatting is **allowed!**
+extends "pkl:Command"
+
+options: Options <i class="conum" data-value="1"></i><b>(1)</b>
+
+class Options {
+  // Define CLI flags/arguments...
+}
+
+// Regular module code...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Re-declaration of the <code>options</code> property&#8217;s type.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Like <code>pkl eval</code>, when a command completes without an evaluation error the process exits successfully (exit code 0).
+Commands can return a failure using <code>throw</code> (exit code 1), but otherwise may not control the exit code.</p>
+</div>
+<div class="paragraph">
+<p>Other than the differences listed above, commands behave like any other Pkl module.
+For example, there is no way to execute other programs or make arbitrary HTTP requests.
+If additional functionality is desired, <a href="../language-reference/index.html#external-readers" class="xref page">external readers</a> may be used to extends Pkl&#8217;s capabilities.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-options"><a class="anchor" href="#command-options"></a><a class="link" href="#command-options">Command Options</a></h3>
+<div class="paragraph">
+<p>Each property of a command&#8217;s options class becomes a command line option.
+Properties with the <code>local</code>, <code>hidden</code>, <code>fixed</code>, and/or <code>const</code> modifiers are not parsed as options
+A property&#8217;s doc comment, if present, becomes the corresponding option&#8217;s CLI help description.
+Doc comments are interpreted as Markdown text and formatted nicely when displayed to users.
+Properties must have <a href="../language-reference/index.html#type-annotations" class="xref page">type annotations</a> to determine how they are parsed.</p>
+</div>
+<div class="paragraph">
+<p>Properties may be <a href="../language-reference/index.html#annotations" class="xref page">annotated</a> to influence how they behave:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/Flag"><code>@Flag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that accept a value.</p>
+</li>
+<li>
+<p><code>Boolean</code> properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/BooleanFlag"><code>@BooleanFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> and <code>--no-&lt;property name&gt;</code> that result in <code>true</code> and <code>false</code> values, respectively.</p>
+</li>
+<li>
+<p><code>Int</code> (and type aliases of <code>Int</code>) properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/CountedFlag"><code>@CountedFlag</code></a> become CLI flags named <code>--&lt;property name&gt;</code> that produce a value equal to the number of times they are present on the command line.</p>
+</li>
+<li>
+<p>Properties annotated with <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/Argument"><code>@Argument</code></a> become positional CLI arguments and are parsed in the order they appear in the class.</p>
+</li>
+<li>
+<p>Properties with no annotation are treated the same as <code>@Flag</code> with no further customization.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Flag options may set a <code>shortName</code> property to define a single-character abbreviation (<code>-&lt;short name&gt;</code>).
+Flag abbreviations may be combined (e.g. <code>-a -b -v -v -q some-value</code> is equivalent to <code>-abvvq some-value</code>).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Flag names and short names may not conflict with <a href="#common-options">common options</a>.
+Future versions of Pkl may introduce additional common options and the names of these options will become forbidden for use in <code>pkl:Command</code>.
+Thus, any Pkl release that adds common options may introduce breaking changes for commands.</p>
+</div>
+<div class="paragraph">
+<p>While unfortunate, this behavior eliminates potentially dangerous or misleading ambiguities between Pkl-defined and user-defined options.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A <code>@Flag</code> or <code>@Argument</code> property&#8217;s type annotation determines how it is converted from the raw string value:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is used verbatim.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Char</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is used verbatim but must be exactly one character.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True values: <code>true</code>, <code>t</code>, <code>1</code>, <code>yes</code>, <code>y</code>, <code>on</code></p>
+<p class="tableblock">False values: <code>false</code>, <code>f</code>, <code>0</code>, <code>no</code>, <code>n</code>, <code>off</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is parsed as an <code>Int</code> if possible, otherwise parsed as <code>Float</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Float</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is parsed as a <code>Float</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is parsed as a <code>Int</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Int8</code>, <code>Int16</code>, <code>Int32</code>, <code>UInt</code>, <code>UInt8</code>, <code>UInt16</code>, <code>UInt32</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is parsed as a <code>Int</code> and must be within the type&#8217;s range.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../language-reference/index.html#union-types" class="xref page">Union</a> of <a href="../language-reference/index.html#string-literal-types" class="xref page">string literals</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is used verbatim but must match a member of the union.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;Element&gt;</code>, <code>Listing&lt;Element&gt;</code>, <code>Set&lt;Element&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each occurrence of the option becomes an element of the final value.</p>
+<p class="tableblock"><code>Element</code> values are parsed based on the above primitive types.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map&lt;Key, Value&gt;</code>, <code>Mapping&lt;Key, Value&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each occurrence of the option becomes an entry of the final value.</p>
+<p class="tableblock">Values are split on the first <code>"="</code> character; the first part is parsed as <code>Key</code> and the second as <code>Value</code>, both based on the above primitive types.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Pair&lt;First, Second&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value is split on the first <code>"="</code> character; the first part is parsed as <code>First</code> and the second as <code>Second</code>, both based on the above primitive types.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If a flag that accepts only a single value is provided multiple times, the last occurrence becomes the final value.</p>
+</div>
+<div class="paragraph">
+<p>Only a single positional argument accepting multiple values is permitted per command.</p>
+</div>
+<div class="paragraph">
+<p>A property with a <a href="../language-reference/index.html#nullable-types" class="xref page">nullable type</a> is optional and, if not specified on the command line, will have value <code>null</code>.
+Properties with default values are also optional.
+Type constraints are evaluated when the command is executed, so additional restrictions on option values are enforced at runtime.</p>
+</div>
+<div class="sect3">
+<h4 id="custom-option-conversion-and-aggregation"><a class="anchor" href="#custom-option-conversion-and-aggregation"></a><a class="link" href="#custom-option-conversion-and-aggregation">Custom Option Conversion and Aggregation</a></h4>
+<div class="paragraph">
+<p>A property may be annotated with any type if its <code>@Flag</code> or <code>@Argument</code> annotation sets the <code>convert</code> or <code>transformAll</code> properties.
+The <code>convert</code> property is a <a href="../language-reference/index.html#anonymous-functions" class="xref page">function</a> that overrides how <em>each</em> raw option value is interpreted.
+The <code>transformAll</code> property is a function that overrides how <em>all</em> parsed option values become the final property value.</p>
+</div>
+<div class="paragraph">
+<p>The <code>convert</code> and <code>transformAll</code> functions may return an <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/Command/Import" target="blank"><code>Import</code></a> value that is replaced during option parsing with the actual value of the module specified by its <code>uri</code> property.
+If <code>glob</code> is <code>true</code>, the replacement value is a <code>Mapping</code>; its keys are the <em>absolute</em> URIs of the matched modules and its values are the actual module values.
+When specifying glob import options on the command line, it is often necessary to quote the value to avoid it being interpreted by the shell.
+If the return value of <code>convert</code> or <code>transformAll</code> is a <code>List</code>, <code>Set</code>, <code>Map</code>, or <code>Pair</code>, each contained value (elements and entry keys/values) that are <code>Import</code> values are also replaced.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If an option has type <code>Mapping&lt;String, «some module type»&gt;</code> and should accept a single glob pattern value, the option&#8217;s annotation must also set <code>multiple = false</code> to override the default behavior of <code>Mapping</code> options accepting multiple values.
+Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">convert</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Import</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> it; <span class="hljs-property">glob</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">multiple</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If multiple glob patterns values should be accepted and merged, <code>transformAll</code> may be used to merge every glob-imported <code>Mapping</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">convert</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Import</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> it; <span class="hljs-property">glob</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">transformAll</span> <span class="hljs-operator">=</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-params">values</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> values<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">Mapping</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">result</span><span class="hljs-punctuation">,</span> <span class="hljs-params">element</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+      <span class="hljs-punctuation">(</span>result<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> ...element <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subcommands"><a class="anchor" href="#subcommands"></a><a class="link" href="#subcommands">Subcommands</a></h3>
+<div class="paragraph">
+<p>Like many other command line libraries, <code>pkl:Command</code> allows building commands into a hierarchy with a root command and subcommands:</p>
+</div>
+<div class="listingblock">
+<div class="title">my-tool.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">extends "pkl:Command"
+
+command {
+  subcommands {
+    import("subcommand1.pkl")
+    import("subcommand2.pkl")
+    for (_, subcommand in import*("./subcommands/*.pkl")) {
+      subcommand
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">subcommand1.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">extends "pkl:Command"
+
+import "my-tool.pkl"
+
+parent: `my-tool` <i class="conum" data-value="1"></i><b>(1)</b>
+
+// Regular module code...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Optional; asserts that this is a subcommand of <code>my-tool</code> and simplifies accessing properties and options of the parent command</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Each element of <code>subcommands</code> must have a unique value for <code>command.name</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-commands"><a class="anchor" href="#testing-commands"></a><a class="link" href="#testing-commands">Testing Commands</a></h3>
+<div class="paragraph">
+<p>Command modules are normal Pkl modules, so they may be imported and used like any other module.
+This is particularly helpful when testing commands, as the command&#8217;s <code>options</code> and <code>parent</code> properties can be populated by test code.</p>
+</div>
+<div class="paragraph">
+<p>Testing the above command and subcommand might look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%tested hljs" data-lang="pkl%tested">amends "pkl:test"
+
+import "my-tool.pkl"
+import "subcommand1.pkl"
+
+examples {
+  ["Test my-tool"] {
+    (`my-tool`) {
+      options {
+        // Set my-tool options here...
+      }
+    }.output.text
+  }
+  ["Test subcommand1"] {
+    (subcommand1) {
+      parent { // this amends `my-tool`
+        options {
+          // Set my-tool options here...
+        }
+      }
+      options {
+        // Set subcommand options here...
+      }
+    }.output.text
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="commands-as-standalone-scripts"><a class="anchor" href="#commands-as-standalone-scripts"></a><a class="link" href="#commands-as-standalone-scripts">Commands as standalone scripts</a></h3>
+<div class="paragraph">
+<p>On *nix platforms, Pkl commands can be configured to run as standalone tools that can be invoked without the <code>pkl run</code> command.
+To achieve this, the command file must be marked executable (i.e. <code>chmod +x my-tool.pkl</code>) and a <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang comment</a> must be added on the first line of the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%parsed hljs" data-lang="pkl%parsed">#!/usr/bin/env -S pkl run</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>-S</code> flag for <code>env</code> is required on Linux systems due to a limitation of shebang handling in the Linux kernel.
+While not required on other *nix platforms like macOS, but it should be included for compatibility.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="shell-completion"><a class="anchor" href="#shell-completion"></a><a class="link" href="#shell-completion">Shell Completion</a></h4>
+<div class="paragraph">
+<p>Like with Pkl&#8217;s own CLI, <a href="#command-shell-completion">shell completions</a> can be generated for standalone scripts.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Generate shell completion script for bash
+./my-tool.pkl shell-completion bash
+
+# Generate shell completion script for zsh
+./my-tool.pkl shell-completion zsh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="customizing-completion-candidates"><a class="anchor" href="#customizing-completion-candidates"></a><a class="link" href="#customizing-completion-candidates">Customizing Completion Candidates</a></h4>
+<div class="paragraph">
+<p><code>@Flag</code> and <code>@Argument</code> annotations may specify the <code>completionCandidates</code> to improve generated shell completions.</p>
+</div>
+<div class="paragraph">
+<p>Valid values include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>Listing&lt;String&gt;</code> of literal string values to offer for completion.</p>
+</li>
+<li>
+<p>The literal string <code>"path"</code>, which offers local file paths for completion.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Options with a string literal union type implicitly offer the members of the union as completion candidates.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flag-name-ambiguities"><a class="anchor" href="#flag-name-ambiguities"></a><a class="link" href="#flag-name-ambiguities">Flag name ambiguities</a></h3>
+<div class="paragraph">
+<p>It is possible for commands to define flags with names or short names that collide with Pkl&#8217;s own command line options.
+To avoid ambiguity in parsing these options, all flags for Pkl itself (e.g. <code>--root-dir</code>) must be placed before the root command module&#8217;s URI.
+Command authors are encouraged to avoid overlapping with Pkl&#8217;s built-in flags, but this may not always be feasible, especially for single-character abbreviated names.</p>
+</div>
+<div class="paragraph">
+<p>This imposes a limitation around <a href="#commands-as-standalone-scripts">standalone commands</a> that prevents users from customizing Pkl evaluator options when they are invoked.
+There are two recommended workarounds for this limitation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use a <code>PklProject</code> to define evaluator settings instead of doing so on the command line.</p>
+</li>
+<li>
+<p>If the command line must be used, switch to invoking via <code>pkl run [&lt;flags&gt;] [&lt;root command module&gt;]</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="repl"><a class="anchor" href="#repl"></a><a class="link" href="#repl">Working with the REPL</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1892,7 +2412,7 @@ The separator can be customized using the <code>--module-output-separator</code>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl repl
-Welcome to Pkl 0.30.2.
+Welcome to Pkl 0.31.0.
 Type an expression to have it evaluated.
 Type :help or :examples for more information.
 
@@ -2089,7 +2609,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <p>With the above settings file in place, <kbd>Cmd</kbd>+Double-clicking a source code link in a stack trace opens the corresponding file in IntelliJ IDEA at the correct location.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.30.2/settings/">pkl.settings</a>.</p>
+<p>To learn more about available settings, see <a href="https://pkl-lang.org/package-docs/pkl/0.31.0/settings/">pkl.settings</a>.</p>
 </div>
 </div>
 </div>
@@ -2097,7 +2617,7 @@ Other supported values are <code>System</code>, <code>GoLand</code>, <code>TextM
 <h2 id="ca-certs"><a class="anchor" href="#ca-certs"></a><a class="link" href="#ca-certs">CA Certificates</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.30.2/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
+<p>When making TLS requests, Pkl comes with its own set of <a href="https://github.com/apple/pkl/tree/0.31.0/pkl-commons-cli/src/main/resources/org/pkl/commons/cli/commands">CA certificates</a>.
 These certificates can be overridden via either of the two options:</p>
 </div>
 <div class="ulist">

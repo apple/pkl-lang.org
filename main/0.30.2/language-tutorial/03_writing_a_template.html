@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Writing a Template :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/language-tutorial/03_writing_a_template.html">
+    <link rel="prev" href="02_filling_out_a_template.html">
+    <link rel="next" href="../language.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+<script src="../../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.30.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.30.2</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.31.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.31.0-dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Tutorial</a></li>
+    <li><a href="03_writing_a_template.html">Writing a Template</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.30.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/language-tutorial/03_writing_a_template.html">0.31.0</a>
+    <a class="version" href="../../latest/language-tutorial/03_writing_a_template.html">0.31.0-dev</a>
+    <a class="version is-current" href="03_writing_a_template.html">0.30.2</a>
+    <a class="version" href="../../0.29.1/language-tutorial/03_writing_a_template.html">0.29.1</a>
+    <a class="version" href="../../0.28.2/language-tutorial/03_writing_a_template.html">0.28.2</a>
+    <a class="version" href="../../0.27.2/language-tutorial/03_writing_a_template.html">0.27.2</a>
+    <a class="version" href="../../0.26.3/language-tutorial/03_writing_a_template.html">0.26.3</a>
+    <a class="version" href="../../0.25.3/language-tutorial/03_writing_a_template.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.30/docs/modules/language-tutorial/pages/03_writing_a_template.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Writing a Template</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In parts <a href="01_basic_config.html" class="xref page">one</a> and <a href="02_filling_out_a_template.html" class="xref page">two</a>, you saw that Pkl provides <em>validation</em> of our configurations.
+It checks syntax, types and constraints.
+As you saw in the <code>AcmeCICD</code> example <a href="02_filling_out_a_template.html#amending-templates" class="xref page">here</a>, the template can provide informative error messages when an amending module violates a type constraint.</p>
+</div>
+<div class="paragraph">
+<p>In this final part, you will see some of Pkl&#8217;s techniques that are particularly relevant for writing a template.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-types"><a class="anchor" href="#basic-types"></a><a class="link" href="#basic-types">Basic types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl always checks the <em>syntax</em> of its input.
+As it evaluates your configuration, it also checks <em>types</em>.
+You&#8217;ve seen objects, listings, and mappings already.
+These provide ways to write structured configuration.
+Before you can write types for them, you need to know how to write the types for the simplest (unstructured) values.</p>
+</div>
+<div class="paragraph">
+<p>These are all Pkl&#8217;s <em>basic</em> types:</p>
+</div>
+<div class="listingblock">
+<div class="title">pklTutorialPart3.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
+
+<span class="hljs-property">part</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
+
+<span class="hljs-property">hasExercises</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-property">amountLearned</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span>
+
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mb</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, you&#8217;ve explicitly annotated the code with type signatures.
+The default output of Pkl is actually <code>pcf</code>, which is a subset of Pkl.
+Since <code>pcf</code> does not have type signatures, running Pkl on this example removes them.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval pklTutorialPart3.pkl
+name = "Writing a Template"
+part = 3
+hasExercises = true
+amountLearned = 13.37
+duration = 30.min
+bandwidthRequirementPerSecond = 52.4288.mb</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note how <code>Duration</code> and <code>DataSize</code> help you prevent <a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">unit errors</a> in these common (for configuration) domains.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="typed-objects-properties-and-amending"><a class="anchor" href="#typed-objects-properties-and-amending"></a><a class="link" href="#typed-objects-properties-and-amending">Typed objects, properties and amending</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Having a notation for basic types, you can now write <em>typed objects</em>.</p>
+</div>
+<div class="listingblock">
+<div class="title">simpleClass.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Language</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">bestForConfig</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Language</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A class definition.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A property definition, using the <code>Language</code> class.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Although not required (or enforced), it&#8217;s customary to name properties starting with a lower-case letter. Class names, by that same convention, start with an upper-case letter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can type objects with <em>classes</em>.
+In this example, you define a class called <code>Language</code>.
+You can now be certain that every instance of <code>Language</code> has a property <code>name</code> with type <code>String</code>.</p>
+</div>
+<div class="paragraph">
+<p>Types and values are different things in Pkl.
+Pkl does not render types in its output,<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> so when you run Pkl on this, you don&#8217;t see the class <em>definition</em> at all.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">$ pkl eval simpleClass<span class="hljs-punctuation">.</span>pkl
+<span class="hljs-property">bestForConfig</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Did you notice that the output doesn&#8217;t just omit the type signature, but also the <code>= new</code>?
+We will discuss this further in the next section.</p>
+</div>
+<div class="paragraph">
+<p>When your configuration describes a few different parts like this, you can define one instance and amend it for every other instance.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="title">pklTutorialParts.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-property">part</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+  <span class="hljs-property">hasExercises</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+  <span class="hljs-property">amountLearned</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span>
+
+  <span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
+
+  <span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">pklTutorialPart1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic Configuration&quot;</span>
+  <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+  <span class="hljs-property">hasExercises</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-property">amountLearned</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span>
+  <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-property">bandwidthRequirementPerSecond</span> <span class="hljs-operator">=</span> <span class="hljs-number">50</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mib</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toUnit</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;mb&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">pklTutorialPart2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pklTutorialPart1<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
+  <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">pklTutorialPart3</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TutorialPart</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pklTutorialPart1<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
+  <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can read this as saying "<code>pklTutorialPart2</code> &amp; <code>pklTutorialPart3</code> are exactly like <code>pklTutorialPart1</code>, except for their <code>name</code> and <code>part</code>."
+Running Pkl confirms this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval pklTutorialParts.pkl
+pklTutorialPart1 {
+  name = "Basic Configuration"
+  part = 1
+  hasExercises = true
+  amountLearned = 13.37
+  duration = 30.min
+  bandwidthRequirementPerSecond = 52.4288.mb
+}
+pklTutorialPart2 {
+  name = "Filling out a Template"
+  part = 2
+  hasExercises = true
+  amountLearned = 13.37
+  duration = 30.min
+  bandwidthRequirementPerSecond = 52.4288.mb
+}
+pklTutorialPart3 {
+  name = "Writing a Template"
+  part = 3
+  hasExercises = true
+  amountLearned = 13.37
+  duration = 30.min
+  bandwidthRequirementPerSecond = 52.4288.mb
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sadly, <code>pklTutorialParts.pkl</code> is a <em>rewrite</em> of <code>pklTutorialPart3.pkl</code>.
+It creates a separate <code>class TutorialPart</code> and instantiates three properties with it (<code>pklTutorialPart1</code>, <code>pklTutorialPart2</code> and <code>pklTutorialPart3</code>).
+In doing so, it implicitly moves everything "down" one level (<code>pklTutorialPart3</code> is now a property in the module <code>pklTutorialParts</code>, whereas above, in <code>pklTutorialPart3.pkl</code> it was its own module).
+This is not very DRY.
+As a matter of fact, you don&#8217;t need this rewrite.</p>
+</div>
+<div class="paragraph">
+<p>Any <code>.pkl</code> file defines a <em>module</em> in Pkl.
+Any module is represented by a <em>module class</em>, which is an actual Pkl <code>class</code>.
+A module is not quite the same as any other class, because Pkl never renders class definitions on the output.
+However, when you ran Pkl on <code>pklTutorialPart3.pkl</code>, it <em>did</em> produce an output.
+This is because a module also defines an <em>instance</em> of the module class.</p>
+</div>
+<div class="paragraph">
+<p>The values given to properties in a module (or in any "normal" class) are called <em>default values</em>.
+When you instantiate a class, all the properties for which you <em>don&#8217;t</em> provide a value are populated from the class' default values.</p>
+</div>
+<div class="paragraph">
+<p>In our examples of tutorial parts, only the <code>name</code> and <code>part</code> varied across instances.
+You can express this by adding default values to the (module) class definition.
+Instead of starting from a particular tutorial part, you can define the module <code>tutorialPart</code> as follows:</p>
+</div>
+<div class="listingblock">
+<div class="title">TutorialPart.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">part</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">hasExercises</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">amountLearned</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span> <span class="hljs-operator">=</span> <span class="hljs-number">13.37</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-property">bandwidthRequirementPerSecond</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">DataSize</span> <span class="hljs-operator">=</span> <span class="hljs-number">52.4288</span><span class="hljs-punctuation">.</span><span class="hljs-variable">mb</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>No default value given.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Default value given.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Running this through Pkl gives an error, or course, because of the missing values:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval TutorialPart.pkl
+–– Pkl Error ––
+Tried to read property `name` but its value is undefined.
+
+1 | name: String
+    ^^^^
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An individual part now only has to fill in the missing fields, so you can change <code>pklTutorialPart3.pkl</code> to amend this:</p>
+</div>
+<div class="listingblock">
+<div class="title">pklTutorialPart3.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;TutorialPart.pkl&quot;</span>
+
+<span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
+
+<span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This results in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval pklTutorialPart3.pkl
+name = "Writing a Template"
+part = 3
+hasExercises = true
+amountLearned = 13.37
+duration = 30.min
+bandwidthRequirementPerSecond = 52.4288.mb</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This now behaves exactly like our <code>pklTutorialPart3: TutorialPart = (pklTutorialPart1) {&#8230;&#8203;</code> before.
+<code>pklTutorialPart3</code> is now defined as the value we get by amending <code>tutorialPart</code> and giving it a <code>name</code> and a <code>part</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Amending anything <em>never changes its type</em>.
+When we amend an object of type <code>Foo</code>, the result will always be precisely of type <code>Foo</code>.
+By "precisely" we mean, that amending an object also can&#8217;t "turn it into" an instance of a sub-class of the class of the object being amended.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a-new-template"><a class="anchor" href="#a-new-template"></a><a class="link" href="#a-new-template">A new template</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you know about types, you can start writing your first template.
+So far, you&#8217;ve written configurations with Pkl, either without a template, or using the <code>AcmeCICD</code> template from <a href="02_filling_out_a_template.html#amending-templates" class="xref page">Amending templates</a>.
+It is often easiest to first write a (typical) configuration for which you want to create a template.
+Suppose you want to define what a live workshop for this tutorial looks like.
+Consider this example:</p>
+</div>
+<div class="listingblock">
+<div class="title">workshop2024.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pkl: Configure your Systems in New Ways&quot;</span>
+<span class="hljs-property">interactive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+<span class="hljs-property">seats</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>
+<span class="hljs-property">occupancy</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.85</span>
+<span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.5</span><span class="hljs-punctuation">.</span><span class="hljs-variable">h</span>
+<span class="hljs-property">`abstract`</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  With more systems to configure, the software industry is drowning in repetitive and brittle configuration files.</span>
+<span class="hljs-string">  YAML and other configuration formats have been turned into programming languages against their will.</span>
+<span class="hljs-string">  Unsurprisingly, they don’t live up to the task.</span>
+<span class="hljs-string">  Pkl puts you back in control.</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span>
+
+<span class="hljs-property">event</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Migrating Birds between hemispheres&quot;</span>
+  <span class="hljs-property">year</span> <span class="hljs-operator">=</span> <span class="hljs-number">2024</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">instructors</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-string">&quot;Kate Sparrow&quot;</span>
+  <span class="hljs-string">&quot;Jerome Owl&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">sessions</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
+    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">date</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2/1/2024&quot;</span>
+    <span class="hljs-property">time</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">assistants</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;kevin&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Kevin Parrot&quot;</span>
+  [<span class="hljs-string">&quot;betty&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Betty Harrier&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">agenda</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;beginners&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic Configuration&quot;</span>
+    <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;intermediates&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Filling out a Template&quot;</span>
+    <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;experts&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Writing a Template&quot;</span>
+    <span class="hljs-property">part</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>
+    <span class="hljs-property">duration</span> <span class="hljs-operator">=</span> <span class="hljs-number">45</span><span class="hljs-punctuation">.</span><span class="hljs-variable">min</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Call your new template <code>Workshop.pkl</code>.
+Although not required, it&#8217;s good practice to always name your template with a <code>module</code>-clause.
+Defining the first few properties are like you saw in the previous section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Workshop</span>
+
+<span class="hljs-property">title</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-property">interactive</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+<span class="hljs-property">seats</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-property">occupancy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span>
+
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
+
+<span class="hljs-property">`abstract`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unlike these first few properties, <code>event</code> is an object with multiple properties.
+To be able to type <code>event</code>, you need a <code>class</code>.
+You&#8217;ve seen before how to define this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Event</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-property">year</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">event</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Event</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, <code>instructors</code> isn&#8217;t an object with properties, but a list of unnamed values.
+Pkl offers the <code>Listing</code> type for this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>sessions</code> is a <code>Listing</code> of objects, so you need a <code>Session</code> class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Session</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">time</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
+
+  <span class="hljs-property">date</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>assistants</code> has a structure like an object, in that all the values are named, but the set of names is not fixed for all possible workshops (and some workshops may have more assistants than others). The Pkl type for this is a <code>Mapping</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, for every workshop session, there is an <code>agenda</code>, which describes which <code>TutorialPart</code>s are covered.
+You already defined <code>TutorialPart.pkl</code> as its own module, so you should not define a separate class, but rather <code>import</code> that module and reuse it here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;TutorialPart.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This <code>import</code> clause brings the name <code>TutorialPart</code> into scope, which is the module class as discussed above. Note that import clauses must appear before property definitions.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Putting it all together, your <code>Workshop.pkl</code> template looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Workshop.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">Workshop</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;TutorialPart.pkl&quot;</span>
+
+<span class="hljs-property">title</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-property">interactive</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+
+<span class="hljs-property">seats</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+
+<span class="hljs-property">occupancy</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Float</span>
+
+<span class="hljs-property">duration</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
+
+<span class="hljs-property">`abstract`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Event</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-property">year</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">event</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Event</span>
+
+<span class="hljs-property">instructors</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Session</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">time</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span>
+
+  <span class="hljs-property">date</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">sessions</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Session</span><span class="hljs-operator">&gt;</span>
+
+<span class="hljs-property">assistants</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
+
+<span class="hljs-property">agenda</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TutorialPart</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Although, some output formats can contain their own form of type annotation. This may be derived from the Pkl type. Type definitions (<code>class</code> and <code>typealias</code>) themselves are never rendered.
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="02_filling_out_a_template.html">Filling out a Template</a></span>
+  <span class="next"><a href="../language.html">Language</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

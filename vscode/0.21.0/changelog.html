@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Changelog :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/vscode/current/changelog.html">
+    <link rel="prev" href="features.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/search.css">
+<link rel="stylesheet" href="../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicon-16x16.png">
+<script src="../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../index.html"><img src="../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="vscode" data-version="0.21.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">VS Code Extension</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="features.html">Features</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">VS Code Extension</span>
+    <span class="version">0.21.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../intellij/current/index.html">0.36.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.35.1/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../main/latest/index.html">0.32.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../main/current/index.html">0.31.0</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.30.2/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../go/current/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.12.1/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../lsp/current/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.5.1/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../swift/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.7.2/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../spring/current/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../current/index.html">0.22.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">VS Code Extension</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.21.0</button>
+  <div class="version-menu">
+    <a class="version" href="../current/changelog.html">0.22.0</a>
+    <a class="version is-current" href="changelog.html">0.21.0</a>
+    <a class="version" href="../0.20.0/changelog.html">0.20.0</a>
+    <a class="version" href="../0.19.0/changelog.html">0.19.0</a>
+    <a class="version" href="../0.18.2/changelog.html">0.18.2</a>
+    <a class="version" href="../0.17.0/changelog.html">0.17.0</a>
+    <a class="version" href="../0.16.0/changelog.html">0.16.0</a>
+    <a class="version" href="../0.11.0/changelog.html">0.11.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-vscode/edit/release/0.21/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Changelog</h1>
+<div class="sect1">
+<h2 id="release-0.21.0"><a class="anchor" href="#release-0.21.0"></a><a class="link" href="#release-0.21.0">0.21.0 (2025-11-05)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add Pkl code formatting (<a href="https://github.com/apple/pkl-vscode/pull/64">#64</a>, <a href="https://github.com/apple/pkl-vscode/pull/65">#65</a>, <a href="https://github.com/apple/pkl-vscode/pull/67">#67</a>).</p>
+</li>
+<li>
+<p>Add support for trailing commas (<a href="https://github.com/apple/pkl-vscode/pull/61">#61</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bump bundled version of pkl-lsp to 0.5.1 (<a href="https://github.com/apple/pkl-vscode/pull/66">#66</a>, <a href="https://github.com/apple/pkl-vscode/pull/67">#67</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Upgrade dependencies (<a href="https://github.com/apple/pkl-vscode/pull/62">#62</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.20.0"><a class="anchor" href="#release-0.20.0"></a><a class="link" href="#release-0.20.0">0.20.0 (2025-08-06)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bump bundled version of pkl-lsp to 0.4.0 (<a href="https://github.com/apple/pkl-vscode/pull/57">#57</a>).</p>
+</li>
+<li>
+<p>Fix auto-discovery of new LSP versions (<a href="https://github.com/apple/pkl-vscode/pull/57">#57</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.19.0"><a class="anchor" href="#release-0.19.0"></a><a class="link" href="#release-0.19.0">0.19.0 (2025-04-24)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add configuration options to configure the LSP socket port and host (<a href="https://github.com/apple/pkl-vscode/pull/49">#49</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bump bundled version of pkl-lsp to 0.3.0 (<a href="https://github.com/apple/pkl-vscode/pull/54">#54</a>).</p>
+</li>
+<li>
+<p>Consider any 0.x version of pkl-lsp as compatible (<a href="https://github.com/apple/pkl-vscode/pull/54">#54</a>).</p>
+<div class="paragraph">
+<p>This change means that pkl-vscode will auto-discover newer versions of pkl-lsp that are greater than version 0.3.</p>
+</div>
+</li>
+<li>
+<p>Improve syntax highlighting (<a href="https://github.com/apple/pkl-vscode/pull/50">#50</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Change build to use vanilla <code>tsc</code> instead of <code>esbuild</code> (<a href="https://github.com/apple/pkl-vscode/pull/50">#50</a>, <a href="https://github.com/apple/pkl-vscode/pull/52">#52</a>).</p>
+</li>
+<li>
+<p>Use hawkeye to format/check license headers (<a href="https://github.com/apple/pkl-vscode/pull/48">#48</a>).</p>
+</li>
+<li>
+<p>Documentation improvements (<a href="https://github.com/apple/pkl-vscode/pull/46">#46</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.18.2"><a class="anchor" href="#release-0.18.2"></a><a class="link" href="#release-0.18.2">0.18.2 (2024-12-20)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix compatibility issues when running on Windows (<a href="https://github.com/apple/pkl-vscode/pull/41">#41</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/riccardopiola">@riccardopiola</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.18.1"><a class="anchor" href="#release-0.18.1"></a><a class="link" href="#release-0.18.1">0.18.1 (2024-10-14)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where the extension incorrectly tells users about misconfigured settings (<a href="https://github.com/apple/pkl-vscode/pull/35">#35</a>).</p>
+</li>
+<li>
+<p>Fixes an issue where the extension swallows errors coming from starting Pkl Language Server (<a href="https://github.com/apple/pkl-vscode/pull/38">#38</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.18.0"><a class="anchor" href="#release-0.18.0"></a><a class="link" href="#release-0.18.0">0.18.0 (2024-10-10)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add support for <a href="../../lsp/current/index.html" class="xref page">pkl-lsp</a>. The editor now ships with a version of pkl-lsp, and queries for updates when the extension starts up. The LSP currently requires Java 22 to run. This requirement will go away when pkl-lsp ships native executables. By default, pkl-vscode will look for Java in <code>$PATH</code>, and will prompt if it cannot be found, or is lower than 22 (<a href="https://github.com/apple/pkl-vscode/pull/19">#19</a>, <a href="https://github.com/apple/pkl-vscode/pull/21">#21</a>, <a href="https://github.com/apple/pkl-vscode/pull/22">#22</a>, <a href="https://github.com/apple/pkl-vscode/pull/23">#23</a>, <a href="https://github.com/apple/pkl-vscode/pull/24">#24</a>, <a href="https://github.com/apple/pkl-vscode/pull/25">#25</a>, <a href="https://github.com/apple/pkl-vscode/pull/27">#27</a>, <a href="https://github.com/apple/pkl-vscode/pull/28">#28</a>, <a href="https://github.com/apple/pkl-vscode/pull/32">#32</a>).</p>
+<div class="paragraph">
+<p>These are the initial support features, and the list will grow over time as the LSP improves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hover-over documentation</p>
+</li>
+<li>
+<p>Go-to-definition</p>
+</li>
+<li>
+<p>Project syncing</p>
+</li>
+<li>
+<p>Autocompletion</p>
+</li>
+<li>
+<p>Viewing stdlib, https, and package sources</p>
+</li>
+<li>
+<p>Resolving imports</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add command "Pkl: Sync projects".</p>
+</li>
+<li>
+<p>Add new configuration items:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pkl.cli.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.java.path</code></p>
+</li>
+<li>
+<p><code>pkl.lsp.debug.port</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-4"><a class="anchor" href="#changes-4"></a><a class="link" href="#changes-4">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve syntax highlighting (<a href="https://github.com/apple/pkl-vscode/pull/30">#30</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Change snippets from textmate snippets to pkl-lsp (<a href="https://github.com/apple/pkl-vscode/pull/25">#25</a>).</p>
+</li>
+<li>
+<p>Rename some internal files (<a href="https://github.com/apple/pkl-vscode/pull/26">#26</a>).</p>
+</li>
+<li>
+<p>Change some files to markdown (<a href="https://github.com/apple/pkl-vscode/pull/20">#20</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.17.0"><a class="anchor" href="#release-0.17.0"></a><a class="link" href="#release-0.17.0">0.17.0 (2024-03-12)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="miscellaneous-4"><a class="anchor" href="#miscellaneous-4"></a><a class="link" href="#miscellaneous-4">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Changes Pkl TextMate grammar to <a href="https://github.com/apple/pkl.tmbundle">pkl.tmBundle</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.16.0"><a class="anchor" href="#release-0.16.0"></a><a class="link" href="#release-0.16.0">0.16.0 (2024-02-28)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes folding ranges (<a href="https://github.com/apple/pkl-vscode/pull/6">#6</a>)</p>
+</li>
+<li>
+<p>Fixes brace token matching (<a href="https://github.com/apple/pkl-vscode/pull/8">#8</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-5"><a class="anchor" href="#miscellaneous-5"></a><a class="link" href="#miscellaneous-5">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Changes Pkl download link to GitHub (CI) (<a href="https://github.com/apple/pkl-vscode/pull/3">#3</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/RedCMD">@RedCMD</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.15.0"><a class="anchor" href="#release-0.15.0"></a><a class="link" href="#release-0.15.0">0.15.0 (2024-02-02)</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Initial release</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="features.html">Features</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/site-support.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

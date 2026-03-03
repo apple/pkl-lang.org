@@ -1,6 +1,7 @@
 amends "@pkl.impl.ghactions/PklCI.pkl"
 
 import "@com.github.actions/catalog.pkl"
+import "@com.github.actions/context.pkl"
 import "@com.github.actions/Workflow.pkl"
 
 local baseJob: Workflow.Job = new {
@@ -88,9 +89,12 @@ main {
         new {
           name = "Triggered by"
           `if` = "inputs.source_run != null"
+          env {
+            ["SOURCE_RUN"] = context.inputs("source_run")
+          }
           run =
             """
-            echo "Triggered by workflow in repo: ${{ inputs.source_run }}" >> $GITHUB_STEP_SUMMARY
+            echo "Triggered by workflow in repo: ${SOURCE_RUN}" >> $GITHUB_STEP_SUMMARY
             """
         }
         ...(super.steps)

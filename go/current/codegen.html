@@ -380,7 +380,7 @@
 <h2 id="running-code-generation"><a class="anchor" href="#running-code-generation"></a><a class="link" href="#running-code-generation">Running code generation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Code generation is done through the <code>@pkl.go/gen.pkl</code> tool.
+<p>Code generation is done through the <code>@pkl.golang/gen.pkl</code> tool.
 For usage instructions, consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> section of the quickstart.</p>
 </div>
 <div class="paragraph">
@@ -388,7 +388,7 @@ For usage instructions, consult the <a href="quickstart.html#codegen" class="xre
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl run @pkl.go/gen.pkl pkl/AppConfig.pkl</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl run @pkl.golang/gen.pkl pkl/AppConfig.pkl</code></pre>
 </div>
 </div>
 </div>
@@ -422,7 +422,7 @@ as a filter to skip codegen for any modules that are external to the project.</p
 <p>For example, if a Pkl module corresponds to Go package <code>github.com/myorg/myproject/appconfig</code>, and the base path is <code>github.com/myorg/myproject</code>, the generated files are placed into output directory <code>appconfig/</code>.</p>
 </div>
 <div class="paragraph">
-<p>If a base path is not explicitly set, <code>@pkl.go/gen.pkl</code> will also look for a <code>go.mod</code> file in the current working directory and use the Go module name as the base path.</p>
+<p>If a base path is not explicitly set, <code>@pkl.golang/gen.pkl</code> will also look for a <code>go.mod</code> file in the current working directory and use the Go module name as the base path.</p>
 </div>
 <div class="paragraph">
 <p>If the base path cannot be determined, the full package path is written to the current working directory.</p>

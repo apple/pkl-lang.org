@@ -50,7 +50,7 @@ val cloneAdditionalSites by tasks.registering {
   }
   doLast {
     for (site in additionalSites) {
-      exec {
+      providers.exec {
         val output = layout.buildDirectory.dir(site.dirName).get()
         if (output.dir(".git").asFile.exists()) {
           commandLine(
@@ -71,7 +71,7 @@ val cloneAdditionalSites by tasks.registering {
             layout.buildDirectory.dir(site.dirName).get()
           )
         }
-      }
+      }.result.get()
     }
   }
 }
@@ -82,10 +82,10 @@ val pklHtmlHighlighter by tasks.registering {
   inputs.file("pkl-html-highlighter/Cargo.lock")
   inputs.file("pkl-html-highlighter/Cargo.toml")
   doFirst {
-    exec {
+    providers.exec {
       commandLine("cargo", "build")
       workingDir = file("pkl-html-highlighter")
-    }
+    }.result.get()
   }
   outputs.file("pkl-html-highlighter/target/debug/pkl-html-highlighter")
 }

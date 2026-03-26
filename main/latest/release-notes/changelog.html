@@ -525,6 +525,76 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-0.31.1"><a class="anchor" href="#release-0.31.1"></a><a class="link" href="#release-0.31.1">0.31.1 (2026-03-26)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes <span class="small">💔</span></a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow nullable reads for custom/external resources (<a href="https://github.com/apple/pkl/pull/1471" target="blank">#1471</a>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This allows custom/external resources to produce <code>null</code> values for <a href="../language-reference/index.html#nullable-reads" class="xref page">nullable reads</a> (<code>read?</code>).
+While this is a breaking change in behavior, it is currently not possible to exercise with versions of pkl-go or pkl-swift released prior to this change.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix typo in changelog and language reference (<a href="https://github.com/apple/pkl/pull/1455" target="blank">#1455</a>).</p>
+</li>
+<li>
+<p>Fix bugs in <code>CommandSpecParser</code> (<a href="https://github.com/apple/pkl/pull/1448" target="blank">#1448</a>, <a href="https://github.com/apple/pkl/pull/1449" target="blank">#1449</a>).</p>
+</li>
+<li>
+<p>Respect <code>--omit-project-settings</code> for all evaluator options (<a href="https://github.com/apple/pkl/pull/1459" target="blank">#1459</a>).</p>
+</li>
+<li>
+<p>Fix SecurityManager check for HTTP(S) module URIs (<a href="https://github.com/apple/pkl/pull/1463" target="blank">#1463</a>).</p>
+</li>
+<li>
+<p>Fix performance regression caused by activation of power assertion instrumentation during some union type checks (<a href="https://github.com/apple/pkl/pull/1462" target="blank">#1462</a>).</p>
+</li>
+<li>
+<p>Fix module reflection when power assertion instrumentation is active (<a href="https://github.com/apple/pkl/pull/1464" target="blank">#1464</a>).</p>
+</li>
+<li>
+<p>Prevent I/O when checking UNC paths against <code>--root-dir</code> (<a href="https://github.com/apple/pkl/pull/1466" target="blank">#1466</a>).</p>
+</li>
+<li>
+<p>Prevent <code>--multiple-file-output-path</code> writes from following symlinks outside the target directory
+(<a href="https://github.com/apple/pkl/pull/1467" target="blank">#1467</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all the contributors for this release!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/04cb">@04cb</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.31.0"><a class="anchor" href="#release-0.31.0"></a><a class="link" href="#release-0.31.0">0.31.0 (2026-02-26)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -536,7 +606,7 @@
 <h2 id="release-0.30.2"><a class="anchor" href="#release-0.30.2"></a><a class="link" href="#release-0.30.2">0.30.2 (2025-12-15)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -555,7 +625,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -579,7 +649,7 @@
 <h2 id="release-0.30.1"><a class="anchor" href="#release-0.30.1"></a><a class="link" href="#release-0.30.1">0.30.1 (2025-12-03)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -601,7 +671,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -636,7 +706,7 @@
 <h2 id="release-0.29.1"><a class="anchor" href="#release-0.29.1"></a><a class="link" href="#release-0.29.1">0.29.1 (2025-08-27)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -661,7 +731,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -693,7 +763,7 @@
 <h2 id="release-0.28.2"><a class="anchor" href="#release-0.28.2"></a><a class="link" href="#release-0.28.2">0.28.2 (2025-04-17)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -722,7 +792,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -749,7 +819,7 @@
 <h2 id="release-0.28.1"><a class="anchor" href="#release-0.28.1"></a><a class="link" href="#release-0.28.1">0.28.1 (2025-03-03)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -788,7 +858,7 @@
 <h2 id="release-0.27.2"><a class="anchor" href="#release-0.27.2"></a><a class="link" href="#release-0.27.2">0.27.2 (2025-01-22)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -804,7 +874,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
+<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -825,7 +895,7 @@
 <h2 id="release-0.27.1"><a class="anchor" href="#release-0.27.1"></a><a class="link" href="#release-0.27.1">0.27.1 (2024-12-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -853,7 +923,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
+<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -885,7 +955,7 @@
 <h2 id="release-0.26.3"><a class="anchor" href="#release-0.26.3"></a><a class="link" href="#release-0.26.3">0.26.3 (2024-08-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
+<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -906,7 +976,7 @@
 <h2 id="release-0.26.2"><a class="anchor" href="#release-0.26.2"></a><a class="link" href="#release-0.26.2">0.26.2 (2024-07-18)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
+<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -921,7 +991,7 @@
 <h2 id="release-0.26.1"><a class="anchor" href="#release-0.26.1"></a><a class="link" href="#release-0.26.1">0.26.1 (2024-06-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
+<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -968,7 +1038,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.3"><a class="anchor" href="#release-0.25.3"></a><a class="link" href="#release-0.25.3">0.25.3 (2024-03-26)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
+<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1010,7 +1080,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
+<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1049,7 +1119,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.2"><a class="anchor" href="#release-0.25.2"></a><a class="link" href="#release-0.25.2">0.25.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
+<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1076,7 +1146,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
+<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1142,7 +1212,7 @@ Users of Pkl&#8217;s Java APIs will respect the revocation settings set in the J
 <h2 id="release-0.25.1"><a class="anchor" href="#release-0.25.1"></a><a class="link" href="#release-0.25.1">0.25.1 (2024-02-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
+<h3 id="fixes-14"><a class="anchor" href="#fixes-14"></a><a class="link" href="#fixes-14">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>

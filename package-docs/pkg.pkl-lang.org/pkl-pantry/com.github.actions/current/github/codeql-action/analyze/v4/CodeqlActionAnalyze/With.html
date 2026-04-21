@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>With (pkg.pkl-lang.org/pkl-pantry/com.github.actionse/v4/CodeqlActionAnalyze:1.5.0) • Packages</title>
+    <script src="../../../../../../../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/_/github/codeql-action/analyze/v4/CodeqlActionAnalyze/With.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../../../../../data/pkg.pkl-lang.org/pkl-pantry/com.github.actions/1.5.0/github/codeql-action/analyze/v4/CodeqlActionAnalyze/With.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "1.5.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../../../../../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../../../../../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../../../../../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/com.github.actions" data-package-version="1.5.0" data-package-url-prefix="../../../../../" data-module-name="com.github.actions.github.codeql-action.analyze.v4.CodeqlActionAnalyze" data-class-name="With" data-root-url-prefix="../../../../../../../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../../../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../../../../../index.html">pkg.pkl-lang.org/pkl-pantry/com.github.actions</a> &gt; <a class="declaration-parent-link" href="index.html">com.github.actions.github.codeql-action.analyze.v4.CodeqlActionAnalyze</a>
+      <h1 id="declaration-title">With<span id="declaration-version">1.5.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">class <span class="name-decl">With</span></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="check_name" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#check_name">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">check_name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L29-29">Source</a></div>
+                <div class="doc-comment"><p>The name of the check run to add text to.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L34-34">Source</a></div>
+                <div class="doc-comment"><p>The path of the directory in which to save the SARIF results from the CodeQL CLI.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;../results&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="upload" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#upload">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">upload</span>: (&quot;always&quot;|&quot;failure-only&quot;|&quot;never&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L39-39">Source</a></div>
+                <div class="doc-comment"><p>Upload the SARIF file to Code Scanning. Defaults to 'always' which uploads the SARIF file to Code Scanning for successful and failed runs. 'failure-only' only uploads debugging information to Code Scanning if the workflow run fails, for users post-processing the SARIF file before uploading it to Code Scanning. 'never' avoids uploading the SARIF file to Code Scanning, even if the code scanning run fails. This is not recommended for external users since it complicates debugging.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;always&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="cleanup-level" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#cleanup-level">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`cleanup-level`</span>: (&quot;none&quot;|&quot;brutal&quot;|&quot;normal&quot;|&quot;light&quot;)?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L42-42">Source</a></div>
+                <div class="doc-comment"><p>DEPRECATED. This option is ignored since, for performance reasons, the CodeQL Action automatically manages cleanup of intermediate results.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ram" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ram">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ram</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L45-45">Source</a></div>
+                <div class="doc-comment"><p>The amount of memory in MB that can be used by CodeQL for database finalization and query execution. By default, this action will use the same amount of memory as previously set in the &quot;init&quot; action. If the &quot;init&quot; action also does not have an explicit &quot;ram&quot; input, this action will use most of the memory available in the system (which for GitHub-hosted runners is 6GB for Linux, 5.5GB for Windows, and 13GB for macOS).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="add-snippets" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#add-snippets">link</a>
+              <div class="member-left">
+                <div class="member-modifiers member-deprecated"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature member-deprecated"><span class="name-decl">`add-snippets`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L51-51">Source</a></div>
+                <div class="doc-comment">Deprecated: The input &quot;add-snippets&quot; has been removed and no longer has any effect.</div>
+                <div class="doc-comment expandable hidden collapsed"><p>Does not have any effect.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="skip-queries" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#skip-queries">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`skip-queries`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L56-56">Source</a></div>
+                <div class="doc-comment"><p>If this option is set, the CodeQL database will be built but no queries will be run on it. Thus, no results will be produced.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="threads" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#threads">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">threads</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Int.html" class="name-ref">Int</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L59-59">Source</a></div>
+                <div class="doc-comment"><p>The number of threads that can be used by CodeQL for database finalization and query execution. By default, this action will use the same number of threads as previously set in the &quot;init&quot; action. If the &quot;init&quot; action also does not have an explicit &quot;threads&quot; input, this action will use all the hardware threads available in the system (which for GitHub-hosted runners is 2 for Linux and Windows and 3 for macOS).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="checkout_path" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#checkout_path">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">checkout_path</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L64-64">Source</a></div>
+                <div class="doc-comment"><p>The path at which the analyzed repository was checked out. Used to relativize any absolute paths in the uploaded SARIF file.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;${{ github.workspace }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ref" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#ref">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ref</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L67-67">Source</a></div>
+                <div class="doc-comment"><p>The ref where results will be uploaded. If not provided, the Action will use the GITHUB_REF environment variable. If provided, the sha input must be provided as well. This input is ignored for pull requests from forks. Expected format: refs/heads/<branch name>, refs/tags/<tag>, refs/pull/<number>/merge, or refs/pull/<number>/head.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="sha" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#sha">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">sha</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L70-70">Source</a></div>
+                <div class="doc-comment"><p>The sha of the HEAD of the ref where results will be uploaded. If not provided, the Action will use the GITHUB_SHA environment variable. If provided, the ref input must be provided as well. This input is ignored for pull requests from forks.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="category" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#category">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">category</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L73-73">Source</a></div>
+                <div class="doc-comment"><p>String used by Code Scanning for matching the analyses</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="upload-database" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#upload-database">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`upload-database`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L78-78">Source</a></div>
+                <div class="doc-comment"><p>Whether to upload the resulting CodeQL database</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;true&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="post-processed-sarif-path" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#post-processed-sarif-path">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`post-processed-sarif-path`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L81-81">Source</a></div>
+                <div class="doc-comment"><p>Before uploading the SARIF files produced by the CodeQL CLI, the CodeQL Action may perform some post-processing on them. Ordinarily, these post-processed SARIF files are not saved to disk. However, if a path is provided as an argument for this input, they are written to the specified directory.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="wait-for-processing" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#wait-for-processing">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`wait-for-processing`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L86-86">Source</a></div>
+                <div class="doc-comment"><p>If true, the Action will wait for the uploaded SARIF to be processed before completing.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;true&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="token" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#token">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">token</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L91-91">Source</a></div>
+                <div class="doc-comment"><p>GitHub token to use for authenticating with this instance of GitHub. The token must be the built-in GitHub Actions token, and the workflow must have the <code>security-events: write</code> permission. Most of the time it is advisable to avoid specifying this input so that the workflow falls back to using the default value.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;${{ github.token }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="matrix" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#matrix">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">matrix</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L94-94">Source</a></div>
+                <div class="doc-comment"><p>Default if unspecified: <code>&quot;${{ toJson(matrix) }}&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="expect-error" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#expect-error">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">`expect-error`</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/com.github.actions@1.5.0/packages/com.github.actions/github/codeql-action/analyze/v4/CodeqlActionAnalyze.pkl#L99-99">Source</a></div>
+                <div class="doc-comment"><p><a href="not_found"><code>Internal</code></a> It is an error to use this input outside of integration testing of the codeql-action.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Default if unspecified: <code>&quot;false&quot;</code></p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L50-L50">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L55-L55">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="With.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L61-L61">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>): <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L1977-L1977">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L1982-L1982">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L1987-L1987">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L1990-L1990">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Map.html" class="name-ref">Map</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.31.1/stdlib/base.pkl#L1993-L1993">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="https://pkl-lang.org/package-docs/pkl/0.31.1/base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

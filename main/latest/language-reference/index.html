@@ -1059,6 +1059,25 @@ In other words, line indentation is controlled by indenting lines relative to th
 <span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>To prevent line breaks from becoming part of the string&#8217;s value, use a backslash (<code>\</code>) to end those lines.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">str</span> <span class="hljs-operator">=</span> &quot;&quot;&quot;
+  Although the Dodo is extinct, \
+  the species will be remembered<span class="hljs-punctuation">.</span>
+  &quot;&quot;&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This multiline string is equivalent to the following single-line string:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl expression hljs" data-lang="pkl expression"><span class="hljs-string">&quot;Although the Dodo is extinct, the species will be remembered.&quot;</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="custom-string-delimiters"><a class="anchor" href="#custom-string-delimiters"></a><a class="link" href="#custom-string-delimiters">Custom String Delimiters</a></h3>
@@ -9600,7 +9619,7 @@ To fully set up mirroring, an HTTP(s) server will need be running, and which mir
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Pkl&#8217;s string literals have fewer character escape sequences, have stricter rules for line indentation in multiline strings, and do not have a line continuation character.
+<a href="#_footnoteref_1">1</a>. Pkl&#8217;s string literals have fewer character escape sequences and stricter rules for line indentation in multiline strings.
 </div>
 <div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. By "structure" we mean a list of property names and (optionally) property types.

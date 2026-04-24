@@ -122,3 +122,49 @@ main {
     }
   }
 }
+
+local COOLDOWN_PERIOD = 7
+
+dependabot {
+  updates {
+    new {
+      `package-ecosystem` = "gradle"
+      directory = "/"
+      schedule {
+        interval = "weekly"
+      }
+      cooldown {
+        `default-days` = COOLDOWN_PERIOD
+      }
+    }
+    new {
+      `package-ecosystem` = "cargo"
+      directory = "/pkl-html-highlighter"
+      schedule {
+        interval = "weekly"
+      }
+      cooldown {
+        `default-days` = COOLDOWN_PERIOD
+      }
+    }
+    new {
+      `package-ecosystem` = "npm"
+      directory = "/"
+      schedule {
+        interval = "weekly"
+      }
+      cooldown {
+        `default-days` = COOLDOWN_PERIOD
+      }
+    }
+  }
+}
+
+codeql {
+  scans {
+    new {
+      language = "javascript-typescript"
+      buildMode = "none"
+    }
+  }
+}

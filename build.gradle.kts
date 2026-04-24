@@ -31,6 +31,14 @@ val additionalSites: List<Site> = listOf(
   Site("pkl-package-docs", "www", "package-docs"),
 )
 
+configurations {
+  all {
+    resolutionStrategy {
+      failOnDynamicVersions()
+    }
+  }
+}
+
 node {
   version.set(libs.versions.node)
 

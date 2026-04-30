@@ -46,18 +46,6 @@
 (intLiteralExpr) @number
 (floatLiteralExpr) @number
 
-(stringInterpolation
-  "\\(" @char.escape
-  ")" @char.escape) @subst
-
-(stringInterpolation
-  "\\#(" @char.escape
-  ")" @char.escape) @subst
-
-(stringInterpolation
-  "\\##(" @char.escape
-  ")" @char.escape) @subst
-
 (lineComment) @comment
 (blockComment) @comment
 (docComment) @comment
@@ -146,3 +134,15 @@
 "typealias" @keyword
 (unknownType) @type
 "when" @keyword
+
+(stringInterpolation
+  "\\(" @char.escape
+  ")" @char.escape) @subst
+
+(stringInterpolation
+  "\\#(" @char.escape
+  ")" @char.escape) @subst
+
+(stringInterpolation
+  "\\##(" @char.escape
+  ")" @char.escape) @subst

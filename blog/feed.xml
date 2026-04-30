@@ -53,7 +53,7 @@ Pkl <a href="../main/current/language-reference/index.html#methods" class="xref 
   <span class="hljs-property">greeting</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
   <span class="hljs-comment">/// The derived greeting.</span>
-  <span class="hljs-keyword">fixed</span> <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>greeting<span class="hljs-punctuation">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-keyword">fixed</span> <span class="hljs-property">message</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>greeting<span class="hljs-char escape_">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">greetPigeon</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GreetingFunction</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">message</span> <i class="conum" data-value="4"></i><b>(4)</b>
@@ -361,7 +361,7 @@ Here are a few examples of using the <code>SimpleApplication</code> module:</p>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;app3&quot;</span>
   <span class="hljs-property">image</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myregistry/app3:latest&quot;</span>
   <span class="hljs-property">labels</span> <span class="hljs-punctuation">{</span>
-    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>-staging&quot;</span>
+    [<span class="hljs-string">&quot;app.kubernetes.io/instance&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>-staging&quot;</span>
   <span class="hljs-punctuation">}</span>
   <span class="hljs-property">deployment</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">spec</span> <span class="hljs-punctuation">{</span>
@@ -2281,7 +2281,7 @@ For simplicity&#8217;s sake, we are just declaring it as a local class.</p>
 
   <span class="hljs-property">lastName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
-  <span class="hljs-property">fullName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>firstName<span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lastName<span class="hljs-punctuation">)</span></span>&quot;</span>
+  <span class="hljs-property">fullName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>firstName<span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lastName<span class="hljs-char escape_">)</span></span>&quot;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
@@ -2490,7 +2490,7 @@ It defines some converters for <code>DataSize</code> and <code>Duration</code>, 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-punctuation">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-punctuation">)</span></span>&quot;</span>
+      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-char escape_">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span>it<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-char escape_">)</span></span>&quot;</span>
       [<span class="hljs-title class_">Duration</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">isoString</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
@@ -3241,7 +3241,7 @@ error message by throwing the exception ourselves:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">local</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">reportSSN</span><span class="hljs-punctuation">(</span><span class="hljs-params">ssn</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span>
   <span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>ssn<span class="hljs-punctuation">)</span></span>.</span>
+<span class="hljs-string">  Invalid social security number: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>ssn<span class="hljs-char escape_">)</span></span>.</span>
 <span class="hljs-string">  Valid ones should be in the form `XXX-XX-XXXX`</span>
 <span class="hljs-string">  where `X` is a number between 0 and 9.</span>
 <span class="hljs-string">  &quot;&quot;&quot;</span>

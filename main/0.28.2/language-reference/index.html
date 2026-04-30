@@ -945,7 +945,7 @@ String literals have the same syntax and semantics as in Swift 5. Learn one of t
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
-<span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hi, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>!&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hi, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -962,7 +962,7 @@ String literals have the same syntax and semantics as in Swift 5. Learn one of t
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">42</span>
-<span class="hljs-property">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>x <span class="hljs-operator">+</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span></span> plus <span class="hljs-subst"><span class="hljs-char escape_">\(</span>x <span class="hljs-operator">*</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span></span> is <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-number">0x80</span><span class="hljs-punctuation">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<span class="hljs-property">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>x <span class="hljs-operator">+</span> <span class="hljs-number">2</span><span class="hljs-char escape_">)</span></span> plus <span class="hljs-subst"><span class="hljs-char escape_">\(</span>x <span class="hljs-operator">*</span> <span class="hljs-number">2</span><span class="hljs-char escape_">)</span></span> is <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-number">0x80</span><span class="hljs-char escape_">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1011,7 +1011,7 @@ Notice that there is no leading or trailing whitespace.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
 <span class="hljs-property">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">Although the <span class="hljs-subst"><span class="hljs-char escape_">\(</span>bird<span class="hljs-punctuation">)</span></span> is extinct,</span>
+<span class="hljs-string">Although the <span class="hljs-subst"><span class="hljs-char escape_">\(</span>bird<span class="hljs-char escape_">)</span></span> is extinct,</span>
 <span class="hljs-string">the species will be remembered.</span>
 <span class="hljs-string">&quot;&quot;&quot;</span></code></pre>
 </div>
@@ -1073,7 +1073,7 @@ This also affects the escape character, which changes from <code>\</code> to <co
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Dodo&quot;</span>
-<span class="hljs-property">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">#&quot; \\\\\ <span class="hljs-char escape_">\#n</span> <span class="hljs-char escape_">\#u{12AF}</span> <span class="hljs-subst"><span class="hljs-char escape_">\#(</span>bird<span class="hljs-punctuation">)</span></span> &quot;&quot;&quot;&quot;&quot; &quot;#</span></code></pre>
+<span class="hljs-property">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">#&quot; \\\\\ <span class="hljs-char escape_">\#n</span> <span class="hljs-char escape_">\#u{12AF}</span> <span class="hljs-subst"><span class="hljs-char escape_">\#(</span>bird<span class="hljs-char escape_">)</span></span> &quot;&quot;&quot;&quot;&quot; &quot;#</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1930,7 +1930,7 @@ Hidden properties are also ignored when evaluating equality or hashing (e.g. for
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
   <span class="hljs-property">lifespan</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
-  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-punctuation">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-char escape_">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="hljs-property">nameSignWidth</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt</span> <span class="hljs-operator">=</span> nameAndLifespanInIndex<span class="hljs-punctuation">.</span><span class="hljs-variable">length</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="hljs-punctuation">}</span>
 
@@ -1944,7 +1944,7 @@ Hidden properties are also ignored when evaluating equality or hashing (e.g. for
 <span class="hljs-property">pigeonDynamic</span> <span class="hljs-operator">=</span> pigeon<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toDynamic</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
 
 <span class="hljs-property">favoritePigeon</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>pigeon<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bettie, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-punctuation">)</span></span>&quot;</span>
+  <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Bettie, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-char escape_">)</span></span>&quot;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">samePigeon</span> <span class="hljs-operator">=</span> pigeon <span class="hljs-operator">==</span> favoritePigeon <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
@@ -2014,7 +2014,7 @@ Hidden properties are also ignored when evaluating equality or hashing (e.g. for
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
   <span class="hljs-property">lifespan</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
   <span class="hljs-keyword">local</span> <span class="hljs-property">separator</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;,&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span>separator<span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-punctuation">)</span></span>&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-keyword">hidden</span> <span class="hljs-property">nameAndLifespanInIndex</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span><span class="hljs-subst"><span class="hljs-char escape_">\(</span>separator<span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-char escape_">)</span></span>&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">pigeon</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
@@ -2263,7 +2263,7 @@ with the additional rule that it cannot reference non-const properties or method
 
 <span class="hljs-keyword">const</span> <span class="hljs-property">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">lifespan</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>
-  <span class="hljs-property">description</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;species: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>speciesName<span class="hljs-punctuation">)</span></span>, lifespan: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-punctuation">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">description</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;species: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>speciesName<span class="hljs-char escape_">)</span></span>, lifespan: <span class="hljs-subst"><span class="hljs-char escape_">\(</span>lifespan<span class="hljs-char escape_">)</span></span>&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -2329,7 +2329,7 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> pigeonName <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-operator">@</span><span class="hljs-title class_">Deprecated</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Replace with <span class="hljs-subst"><span class="hljs-char escape_">\(</span>pigeonName<span class="hljs-punctuation">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-operator">@</span><span class="hljs-title class_">Deprecated</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Replace with <span class="hljs-subst"><span class="hljs-char escape_">\(</span>pigeonName<span class="hljs-char escape_">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="hljs-property">oldPigeonName</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
 <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">IsPigeonName</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>pigeonName<span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
@@ -3626,7 +3626,7 @@ Submodules and subclasses can override them.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span><span class="hljs-punctuation">(</span><span class="hljs-params">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>bird<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-punctuation">)</span></span>!&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span><span class="hljs-punctuation">(</span><span class="hljs-params">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>bird<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-char escape_">)</span></span>!&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">greetPigeon</span><span class="hljs-punctuation">(</span><span class="hljs-params">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> bird<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">greet</span><span class="hljs-punctuation">(</span>pigeon<span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
@@ -3718,7 +3718,7 @@ The precise runtime type of a module is a subclass of <code>Module</code> contai
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">timeout</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span><span class="hljs-punctuation">(</span>isPositive<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">.</span><span class="hljs-variable">ms</span>
 
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span><span class="hljs-punctuation">(</span><span class="hljs-params">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>!&quot;</span></code></pre>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span><span class="hljs-punctuation">(</span><span class="hljs-params">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>!&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4700,7 +4700,7 @@ However, we can teach it to:</p>
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-punctuation">)</span></span>&quot;</span>
+      [<span class="hljs-title class_">DataSize</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-char escape_">)</span></span>&quot;</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -4724,8 +4724,8 @@ However, we can teach it to:</p>
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">YamlRenderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [<span class="hljs-string">&quot;quota.memory&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-punctuation">)</span></span>&quot;</span>
-      [<span class="hljs-string">&quot;quota.disk&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-punctuation">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-punctuation">)</span></span>&quot;</span>
+      [<span class="hljs-string">&quot;quota.memory&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+      [<span class="hljs-string">&quot;quota.disk&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">size</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">value</span><span class="hljs-char escape_">)</span></span> <span class="hljs-subst"><span class="hljs-char escape_">\(</span>size<span class="hljs-punctuation">.</span><span class="hljs-variable">unit</span><span class="hljs-char escape_">)</span></span>&quot;</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -4878,8 +4878,8 @@ the appropriate file extensions can be obtained programmatically:</p>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">files</span> <span class="hljs-punctuation">{</span>
-    [<span class="hljs-string">&quot;birds/pigeon.<span class="hljs-subst"><span class="hljs-char escape_">\(</span>pigeon<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">renderer</span><span class="hljs-punctuation">.</span><span class="hljs-variable">extension</span><span class="hljs-punctuation">)</span></span>&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> pigeon<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span>
-    [<span class="hljs-string">&quot;birds/parrot.<span class="hljs-subst"><span class="hljs-char escape_">\(</span>parrot<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">renderer</span><span class="hljs-punctuation">.</span><span class="hljs-variable">extension</span><span class="hljs-punctuation">)</span></span>&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> parrot<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span>
+    [<span class="hljs-string">&quot;birds/pigeon.<span class="hljs-subst"><span class="hljs-char escape_">\(</span>pigeon<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">renderer</span><span class="hljs-punctuation">.</span><span class="hljs-variable">extension</span><span class="hljs-char escape_">)</span></span>&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> pigeon<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span>
+    [<span class="hljs-string">&quot;birds/parrot.<span class="hljs-subst"><span class="hljs-char escape_">\(</span>parrot<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">renderer</span><span class="hljs-punctuation">.</span><span class="hljs-variable">extension</span><span class="hljs-char escape_">)</span></span>&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> parrot<span class="hljs-punctuation">.</span><span class="hljs-variable">output</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
@@ -5549,7 +5549,7 @@ In this case, the argument&#8217;s type should be specified explicitly.</p>
 
   <span class="hljs-keyword">function</span> <span class="hljs-title function_">listHatchlings</span><span class="hljs-punctuation">(</span><span class="hljs-params">items</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>item <span class="hljs-keyword">in</span> items<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
-      <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>:<span class="hljs-subst"><span class="hljs-char escape_">\(</span>item<span class="hljs-punctuation">)</span></span>&quot;</span>
+      <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>:<span class="hljs-subst"><span class="hljs-char escape_">\(</span>item<span class="hljs-char escape_">)</span></span>&quot;</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
@@ -7987,7 +7987,7 @@ That means that, within the context of an amending object, the reciever is the a
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">hidden</span> <span class="hljs-property">lawyerBird</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-punctuation">)</span></span>, Esq.&quot;</span>
+  <span class="hljs-property">title</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-char escape_">)</span></span>, Esq.&quot;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-property">polly</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>lawyerBird<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
@@ -8070,7 +8070,7 @@ When used within an object, it refers to the parent object in the amends chain.<
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bird</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Quail&quot;</span> <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">bird2</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Ms. <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span>name<span class="hljs-punctuation">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">bird2</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Ms. <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-keyword">super</span><span class="hljs-punctuation">.</span>name<span class="hljs-char escape_">)</span></span>&quot;</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">foods</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
@@ -9209,9 +9209,9 @@ To create a package, the <code>package</code> section of a <code>PklProject</cod
 
 <span class="hljs-property">package</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;mypackage&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="hljs-property">baseUri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://example.com/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">baseUri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://example.com/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>&quot;</span> <i class="conum" data-value="2"></i><b>(2)</b>
   <span class="hljs-property">version</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1.0.0&quot;</span> <i class="conum" data-value="3"></i><b>(3)</b>
-  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-punctuation">)</span></span>@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-punctuation">)</span></span>.zip&quot;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span>@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-char escape_">)</span></span>.zip&quot;</span> <i class="conum" data-value="4"></i><b>(4)</b>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -9276,7 +9276,7 @@ The imported <code>PklProject</code> <em>must</em> have a package section define
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;birds&quot;</span>
   <span class="hljs-property">baseUri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://example.com/birds&quot;</span>
   <span class="hljs-property">version</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1.8.3&quot;</span>
-  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/birds@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-punctuation">)</span></span>.zip&quot;</span>
+  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/birds@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-char escape_">)</span></span>.zip&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -9297,7 +9297,7 @@ The imported <code>PklProject</code> <em>must</em> have a package section define
   <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;fruit&quot;</span>
   <span class="hljs-property">baseUri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://example.com/fruit&quot;</span>
   <span class="hljs-property">version</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1.5.0&quot;</span>
-  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/fruit@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-punctuation">)</span></span>.zip&quot;</span>
+  <span class="hljs-property">packageZipUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/fruit@<span class="hljs-subst"><span class="hljs-char escape_">\(</span>version<span class="hljs-char escape_">)</span></span>.zip&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
 </div>
@@ -9361,7 +9361,7 @@ As with Pkl&#8217;s built-in module and resource schemes, setting explicit allow
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;pigeon&quot;</span>
 
-<span class="hljs-property">email</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ldap://ds.example.com:389/dc=example,dc=com?mail?sub?(uid=<span class="hljs-subst"><span class="hljs-char escape_">\(</span>username<span class="hljs-punctuation">)</span></span>)&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span></code></pre>
+<span class="hljs-property">email</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ldap://ds.example.com:389/dc=example,dc=com?mail?sub?(uid=<span class="hljs-subst"><span class="hljs-char escape_">\(</span>username<span class="hljs-char escape_">)</span></span>)&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

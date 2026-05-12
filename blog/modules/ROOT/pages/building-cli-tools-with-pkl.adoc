@@ -1,0 +1,343 @@
+:date: 2026-05-13
+:author: Jen Basch
+:author-url: https://github.com/HT154
+
+= Building CLI Tools with Pkl
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by link:https://github.com/HT154[Jen Basch] on May 13th, 2026
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+Some Pkl use cases require evaluation to be parameterized by data supplied at runtime by a user, such as code generation or dataset analysis tools.
+xref:main:language-reference:index.adoc#resources[External property (`prop:`) resources] provide a mechanism for soliciting user input, but they're limited and using them can be a clunky experience.
+Pkl 0.31 introduced the xref:main:pkl-cli:index.adoc#cli-tools[`pkl run` command] and link:https://pkl-lang.org/package-docs/pkl/current/Command/index.html[`pkl:Command` standard library module] to provide a framework for building CLI tools that look, feel, and work like good tools should: standard flag syntax, input validation, subcommands, generated help text, and shell completion.
+// end::excerpt[]
+
+CLI tools written in Pkl provide the same basic I/O capabilities that normal Pkl evaluation does: writing to standard output and the filesystem and reading resources, including via xref:main:language-reference:index.adoc#external-readers[external readers], but there are a couple key differences from regular evaluation:
+
+* File output is relative to the command's working directory, not `--multiple-file-output-path`.
+* Imports may be specified dynamically in terms of CLI options using link:https://pkl-lang.org/package-docs/pkl/current/Command/Import.html[`Command.Import`].
+
+These capabilities have enabled rewriting the code generation tools for xref:swift:ROOT:codegen.adoc[pkl-swift] and xref:go:ROOT:codegen.adoc[pkl-go].
+We now publish them purely as Pkl modules inside their respective packages instead of separately distributed binaries written in each target language that must function cooperatively with the Pkl portion of the code generator.
+This reduces the complexity of our code, our release processes, and adoption requirements for downstream users.
+
+== Running Commands
+
+Running CLI tools built with Pkl is simple:
+
+[source,bash]
+----
+pkl run <root command module URI> <command options>
+----
+
+Every command has automatically generated CLI help via the `--help`/`-h` flag.
+
+Pkl commands distributed inside xref:main:language-reference:index.adoc#project-dependencies[dependencies of a Project] may also be executed directly using the dependency's alias:
+
+[source,bash]
+----
+pkl run @<dependency alias>/<module> <command options>
+----
+
+On *nix system, commands in local files may also use a https://en.wikipedia.org/wiki/Shebang_(Unix)[shebang] to allow direct script execution:
+
+[source,pkl]
+.my-command.pkl
+----
+#!/usr/bin/env -S pkl run
+// ...
+----
+
+[source,bash]
+----
+./my-command.pkl
+----
+
+In this execution mode, a `shell-completion` subcommand can be used to generate autocomplete scripts for the `bash`, `zsh`, and `fish` shells.
+
+== Building Commands
+
+Commands are defined declaratively by extending the `pkl:Command` module.
+The module's `output` determines the command's behavior:
+
+* `output.bytes` (by default, derived from `output.text` or `output.value`) is produced to standard output.
+* `output.files` entries are written to the filesystem. Unlike `pkl eval`, file paths are relative to the working directory, not a specified output path.
+
+Command options, both named flags and positional arguments, are defined by the properties of the module's `options` property's class.
+Any class or module type may be used for `options`, so commands can easily share and inherit options.
+When a command is executed, its `options` property is overridden with the actual parsed option values.
+
+Each property of the command's options class (excluding `hidden` and `local` properties) becomes an option of the command.
+A property's name becomes its name on the command line, its doc comment becomes its CLI help text, and its type determines how the raw user-provided is parsed as a Pkl value.
+Properties with nullable types or default values are become optional.
+Option behavior is determined by annotating option properties with one of several annotations: `@Argument` for positional arguments, `@Flag` for named flags, `@BooleanFlag` for `--<name>`/`--no-<name>` pairs, and `@CountedFlag` counts how many times the flag as passed.
+
+For `@Argument` and `@Flag`, all of Pkl's primitive types (`String`, `Boolean`, and numerics) are all supported, plus more complex types like `Listing`/`List`, `Mapping`/`Map`, `Set`, `Pair`, and string literal unions.
+Arbitrary types may be also supported through further customization of the option's behavior using the annotations' `convert` and `transformAll` properties.
+
+Here's an example command that shows a variety of different options usage:
+[source,pkl]
+.my-command.pkl
+----
+extends "pkl:Command"
+
+options: Options
+
+class Options {
+  /// Maximum number of tries to attempt operation before giving up.
+  `max-tries`: UInt // <1>
+
+  /// Whether to use cache data locally.
+  @BooleanFlag
+  cache: Boolean = true // <2>
+
+  /// Log verbosity.
+  @CountedFlag { shortName = "v" }
+  verbose: Int(this <= 3) // <3>
+
+  /// File paths to operate on.
+  @Argument { completionCandidates = "paths" }
+  path: Listing<String> // <4>
+
+  /// Duration after which operation will be timed out.
+  @Flag { convert = module.convertDuration; metavar = "duration" }
+  `connection-timeout`: Duration? // <5>
+}
+----
+<1> Flag `--max-tries=<uint>` (no annotation is equivalent to annotating with `@Flag`); `UInt` validates the input is an integer `>= 0`; Flag is required.
+<2> Flags `--cache` and `--no-cache` correspond to `true` and `false` values, respectively; Flag is optional and defaults to `true`.
+<3> Flag `--verbose`/`-v` may be specified multiple times, each increasing the option's value; Flag is optional and defaults to `0`.
+<4> Argument `<path>` accepts multiple string values; Shell completion suggests file/directory paths as possible values; Argument is optional and defaults to an empty `Listing`.
+<5> Flag `--connection-timeout=<duration>` accepts a string matching Pkl's `Duration` syntax and converts it to a `Duration` value; The metavar displayed in the CLI help text is `"duration"`; Flag is optional.
+
+This command's generated CLI help looks like this:
+[source,terminaloutput]
+----
+$ pkl run my-command.pkl
+Usage: my-command.pkl [<options>] [<path>]... <command> [<args>]...
+
+Options:
+  --max-tries=<uint>    Maximum number of tries to attempt operation before
+                        giving up.
+  --cache / --no-cache  Whether to use cache data locally.
+  -v, --verbose         Log verbosity.
+  --connection-timeout=<duration>
+                        Duration after which operation will be timed out.
+  -h, --help            Show this message and exit
+
+Arguments:
+  <path>  File paths to operate on.
+
+Commands:
+  shell-completion  Generate a completion script for the given shell
+----
+
+=== Subcommands
+
+Commands may also have subcommands.
+Subcommands are also Pkl modules that extend `pkl:Command`.
+
+[source,pkl]
+.my-command.pkl
+----
+extends "pkl:Command"
+
+command {
+  subcommands {
+    import("my-subcommand.pkl")
+  }
+}
+
+// ...
+----
+
+[source,pkl]
+.my-subcommand.pkl
+----
+extends "pkl:Command"
+
+import "my-command.pkl"
+
+parent: `my-command`
+
+// ...
+----
+
+Like root commands, when a subcommand is executed, its `options` property is overridden with the actual parsed option values.
+Similarly, the `parent` property is set to the instantiated parent command module with _its_ `options`property set (and `parent`, if applicable).
+Overriding the type of the `parent` property is optional; it asserts that there is a parent command and the parent is a specific command, which can simplify code for complex CLIs.
+The `root` property may be overridden similarly.
+
+This subcommand can then be executed:
+
+[source,bash]
+----
+pkl run my-command.pkl <root command options> my-subcommand <subcommand options>
+----
+
+=== Dynamic Imports
+
+One of the key differentiators between regular Pkl evaluation and CLI commands is that commands offer a form of dynamic importing.
+Normal Pkl import statements (`import "<uri>"`) and expressions (`import("<uri>")`) only accept string literals, not arbitrary expressions.
+Command options may return link:https://pkl-lang.org/package-docs/pkl/current/Command/Import.html[`Import`] values from option `convert` and `transformAll` functions to trigger dynamic imports.
+
+One example of using dynamic imports is the pkl-swift code generator.
+This command must accept arbitrary `Module` values and analyze them generate Swift code.
+Here, link:https://pkl-lang.org/package-docs/pkl/current/Command/Argument.html#convert[`@Argument#convert`] is set to a function that directly converts the raw string value to a directive to import the module by URI:
+[source,pkl]
+----
+/// The Pkl modules to generate as Swift.
+@Argument {
+  convert = (it) -> new Import { uri = it }
+  completionCandidates = "paths"
+}
+pklInputModules: Listing<Module>?
+----
+
+=== Advanced Patterns
+
+These capabilities compose to enable a some patterns that may not be obvious but are extremely useful!
+
+==== Option reuse
+
+Many command line tools use a common set of options across several subcommands.
+Pkl's own CLI exhibits this pattern: many options are shared by `pkl eval`, `pkl test`, and other subcommands.
+
+There are two main approaches available for option reuse:
+
+* Parent commands contain shared options, subcommands access `parent.options`.
++
+[source,pkl]
+.my-command.pkl
+----
+extends "pkl:Command"
+
+command {
+  subcommands {
+    import("my-subcommand.pkl")
+  }
+}
+
+options: Options
+
+class Options {
+  @Flag
+  `parent-flag`: String
+}
+----
++
+[source,pkl]
+.my-subcommand.pkl
+----
+extends "pkl:Command"
+
+options: Options
+
+class Options {
+  @Flag
+  `subcommand-only-flag`: String
+}
+----
++
+On the command line, `--parent-flag` and its value must precede the subcommand name.
+
+* Options classes directly inherit from a shared base class.
++
+[source,pkl]
+.BaseOptions.pkl
+----
+open module BaseOptions
+import "pkl:Command"
+
+@Command.Flag
+`shared-flag`: String
+----
++
+[source,pkl]
+.my-subcommand.pkl
+----
+extends "pkl:Command"
+import "BaseOptions.pkl"
+
+options: Options
+
+class Options extends BaseOptions { // <1>
+  @Flag
+  `subcommand-only-flag`: String
+}
+----
++
+On the command line, `--shared-flag` and its value must follow the subcommand name.
+
+====  Import fallback to a well-known path
+
+In some cases, it may be desirable to pass a Pkl config file to a command.
+Often, command line tools will load such configurations from well known paths in the working directory or home directory.
+
+This example, also from pkl-swift, loads a link:https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-swift/pkl.swift/current/GeneratorSettings/index.html[`GeneratorSettings`] from the path specified.
+If no path is specified but a `generator-settings.pkl` exists in the working directory, that file will be loaded instead.
+
+[source,pkl]
+----
+/// The generator-settings.pkl file to use. (default: ./generator-settings.pkl if present)
+@Flag {
+  convert = (it) -> new Import { uri = it } // <1>
+  transformAll = (values) ->
+    values.firstOrNull // <2>
+      ?? if (read?("file://\(pwd)/generator-settings.pkl") != null) // <3>
+        new Import { uri = "./generator-settings.pkl" }
+      else
+        new GeneratorSettings {} // <4>
+  completionCandidates = "paths"
+}
+`generator-settings`: GeneratorSettings
+----
+<1> If a value is supplied, direct Pkl to import it.
+<2> If any value is supplied, use it, otherwise fall back to checking the working directory.
+<3> If the file exists in the working directory, import it. Note that the absolute `file:` URI is used here because `read` is relative to the enclosing module URI and this command is most frequently executed from inside the `pkl.swift` package.
+<4> Otherwise, fall back to an empty/default value.
+
+== Testing Commands
+
+Pkl commands are defined by writing regular modules, which means they can also be tested just like regular Pkl modules!
+Test code may import a command module and instantiate it, directly overriding `options` and/or `parent` as needed to mock out user input:
+
+[source,pkl]
+----
+amends "pkl:test"
+
+import "my-command.pkl"
+import "my-subcommand.pkl"
+
+examples {
+  ["Test my-command"] {
+    (`my-command`) {
+      options {
+        // Set my-command options here...
+      }
+    }.output.text
+  }
+  ["Test my-subcommand"] {
+    (my-subcommand) {
+      parent { // this amends `my-command`
+        options {
+          // Set my-command options here...
+        }
+      }
+      options {
+        // Set my-subcommand options here...
+      }
+    }.output.text
+  }
+}
+----

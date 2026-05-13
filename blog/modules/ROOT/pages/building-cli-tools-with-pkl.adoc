@@ -37,7 +37,7 @@ Running CLI tools built with Pkl is simple:
 
 [source,bash]
 ----
-pkl run <root command module URI> <command options>
+pkl run <module> [command options]
 ----
 
 Every command has automatically generated CLI help via the `--help`/`-h` flag.
@@ -49,7 +49,7 @@ Pkl commands distributed inside xref:main:language-reference:index.adoc#project-
 pkl run @<dependency alias>/<module> <command options>
 ----
 
-On *nix system, commands in local files may also use a https://en.wikipedia.org/wiki/Shebang_(Unix)[shebang] to allow direct script execution:
+On *nix systems, commands in local files may also use a https://en.wikipedia.org/wiki/Shebang_(Unix)[shebang] to allow direct script execution:
 
 [source,pkl]
 .my-command.pkl
@@ -60,10 +60,11 @@ On *nix system, commands in local files may also use a https://en.wikipedia.org/
 
 [source,bash]
 ----
+chmod +x my-command.pkl
 ./my-command.pkl
 ----
 
-In this execution mode, a `shell-completion` subcommand can be used to generate autocomplete scripts for the `bash`, `zsh`, and `fish` shells.
+In this execution mode, a `shell-completion` subcommand can be used to generate autocomplete scripts for the bash, zsh, and fish shells.
 
 == Building Commands
 
@@ -73,13 +74,13 @@ The module's `output` determines the command's behavior:
 * `output.bytes` (by default, derived from `output.text` or `output.value`) is produced to standard output.
 * `output.files` entries are written to the filesystem. Unlike `pkl eval`, file paths are relative to the working directory, not a specified output path.
 
-Command options, both named flags and positional arguments, are defined by the properties of the module's `options` property's class.
+Command options, both named flags and positional arguments, are defined by the declared class on the module's `options` property.
 Any class or module type may be used for `options`, so commands can easily share and inherit options.
 When a command is executed, its `options` property is overridden with the actual parsed option values.
 
 Each property of the command's options class (excluding `hidden` and `local` properties) becomes an option of the command.
-A property's name becomes its name on the command line, its doc comment becomes its CLI help text, and its type determines how the raw user-provided is parsed as a Pkl value.
-Properties with nullable types or default values are become optional.
+A property's name becomes its name on the command line, its doc comment becomes its CLI help text, and its type determines how the raw user-provided value is parsed as a Pkl value.
+Properties with nullable types or default values become optional.
 Option behavior is determined by annotating option properties with one of several annotations: `@Argument` for positional arguments, `@Flag` for named flags, `@BooleanFlag` for `--<name>`/`--no-<name>` pairs, and `@CountedFlag` counts how many times the flag as passed.
 
 For `@Argument` and `@Flag`, all of Pkl's primitive types (`String`, `Boolean`, and numerics) are all supported, plus more complex types like `Listing`/`List`, `Mapping`/`Map`, `Set`, `Pair`, and string literal unions.
@@ -117,7 +118,7 @@ class Options {
 <1> Flag `--max-tries=<uint>` (no annotation is equivalent to annotating with `@Flag`); `UInt` validates the input is an integer `>= 0`; Flag is required.
 <2> Flags `--cache` and `--no-cache` correspond to `true` and `false` values, respectively; Flag is optional and defaults to `true`.
 <3> Flag `--verbose`/`-v` may be specified multiple times, each increasing the option's value; Flag is optional and defaults to `0`.
-<4> Argument `<path>` accepts multiple string values; Shell completion suggests file/directory paths as possible values; Argument is optional and defaults to an empty `Listing`.
+<4> Argument `<path>` accepts multiple string values; shell completion suggests file/directory paths as possible values; Argument is optional and defaults to an empty `Listing`.
 <5> Flag `--connection-timeout=<duration>` accepts a string matching Pkl's `Duration` syntax and converts it to a `Duration` value; The metavar displayed in the CLI help text is `"duration"`; Flag is optional.
 
 This command's generated CLI help looks like this:
@@ -174,7 +175,7 @@ parent: `my-command`
 ----
 
 Like root commands, when a subcommand is executed, its `options` property is overridden with the actual parsed option values.
-Similarly, the `parent` property is set to the instantiated parent command module with _its_ `options`property set (and `parent`, if applicable).
+Similarly, the `parent` property is set to the instantiated parent command module with _its_ `options` property set (and `parent`, if applicable).
 Overriding the type of the `parent` property is optional; it asserts that there is a parent command and the parent is a specific command, which can simplify code for complex CLIs.
 The `root` property may be overridden similarly.
 
@@ -182,7 +183,7 @@ This subcommand can then be executed:
 
 [source,bash]
 ----
-pkl run my-command.pkl <root command options> my-subcommand <subcommand options>
+pkl run my-command.pkl [root command options] my-subcommand [subcommand options]
 ----
 
 === Dynamic Imports
@@ -192,8 +193,8 @@ Normal Pkl import statements (`import "<uri>"`) and expressions (`import("<uri>"
 Command options may return link:https://pkl-lang.org/package-docs/pkl/current/Command/Import.html[`Import`] values from option `convert` and `transformAll` functions to trigger dynamic imports.
 
 One example of using dynamic imports is the pkl-swift code generator.
-This command must accept arbitrary `Module` values and analyze them generate Swift code.
-Here, link:https://pkl-lang.org/package-docs/pkl/current/Command/Argument.html#convert[`@Argument#convert`] is set to a function that directly converts the raw string value to a directive to import the module by URI:
+This command must accept arbitrary `Module` values and analyze them to generate Swift code.
+Here, https://pkl-lang.org/package-docs/pkl/current/Command/Argument.html#convert[`Argument.convert`] is set to a function that directly converts the raw string value to a directive to import the module by URI:
 [source,pkl]
 ----
 /// The Pkl modules to generate as Swift.
@@ -206,7 +207,7 @@ pklInputModules: Listing<Module>?
 
 === Advanced Patterns
 
-These capabilities compose to enable a some patterns that may not be obvious but are extremely useful!
+These capabilities compose to enable some patterns that may not be obvious but are extremely useful!
 
 ==== Option reuse
 
@@ -328,7 +329,7 @@ examples {
     }.output.text
   }
   ["Test my-subcommand"] {
-    (my-subcommand) {
+    (`my-subcommand`) {
       parent { // this amends `my-command`
         options {
           // Set my-command options here...

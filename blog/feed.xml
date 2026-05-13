@@ -2,11 +2,455 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://pkl-lang.org/blog/index.html</id>
     <title>Pkl Blog</title>
-    <updated>2026-01-15T00:00:00.000Z</updated>
+    <updated>2026-05-13T00:00:00.000Z</updated>
     <generator>Pkl Blog</generator>
     <link rel="alternate" href="https://pkl-lang.org/blog/index.html"/>
     <subtitle>Blog site from the maintainers of the Pkl configuration language</subtitle>
     <icon>https://pkl-lang.org/_/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Building CLI Tools with Pkl]]></title>
+        <id>building-cli-tools-with-pkl</id>
+        <link href="https:/pkl-lang.org/blog/building-cli-tools-with-pkl.html"/>
+        <updated>2026-05-13T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/HT154">Jen Basch</a> on May 13th, 2026</p>
+</div>
+</div>
+<div class="paragraph">
+<p>Some Pkl use cases require evaluation to be parameterized by data supplied at runtime by a user, such as code generation or dataset analysis tools.
+<a href="../main/current/language-reference/index.html#resources" class="xref page">External property (<code>prop:</code>) resources</a> provide a mechanism for soliciting user input, but they&#8217;re limited and using them can be a clunky experience.
+Pkl 0.31 introduced the <a href="../main/current/pkl-cli/index.html#cli-tools" class="xref page"><code>pkl run</code> command</a> and <a href="https://pkl-lang.org/package-docs/pkl/current/Command/index.html"><code>pkl:Command</code> standard library module</a> to provide a framework for building CLI tools that look, feel, and work like good tools should: standard flag syntax, input validation, subcommands, generated help text, and shell completion.</p>
+</div>
+<div class="paragraph">
+<p>CLI tools written in Pkl provide the same basic I/O capabilities that normal Pkl evaluation does: writing to standard output and the filesystem and reading resources, including via <a href="../main/current/language-reference/index.html#external-readers" class="xref page">external readers</a>, but there are a couple key differences from regular evaluation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>File output is relative to the command&#8217;s working directory, not <code>--multiple-file-output-path</code>.</p>
+</li>
+<li>
+<p>Imports may be specified dynamically in terms of CLI options using <a href="https://pkl-lang.org/package-docs/pkl/current/Command/Import.html"><code>Command.Import</code></a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These capabilities have enabled rewriting the code generation tools for <a href="../swift/current/codegen.html" class="xref page">pkl-swift</a> and <a href="../go/current/codegen.html" class="xref page">pkl-go</a>.
+We now publish them purely as Pkl modules inside their respective packages instead of separately distributed binaries written in each target language that must function cooperatively with the Pkl portion of the code generator.
+This reduces the complexity of our code, our release processes, and adoption requirements for downstream users.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="running-commands"><a class="anchor" href="#running-commands"></a><a class="link" href="#running-commands">Running Commands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Running CLI tools built with Pkl is simple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl run &lt;module&gt; [command options]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every command has automatically generated CLI help via the <code>--help</code>/<code>-h</code> flag.</p>
+</div>
+<div class="paragraph">
+<p>Pkl commands distributed inside <a href="../main/current/language-reference/index.html#project-dependencies" class="xref page">dependencies of a Project</a> may also be executed directly using the dependency&#8217;s alias:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl run @&lt;dependency alias&gt;/&lt;module&gt; &lt;command options&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On *nix systems, commands in local files may also use a <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a> to allow direct script execution:</p>
+</div>
+<div class="listingblock">
+<div class="title">my-command.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl">#!/usr/bin/env -S pkl run
+<span class="hljs-comment">// ...</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">chmod +x my-command.pkl
+./my-command.pkl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this execution mode, a <code>shell-completion</code> subcommand can be used to generate autocomplete scripts for the bash, zsh, and fish shells.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="building-commands"><a class="anchor" href="#building-commands"></a><a class="link" href="#building-commands">Building Commands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Commands are defined declaratively by extending the <code>pkl:Command</code> module.
+The module&#8217;s <code>output</code> determines the command&#8217;s behavior:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>output.bytes</code> (by default, derived from <code>output.text</code> or <code>output.value</code>) is produced to standard output.</p>
+</li>
+<li>
+<p><code>output.files</code> entries are written to the filesystem. Unlike <code>pkl eval</code>, file paths are relative to the working directory, not a specified output path.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command options, both named flags and positional arguments, are defined by the declared class on the module&#8217;s <code>options</code> property.
+Any class or module type may be used for <code>options</code>, so commands can easily share and inherit options.
+When a command is executed, its <code>options</code> property is overridden with the actual parsed option values.</p>
+</div>
+<div class="paragraph">
+<p>Each property of the command&#8217;s options class (excluding <code>hidden</code> and <code>local</code> properties) becomes an option of the command.
+A property&#8217;s name becomes its name on the command line, its doc comment becomes its CLI help text, and its type determines how the raw user-provided value is parsed as a Pkl value.
+Properties with nullable types or default values become optional.
+Option behavior is determined by annotating option properties with one of several annotations: <code>@Argument</code> for positional arguments, <code>@Flag</code> for named flags, <code>@BooleanFlag</code> for <code>--&lt;name&gt;</code>/<code>--no-&lt;name&gt;</code> pairs, and <code>@CountedFlag</code> counts how many times the flag as passed.</p>
+</div>
+<div class="paragraph">
+<p>For <code>@Argument</code> and <code>@Flag</code>, all of Pkl&#8217;s primitive types (<code>String</code>, <code>Boolean</code>, and numerics) are all supported, plus more complex types like <code>Listing</code>/<code>List</code>, <code>Mapping</code>/<code>Map</code>, <code>Set</code>, <code>Pair</code>, and string literal unions.
+Arbitrary types may be also supported through further customization of the option&#8217;s behavior using the annotations' <code>convert</code> and <code>transformAll</code> properties.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example command that shows a variety of different options usage:</p>
+</div>
+<div class="listingblock">
+<div class="title">my-command.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">/// Maximum number of tries to attempt operation before giving up.</span>
+  <span class="hljs-property">`max-tries`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">UInt</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+  <span class="hljs-comment">/// Whether to use cache data locally.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">BooleanFlag</span>
+  <span class="hljs-property">cache</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+  <span class="hljs-comment">/// Log verbosity.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">CountedFlag</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">shortName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;v&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">verbose</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+  <span class="hljs-comment">/// File paths to operate on.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Argument</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">completionCandidates</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;paths&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">path</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+
+  <span class="hljs-comment">/// Duration after which operation will be timed out.</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">convert</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">module</span><span class="hljs-punctuation">.</span><span class="hljs-variable">convertDuration</span>; <span class="hljs-property">metavar</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;duration&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">`connection-timeout`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Duration</span><span class="hljs-operator">?</span> <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Flag <code>--max-tries=&lt;uint&gt;</code> (no annotation is equivalent to annotating with <code>@Flag</code>); <code>UInt</code> validates the input is an integer <code>&gt;= 0</code>; Flag is required.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Flags <code>--cache</code> and <code>--no-cache</code> correspond to <code>true</code> and <code>false</code> values, respectively; Flag is optional and defaults to <code>true</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Flag <code>--verbose</code>/<code>-v</code> may be specified multiple times, each increasing the option&#8217;s value; Flag is optional and defaults to <code>0</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Argument <code>&lt;path&gt;</code> accepts multiple string values; shell completion suggests file/directory paths as possible values; Argument is optional and defaults to an empty <code>Listing</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Flag <code>--connection-timeout=&lt;duration&gt;</code> accepts a string matching Pkl&#8217;s <code>Duration</code> syntax and converts it to a <code>Duration</code> value; The metavar displayed in the CLI help text is <code>"duration"</code>; Flag is optional.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This command&#8217;s generated CLI help looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-terminaloutput hljs" data-lang="terminaloutput">$ pkl run my-command.pkl
+Usage: my-command.pkl [&lt;options&gt;] [&lt;path&gt;]... &lt;command&gt; [&lt;args&gt;]...
+
+Options:
+  --max-tries=&lt;uint&gt;    Maximum number of tries to attempt operation before
+                        giving up.
+  --cache / --no-cache  Whether to use cache data locally.
+  -v, --verbose         Log verbosity.
+  --connection-timeout=&lt;duration&gt;
+                        Duration after which operation will be timed out.
+  -h, --help            Show this message and exit
+
+Arguments:
+  &lt;path&gt;  File paths to operate on.
+
+Commands:
+  shell-completion  Generate a completion script for the given shell</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subcommands"><a class="anchor" href="#subcommands"></a><a class="link" href="#subcommands">Subcommands</a></h3>
+<div class="paragraph">
+<p>Commands may also have subcommands.
+Subcommands are also Pkl modules that extend <code>pkl:Command</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">my-command.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">command</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">subcommands</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;my-subcommand.pkl&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">// ...</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">my-subcommand.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;my-command.pkl&quot;</span>
+
+<span class="hljs-property">parent</span><span class="hljs-punctuation">:</span> `my-command`
+
+<span class="hljs-comment">// ...</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Like root commands, when a subcommand is executed, its <code>options</code> property is overridden with the actual parsed option values.
+Similarly, the <code>parent</code> property is set to the instantiated parent command module with <em>its</em> <code>options</code> property set (and <code>parent</code>, if applicable).
+Overriding the type of the <code>parent</code> property is optional; it asserts that there is a parent command and the parent is a specific command, which can simplify code for complex CLIs.
+The <code>root</code> property may be overridden similarly.</p>
+</div>
+<div class="paragraph">
+<p>This subcommand can then be executed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pkl run my-command.pkl [root command options] my-subcommand [subcommand options]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dynamic-imports"><a class="anchor" href="#dynamic-imports"></a><a class="link" href="#dynamic-imports">Dynamic Imports</a></h3>
+<div class="paragraph">
+<p>One of the key differentiators between regular Pkl evaluation and CLI commands is that commands offer a form of dynamic importing.
+Normal Pkl import statements (<code>import "&lt;uri&gt;"</code>) and expressions (<code>import("&lt;uri&gt;")</code>) only accept string literals, not arbitrary expressions.
+Command options may return <a href="https://pkl-lang.org/package-docs/pkl/current/Command/Import.html"><code>Import</code></a> values from option <code>convert</code> and <code>transformAll</code> functions to trigger dynamic imports.</p>
+</div>
+<div class="paragraph">
+<p>One example of using dynamic imports is the pkl-swift code generator.
+This command must accept arbitrary <code>Module</code> values and analyze them to generate Swift code.
+Here, <a href="https://pkl-lang.org/package-docs/pkl/current/Command/Argument.html#convert"><code>Argument.convert</code></a> is set to a function that directly converts the raw string value to a directive to import the module by URI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The Pkl modules to generate as Swift.</span>
+<span class="hljs-operator">@</span><span class="hljs-title class_">Argument</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">convert</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Import</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> it <span class="hljs-punctuation">}</span>
+  <span class="hljs-property">completionCandidates</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;paths&quot;</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">pklInputModules</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Module</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="advanced-patterns"><a class="anchor" href="#advanced-patterns"></a><a class="link" href="#advanced-patterns">Advanced Patterns</a></h3>
+<div class="paragraph">
+<p>These capabilities compose to enable some patterns that may not be obvious but are extremely useful!</p>
+</div>
+<div class="sect3">
+<h4 id="option-reuse"><a class="anchor" href="#option-reuse"></a><a class="link" href="#option-reuse">Option reuse</a></h4>
+<div class="paragraph">
+<p>Many command line tools use a common set of options across several subcommands.
+Pkl&#8217;s own CLI exhibits this pattern: many options are shared by <code>pkl eval</code>, <code>pkl test</code>, and other subcommands.</p>
+</div>
+<div class="paragraph">
+<p>There are two main approaches available for option reuse:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Parent commands contain shared options, subcommands access <code>parent.options</code>.</p>
+<div class="listingblock">
+<div class="title">my-command.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">command</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">subcommands</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;my-subcommand.pkl&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span>
+  <span class="hljs-property">`parent-flag`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">my-subcommand.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span>
+  <span class="hljs-property">`subcommand-only-flag`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the command line, <code>--parent-flag</code> and its value must precede the subcommand name.</p>
+</div>
+</li>
+<li>
+<p>Options classes directly inherit from a shared base class.</p>
+<div class="listingblock">
+<div class="title">BaseOptions.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">module</span> <span class="hljs-title class_">BaseOptions</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+
+<span class="hljs-operator">@</span><span class="hljs-title class_">Command</span><span class="hljs-punctuation">.</span><span class="hljs-title class_">Flag</span>
+<span class="hljs-property">`shared-flag`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">my-subcommand.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;pkl:Command&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;BaseOptions.pkl&quot;</span>
+
+<span class="hljs-property">options</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Options</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Options</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseOptions</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span>
+  <span class="hljs-property">`subcommand-only-flag`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the command line, <code>--shared-flag</code> and its value must follow the subcommand name.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="import-fallback-to-a-well-known-path"><a class="anchor" href="#import-fallback-to-a-well-known-path"></a><a class="link" href="#import-fallback-to-a-well-known-path">Import fallback to a well-known path</a></h4>
+<div class="paragraph">
+<p>In some cases, it may be desirable to pass a Pkl config file to a command.
+Often, command line tools will load such configurations from well known paths in the working directory or home directory.</p>
+</div>
+<div class="paragraph">
+<p>This example, also from pkl-swift, loads a <a href="https://pkl-lang.org/package-docs/pkg.pkl-lang.org/pkl-swift/pkl.swift/current/GeneratorSettings/index.html"><code>GeneratorSettings</code></a> from the path specified.
+If no path is specified but a <code>generator-settings.pkl</code> exists in the working directory, that file will be loaded instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-comment">/// The generator-settings.pkl file to use. (default: ./generator-settings.pkl if present)</span>
+<span class="hljs-operator">@</span><span class="hljs-title class_">Flag</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">convert</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Import</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> it <span class="hljs-punctuation">}</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">transformAll</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">values</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span>
+    values<span class="hljs-punctuation">.</span><span class="hljs-variable">firstOrNull</span> <i class="conum" data-value="2"></i><b>(2)</b>
+      <span class="hljs-operator">??</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">read?</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;file://<span class="hljs-subst"><span class="hljs-char escape_">\(</span>pwd<span class="hljs-char escape_">)</span></span>/generator-settings.pkl&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">!=</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Import</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;./generator-settings.pkl&quot;</span> <span class="hljs-punctuation">}</span>
+      <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">GeneratorSettings</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="hljs-property">completionCandidates</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;paths&quot;</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-property">`generator-settings`</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">GeneratorSettings</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>If a value is supplied, direct Pkl to import it.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>If any value is supplied, use it, otherwise fall back to checking the working directory.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>If the file exists in the working directory, import it. Note that the absolute <code>file:</code> URI is used here because <code>read</code> is relative to the enclosing module URI and this command is most frequently executed from inside the <code>pkl.swift</code> package.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Otherwise, fall back to an empty/default value.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing-commands"><a class="anchor" href="#testing-commands"></a><a class="link" href="#testing-commands">Testing Commands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl commands are defined by writing regular modules, which means they can also be tested just like regular Pkl modules!
+Test code may import a command module and instantiate it, directly overriding <code>options</code> and/or <code>parent</code> as needed to mock out user input:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:test&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;my-command.pkl&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;my-subcommand.pkl&quot;</span>
+
+<span class="hljs-property">examples</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;Test my-command&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span>`my-command`<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">options</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Set my-command options here...</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span>
+  <span class="hljs-punctuation">}</span>
+  [<span class="hljs-string">&quot;Test my-subcommand&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-punctuation">(</span>`my-subcommand`<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">parent</span> <span class="hljs-punctuation">{</span> <span class="hljs-comment">// this amends `my-command`</span>
+        <span class="hljs-property">options</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-comment">// Set my-command options here...</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+      <span class="hljs-property">options</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Set my-subcommand options here...</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-variable">output</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Jen Basch</name>
+            <uri>https://github.com/HT154</uri>
+        </author>
+        <published>2026-05-13T00:00:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Class-as-a-Function Pattern]]></title>
         <id>class-as-a-function</id>

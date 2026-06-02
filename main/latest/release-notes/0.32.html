@@ -565,14 +565,41 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <div class="paragraph">
 <p>Ready when you need them.</p>
 </div>
-<details>
-<summary class="title">XXX</summary>
-<div class="content">
+<div class="sect2">
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library Changes</a></h3>
+<div class="sect3">
+<h4 id="pklevaluatorsettings"><a class="anchor" href="#pklevaluatorsettings"></a><a class="link" href="#pklevaluatorsettings"><code>pkl:EvaluatorSettings</code></a></h4>
 <div class="paragraph">
-<p>XXX</p>
+<p><strong>Additions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New method: <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/EvaluatorSettings#resolve()"><code>EvaluatorSettings.resolve()</code></a></p>
+</li>
+<li>
+<p>New method: <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/EvaluatorSettings#resolveForOs()"><code>EvaluatorSettings.resolveForOs()</code></a></p>
+</li>
+<li>
+<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/EvaluatorSettings/ExternalReader#workingDir"><code>EvaluatorSettings#ExternalReader.workingDir</code></a></p>
+</li>
+</ul>
 </div>
 </div>
-</details>
+<div class="sect3">
+<h4 id="pklproject"><a class="anchor" href="#pklproject"></a><a class="link" href="#pklproject"><code>pkl:Project</code></a></h4>
+<div class="paragraph">
+<p><strong>Additions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/Project#resolvedEvaluatorSettings"><code>Project.resolvedEvaluatorSettings</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -582,7 +609,12 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <p>Things to watch out for when upgrading.</p>
 </div>
 <div class="sect2">
-<h3 id="removed-java-apis"><a class="anchor" href="#removed-java-apis"></a><a class="link" href="#removed-java-apis">Removed Java APIs</a></h3>
+<h3 id="java-api-changes"><a class="anchor" href="#java-api-changes"></a><a class="link" href="#java-api-changes">Java API changes</a></h3>
+<div class="paragraph">
+<p>Changes have been made to the Java API.</p>
+</div>
+<div class="sect3">
+<h4 id="removals-and-deprecations"><a class="anchor" href="#removals-and-deprecations"></a><a class="link" href="#removals-and-deprecations">Removals and deprecations</a></h4>
 <div class="paragraph">
 <p>The following APIs have been removed without replacement.</p>
 </div>
@@ -603,14 +635,48 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 </li>
 </ul>
 </div>
-<details>
-<summary class="title">XXX</summary>
-<div class="content">
+</div>
+<div class="sect3">
+<h4 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.pkl.core.evaluatorSettings.PklEvaluatorSettings.parse</code> no longer accepts a <code>pathNormalizer</code> argument.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loading-rule-changes-in-pklevaluatorsettings"><a class="anchor" href="#loading-rule-changes-in-pklevaluatorsettings"></a><a class="link" href="#loading-rule-changes-in-pklevaluatorsettings">Loading rule changes in <code>pkl:EvaluatorSettings</code></a></h3>
 <div class="paragraph">
-<p>XXX</p>
+<p>Breaking changes have been made to how evaluator settings are loaded (<a href="https://github.com/apple/pkl/pull/1394">#1394</a>).</p>
+</div>
+<div class="sect3">
+<h4 id="loading-rule-changes-for-the-external-reader-executable"><a class="anchor" href="#loading-rule-changes-for-the-external-reader-executable"></a><a class="link" href="#loading-rule-changes-for-the-external-reader-executable">Loading rule changes for the external reader executable</a></h4>
+<div class="paragraph">
+<p>The following changes have been made for the <code>executable</code> property in an external reader:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the executable does not contain a slash (<code>/</code> on POSIX, <code>\</code> on Windows) character, it is always resolved against the <code>PATH</code> environment variable.</p>
+</li>
+<li>
+<p>If it does contain a slash, it is resolved relative to the enclosing PklProject directory, instead of the current working directory.</p>
+</li>
+</ul>
 </div>
 </div>
-</details>
+</div>
+<div class="sect2">
+<h3 id="changes-to-external-module-reader-and-external-resource-reader-cli-flags"><a class="anchor" href="#changes-to-external-module-reader-and-external-resource-reader-cli-flags"></a><a class="link" href="#changes-to-external-module-reader-and-external-resource-reader-cli-flags">Changes to <code>--external-module-reader</code> and <code>--external-resource-reader</code> CLI flags</a></h3>
+<div class="paragraph">
+<p>The <code>--external-module-reader</code> and <code>--external-resource-reader</code> CLI flags will <em>replace</em> any external readers otherwise configured within a PklProject, instead of add to it (<a href="https://github.com/apple/pkl/pull/1394">#1394</a>).</p>
+</div>
+<div class="paragraph">
+<p>This makes this behavior consistent with how other settings work.</p>
+</div>
 </div>
 </div>
 </div>

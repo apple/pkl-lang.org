@@ -196,7 +196,7 @@ Integrity is verified by checksum (see <<package-integrity>>).
 In addition to these, Pkl can understand other schemes by:
 
 * *Custom readers* - a custom reader tells Pkl what its scheme is, and how it performs I/O. The custom reader can either be implemented directly in the host runtime, or as an external reader.
-* (Java only) *Generic URL* - Java users can read generic URLs that Java's `java.net.URL` API understands.
+* (JVM only) *Generic URL* - When Pkl is run within in the JVM, it can read generic URLs that Java's `java.net.URL` API understands.
 
 ==== File system reads
 
@@ -325,6 +325,13 @@ A crafted Pkl program exploits a memory-safety bug or other vulnerability in the
 
 *Attacker:* Remote Attacker; Malicious Module Author +
 *Violates:* _Pkl cannot execute arbitrary system commands or load native code_
+
+==== Resource Exhaustion
+
+A crafted Pkl program exhausts CPU and/or memory resources on the host machine.
+
+*Attacker:* Malicious Module Author +
+*Violates:* _Sandboxing flags allows un-trusted Pkl code to be executed safely_
 
 === Package Resolution
 

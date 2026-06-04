@@ -1,5 +1,7 @@
 = Threat Model
 
+Last edited: {docdate}
+
 This document describes the threat model for the Pkl project.
 It is intended to help security researchers and reporters understand what we consider to be within scope and assess whether a potential vulnerability is relevant to Pkl's security goals.
 For information on how to report a vulnerability, see xref:security.adoc[].
@@ -212,17 +214,24 @@ Outside the language runtime, our tooling also writes files to the file system.
 
 For example, the CLI writes to the file system based on the command and flags set, as documented by https://pkl-lang.org/main/current/pkl-cli/index.html#usage.
 
-==== External Readers
+==== Custom Readers
 
-The Evaluator Client may register _external readers_ that handle custom URI schemes not natively supported by the runtime or overload built-in URI schemes.
-The runtime communicates with external readers via a message-passing protocol over stdio.
-External readers are trusted by the runtime — a malicious or compromised external reader can run arbitrary code within its own process.
+The Evaluator Client may register custom readers that handle custom URI schemes not natively supported by the runtime or overload built-in URI schemes.
+
+A custom reader can either be:
+
+* A direct API call from Pkl to the host language, when Pkl is embedded.
+* An _external reader_, an external process that is spawned.
+
+A compromised custom reader can run malicious code within the permissions of the OS process.
 
 [[package-integrity]]
 ==== Package Integrity
 
-When importing a package, the runtime verifies the package's contents against a SHA-256 checksum declared in the project's dependency list (`PklProject.deps.json`).
+When downloading a package, the runtime verifies the package's contents against a SHA-256 checksum declared in the project's dependency list (`PklProject.deps.json`).
 This verification is independent of which server served the package, providing integrity guarantees even if the package server is compromised or the connection is intercepted.
+
+NOTE: The runtime does not verify the checksum of packages inside the cache dir; this type of attack is <<operating-system-and-hardware,out of scope>>.
 
 One exception to this is in the case of direct package imports that lack a sha256 checksum segment.
 
@@ -324,7 +333,7 @@ A crafted Pkl program exploits a memory-safety bug or other vulnerability in the
 A malicious or compromised Package Server serves a modified version of a Pkl package.
 If the import URI does not include a SHA-256 checksum segment, the runtime performs no integrity verification and Pkl code within the tampered package is evaluated.
 
-NOTE: Package imports that include a checksum in the URI are verified against the declared hash.
+Package imports that include a checksum in the URI are verified against the declared hash.
 Direct imports without a checksum (e.g., `package://example.com/pkg@1.0.0#/mod.pkl`) are not verified.
 
 *Attacker:* Network Attacker +
@@ -350,13 +359,9 @@ Users whose package imports do not include checksums would fetch and execute mal
 
 === IDE Tooling
 
-==== Malicious PklProject Evaluation
+==== Arbitrary code execution
 
-The language server evaluates `PklProject` files to understand project configuration.
-A malicious `PklProject` — for example, in a third-party repository cloned to a developer's machine — could contain crafted expressions that read sensitive files or make network requests within the IDE's permitted scope.
-
-NOTE: This requires the user to have trusted the workspace.
-The language server does not evaluate `PklProject` files in untrusted workspaces.
+A crafted Pkl program exploits a memory-safety bug or other vulnerability to execute arbitrary code within the IDE's process.
 
 *Attacker:* Malicious Module Author +
 *Violates:* _Pkl cannot perform I/O outside what is explicitly allowed_
@@ -374,6 +379,7 @@ Pkl runs on top of GraalVM, the JVM, the Go runtime, or the Swift runtime depend
 +
 Any vulnerabilities in these runtimes must be fixed by their respective owners.
 
+[[operating-system-and-hardware]]
 Operating system and hardware::
 Attacks that require local access to the machine running Pkl, OS kernel vulnerabilities, or hardware-level attacks.
 

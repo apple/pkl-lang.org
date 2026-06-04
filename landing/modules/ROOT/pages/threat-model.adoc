@@ -273,7 +273,6 @@ Publishing happens using GitHub Actions.
 * Pkl code cannot modify or exceed the permissions established by the Evaluator Client.
 * Pkl cannot execute arbitrary system commands or load native code.
 * Pkl will run to completion, or time out.
-  - Note: Pkl currently does not have sandboxing controls for memory or CPU.
 * The CLI only writes to filesystem locations as documented for each command.
 * Published artifacts are authentic.
 * Imported package dependencies are authentic.
@@ -330,8 +329,17 @@ A crafted Pkl program exploits a memory-safety bug or other vulnerability in the
 
 A crafted Pkl program exhausts CPU and/or memory resources on the host machine.
 
+NOTE: Pkl currently does not have sandbox flags that limit CPU/memory usage. Users that wish to guard against resource exhaustion attacks must rely on external means, e.g. running within a hypervisor.
+
 *Attacker:* Malicious Module Author +
 *Violates:* _Sandboxing flags allows un-trusted Pkl code to be executed safely_
+
+==== Cache poisoning
+
+A bug in the runtime causes valid cached packages to be overwritten with malicious content.
+
+*Attacker:* Malicious Module Author +
+*Violates:* _Imported package dependencies are authentic_
 
 === Package Resolution
 

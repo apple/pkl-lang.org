@@ -28,7 +28,7 @@ The tooling includes:
 * Libraries written in Pkl, like pkl-pantry and pkl-k8s.
 * Libraries that extend Pkl's I/O capabilities, in pkl-readers.
 
-The tools and languages are available open-source repositories on GitHub.
+The tools and languages are available as open-source repositories on GitHub.
 The list grows over time, and is available here: https://github.com/apple/pkl#pkl-github-repositories[].
 
 In addition to our open-source repositories, we also maintain:
@@ -82,7 +82,7 @@ Root directory:: A filesystem boundary configured via `--root-dir` that restrict
 
 == System Description
 
-The Pkl system composes of the following:
+The Pkl system is composed of the following:
 
 === Components
 
@@ -92,7 +92,7 @@ Evaluator Client:: Configures evaluator settings and invokes the runtime. Either
 
 Pkl Libraries:: Libraries written in Pkl, executed within the language runtime. They inherit the I/O permissions of the enclosing evaluation.
 
-IDE Tooling:: Plugins and tooling that runs within the context of a user's source code editor. Operates with the user's full filesystem access and may invoke the Language Runtime.
+IDE Tooling:: Plugins and tooling that run within the context of a user's source code editor. Operates with the user's full filesystem access and may invoke the Language Runtime.
 
 === External Actors
 
@@ -141,7 +141,7 @@ Compromise of the pipeline or its credentials could result in malicious artifact
 
 ==== IDE tooling
 
-* *IDE Tooling → Language Runtime*: The IntelliJ plugin and pkl-lsp invokes the Language Runtime to evaluate Pkl files open in the editor.
+* *IDE Tooling → Language Runtime*: The IntelliJ plugin and pkl-lsp invoke the Language Runtime to evaluate Pkl files open in the editor.
 This runs with the user's full filesystem access and operates on potentially untrusted files (e.g., from third-party repositories).
 
 === Pkl's I/O Permission Model
@@ -196,7 +196,7 @@ Integrity is verified by checksum (see <<package-integrity>>).
 In addition to these, Pkl can understand other schemes by:
 
 * *Custom readers* - a custom reader tells Pkl what its scheme is, and how it performs I/O. The custom reader can either be implemented directly in the host runtime, or as an external reader.
-* (JVM only) *Generic URL* - When Pkl is run within in the JVM, it can read generic URLs that Java's `java.net.URL` API understands.
+* (JVM only) *Generic URL* - When Pkl is run in the JVM, it can read generic URLs that Java's `java.net.URL` API understands.
 
 ==== File system reads
 
@@ -276,7 +276,7 @@ Publishing happens using GitHub Actions.
 * The CLI only writes to filesystem locations as documented for each command.
 * Published artifacts are authentic.
 * Imported package dependencies are authentic.
-* Sandboxing flags allows un-trusted Pkl code to be executed safely.
+* Sandboxing flags allow un-trusted Pkl code to be executed safely.
 
 == Attacker Profiles
 
@@ -334,7 +334,7 @@ NOTE: Pkl currently does not have sandbox flags that limit CPU/memory usage. Use
 *Attacker:* Malicious Module Author +
 *Violates:* _Sandboxing flags allows un-trusted Pkl code to be executed safely_
 
-==== Cache poisoning
+==== Cache Poisoning
 
 A bug in the runtime causes valid cached packages to be overwritten with malicious content.
 
@@ -374,12 +374,12 @@ Users whose package imports do not include checksums would fetch and execute mal
 
 === IDE Tooling
 
-==== Arbitrary code execution
+==== Arbitrary Code Execution
 
 A crafted Pkl program exploits a memory-safety bug or other vulnerability to execute arbitrary code within the IDE's process.
 
 *Attacker:* Malicious Module Author +
-*Violates:* _Pkl cannot perform I/O outside what is explicitly allowed_
+*Violates:* _Pkl cannot execute arbitrary system commands or load native code_
 
 == Out of Scope
 

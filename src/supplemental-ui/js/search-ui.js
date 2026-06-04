@@ -37,7 +37,7 @@
     var text = doc.text
     var highlightSpan = document.createElement('span')
     highlightSpan.classList.add('search-result-highlight')
-    highlightSpan.innerText = text.substr(start, length)
+    highlightSpan.innerText = text.substring(start, length)
 
     var end = start + length
     var textEnd = text.length - 1
@@ -47,14 +47,14 @@
       hits.push(highlightSpan)
     } else if (start === 0) {
       hits.push(highlightSpan)
-      hits.push(document.createTextNode(text.substr(end, contextAfter)))
+      hits.push(document.createTextNode(text.substring(end, contextAfter)))
     } else if (end === textEnd) {
-      hits.push(document.createTextNode(text.substr(0, start)))
+      hits.push(document.createTextNode(text.substring(0, start)))
       hits.push(highlightSpan)
     } else {
-      hits.push(document.createTextNode('...' + text.substr(contextBefore, start - contextBefore)))
+      hits.push(document.createTextNode('...' + text.substring(contextBefore, start - contextBefore)))
       hits.push(highlightSpan)
-      hits.push(document.createTextNode(text.substr(end, contextAfter - end) + '...'))
+      hits.push(document.createTextNode(text.substring(end, contextAfter - end) + '...'))
     }
     return hits
   }
@@ -74,7 +74,7 @@
     } else {
       title = doc.title
     }
-    highlightSpan.innerText = title.substr(start, length)
+    highlightSpan.innerText = title.substring(start, length)
 
     var end = start + length
     var titleEnd = title.length - 1
@@ -82,14 +82,14 @@
       hits.push(highlightSpan)
     } else if (start === 0) {
       hits.push(highlightSpan)
-      hits.push(document.createTextNode(title.substr(length, titleEnd)))
+      hits.push(document.createTextNode(title.substring(length, titleEnd)))
     } else if (end === titleEnd) {
-      hits.push(document.createTextNode(title.substr(0, start)))
+      hits.push(document.createTextNode(title.substring(0, start)))
       hits.push(highlightSpan)
     } else {
-      hits.push(document.createTextNode(title.substr(0, start)))
+      hits.push(document.createTextNode(title.substring(0, start)))
       hits.push(highlightSpan)
-      hits.push(document.createTextNode(title.substr(end, titleEnd)))
+      hits.push(document.createTextNode(title.substring(end, titleEnd)))
     }
     return hits
   }

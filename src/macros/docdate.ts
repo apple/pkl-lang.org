@@ -14,21 +14,28 @@
 // limitations under the License.
 // ===----------------------------------------------------------------------===//
 import {Asciidoctor} from "asciidoctor";
-import Registry = Asciidoctor.Extensions.Registry;
-import docdate from "./docdate";
-import pkldoc from "./pkldoc";
-import pr from "./pr";
+import InlineMacroProcessor = Asciidoctor.Extensions.InlineMacroProcessor;
+import {execSync} from "child_process";
 
-// noinspection JSUnusedGlobalSymbols
-export function register(registry: Registry) {
-  registry.inlineMacro("docdate", function () {
-    this.process(docdate);
-  });
-  registry.inlineMacro("pkldoc", function () {
-    this.process(pkldoc);
-  });
-  registry.inlineMacro("pr", function () {
-    this.process(pr);
-  });
-  return registry;
-}
+export default function docdate(
+  this: InlineMacroProcessor,
+  parent: Asciidoctor.Document,
+  _target: string,
+  _attributes: any
+) {
+  const startPath = parent.getDocument().getAttribute("page-origin-start-path");
+  const relativePath = parent.getDocument().getAttribute("docfile");
+  const docfile = `${startPath}/${relativePath}`;
+  let output;
+  try {
+    output = execSync(`git log -1 --format=%ci -- ${JSON.stringify(docfile)}`, {encoding: 'utf8'}).trim();
+  } catch (e) {
+    console.error('git-modified-date macro error:', e)
+    throw e;
+  }
+  if (output == "") {
+    throw new Error("Unexpected empty output");
+  }
+  // git log --format=%ci output: YYYY-MM-DD HH:MM:SS +ZZZZ
+  return output.substring(0, 10)
+};

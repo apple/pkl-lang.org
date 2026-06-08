@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Threat Model :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/threat-model.html">
+    <link rel="prev" href="security.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="./_/css/site.css">
+<link rel="stylesheet" href="./_/css/theme-vars.css">
+<link rel="stylesheet" href="./_/css/theme-switch.css">
+<link rel="stylesheet" href="./_/css/site-extra.css">
+<link rel="stylesheet" href="./_/css/search.css">
+<link rel="stylesheet" href="./_/css/syntax-highlights.css">
+<link rel="stylesheet" href="./_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="./_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="./_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./_/img/favicon-16x16.png">
+<script src="./_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="./index.html"><img src="./_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="./index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="./main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="./main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="./main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="./swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="./go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="./neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="./vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="./lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="./main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="./security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="./main/current/community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="./blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ROOT" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">ROOT</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="security.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="threat-model.html">Threat Model</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">ROOT</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="intellij/current/index.html">0.36.1</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.35.1/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="main/current/index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="main/latest/index.html">0.32.0-dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="main/current/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="main/0.30.2/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="main/0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="main/0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="main/0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="main/0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="main/0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="go/current/index.html">0.13.2</a>
+        </li>
+        <li class="version">
+          <a href="go/0.12.1/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="lsp/current/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.5.1/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="swift/current/index.html">0.8.2</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.7.2/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="spring/current/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="spring/0.17.1/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="vscode/current/index.html">0.22.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.21.0/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">ROOT</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="threat-model.html">Threat Model</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lang.org/edit/main/landing/modules/ROOT/pages/threat-model.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Threat Model</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Last edited: 2026-06-08</p>
+</div>
+<div class="paragraph">
+<p>This document describes the threat model for the Pkl project.
+It is intended to help security researchers and reporters understand what we consider to be within scope and assess whether a potential vulnerability is relevant to Pkl&#8217;s security goals.
+For information on how to report a vulnerability, see <a href="security.html" class="xref page">Security</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-we-are-working-on"><a class="anchor" href="#what-we-are-working-on"></a><a class="link" href="#what-we-are-working-on">What we are working on</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl is a programming language meant for generating configuration data.
+It is either a binary executable that runs on a machine, or a library that gets embedded into another runtime.</p>
+</div>
+<div class="paragraph">
+<p>The Pkl language is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Idempotent (the same input always produces the same output)</p>
+</li>
+<li>
+<p>Declarative</p>
+</li>
+<li>
+<p>Short-lived (a program is designed to run to completion)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Note: the language is turing complete. We address the halting problem via timeouts.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Lazy (only expressions in the critical path of the program&#8217;s output are evaluated)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alongside the main runtime, we also work on the suite of tooling that supports the language.
+The tooling includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Evaluator clients and bindings, like pkl-swift and pkl-go, rules_pkl, and pkl-spring.</p>
+</li>
+<li>
+<p>IDE tooling and libraries, like pkl-intellij, pkl-vscode, and pkl-lsp.</p>
+</li>
+<li>
+<p>Meta tooling for Pkl, like pkl-parser, tree-sitter-pkl, pkl-doc, and pkl-textmate.</p>
+</li>
+<li>
+<p>Libraries written in Pkl, like pkl-pantry and pkl-k8s.</p>
+</li>
+<li>
+<p>Libraries that extend Pkl&#8217;s I/O capabilities, in pkl-readers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The tools and languages are available as open-source repositories on GitHub.
+The list grows over time, and is available here: <a href="https://github.com/apple/pkl#pkl-github-repositories" class="bare">https://github.com/apple/pkl#pkl-github-repositories</a>.</p>
+</div>
+<div class="paragraph">
+<p>In addition to our open-source repositories, we also maintain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>https://pkl-lang.org - This website.</p>
+</li>
+<li>
+<p>https://pkg.pkl-lang.org - A redirect server used for Pkl packages.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="anchor" href="#glossary"></a><a class="link" href="#glossary">Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Allowlist</dt>
+<dd>
+<p>A list of regular expression patterns configured by the Evaluator Client that controls which URIs the Language Runtime may access.
+Separate allowlists exist for modules (<code>import</code>) and resources (<code>read</code>).</p>
+</dd>
+<dt class="hdlist1">Cache directory</dt>
+<dd>
+<p>A local directory (default: <code>~/.pkl/cache</code>) where the runtime stores downloaded package contents.
+Configurable via <code>--cache-dir</code>.</p>
+</dd>
+<dt class="hdlist1">CLI</dt>
+<dd>
+<p>The <code>pkl</code> command-line executable.
+A standalone binary that acts as an Evaluator Client.</p>
+</dd>
+<dt class="hdlist1">Evaluator Client</dt>
+<dd>
+<p>Software that configures evaluator settings and invokes the Language Runtime.
+Either the <code>pkl</code> CLI or a language binding library (Java, Go, Swift, Kotlin, etc.).</p>
+</dd>
+<dt class="hdlist1">External Reader</dt>
+<dd>
+<p>A process that handles a custom URI scheme on behalf of the Language Runtime.
+Registered by the Evaluator Client; communicates with the runtime via a message-passing protocol over stdio.</p>
+</dd>
+<dt class="hdlist1">I/O</dt>
+<dd>
+<p>Input/Output — any operation that reads from or writes to an external resource (filesystem, network, environment variables, etc.).</p>
+</dd>
+<dt class="hdlist1">Language Runtime</dt>
+<dd>
+<p>The Pkl evaluator.
+Receives an entrypoint module and evaluator settings, evaluates the module, and returns output.</p>
+</dd>
+<dt class="hdlist1">Module</dt>
+<dd>
+<p>A single Pkl source file (<code>.pkl</code>).
+The basic unit of Pkl code.</p>
+</dd>
+<dt class="hdlist1">Package</dt>
+<dd>
+<p>A versioned, addressable collection of Pkl modules, identified by a URI (e.g., <code>package://pkg.pkl-lang.org/pkl/pkl-config@1.0.0</code>).
+Package contents are integrity-verified by SHA-256 checksum (see <a href="#package-integrity">Package Integrity</a>).</p>
+</dd>
+<dt class="hdlist1">pkg.pkl-lang.org</dt>
+<dd>
+<p>A redirect server operated by the Pkl team that resolves <code>package:</code> URIs to their canonical hosting location (e.g., GitHub Releases).</p>
+</dd>
+<dt class="hdlist1">pkl-lsp</dt>
+<dd>
+<p>The Pkl Language Server, implementing the Language Server Protocol.
+Used by IDE plugins to provide editor features such as completions and diagnostics.</p>
+</dd>
+<dt class="hdlist1">pkl-pantry</dt>
+<dd>
+<p>A collection of first-party Pkl packages maintained by the Pkl team.</p>
+</dd>
+<dt class="hdlist1">pkl-readers</dt>
+<dd>
+<p>A library of first-party external reader implementations that extend Pkl&#8217;s built-in I/O with custom URI schemes.</p>
+</dd>
+<dt class="hdlist1">PklProject</dt>
+<dd>
+<p>A file that defines project-level configuration for a Pkl codebase, including package metadata, package dependencies, and evaluator settings.</p>
+</dd>
+<dt class="hdlist1">PklProject.deps.json</dt>
+<dd>
+<p>The dependency list, generated by <code>pkl project resolve</code>.
+Contains resolved versions and SHA-256 checksums for all declared package dependencies.</p>
+</dd>
+<dt class="hdlist1">Root directory</dt>
+<dd>
+<p>A filesystem boundary configured via <code>--root-dir</code> that restricts <code>file:</code> reads to files within that path.</p>
+<div class="paragraph">
+<p>It does not affect package caching, external readers, or CLI behaviors such as loading of settings.pkl, PklProject/PklProject.deps.json, and multiple file output.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system-description"><a class="anchor" href="#system-description"></a><a class="link" href="#system-description">System Description</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Pkl system is composed of the following:</p>
+</div>
+<div class="sect2">
+<h3 id="components"><a class="anchor" href="#components"></a><a class="link" href="#components">Components</a></h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Language Runtime</dt>
+<dd>
+<p>The Pkl language runtime itself. Inert until invoked; only evaluates the entrypoint and its transitive dependencies.</p>
+</dd>
+<dt class="hdlist1">Evaluator Client</dt>
+<dd>
+<p>Configures evaluator settings and invokes the runtime. Either a standalone CLI (<code>pkl</code>) or as a library (Java, Go, Swift, Kotlin, Gradle, Bazel).</p>
+</dd>
+<dt class="hdlist1">Pkl Libraries</dt>
+<dd>
+<p>Libraries written in Pkl, executed within the language runtime. They inherit the I/O permissions of the enclosing evaluation.</p>
+</dd>
+<dt class="hdlist1">IDE Tooling</dt>
+<dd>
+<p>Plugins and tooling that run within the context of a user&#8217;s source code editor. Operates with the user&#8217;s full filesystem access and may invoke the Language Runtime.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="external-actors"><a class="anchor" href="#external-actors"></a><a class="link" href="#external-actors">External Actors</a></h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">User</dt>
+<dd>
+<p>A person or system that invokes the Evaluator Client.
+Includes developers running the CLI directly, CI/CD pipelines, and applications embedding a Pkl library.</p>
+</dd>
+<dt class="hdlist1">Package Author</dt>
+<dd>
+<p>An entity that publishes a Pkl package to a registry. Distinct from a User because they supply modules that other evaluations may transitively import.</p>
+</dd>
+<dt class="hdlist1">Package Server</dt>
+<dd>
+<p>An external system that hosts and serves packages consumed by Pkl (e.g., pkg.pkl-lang.org, or an arbitrary HTTPS endpoint).</p>
+</dd>
+<dt class="hdlist1">External Resource</dt>
+<dd>
+<p>Any external data source read by Pkl via <code>read</code> or <code>import</code> (e.g., HTTPS endpoints, local filesystem, environment variables).
+Not a human actor, but a source of untrusted input.</p>
+</dd>
+<dt class="hdlist1">Publish Pipelines</dt>
+<dd>
+<p>The GitHub Actions pipelines that publish artifacts.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The following diagram demonstrates the flow of a common use-case, where the CLI is used to produce configuration output.
+This demonstrates two commands executed by the User, producing different results.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/pkl-cli-sequence-diagram.png" alt="pkl cli sequence diagram"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="boundaries"><a class="anchor" href="#boundaries"></a><a class="link" href="#boundaries">Boundaries</a></h3>
+<div class="sect3">
+<h4 id="execution-time"><a class="anchor" href="#execution-time"></a><a class="link" href="#execution-time">Execution-time</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>User → Evaluator Client</strong>: The User configures what the runtime is permitted to do — allowed modules, readers, and external resources.
+All runtime I/O permissions are established here; Pkl code cannot exceed them.</p>
+</li>
+<li>
+<p><strong>Evaluator Client → Language Runtime</strong>: The client invokes the runtime with a fixed set of evaluator settings.
+The runtime must enforce those settings; Pkl code must not be able to override or escape them.</p>
+</li>
+<li>
+<p><strong>Language Runtime → External Resource</strong>: During evaluation, the runtime may read external resources via <code>read</code> or <code>import</code>, gated by evaluator settings.</p>
+</li>
+<li>
+<p><strong>Pkl module → Pkl module</strong>: A module that imports another module cannot grant it more trust than it has itself.
+For example, a module imported from HTTPS cannot transitively import a module from the local filesystem.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="package-resolution"><a class="anchor" href="#package-resolution"></a><a class="link" href="#package-resolution">Package resolution</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Language Runtime / IDE Tooling → Package Server</strong>: When fetching a package, the runtime or IDE tooling contacts a package server over HTTPS.
+pkg.pkl-lang.org is a redirect server — it does not serve packages directly, but redirects to the canonical host (e.g., GitHub Releases).
+<a href="#package-integrity">Package integrity</a> is verified by checksum regardless of which server ultimately serves the content.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="supply-chain"><a class="anchor" href="#supply-chain"></a><a class="link" href="#supply-chain">Supply chain</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Publish Pipelines → Registries</strong>: GitHub Actions pipelines hold the credentials and signing keys used to publish artifacts to Maven Central, GitHub Releases, and NPM.
+Compromise of the pipeline or its credentials could result in malicious artifacts published under the Pkl team&#8217;s identity.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ide-tooling"><a class="anchor" href="#ide-tooling"></a><a class="link" href="#ide-tooling">IDE tooling</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>IDE Tooling → Language Runtime</strong>: The IntelliJ plugin and pkl-lsp invoke the Language Runtime to evaluate Pkl files open in the editor.
+This runs with the user&#8217;s full filesystem access and operates on potentially untrusted files (e.g., from third-party repositories).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pkls-io-permission-model"><a class="anchor" href="#pkls-io-permission-model"></a><a class="link" href="#pkls-io-permission-model">Pkl&#8217;s I/O Permission Model</a></h3>
+<div class="paragraph">
+<p>The Language Runtime enforces I/O permissions set by the Evaluator Client before evaluation begins.
+No Pkl code can modify these settings at runtime.</p>
+</div>
+<div class="sect3">
+<h4 id="allowlists"><a class="anchor" href="#allowlists"></a><a class="link" href="#allowlists">Allowlists</a></h4>
+<div class="paragraph">
+<p>The Evaluator Client configures two allowlists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Allowed modules</strong> - regular expression patterns controlling which modules may be imported via <code>import</code>.</p>
+</li>
+<li>
+<p><strong>Allowed resources</strong> - regular expression patterns controlling which resources may be read via <code>read</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If a <code>read</code> or <code>import</code> expression resolves to a URI that does not match the corresponding allowlist, the runtime throws an error rather than performing I/O.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="uri-schemes"><a class="anchor" href="#uri-schemes"></a><a class="link" href="#uri-schemes">URI Schemes</a></h4>
+<div class="paragraph">
+<p>Pkl identifies all resources and modules by URI.
+The scheme determines what kind of I/O is performed.</p>
+</div>
+<div class="paragraph">
+<p>The Pkl evaluator provides the following schemes baked-in:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Scheme</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>file:</code> and <code>jar:file:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Local filesystem access. Controlled by the allowed modules/resources allowlists.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http:</code> / <code>https:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote resource fetched over HTTP(S). Controlled by the allowed modules/resources allowlists.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>package:</code> / <code>projectpackage:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Pkl package, resolved either via HTTPS or file system.
+Integrity is verified by checksum (see <a href="#package-integrity">Package Integrity</a>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pkl:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Built-in Pkl standard library modules. Always available; not subject to allowlist restrictions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>env:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Environment variable. Controlled by the allowed resources allowlist.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prop:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External property. Controlled by the allowed resources allowlist.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modulepath:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A set of directories or zip files, as specified by the modulepath setting. Controlled by the allowed modules/resources allowlists.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In addition to these, Pkl can understand other schemes by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Custom readers</strong> - a <a href="#custom-readers">custom reader</a> tells Pkl what its scheme is, and how it performs I/O. The custom reader can either be implemented directly in the host runtime, or as an external process.</p>
+</li>
+<li>
+<p>(JVM only) <strong>Generic URL</strong> - When Pkl is run in the JVM, it can read generic URLs that Java&#8217;s <code>java.net.URL</code> API understands.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="file-system-reads"><a class="anchor" href="#file-system-reads"></a><a class="link" href="#file-system-reads">File system reads</a></h4>
+<div class="paragraph">
+<p>In addition to the <a href="#allowlists">allowlist</a> controls, the <code>import</code> and <code>read</code> operators can only read files that exist inside the configured <code>--root-dir</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default, the CLI does not set a root dir, and the entire file system is available to read.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>One exception to this rule is: package imports will read files from within the <code>--cache-dir</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="file-system-writes"><a class="anchor" href="#file-system-writes"></a><a class="link" href="#file-system-writes">File system writes</a></h4>
+<div class="paragraph">
+<p>Pkl can write to the specified <code>--cache-dir</code>, or defaulting to <code>~/.pkl/cache</code>, unless the <code>--no-cache</code> option is specified.</p>
+</div>
+<div class="paragraph">
+<p>Outside the language runtime, our tooling also writes files to the file system.</p>
+</div>
+<div class="paragraph">
+<p>For example, the CLI writes to the file system based on the command and flags set, as documented by <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#usage" class="bare">https://pkl-lang.org/main/current/pkl-cli/index.html#usage</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="custom-readers"><a class="anchor" href="#custom-readers"></a><a class="link" href="#custom-readers">Custom Readers</a></h4>
+<div class="paragraph">
+<p>The Evaluator Client may register custom readers that handle custom URI schemes not natively supported by the runtime or overload built-in URI schemes.</p>
+</div>
+<div class="paragraph">
+<p>A custom reader can either be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A direct API call from Pkl to the host language, when Pkl is embedded.</p>
+</li>
+<li>
+<p>An <em>external reader</em>, an external process that is spawned.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A compromised custom reader can run malicious code within the permissions of the OS process.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="package-integrity"><a class="anchor" href="#package-integrity"></a><a class="link" href="#package-integrity">Package Integrity</a></h4>
+<div class="paragraph">
+<p>When downloading a package, the runtime verifies the package&#8217;s contents against a SHA-256 checksum.
+This happens in one of three ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The package is a remote project dependency, and its checksum is stored inside the PklProject.deps.json file.</p>
+<div class="paragraph">
+<p>When the project is <a href="https://pkl-lang.org/main/current/language-reference/index.html#resolving-dependencies">resolved</a>, the checksum is observed and recorded. This implies "trust on first use" semantics.</p>
+</div>
+</li>
+<li>
+<p>The package is a remote project dependency, and its checksum is declared inside the PklProject file.</p>
+<div class="paragraph">
+<p>When the project is resolved, the package&#8217;s checksum is verified.</p>
+</div>
+<div class="listingblock">
+<div class="title">PklProject</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:Project&quot;</span>
+
+<span class="hljs-property">dependencies</span> <span class="hljs-punctuation">{</span>
+  [<span class="hljs-string">&quot;pkg&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;package://example.com/pkg@1.0.0&quot;</span>
+    <span class="hljs-property">checksums</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-property">sha256</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc123&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The package is a direct import, and its checksum is inside the import URI string. For example:<br></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://example.com/pkg@1.0.0::sha256:abc123#/myMod.pkl&quot;</span></code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This verification is independent of which server served the package, providing integrity guarantees even if the package server is compromised or the connection is intercepted.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The runtime does not verify the checksum of packages inside the cache dir; this type of attack is <a href="#operating-system-and-hardware">out of scope</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>One exception to this is direct package imports that lack a sha256 checksum segment.</p>
+</div>
+<div class="paragraph">
+<p>The following import does not verify package integrity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;package://example.com/pkg@1.0.0#/myModule.pkl&quot;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="transitivity"><a class="anchor" href="#transitivity"></a><a class="link" href="#transitivity">Transitivity</a></h4>
+<div class="paragraph">
+<p>Allowlists apply transitively.
+A module imported from HTTPS may only read resources permitted by the enclosing evaluation&#8217;s allowlist — it cannot grant access to resources outside that allowlist.
+For example, a remote module cannot read from the local filesystem unless <code>file:</code> URIs are explicitly permitted.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="assets"><a class="anchor" href="#assets"></a><a class="link" href="#assets">Assets</a></h3>
+<div class="paragraph">
+<p>Pkl publications are distributed to the following locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Maven Central</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl&#8217;s Java libraries</p>
+</li>
+<li>
+<p>Pkl&#8217;s CLIs</p>
+</li>
+<li>
+<p>pkl-lsp</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>GitHub Releases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl&#8217;s CLIs</p>
+</li>
+<li>
+<p>pkl-lsp</p>
+</li>
+<li>
+<p>IntelliJ plugin</p>
+</li>
+<li>
+<p>VSCode plugin</p>
+</li>
+<li>
+<p>Pkl packages (libraries written in Pkl)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>NPM</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl&#8217;s JavaScript libraries, including tree-sitter-pkl</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Publishing happens using GitHub Actions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="security-goals"><a class="anchor" href="#security-goals"></a><a class="link" href="#security-goals">Security Goals</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Pkl cannot perform I/O outside what is explicitly allowed.</p>
+</li>
+<li>
+<p>Pkl code cannot modify or exceed the permissions established by the Evaluator Client.</p>
+</li>
+<li>
+<p>Pkl cannot execute arbitrary system commands or load native code.</p>
+</li>
+<li>
+<p>Pkl will run to completion, or time out.</p>
+</li>
+<li>
+<p>The CLI only writes to filesystem locations as documented for each command.</p>
+</li>
+<li>
+<p>Published artifacts are authentic.</p>
+</li>
+<li>
+<p>Imported package dependencies are authentic.</p>
+</li>
+<li>
+<p>Sandboxing flags allow un-trusted Pkl code to be executed safely.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Note: we do not achieve this goal today (see <a href="#resource-exhaustion">Resource Exhaustion</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="attacker-profiles"><a class="anchor" href="#attacker-profiles"></a><a class="link" href="#attacker-profiles">Attacker Profiles</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Remote Attacker</dt>
+<dd>
+<p>An external party with no special access.
+Can interact with public-facing services, submit Pkl code to any publicly-accessible evaluator, and craft malicious inputs.</p>
+</dd>
+<dt class="hdlist1">Malicious Module Author</dt>
+<dd>
+<p>An attacker who can supply Pkl modules that run within other users' evaluations, either by publishing a package or contributing to a dependency.
+Their code runs with the I/O permissions of the enclosing evaluation.</p>
+</dd>
+<dt class="hdlist1">Network Attacker</dt>
+<dd>
+<p>An attacker who can intercept traffic between the Pkl runtime and external services.
+A passive network attacker can observe but not modify traffic (blocked by TLS).
+An active network attacker can perform DNS hijacking or man-in-the-middle if they can compromise TLS.</p>
+</dd>
+<dt class="hdlist1">Compromised Insider</dt>
+<dd>
+<p>An attacker who has obtained the Pkl team&#8217;s CI/CD access or publishing credentials, whether through account compromise or social engineering.
+Can publish artifacts under the Pkl team&#8217;s identity.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="threats"><a class="anchor" href="#threats"></a><a class="link" href="#threats">Threats</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="language-runtime"><a class="anchor" href="#language-runtime"></a><a class="link" href="#language-runtime">Language Runtime</a></h3>
+<div class="sect3">
+<h4 id="io-sandbox-escape"><a class="anchor" href="#io-sandbox-escape"></a><a class="link" href="#io-sandbox-escape">I/O Sandbox Escape</a></h4>
+<div class="paragraph">
+<p>A crafted Pkl program exploits a bug in the language runtime to perform I/O outside the allowlists established by the Evaluator Client.
+This could allow a Pkl module to read files outside <code>--root-dir</code>, access network endpoints not in the allowed list, or read environment variables the caller did not intend to expose.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Remote Attacker; Malicious Module Author<br>
+<strong>Violates:</strong> <em>Pkl cannot perform I/O outside what is explicitly allowed</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="allowlist-bypass-via-crafted-uri"><a class="anchor" href="#allowlist-bypass-via-crafted-uri"></a><a class="link" href="#allowlist-bypass-via-crafted-uri">Allowlist Bypass via Crafted URI</a></h4>
+<div class="paragraph">
+<p>A crafted URI causes an allowlist regex to match more broadly than the operator intended.
+For example, a pattern meant to allow <code><a href="https://example.com/" class="bare">https://example.com/</a></code> also matches <code><a href="https://example.com.evil.com/" class="bare">https://example.com.evil.com/</a></code> due to a missing anchor.
+The runtime is the last line of defense against such gaps.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Remote Attacker; Malicious Module Author<br>
+<strong>Violates:</strong> <em>Pkl cannot perform I/O outside what is explicitly allowed</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="arbitrary-code-execution"><a class="anchor" href="#arbitrary-code-execution"></a><a class="link" href="#arbitrary-code-execution">Arbitrary Code Execution</a></h4>
+<div class="paragraph">
+<p>A crafted Pkl program exploits a memory-safety bug or other vulnerability in the runtime to execute arbitrary native code within the host process.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Remote Attacker; Malicious Module Author<br>
+<strong>Violates:</strong> <em>Pkl cannot execute arbitrary system commands or load native code</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resource-exhaustion"><a class="anchor" href="#resource-exhaustion"></a><a class="link" href="#resource-exhaustion">Resource Exhaustion</a></h4>
+<div class="paragraph">
+<p>A crafted Pkl program exhausts CPU and/or memory resources on the host machine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl currently does not have sandbox flags that limit CPU/memory usage. Users that wish to guard against resource exhaustion attacks must rely on external means, e.g. running within a hypervisor.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Malicious Module Author<br>
+<strong>Violates:</strong> <em>Sandboxing flags allows un-trusted Pkl code to be executed safely</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cache-poisoning"><a class="anchor" href="#cache-poisoning"></a><a class="link" href="#cache-poisoning">Cache Poisoning</a></h4>
+<div class="paragraph">
+<p>A bug in the runtime causes valid cached packages to be overwritten with malicious content.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Malicious Module Author<br>
+<strong>Violates:</strong> <em>Imported package dependencies are authentic</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="package-resolution-2"><a class="anchor" href="#package-resolution-2"></a><a class="link" href="#package-resolution-2">Package Resolution</a></h3>
+<div class="sect3">
+<h4 id="tampered-package"><a class="anchor" href="#tampered-package"></a><a class="link" href="#tampered-package">Tampered Package</a></h4>
+<div class="paragraph">
+<p>A malicious or compromised Package Server serves a modified version of a Pkl package.
+If the import URI does not include a SHA-256 checksum segment, the runtime performs no integrity verification and Pkl code within the tampered package is evaluated.</p>
+</div>
+<div class="paragraph">
+<p>Package imports that include a checksum in the URI are verified against the declared hash.
+Direct imports without a checksum (e.g., <code>package://example.com/pkg@1.0.0#/mod.pkl</code>) are not verified.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Network Attacker<br>
+<strong>Violates:</strong> <em>Imported package dependencies are authentic</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="supply-chain-2"><a class="anchor" href="#supply-chain-2"></a><a class="link" href="#supply-chain-2">Supply Chain</a></h3>
+<div class="sect3">
+<h4 id="compromised-publish-pipeline"><a class="anchor" href="#compromised-publish-pipeline"></a><a class="link" href="#compromised-publish-pipeline">Compromised Publish Pipeline</a></h4>
+<div class="paragraph">
+<p>A compromised GitHub Actions pipeline or stolen registry credentials allows an attacker to publish a malicious artifact under the Pkl team&#8217;s identity to Maven Central, GitHub Releases, or NPM.
+Downstream users would receive and trust the malicious artifact.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Compromised Insider<br>
+<strong>Violates:</strong> <em>Published artifacts are authentic</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pkg-pkl-lang-org-compromise"><a class="anchor" href="#pkg-pkl-lang-org-compromise"></a><a class="link" href="#pkg-pkl-lang-org-compromise">pkg.pkl-lang.org Compromise</a></h4>
+<div class="paragraph">
+<p>The pkg.pkl-lang.org redirect server is compromised, or its DNS is hijacked, causing package resolution requests to be redirected to attacker-controlled servers.
+Users whose package imports do not include checksums would fetch and execute malicious packages without any verification failure.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Remote Attacker; Network Attacker<br>
+<strong>Violates:</strong> <em>Imported package dependencies are authentic</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ide-tooling-2"><a class="anchor" href="#ide-tooling-2"></a><a class="link" href="#ide-tooling-2">IDE Tooling</a></h3>
+<div class="sect3">
+<h4 id="arbitrary-code-execution-2"><a class="anchor" href="#arbitrary-code-execution-2"></a><a class="link" href="#arbitrary-code-execution-2">Arbitrary Code Execution</a></h4>
+<div class="paragraph">
+<p>A crafted Pkl program exploits a memory-safety bug or other vulnerability to execute arbitrary code within the IDE&#8217;s process.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attacker:</strong> Malicious Module Author<br>
+<strong>Violates:</strong> <em>Pkl cannot execute arbitrary system commands or load native code</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="out-of-scope"><a class="anchor" href="#out-of-scope"></a><a class="link" href="#out-of-scope">Out of Scope</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are real risks but are outside the Pkl team&#8217;s control and are not threats we can mitigate directly.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Third-party infrastructure</dt>
+<dd>
+<p>The Pkl supply chain relies on GitHub (source hosting and CI/CD), Maven Central, NPM, and GitHub Releases as trusted third-party services.
+The security of these platforms is governed by their respective operators.</p>
+</dd>
+<dt class="hdlist1">Underlying runtime vulnerabilities</dt>
+<dd>
+<p>Pkl runs on top of GraalVM, the JVM, the Go runtime, or the Swift runtime depending on the embedding.<br></p>
+<div class="paragraph">
+<p>Any vulnerabilities in these runtimes must be fixed by their respective owners.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="operating-system-and-hardware" class="dlist">
+<dl>
+<dt class="hdlist1">Operating system and hardware</dt>
+<dd>
+<p>Attacks that require local access to the machine running Pkl, OS kernel vulnerabilities, or hardware-level attacks.</p>
+</dd>
+<dt class="hdlist1">Insecure Evaluator Client configurations</dt>
+<dd>
+<p>A User who configures overly broad evaluator permissions while executing un-trusted Pkl code.
+Some examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allowing reads of <code>env:</code> resources.</p>
+</li>
+<li>
+<p>Not configuring a root dir.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Malicious external readers</dt>
+<dd>
+<p>External readers are executables that run directly on a user&#8217;s machine.
+If a User downloads and configures the evaluator to run a malicious external reader, they are vulnerable to whatever the external reader is programmed to do.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="security.html">Security</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="./_/js/site.js"></script>
+<script src="./_/js/site-support.js"></script>
+<script async src="./_/js/vendor/highlight.js"></script>
+<script async src="./_/js/vendor/tabs.js"></script>
+<script src="./_/js/vendor/lunr.js"></script>
+<script src="./_/js/search-ui.js" id="search-ui-script" data-site-root-path="." data-snippet-length="100" data-stylesheet="./_/css/search.css"></script>
+<script async src="./search-index.js"></script>
+  </body>
+</html>

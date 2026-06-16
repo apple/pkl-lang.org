@@ -156,6 +156,13 @@ dependabot {
       cooldown {
         `default-days` = COOLDOWN_PERIOD
       }
+      groups {
+        ["antora-packages"] {
+          patterns {
+            "@antora/*"
+          }
+        }
+      }
     }
   }
 }

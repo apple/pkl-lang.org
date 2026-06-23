@@ -806,7 +806,8 @@ Float literals with a fractional part of zero can be safely replaced with intege
 For example, it is safe to write <code>1.3 * 42</code> instead of <code>1.3 * 42.0</code>.</p>
 </div>
 <div class="paragraph">
-<p>Floats can also include the same underscore separator as integers. For example, <code>1_000.4_400</code> is a float whose value is equivalent to <code>1000.4400</code>.</p>
+<p>Floats can also include the same underscore separator as integers.
+For example, <code>1_000.4_400</code> is a float whose value is equivalent to <code>1000.4400</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -905,8 +906,7 @@ As integers are more convenient to use than floats with a fractional part of zer
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Except for a few minor differences <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>,
-String literals have the same syntax and semantics as in Swift 5. Learn one of them, know both of them!
+Except for a few minor differences <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, String literals have the same syntax and semantics as in Swift 5. Learn one of them, know both of them!
 </td>
 </tr>
 </table>
@@ -1032,8 +1032,8 @@ Notice that there is no leading or trailing whitespace.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Each content line must begin with the same whitespace characters as the line containing the closing delimiter,
-which is not included in the string. Any further leading whitespace characters are preserved.
+<p>Each content line must begin with the same whitespace characters as the line containing the closing delimiter, which is not included in the string.
+Any further leading whitespace characters are preserved.
 In other words, line indentation is controlled by indenting lines relative to the closing delimiter.</p>
 </div>
 <div class="paragraph">
@@ -1420,8 +1420,7 @@ The <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/DataSize#valu
 Property values are lazily evaluated on the first read.</p>
 </div>
 <div class="paragraph">
-<p>Because Pkl&#8217;s objects differ in important ways from objects in general-purpose programming languages,
-and because they are the backbone of most data models, understanding objects is the key to understanding Pkl.</p>
+<p>Because Pkl&#8217;s objects differ in important ways from objects in general-purpose programming languages, and because they are the backbone of most data models, understanding objects is the key to understanding Pkl.</p>
 </div>
 <div class="sect2">
 <h3 id="defining-objects"><a class="anchor" href="#defining-objects"></a><a class="link" href="#defining-objects">Defining Objects</a></h3>
@@ -1497,7 +1496,8 @@ The open curly brace indicates that its value is another object.</td>
 </div>
 <div class="paragraph">
 <p>Like all values, objects are <em>immutable</em>, which is just a fancy (and short!) way to say that their properties never change.
-So what happens when Dodo moves to a different street? Do we have to construct a new object from scratch?</p>
+So what happens when Dodo moves to a different street?
+Do we have to construct a new object from scratch?</p>
 </div>
 </div>
 <div class="sect2">
@@ -1536,8 +1536,7 @@ Note that the amended object must be enclosed in parentheses.</td>
 </table>
 </div>
 <div class="paragraph">
-<p>As you can see, it is easy to construct a new object that overrides selected properties of an existing object,
-even if, as in our example, the overridden property is nested inside another object.</p>
+<p>As you can see, it is easy to construct a new object that overrides selected properties of an existing object, even if, as in our example, the overridden property is nested inside another object.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1549,7 +1548,8 @@ even if, as in our example, the overridden property is nested inside another obj
 If this way of constructing new objects from existing objects reminds you of prototypical inheritance, you are spot-on:
 Pkl objects use prototypical inheritance as known from languages such as JavaScript.
 But unlike in JavaScript, their prototype chain cannot be directly accessed or even modified.
-Another difference is that in Pkl, object properties are late-bound. Read on to see what this means.
+Another difference is that in Pkl, object properties are late-bound.
+Read on to see what this means.
 </td>
 </tr>
 </table>
@@ -1691,8 +1691,7 @@ This is what we mean when we say that object properties are <em>late-bound</em>.
 <div class="paragraph">
 <p>A good analogy is that object properties behave like spreadsheet cells.
 When they are linked, changes to "downstream" properties automatically propagate to "upstream" properties.
-The main difference is that editing a spreadsheet cell changes the state of the spreadsheet,
-whereas "editing" a property results in a new object, leaving the original object untouched.
+The main difference is that editing a spreadsheet cell changes the state of the spreadsheet, whereas "editing" a property results in a new object, leaving the original object untouched.
 It is as if you made a copy of the entire spreadsheet whenever you edited a cell!</p>
 </div>
 </td>
@@ -1815,8 +1814,8 @@ Dynamic objects are useful for ad-hoc tasks, tasks that do not justify the effor
 </table>
 </div>
 <div class="paragraph">
-<p>Note that every <a href="#modules">module</a> is a typed object. Its properties implicitly define a class,
-and new properties cannot be added when amending the module.</p>
+<p>Note that every <a href="#modules">module</a> is a typed object.
+Its properties implicitly define a class, and new properties cannot be added when amending the module.</p>
 </div>
 <div class="paragraph">
 <p>A typed object is backed by a <em>class</em>.
@@ -2178,8 +2177,7 @@ If the property in the parent class is not declared <code>fixed</code>, the chil
 </div>
 <div class="paragraph">
 <p>The <code>fixed</code> modifier is useful for defining properties that are meant to be derived from other properties.
-In the following snippet, the property <code>wingspanWeightRatio</code> is not meant to be assigned to, because it is derived
-from other properties.</p>
+In the following snippet, the property <code>wingspanWeightRatio</code> is not meant to be assigned to, because it is derived from other properties.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2235,8 +2233,7 @@ Assigning an explicit default would be redundant, therefore it is omitted.</td>
 <div class="sect3">
 <h4 id="const-properties"><a class="anchor" href="#const-properties"></a><a class="link" href="#const-properties">Const properties</a></h4>
 <div class="paragraph">
-<p>A property with the <code>const</code> modifier behaves like the <a href="#fixed-properties"><code>fixed</code></a> modifier,
-with the additional rule that it cannot reference non-const properties or methods.</p>
+<p>A property with the <code>const</code> modifier behaves like the <a href="#fixed-properties"><code>fixed</code></a> modifier, with the additional rule that it cannot reference non-const properties or methods.</p>
 </div>
 <div class="listingblock">
 <div class="title">Bird.pkl</div>
@@ -2386,9 +2383,7 @@ Therefore, the same rules that apply to <code>fixed</code> also apply to <code>c
 </table>
 </div>
 <div class="paragraph">
-<p>This rule exists because classes, annotations, and typealiases are not <a href="#late-binding">late bound</a>;
-it is not possible to change the definition of these members by amending the module
-where it is defined.</p>
+<p>This rule exists because classes, annotations, and typealiases are not <a href="#late-binding">late bound</a>; it is not possible to change the definition of these members by amending the module where it is defined.</p>
 </div>
 <div class="paragraph">
 <p>Generally, there are two strategies for referencing such properties:</p>
@@ -2468,8 +2463,7 @@ where it is defined.</p>
 <p>Like objects, listings excel at defining and amending nested literal data structures.</p>
 </li>
 <li>
-<p>Like objects, listings can only be directly manipulated through amendment,
-but converting them to a list (and, if necessary, back to a listing) opens the door to arbitrary transformations.</p>
+<p>Like objects, listings can only be directly manipulated through amendment, but converting them to a list (and, if necessary, back to a listing) opens the door to arbitrary transformations.</p>
 </li>
 <li>
 <p>Like object properties, listing elements are evaluated lazily, can be defined in terms of each other, and are late-bound.</p>
@@ -2668,7 +2662,8 @@ Local properties can have a type annotation, as in <code>pigeon: String = "Pigeo
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Defines a module property named <code>birds2</code>. Its value is a listing that amends <code>birds</code>.</td>
+<td>Defines a module property named <code>birds2</code>.
+Its value is a listing that amends <code>birds</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -2862,7 +2857,8 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Defines a new property called <code>name</code>. Property <code>lifespan</code> is inherited from the default element.</td>
+<td>Defines a new property called <code>name</code>.
+Property <code>lifespan</code> is inherited from the default element.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
@@ -2990,9 +2986,7 @@ An equivalent literal definition of <code>birds2</code> would look as follows:</
 </div>
 </div>
 <div class="paragraph">
-<p>Thanks to <code>birds</code>'s default element, which was inferred from its type,
-it is not necessary to state the type of each list element
-(<code>new Bird { &#8230;&#8203; }</code>, <code>new Bird { &#8230;&#8203; }</code>, etc.).</p>
+<p>Thanks to <code>birds</code>'s default element, which was inferred from its type, it is not necessary to state the type of each list element (<code>new Bird { &#8230;&#8203; }</code>, <code>new Bird { &#8230;&#8203; }</code>, etc.).</p>
 </div>
 <div class="sect3">
 <h4 id="distinct-elements"><a class="anchor" href="#distinct-elements"></a><a class="link" href="#distinct-elements">Distinct Elements</a></h4>
@@ -3059,8 +3053,7 @@ Keys are eagerly evaluated; values are lazily evaluated on the first read.</p>
 <p>Like objects, mappings excel at defining and amending nested literal data structures.</p>
 </li>
 <li>
-<p>Like objects, mappings can only be directly manipulated through amendment,
-but converting them to a map (and, if necessary, back to a mapping) opens the door to arbitrary transformations.</p>
+<p>Like objects, mappings can only be directly manipulated through amendment, but converting them to a map (and, if necessary, back to a mapping) opens the door to arbitrary transformations.</p>
 </li>
 <li>
 <p>Like object properties, a mapping&#8217;s values (but not its keys) are evaluated lazily, can be defined in terms of each other, and are late-bound.</p>
@@ -3252,7 +3245,8 @@ The local property is visible to values but not keys.</td>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Defines a module property named <code>birds2</code>. Its value is a mapping that amends <code>birds</code>.</td>
+<td>Defines a module property named <code>birds2</code>.
+Its value is a mapping that amends <code>birds</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -3445,7 +3439,8 @@ To make these boundaries clear, transitioning between <em>lazy</em> and <em>eage
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Defines a new property called <code>diet</code>. Property <code>lifespan</code> is inherited from the default value.</td>
+<td>Defines a new property called <code>diet</code>.
+Property <code>lifespan</code> is inherited from the default value.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
@@ -3571,9 +3566,7 @@ An equivalent literal definition of <code>birds2</code> would look as follows:</
 </div>
 </div>
 <div class="paragraph">
-<p>Thanks to <code>birds</code>'s default value, which was inferred from its type,
-it is not necessary to state the type of each mapping value
-(<code>["Pigeon"] = new Bird { &#8230;&#8203; }</code>, <code>["Parrot"] = new Bird { &#8230;&#8203; }</code>, etc.).</p>
+<p>Thanks to <code>birds</code>'s default value, which was inferred from its type, it is not necessary to state the type of each mapping value (<code>["Pigeon"] = new Bird { &#8230;&#8203; }</code>, <code>["Parrot"] = new Bird { &#8230;&#8203; }</code>, etc.).</p>
 </div>
 </div>
 </div>
@@ -3946,7 +3939,8 @@ with <code>import "parrot.pkl"</code> or <code>import "/animals/birds/parrot.pkl
 <p>Relative paths use the <code>/</code> character as the directory separator on all platforms, including Windows.</p>
 </div>
 <div class="paragraph">
-<p>Paths that contain drive letters (e.g. <code>C:</code>) must be declared as an absolute file URI, for example: <code>import "file:///C:/path/to/my/module.pkl"</code>. Otherwise, they are interpreted as a URI scheme.</p>
+<p>Paths that contain drive letters (e.g. <code>C:</code>) must be declared as an absolute file URI, for example: <code>import "file:///C:/path/to/my/module.pkl"</code>.
+Otherwise, they are interpreted as a URI scheme.</p>
 </div>
 </td>
 </tr>
@@ -4003,8 +3997,7 @@ $ pkl eval pkl:math</code></pre>
 <div class="sect3">
 <h4 id="triple-dot-module-uris"><a class="anchor" href="#triple-dot-module-uris"></a><a class="link" href="#triple-dot-module-uris">Triple-dot Module URIs</a></h4>
 <div class="paragraph">
-<p>To simplify referencing ancestor modules in a hierarchical module structure,
-relative file and module path URIs may start with <code>.../</code>, a generalization of <code>../</code>.
+<p>To simplify referencing ancestor modules in a hierarchical module structure, relative file and module path URIs may start with <code>.../</code>, a generalization of <code>../</code>.
 Module URI <code>.../foo/bar/baz.pkl</code> resolves to the first existing module among
 <code>../foo/bar/baz.pkl</code>, <code>../../foo/bar/baz.pkl</code>, <code>../../../foo/bar/baz.pkl</code>, and so on.
 Furthermore, module URI <code>...</code> is equivalent to <code>.../&lt;currentFileName&gt;</code>.</p>
@@ -4288,8 +4281,7 @@ An import clause comes after module, amends and extends clauses (if present), an
 </div>
 <div class="paragraph">
 <p>A module import implicitly defines a new <code>const local</code> property through which the imported module can be accessed.
-(Remember that modules are regular objects.)
-The name of this property, called <em>import name</em>, is constructed from the module URI as follows:</p>
+(Remember that modules are regular objects.) The name of this property, called <em>import name</em>, is constructed from the module URI as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4389,7 +4381,8 @@ The name of this property, called <em>import name</em>, is constructed from the 
 <li>
 <p>valid identifier</p>
 <div class="paragraph">
-<p>Stick to alphanumeric characters. Use an underscore (<code>_</code>) instead of a hyphen (<code>-</code>) as a name separator.</p>
+<p>Stick to alphanumeric characters.
+Use an underscore (<code>_</code>) instead of a hyphen (<code>-</code>) as a name separator.</p>
 </div>
 </li>
 <li>
@@ -4514,7 +4507,8 @@ Otherwise, characters are interpreted verbatim, and not treated as glob wildcard
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When globbing files, symbolic links are not followed. Additionally, the <code>.</code> and <code>..</code> entries are skipped.<br>
+When globbing files, symbolic links are not followed.
+Additionally, the <code>.</code> and <code>..</code> entries are skipped.<br>
 This behavior is similar to the behavior of Bash with <code>shopt -s dotglob</code> enabled.
 </td>
 </tr>
@@ -4524,8 +4518,7 @@ This behavior is similar to the behavior of Bash with <code>shopt -s dotglob</co
 <div class="sect2">
 <h3 id="security-checks"><a class="anchor" href="#security-checks"></a><a class="link" href="#security-checks">Security Checks</a></h3>
 <div class="paragraph">
-<p>When attempting to directly evaluate a module, as in <code>pkl eval myModule.pkl</code>,
-the following security checks are performed:</p>
+<p>When attempting to directly evaluate a module, as in <code>pkl eval myModule.pkl</code>, the following security checks are performed:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4540,8 +4533,7 @@ For access to be granted, at least one regular expression must match a prefix of
 For example, the allowlist <code>file:,https:</code> grants access to any module whose URI starts with <code>file:</code> or <code>https:</code>.</p>
 </div>
 <div class="paragraph">
-<p>When a module attempts to load another module (via <code>amends</code>, <code>extends</code>, or <code>imports</code>),
-the following security checks are performed:</p>
+<p>When a module attempts to load another module (via <code>amends</code>, <code>extends</code>, or <code>imports</code>), the following security checks are performed:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4854,11 +4846,8 @@ diet: Berries</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Within <code>output.files</code>,
-a key determines a file&#8217;s path relative to <code>--multiple-file-output-path</code>,
-and a value determines the file&#8217;s contents.
-If a file&#8217;s path resolves to a location outside <code>--multiple-file-output-path</code>,
-evaluation fails with an error.
+<p>Within <code>output.files</code>, a key determines a file&#8217;s path relative to <code>--multiple-file-output-path</code>, and a value determines the file&#8217;s contents.
+If a file&#8217;s path resolves to a location outside <code>--multiple-file-output-path</code>, evaluation fails with an error.
 Non-existing parent directories are created.</p>
 </div>
 <div class="sect4">
@@ -4910,8 +4899,7 @@ Here is an example:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When aggregating module outputs,
-the appropriate file extensions can be obtained programmatically:</p>
+<p>When aggregating module outputs, the appropriate file extensions can be obtained programmatically:</p>
 </div>
 <div class="listingblock">
 <div class="title">birds.pkl</div>
@@ -5019,14 +5007,11 @@ Here are some examples:</p>
 Any type can be extended to include <code>null</code> by appending <code>?</code> to the type.</p>
 </div>
 <div class="paragraph">
-<p>For example, <code>parrot: Bird</code> will always be non-null, but <code>pigeon: Bird?</code> could be <code>null</code> - and <em>is</em> by default,
-if <code>pigeon</code> is never amended. This means if you try to coalesce a (non-nullable) typed variable,
-the result is always that variable’s value.</p>
+<p>For example, <code>parrot: Bird</code> will always be non-null, but <code>pigeon: Bird?</code> could be <code>null</code> - and <em>is</em> by default, if <code>pigeon</code> is never amended.
+This means if you try to coalesce a (non-nullable) typed variable, the result is always that variable’s value.</p>
 </div>
 <div class="paragraph">
-<p>As per our example <code>parrot ?? pigeon == parrot</code> always holds,
-but <code>pigeon ?? parrot</code> could either be <code>pigeon</code> or <code>parrot</code>,
-depending on whether <code>pigeon</code> was ever amended with a non-null value.</p>
+<p>As per our example <code>parrot ?? pigeon == parrot</code> always holds, but <code>pigeon ?? parrot</code> could either be <code>pigeon</code> or <code>parrot</code>, depending on whether <code>pigeon</code> was ever amended with a non-null value.</p>
 </div>
 </td>
 </tr>
@@ -5214,7 +5199,9 @@ See <a href="#module-path-uri">Module Path URI</a> for further information.</p>
 </dd>
 <dt class="hdlist1">package: </dt>
 <dd>
-<p>Reads a resource from a <em>package</em>. Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Resource">Resource</a>. See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
+<p>Reads a resource from a <em>package</em>.
+Result type is <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Resource">Resource</a>.
+See <a href="#package-asset-uri">Package asset URI:</a> for further information.</p>
 </dd>
 </dl>
 </div>
@@ -5229,8 +5216,7 @@ Therefore, subsequent reads are guaranteed to return the same result.</p>
 <h3 id="nullable-reads"><a class="anchor" href="#nullable-reads"></a><a class="link" href="#nullable-reads">Nullable Reads</a></h3>
 <div class="paragraph">
 <p>If a resource does not exist or cannot be read, <code>read()</code> fails with an error.
-To recover from the absence of a resource, use <code>read?()</code> instead,
-which returns <code>null</code> for absent resources:</p>
+To recover from the absence of a resource, use <code>read?()</code> instead, which returns <code>null</code> for absent resources:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5309,7 +5295,8 @@ A globbed read returns a <code>Mapping</code>, where the keys are the expanded f
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When globbing files, symbolic links are not followed. Additionally, the <code>.</code> and <code>..</code> entries are skipped.<br>
+When globbing files, symbolic links are not followed.
+Additionally, the <code>.</code> and <code>..</code> entries are skipped.<br>
 This behavior is similar to the behavior of Bash with <code>shopt -s dotglob</code> enabled.
 </td>
 </tr>
@@ -5449,7 +5436,8 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#blank-identifiers">Blank Identifiers</a><br>
 <a href="#projects">Projects</a><br>
 <a href="#external-readers">External Readers</a><br>
-<a href="#mirroring_packages">Mirroring packages</a></p>
+<a href="#mirroring_packages">Mirroring packages</a><br>
+<a href="#references">References</a></p>
 </div>
 <div class="sect2">
 <h3 id="meaning-of-new"><a class="anchor" href="#meaning-of-new"></a><a class="link" href="#meaning-of-new">Meaning of <code>new</code></a></h3>
@@ -6546,8 +6534,7 @@ Type aliases such as <code>UInt16</code> only check that numbers are within a ce
 </table>
 </div>
 <div class="paragraph">
-<p>The <a href="../java-binding/codegen.html" class="xref page">Java</a> and <a href="../kotlin-binding/codegen.html" class="xref page">Kotlin</a> code generators
-map predefined type aliases to the most suitable Java and Kotlin types.
+<p>The <a href="../java-binding/codegen.html" class="xref page">Java</a> and <a href="../kotlin-binding/codegen.html" class="xref page">Kotlin</a> code generators map predefined type aliases to the most suitable Java and Kotlin types.
 For example, <code>UInt8</code> is mapped to <code>java.lang.Byte</code> and <code>kotlin.Byte</code>, and <code>Uri</code> is mapped to <code>java.net.URI</code>.</p>
 </div>
 </div>
@@ -6561,24 +6548,20 @@ Type annotations serve the following purposes:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Documentation
-+ Type annotations help to document data models. They are included in any generated documentation.</p>
+<p>Documentation + Type annotations help to document data models.
+They are included in any generated documentation.</p>
 </li>
 <li>
-<p>Validation
-+ Type annotations are validated at runtime.</p>
+<p>Validation + Type annotations are validated at runtime.</p>
 </li>
 <li>
-<p>Defaults
-+ Type-annotated properties have <a href="#default-values">Default Values</a>.</p>
+<p>Defaults + Type-annotated properties have <a href="#default-values">Default Values</a>.</p>
 </li>
 <li>
-<p>Code Generation
-+ Type annotations enable statically typed access to configuration data through code generation.</p>
+<p>Code Generation + Type annotations enable statically typed access to configuration data through code generation.</p>
 </li>
 <li>
-<p>Tooling
-+ Type annotations enable advanced tooling features such as code completion in editors.</p>
+<p>Tooling + Type annotations enable advanced tooling features such as code completion in editors.</p>
 </li>
 </ul>
 </div>
@@ -6834,8 +6817,7 @@ In some languages, nullable types are also known as <em>optional types</em>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>unknown</code> type is both a top and a bottom type.
-When a static type analyzer encounters an expression of <code>unknown</code> type,
-it backs off and trusts the user that they know what they are doing.</p>
+When a static type analyzer encounters an expression of <code>unknown</code> type, it backs off and trusts the user that they know what they are doing.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6885,8 +6867,7 @@ it backs off and trusts the user that they know what they are doing.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>While occasionally useful on their own,
-string literal types are often combined with <a href="#union-types">Union Types</a> to form enumerated types:</p>
+<p>While occasionally useful on their own, string literal types are often combined with <a href="#union-types">Union Types</a> to form enumerated types:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6937,8 +6918,7 @@ For example, it is used in the standard library&#8217;s <code>TODO()</code> meth
 This makes <code>unknown</code> assignment-compatible with every other type, and every other type assignment-compatible with <code>unknown</code>.</p>
 </div>
 <div class="paragraph">
-<p>When a static type analyzer encounters a value of <code>unknown</code> type,
-it backs off and trusts the code&#8217;s author to know what they are doing&#8201;&#8212;&#8201;for example, whether a method called on the value exists.</p>
+<p>When a static type analyzer encounters a value of <code>unknown</code> type, it backs off and trusts the code&#8217;s author to know what they are doing&#8201;&#8212;&#8201;for example, whether a method called on the value exists.</p>
 </div>
 </div>
 <div class="sect3">
@@ -7030,7 +7010,8 @@ Omitting a type annotation is equivalent to specifying the type <code>unknown</c
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>Properties with a union type have no default value. By prefixing one of the types in a union with a <code>*</code>, the default of that type is chosen as the default for the union.</td>
+<td>Properties with a union type have no default value.
+By prefixing one of the types in a union with a <code>*</code>, the default of that type is chosen as the default for the union.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
@@ -7130,7 +7111,8 @@ Type constraints enable advanced runtime validation that goes beyond the capabil
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Note how <code>parent</code> is different from <code>name</code>. If they were the same, we would be thrown a constraint error.</td>
+<td>Note how <code>parent</code> is different from <code>name</code>.
+If they were the same, we would be thrown a constraint error.</td>
 </tr>
 </table>
 </div>
@@ -7200,8 +7182,7 @@ This allows for the abstraction and reuse of type constraints.</p>
 <p>An <em>anonymous function</em> is a function without a name.</p>
 </div>
 <div class="paragraph">
-<p>Most modern general-purpose programming languages support anonymous functions,
-under names such as <em>lamba expressions</em>, <em>arrow functions</em>, <em>function literals</em>, <em>closures</em>, or <em>procs</em>.</p>
+<p>Most modern general-purpose programming languages support anonymous functions, under names such as <em>lamba expressions</em>, <em>arrow functions</em>, <em>function literals</em>, <em>closures</em>, or <em>procs</em>.</p>
 </div>
 <div class="paragraph">
 <p>Anonymous functions have their own literal syntax:</p>
@@ -7314,8 +7295,7 @@ They cannot have more than five parameters.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Single-parameter anonymous functions can also be applied with the <code>|&gt;</code> (pipe) operator,
-which expects a function argument to the left and an anonymous function to the right.
+<p>Single-parameter anonymous functions can also be applied with the <code>|&gt;</code> (pipe) operator, which expects a function argument to the left and an anonymous function to the right.
 The pipe operator works especially well for chaining multiple functions:</p>
 </div>
 <div class="listingblock">
@@ -7427,14 +7407,12 @@ The pipe operator works especially well for chaining multiple functions:</p>
 <h4 id="function-amending"><a class="anchor" href="#function-amending"></a><a class="link" href="#function-amending">Function Amending</a></h4>
 <div class="paragraph">
 <p>An anonymous function that returns an object can be amended with the same syntax as that object.
-The result is a new function that accepts the same number of parameters as the original function,
-applies the original function to them, and amends the returned object.</p>
+The result is a new function that accepts the same number of parameters as the original function, applies the original function to them, and amends the returned object.</p>
 </div>
 <div class="paragraph">
 <p>Function amending is a special form of function composition.
 Thanks to function amending, <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Listing#default">Listing.default</a>
-and <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Mapping#default">Mapping.default</a> can be treated as if they were objects,
-only gradually revealing their true (single-parameter function) nature:</p>
+and <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Mapping#default">Mapping.default</a> can be treated as if they were objects, only gradually revealing their true (single-parameter function) nature:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7464,8 +7442,7 @@ only gradually revealing their true (single-parameter function) nature:</p>
 <p>The result is a mapping whose entry <code>"Pigeon"</code> has both <code>diet</code> and <code>lifespan</code> set.</p>
 </div>
 <div class="paragraph">
-<p>When amending an anonymous function, it is possible to access its parameters
-by declaring a comma-separated, arrow (<code>&#8594;</code>) terminated parameter list after the opening curly brace (<code>{</code>).</p>
+<p>When amending an anonymous function, it is possible to access its parameters by declaring a comma-separated, arrow (<code>&#8594;</code>) terminated parameter list after the opening curly brace (<code>{</code>).</p>
 </div>
 <div class="paragraph">
 <p>Once again, this is especially useful to configure a listing&#8217;s or mapping&#8217;s <code>default</code> function:</p>
@@ -7932,7 +7909,8 @@ The following table describes how different iterables turn into object members:<
 For example, a <code>List</code> can be spread into a <code>Listing</code>, but cannot be spread into a <code>Mapping</code>.</p>
 </div>
 <div class="paragraph">
-<p>In some ways, spread syntax can be thought of as a shorthand for a <a href="#for-generators">for generator</a>. One key difference is that spread syntax can generate properties, which is not possible with a for generator.</p>
+<p>In some ways, spread syntax can be thought of as a shorthand for a <a href="#for-generators">for generator</a>.
+One key difference is that spread syntax can generate properties, which is not possible with a for generator.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8262,8 +8240,7 @@ When used within an object, it refers to the parent object in the amends chain.<
 </div>
 <div class="paragraph">
 <p>The <code>module</code> type is a <em>self type</em>.
-If the module is extended by another module, the <code>module</code> type refers to the extending module when
-in the context of that module.</p>
+If the module is extended by another module, the <code>module</code> type refers to the extending module when in the context of that module.</p>
 </div>
 </div>
 <div class="sect2">
@@ -8347,8 +8324,7 @@ Unlike globs within shells, the <code>*</code> wildcard includes names that star
 <div class="sect3">
 <h4 id="character-classes"><a class="anchor" href="#character-classes"></a><a class="link" href="#character-classes">Character Classes</a></h4>
 <div class="paragraph">
-<p>Character classes are sequences delimited by the <code>[</code> and <code>]</code> characters, and represent a single
-character as described by the sequence within the enclosed brackets.
+<p>Character classes are sequences delimited by the <code>[</code> and <code>]</code> characters, and represent a single character as described by the sequence within the enclosed brackets.
 For example, the pattern <code>[abc]</code> means "a single character that is a, b, or c".</p>
 </div>
 <div class="paragraph">
@@ -8376,13 +8352,15 @@ For example, the glob pattern <code>[]abc]</code> matches a single character tha
 For example, the pattern <code>{pigeon,parrot}</code> will match either <code>pigeon</code> or <code>parrot</code>.</p>
 </div>
 <div class="paragraph">
-<p>Sub-patterns cannot be nested. The pattern <code>{foo,{bar,baz}}</code> is not a valid glob pattern, and an error will be thrown during evaluation.</p>
+<p>Sub-patterns cannot be nested.
+The pattern <code>{foo,{bar,baz}}</code> is not a valid glob pattern, and an error will be thrown during evaluation.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="escapes"><a class="anchor" href="#escapes"></a><a class="link" href="#escapes">Escapes</a></h4>
 <div class="paragraph">
-<p>The escape character (<code>\</code>) can be used to remove the special meaning of a character. The following escapes are valid:</p>
+<p>The escape character (<code>\</code>) can be used to remove the special meaning of a character.
+The following escapes are valid:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -8413,7 +8391,9 @@ For example, the pattern <code>{pigeon,parrot}</code> will match either <code>pi
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If incorporating escape characters into a glob pattern, use <a href="#custom-string-delimiters">custom string delimiters</a> to express the glob pattern. For example, <code>import*(#"\{foo.pkl"#)</code>. This way, the backslash is interpreted as a backslash and not a string escape.
+If incorporating escape characters into a glob pattern, use <a href="#custom-string-delimiters">custom string delimiters</a> to express the glob pattern.
+For example, <code>import*(#"\{foo.pkl"#)</code>.
+This way, the backslash is interpreted as a backslash and not a string escape.
 </td>
 </tr>
 </table>
@@ -8589,8 +8569,7 @@ They are programmatically accessible via the <a href="https://pkl-lang.org/packa
 </li>
 <li>
 <p>The first paragraph of a doc comment is its <em>summary</em>.
-Keep the summary short (a single sentence is common)
-and insert an empty line (<code>///</code>) before the next paragraph.</p>
+Keep the summary short (a single sentence is common) and insert an empty line (<code>///</code>) before the next paragraph.</p>
 </li>
 </ul>
 </div>
@@ -8850,8 +8829,7 @@ The most common use cases for annotations are to add metadata to influence behav
 <div class="paragraph">
 <p>Annotations are regular Pkl objects whose class extends <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/base/Annotation"><code>Annotation</code></a>.
 Annotation instances are defined similarly to regular <a href="#classes">class instances</a>, but instead of using the <code>new</code> keyword the class name is prefixed with <code>@</code>.
-The object body may be omitted if an annotation&#8217;s class has no properties or the declared annotation does not override any of the class&#8217;s default values
-Multiple annotations may be defined on a member.
+The object body may be omitted if an annotation&#8217;s class has no properties or the declared annotation does not override any of the class&#8217;s default values Multiple annotations may be defined on a member.
 If the annotated member has a <a href="#doc-comments">doc comment</a>, the annotation is defined between the comment and the member.</p>
 </div>
 <div class="listingblock">
@@ -8880,7 +8858,9 @@ If the annotated member has a <a href="#doc-comments">doc comment</a>, the annot
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>An annotation applied to a module. The annotation(s) must precede the <code>module</code> clause and follow the doc comment. The object body is omitted.</td>
+<td>An annotation applied to a module.
+The annotation(s) must precede the <code>module</code> clause and follow the doc comment.
+The object body is omitted.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -8888,15 +8868,18 @@ If the annotated member has a <a href="#doc-comments">doc comment</a>, the annot
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>An annotation appied to a class. The object body is omitted.</td>
+<td>An annotation appied to a class.
+The object body is omitted.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>An annotation applied to a property. The object body is included because the <code>description</code> property is overridden.</td>
+<td>An annotation applied to a property.
+The object body is included because the <code>description</code> property is overridden.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>An annotation applied to a method. The object body is included because the <code>description</code> property is overridden.</td>
+<td>An annotation applied to a method.
+The object body is included because the <code>description</code> property is overridden.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
@@ -8917,7 +8900,8 @@ If the annotated member has a <a href="#doc-comments">doc comment</a>, the annot
 </div>
 <div class="paragraph">
 <p>The call site&#8217;s "variable" syntax reveals that <code>x</code> refers to a <em>LAMP</em>
-(let binding, anonymous function parameter, method parameter, or property) definition. But which one?</p>
+(let binding, anonymous function parameter, method parameter, or property) definition.
+But which one?</p>
 </div>
 <div class="paragraph">
 <p>To answer this question, Pkl follows these steps:</p>
@@ -8925,9 +8909,7 @@ If the annotated member has a <a href="#doc-comments">doc comment</a>, the annot
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Search the lexically enclosing scopes of <code>x</code>,
-starting with the scope in which <code>x</code> occurs and continuing outwards
-up to and including the enclosing module&#8217;s top-level scope, for a LAMP definition named <code>x</code>.
+<p>Search the lexically enclosing scopes of <code>x</code>, starting with the scope in which <code>x</code> occurs and continuing outwards up to and including the enclosing module&#8217;s top-level scope, for a LAMP definition named <code>x</code>.
 If a match is found, this is the answer.</p>
 </li>
 <li>
@@ -8952,9 +8934,7 @@ If a match is found, this is the answer.</p>
 <td class="content">
 Pkl&#8217;s LAMP name resolution is inspired by <a href="https://newspeaklanguage.org">Newspeak</a>.
 The goal is for name resolution to be stable with regard to changes in external modules.
-This is why lexically enclosing scopes are searched before the prototype chain of <code>this</code>,
-and why the prototype chains of lexically enclosing scopes are not searched,
-which sometimes requires the use of <code>outer.</code> or <code>module.</code>.
+This is why lexically enclosing scopes are searched before the prototype chain of <code>this</code>, and why the prototype chains of lexically enclosing scopes are not searched, which sometimes requires the use of <code>outer.</code> or <code>module.</code>.
 For name resolution to fully stabilize, the list of top-level properties defined in <code>pkl.base</code> needs to be freezed.
 This is tentatively planned for Pkl 1.0.
 </td>
@@ -8970,7 +8950,8 @@ This is tentatively planned for Pkl 1.0.
 </div>
 </div>
 <div class="paragraph">
-<p>The call site&#8217;s method call syntax reveals that <code>x</code> refers to a method definition. But which one?</p>
+<p>The call site&#8217;s method call syntax reveals that <code>x</code> refers to a method definition.
+But which one?</p>
 </div>
 <div class="paragraph">
 <p>To answer this question, Pkl follows these steps:</p>
@@ -8978,9 +8959,7 @@ This is tentatively planned for Pkl 1.0.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Search the call sites' lexically enclosing scopes,
-starting with the scope in which the call site occurs and continuing outwards
-up to and including the enclosing module&#8217;s top-level scope, for a definition of method <code>x</code>.
+<p>Search the call sites' lexically enclosing scopes, starting with the scope in which the call site occurs and continuing outwards up to and including the enclosing module&#8217;s top-level scope, for a definition of method <code>x</code>.
 If a match is found, this is the answer.</p>
 </li>
 <li>
@@ -9185,8 +9164,8 @@ They cannot be used as a regular identifier, and currently do not have any meani
 <h3 id="blank-identifiers"><a class="anchor" href="#blank-identifiers"></a><a class="link" href="#blank-identifiers">Blank Identifiers</a></h3>
 <div class="paragraph">
 <p>Blank identifiers can be used in many places to ignore parameters and variables.<br>
-<code>_</code> is not a valid identifier. To use it as a parameter or variable name,
-it needs to be enclosed in backticks: `_`.</p>
+<code>_</code> is not a valid identifier.
+To use it as a parameter or variable name, it needs to be enclosed in backticks: `_`.</p>
 </div>
 <div class="sect3">
 <h4 id="functions-and-methods"><a class="anchor" href="#functions-and-methods"></a><a class="link" href="#functions-and-methods">Functions and methods</a></h4>
@@ -9612,6 +9591,302 @@ To fully set up mirroring, an HTTP(s) server will need be running, and which mir
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="references"><a class="anchor" href="#references"></a><a class="link" href="#references">References</a></h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Experimenal Feature</div>
+<div class="paragraph">
+<p>The API and semantics of references are subject to change in a future release.
+The Pkl team is soliciting feedback from authors of libraries considering adopting references.
+For questions and feedback, please reach out via <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a> or <a href="https://github.com/apple/pkl/issues/new">create an issue</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/ref/Reference" target="blank"><code>Reference</code></a>s (provided by the <code>pkl.ref</code> module) are an advanced API design tool that serves use cases where configuration must refer to values that are not known at evaluation time.
+This is common in task-based execution systems like CI platforms and Infrastructure as Code (IaC) tools.
+Today, many such systems encode this kind of reference using strings containing an expression language; this approach makes it difficult to write and debug such references, as target systems may not know where in the Pkl source an error occurred.
+<code>Reference</code> provides this functionality in-language, so users benefit from evaluation-time type checking with accurate error messages and editor support for code completion.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In general, a library that makes use of references should handle all creation of references as part of its API; end-users of the library should not create references directly.
+In most cases, end users should never need to import the <code>pkl:ref</code> module.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An instance of <code>Reference&lt;D, T&gt;</code> consist of four parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Domain - An instance of a subclass of <code>pkl.ref#Domain</code>, corresponding to the <code>D</code> type argument.
+A domain determines which <code>Reference</code> instances are compatible and how they are rendered as strings.
+The domain of a <code>Reference</code> may be retrieved using its <code>getDomain()</code> method.</p>
+</li>
+<li>
+<p>Data - An arbitrary value that may contain domain-specific information about the referenced value.
+The data of a <code>Reference</code> may be retrieved using its <code>getData()</code> method.</p>
+</li>
+<li>
+<p>Path - A <code>List</code> of <code>ref.Access</code> values indicating how the reference was accessed (by property or subscript).
+The path of a <code>Reference</code> may be retrieved using its <code>getPath()</code> method.</p>
+</li>
+<li>
+<p>Referent type - The type of the value that the reference refers to, corresponding to the <code>T</code> type argument.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The key feature of a <code>Reference</code> is that it inherits properties and subscript behavior from its referent type.
+When a reference is accessed, either via qualified property access (<code>&lt;reference&gt;.&lt;property&gt;</code>) or subscript (<code>&lt;reference&gt;[&lt;key&gt;]</code>), a new reference is returned:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The new reference shares its domain and data with the original reference.</p>
+</li>
+<li>
+<p>The new reference&#8217;s path extends the original reference&#8217;s path, adding a new <code>ref.Access</code> instance describing the accessed property name or subscript key.</p>
+</li>
+<li>
+<p>The new reference&#8217;s referent type is the type of the accessed property or subscript value of the original referent type.
+Any type constraints within the new referent type are erased and type constraints are not allowed in the referent (second) type argument of any Reference type annotations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are some restrictions on properties that may be referenced; attempting to reference these properties will fail:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties marked <code>external</code> or <code>local</code></p>
+</li>
+<li>
+<p>All properties of <code>external</code> classes</p>
+</li>
+<li>
+<p>The <code>default</code> property of <code>Listing</code>, <code>Mapping</code>, and <code>Dynamic</code></p>
+</li>
+<li>
+<p>Properties originally defined in <code>external</code> classes (this only includes <code>Module.output</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/ref/Reference" target="blank"><code>Reference</code></a> instances are created using the constructor method <a href="https://pkl-lang.org/package-docs/pkl/0.32.0-dev/ref/#Reference()" target="blank"><code>Reference()</code></a>.
+This method accepts three parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>domain</code> - An instance of a <code>ref.Domain</code> subclass; its type becomes the <code>D</code> type argument of the resulting <code>Reference</code> instance.</p>
+</li>
+<li>
+<p><code>class</code> - A <code>Class</code> instance that will be the referent type of the returned <code>Reference</code>; it is the <code>T</code> type argument of the resulting instance.</p>
+</li>
+<li>
+<p><code>data</code> - A domain-specific value used to identify the root or context of the reference.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is only possible to construct new references with a referent type that is a simple (non-generic) class type.
+To obtain a reference to values of other types (generic, typealias, nullable, union, etc.), libraries must wrap those types in a class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl%parsed hljs" data-lang="pkl%parsed">import "pkl:ref"
+
+class TypeHolder {
+  $: *Listing&lt;String&gt;? | Mapping&lt;UInt, String&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+}
+
+local r: ref.Reference&lt;MyDomain, Listing&lt;String&gt;? | Mapping&lt;UInt, String&gt;&gt; =
+  ref.Reference(myDomain, TypeHolder, null).$ <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define a "holder" class with a property of the desired type.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Access the <code>$</code> property of the reference to get a reference to the desired non-class type.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a realistic example of how references might be used:</p>
+</div>
+<div class="listingblock">
+<div class="title">Workflow.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:ref&quot;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Domain</span> <span class="hljs-keyword">extends</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Domain</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">renderReference</span><span class="hljs-punctuation">(</span><span class="hljs-params">reference</span><span class="hljs-punctuation">:</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Domain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Any</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>reference<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">getData</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-keyword">is</span> <span class="hljs-title class_">Task</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span>path <span class="hljs-operator">=</span> reference<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">getPath</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">map</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">access</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> access<span class="hljs-punctuation">.</span><span class="hljs-variable">property</span> <span class="hljs-operator">??</span> access<span class="hljs-punctuation">.</span><span class="hljs-variable">key</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+        <span class="hljs-string">&quot;${<span class="hljs-subst"><span class="hljs-char escape_">\(</span>reference<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">getData</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-char escape_">)</span></span>/<span class="hljs-subst"><span class="hljs-char escape_">\(</span>path<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">join</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;/&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-char escape_">)</span></span>}&quot;</span>
+    <span class="hljs-keyword">else</span>
+      <span class="hljs-built_in">throw</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Domain can only render Reference(getData() is Task) value&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Domain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">input1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="hljs-property">input2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span>
+
+  <span class="hljs-keyword">hidden</span> <span class="hljs-keyword">fixed</span> <span class="hljs-property">outputs</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">TaskAOutputs</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">Domain</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TaskAOutputs</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskAOutputs</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="6"></i><b>(6)</b>
+  <span class="hljs-property">foo</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+  <span class="hljs-property">bar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">inputX</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span>
+  <span class="hljs-property">inputY</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">tasks</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Task</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isDistinctBy</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="7"></i><b>(7)</b>
+
+<span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">renderer</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
+      [ref<span class="hljs-punctuation">.</span><span class="hljs-variable">Reference</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="8"></i><b>(8)</b>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define a <code>ref.Domain</code> subclass that determines how <code>Reference</code> instances are rendered as strings.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>For convenience, create a type alias for references of this domain.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create a new base class that can be referenced. <code>Task</code> instances will be identified by their <code>name</code> value.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>In a specific <code>Task</code> subclass, input values accept both literal values and references to the same type.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>Task</code> subclasses that provide output values define an <code>outputs</code> property where the referent type is <code>TaskAOutputs</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The <code>TaskAOutputs</code> class defines the possible runtime outputs of <code>TaskA</code> tasks. It is <code>abstract</code> and never instantiated, only used for producing references.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Users provide <code>Task</code> instances with unique <code>name</code> values.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Delegate to <code>Domain</code> for rendering <code>Reference</code> values.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">myWorkflow.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;Workflow.pkl&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">doA</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TaskA</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;doA&quot;</span>
+  <span class="hljs-property">input1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hi&quot;</span>
+  <span class="hljs-property">input2</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">doB</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">TaskB</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;doB&quot;</span>
+  <span class="hljs-property">inputX</span> <span class="hljs-operator">=</span> doA<span class="hljs-punctuation">.</span><span class="hljs-variable">outputs</span><span class="hljs-punctuation">.</span><span class="hljs-variable">foo</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-property">inputY</span> <span class="hljs-operator">=</span> doA<span class="hljs-punctuation">.</span><span class="hljs-variable">outputs</span><span class="hljs-punctuation">.</span><span class="hljs-variable">bar</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">tasks</span> <span class="hljs-punctuation">{</span>
+  doA
+  doB
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Instantiate a <code>TaskA</code> instance with only concrete values as inputs.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Instantiate a <code>TaskB</code> instance with both inputs derived from the outputs of <code>doA</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The result of evaluating <code>myWorkflow.pkl</code> is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">tasks</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;doA&quot;</span>
+    <span class="hljs-property">input1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hi&quot;</span>
+    <span class="hljs-property">input2</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span>
+  <span class="hljs-punctuation">}</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;doB&quot;</span>
+    <span class="hljs-property">inputX</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;${doA/foo}&quot;</span>
+    <span class="hljs-property">inputY</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;${doA/bar}&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
 </div>
 </div>
 </div>

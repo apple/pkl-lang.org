@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.31.1">
+<div class="nav-container" data-component="main" data-version="0.32.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -238,6 +238,9 @@
     <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.32.html">0.32 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -271,7 +274,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.31.1</span>
+    <span class="version">0.32.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -315,11 +318,14 @@
     <li class="component is-current">
       <div class="title"><a href="../index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.32.0</a>
+        </li>
         <li class="version">
           <a href="../../latest/index.html">0.32.0-dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.31.1</a>
+        <li class="version">
+          <a href="../../0.31.1/index.html">0.31.1</a>
         </li>
         <li class="version">
           <a href="../../0.30.2/index.html">0.30.2</a>
@@ -502,10 +508,11 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.31.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.32.0</button>
   <div class="version-menu">
+    <a class="version is-current" href="index.html">0.32.0</a>
     <a class="version" href="../../latest/pkl-gradle/index.html">0.32.0-dev</a>
-    <a class="version is-current" href="index.html">0.31.1</a>
+    <a class="version" href="../../0.31.1/pkl-gradle/index.html">0.31.1</a>
     <a class="version" href="../../0.30.2/pkl-gradle/index.html">0.30.2</a>
     <a class="version" href="../../0.29.1/pkl-gradle/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/pkl-gradle/index.html">0.28.2</a>
@@ -514,7 +521,7 @@
     <a class="version" href="../../0.25.3/pkl-gradle/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.31/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.32/docs/modules/pkl-gradle/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -577,7 +584,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-  id("org.pkl-lang") version "0.31.1"
+  id("org.pkl-lang") version "0.32.0"
 }</code></pre>
 </div>
 </div>
@@ -597,7 +604,7 @@ Earlier Gradle versions are not supported.</p>
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
-  id "org.pkl-lang" version "0.31.1"
+  id "org.pkl-lang" version "0.32.0"
 }</code></pre>
 </div>
 </div>
@@ -1099,6 +1106,22 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </details>
 <details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
 <div class="content">
 <div class="paragraph">
@@ -1202,6 +1225,16 @@ The name of the root JUnit test suite.</p>
 <div class="paragraph">
 <p>Default: <code>false</code><br>
 Whether to ignore expected example files and generate them again.</p>
+</div>
+</div>
+</details>
+<details id="test-reporter">
+<summary class="title">testReporter: Property&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>"spec"</code><br>
+Example: <code>reporter = "minimal"</code><br>
+Which test reporter to use for CLI output. Possible values are <code>"spec"</code> and <code>"minimal"</code>.</p>
 </div>
 </div>
 </details>
@@ -1477,6 +1510,22 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </details>
 <details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
 <div class="content">
 <div class="paragraph">
@@ -1592,7 +1641,7 @@ For Spring Boot applications, and for users of <code>pkl-config-java</code> comp
 <summary class="title">nonNullAnnotation: Property&lt;String&gt;</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>"org.pkl.config.java.mapper.NonNull"</code><br>
+<p>Default: <code>"org.jspecify.annotations.NonNull"</code><br>
 Example: <code>nonNullAnnotation = "org.project.MyAnnotation"</code><br>
 Fully qualified name of the annotation type to use for annotating non-null types.<br>
 The specified annotation type must be annotated with <code>@java.lang.annotation.Target(ElementType.TYPE_USE)</code>
@@ -1987,6 +2036,22 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
 </div>
 </div>
 </details>
@@ -2479,6 +2544,22 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </details>
 <details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
 <div class="content">
 <div class="paragraph">
@@ -2847,6 +2928,22 @@ The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.
 </div>
 </details>
 <details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">powerAssertions: Property&lt;Boolean&gt;</summary>
 <div class="content">
 <div class="paragraph">
@@ -3008,6 +3105,16 @@ Whether to ignore expected example files and generate them again.</p>
 </div>
 </div>
 </details>
+<details>
+<summary class="title">testReporter: Property&lt;String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>"spec"</code><br>
+Example: <code>reporter = "minimal"</code><br>
+Which test reporter to use for CLI output. Possible values are <code>"spec"</code> and <code>"minimal"</code>.</p>
+</div>
+</div>
+</details>
 <div class="paragraph">
 <p>Common properties:</p>
 </div>
@@ -3156,6 +3263,22 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
 </div>
 </div>
 </details>
@@ -3397,6 +3520,22 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
 </div>
 </div>
 </details>
@@ -3743,6 +3882,22 @@ Replace outbound HTTP(S) requests from one URL with another URL.
 The left-hand side describes the source prefix, and the right-hand describes the target prefix.
 This option is commonly used to enable package mirroring.
 The above example will rewrite URL <code>https://pkg.pkl-lang.org/pkl-k8s/k8s@1.0.0</code> to <code>https://my.internal.mirror/pkl-k8s/k8s@1.0.0</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">httpHeaders: MapProperty&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>null</code><br>
+Example: <code>httpHeaders = ["**": ["User-Agent": ["My User Agent"]]]</code><br>
+Additional headers to add to outbound HTTP requests.
+The key is a glob pattern that is used to match against the URLs of outbound HTTP calls, and the value is the header name and values to add.
+Each header value becomes its own HTTP header.</p>
+</div>
+<div class="paragraph">
+<p>To describe a prefix match, the <code>**</code> wildcard should be added to the pattern.
+For example, <code>https?://example.com/**</code> matches against every request to host <code>example.com</code>.</p>
 </div>
 </div>
 </details>

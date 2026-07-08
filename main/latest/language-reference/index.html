@@ -318,11 +318,14 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/index.html">0.32.0</a>
+        </li>
         <li class="version is-current">
           <a href="../index.html">0.32.0-dev</a>
         </li>
-        <li class="version is-latest">
-          <a href="../../current/index.html">0.31.1</a>
+        <li class="version">
+          <a href="../../0.31.1/index.html">0.31.1</a>
         </li>
         <li class="version">
           <a href="../../0.30.2/index.html">0.30.2</a>
@@ -507,8 +510,9 @@
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">0.32.0-dev</button>
   <div class="version-menu">
+    <a class="version" href="../../current/language-reference/index.html">0.32.0</a>
     <a class="version is-current" href="index.html">0.32.0-dev</a>
-    <a class="version" href="../../current/language-reference/index.html">0.31.1</a>
+    <a class="version" href="../../0.31.1/language-reference/index.html">0.31.1</a>
     <a class="version" href="../../0.30.2/language-reference/index.html">0.30.2</a>
     <a class="version" href="../../0.29.1/language-reference/index.html">0.29.1</a>
     <a class="version" href="../../0.28.2/language-reference/index.html">0.28.2</a>
@@ -9721,14 +9725,14 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl%parsed hljs" data-lang="pkl%parsed">import "pkl:ref"
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:ref&quot;</span>
 
-class TypeHolder {
-  $: *Listing&lt;String&gt;? | Mapping&lt;UInt, String&gt; <i class="conum" data-value="1"></i><b>(1)</b>
-}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TypeHolder</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">$</span><span class="hljs-punctuation">:</span> <span class="hljs-operator">*</span><span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">UInt</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-punctuation">}</span>
 
-local r: ref.Reference&lt;MyDomain, Listing&lt;String&gt;? | Mapping&lt;UInt, String&gt;&gt; =
-  ref.Reference(myDomain, TypeHolder, null).$ <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<span class="hljs-keyword">local</span> <span class="hljs-property">r</span><span class="hljs-punctuation">:</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">MyDomain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">UInt</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span>
+  ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-punctuation">(</span>myDomain<span class="hljs-punctuation">,</span> <span class="hljs-title class_">TypeHolder</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">$</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">

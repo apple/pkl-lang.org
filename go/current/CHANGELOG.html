@@ -90,7 +90,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="go" data-version="0.13.2">
+<div class="nav-container" data-component="go" data-version="0.14.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -123,7 +123,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Go Bindings</span>
-    <span class="version">0.13.2</span>
+    <span class="version">0.14.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -214,7 +214,10 @@
       <div class="title"><a href="index.html">Pkl Go Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.13.2</a>
+          <a href="index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.13.2/index.html">0.13.2</a>
         </li>
         <li class="version">
           <a href="../0.12.1/index.html">0.12.1</a>
@@ -365,9 +368,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.13.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.14.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.13.2</a>
+    <a class="version is-current" href="CHANGELOG.html">0.14.0</a>
+    <a class="version" href="../0.13.2/CHANGELOG.html">0.13.2</a>
     <a class="version" href="../0.12.1/CHANGELOG.html">0.12.1</a>
     <a class="version" href="../0.11.1/CHANGELOG.html">0.11.1</a>
     <a class="version" href="../0.10.0/CHANGELOG.html">0.10.0</a>
@@ -378,7 +382,7 @@
     <a class="version" href="../0.5.3/CHANGELOG.html">0.5.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.13/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-go/edit/release/0.14/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -387,10 +391,104 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
+<h2 id="release-0.14.0"><a class="anchor" href="#release-0.14.0"></a><a class="link" href="#release-0.14.0">0.14.0 (2026-07-09)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add support for <code>pkl.ref#Reference</code> (<a href="https://github.com/apple/pkl-go/pull/238" target="blank">#238</a>).</p>
+</li>
+<li>
+<p>Add support for configuring HTTP headers (<a href="https://github.com/apple/pkl-go/pull/248" target="blank">#248</a>).</p>
+</li>
+<li>
+<p>Add support for resolved evaluator settings (<a href="https://github.com/apple/pkl-go/pull/249" target="blank">#249</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Correct <code>StderrLogger</code> to log to standard error instead of standard output (<a href="https://github.com/apple/pkl-go/pull/226" target="blank">#226</a>).</p>
+</li>
+<li>
+<p>Fix omission of codegen for elements of union types erased to <code>any</code> (<a href="https://github.com/apple/pkl-go/pull/235" target="blank">#235</a>).</p>
+</li>
+<li>
+<p>Omit hidden properties in parent modules during subclass code generation (<a href="https://github.com/apple/pkl-go/pull/235" target="blank">#235</a>).</p>
+</li>
+<li>
+<p>Decoding typed values into struct fields with type <code>any</code> as <code>pkl.Object</code> when no mapping is present (<a href="https://github.com/apple/pkl-go/pull/232" target="blank">#232</a>).</p>
+</li>
+<li>
+<p>Allow custom and external readers to produce "not found" results for nullable reads (<code>read?()</code>) (<a href="https://github.com/apple/pkl-go/pull/230" target="blank">#230</a>).</p>
+</li>
+<li>
+<p>Fix handling of the no proxy flag when applying evaluator options from a project (<a href="https://github.com/apple/pkl-go/pull/228" target="blank">#228</a>).</p>
+</li>
+<li>
+<p>Fix resource leak in <code>NewProjectEvaluator</code> (<a href="https://github.com/apple/pkl-go/pull/249" target="blank">#249</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>WithProjectEvaluatorSettings</code> method now applies the <em>resolved</em> evaluator settings (introduced in Pkl 0.32). Users that need lower versions of Pkl should use <code>WithProjectEvaluatorSettingsLegacy</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve test coverage (<a href="https://github.com/apple/pkl-go/pull/223" target="blank">#223</a>).</p>
+</li>
+<li>
+<p>Reduce memory footprint of reflection operations (<a href="https://github.com/apple/pkl-go/pull/237" target="blank">#237</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/JeroenSoeters">@JeroenSoeters</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kasugamirai">@kasugamirai</a></p>
+</li>
+<li>
+<p><a href="https://github.com/NawafSwe">@NawafSwe</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.13.2"><a class="anchor" href="#release-0.13.2"></a><a class="link" href="#release-0.13.2">0.13.2 (2026-03-03)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -400,7 +498,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -415,7 +513,7 @@
 <h2 id="release-0.13.1"><a class="anchor" href="#release-0.13.1"></a><a class="link" href="#release-0.13.1">0.13.1 (2026-02-27)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -425,7 +523,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -490,7 +588,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -503,7 +601,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -521,7 +619,7 @@ pkl-go now requires Go 1.24.
 <h2 id="release-0.12.1"><a class="anchor" href="#release-0.12.1"></a><a class="link" href="#release-0.12.1">0.12.1 (2025-11-10)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -534,7 +632,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -552,7 +650,7 @@ pkl-go now requires Go 1.24.
 <h2 id="release-0.12.0"><a class="anchor" href="#release-0.12.0"></a><a class="link" href="#release-0.12.0">0.12.0 (2025-11-05)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -598,7 +696,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -614,7 +712,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -633,7 +731,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
+<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -657,7 +755,7 @@ pkl-go now requires Go 1.24.
 <h2 id="release-0.11.1"><a class="anchor" href="#release-0.11.1"></a><a class="link" href="#release-0.11.1">0.11.1 (2025-08-11)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -667,7 +765,7 @@ pkl-go now requires Go 1.24.
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
+<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -688,7 +786,7 @@ pkl-go now requires Go 1.24.
 <h2 id="release-0.11.0"><a class="anchor" href="#release-0.11.0"></a><a class="link" href="#release-0.11.0">0.11.0 (2025-07-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
+<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -739,7 +837,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -752,7 +850,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes</a></h3>
+<h3 id="breaking-changes-2"><a class="anchor" href="#breaking-changes-2"></a><a class="link" href="#breaking-changes-2">Breaking Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -762,7 +860,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-2"><a class="anchor" href="#miscellaneous-2"></a><a class="link" href="#miscellaneous-2">Miscellaneous</a></h3>
+<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -772,7 +870,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
+<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -805,7 +903,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.10.0"><a class="anchor" href="#release-0.10.0"></a><a class="link" href="#release-0.10.0">0.10.0 (2025-04-03)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
+<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -828,7 +926,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-3"><a class="anchor" href="#miscellaneous-3"></a><a class="link" href="#miscellaneous-3">Miscellaneous</a></h3>
+<h3 id="miscellaneous-4"><a class="anchor" href="#miscellaneous-4"></a><a class="link" href="#miscellaneous-4">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -841,7 +939,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
+<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -851,7 +949,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
+<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -878,7 +976,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.9.0"><a class="anchor" href="#release-0.9.0"></a><a class="link" href="#release-0.9.0">0.9.0 (2024-12-18)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
+<h3 id="additions-5"><a class="anchor" href="#additions-5"></a><a class="link" href="#additions-5">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -891,7 +989,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-4"><a class="anchor" href="#miscellaneous-4"></a><a class="link" href="#miscellaneous-4">Miscellaneous</a></h3>
+<h3 id="miscellaneous-5"><a class="anchor" href="#miscellaneous-5"></a><a class="link" href="#miscellaneous-5">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -901,7 +999,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
+<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -911,7 +1009,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
+<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -935,7 +1033,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.8.1"><a class="anchor" href="#release-0.8.1"></a><a class="link" href="#release-0.8.1">0.8.1 (2024-10-10)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
+<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -945,7 +1043,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-5"><a class="anchor" href="#miscellaneous-5"></a><a class="link" href="#miscellaneous-5">Miscellaneous</a></h3>
+<h3 id="miscellaneous-6"><a class="anchor" href="#miscellaneous-6"></a><a class="link" href="#miscellaneous-6">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -955,7 +1053,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
+<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -979,7 +1077,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.8.0"><a class="anchor" href="#release-0.8.0"></a><a class="link" href="#release-0.8.0">0.8.0 (2024-07-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-5"><a class="anchor" href="#additions-5"></a><a class="link" href="#additions-5">Additions</a></h3>
+<h3 id="additions-6"><a class="anchor" href="#additions-6"></a><a class="link" href="#additions-6">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -989,7 +1087,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
+<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1002,7 +1100,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-6"><a class="anchor" href="#miscellaneous-6"></a><a class="link" href="#miscellaneous-6">Miscellaneous</a></h3>
+<h3 id="miscellaneous-7"><a class="anchor" href="#miscellaneous-7"></a><a class="link" href="#miscellaneous-7">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1021,7 +1119,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="breaking-changes-2"><a class="anchor" href="#breaking-changes-2"></a><a class="link" href="#breaking-changes-2">Breaking changes</a></h3>
+<h3 id="breaking-changes-3"><a class="anchor" href="#breaking-changes-3"></a><a class="link" href="#breaking-changes-3">Breaking changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1031,7 +1129,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
+<h3 id="contributors-12"><a class="anchor" href="#contributors-12"></a><a class="link" href="#contributors-12">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1058,7 +1156,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.7.0"><a class="anchor" href="#release-0.7.0"></a><a class="link" href="#release-0.7.0">0.7.0 (2024-06-06)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-6"><a class="anchor" href="#additions-6"></a><a class="link" href="#additions-6">Additions</a></h3>
+<h3 id="additions-7"><a class="anchor" href="#additions-7"></a><a class="link" href="#additions-7">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1078,7 +1176,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
+<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1103,7 +1201,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-7"><a class="anchor" href="#miscellaneous-7"></a><a class="link" href="#miscellaneous-7">Miscellaneous</a></h3>
+<h3 id="miscellaneous-8"><a class="anchor" href="#miscellaneous-8"></a><a class="link" href="#miscellaneous-8">Miscellaneous</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1116,7 +1214,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="breaking-changes-3"><a class="anchor" href="#breaking-changes-3"></a><a class="link" href="#breaking-changes-3">Breaking changes</a></h3>
+<h3 id="breaking-changes-4"><a class="anchor" href="#breaking-changes-4"></a><a class="link" href="#breaking-changes-4">Breaking changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1129,7 +1227,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-12"><a class="anchor" href="#contributors-12"></a><a class="link" href="#contributors-12">Contributors ❤️</a></h3>
+<h3 id="contributors-13"><a class="anchor" href="#contributors-13"></a><a class="link" href="#contributors-13">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1165,7 +1263,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.6.0"><a class="anchor" href="#release-0.6.0"></a><a class="link" href="#release-0.6.0">0.6.0 (2024-03-11)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-7"><a class="anchor" href="#additions-7"></a><a class="link" href="#additions-7">Additions</a></h3>
+<h3 id="additions-8"><a class="anchor" href="#additions-8"></a><a class="link" href="#additions-8">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1205,7 +1303,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-13"><a class="anchor" href="#contributors-13"></a><a class="link" href="#contributors-13">Contributors ❤️</a></h3>
+<h3 id="contributors-14"><a class="anchor" href="#contributors-14"></a><a class="link" href="#contributors-14">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1229,7 +1327,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.5.3"><a class="anchor" href="#release-0.5.3"></a><a class="link" href="#release-0.5.3">0.5.3 (2024-02-09)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
+<h3 id="fixes-14"><a class="anchor" href="#fixes-14"></a><a class="link" href="#fixes-14">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1244,7 +1342,7 @@ To address this, all object types are generated as their plain type, without poi
 <h2 id="release-0.5.2"><a class="anchor" href="#release-0.5.2"></a><a class="link" href="#release-0.5.2">0.5.2 (2024-02-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-14"><a class="anchor" href="#fixes-14"></a><a class="link" href="#fixes-14">Fixes</a></h3>
+<h3 id="fixes-15"><a class="anchor" href="#fixes-15"></a><a class="link" href="#fixes-15">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1260,7 +1358,7 @@ To address this, all object types are generated as their plain type, without poi
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-14"><a class="anchor" href="#contributors-14"></a><a class="link" href="#contributors-14">Contributors ❤️</a></h3>
+<h3 id="contributors-15"><a class="anchor" href="#contributors-15"></a><a class="link" href="#contributors-15">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1288,7 +1386,7 @@ To address this, all object types are generated as their plain type, without poi
 </ul>
 </div>
 <div class="sect2">
-<h3 id="contributors-15"><a class="anchor" href="#contributors-15"></a><a class="link" href="#contributors-15">Contributors ❤️</a></h3>
+<h3 id="contributors-16"><a class="anchor" href="#contributors-16"></a><a class="link" href="#contributors-16">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>

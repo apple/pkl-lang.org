@@ -90,7 +90,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="swift" data-version="0.9.0">
+<div class="nav-container" data-component="swift" data-version="0.10.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -123,7 +123,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Swift Bindings</span>
-    <span class="version">0.9.0</span>
+    <span class="version">0.10.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -278,7 +278,10 @@
       <div class="title"><a href="index.html">Pkl Swift Bindings</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.9.0</a>
+          <a href="index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.9.0/index.html">0.9.0</a>
         </li>
         <li class="version">
           <a href="../0.8.2/index.html">0.8.2</a>
@@ -371,9 +374,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.9.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.10.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.9.0</a>
+    <a class="version is-current" href="CHANGELOG.html">0.10.0</a>
+    <a class="version" href="../0.9.0/CHANGELOG.html">0.9.0</a>
     <a class="version" href="../0.8.2/CHANGELOG.html">0.8.2</a>
     <a class="version" href="../0.7.2/CHANGELOG.html">0.7.2</a>
     <a class="version" href="../0.6.0/CHANGELOG.html">0.6.0</a>
@@ -383,7 +387,7 @@
     <a class="version" href="../0.2.3/CHANGELOG.html">0.2.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-swift/edit/release/0.9/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-swift/edit/release/0.10/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -392,10 +396,61 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
-<h2 id="release-0.9.0"><a class="anchor" href="#release-0.9.0"></a><a class="link" href="#release-0.9.0">0.9.0 (2026-07-09)</a></h2>
+<h2 id="release-0.10.0"><a class="anchor" href="#release-0.10.0"></a><a class="link" href="#release-0.10.0">0.10.0 (2026-07-15)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add support for resolved evaluator settings (<a href="https://github.com/apple/pkl-swift/pull/172">#172</a>).</p>
+</li>
+<li>
+<p>Add support for <code>ExternalReader.workingDir</code> (<a href="https://github.com/apple/pkl-swift/pull/178">#178</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Use <code>DecodingError.keyNotFound</code> error across the board when coding key is missing (<a href="https://github.com/apple/pkl-swift/pull/172">#172</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EvaluatorOptions.withProject(_: Project)</code> method now applies the resolved evaluator settings (introduced in Pkl 0.32). Users that need lower versions of Pkl should use <code>EvaluatorOptions.withProjectLegacy(_: Project)</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-0.9.0"><a class="anchor" href="#release-0.9.0"></a><a class="link" href="#release-0.9.0">0.9.0 (2026-07-09)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -404,14 +459,11 @@
 <li>
 <p>Add support for configuring HTTP headers (<a href="https://github.com/apple/pkl-swift/pull/170" target="blank">#170</a>).</p>
 </li>
-<li>
-<p>Add support for resolved evaluator settings (<a href="https://github.com/apple/pkl-swift/pull/172" target="blank">#172</a>).</p>
-</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -441,19 +493,6 @@
 <li>
 <p>Improve enum case generation for string literal unions with uppercase and numeric elements (<a href="https://github.com/apple/pkl-swift/pull/160" target="blank">#160</a>).</p>
 </li>
-<li>
-<p>Use <code>DecodingError.keyNotFound</code> error across the board when coding key is missing (<a href="https://github.com/apple/pkl-swift/pull/172" target="blank">#172</a>).</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>EvaluatorOptions.withProject(<em>: Project)</code> method now applies the resolved evaluator settings (introduced in Pkl 0.32). Users that need lower versions of Pkl should use <code>EvaluatorOptions.withProjectLegacy(</em>: Project)</code>.</p>
-</li>
 </ul>
 </div>
 </div>
@@ -471,7 +510,10 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all our contributors!</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -507,7 +549,7 @@
 <h2 id="release-0.8.2"><a class="anchor" href="#release-0.8.2"></a><a class="link" href="#release-0.8.2">0.8.2 (2026-03-02)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -517,7 +559,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -564,7 +606,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -582,7 +624,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.7.2"><a class="anchor" href="#release-0.7.2"></a><a class="link" href="#release-0.7.2">0.7.2 (2025-12-01)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -592,7 +634,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors</a></h3>
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -610,7 +652,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.7.1"><a class="anchor" href="#release-0.7.1"></a><a class="link" href="#release-0.7.1">0.7.1 (2025-11-20)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -636,7 +678,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
+<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -660,7 +702,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.7.0"><a class="anchor" href="#release-0.7.0"></a><a class="link" href="#release-0.7.0">0.7.0 (2025-11-05)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
+<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -680,7 +722,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
+<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -706,7 +748,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-6"><a class="anchor" href="#contributors-6"></a><a class="link" href="#contributors-6">Contributors ❤️</a></h3>
+<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -730,7 +772,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.6.0"><a class="anchor" href="#release-0.6.0"></a><a class="link" href="#release-0.6.0">0.6.0 (2025-10-02)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -749,7 +791,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
+<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -786,7 +828,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
+<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -816,7 +858,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.5.0"><a class="anchor" href="#release-0.5.0"></a><a class="link" href="#release-0.5.0">0.5.0 (2025-07-2)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -826,7 +868,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
+<h3 id="additions-5"><a class="anchor" href="#additions-5"></a><a class="link" href="#additions-5">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -878,7 +920,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
+<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -896,7 +938,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.4.2"><a class="anchor" href="#release-0.4.2"></a><a class="link" href="#release-0.4.2">0.4.2 (2025-04-14)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
+<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -922,7 +964,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
+<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -940,7 +982,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.4.1"><a class="anchor" href="#release-0.4.1"></a><a class="link" href="#release-0.4.1">0.4.1 (2025-02-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
+<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -955,7 +997,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.4.0"><a class="anchor" href="#release-0.4.0"></a><a class="link" href="#release-0.4.0">0.4.0 (2025-01-24)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-5"><a class="anchor" href="#additions-5"></a><a class="link" href="#additions-5">Additions</a></h3>
+<h3 id="additions-6"><a class="anchor" href="#additions-6"></a><a class="link" href="#additions-6">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -988,7 +1030,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
+<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -1012,7 +1054,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.3.0"><a class="anchor" href="#release-0.3.0"></a><a class="link" href="#release-0.3.0">0.3.0 (2024-10-10)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-6"><a class="anchor" href="#additions-6"></a><a class="link" href="#additions-6">Additions</a></h3>
+<h3 id="additions-7"><a class="anchor" href="#additions-7"></a><a class="link" href="#additions-7">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1061,7 +1103,7 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
+<h3 id="contributors-12"><a class="anchor" href="#contributors-12"></a><a class="link" href="#contributors-12">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>
@@ -1094,42 +1136,11 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 <h2 id="release-0.2.3"><a class="anchor" href="#release-0.2.3"></a><a class="link" href="#release-0.2.3">0.2.3 (2024-02-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Fixes one more Pkl module whose name was incorrect</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="contributors-12"><a class="anchor" href="#contributors-12"></a><a class="link" href="#contributors-12">Contributors ❤️</a></h3>
-<div class="paragraph">
-<p>Thank you to all our contributors!</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/bioball">@bioball</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-0.2.2"><a class="anchor" href="#release-0.2.2"></a><a class="link" href="#release-0.2.2">0.2.2 (2024-02-04)</a></h2>
-<div class="sectionbody">
-<div class="sect2">
 <h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixes an issue where module names in Pkl module pkl.swift do not match the package name</p>
-</li>
-<li>
-<p>Fix some documentation issues on the website</p>
+<p>Fixes one more Pkl module whose name was incorrect</p>
 </li>
 </ul>
 </div>
@@ -1150,13 +1161,44 @@ Consult the <a href="quickstart.html#codegen" class="xref page">codegen</a> sect
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-0.2.2"><a class="anchor" href="#release-0.2.2"></a><a class="link" href="#release-0.2.2">0.2.2 (2024-02-04)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes an issue where module names in Pkl module pkl.swift do not match the package name</p>
+</li>
+<li>
+<p>Fix some documentation issues on the website</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-14"><a class="anchor" href="#contributors-14"></a><a class="link" href="#contributors-14">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.2.1"><a class="anchor" href="#release-0.2.1"></a><a class="link" href="#release-0.2.1">0.2.1 (2024-02-02)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Fix bug in pkl package url.</p>
 </div>
 <div class="sect2">
-<h3 id="contributors-14"><a class="anchor" href="#contributors-14"></a><a class="link" href="#contributors-14">Contributors ❤️</a></h3>
+<h3 id="contributors-15"><a class="anchor" href="#contributors-15"></a><a class="link" href="#contributors-15">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all our contributors!</p>
 </div>

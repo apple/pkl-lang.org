@@ -1,0 +1,1 @@
+searchData='[{"name":"org.openapis.v3.contrib.SchemaGenerator","kind":1,"url":"SchemaGenerator/index.html"},{"name":"converters","kind":5,"url":"SchemaGenerator/index.html#converters","sig":": Mapping<Class, Schema>","parId":0},{"name":"generate","kind":4,"url":"SchemaGenerator/index.html#generate()","sig":"(value): Schema","parId":0}]';

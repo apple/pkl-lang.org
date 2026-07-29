@@ -379,7 +379,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Last edited: 2026-06-08</p>
+<p>Last edited: 2026-07-29</p>
 </div>
 <div class="paragraph">
 <p>This document describes the threat model for the Pkl project.
@@ -1053,7 +1053,7 @@ This could allow a Pkl module to read files outside <code>--root-dir</code>, acc
 <h4 id="allowlist-bypass-via-crafted-uri"><a class="anchor" href="#allowlist-bypass-via-crafted-uri"></a><a class="link" href="#allowlist-bypass-via-crafted-uri">Allowlist Bypass via Crafted URI</a></h4>
 <div class="paragraph">
 <p>A crafted URI causes an allowlist regex to match more broadly than the operator intended.
-For example, a pattern meant to allow <code><a href="https://example.com/" class="bare">https://example.com/</a></code> also matches <code><a href="https://example.com.evil.com/" class="bare">https://example.com.evil.com/</a></code> due to a missing anchor.
+For example, a pattern meant to allow <code>https://example.com/</code> also matches <code>https://example.com.evil.com/</code> due to a missing anchor.
 The runtime is the last line of defense against such gaps.</p>
 </div>
 <div class="paragraph">

@@ -1,7 +1,20 @@
+/**
+ * Copyright © 2026 Apple Inc. and the Pkl project authors. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 @file:Suppress("UnnecessaryVariable", "UnstableApiUsage")
 
-import java.util.concurrent.TimeUnit
-import org.jsoup.Jsoup
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URI
@@ -9,14 +22,20 @@ import java.net.URISyntaxException
 import java.util.*
 import java.util.concurrent.ConcurrentLinkedQueue
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+import kotlin.io.path.absolutePathString
+import kotlin.io.path.createParentDirectories
+import kotlin.io.path.writeText
+import org.jsoup.Jsoup
 
 // links that are allowed to be http rather than https
 val httpLinks = listOf<String>()
 
 // links to exclude from validation (for example because they require authentication)
-val excludedLinks = listOf(
-    "https://www.oracle.com/technetwork/java",
-)
+val excludedLinks =
+    listOf(
+        "https://www.oracle.com/technetwork/java",
+    )
 
 configurations {
   register("nuValidator")
@@ -33,47 +52,56 @@ dependencies {
 
 for (location in listOf("local", "remote")) {
   val capitalizedLocation = location.replaceFirstChar { it.titlecase(Locale.getDefault()) }
-  val htmlFiles = fileTree("${layout.buildDirectory.get()}/$location").matching { include("**/*.html") }
+  val htmlFiles =
+      fileTree("${layout.buildDirectory.get()}/$location").matching {
+        include("**/*.html")
+        // exclude validating HTML in package docs; these are generated from pkldoc and we care less if there's broken
+        // links
+        exclude("**/package-docs/**")
+      }
 
   val buildSiteTask = "build${capitalizedLocation}Site" // defined in /build.gradle.kts
   val validateSiteTask = tasks.register("validate${capitalizedLocation}Site")
-  val configureValidateHtmlFilesTask = tasks.register("configureValidate${capitalizedLocation}HtmlFiles")
-  val validateHtmlFilesTask = tasks.register("validate${capitalizedLocation}HtmlFiles", JavaExec::class)
+  val validateHtmlFilesTask =
+      tasks.register("validate${capitalizedLocation}HtmlFiles", JavaExec::class)
   val validateHtmlLinksTask = tasks.register("validate${capitalizedLocation}HtmlLinks")
 
   validateSiteTask.configure {
     dependsOn(validateHtmlFilesTask, validateHtmlLinksTask)
   }
 
-  configureValidateHtmlFilesTask.configure {
-    doLast {
-      validateHtmlFilesTask.get().args(htmlFiles)
-    }
-  }
-
   validateHtmlFilesTask.configure {
-
-
-    dependsOn(configureValidateHtmlFilesTask, buildSiteTask)
+    dependsOn(buildSiteTask)
 
     val outputFile = file("${layout.buildDirectory.get()}/report/validateHtmlFiles/result.txt")
+    val argFile = project.layout.buildDirectory.file("tmp/${name}/args.txt").get().asFile.toPath()
 
     inputs.files(htmlFiles)
     outputs.file(outputFile)
 
     classpath = configurations["nuValidator"]
     mainClass.set("nu.validator.client.SimpleCommandLineValidator")
-    args("--skip-non-html") // --also-check-css doesn't work (still checks css as html), so limit to html files
+    args(
+        "--skip-non-html"
+    ) // --also-check-css doesn't work (still checks css as html), so limit to html files
     args("--filterpattern", "(.*)Consider adding “lang=(.*)")
     args("--filterpattern", "(.*)The “main” role is unnecessary for element “main”(.*)")
     args("--filterpattern", "(.*)Consider adding a “lang” attribute(.*)")
+    args("@${argFile.absolutePathString()}")
     // for debugging
     // args("--verbose")
 
     // write a basic result file s.t. gradle can consider task up-to-date
-    // writing a result file in case validation fails is not easily possible with JavaExec, but also not strictly necessary
-    doFirst { delete(outputFile) }
-    doLast { outputFile.writeText("Success.") }
+    // writing a result file in case validation fails is not easily possible with JavaExec, but also
+    // not strictly necessary
+    doFirst {
+      delete(outputFile)
+      argFile.createParentDirectories()
+      argFile.writeText(htmlFiles.joinToString("\n") { it.absolutePath })
+    }
+    doLast {
+      outputFile.writeText("Success.")
+    }
   }
 
   validateHtmlLinksTask.configure {
@@ -90,7 +118,7 @@ for (location in listOf("local", "remote")) {
       val seenLinks = mutableSetOf<String>()
 
       try {
-			  // only validate links of latest version because we can't fix links of older versions
+        // only validate links of latest version because we can't fix links of older versions
         for (htmlFile in htmlFiles) {
           val htmlText = htmlFile.readText()
           val unresolvedXrefs = Regex("""xref:\S*""").findAll(htmlText)
@@ -111,12 +139,13 @@ for (location in listOf("local", "remote")) {
             // check each link just once
             if (!seenLinks.add(href)) continue
 
-            val uri = try {
-              URI(href)
-            } catch (e: URISyntaxException) {
-              errors.add("$htmlFile: Invalid link URL: $link (Error message: ${e.message})")
-              continue
-            }
+            val uri =
+                try {
+                  URI(href)
+                } catch (e: URISyntaxException) {
+                  errors.add("$htmlFile: Invalid link URL: $link (Error message: ${e.message})")
+                  continue
+                }
             if (uri.scheme == null) {
               if (href == "" || href == "#") {
                 val id = link.attributes().get("id")
@@ -132,7 +161,10 @@ for (location in listOf("local", "remote")) {
               }
             } else if (uri.scheme == "mailto") {
               // not validated
-            } else if (uri.scheme == "https" || uri.scheme == "http" && httpLinks.any { uri.toString().startsWith(it) }) {
+            } else if (
+                uri.scheme == "https" ||
+                    uri.scheme == "http" && httpLinks.any { uri.toString().startsWith(it) }
+            ) {
               // capture values because variables will change while executor is running
               val submittedUri = uri
               val submittedHref = href
@@ -149,13 +181,19 @@ for (location in listOf("local", "remote")) {
                 try {
                   conn.connect()
                   val responseCode = conn.responseCode
-                  if (responseCode != 200 &&
-                      responseCode != 403 /* github auth */ &&
-                      responseCode != 429 /* github rate limiting */) {
-                    errors.add("$submittedHtmlFile: Unexpected HTTP status code `$responseCode` for external link `$submittedHref`.")
+                  if (
+                      responseCode != 200 &&
+                          responseCode != 403 /* github auth */ &&
+                          responseCode != 429 /* github rate limiting */
+                  ) {
+                    errors.add(
+                        "$submittedHtmlFile: Unexpected HTTP status code `$responseCode` for external link `$submittedHref`."
+                    )
                   }
                 } catch (e: IOException) {
-                  println("Ignoring I/O error for external link `$submittedHref`. (Error message: ${e.message})")
+                  println(
+                      "Ignoring I/O error for external link `$submittedHref`. (Error message: ${e.message})"
+                  )
                 } finally {
                   conn.disconnect()
                 }

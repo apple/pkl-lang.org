@@ -346,7 +346,7 @@ This could allow a Pkl module to read files outside `--root-dir`, access network
 ==== Allowlist Bypass via Crafted URI
 
 A crafted URI causes an allowlist regex to match more broadly than the operator intended.
-For example, a pattern meant to allow `https://example.com/` also matches `https://example.com.evil.com/` due to a missing anchor.
+For example, a pattern meant to allow `\https://example.com/` also matches `\https://example.com.evil.com/` due to a missing anchor.
 The runtime is the last line of defense against such gaps.
 
 *Attacker:* Remote Attacker; Malicious Module Author +

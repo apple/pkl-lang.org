@@ -6,15 +6,19 @@ jsoup="1.22.2"
 # use same Node version as Docker image
 # https://nodejs.org/download/release/latest-v16.x/
 node="16.13.1"
+#noinspection UnusedVersionCatalogEntry
+ktfmt = "0.64"
 # https://plugins.gradle.org/plugin/com.github.node-gradle.node
 nodeGradle="7.1.0"
 # https://search.maven.org/artifact/nu.validator/validator
 nuValidator="26.7.3"
+spotlessPlugin = "8.8.0"
 
 [libraries] # ordered alphabetically
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 nuValidator = { group = "nu.validator", name = "validator", version.ref = "nuValidator" }
 
 [plugins] # ordered alphabetically
-nodeGradle = { id = "com.github.node-gradle.node", version.ref = "nodeGradle" }
 downloadGradle = { id = "de.undercouch.download", version.ref = "downloadGradle" }
+nodeGradle = { id = "com.github.node-gradle.node", version.ref = "nodeGradle" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotlessPlugin"}

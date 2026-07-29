@@ -146,3 +146,5 @@
 (stringInterpolation
   "\\##(" @char.escape
   ")" @char.escape) @subst
+
+(mlStringContinuation) @char.escape

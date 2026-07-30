@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Language Binding Specification :: Pkl Docs</title>
-    <link rel="canonical" href="https://pkl-lang.org/main/current/bindings-specification/index.html">
-    <link rel="prev" href="../libpkl/index.html">
-    <link rel="next" href="message-passing-api.html">
+    <title>libpkl :: Pkl Docs</title>
+    <link rel="prev" href="../../../go/current/index.html">
+    <link rel="next" href="../bindings-specification/index.html">
     <meta name="generator" content="Antora 3.1.15">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/theme-vars.css">
@@ -181,18 +180,18 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../../../go/current/index.html">Go</a>
   </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../libpkl/index.html">libpkl</a>
-  </li>
   <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="index.html">libpkl</a>
+  </li>
+  <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Specification</a>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="message-passing-api.html">Message Passing API</a>
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="binary-encoding.html">Pkl Binary Encoding</a>
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
   </li>
 </ul>
   </li>
@@ -529,272 +528,187 @@
     <li><a href="../index.html">Main Project</a></li>
     <li><a href="../language.html">Language</a></li>
     <li><a href="../language-bindings.html">Language Bindings</a></li>
-    <li><a href="index.html">Specification</a></li>
+    <li><a href="index.html">libpkl</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">0.33.0-dev</button>
   <div class="version-menu">
     <a class="version is-current" href="index.html">0.33.0-dev</a>
-    <a class="version" href="../../current/bindings-specification/index.html">0.32.1</a>
-    <a class="version" href="../../0.31.1/bindings-specification/index.html">0.31.1</a>
-    <a class="version" href="../../0.30.2/bindings-specification/index.html">0.30.2</a>
-    <a class="version" href="../../0.29.1/bindings-specification/index.html">0.29.1</a>
-    <a class="version" href="../../0.28.2/bindings-specification/index.html">0.28.2</a>
-    <a class="version" href="../../0.27.2/bindings-specification/index.html">0.27.2</a>
-    <a class="version" href="../../0.26.3/bindings-specification/index.html">0.26.3</a>
-    <a class="version" href="../../0.25.3/bindings-specification/index.html">0.25.3</a>
+    <a class="version is-missing" href="../../current/index.html">0.32.1</a>
+    <a class="version is-missing" href="../../0.31.1/index.html">0.31.1</a>
+    <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
+    <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
+    <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
+    <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
+    <a class="version is-missing" href="../../0.26.3/index.html">0.26.3</a>
+    <a class="version is-missing" href="../../0.25.3/index.html">0.25.3</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/main/docs/modules/bindings-specification/pages/index.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/main/docs/modules/libpkl/pages/index.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Language Binding Specification</h1>
+<h1 class="page">libpkl</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl can be embedded within any host application.
-The host application has access to low level controls.
-It is able to manage the lifecycle of evaluators, as well as provide custom modules and resources to Pkl.</p>
+<p>libpkl is a C library for driving Pkl evaluation.</p>
 </div>
 <div class="paragraph">
-<p>Pkl can be embedded in one of two ways:</p>
+<p>It is designed to be a low-level API that interacts with Pkl via the <a href="../bindings-specification/message-passing-api.html" class="xref page">message passing API</a>.
+It is meant to be paired with higher level logic written in a host language within the context of a Pkl language binding library.
+The higher level logic deals with implementing the evaluator API, and serializing/deserializing messages according to the message passing API.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>By spawning <a href="../pkl-cli/index.html#command-server" class="xref page"><code>pkl server</code></a> as a subprocess, and communicating with it via STDIN/STDOUT.</p>
-</li>
-<li>
-<p>By linking to the <a href="../libpkl/index.html" class="xref page">libpkl library</a>.</p>
-</li>
-</ol>
+</div>
+</div>
+<div class="sect1">
+<h2 id="linking-to-libpkl"><a class="anchor" href="#linking-to-libpkl"></a><a class="link" href="#linking-to-libpkl">Linking to libpkl</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is possible to link to libpkl either as a static library or a dynamic library.</p>
 </div>
 <div class="paragraph">
-<p>When embedded, communication between a host application and Pkl happens via message passing.
-The message passing specification can be found in <a href="message-passing-api.html" class="xref page">Message Passing API</a>.</p>
+<p>Statically linking to libpkl means that it is possible to copy libpkl&#8217;s library code directly into your own library or executable at compile time, meaning that it is self-contained.
+However, this impacts the binary size of your application, as libpkl&#8217;s library files are around 100MB.</p>
 </div>
 <div class="paragraph">
-<p>For examples of language bindings in practice, review the <a href="https://github.com/apple/pkl-go">pkl-go</a>, or the <a href="https://github.com/apple/pkl-swift">pkl-swift</a> codebases.</p>
+<p>On the other hand, dynamically linking to libpkl has negligible impact on binary size, but requires that end users have libpkl installed on their OS.</p>
 </div>
-<div class="admonitionblock note">
-<table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="distribution"><a class="anchor" href="#distribution"></a><a class="link" href="#distribution">Distribution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We publish archives that contain header files, as well as both shared and static libraries.</p>
+</div>
+<div class="paragraph">
+<p>The distributions are published as releases on GitHub, and can be downloaded for the appropriate OS/architecture.</p>
+</div>
+<div class="paragraph">
+<p>The archives contain both statically linked and dynamically linked binaries for each OS.</p>
+</div>
+<div class="paragraph">
+<p>The archive has the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+└── libpkl-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;
+    ├── include
+    │   └── pkl.h
+    ├── lib
+    │   ├── libpkl.&lt;static library extension&gt;
+    │   ├── libpkl.&lt;dynamic library extension&gt;
+    │   └── pkgconfig
+    │       └── libpkl.pc
+    ├── LICENSE.txt
+    ├── README.md
+    └── THIRD-PARTY-NOTICES.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The file extensions are as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Pkl&#8217;s Java and Kotlin libraries binds to Pkl directly, and do not use message passing.
-</td>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">Static Library Extension</th>
+<th class="tableblock halign-left valign-top">Dynamic library extension</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">macOS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dylib</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.so</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.lib</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dll</code></p></td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="features-of-a-language-binding"><a class="anchor" href="#features-of-a-language-binding"></a><a class="link" href="#features-of-a-language-binding">Features of a language binding</a></h2>
+<h2 id="building-libpkl-from-source"><a class="anchor" href="#building-libpkl-from-source"></a><a class="link" href="#building-libpkl-from-source">Building libpkl from source</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A language binding for Pkl should generally have the following components:</p>
+<p>To build libpkl from source, the apple/pkl repository first must be cloned down to a host OS.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>A client that either spawns <code>pkl server</code> or links to <code>libpkl</code>, and talks to it using message passing.</p>
-</li>
-<li>
-<p>A deserializer that turns <a href="binary-encoding.html" class="xref page">pkl binary encoding</a> into a structure in the host language.</p>
-</li>
-<li>
-<p>A code generator that transforms Pkl schemas into schemas written in the host language.
-The code generator is mostly written in Pkl, with a lightweight executable that acts as the glue layer.
-For examples of code generators, consult <a href="https://github.com/apple/pkl-go/tree/main/codegen">pkl-go</a> and <a href="https://github.com/apple/pkl-swift/tree/main/codegen">pkl-swift</a>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="sample-flow"><a class="anchor" href="#sample-flow"></a><a class="link" href="#sample-flow">Sample flow</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Here is a sample flow for evaluating a module with the following contents:</p>
+<p>Build machine requirements:</p>
 </div>
-<div class="listingblock">
-<div class="title">file:///path/to/myModule.pkl</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">module</span> <span class="hljs-title class_">MyModule</span>
-
-<span class="hljs-property">theModules</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">import*</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;customfs:/*.pkl&quot;</span><span class="hljs-punctuation">)</span></code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Client sends <a href="message-passing-api.html#create-evaluator-request" class="xref page">Create Evaluator Request</a>, including <code>customfs</code> as a custom module reader.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x20,
-  {
-    "requestId": 135,
-    "allowedModules": ["pkl:", "repl:", "file:", "customfs:"],
-    "clientModuleReaders": [
-      {
-        "scheme": "customfs",
-        "hasHierarchicalUris": true,
-        "isGlobbable": true,
-        "isLocal": true
-      }
-    ]
-  }
-]</code></pre>
-</div>
-</div>
+<p>Java 21 or higher</p>
 </li>
 <li>
-<p>Server sends <a href="message-passing-api.html#create-evaluator-response" class="xref page">Create Evaluator Response</a>, with an evaluator id.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x21,
-  {
-    "requestId": 135,
-    "evaluatorId": -135901
-  }
-]</code></pre>
-</div>
-</div>
+<p>zlib</p>
 </li>
 <li>
-<p>Client sends <a href="message-passing-api.html#evaluate-request" class="xref page">Evaluate Request</a>, providing the module&#8217;s URI.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x23,
-  {
-    "requestId": 9805131,
-    "evaluatorId": -13901,
-    "moduleUri": "file:///path/to/myModule.pkl"
-  }
-]</code></pre>
-</div>
-</div>
+<p>C compiler</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cc</code> (gcc, clang) toolchain on Unix</p>
 </li>
 <li>
-<p>During evaluation, server evaluates <code>import*("customfs:/*.pkl")</code>, and sends <a href="message-passing-api.html#list-modules-request" class="xref page">List Modules Request</a>.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x2c,
-  {
-    "requestId": -6478924,
-    "evaluatorId": -13901,
-    "uri": "customfs:/"
-  }
-]</code></pre>
-</div>
+<p>MSVC toolchain on Windows</p>
+</li>
+</ul>
 </div>
 </li>
-<li>
-<p>Client responds with <a href="message-passing-api.html#list-modules-response" class="xref page">List Modules Response</a>.
-In our pretend scenario, there is only one file; <code>foo.pkl</code>.</p>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x2d,
-  {
-    "requestId": -6478924,
-    "evaluatorId": -13901,
-    "pathElements": [
-      {
-        "name": "foo.pkl",
-        "isDirectory": false
-      }
-    ]
-  }
-]</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">git clone git@github.com:apple/pkl.git
+cd pkl/
+./gradlew libpkl:buildNative</code></pre>
 </div>
 </div>
-</li>
-<li>
-<p>Server sends <a href="message-passing-api.html#read-module-request" class="xref page">Read Module Request</a> to read <code>foo.pkl</code>.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x28,
-  {
-    "requestId": 36408291,
-    "evaluatorId": -13901,
-    "uri": "customfs:/foo.pkl"
-  }
-]</code></pre>
+<div class="paragraph">
+<p>The resulting archive will be written to <code>libpkl/build/distributions</code>.</p>
 </div>
-</div>
-</li>
-<li>
-<p>Client responds with the module&#8217;s contents</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x29,
-  {
-    "requestId": 36408291,
-    "evaluatorId": -13901,
-    "contents": "foo = 1"
-  }
-]</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Server finishes evaluation, and responds with the <a href="message-passing-api.html#evaluate-response" class="xref page">Evaluate Response</a>.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x24,
-  {
-    "requestId": 9805131,
-    "evaluatorId": -13901,
-    "result": &lt;pkl binary value&gt;
-  }
-]</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Client sends <a href="message-passing-api.html#close-evaluator" class="xref page">Close Evaluator</a>.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
-  0x22,
-  {
-    "evaluatorId": -13901
-  }
-]</code></pre>
-</div>
-</div>
-</li>
-</ol>
+<div class="paragraph">
+<p>Cross-compilation is not supported.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="debug-logs"><a class="anchor" href="#debug-logs"></a><a class="link" href="#debug-logs">Debug logs</a></h2>
+<h2 id="abi-compatibility"><a class="anchor" href="#abi-compatibility"></a><a class="link" href="#abi-compatibility">ABI compatibility</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Set the env var <code>PKL_DEBUG=1</code> to enable more verbose logging from Pkl.
-It is recommended that clients also use this environment variable to enable debug logs of their own.</p>
+<p>libpkl is ABI compatible across Pkl versions.
+The underlying Pkl version can be accessed using the <code>pkl_version()</code> method.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="../libpkl/index.html">libpkl</a></span>
-  <span class="next"><a href="message-passing-api.html">Message Passing API</a></span>
+  <span class="prev"><a href="../../../go/current/index.html">Go</a></span>
+  <span class="next"><a href="../bindings-specification/index.html">Specification</a></span>
 </nav>
 </article>
   </div>

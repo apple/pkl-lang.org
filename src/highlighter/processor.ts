@@ -17,8 +17,8 @@ import { Asciidoctor } from "asciidoctor";
 import { spawnSync } from "child_process";
 import TreeProcessor = Asciidoctor.Extensions.TreeProcessor;
 import calloutSubstituter from "./calloutSubstituter";
-import path from "path";
-import hljs from "highlight.js/lib/common"
+// @ts-ignore
+import { FancyAnsi } from "fancy-ansi";
 
 export function highlightPkl(source: string, lang: string): string {
   const pklHtmlHighlighterPath = process.env["PKL_HTML_HIGHLIGHTER"] || "pkl-html-highlighter";
@@ -40,6 +40,11 @@ export function highlightPkl(source: string, lang: string): string {
   return cmd.stdout;
 }
 
+function highlightAnsi(source: string): string {
+  const fancyAnsi = new FancyAnsi();
+  return fancyAnsi.toHtml(source);
+}
+
 function removeSubstitution (block: Asciidoctor.Document, name: string): string | undefined {
   // @ts-ignore
   if (block.hasSubstitution(name)) {
@@ -53,7 +58,7 @@ function processSourceBlock(processor: TreeProcessor, block: Asciidoctor.Documen
   // noinspection TypeScriptValidateJSTypes
   const blockLanguage: string = block.getAttribute("language")
     || block.getDocument().getAttribute("highlightjs-default-lang", "none");
-  if (blockLanguage != "pkl-snippet" && blockLanguage != "pkl" && blockLanguage != "pkl expression") {
+  if (blockLanguage != "pkl-snippet" && blockLanguage != "pkl" && blockLanguage != "pkl expression" && blockLanguage != "ansi") {
     return;
   }
   let callouts: ReturnType<typeof calloutSubstituter> | null = null;
@@ -71,7 +76,7 @@ function processSourceBlock(processor: TreeProcessor, block: Asciidoctor.Documen
     subs.splice(0, idx + 1)  // remove subs until specialcharacters (incl.)
   }
 
-  const html = highlightPkl(source, blockLanguage);
+  const html = blockLanguage == "ansi" ? highlightAnsi(source) : highlightPkl(source, blockLanguage);
   let lines = html.split("\n");
 
   if (callouts != null) {

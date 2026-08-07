@@ -346,22 +346,28 @@ port: Int(this > 1000) = 80
 [.hero-arrow]
 ↓
 
-[source,shell]
+[source,ansi]
 ----
-–– Pkl Error ––
-Type constraint `this > 1000` violated.
+[31m–– Pkl Error ––[0m
+[1;31mType constraint `this > 1000` violated.
 Value: 80
 
-3 | port: Int(this > 1000) = 80
-              ^^^^^^^^^^^
-at config#port (config.pkl, line 3)
+[0m    this > 1000
+    [2m│[0m    [2m│[0m
+    [32m80[0m   [36mfalse[0m[1;31m[0m
 
-3 | port: Int(this > 1000) = 80
-                             ^^
-at config#port (config.pkl, line 3)
+[33m[0m[2m3 | [0mport: Int([34mthis[0m [0m>[0m [32m1000[0m) = [32m80[0m
+[33m[0m              [31m^^^^^^^^^^^[0m
+[33m[0m[2mat config#port (file:///config.pkl, line 3[0m[2m)
+[0m[33m[0m
+[33m[0m[2m3 | [0mport: Int([34mthis[0m [0m>[0m [32m1000[0m) = [32m80[0m
+[33m[0m                             [31m^^[0m
+[33m[0m[2mat config#port (file:///config.pkl, line 3[0m[2m)
+[0m[33m[0m
+[33m[0m[2m131 | [0mrenderer.renderDocument(value)
+[33m[0m      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[33m[0m[2mat pkl.base#Module.output.text
 
-106 | text = renderer.renderDocument(value)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ----
 
 ======

@@ -414,20 +414,26 @@ Visual Studio Code, and Neovim, and also provide the Pkl Language Server so you 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">–– Pkl Error ––
-Type constraint `this &gt; 1000` violated.
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text"><span style="color:var(--ansi-red, #cc0000);">–– Pkl Error ––</span>
+<span style="color:var(--ansi-red, #cc0000);font-weight:var(--ansi-bold-font-weight, 600);">Type constraint `this &gt; 1000` violated.
 Value: 80
 
-3 | port: Int(this &gt; 1000) = 80
-              ^^^^^^^^^^^
-at config#port (config.pkl, line 3)
+</span>    this &gt; 1000
+    <span style="opacity:var(--ansi-dim-opacity, 0.7);">│</span>    <span style="opacity:var(--ansi-dim-opacity, 0.7);">│</span>
+    <span style="color:var(--ansi-green, #4e9a06);">80</span>   <span style="color:var(--ansi-cyan, #06989a);">false</span><span style="color:var(--ansi-red, #cc0000);font-weight:var(--ansi-bold-font-weight, 600);"></span>
 
-3 | port: Int(this &gt; 1000) = 80
-                             ^^
-at config#port (config.pkl, line 3)
-
-106 | text = renderer.renderDocument(value)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</code></pre>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">3 | </span>port: Int(<span style="color:var(--ansi-blue, #3465a4);">this</span> &gt; <span style="color:var(--ansi-green, #4e9a06);">1000</span>) = <span style="color:var(--ansi-green, #4e9a06);">80</span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span>              <span style="color:var(--ansi-red, #cc0000);">^^^^^^^^^^^</span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">at config#port (file:///config.pkl, line 3</span><span style="opacity:var(--ansi-dim-opacity, 0.7);">)
+</span><span style="color:var(--ansi-yellow, #c4a000);"></span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">3 | </span>port: Int(<span style="color:var(--ansi-blue, #3465a4);">this</span> &gt; <span style="color:var(--ansi-green, #4e9a06);">1000</span>) = <span style="color:var(--ansi-green, #4e9a06);">80</span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span>                             <span style="color:var(--ansi-red, #cc0000);">^^</span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">at config#port (file:///config.pkl, line 3</span><span style="opacity:var(--ansi-dim-opacity, 0.7);">)
+</span><span style="color:var(--ansi-yellow, #c4a000);"></span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">131 | </span>renderer.renderDocument(value)
+<span style="color:var(--ansi-yellow, #c4a000);"></span>      <span style="color:var(--ansi-red, #cc0000);">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span style="color:var(--ansi-yellow, #c4a000);"></span><span style="opacity:var(--ansi-dim-opacity, 0.7);">at pkl.base#Module.output.text
+</span></code></pre>
 </div>
 </div>
 </div>

@@ -2662,15 +2662,14 @@ They are useful for unit tests, where the behavior of functions, types, or any e
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">$ pkl test math.pkl
-module math
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">module math
   facts
-    ✘ one
-       1 + 5 == 3 (file:///math.pkl, line 8)
-         │   │
-         6   false
+    <span style="color:var(--ansi-red, #cc0000);">✘ </span><span style="opacity:var(--ansi-dim-opacity, 0.7);">one</span>
+       1 + 5 == 3 <span style="opacity:var(--ansi-dim-opacity, 0.7);">(file:///math.pkl, line 7</span><span style="opacity:var(--ansi-dim-opacity, 0.7);">)</span>
+         <span style="opacity:var(--ansi-dim-opacity, 0.7);">│</span>   <span style="opacity:var(--ansi-dim-opacity, 0.7);">│</span>
+         <span style="color:var(--ansi-green, #4e9a06);">6</span>   <span style="color:var(--ansi-cyan, #06989a);">false</span>
 
-0.0% tests pass [1/1 failed], 66.6% asserts pass [1/3 failed]</code></pre>
+<span style="color:var(--ansi-red, #cc0000);">0.0% tests pass</span> [1/1 failed], <span style="color:var(--ansi-red, #cc0000);">66.6% asserts pass</span> [1/3 failed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2791,11 +2790,11 @@ The directory tree now looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">module test
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">module person
   examples
-    ✔ person
+    <span style="color:var(--ansi-green, #4e9a06);">✔ </span><span style="opacity:var(--ansi-dim-opacity, 0.7);">person</span>
 
-100.0% tests pass [1 passed], 100.0% asserts pass [1 passed]</code></pre>
+<span style="color:var(--ansi-green, #4e9a06);">100.0% tests pass</span> [1 passed], <span style="color:var(--ansi-green, #4e9a06);">100.0% asserts pass</span> [1 passed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2819,24 +2818,24 @@ The directory tree now looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">module test
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">module person
   examples
-    ✘ person
-       #0: (file:///test.pkl, line 13)
-         Expected: (file:///test.pkl-expected.pcf, line 3)
-         new {
-           firstName = "Johnny"
-           lastName = "Appleseed"
-           fullName = "Johnny Appleseed"
-         }
-         Actual: (file:///test.pkl-actual.pcf, line 3)
-         new {
-           firstName = "Sally"
-           lastName = "Appleseed"
-           fullName = "Sally Appleseed"
-         }
+    <span style="color:var(--ansi-red, #cc0000);">✘ </span><span style="opacity:var(--ansi-dim-opacity, 0.7);">person</span>
+       <span style="opacity:var(--ansi-dim-opacity, 0.7);">#0: </span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">(file:///person.pkl, line 13</span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">)</span><span style="color:var(--ansi-red, #cc0000);">
+         Expected: </span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">(file:///person.pkl-expected.pcf, line 3</span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">)</span><span style="color:var(--ansi-red, #cc0000);">
+         </span><span style="color:var(--ansi-red, #cc0000);font-weight:var(--ansi-bold-font-weight, 600);">new {
+           firstName = &quot;Johnny&quot;
+           lastName = &quot;Appleseed&quot;
+           fullName = &quot;Johnny Appleseed&quot;
+         }</span><span style="color:var(--ansi-red, #cc0000);">
+         Actual: </span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">(file:///person.pkl-actual.pcf, line 3</span><span style="color:var(--ansi-red, #cc0000);opacity:var(--ansi-dim-opacity, 0.7);">)</span><span style="color:var(--ansi-red, #cc0000);">
+         </span><span style="color:var(--ansi-red, #cc0000);font-weight:var(--ansi-bold-font-weight, 600);">new {
+           firstName = &quot;Sally&quot;
+           lastName = &quot;Appleseed&quot;
+           fullName = &quot;Sally Appleseed&quot;
+         }</span>
 
-0.0% tests pass [1/1 failed], 0.0% asserts pass [1/1 failed]</code></pre>
+<span style="color:var(--ansi-red, #cc0000);">0.0% tests pass</span> [1/1 failed], <span style="color:var(--ansi-red, #cc0000);">0.0% asserts pass</span> [1/1 failed]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2882,7 +2881,7 @@ The directory tree now looks like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">$ pkl test person.pkl --overwrite
-module test
+module person
   examples
     ✍️ person
 

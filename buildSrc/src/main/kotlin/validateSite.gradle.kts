@@ -55,8 +55,8 @@ for (location in listOf("local", "remote")) {
   val htmlFiles =
       fileTree("${layout.buildDirectory.get()}/$location").matching {
         include("**/*.html")
-        // exclude validating HTML in package docs; these are generated from pkldoc and we care less if there's broken
-        // links
+        // exclude validating HTML in package docs; these are generated from pkldoc and we care less
+        // if there's broken links
         exclude("**/package-docs/**")
       }
 

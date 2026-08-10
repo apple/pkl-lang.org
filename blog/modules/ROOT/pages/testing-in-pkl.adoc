@@ -54,17 +54,17 @@ facts {
 
 Running this test provides a report about the failing test.
 
-[source,text]
+[source%ansi,text]
 ----
-$ pkl test math.pkl
 module math
   facts
-    ✘ one
-       1 + 5 == 3 (file:///math.pkl, line 8)
-         │   │
-         6   false
+    [31m✘ [0m[2mone[0m
+       [0m1 + 5 == 3 [2m(file:///math.pkl, line 7[0m[2m)[0m
+         [2m│[0m   [2m│[0m
+         [32m6[0m   [36mfalse[0m
 
-0.0% tests pass [1/1 failed], 66.6% asserts pass [1/3 failed]
+[31m0.0% tests pass[0m [1/1 failed], [31m66.6% asserts pass[0m [1/3 failed]
+
 ----
 
 Test failures show a _power assertion_ about the failing test (introduced in Pkl 0.31).
@@ -173,13 +173,13 @@ examples {
 
 Running `pkl test person.pkl` again now shows that it passes.
 
-[source]
+[source%ansi,text]
 ----
-module test
+module person
   examples
-    ✔ person
+    [32m✔ [0m[2mperson[0m
 
-100.0% tests pass [1 passed], 100.0% asserts pass [1 passed]
+[32m100.0% tests pass[0m [1 passed], [32m100.0% asserts pass[0m [1 passed]
 ----
 
 Now, we'll change "Johnny" to "Sally", to demonstrate a test failure.
@@ -199,26 +199,27 @@ Now, we'll change "Johnny" to "Sally", to demonstrate a test failure.
 
 Running `pkl test person.pkl` again fails.
 
-[source]
+[source%ansi,text]
 ----
-module test
+module person
   examples
-    ✘ person
-       #0: (file:///test.pkl, line 13)
-         Expected: (file:///test.pkl-expected.pcf, line 3)
-         new {
+    [31m✘ [0m[2mperson[0m
+       [2m#0: [31m(file:///person.pkl, line 13[0m[2;31m)[0m[31m
+         Expected: [2m(file:///person.pkl-expected.pcf, line 3[0m[2;31m)[0m[31m
+         [1mnew {
            firstName = "Johnny"
            lastName = "Appleseed"
            fullName = "Johnny Appleseed"
-         }
-         Actual: (file:///test.pkl-actual.pcf, line 3)
-         new {
+         }[0m[31m
+         Actual: [2m(file:///person.pkl-actual.pcf, line 3[0m[2;31m)[0m[31m
+         [1mnew {
            firstName = "Sally"
            lastName = "Appleseed"
            fullName = "Sally Appleseed"
-         }
+         }[0m
 
-0.0% tests pass [1/1 failed], 0.0% asserts pass [1/1 failed]
+[31m0.0% tests pass[0m [1/1 failed], [31m0.0% asserts pass[0m [1/1 failed]
+
 ----
 
 Because the test failed, Pkl writes a new file to the same directory. The directory tree now looks like this:
@@ -261,7 +262,7 @@ For intentional changes, add the `--overwrite` flag. This will overwrite the exp
 [source]
 ----
 $ pkl test person.pkl --overwrite
-module test
+module person
   examples
     ✍️ person
 

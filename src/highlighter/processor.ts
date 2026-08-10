@@ -58,7 +58,8 @@ function processSourceBlock(processor: TreeProcessor, block: Asciidoctor.Documen
   // noinspection TypeScriptValidateJSTypes
   const blockLanguage: string = block.getAttribute("language")
     || block.getDocument().getAttribute("highlightjs-default-lang", "none");
-  if (blockLanguage != "pkl-snippet" && blockLanguage != "pkl" && blockLanguage != "pkl expression" && blockLanguage != "ansi") {
+  const isAnsi = block.isOption("ansi");
+  if (blockLanguage != "pkl-snippet" && blockLanguage != "pkl" && blockLanguage != "pkl expression" && !isAnsi) {
     return;
   }
   let callouts: ReturnType<typeof calloutSubstituter> | null = null;
@@ -76,7 +77,7 @@ function processSourceBlock(processor: TreeProcessor, block: Asciidoctor.Documen
     subs.splice(0, idx + 1)  // remove subs until specialcharacters (incl.)
   }
 
-  const html = blockLanguage == "ansi" ? highlightAnsi(source) : highlightPkl(source, blockLanguage);
+  const html = isAnsi ? highlightAnsi(source) : highlightPkl(source, blockLanguage);
   let lines = html.split("\n");
 
   if (callouts != null) {

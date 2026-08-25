@@ -906,9 +906,26 @@ Possible values:</p>
 <summary class="title">--cache-dir</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>~/.pkl/cache</code><br>
-Example: <code>/path/to/module/cache/</code><br>
-The cache directory for storing packages.</p>
+<p>Example: <code>/path/to/module/cache/</code><br></p>
+</div>
+<div class="paragraph">
+<p>The cache directory for storing packages.</p>
+</div>
+<div class="paragraph">
+<p>If unset, defaults to the following locations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>$XDG_CACHE_HOME/pkl</code></p>
+</li>
+<li>
+<p><code>$LOCALAPPDATA/pkl/Cache</code> (on Windows only)</p>
+</li>
+<li>
+<p><code>~/.cache/pkl</code> (if <code>$XDG_CACHE_HOME</code> and <code>$LOCALAPPDATA</code> are both unset)</p>
+</li>
+</ol>
 </div>
 </div>
 </details>
@@ -981,7 +998,7 @@ Any symlinks are resolved before this check is performed.</p>
 <p>Default: (none)<br>
 Example: <code>mySettings.pkl</code><br>
 File path of the Pkl settings file to use.
-If not set, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+If not set, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>

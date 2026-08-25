@@ -584,8 +584,65 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <h2 id="noteworthy"><a class="anchor" href="#noteworthy"></a><a class="link" href="#noteworthy">Noteworthy <span class="small">🎶</span></a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
-
+<h3 id="cli-changes"><a class="anchor" href="#cli-changes"></a><a class="link" href="#cli-changes">CLI Changes</a></h3>
+<div class="sect3">
+<h4 id="default-file-locations"><a class="anchor" href="#default-file-locations"></a><a class="link" href="#default-file-locations">Default file locations</a></h4>
+<div class="paragraph">
+<p>For new setups, the CLI no longer stores anything under <code>~/.pkl</code> (<a href="https://github.com/apple/pkl/pull/1809">#1809</a>).</p>
+</div>
+<div class="paragraph">
+<p>It uses XDG-style locations on Unix and Known Folder locations on Windows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Concern</th>
+<th class="tableblock halign-left valign-top">Unix (Linux/macOS)</th>
+<th class="tableblock halign-left valign-top">Windows</th>
+<th class="tableblock halign-left valign-top">Legacy fallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Package cache</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.cache/pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$LOCALAPPDATA/pkl/Cache</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Settings file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.config/pkl/settings.pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$APPDATA/pkl/settings.pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.pkl/settings.pkl</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CA certificates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.config/pkl/cacerts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$APPDATA/pkl/cacerts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.pkl/cacerts</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">REPL history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.local/state/pkl/repl-history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$LOCALAPPDATA/pkl/repl-history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>On every OS, these locations can be overridden with XDG-style env vars.
+For example, setting <code>XDG_CACHE_HOME</code> will configure the cache directory.</p>
+</div>
+<div class="paragraph">
+<p>Note that the existing <code>~/.pkl/cache</code> directory is ignored, so Pkl will download packages to populate its cache if configured to do so.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -602,7 +659,7 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 </div>
 </div>
 <div class="sect2">
-<h3 id="xxx-3"><a class="anchor" href="#xxx-3"></a><a class="link" href="#xxx-3">XXX</a></h3>
+<h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
 
 </div>
 </div>

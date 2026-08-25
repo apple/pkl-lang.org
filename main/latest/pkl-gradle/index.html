@@ -989,7 +989,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -1073,7 +1073,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -1393,7 +1396,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -1477,7 +1480,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -1923,7 +1929,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -2007,7 +2013,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -2427,7 +2436,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -2511,7 +2520,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -2811,7 +2823,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -2895,7 +2907,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -3243,7 +3258,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -3500,7 +3518,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>
@@ -3778,7 +3799,7 @@ The Pkl settings module to use.
 This property accepts the same input types as the <code>sourceModules</code> property.</p>
 </div>
 <div class="paragraph">
-<p>If <code>null</code>, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+<p>If <code>null</code>, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -3862,7 +3883,10 @@ External properties that can be read by Pkl code with <code>read("prop:&lt;prope
 Example 1: <code>moduleCacheDir = layout.buildDirectory.dir("pkl-module-cache")</code><br>
 Example 2: <code>moduleCacheDir.fileValue file("/absolute/path/to/cache")</code><br>
 The cache directory for storing packages.
-If <code>null</code>, defaults to <code>~/.pkl/cache</code>.</p>
+If <code>null</code>, defaults to <code>~/.cache/pkl</code> on Unix or <code>%LOCALAPPDATA%/pkl/Cache</code> on Windows.</p>
+</div>
+<div class="paragraph">
+<p>This setting can also be configured using the <code>$XDG_CACHE_HOME</code> environment variable.</p>
 </div>
 </div>
 </details>

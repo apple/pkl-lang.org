@@ -1650,9 +1650,26 @@ Possible values:</p>
 <summary class="title">--cache-dir</summary>
 <div class="content">
 <div class="paragraph">
-<p>Default: <code>~/.pkl/cache</code><br>
-Example: <code>/path/to/module/cache/</code><br>
-The cache directory for storing packages.</p>
+<p>Example: <code>/path/to/module/cache/</code><br></p>
+</div>
+<div class="paragraph">
+<p>The cache directory for storing packages.</p>
+</div>
+<div class="paragraph">
+<p>If unset, defaults to the following locations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>$XDG_CACHE_HOME/pkl</code></p>
+</li>
+<li>
+<p><code>$LOCALAPPDATA/pkl/Cache</code> (on Windows only)</p>
+</li>
+<li>
+<p><code>~/.cache/pkl</code> (if <code>$XDG_CACHE_HOME</code> and <code>$LOCALAPPDATA</code> are both unset)</p>
+</li>
+</ol>
 </div>
 </div>
 </details>
@@ -1725,7 +1742,7 @@ Any symlinks are resolved before this check is performed.</p>
 <p>Default: (none)<br>
 Example: <code>mySettings.pkl</code><br>
 File path of the Pkl settings file to use.
-If not set, <code>~/.pkl/settings.pkl</code> or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
+If not set, <code>~/.config/pkl/settings.pkl</code> on Unix or <code>%APPDATA%/pkl/settings.pkl</code> on Windows (or the legacy <code>~/.pkl/settings.pkl</code>), or defaults specified in the <code>pkl.settings</code> standard library module are used.</p>
 </div>
 </div>
 </details>
@@ -2629,17 +2646,45 @@ it works as follows:</p>
 <p>The Pkl settings file allows to customize the CLI experience.</p>
 </div>
 <div class="paragraph">
-<p>A settings file is a Pkl module amending the <code>pkl.settings</code> standard library module.
-Its default location is <code>~/.pkl/settings.pkl</code>.
-To use a different settings file, set the <code>--settings</code> command line option, for example <code>--settings mysettings.pkl</code>.
-To enforce default settings, use <code>--settings pkl:settings</code>.
-The settings file is also honored by (and configurable through) the Gradle plugin and <code>CliEvaluator</code> API.</p>
+<p>A settings file is a Pkl module amending the <code>pkl.settings</code> standard library module.</p>
+</div>
+<div class="paragraph">
+<p>Unless configured explicitly, Pkl will look in the following locations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>$XDG_CONFIG_HOME/pkl/settings.pkl</code></p>
+</li>
+<li>
+<p><code>%APPDATA%/pkl/settings.pkl</code> (on Windows only)</p>
+</li>
+<li>
+<p><code>~/.config/pkl/settings.pkl</code></p>
+</li>
+<li>
+<p>Subdirectory <code>pkl/settings.pkl</code> within one of the paths described by <code>$XDG_CONFIG_DIRS</code></p>
+</li>
+<li>
+<p><code>/etc/xdg/pkl/settings.pkl</code></p>
+</li>
+<li>
+<p><code>~/.pkl/settings.pkl</code> (legacy location used by Pkl 0.32 and lower)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To use a different settings file, set the <code>--settings</code> command line option, for example <code>--settings mysettings.pkl</code>.
+To enforce default settings, use <code>--settings pkl:settings</code>.</p>
+</div>
+<div class="paragraph">
+<p>The settings file is also honored by (and configurable through) the Gradle plugin and <code>CliEvaluator</code> API.</p>
 </div>
 <div class="paragraph">
 <p>Here is a typical settings file:</p>
 </div>
 <div class="listingblock">
-<div class="title">~/.pkl/settings.pkl</div>
+<div class="title">~/.config/pkl/settings.pkl</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
 
@@ -2680,13 +2725,38 @@ These certificates can be overridden via either of the two options:</p>
 <p>Set them directly via the CLI option <code>--ca-certificates &lt;path&gt;</code>.</p>
 </li>
 <li>
-<p>Add them to a directory at path <code>~/.pkl/cacerts/</code>.</p>
+<p>Add them to a user directory.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
+<p>If CA certificates are not explicitly configured, Pkl will look in the following locations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>$XDG_CONFIG_HOME/pkl/cacerts</code></p>
+</li>
+<li>
+<p><code>%APPDATA%/pkl/cacerts</code> (on Windows only)</p>
+</li>
+<li>
+<p><code>~/.config/pkl/cacerts</code></p>
+</li>
+<li>
+<p>Subdirectory <code>pkl/cacerts</code> within one of the paths described by <code>$XDG_CONFIG_DIRS</code></p>
+</li>
+<li>
+<p><code>/etc/xdg/pkl/cacerts</code></p>
+</li>
+<li>
+<p><code>~/.pkl/cacerts</code> (legacy location used by Pkl 0.32 and lower)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
 <p>Both these options will <strong>replace</strong> the default CA certificates bundled with Pkl.<br>
-The CLI option takes precedence over the certificates in <code>~/.pkl/cacerts/</code>.<br>
+The CLI option takes precedence over the certificates in the cacerts directory.<br>
 Certificates need to be X.509 certificates in PEM format.</p>
 </div>
 </div>

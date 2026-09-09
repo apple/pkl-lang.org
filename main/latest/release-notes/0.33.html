@@ -659,6 +659,20 @@ For example, setting <code>XDG_CACHE_HOME</code> will configure the cache direct
 </div>
 </div>
 <div class="sect2">
+<h3 id="type-check-changes-for-classt"><a class="anchor" href="#type-check-changes-for-classt"></a><a class="link" href="#type-check-changes-for-classt">Type check changes for <code>Class&lt;T&gt;</code></a></h3>
+<div class="paragraph">
+<p>In prior versions of Pkl, type arguments to the <code>Class</code> type were erased.
+Any <code>Class</code> value would typecheck against <code>Class&lt;T&gt;</code> for any value of <code>T</code>.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, this erasure has been removed.
+A <code>Class</code> value typechecked against <code>Class&lt;T&gt;</code> must be a subclass of <code>T</code>.</p>
+</div>
+<div class="paragraph">
+<p>If <code>T</code> does not resolve to a class type (i.e. it is a union type, nullable type, string literal type, parameterized type, or <code>nothing</code>), the type check will always fail.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
 
 </div>

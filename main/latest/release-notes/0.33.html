@@ -673,6 +673,23 @@ A <code>Class</code> value typechecked against <code>Class&lt;T&gt;</code> must 
 </div>
 </div>
 <div class="sect2">
+<h3 id="standard-library-external-module-properties-are-now-marked-const"><a class="anchor" href="#standard-library-external-module-properties-are-now-marked-const"></a><a class="link" href="#standard-library-external-module-properties-are-now-marked-const">Standard library <code>external</code> module properties are now marked <code>const</code></a></h3>
+<div class="paragraph">
+<p>Previously, module properties in <code>pkl:math</code> and <code>pkl:release</code> could be overriden by amending the module.
+Doing this makes little sense—these value are constants and overriding them by amending their module would be odd.</p>
+</div>
+<div class="paragraph">
+<p>This is a breaking change for code that looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bogusMath</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;pkl:math&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">minInt</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">1</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
 
 </div>

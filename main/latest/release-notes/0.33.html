@@ -690,8 +690,54 @@ Doing this makes little sense—these value are constants and overriding them by
 </div>
 </div>
 <div class="sect2">
-<h3 id="xxx-2"><a class="anchor" href="#xxx-2"></a><a class="link" href="#xxx-2">XXX</a></h3>
+<h3 id="changes-to-join-method-on-list-set-and-listing"><a class="anchor" href="#changes-to-join-method-on-list-set-and-listing"></a><a class="link" href="#changes-to-join-method-on-list-set-and-listing">Changes to <code>join</code> method on <code>List</code>, <code>Set</code>, and <code>Listing</code></a></h3>
+<div class="paragraph">
+<p>The <code>join</code> method in <code>List</code>, <code>Set</code>, and <code>Listing</code> will now call the <code>toString()</code> method if overridden on an object (<a href="https://github.com/apple/pkl/pull/1872">#1872</a>).</p>
+</div>
+<div class="paragraph">
+<p>This is a breaking change, but is also considered a bugfix.</p>
+</div>
+<div class="paragraph">
+<p>The following snippet will produce different results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;{ My name is <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span> }&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Osprey&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Eagle&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">res</span> <span class="hljs-operator">=</span> birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">join</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\n</span>&quot;</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Currently, Pkl ignores the <code>toString()</code> override, and produces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  new Bird { name = &quot;Osprey&quot; }</span>
+<span class="hljs-string">  new Bird { name = &quot;Eagle&quot; }</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, the overridden <code>toString()</code> will be called, and produces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  { My name is Osprey }</span>
+<span class="hljs-string">  { My name is Eagle }</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

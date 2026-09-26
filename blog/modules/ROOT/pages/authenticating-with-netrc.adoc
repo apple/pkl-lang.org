@@ -1,0 +1,172 @@
+:date: 2026-09-10
+:author: Jordan Bar
+:author-url: https://github.com/ayashjorden
+
+= Authenticating with .netrc in Pkl
+
+:use-link-attrs:
+
+// tag::byline[]
+++++
+<div class="blog-byline">
+++++
+by https://github.com/ayashjorden[Jordan Bar] on September 10, 2026
+++++
+</div>
+++++
+// end::byline[]
+
+// tag::excerpt[]
+When evaluating Pkl code that fetches packages or imports modules over HTTP/HTTPS from private registries or internal servers, authentication is essential.
+Starting in Pkl 0.33, you can easily authenticate HTTP requests using your existing `.netrc` file with the new `pkl:EvaluatorSettings#Http.netRcHeaders` method.
+// end::excerpt[]
+
+== The challenge of managing HTTP credentials
+
+Pkl modules and packages can be loaded across the network using `https://` or `package://` URIs.
+While public packages and modules work out-of-the-box, enterprise environments frequently host packages on private artifact repositories (like Artifactory, Nexus, or GitHub Packages) or import configurations from internal services that require HTTP Basic authentication.
+
+Previously, configuring HTTP authentication in Pkl meant explicitly constructing header mappings in evaluator settings—often by reading custom environment variables and formatting the header programmatically:
+
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  headers {
+    ["https://internal.repo.corp/**"] {
+      ["Authorization"] = "Basic \(read("env:INTERNAL_REPO_TOKEN").base64)"
+    }
+  }
+}
+----
+
+While functional, this approach requires teams to maintain bespoke environment variable schemes and header boilerplate across developer workstations and CI runners.
+
+On Unix-like systems, standard command-line tools such as `curl` and `git` have long shared credentials via the standard `~/.netrc` file. Starting in Pkl 0.33, Pkl can plug directly into this existing credential store.
+
+== Introducing `netRcHeaders`
+
+The standard library class `pkl:EvaluatorSettings#Http` introduces the `netRcHeaders` method.
+Given the text content of a `.netrc` file, `netRcHeaders` parses its machine entries and returns a mapping of URL glob patterns to HTTP Basic `Authorization` headers:
+
+[source,pkl]
+----
+netRcHeaders(netrcText: String): Listing<ResourceMapping<Map<String, String>>>
+----
+
+Each machine entry in the `.netrc` file (except `default` entries) is mapped to both HTTP and HTTPS schemes:
+
+[source]
+----
+http{,s}://<machine>/** -> Authorization: Basic <base64(login:password)>
+----
+
+== Configuring Pkl to use `.netrc`
+
+To enable `.netrc` authentication for all your local Pkl evaluations, configure your user settings file:
+
+.~/.config/pkl/settings.pkl
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  headers = netRcHeaders(read?("file:~/.netrc") ?? "")
+}
+----
+
+NOTE: Pkl resolves user settings from `~/.config/pkl/settings.pkl` (or `$XDG_CONFIG_HOME/pkl/settings.pkl`), with fallback to `~/.pkl/settings.pkl`.
+
+Using `read?("file:~/.netrc") ?? ""` ensures that:
+
+. Pkl safely reads your `~/.netrc` if it exists.
+. If the file is absent (for example, on a fresh machine or in an unauthenticated environment), evaluation does not fail; it simply passes an empty string, resulting in no added headers.
+
+=== Combining with existing headers
+
+Because `headers` in `pkl:EvaluatorSettings#Http` accepts a `Listing`, you can easily combine `.netrc` entries with other static or dynamically configured headers:
+
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  // Combine custom header mappings with .netrc credentials
+  headers {
+    new {
+      uri = "https://internal.repo.corp/**"
+      value {
+        ["X-MyOrg-MyHeader"] = "SomeValue"
+      }
+    }
+    netRcHeaders(read?("file:~/.netrc") ?? "")
+  }
+}
+----
+
+== Example: Consuming private packages
+
+Imagine you have private packages hosted on an internal GitHub or Artifactory instance:
+
+.~/.netrc
+[source]
+----
+machine artifactory.corp.internal
+login developer
+password my-secret-api-key
+
+machine github.internal.corp
+login bot-account
+password ghp_PersonalAccessToken123
+----
+
+Make sure your `.netrc` permissions are restricted to your user:
+
+[source,bash]
+----
+chmod 600 ~/.netrc
+----
+
+With `settings.pkl` configured as above, any package download or HTTP import targeting `https://artifactory.corp.internal/...` or `https://github.internal.corp/...` automatically includes the appropriate `Authorization: Basic ...` header during evaluation:
+
+[source,bash]
+----
+# Automatically authenticates against artifactory.corp.internal using ~/.netrc
+pkl eval -m . myService.pkl
+----
+
+== Security design: Why `default` is omitted
+
+The standard `.netrc` format supports a `default` token, which provides a fallback login and password for any machine not explicitly named.
+
+In Pkl's `netRcHeaders`, **`default` entries are intentionally ignored**.
+Because Pkl configurations often resolve dependencies across diverse public and private endpoints, automatically sending fallback credentials to arbitrary domains would risk leaking sensitive corporate tokens to public hosts.
+Only machines explicitly listed in your `.netrc` file are matched and sent authentication headers.
+
+== CI and container environments
+
+In automated CI/CD pipelines, you can easily provide `.netrc` credentials using popular workflow actions (such as `extractions/netrc` in GitHub Actions) or by mounting your configuration file into runner containers.
+
+Alternatively, if creating a physical file in `~/.netrc` is inconvenient, you can supply `.netrc` contents directly from an environment variable using Pkl's `env:` reader:
+
+[source,pkl]
+----
+amends "pkl:settings"
+
+http {
+  headers = netRcHeaders(read?("env:NETRC") ?? read?("file:~/.netrc") ?? "")
+}
+----
+
+This allows your CI runner to inject credentials securely via environment variables (e.g. `NETRC`) or secrets managers without writing secrets to disk.
+
+== Summary
+
+The `netRcHeaders` feature bridges the gap between Pkl's hermetic evaluation model and everyday developer workflow tools:
+
+* **Centralized**: Reuses existing credentials already configured for `curl` and `git`.
+* **Safe**: Omission of `default` entries prevents credential leakage.
+* **Flexible**: Works with files, environment variables, or CI secrets.
+
+For more details on HTTP configuration in Pkl, check out the https://pkl-lang.org/main/current/pkl-cli/index.html#http[HTTP documentation] and the standard library reference for `pkl:EvaluatorSettings`.

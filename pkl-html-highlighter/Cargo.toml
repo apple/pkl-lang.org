@@ -5,12 +5,9 @@ edition = "2018"
 authors = ["pkl-oss@group.apple.com"]
 
 [dependencies]
-tree-sitter-highlight = "0.26.9"
+tree-sitter-highlight = "0.27.0"
 tree-sitter-pkl = { git = "https://github.com/apple/tree-sitter-pkl.git", rev = "v0.21.0" }
 clap = { version = "4.6.1", features = ["derive"] }
-
-[net]
-git-fetch-with-cli = true
 
 [[bin]]
 name = "pkl-html-highlighter"

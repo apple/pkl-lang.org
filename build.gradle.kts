@@ -111,13 +111,18 @@ val pklHtmlHighlighter =
       inputs.file("pkl-html-highlighter/Cargo.lock")
       inputs.file("pkl-html-highlighter/Cargo.toml")
       doFirst {
-        providers
-            .exec {
-              commandLine("cargo", "build")
-              workingDir = file("pkl-html-highlighter")
-            }
-            .result
-            .get()
+        val output = providers.exec {
+          commandLine("cargo", "build")
+          workingDir = file("pkl-html-highlighter")
+          isIgnoreExitValue = true
+        }
+        val result = output.result.get()
+
+        if (result.exitValue != 0) {
+          println("stdout:\n${output.standardOutput.asText.get()}")
+          println("stderr:\n${output.standardError.asText.get()}")
+          throw GradleException("pkl-html-highlighter compilation failed with exit code ${result.exitValue}")
+        }
       }
       outputs.file("pkl-html-highlighter/target/debug/pkl-html-highlighter")
     }

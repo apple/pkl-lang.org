@@ -97,7 +97,7 @@ pub fn highlight(contents: String, is_expr: bool) -> String {
 
     let mut highlighter = Highlighter::new();
     let events = highlighter
-        .highlight(&pkl_config, contents.as_bytes(), None, |_| None)
+        .highlight(&pkl_config, contents.as_bytes(), None, None, |_| None)
         .unwrap();
     let mut renderer = HtmlRenderer::new();
     renderer

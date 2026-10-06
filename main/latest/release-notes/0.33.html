@@ -575,8 +575,86 @@ To get started, follow <a href="../pkl-cli/index.html#installation" class="xref 
 <h2 id="highlights"><a class="anchor" href="#highlights"></a><a class="link" href="#highlights">Highlights <span class="small">💖</span></a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="xxx"><a class="anchor" href="#xxx"></a><a class="link" href="#xxx">XXX</a></h3>
+<h3 id="new-standard-library-module-pklnet"><a class="anchor" href="#new-standard-library-module-pklnet"></a><a class="link" href="#new-standard-library-module-pklnet">New standard library module: <code>pkl:net</code></a></h3>
+<div class="paragraph">
+<p>This release introduces a new standard library module, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net"><code>pkl:net</code></a>, which brings native URL support to Pkl (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>Its centerpiece is <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/Url"><code>net.Url</code></a>, a URL as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+A string is parsed with <code>net.Url()</code>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:net&quot;</span>
 
+<span class="hljs-keyword">local</span> <span class="hljs-property">url</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://user:pw@example.com:8080/a/b c?q=1&amp;q=2#f&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">scheme</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">scheme</span>                   <span class="hljs-comment">// &quot;https&quot;</span>
+<span class="hljs-property">rawUserInfo</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawUserInfo</span>         <span class="hljs-comment">// &quot;user:pw&quot;</span>
+<span class="hljs-property">authority</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">authority</span>             <span class="hljs-comment">// &quot;user:pw@example.com:8080&quot;</span>
+<span class="hljs-property">rawHost</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawHost</span>                 <span class="hljs-comment">// &quot;example.com&quot;</span>
+<span class="hljs-property">rawPort</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawPort</span>                 <span class="hljs-comment">// &quot;8080&quot;</span>
+<span class="hljs-property">port</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>                       <span class="hljs-comment">// 8080</span>
+<span class="hljs-property">rawPath</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawPath</span>                 <span class="hljs-comment">// &quot;/a/b%20c&quot;</span>
+<span class="hljs-property">path</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">path</span>                       <span class="hljs-comment">// &quot;/a/b c&quot;</span>
+<span class="hljs-property">pathSegments</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">pathSegments</span>       <span class="hljs-comment">// List(&quot;a&quot;, &quot;b c&quot;)</span>
+<span class="hljs-property">rawQuery</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawQuery</span>               <span class="hljs-comment">// &quot;q=1&amp;q=2&quot;</span>
+<span class="hljs-property">queryParameters</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">queryParameters</span> <span class="hljs-comment">// Mapping { [&quot;q&quot;] = Listing { &quot;1&quot;; &quot;2&quot; } }</span>
+<span class="hljs-property">rawFragment</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawFragment</span>         <span class="hljs-comment">// &quot;f&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Parsing is lenient: whatever cannot appear literally in a component is percent-encoded as its UTF-8 bytes, and whatever is already encoded is kept as written.
+Every component is held percent-encoded in its <code>raw</code> property, whether the input was encoded or not; the percent-decoded form of each is available as <code>userInfo</code>, <code>host</code>, <code>path</code>, <code>query</code>, and <code>fragment</code>.
+The derived <code>pathSegments</code> and <code>queryParameters</code> are percent-decoded too.</p>
+</div>
+<div class="paragraph">
+<p>A URL can also be built from its components, or derived from another URL by amending it.
+A component given this way has to be percent-encoded already:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">built</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> net<span class="hljs-punctuation">.</span><span class="hljs-title class_">Url</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">scheme</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https&quot;</span>
+  <span class="hljs-property">rawHost</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;example.com&quot;</span>
+  <span class="hljs-property">rawPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/a%20b&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/a%20b&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">base</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/a?q=1&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">amended</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>base<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">rawQuery</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/a&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each component is type-checked, so a URL built this way cannot be malformed.
+For example, a <code>rawPort</code> can only hold digits, only a URL with a <code>rawHost</code> can have one, and a <code>rawPath</code> of <code>"/a b"</code> is rejected.
+The decoded components are <code>fixed</code>, so they cannot be amended.</p>
+</div>
+<div class="paragraph">
+<p>A relative reference can be resolved against an absolute URL, which also removes dot segments from the result&#8217;s path:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">resolved</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/a/b&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">resolve</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;../c&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/c&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Comparing two URLs with <code>==</code> compares their components as written.
+To instead compare them as the <strong>syntax-based normalization</strong> of RFC 3986, where scheme and host are case-insensitive and percent-encoding is normalized, use <code>equals()</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">same</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;HTTPS://Example.com/%7Euser&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">equals</span><span class="hljs-punctuation">(</span>net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/~user&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The module also provides standalone helpers: <code>net.encodeUrlComponent()</code> and <code>net.decodeUrlComponent()</code> for percent-encoding, and <code>net.buildQuery()</code> and <code>net.parseQuery()</code> for <code>application/x-www-form-urlencoded</code> queries.</p>
+</div>
+<div class="paragraph">
+<p>Alongside this module, <code>pkl:base</code> gains <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String#isValidUrl"><code>String.isValidUrl</code></a>, which tells whether a string is a valid absolute URL.
+It is stricter than <code>net.Url()</code>, which also parses a relative reference, and which percent-encodes whatever cannot appear literally in a URL component.
+The <code>Uri</code> typealias is now defined in terms of it, which is a <a href="#uri-validates">breaking change</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -641,6 +719,57 @@ For example, setting <code>XDG_CACHE_HOME</code> will configure the cache direct
 </div>
 <div class="paragraph">
 <p>Note that the existing <code>~/.pkl/cache</code> directory is ignored, so Pkl will download packages to populate its cache if configured to do so.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-library-changes"><a class="anchor" href="#java-library-changes"></a><a class="link" href="#java-library-changes">Java Library Changes</a></h3>
+<div class="sect3">
+<h4 id="pkl-neturl-maps-to-java-net-uri"><a class="anchor" href="#pkl-neturl-maps-to-java-net-uri"></a><a class="link" href="#pkl-neturl-maps-to-java-net-uri"><code>pkl.net#Url</code> maps to <code>java.net.URI</code></a></h4>
+<div class="paragraph">
+<p>The JVM bindings now understand the new <code>pkl.net#Url</code> class (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>The Java and Kotlin code generators generate a <code>java.net.URI</code> for a property whose type is <code>net.Url</code>.</p>
+</div>
+<div class="paragraph">
+<p>Two conversions are added to <code>org.pkl.config.java.mapper.Conversions</code>, both part of the preconfigured set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pUrlToString</code>&#8201;&#8212;&#8201;gives the same result as <code>Url.toString()</code></p>
+</li>
+<li>
+<p><code>pUrlToURI</code>&#8201;&#8212;&#8201;throws <code>ConversionException</code> if the URL cannot be represented as a <code>java.net.URI</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library Changes</a></h3>
+<div class="sect3">
+<h4 id="pklnet"><a class="anchor" href="#pklnet"></a><a class="link" href="#pklnet"><code>pkl:net</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New module introduced.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pklbase"><a class="anchor" href="#pklbase"></a><a class="link" href="#pklbase"><code>pkl:base</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String#isValidUrl"><code>String.isValidUrl</code></a></p>
+</li>
+<li>
+<p>Changed typealias: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/#Uri"><code>Uri</code></a> is now <code>String(isValidUrl)</code> (<a href="#uri-validates">breaking change</a>)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -737,6 +866,30 @@ Doing this makes little sense—these value are constants and overriding them by
 <span class="hljs-string">  { My name is Eagle }</span>
 <span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uri-validates"><a class="anchor" href="#uri-validates"></a><a class="link" href="#uri-validates"><code>Uri</code> validates its value</a></h3>
+<div class="paragraph">
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/#Uri"><code>Uri</code></a> typealias in <code>pkl:base</code> is now <code>String(isValidUrl)</code> instead of a plain <code>String</code> (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>A value typed as <code>Uri</code> must be a valid absolute URL according to <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+This means that a relative reference, or a URL containing a character that must be percent-encoded, no longer type-checks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">good</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/some%20path&quot;</span>
+
+<span class="hljs-property">bad1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;./some/path&quot;</span>                   <span class="hljs-comment">// throws: not absolute</span>
+<span class="hljs-property">bad2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/some path&quot;</span> <span class="hljs-comment">// throws: space must be percent-encoded</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Resource#uri"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/analyze#importGraph()"><code>analyze.importGraph()</code></a>, and the URI-valued properties of <code>pkl:Project</code>, <code>pkl:EvaluatorSettings</code> and <code>pkl:DocPackageInfo</code>.</p>
+</div>
+<div class="paragraph">
+<p>As a consequence, an invalid URI is now reported as a type constraint violation at the point where it is set, rather than as an error raised later by whatever consumes it.</p>
 </div>
 </div>
 </div>

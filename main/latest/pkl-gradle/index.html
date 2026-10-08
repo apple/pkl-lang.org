@@ -1744,6 +1744,25 @@ Whether to generate config classes for use with Spring Boot.</p>
 </div>
 </details>
 <details>
+<summary class="title">springBootConfigurationProperties: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code><br>
+Example: <code>springBootConfigurationProperties = ["my.mod": "", "my.mod#Server": "server"]</code><br>
+Explicitly configures which generated classes receive the Spring Boot <code>@ConfigurationProperties</code> annotation, and with what prefix.
+Only applies if <code>generateSpringBootConfig</code> is <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>The key is the Pkl class name (for example, <code>my.mod</code> for a module class, or <code>my.mod#Server</code> for a class within a module), and the value is the annotation&#8217;s prefix.
+An empty value generates a bare <code>@ConfigurationProperties</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>If this property is empty, the annotations are inferred from the structure of the input modules.
+If this property is set, no annotations are inferred, and only the specified classes are annotated.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">implementSerializable: Property&lt;Boolean&gt;</summary>
 <div class="content">
 <div class="paragraph">
@@ -2247,6 +2266,25 @@ The Gradle source set that generated code is compiled together with.</p>
 <p>Default: <code>false</code><br>
 Example: <code>generateSpringBootConfig = true</code><br>
 Whether to generate config classes for use with Spring Boot.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">springBootConfigurationProperties: MapProperty&lt;String, String&gt;</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: <code>[:]</code><br>
+Example: <code>springBootConfigurationProperties = ["my.mod": "", "my.mod#Server": "server"]</code><br>
+Explicitly configures which generated classes receive the Spring Boot <code>@ConfigurationProperties</code> annotation, and with what prefix.
+Only applies if <code>generateSpringBootConfig</code> is <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>The key is the Pkl class name (for example, <code>my.mod</code> for a module class, or <code>my.mod#Server</code> for a class within a module), and the value is the annotation&#8217;s prefix.
+An empty value generates a bare <code>@ConfigurationProperties</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>If this property is empty, the annotations are inferred from the structure of the input modules.
+If this property is set, no annotations are inferred, and only the specified classes are annotated.</p>
 </div>
 </div>
 </details>

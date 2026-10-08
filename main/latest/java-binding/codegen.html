@@ -850,6 +850,29 @@ Flag that indicates to generate config classes for use with Spring Boot.</p>
 </div>
 </details>
 <details>
+<summary class="title">--spring-boot-configuration-properties</summary>
+<div class="content">
+<div class="paragraph">
+<p>Default: (none)<br>
+Example: <code>my.mod#Server=server</code><br>
+Explicitly configures which generated classes receive the Spring Boot <code>@ConfigurationProperties</code> annotation, and with what prefix.
+Only applies if <code>--generate-spring-boot</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>The key is the Pkl class name (for example, <code>my.mod</code> for a module class, or <code>my.mod#Server</code> for a class within a module), and the value is the annotation&#8217;s prefix.
+An empty value generates a bare <code>@ConfigurationProperties</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>If this option is omitted, the annotations are inferred from the structure of the input modules.
+If this option is set, no annotations are inferred, and only the specified classes are annotated.</p>
+</div>
+<div class="paragraph">
+<p>Repeat this option to define multiple mappings.
+Values must be valid Spring Boot configuration properties prefixes.</p>
+</div>
+</div>
+</details>
+<details>
 <summary class="title">--implement-serializable</summary>
 <div class="content">
 <div class="paragraph">

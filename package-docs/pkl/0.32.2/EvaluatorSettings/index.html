@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>EvaluatorSettings (pkl:0.32.2) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../data/pkl/_/EvaluatorSettings/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.32.2/EvaluatorSettings/index.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.32.2");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.32.2" data-package-url-prefix="../" data-module-name="pkl.EvaluatorSettings" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a>
+      <h1 id="declaration-title">pkl.EvaluatorSettings<span id="declaration-version">0.32.2</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+        <li><a href="#_classes">Classes</a></li>
+        <li><a href="#_type-aliases">Type Aliases</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member">
+        <div class="member-signature">module <span class="name-decl">pkl.EvaluatorSettings</span></div>
+        <div class="doc-comment"><p>Common settings for Pkl's own evaluator.</p></div>
+        <dl class="member-info">
+          <dt class="">Module URI:</dt>
+          <dd><span class="import-uri">pkl:EvaluatorSettings</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dt class="">Pkl version:</dt>
+          <dd>0.32.2 or higher</dd>
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="output" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#output">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">output</span>: <a href="../base/ModuleOutput.html" class="name-ref">ModuleOutput</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L103-L136">Source</a></div>
+                <div class="doc-comment"><p>The output of this module.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Defaults to all module properties rendered as either Pcf or the format specified on the
+command line.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalProperties" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#externalProperties">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalProperties</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, <a href="../base/String.html" class="name-ref">String</a>&gt;?</div>
+                <div class="doc-comment"><p>The external properties available to Pkl, read using the <code>prop:</code> scheme.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="env" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#env">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">env</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, <a href="../base/String.html" class="name-ref">String</a>&gt;?</div>
+                <div class="doc-comment"><p>The environment variables available to Pkl, read using the <code>env:</code> scheme.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Example:</p>
+<pre><code>env {
+  [&quot;IS_PROD&quot;] = &quot;true&quot;
+}
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="allowedModules" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#allowedModules">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">allowedModules</span>: <a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../base/String.html" class="name-ref">String</a>(isRegex)&gt;?</div>
+                <div class="doc-comment"><p>The set of module URI patterns that can be imported.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Each element is a regular expression pattern that is tested against a module import.</p>
+<p>Modules are imported either through an amends or extends clause, an import clause, or an
+import expression.</p>
+<p>Example:</p>
+<pre><code>allowedModules {
+  &quot;https:&quot;
+  &quot;file:&quot;
+  &quot;package:&quot;
+  &quot;projectpackage:&quot;
+}
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="allowedResources" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#allowedResources">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">allowedResources</span>: <a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../base/String.html" class="name-ref">String</a>(isRegex)&gt;?</div>
+                <div class="doc-comment"><p>The set of resource URI patterns that can be imported.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Each element is a regular expression pattern that is tested against a resource read.</p>
+<p>Example:</p>
+<pre><code>allowedResources {
+  &quot;https:&quot;
+  &quot;file:&quot;
+  &quot;package:&quot;
+  &quot;projectpackage:&quot;
+  &quot;env:&quot;
+  &quot;prop:&quot;
+}
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="color" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#color">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">color</span>: (&quot;never&quot;|&quot;auto&quot;|&quot;always&quot;)?</div>
+                <div class="doc-comment"><p>When to format messages with ANSI color codes.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Possible values:</p>
+<ul>
+<li><code>&quot;never&quot;</code>: Never format</li>
+<li><code>&quot;auto&quot;</code>: Format if the process' stdin, stdout, or stderr are connected to a console.</li>
+<li><code>&quot;always&quot;</code>: Always format</li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="noCache" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#noCache">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">noCache</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a>?</div>
+                <div class="doc-comment"><p>Disables the file system cache for <code>package:</code> modules.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>When caching is disabled, packages are loaded over the network and stored in memory.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="modulePath" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#modulePath">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">modulePath</span>: <a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;?</div>
+                <div class="doc-comment"><p>A collection of jars, zips, or directories to be placed into the module path.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Module path modules and resources may be read and imported using the <code>modulepath:</code> scheme.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="timeout" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#timeout">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">timeout</span>: <a href="../base/Duration.html" class="name-ref">Duration</a>?</div>
+                <div class="doc-comment"><p>The duration after which evaluation of a source module will be timed out.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Note that a timeout is treated the same as a program error in that any subsequent source modules will not be evaluated.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="moduleCacheDir" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#moduleCacheDir">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">moduleCacheDir</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The directory where <code>package:</code> modules are cached.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rootDir" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#rootDir">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rootDir</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>Restricts access to file-based modules and resources to those located under this directory.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="http" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#http">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">http</span>: <a href="Http.html" class="name-ref">Http</a>?</div>
+                <div class="doc-comment"><p>Configuration of outgoing HTTP requests.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalModuleReaders" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#externalModuleReaders">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalModuleReaders</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, <a href="ExternalReader.html" class="name-ref">ExternalReader</a>&gt;?</div>
+                <div class="doc-comment"><p>Configuration for external module reader processes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="externalResourceReaders" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#externalResourceReaders">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">externalResourceReaders</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, <a href="ExternalReader.html" class="name-ref">ExternalReader</a>&gt;?</div>
+                <div class="doc-comment"><p>Configuration for external resource reader processes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="traceMode" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#traceMode">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">traceMode</span>: (&quot;compact&quot;|&quot;pretty&quot;)?</div>
+                <div class="doc-comment"><p>Defines options for the formatting of calls to the trace() method.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Possible values:</p>
+<ul>
+<li><code>&quot;compact&quot;</code>: All structures passed to trace() will be emitted on a single line.</li>
+<li><code>&quot;pretty&quot;</code>: All structures passed to trace() will be indented and emitted across multiple lines.</li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L49-L49">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L54-L54">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="../base/index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="index.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L60-L60">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L1981-L1981">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L1986-L1986">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L1991-L1991">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L1994-L1994">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L1997-L1997">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="relativePathTo()" class="anchor"> </div>
+            <div id="relativePathTo().other" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#relativePathTo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">relativePathTo</span>(<span class="param1">other</span>: <a href="../base/Module.html" class="name-ref">Module</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.32.2/stdlib/stdlib/base.pkl#L97-L97">Source</a></div>
+                <div class="doc-comment"><p>Returns the relative, descendent directory path between this module and <code>other</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no such path exists.</p>
+<p>For example, if module <code>mod1</code> has path <code>/dir1/mod1.pkl</code>, and module <code>mod2</code> has path
+<code>/dir1/dir2/dir3/mod2.pkl</code>, then <code>mod1.relativePathTo(mod2)</code> will return
+<code>List(&quot;dir2&quot;, &quot;dir3&quot;)</code>.</p>
+<p>A common use case is to compute the directory path between a template located at the root of a
+hierarchy (say <code>rootModule.pkl</code>) and the currently evaluated module (accessible via the
+<code>module</code> keyword):</p>
+<pre><code>import &quot;rootModule.pkl&quot; // self-import
+path = rootModule.relativePathTo(module)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="resolveForOs()" class="anchor"> </div>
+            <div id="resolveForOs().enclosingUri" class="anchor-param1"> </div>
+            <div id="resolveForOs().os" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#resolveForOs()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">resolveForOs</span>(<span class="param1">enclosingUri</span>: <a href="../base/index.html#Uri" class="name-ref">Uri</a>, <span class="param2">os</span>: <a href="../platform/OperatingSystem.html" class="name-ref">OperatingSystem</a>): <a href="index.html" class="name-ref">EvaluatorSettings</a></div>
+                <div class="doc-comment"><p>These evaluator settings, whose settings are resolved against <code>enclosingUri</code> using OS rules for
+<code>os</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="resolve()" class="anchor"> </div>
+            <div id="resolve().enclosingUri" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#resolve()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">resolve</span>(<span class="param1">enclosingUri</span>: <a href="../base/index.html#Uri" class="name-ref">Uri</a>): <a href="index.html" class="name-ref">EvaluatorSettings</a></div>
+                <div class="doc-comment"><p>These evaluator settings, whose settings are resolved to URIs against <code>enclosingUri</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The following settings are resolved:</p>
+<ul>
+<li><a href="index.html#modulePath"><code>modulePath</code></a></li>
+<li><a href="index.html#rootDir"><code>rootDir</code></a></li>
+<li><a href="index.html#moduleCacheDir"><code>moduleCacheDir</code></a></li>
+<li><a href="ExternalReader.html#executable"><code>ExternalReader.executable</code></a></li>
+<li><a href="ExternalReader.html#workingDir"><code>ExternalReader.workingDir</code></a></li>
+</ul>
+<p>Returns file paths based on the host OS filesystem.</p>
+<p>If <code>ExternalReader.workingDir</code> is <code>null</code>, it resolves to the <code>./</code> path off of
+<code>enclosingUri</code>.</p>
+<p>On POSIX-based systems (like macOS and linux), this resolves to paths such as <code>/path/to/dir</code>.</p>
+<p>On Windows, this resolves to drive letter paths such as <code>C:\path\to\dir</code>, or UNC paths such as
+<code>\\network\share\path\to\dir</code>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_classes" class="anchor"> </div>
+        <h2 class="member-group-title">Classes</h2>
+        <ul>
+          <li>
+            <div id="Http" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Http">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Http.html" class="name-decl">Http</a></div>
+                <div class="doc-comment"><p>Settings that control how Pkl talks to HTTP(S) servers.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="Proxy" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#Proxy">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="Proxy.html" class="name-decl">Proxy</a></div>
+                <div class="doc-comment"><p>Settings that control how Pkl talks to HTTP proxies.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ExternalReader" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#ExternalReader">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">class </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="ExternalReader.html" class="name-decl">ExternalReader</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_type-aliases" class="anchor"> </div>
+        <h2 class="member-group-title">Type Aliases</h2>
+        <ul>
+          <li>
+            <div id="HttpRewrite" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#HttpRewrite">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#HttpRewrite" class="name-decl">HttpRewrite</a> = <a href="../base/String.html" class="name-ref">String</a>(startsWith(Regex(&quot;https?://&quot;)), endsWith(&quot;/&quot;), hasNonEmptyHostname)</div>
+                <div class="doc-comment"><p>A key or value in <a href="Http.html#rewrites"><code>Http.rewrites</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="HttpHeaders" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#HttpHeaders">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#HttpHeaders" class="name-decl">HttpHeaders</a> = <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="index.html#HttpHeaderName" class="name-ref">HttpHeaderName</a>, (<a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="index.html#HttpHeaderValue" class="name-ref">HttpHeaderValue</a>&gt;|<a href="index.html#HttpHeaderValue" class="name-ref">HttpHeaderValue</a>)&gt;(keys.toList().isDistinctBy((it) -&gt; it.toLowerCase()))</div>
+                <div class="doc-comment"><p>A mapping of header names to header value(s).</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The mapping must have distinct header keys (case insensitive).</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="HttpHeaderName" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#HttpHeaderName">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#HttpHeaderName" class="name-decl">HttpHeaderName</a> = <a href="../base/String.html" class="name-ref">String</a>(isNotReservedHeaderName, doesNotStartWithReservedPrefix, hasValidHeaderNameSyntax, isNotBlank)</div>
+                <div class="doc-comment"><p>An HTTP header name.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It conforms to the following rules:</p>
+<ul>
+<li>It is not one of &quot;connection&quot;, &quot;keep-alive&quot;, &quot;content-length&quot;, &quot;expect&quot;, &quot;host&quot;, &quot;upgrade&quot;,
+&quot;te&quot;, &quot;transfer-encoding&quot;, &quot;trailer&quot; (case insensitive).</li>
+<li>It does not start with &quot;proxy-&quot; nor &quot;sec-&quot;.</li>
+<li>It consists of a-z, A-Z, or a character in &quot;!#$%&amp;'*+-.^_`|~&quot;.</li>
+<li>It is not a blank string.</li>
+</ul></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="HttpHeaderValue" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#HttpHeaderValue">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">typealias </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a href="index.html#HttpHeaderValue" class="name-decl">HttpHeaderValue</a> = <a href="../base/String.html" class="name-ref">String</a>(matches(Regex(#&quot;[\t\u0020-\u007E\u0080-\u00FF]*&quot;#)), length &lt; 4096)</div>
+                <div class="doc-comment"><p>An HTTP header value.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>It consists of ASCII characters between the range of 0x20 - 0x7E, and 0x80 - 0xFF (all visible
+ASCII characters), and also the tab character.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

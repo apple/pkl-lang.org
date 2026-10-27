@@ -3747,6 +3747,9 @@ Instead, use <a href="#fixed-properties"><code>fixed</code> properties</a> on th
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Methods may also be <a href="#generic-methods">generic</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -5465,7 +5468,8 @@ To do so, use a <code>trace</code> expression:</p>
 <a href="#projects">Projects</a><br>
 <a href="#external-readers">External Readers</a><br>
 <a href="#mirroring_packages">Mirroring packages</a><br>
-<a href="#references">References</a></p>
+<a href="#references">References</a><br>
+<a href="#generic-methods">Generic Methods</a></p>
 </div>
 <div class="sect2">
 <h3 id="meaning-of-new"><a class="anchor" href="#meaning-of-new"></a><a class="link" href="#meaning-of-new">Meaning of <code>new</code></a></h3>
@@ -9721,59 +9725,23 @@ Any type constraints within the new referent type are erased and type constraint
 </div>
 <div class="paragraph">
 <p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/ref/Reference" target="blank"><code>Reference</code></a> instances are created using the constructor method <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/ref/#Reference()" target="blank"><code>Reference()</code></a>.
-This method accepts three parameters:</p>
+This method accepts two type arguments and two parameters:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>domain</code> - An instance of a <code>ref.Domain</code> subclass; its type becomes the <code>D</code> type argument of the resulting <code>Reference</code> instance.</p>
+<p><code>D</code> - The type of the reference&#8217;s domain. Must be a subclass of <code>ref.Domain</code>.</p>
 </li>
 <li>
-<p><code>class</code> - A <code>Class</code> instance that will be the referent type of the returned <code>Reference</code>; it is the <code>T</code> type argument of the resulting instance.</p>
+<p><code>Referent</code> - The type the reference refers to.</p>
+</li>
+<li>
+<p><code>domain</code> - An instance of <code>D</code> that becomes the domain resulting <code>Reference</code> instance.</p>
 </li>
 <li>
 <p><code>data</code> - A domain-specific value used to identify the root or context of the reference.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>It is only possible to construct new references with a referent type that is a simple (non-generic) class type.
-To obtain a reference to values of other types (generic, typealias, nullable, union, etc.), libraries must wrap those types in a class:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:ref&quot;</span>
-
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">TypeHolder</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">$</span><span class="hljs-punctuation">:</span> <span class="hljs-operator">*</span><span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">UInt</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="hljs-punctuation">}</span>
-
-<span class="hljs-keyword">local</span> <span class="hljs-property">r</span><span class="hljs-punctuation">:</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">MyDomain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">?</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">UInt</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span>
-  ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-punctuation">(</span>myDomain<span class="hljs-punctuation">,</span> <span class="hljs-title class_">TypeHolder</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">null</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">$</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Define a "holder" class with a property of the desired type.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Access the <code>$</code> property of the reference to get a reference to the desired non-class type.</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s a realistic example of how references might be used:</p>
@@ -9783,7 +9751,7 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:ref&quot;</span>
 
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">Domain</span> <span class="hljs-keyword">extends</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Domain</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Domain</span> <span class="hljs-keyword">extends</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">AbstractDomain</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="hljs-keyword">function</span> <span class="hljs-title function_">renderReference</span><span class="hljs-punctuation">(</span><span class="hljs-params">reference</span><span class="hljs-punctuation">:</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Domain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Any</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span>
     <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>reference<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">getData</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-keyword">is</span> <span class="hljs-title class_">Task</span><span class="hljs-punctuation">)</span>
       <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span>path <span class="hljs-operator">=</span> reference<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">getPath</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">map</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">access</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> access<span class="hljs-punctuation">.</span><span class="hljs-variable">property</span> <span class="hljs-operator">??</span> access<span class="hljs-punctuation">.</span><span class="hljs-variable">key</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
@@ -9794,18 +9762,20 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
 
 <span class="hljs-keyword">typealias</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Domain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-params">data</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Any</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-variable">Reference</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">:</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Domain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-property">Domain</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> data<span class="hljs-punctuation">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
   <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Task</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-property">input1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="hljs-property">input1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span> <i class="conum" data-value="5"></i><b>(5)</b>
   <span class="hljs-property">input2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span>
 
-  <span class="hljs-keyword">hidden</span> <span class="hljs-keyword">fixed</span> <span class="hljs-property">outputs</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">TaskAOutputs</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">Domain</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">TaskAOutputs</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
+  <span class="hljs-keyword">hidden</span> <span class="hljs-keyword">fixed</span> <span class="hljs-property">outputs</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">TaskAOutputs</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Ref</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">:</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">TaskAOutputs</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">this</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="6"></i><b>(6)</b>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskAOutputs</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="6"></i><b>(6)</b>
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TaskAOutputs</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="7"></i><b>(7)</b>
   <span class="hljs-property">foo</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
   <span class="hljs-property">bar</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span>
 <span class="hljs-punctuation">}</span>
@@ -9815,12 +9785,12 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
   <span class="hljs-property">inputY</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Ref</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Int</span><span class="hljs-operator">&gt;</span>
 <span class="hljs-punctuation">}</span>
 
-<span class="hljs-property">tasks</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Task</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isDistinctBy</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="7"></i><b>(7)</b>
+<span class="hljs-property">tasks</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Task</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-title function_ invoke__">isDistinctBy</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="8"></i><b>(8)</b>
 
 <span class="hljs-property">output</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-property">renderer</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-property">converters</span> <span class="hljs-punctuation">{</span>
-      [ref<span class="hljs-punctuation">.</span><span class="hljs-variable">Reference</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="8"></i><b>(8)</b>
+      [ref<span class="hljs-punctuation">.</span><span class="hljs-variable">Reference</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-params">it</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> it<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="9"></i><b>(9)</b>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
@@ -9838,26 +9808,30 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Create a new base class that can be referenced. <code>Task</code> instances will be identified by their <code>name</code> value.</td>
+<td>For convenience, wrap the <code>Reference</code> constructor to pass appropriate the domain type and value.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>In a specific <code>Task</code> subclass, input values accept both literal values and references to the same type.</td>
+<td>Create a new base class that can be referenced. <code>Task</code> instances will be identified by their <code>name</code> value.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td><code>Task</code> subclasses that provide output values define an <code>outputs</code> property where the referent type is <code>TaskAOutputs</code>.</td>
+<td>In a specific <code>Task</code> subclass, input values accept both literal values and references to the same type.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>The <code>TaskAOutputs</code> class defines the possible runtime outputs of <code>TaskA</code> tasks. It is <code>abstract</code> and never instantiated, only used for producing references.</td>
+<td><code>Task</code> subclasses that provide output values define an <code>outputs</code> property where the referent type is <code>TaskAOutputs</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Users provide <code>Task</code> instances with unique <code>name</code> values.</td>
+<td>The <code>TaskAOutputs</code> class defines the possible runtime outputs of <code>TaskA</code> tasks. It is <code>abstract</code> and never instantiated, only used for producing references.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Users provide <code>Task</code> instances with unique <code>name</code> values.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
 <td>Delegate to <code>Domain</code> for rendering <code>Reference</code> values.</td>
 </tr>
 </table>
@@ -9915,6 +9889,62 @@ To obtain a reference to values of other types (generic, typealias, nullable, un
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="generic-methods"><a class="anchor" href="#generic-methods"></a><a class="link" href="#generic-methods">Generic Methods</a></h3>
+<div class="paragraph">
+<p>Methods may be declared as "generic", with types that are themselves parameters.
+Method type parameters may be used within the method anywhere else a type may be used: in a parameter&#8217;s type, in the return type, or within the method body (e.g. <a href="#defining-objects">object instantiation</a>, <a href="#type-tests">type tests</a>, <a href="#type-casts">type casts</a>).</p>
+</div>
+<div class="paragraph">
+<p>When calling a generic method, a caller may manually specify type arguments by writing <code>methodName::&lt;TypeArg1, TypeArg2&gt;(arg1, arg2)</code>.
+When no type arguments are provided, type checks of parameter types behave like <a href="#unknown-type"><code>unknown</code></a> and always succeed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Pigeon</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Hawk</span> <span class="hljs-punctuation">{</span>
+ <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">makeFlock</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-params">names</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>n <span class="hljs-keyword">in</span> names<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> n <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">pigeonFlock</span> <span class="hljs-operator">=</span> makeFlock<span class="hljs-punctuation">:</span><span class="hljs-punctuation">:</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Pigeon</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-string">&quot;Alice&quot;</span>; <span class="hljs-string">&quot;Bill&quot;</span>; <span class="hljs-string">&quot;Ruth&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="hljs-property">hawkFlock</span> <span class="hljs-operator">=</span> makeFlock<span class="hljs-punctuation">:</span><span class="hljs-punctuation">:</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Hawk</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-string">&quot;Florence&quot;</span>; <span class="hljs-string">&quot;Holly&quot;</span>; <span class="hljs-string">&quot;Jim&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Result: a <code>Listing</code> where every element is a <code>Pigeon</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Result: a <code>Listing</code> where every element is a <code>Hawk</code>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>::&lt;&gt;</code> syntax is colloquially known as the "turbofish", after <a href="https://doc.rust-lang.org/reference/glossary.html#turbofish">the same syntax in Rust</a>.
+Pkl requires this syntax for the same reason as Rust: to avoid parser ambiguity.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

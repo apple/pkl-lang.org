@@ -2,13 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>Encoding (pkg.pkl-lang.org/pkl-pantry/org.openapis.v3:2.2.1) • Packages</title>
+    <title>Encoding (pkg.pkl-lang.org/pkl-pantry/org.openapis.v3:2.2.2) • Packages</title>
     <script src="../../../../../scripts/pkldoc.js" defer="defer"></script>
     <script type="module">
       import perPackageData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/_/Encoding/index.json" with { type: "json" }
-      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/2.2.1/Encoding/index.json" with { type: "json" }
+      import perPackageVersionData from "../../../../../data/pkg.pkl-lang.org/pkl-pantry/org.openapis.v3/2.2.2/Encoding/index.json" with { type: "json" }
 
-      runtimeData.knownVersions(perPackageData.knownVersions, "2.2.1");
+      runtimeData.knownVersions(perPackageData.knownVersions, "2.2.2");
       runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
       runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
             </script>
@@ -22,10 +22,10 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../../../index.html">Packages</a></div>
-      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.openapis.v3" data-package-version="2.2.1" data-package-url-prefix="../" data-module-name="org.openapis.v3.Encoding" data-root-url-prefix="../../../../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkg.pkl-lang.org/pkl-pantry/org.openapis.v3" data-package-version="2.2.2" data-package-url-prefix="../" data-module-name="org.openapis.v3.Encoding" data-root-url-prefix="../../../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkg.pkl-lang.org/pkl-pantry/org.openapis.v3</a>
-      <h1 id="declaration-title">org.openapis.v3.Encoding<span id="declaration-version">2.2.1</span></h1>
+      <h1 id="declaration-title">org.openapis.v3.Encoding<span id="declaration-version">2.2.2</span></h1>
       <ul class="member-group-links">
         <li><a href="#_properties">Properties</a></li>
         <li><a href="#_methods">Methods</a></li>
@@ -35,9 +35,9 @@
         <div class="member-signature">module <span class="name-decl">org.openapis.v3.Encoding</span></div>
         <dl class="member-info">
           <dt class="">Module URI:</dt>
-          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/org.openapis.v3@2.2.1#/Encoding.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
+          <dd><span class="import-uri">package://pkg.pkl-lang.org/pkl-pantry/org.openapis.v3@2.2.2#/Encoding.pkl</span><i class="copy-uri-button material-icons">content_copy</i></dd>
           <dt class="">Source code:</dt>
-          <dd><a href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl">Encoding.pkl</a></dd>
+          <dd><a href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl">Encoding.pkl</a></dd>
           <dt class="runtime-data hidden">Known subtypes in package:</dt>
           <dd id="known-subtypes" class="runtime-data hidden"></dd>
           <dt class="runtime-data hidden">Known usages in package:</dt>
@@ -71,7 +71,7 @@ command line.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">contentType</span>: <a href="../MediaType/index.html#MediaTypeName" class="name-ref">MediaTypeName</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl#L28-28">Source</a></div>
+                <div class="member-signature"><span class="name-decl">contentType</span>: <a href="../MediaType/index.html#MediaTypeName" class="name-ref">MediaTypeName</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl#L28-28">Source</a></div>
                 <div class="doc-comment"><p>The Content-Type for encoding a specific property.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Default value depends on the property type: for string with format being binary – application/octet-stream; for
 other primitive types – text/plain; for object - application/json; for array – the default is defined based on
@@ -87,7 +87,7 @@ the inner type. The value can be a specific media type (e.g. application/json), 
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">headers</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/String.html" class="name-ref">String</a>, (<a href="../Header/index.html" class="name-ref">Header</a>|<a href="../Reference/index.html" class="name-ref">Reference</a>)&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl#L35-35">Source</a></div>
+                <div class="member-signature"><span class="name-decl">headers</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/String.html" class="name-ref">String</a>, (<a href="../Header/index.html" class="name-ref">Header</a>|<a href="../Reference/index.html" class="name-ref">Reference</a>)&gt;?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl#L35-35">Source</a></div>
                 <div class="doc-comment"><p>A map allowing additional information to be provided as headers, for
 example Content-Disposition.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>Content-Type is described separately and SHALL be ignored in this section. This property SHALL be ignored if the
@@ -102,7 +102,7 @@ request body media type is not a multipart.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">style</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl#L42-42">Source</a></div>
+                <div class="member-signature"><span class="name-decl">style</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/String.html" class="name-ref">String</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl#L42-42">Source</a></div>
                 <div class="doc-comment"><p>Describes how a specific property value will be serialized depending on its type.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>See Parameter Object for details on the style property. The behavior follows the same values as query parameters,
 including default values. This property SHALL be ignored if the request body media type is not
@@ -117,7 +117,7 @@ application/x-www-form-urlencoded.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">explode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl#L50-50">Source</a></div>
+                <div class="member-signature"><span class="name-decl">explode</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl#L50-50">Source</a></div>
                 <div class="doc-comment"><p>When this is true, property values of type array or object generate separate parameters for each value of the
 array, or key-value-pair of the map.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>For other types of properties this property has no effect. When style is form, the default value is true. For all
@@ -133,7 +133,7 @@ application/x-www-form-urlencoded.</p></div>
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="name-decl">allowReserved</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.1/packages/org.openapis.v3/Encoding.pkl#L57-57">Source</a></div>
+                <div class="member-signature"><span class="name-decl">allowReserved</span>: <a href="https://pkl-lang.org/package-docs/pkl/0.32.2/base/Boolean.html" class="name-ref">Boolean</a>?<a class="member-source-link" href="https://github.com/apple/pkl-pantry/blob/org.openapis.v3@2.2.2/packages/org.openapis.v3/Encoding.pkl#L57-57">Source</a></div>
                 <div class="doc-comment"><p>Determines whether the parameter value SHOULD allow reserved characters, as defined by RFC3986 :/?#<a href="not_found"></a>@!$&amp;'()*+,;=
 to be included without percent-encoding.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>The default value is false. This property SHALL be ignored if the request body media type is not

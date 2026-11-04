@@ -566,6 +566,18 @@ The higher level logic deals with implementing the evaluator API, and serializin
 </div>
 </div>
 <div class="sect1">
+<h2 id="installing-libpkl"><a class="anchor" href="#installing-libpkl"></a><a class="link" href="#installing-libpkl">Installing libpkl</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Currently, we do not publish libpkl.
+Therefore, libpkl needs to be built from source, by cloning this repository and running the steps laid out in <a href="#build-from-source">Building libpkl from source</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once built, it can be <a href="#linking-to-libpkl">linked against</a>, either statically or dynamically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="linking-to-libpkl"><a class="anchor" href="#linking-to-libpkl"></a><a class="link" href="#linking-to-libpkl">Linking to libpkl</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -578,74 +590,6 @@ However, this impacts the binary size of your application, as libpkl&#8217;s lib
 <div class="paragraph">
 <p>On the other hand, dynamically linking to libpkl has negligible impact on binary size, but requires that end users have libpkl installed on their OS.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="distribution"><a class="anchor" href="#distribution"></a><a class="link" href="#distribution">Distribution</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We publish archives that contain header files, as well as both shared and static libraries.</p>
-</div>
-<div class="paragraph">
-<p>The distributions are published as releases on GitHub, and can be downloaded for the appropriate OS/architecture.</p>
-</div>
-<div class="paragraph">
-<p>The archives contain both statically linked and dynamically linked binaries for each OS.</p>
-</div>
-<div class="paragraph">
-<p>The archive has the following structure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">.
-└── libpkl-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;
-    ├── include
-    │   └── pkl.h
-    ├── lib
-    │   ├── libpkl.&lt;shared library extension&gt;
-    │   ├── libpkl.&lt;static library extension&gt;
-    │   └── pkgconfig
-    │       ├── libpkl-static.pc
-    │       └── libpkl.pc
-    ├── LICENSE.txt
-    ├── README.md
-    └── THIRD-PARTY-NOTICES.txt</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The file extensions are as follows:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">OS</th>
-<th class="tableblock halign-left valign-top">Static Library Extension</th>
-<th class="tableblock halign-left valign-top">Shared library extension</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">macOS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dylib</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.so</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.lib</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dll</code></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
 <h3 id="linking-to-the-static-vs-shared-library"><a class="anchor" href="#linking-to-the-static-vs-shared-library"></a><a class="link" href="#linking-to-the-static-vs-shared-library">Linking to the static vs. shared library</a></h3>
 <div class="paragraph">
@@ -713,7 +657,7 @@ Windows can use pkg-config through the <a href="https://www.msys2.org/docs/pkgco
 </div>
 </div>
 <div class="sect1">
-<h2 id="building-libpkl-from-source"><a class="anchor" href="#building-libpkl-from-source"></a><a class="link" href="#building-libpkl-from-source">Building libpkl from source</a></h2>
+<h2 id="build-from-source"><a class="anchor" href="#build-from-source"></a><a class="link" href="#build-from-source">Building libpkl from source</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To build libpkl from source, the apple/pkl repository first must be cloned down to a host OS.</p>
@@ -769,6 +713,66 @@ cd pkl/
 </div>
 <div class="paragraph">
 <p>Cross-compilation is not supported.</p>
+</div>
+<div class="sect2">
+<h3 id="distribution-layout"><a class="anchor" href="#distribution-layout"></a><a class="link" href="#distribution-layout">Distribution layout</a></h3>
+<div class="paragraph">
+<p>The built distribution archive contains both statically linked and dynamically linked binaries for each OS.</p>
+</div>
+<div class="paragraph">
+<p>The archive has the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+└── libpkl-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;
+    ├── include
+    │   └── pkl.h
+    ├── lib
+    │   ├── libpkl.&lt;shared library extension&gt;
+    │   ├── libpkl.&lt;static library extension&gt;
+    │   └── pkgconfig
+    │       ├── libpkl-static.pc
+    │       └── libpkl.pc
+    ├── LICENSE.txt
+    ├── README.md
+    └── THIRD-PARTY-NOTICES.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The file extensions are as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">Static Library Extension</th>
+<th class="tableblock halign-left valign-top">Shared library extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">macOS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dylib</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.so</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.lib</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dll</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

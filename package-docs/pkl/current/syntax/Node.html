@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Node (pkl/syntax:0.33.0) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../data/pkl/_/syntax/Node.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.33.0/syntax/Node.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.33.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.33.0" data-package-url-prefix="../" data-module-name="pkl.syntax" data-class-name="Node" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.syntax</a>
+      <h1 id="declaration-title">Node<span id="declaration-version">0.33.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">Node</span></div>
+        <div class="doc-comment"><p>A generic, untyped node in the Pkl syntax tree.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>A node is either a <em>leaf</em>, carrying no <a href="Node.html#children"><code>children</code></a>, or a <em>branch</em>, whose content is its
+<code>children</code>. Either way, <a href="Node.html#text"><code>text</code></a> is the source code the node spans.</p></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="type" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#type">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a></div>
+                <div class="doc-comment"><p>The kind of this node.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="children" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#children">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">children</span>: <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="Node.html" class="name-ref">Node</a>&gt;(isTerminal.implies(isEmpty))</div>
+                <div class="doc-comment"><p>The child nodes, in source order. Empty for leaf nodes.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="parent" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#parent">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">parent</span>: <a href="Node.html" class="name-ref">Node</a>?</div>
+                <div class="doc-comment"><p>The parent node, or <code>null</code> for the root and for nodes not attached to a tree.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="text" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#text">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">text</span>: <a href="../base/String.html" class="name-ref">String</a>?(isTerminal.implies(this != null))</div>
+                <div class="doc-comment"><p>The verbatim source text for this node.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="FormattingRenderer.html"><code>FormattingRenderer</code></a> only renders this text if this is a <a href="Node.html#isTerminal">terminal</a> node.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="span" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#span">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">span</span>: <a href="Span.html" class="name-ref">Span</a>?</div>
+                <div class="doc-comment"><p>The source location of this node.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isTerminal" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#isTerminal">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isTerminal</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this is a terminal node; i.e. a node that spans a single token of the grammar.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A terminal never has <a href="Node.html#children"><code>children</code></a>, but not every node without <code>children</code> is a terminal.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a>&lt;this&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L56-L56">Source</a></div>
+                <div class="doc-comment"><p>Returns a string representation of <code>this</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is used to convert the values of string interpolation expressions to strings.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (this) -&gt; <a href="Node.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Node.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L62-L62">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2011-L2011">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2016-L2016">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2021-L2021">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2024-L2024">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2027-L2027">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fold()" class="anchor"> </div>
+            <div id="fold().Result" class="anchor-param1"> </div>
+            <div id="fold().initial" class="anchor-param2"> </div>
+            <div id="fold().operator" class="anchor-param3"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#fold()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fold</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">initial</span>: <a href="Node.html#fold().Result" class="name-ref">Result</a>, <span class="param3">operator</span>: (<a href="Node.html#fold().Result" class="name-ref">Result</a>, <a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="Node.html#fold().Result" class="name-ref">Result</a>): <a href="Node.html#fold().Result" class="name-ref">Result</a></div>
+                <div class="doc-comment"><p>Fold <code>operator</code> over this node and its descendants, top-down in pre-order.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Example:</p>
+<pre><code>// count the if-expressions in a module
+module.fold(0, (acc, n) -&gt; if (n.type == &quot;if_expr&quot;) acc + 1 else acc)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChild()" class="anchor"> </div>
+            <div id="findChild().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findChild()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChild</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns the first child matching <code>predicate</code>, searching depth-first in pre-order.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><em>Child</em> means any node below this one, at any depth.
+This node itself is not considered.
+The search stops at the first match.</p>
+<p>Throws if no child matches <code>predicate</code>.</p>
+<p>Example:</p>
+<pre><code>// the name of the first class declared in a module
+module.findChild((n) -&gt; n.type == &quot;class&quot;).findChildOfType(&quot;identifier&quot;).text
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChildOrNull()" class="anchor"> </div>
+            <div id="findChildOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findChildOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChildOrNull</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="Node.html" class="name-ref">Node</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Node.html#findChild()"><code>findChild()</code></a> but returns <code>null</code> if no child matches <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChildren()" class="anchor"> </div>
+            <div id="findChildren().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findChildren()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChildren</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="Node.html" class="name-ref">Node</a>&gt;</div>
+                <div class="doc-comment"><p>Returns every child matching <code>predicate</code>, in depth-first pre-order.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><em>Child</em> means any node below this one, at any depth.
+This node itself is not considered.
+A matching node is searched for further matches, so a match may contain another.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChildOfType()" class="anchor"> </div>
+            <div id="findChildOfType().type" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findChildOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChildOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns the first child whose <code>type</code> is <code>type</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no child has this type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChildOfTypeOrNull()" class="anchor"> </div>
+            <div id="findChildOfTypeOrNull().type" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findChildOfTypeOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChildOfTypeOrNull</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="Node.html" class="name-ref">Node</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Node.html#findChildOfType()"><code>findChildOfType()</code></a> but returns <code>null</code> if no child has this type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findChildrenOfType()" class="anchor"> </div>
+            <div id="findChildrenOfType().type" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findChildrenOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findChildrenOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="Node.html" class="name-ref">Node</a>&gt;</div>
+                <div class="doc-comment"><p>Returns every child whose <code>type</code> is <code>type</code>, in depth-first pre-order.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceChild()" class="anchor"> </div>
+            <div id="replaceChild().predicate" class="anchor-param1"> </div>
+            <div id="replaceChild().replacer" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceChild()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceChild</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>, <span class="param2">replacer</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="Node.html" class="name-ref">Node</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns this node with the first child matching <code>predicate</code> replaced by <code>replacer</code>'s result.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The child replaced is the one <a href="Node.html#findChild()"><code>findChild()</code></a> returns. If there is none, the tree is
+returned unchanged.
+The replacement is left as it is, so it is not searched for further matches.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceChildren()" class="anchor"> </div>
+            <div id="replaceChildren().predicate" class="anchor-param1"> </div>
+            <div id="replaceChildren().replacer" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceChildren()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceChildren</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>, <span class="param2">replacer</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="Node.html" class="name-ref">Node</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns this node with every child matching <code>predicate</code> replaced by <code>replacer</code>'s result.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The children replaced are those <a href="Node.html#findChildren()"><code>findChildren()</code></a> returns, except that a replacement is left
+as it is, so a match nested in another match is left to <code>replacer</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceChildOfType()" class="anchor"> </div>
+            <div id="replaceChildOfType().type" class="anchor-param1"> </div>
+            <div id="replaceChildOfType().replacer" class="anchor-param2"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#replaceChildOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceChildOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>, <span class="param2">replacer</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="Node.html" class="name-ref">Node</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns this node with the first child whose <code>type</code> is <code>type</code> replaced by <code>replacer</code>'s result.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>If there is no such child, the tree is returned unchanged.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="replaceChildrenOfType()" class="anchor"> </div>
+            <div id="replaceChildrenOfType().type" class="anchor-param1"> </div>
+            <div id="replaceChildrenOfType().replacer" class="anchor-param2"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#replaceChildrenOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">replaceChildrenOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>, <span class="param2">replacer</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="Node.html" class="name-ref">Node</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns this node with every child whose <code>type</code> is <code>type</code> replaced by <code>replacer</code>'s result.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findParent()" class="anchor"> </div>
+            <div id="findParent().predicate" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findParent()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findParent</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns the nearest parent matching <code>predicate</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no parent matches <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findParentOrNull()" class="anchor"> </div>
+            <div id="findParentOrNull().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findParentOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findParentOrNull</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="Node.html" class="name-ref">Node</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Node.html#findParent()"><code>findParent()</code></a> but returns <code>null</code> if no parent matches <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findParentOfType()" class="anchor"> </div>
+            <div id="findParentOfType().type" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#findParentOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findParentOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="Node.html" class="name-ref">Node</a></div>
+                <div class="doc-comment"><p>Returns the nearest parent whose <code>type</code> is <code>type</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if no parent has this type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findParentOfTypeOrNull()" class="anchor"> </div>
+            <div id="findParentOfTypeOrNull().type" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findParentOfTypeOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findParentOfTypeOrNull</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="Node.html" class="name-ref">Node</a>?</div>
+                <div class="doc-comment"><p>Same as <a href="Node.html#findParentOfType()"><code>findParentOfType()</code></a> but returns <code>null</code> if no parent has this type.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="findParents()" class="anchor"> </div>
+            <div id="findParents().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#findParents()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">findParents</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="Node.html" class="name-ref">Node</a>&gt;</div>
+                <div class="doc-comment"><p>Returns every parent matching <code>predicate</code>, nearest first.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasParent()" class="anchor"> </div>
+            <div id="hasParent().predicate" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#hasParent()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasParent</span>(<span class="param1">predicate</span>: (<a href="Node.html" class="name-ref">Node</a>) -&gt; <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether any parent matches <code>predicate</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasParentOfType()" class="anchor"> </div>
+            <div id="hasParentOfType().type" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#hasParentOfType()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasParentOfType</span>(<span class="param1">type</span>: <a href="index.html#NodeType" class="name-ref">NodeType</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells whether any parent's <code>type</code> is <code>type</code>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

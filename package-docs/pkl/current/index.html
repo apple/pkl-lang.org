@@ -2,13 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>pkl (0.32.2) • Packages</title>
+    <title>pkl (0.33.0) • Packages</title>
     <script src="../../scripts/pkldoc.js" defer="defer"></script>
     <script type="module">
       import perPackageData from "../../data/pkl/_/index.json" with { type: "json" }
-      import perPackageVersionData from "../../data/pkl/0.32.2/index.json" with { type: "json" }
+      import perPackageVersionData from "../../data/pkl/0.33.0/index.json" with { type: "json" }
 
-      runtimeData.knownVersions(perPackageData.knownVersions, "0.32.2");
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.33.0");
       runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
       runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
             </script>
@@ -22,10 +22,10 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../index.html">Packages</a></div>
-      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.32.2" data-package-url-prefix="" data-root-url-prefix="../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.33.0" data-package-url-prefix="" data-root-url-prefix="../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../index.html">Packages</a>
-      <h1 id="declaration-title">pkl<span id="declaration-version">0.32.2</span></h1>
+      <h1 id="declaration-title">pkl<span id="declaration-version">0.33.0</span></h1>
       <ul class="member-group-links">
         <li><a href="#_overview">Overview</a></li>
         <li><a href="#_modules">Modules</a></li>
@@ -36,13 +36,13 @@
         <div class="doc-comment"><p>The Pkl standard library.</p></div>
         <dl class="member-info">
           <dt class="">Pkl version:</dt>
-          <dd>0.32.2 or higher</dd>
+          <dd>0.33.0 or higher</dd>
           <dt class="">Authors:</dt>
           <dd>pkl-oss@group.apple.com</dd>
           <dt class="">Version:</dt>
-          <dd>0.32.2</dd>
+          <dd>0.33.0</dd>
           <dt class="">Source code:</dt>
-          <dd><a href="https://github.com/apple/pkl/blob/0.32.2/stdlib/">https://github.com/apple/pkl/blob/0.32.2/stdlib/</a></dd>
+          <dd><a href="https://github.com/apple/pkl/blob/0.33.0/stdlib/">https://github.com/apple/pkl/blob/0.33.0/stdlib/</a></dd>
           <dt class="">Issue tracker:</dt>
           <dd><a href="https://github.com/apple/pkl/issues">https://github.com/apple/pkl/issues</a></dd>
           <dt class="runtime-data hidden">Known usages:</dt>
@@ -182,6 +182,18 @@ Its members are automatically available in every module and hence it does not ne
             </div>
           </li>
           <li>
+            <div id="pkl.net" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#pkl.net">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">module </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a class="name-decl" href="./net/index.html">pkl.net</a></div>
+                <div class="doc-comment"><p>Utilities for networking, like URL parsing.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
             <div id="pkl.pklbinary" class="anchor"> </div>
             <div class="member with-page-link"><a class="member-selflink material-icons" href="#pkl.pklbinary">link</a>
               <div class="member-left">
@@ -221,12 +233,11 @@ Its members are automatically available in every module and hence it does not ne
             <div id="pkl.protobuf" class="anchor"> </div>
             <div class="member with-page-link"><a class="member-selflink material-icons" href="#pkl.protobuf">link</a>
               <div class="member-left">
-                <div class="member-modifiers">module </div>
+                <div class="member-modifiers member-deprecated">module </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><a class="name-decl" href="./protobuf/index.html">pkl.protobuf</a></div>
-                <div class="doc-comment"><p>A renderer for <a href="https://developers.google.com/protocol-buffers">Protocol Buffers</a>.
-Note: This module is <em>experimental</em> and not ready for production use.</p></div>
+                <div class="member-signature member-deprecated"><a class="name-decl" href="./protobuf/index.html">pkl.protobuf</a></div>
+                <div class="doc-comment">Deprecated: Scheduled for removal without replacement</div>
               </div>
             </div>
           </li>
@@ -299,6 +310,18 @@ Note: This module is <em>experimental</em> and not ready for production use.</p>
               <div class="member-main">
                 <div class="member-signature"><a class="name-decl" href="./shell/index.html">pkl.shell</a></div>
                 <div class="doc-comment"><p>Utilities for generating shell scripts.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pkl.syntax" class="anchor"> </div>
+            <div class="member with-page-link"><a class="member-selflink material-icons" href="#pkl.syntax">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">module </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><a class="name-decl" href="./syntax/index.html">pkl.syntax</a></div>
+                <div class="doc-comment"><p>Utilities for managing Pkl source code.</p></div>
               </div>
             </div>
           </li>

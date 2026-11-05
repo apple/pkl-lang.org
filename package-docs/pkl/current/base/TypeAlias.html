@@ -2,13 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>TypeAlias (pkl/base:0.32.2) • Packages</title>
+    <title>TypeAlias (pkl/base:0.33.0) • Packages</title>
     <script src="../../../scripts/pkldoc.js" defer="defer"></script>
     <script type="module">
       import perPackageData from "../../../data/pkl/_/base/TypeAlias.json" with { type: "json" }
-      import perPackageVersionData from "../../../data/pkl/0.32.2/base/TypeAlias.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.33.0/base/TypeAlias.json" with { type: "json" }
 
-      runtimeData.knownVersions(perPackageData.knownVersions, "0.32.2");
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.33.0");
       runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
       runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
             </script>
@@ -22,10 +22,10 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../index.html">Packages</a></div>
-      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.32.2" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="TypeAlias" data-root-url-prefix="../../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.33.0" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="TypeAlias" data-root-url-prefix="../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
-      <h1 id="declaration-title">TypeAlias<span id="declaration-version">0.32.2</span></h1>
+      <h1 id="declaration-title">TypeAlias<span id="declaration-version">0.33.0</span></h1>
       <ul class="member-group-links">
         <li><a href="#_methods">Methods</a></li>
       </ul>
@@ -53,7 +53,7 @@
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a>&lt;this&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -80,7 +80,7 @@
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="TypeAlias.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="TypeAlias.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (this) -&gt; <a href="TypeAlias.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="TypeAlias.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
 <code>map</code> and <code>flatMap</code> methods.</p></div>

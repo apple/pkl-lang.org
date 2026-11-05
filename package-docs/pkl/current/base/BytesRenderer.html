@@ -2,13 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>BytesRenderer (pkl/base:0.32.2) • Packages</title>
+    <title>BytesRenderer (pkl/base:0.33.0) • Packages</title>
     <script src="../../../scripts/pkldoc.js" defer="defer"></script>
     <script type="module">
       import perPackageData from "../../../data/pkl/_/base/BytesRenderer.json" with { type: "json" }
-      import perPackageVersionData from "../../../data/pkl/0.32.2/base/BytesRenderer.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.33.0/base/BytesRenderer.json" with { type: "json" }
 
-      runtimeData.knownVersions(perPackageData.knownVersions, "0.32.2");
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.33.0");
       runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
       runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
             </script>
@@ -22,10 +22,10 @@
   <body onload="onLoad()">
     <header>
       <div id="doc-title"><a href="../../../index.html">Packages</a></div>
-      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.32.2" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="BytesRenderer" data-root-url-prefix="../../../"></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.33.0" data-package-url-prefix="../" data-module-name="pkl.base" data-class-name="BytesRenderer" data-root-url-prefix="../../../"></div>
     </header>
     <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.base</a>
-      <h1 id="declaration-title">BytesRenderer<span id="declaration-version">0.32.2</span></h1>
+      <h1 id="declaration-title">BytesRenderer<span id="declaration-version">0.33.0</span></h1>
       <ul class="member-group-links">
         <li><a href="#_overview">Overview</a></li>
         <li><a href="#_properties">Properties</a></li>
@@ -109,7 +109,7 @@ both match path spec <code>server.timeout</code>, whereas path <code>server.time
                 <div class="member-modifiers"></div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="BaseValueRenderer.html" class="name-ref">BaseValueRenderer</a>.</span><span class="name-decl">convertPropertyTransformers</span>: <a href="Mapping.html" class="name-ref">Mapping</a>&lt;<a href="Class.html" class="name-ref">Class</a>, <a href="index.html#Mixin" class="name-ref">Mixin</a>&lt;<a href="ConvertProperty.html" class="name-ref">ConvertProperty</a>&gt;&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="member-signature"><span class="context"><a href="BaseValueRenderer.html" class="name-ref">BaseValueRenderer</a>.</span><span class="name-decl">convertPropertyTransformers</span>: <a href="Mapping.html" class="name-ref">Mapping</a>&lt;<a href="Class.html" class="name-ref">Class</a>&lt;<a href="ConvertProperty.html" class="name-ref">ConvertProperty</a>&gt;, <a href="index.html#Mixin" class="name-ref">Mixin</a>&lt;<a href="ConvertProperty.html" class="name-ref">ConvertProperty</a>&gt;&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
                 <div class="doc-comment"><p>Customizations for <a href="ConvertProperty.html"><code>ConvertProperty</code></a> annotation behaviors.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This property is consulted to transform <a href="ConvertProperty.html"><code>ConvertProperty</code></a> annotation values.
 This can be used to customize or override the conversion behavior for a specific renderer.
@@ -145,7 +145,7 @@ or <code>null</code> if this format does not have an extension.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a><span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="Class.html" class="name-ref">Class</a>&lt;this&gt;<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
                 <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
               </div>
             </div>
@@ -172,7 +172,7 @@ or <code>null</code> if this format does not have an extension.</p></div>
                 <div class="member-modifiers">function </div>
               </div>
               <div class="member-main">
-                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (<a href="index.html#NonNull" class="name-ref">NonNull</a>) -&gt; <a href="BytesRenderer.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="BytesRenderer.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
+                <div class="member-signature"><span class="context"><a href="Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (this) -&gt; <a href="BytesRenderer.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="BytesRenderer.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="index.html" class="name-ref">pkl.base</a>)</span></div>
                 <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
                 <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
 <code>map</code> and <code>flatMap</code> methods.</p></div>

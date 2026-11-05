@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Url (pkl/net:0.33.0) • Packages</title>
+    <script src="../../../scripts/pkldoc.js" defer="defer"></script>
+    <script type="module">
+      import perPackageData from "../../../data/pkl/_/net/Url.json" with { type: "json" }
+      import perPackageVersionData from "../../../data/pkl/0.33.0/net/Url.json" with { type: "json" }
+
+      runtimeData.knownVersions(perPackageData.knownVersions, "0.33.0");
+      runtimeData.knownUsagesOrSubtypes("known-subtypes", perPackageVersionData.knownSubtypes);
+      runtimeData.knownUsagesOrSubtypes("known-usages", perPackageVersionData.knownUsages);
+            </script>
+    <script src="../../../scripts/scroll-into-view.min.js" defer="defer"></script>
+    <link href="../../../styles/pkldoc.css" media="screen" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon-16x16.png">
+  </head>
+  <body onload="onLoad()">
+    <header>
+      <div id="doc-title"><a href="../../../index.html">Packages</a></div>
+      <div id="search"><label for="search-input"><i id="search-icon" class="material-icons">search</i></label><input id="search-input" type="search" placeholder="Click or press 'S' to search this package" autocomplete="off" data-package-name="pkl" data-package-version="0.33.0" data-package-url-prefix="../" data-module-name="pkl.net" data-class-name="Url" data-root-url-prefix="../../../"></div>
+    </header>
+    <main><a class="declaration-parent-link" href="../../../index.html">Packages</a> &gt; <a class="declaration-parent-link" href="../index.html">pkl</a> &gt; <a class="declaration-parent-link" href="index.html">pkl.net</a>
+      <h1 id="declaration-title">Url<span id="declaration-version">0.33.0</span></h1>
+      <ul class="member-group-links">
+        <li><a href="#_overview">Overview</a></li>
+        <li><a href="#_properties">Properties</a></li>
+        <li><a href="#_methods">Methods</a></li>
+      </ul>
+      <div id="_overview" class="anchor"> </div>
+      <div id="_declaration" class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i>
+        <div class="member-signature">class <span class="name-decl">Url</span></div>
+        <div class="doc-comment"><p>A URL, as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+<a href="https://www.rfc-editor.org/rfc/rfc6874">RFC 6874</a> IPv6 zone literals are also supported.</p></div>
+        <dl class="member-info">
+          <dt class="runtime-data hidden">Known subtypes in package:</dt>
+          <dd id="known-subtypes" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">Known usages in package:</dt>
+          <dd id="known-usages" class="runtime-data hidden"></dd>
+          <dt class="runtime-data hidden">All versions:</dt>
+          <dd id="known-versions" class="runtime-data hidden"></dd>
+        </dl>
+        <div class="doc-comment expandable hidden collapsed"><p>Every component is held percent-encoded, in its <code>raw</code> property, such as <a href="Url.html#rawPath"><code>rawPath</code></a>:
+<a href="index.html#Url()"><code>Url()</code></a> encodes whatever a component cannot hold literally, and a component that is set by hand,
+or amended, has to be encoded already.
+The percent-decoded form of each component is available without the <code>raw</code> prefix, such as
+<a href="Url.html#path"><code>path</code></a>.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/a b&quot;).rawPath == &quot;/a%20b&quot;
+net.Url(&quot;https://example.com/a b&quot;).path == &quot;/a b&quot;
+net.Url(&quot;https://example.com/a%20b&quot;).rawPath == &quot;/a%20b&quot;
+</code></pre></div>
+      </div>
+      <div class="member-group">
+        <div id="_properties" class="anchor"> </div>
+        <h2 class="member-group-title">Properties</h2>
+        <ul>
+          <li>
+            <div id="scheme" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#scheme">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">scheme</span>: <a href="../base/String.html" class="name-ref">String</a>(isValidScheme(this))?</div>
+                <div class="doc-comment"><p>The scheme, without the trailing <code>:</code>, or <code>null</code> if this is a relative reference.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawUserInfo" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawUserInfo">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawUserInfo</span>: <a href="../base/String.html" class="name-ref">String</a>(rawHost != null, isValidUserInfo(this))?</div>
+                <div class="doc-comment"><p>The percent-encoded userinfo, without the trailing <code>@</code>, or <code>null</code> if this URL has none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only a URL with a <a href="Url.html#rawHost"><code>rawHost</code></a> can have userinfo.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="userInfo" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#userInfo">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">userInfo</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The percent-decoded <a href="Url.html#rawUserInfo"><code>rawUserInfo</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawHost" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawHost">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawHost</span>: <a href="../base/String.html" class="name-ref">String</a>(isValidHost(this))?</div>
+                <div class="doc-comment"><p>The percent-encoded host, or <code>null</code> if this URL has no authority.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A <code>null</code> host is not the same as an empty one: <code>file:/tmp</code> has no host, <code>file:///tmp</code> has an
+empty one.</p>
+<p>An IPv6 address must be enclosed in brackets, as in <code>[::1]</code>.
+It may carry a zone identifier, as described in RFC 6874.
+Anything else is a registered name, which cannot contain <code>[</code>, <code>]</code> or <code>:</code> literally.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="host" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#host">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">host</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The percent-decoded <a href="Url.html#rawHost"><code>rawHost</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawPort" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawPort">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawPort</span>: <a href="../base/String.html" class="name-ref">String</a>(rawHost != null, matches(Regex(#&quot;\d*&quot;#)))?</div>
+                <div class="doc-comment"><p>The port, without the leading <code>:</code>, or <code>null</code> if this URL states none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Only a URL with a <a href="Url.html#rawHost"><code>rawHost</code></a> can have a port.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="port" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#port">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">port</span>: <a href="../base/index.html#UInt16" class="name-ref">UInt16</a>?</div>
+                <div class="doc-comment"><p>The number that <a href="Url.html#rawPort"><code>rawPort</code></a> states.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This is <code>null</code> if <a href="Url.html#rawPort"><code>rawPort</code></a> is <code>null</code>, or if <code>rawPort</code> is not parseable as a <a href="../base/index.html#UInt16"><code>UInt16</code></a>.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com:8080/&quot;).port == 8080
+net.Url(&quot;https://example.com:/&quot;).port == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawPath" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawPath">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawPath</span>: <a href="../base/String.html" class="name-ref">String</a>(isValidPath(this, scheme != null, rawHost != null))</div>
+                <div class="doc-comment"><p>The percent-encoded path, or the empty string if this URL has none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>With a <a href="Url.html#rawHost"><code>rawHost</code></a>, the path is empty or starts with <code>/</code>.
+Without one, it may be <em>rootless</em>, as in <code>mailto:user@example.com</code>.
+Without a <a href="Url.html#scheme"><code>scheme</code></a>, its first segment cannot contain <code>:</code>.</p>
+<p>To change the path without encoding it first, use <a href="Url.html#resolve()"><code>resolve()</code></a>, which is as lenient as <a href="index.html#Url()"><code>Url()</code></a>.
+Unlike amending, this drops <a href="Url.html#rawQuery"><code>rawQuery</code></a> and <a href="Url.html#rawFragment"><code>rawFragment</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="path" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#path">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">path</span>: <a href="../base/String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The percent-decoded <a href="Url.html#rawPath"><code>rawPath</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>An encoded <code>/</code> is decoded like any other octet, so it cannot be distinguished from a <code>/</code> that
+separates segments.
+<a href="Url.html#pathSegments"><code>pathSegments</code></a> disambiguates between separator and literal <code>/</code> characters.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/a%2Fb/c&quot;).path == &quot;/a/b/c&quot;
+net.Url(&quot;https://example.com/a%2Fb/c&quot;).pathSegments == List(&quot;a/b&quot;, &quot;c&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawQuery" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawQuery">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawQuery</span>: <a href="../base/String.html" class="name-ref">String</a>(isValidQuery(this))?</div>
+                <div class="doc-comment"><p>The percent-encoded query, without the leading <code>?</code>, or <code>null</code> if this URL has none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The empty string is a URL ending in a bare <code>?</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="query" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#query">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">query</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The percent-decoded <a href="Url.html#rawQuery"><code>rawQuery</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Unlike <a href="Url.html#queryParameters"><code>queryParameters</code></a>, this does not read <a href="Url.html#rawQuery"><code>rawQuery</code></a> as
+<code>application/x-www-form-urlencoded</code>, so a <code>+</code> is kept as is.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="rawFragment" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#rawFragment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">rawFragment</span>: <a href="../base/String.html" class="name-ref">String</a>(isValidFragment(this))?</div>
+                <div class="doc-comment"><p>The percent-encoded fragment, without the leading <code>#</code>, or <code>null</code> if this URL has none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>The empty string is a URL ending in a bare <code>#</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="fragment" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#fragment">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">fragment</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The percent-decoded <a href="Url.html#rawFragment"><code>rawFragment</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="stringValue" class="anchor"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#stringValue">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">stringValue</span>: <a href="../base/String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The serialization of this URL.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isAbsolute" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#isAbsolute">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isAbsolute</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this URL is absolute, that is, has a non-null scheme.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasAbsolutePath" class="anchor"> </div>
+            <div class="member hidden-member"><a class="member-selflink material-icons" href="#hasAbsolutePath">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hasAbsolutePath</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this URL's path is absolute, that is, starts with <code>/</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="authority" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#authority">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">authority</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The authority, without the leading <code>//</code>, or <code>null</code> if this URL has none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>A URL has an authority exactly when it has a <a href="Url.html#rawHost"><code>rawHost</code></a>.
+This is <a href="Url.html#rawUserInfo"><code>rawUserInfo</code></a>, <code>rawHost</code> and <a href="Url.html#rawPort"><code>rawPort</code></a> joined back together.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hostKind" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#hostKind">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">hostKind</span>: (&quot;name&quot;|&quot;ipv4&quot;|&quot;ipv6&quot;|&quot;ipvFuture&quot;)?</div>
+                <div class="doc-comment"><p>What <a href="Url.html#rawHost"><code>rawHost</code></a> is, or <code>null</code> if this URL has no authority.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><ul>
+<li><code>&quot;ipv6&quot;</code>: an IPv6 address, such as <code>[::1]</code></li>
+<li><code>&quot;ipvFuture&quot;</code>: an IP address of a version that RFC 3986 leaves for the future</li>
+<li><code>&quot;ipv4&quot;</code>: an IPv4 address in dotted-decimal form, such as <code>192.0.2.1</code></li>
+<li><code>&quot;name&quot;</code>: any other host, a <em>registered name</em></li>
+</ul>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/&quot;).hostKind == &quot;name&quot;
+net.Url(&quot;https://192.0.2.1/&quot;).hostKind == &quot;ipv4&quot;
+net.Url(&quot;https://[::1]/&quot;).hostKind == &quot;ipv6&quot;
+net.Url(&quot;/foo&quot;).hostKind == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="zoneId" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#zoneId">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">zoneId</span>: <a href="../base/String.html" class="name-ref">String</a>?</div>
+                <div class="doc-comment"><p>The percent-decoded zone identifier of an IPv6 <a href="Url.html#rawHost"><code>rawHost</code></a>, as described in RFC 6874, or <code>null</code>
+if it states none.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>net.Url(&quot;http://[fe80::1%25eth0]/&quot;).zoneId == &quot;eth0&quot;
+net.Url(&quot;http://[fe80::1]/&quot;).zoneId == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="pathSegments" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#pathSegments">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">pathSegments</span>: <a href="../base/List.html" class="name-ref">List</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;</div>
+                <div class="doc-comment"><p>The percent-decoded segments of <a href="Url.html#rawPath"><code>rawPath</code></a>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>pathSegments</code> does not tell if the path is absolute or not.
+A relative URL reference <code>&quot;a/b&quot;</code> also has path segments <code>List(&quot;a&quot;, &quot;b&quot;)</code>.
+To disambiguate between the two, use <a href="Url.html#hasAbsolutePath"><code>hasAbsolutePath</code></a>.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/a/b%20c&quot;).pathSegments == List(&quot;a&quot;, &quot;b c&quot;)
+net.Url(&quot;https://example.com/a/b%2Fc&quot;).pathSegments == List(&quot;a&quot;, &quot;b/c&quot;)
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="queryParameters" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#queryParameters">link</a>
+              <div class="member-left">
+                <div class="member-modifiers"></div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">queryParameters</span>: <a href="../base/Mapping.html" class="name-ref">Mapping</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, <a href="../base/Listing.html" class="name-ref">Listing</a>&lt;<a href="../base/String.html" class="name-ref">String</a>&gt;&gt;?</div>
+                <div class="doc-comment"><p>The percent-decoded parameters of <a href="Url.html#rawQuery"><code>rawQuery</code></a>, or <code>null</code> if this URL has no query.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="Url.html#rawQuery"><code>rawQuery</code></a> is read as <code>application/x-www-form-urlencoded</code>.
+A name that repeats holds the values of all its occurrences, in the order they are written.
+A parameter that states no <code>=</code> holds no value at all, and is left out; this is not the same as
+a bare <code>=</code>, which gives it the empty string.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/?q=a+b&amp;q=c&quot;).queryParameters[&quot;q&quot;] == new Listing { &quot;a b&quot;; &quot;c&quot; }
+net.Url(&quot;https://example.com/?&quot;).queryParameters.isEmpty
+net.Url(&quot;https://example.com/&quot;).queryParameters == null
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="normalized" class="anchor"> </div>
+            <div class="member hidden-member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#normalized">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">hidden </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">normalized</span>: <a href="Url.html" class="name-ref">Url</a></div>
+                <div class="doc-comment"><p>The normalized version of this URL, following <em>syntax-based normalization</em> as described in
+<a href="https://www.rfc-editor.org/info/rfc3986/#section-6.2.2">section 6.2.2</a> of RFC 3986.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><a href="Url.html#scheme"><code>scheme</code></a> and <a href="Url.html#rawHost"><code>rawHost</code></a> are lowercased, as they are case-insensitive.
+Percent-encoding is normalized: an octet standing for an unreserved character is decoded, and
+any other octet is kept, with its hex digits uppercased.</p>
+<p>Dot segments (<code>./</code> and <code>../</code>) are only removed from an absolute <a href="Url.html#rawPath"><code>rawPath</code></a>.
+A URL with a <code>rawHost</code> and no path is given the path <code>/</code>, which names the same resource.</p>
+<p>Does not perform normalization that requires knowing the scheme, such as removing a default
+port (see <a href="https://www.rfc-editor.org/info/rfc3986/#section-6.2.3">section 6.2.3</a>).</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;HTTPS://Example.com/%7Euser&quot;).normalized == net.Url(&quot;https://example.com/~user&quot;)
+net.Url(&quot;https://example.com/a/b/../c&quot;).normalized.rawPath == &quot;/a/c&quot;
+net.Url(&quot;https://example.com&quot;).normalized.rawPath == &quot;/&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="member-group">
+        <div id="_methods" class="anchor"> </div>
+        <h2 class="member-group-title">Methods<span class="toggle-inherited-members">(<span class="toggle-inherited-members-link button-link">show inherited</span>)</span></h2>
+        <ul>
+          <li>
+            <div id="getClass()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#getClass()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">getClass</span>(): <a href="../base/Class.html" class="name-ref">Class</a>&lt;this&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L51-L51">Source</a></div>
+                <div class="doc-comment"><p>Returns the class of <code>this</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toString()" class="anchor"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#toString()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">toString</span>(): <a href="../base/String.html" class="name-ref">String</a></div>
+                <div class="doc-comment"><p>The serialization of this URL.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/a b&quot;).toString() == &quot;https://example.com/a%20b&quot;
+net.Url(&quot;https://example.com/é&quot;).toString() == &quot;https://example.com/%C3%A9&quot;
+net.Url(&quot;HTTPS://example.com&quot;).toString() == &quot;HTTPS://example.com&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="ifNonNull()" class="anchor"> </div>
+            <div id="ifNonNull().Result" class="anchor-param1"> </div>
+            <div id="ifNonNull().transform" class="anchor-param2"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#ifNonNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Any.html" class="name-ref">Any</a>.</span><span class="name-decl">ifNonNull</span>&lt;<a class="param1">Result</a>&gt;(<span class="param2">transform</span>: (this) -&gt; <a href="Url.html#ifNonNull().Result" class="name-ref">Result</a>): <a href="Url.html#ifNonNull().Result" class="name-ref">Result</a>?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L62-L62">Source</a></div>
+                <div class="doc-comment"><p>Returns <code>this |&gt; transform</code> if <code>this</code> is non-null, and <code>null</code> otherwise.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>This method is the complement of the <code>??</code> operator and the equivalent of an <code>Option</code> type's
+<code>map</code> and <code>flatMap</code> methods.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="hasProperty()" class="anchor"> </div>
+            <div id="hasProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#hasProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">hasProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2011-L2011">Source</a></div>
+                <div class="doc-comment"><p>Tells if this object has a property with the given <code>name</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getProperty()" class="anchor"> </div>
+            <div id="getProperty().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getProperty()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getProperty</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2016-L2016">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Throws if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="getPropertyOrNull()" class="anchor"> </div>
+            <div id="getPropertyOrNull().name" class="anchor-param1"> </div>
+            <div class="member inherited expandable hidden collapsed with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#getPropertyOrNull()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">getPropertyOrNull</span>(<span class="param1">name</span>: <a href="../base/String.html" class="name-ref">String</a>): unknown?<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2021-L2021">Source</a></div>
+                <div class="doc-comment"><p>Returns the value of the property with the given <code>name</code>.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>null</code> if a property with this name does not exist.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toDynamic()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toDynamic()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toDynamic</span>(): <a href="../base/Dynamic.html" class="name-ref">Dynamic</a><span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2024-L2024">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Dynamic.html"><code>Dynamic</code></a> object.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="toMap()" class="anchor"> </div>
+            <div class="member inherited expandable hidden collapsed"><a class="member-selflink material-icons" href="#toMap()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="context"><a href="../base/Typed.html" class="name-ref">Typed</a>.</span><span class="name-decl">toMap</span>(): <a href="../base/Map.html" class="name-ref">Map</a>&lt;<a href="../base/String.html" class="name-ref">String</a>, unknown&gt;<span class="context"> (<a href="../base/index.html" class="name-ref">pkl.base</a>)</span><a class="member-source-link" href="https://github.com/apple/pkl/blob/0.33.0/stdlib/stdlib/base.pkl#L2027-L2027">Source</a></div>
+                <div class="doc-comment"><p>Converts this object to a <a href="../base/Map.html"><code>Map</code></a>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="resolve()" class="anchor"> </div>
+            <div id="resolve().ref" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#resolve()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">resolve</span>(<span class="param1">ref</span>: <a href="../base/String.html" class="name-ref">String</a>|<a href="Url.html" class="name-ref">Url</a>): <a href="Url.html" class="name-ref">Url</a></div>
+                <div class="doc-comment"><p>Resolves <code>ref</code> against this URL.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p><code>ref</code> is either a relative reference, which is resolved against this URL, or an absolute URL,
+which replaces it entirely.
+Dot segments (<code>./</code> and <code>../</code>) are removed from the result's path, normalizing it.</p>
+<p>Throws if <code>ref</code> is a string that cannot be parsed, or if this URL is itself a relative
+reference.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;https://example.com/a/b&quot;).resolve(&quot;../c&quot;).toString() == &quot;https://example.com/c&quot;
+net.Url(&quot;https://example.com/a/b&quot;).resolve(&quot;#top&quot;).toString() == &quot;https://example.com/a/b#top&quot;
+net.Url(&quot;foo:/a&quot;).resolve(&quot;..//x&quot;).toString() == &quot;foo:/.//x&quot;
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="equals()" class="anchor"> </div>
+            <div id="equals().other" class="anchor-param1"> </div>
+            <div class="member with-expandable-docs"><i class="material-icons expandable-docs-icon">expand_more</i><a class="member-selflink material-icons" href="#equals()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">equals</span>(<span class="param1">other</span>: <a href="Url.html" class="name-ref">Url</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if this URL is equal to <code>other</code> according to <em>syntax-based normalization</em> as
+described in <a href="https://www.rfc-editor.org/info/rfc3986/#section-6.2.2">section 6.2.2</a> of
+RFC 3986.</p></div>
+                <div class="doc-comment expandable hidden collapsed"><p>Returns <code>true</code> if the <a href="Url.html#normalized"><code>normalized</code></a> versions of <code>this</code> and <code>other</code> are the
+same, and <code>false</code> otherwise.</p>
+<p>Facts:</p>
+<pre><code>net.Url(&quot;HTTPS://Example.com/%7Euser&quot;).equals(net.Url(&quot;https://example.com/~user&quot;))
+!(net.Url(&quot;https://example.com/a%2Fb&quot;).equals(net.Url(&quot;https://example.com/a/b&quot;)))
+!(net.Url(&quot;https://example.com:443/&quot;).equals(net.Url(&quot;https://example.com/&quot;)))
+</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidUserInfo()" class="anchor"> </div>
+            <div id="isValidUserInfo().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidUserInfo()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidUserInfo</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a percent-encoded <code>userinfo</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidScheme()" class="anchor"> </div>
+            <div id="isValidScheme().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidScheme()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidScheme</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a <code>scheme</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidHost()" class="anchor"> </div>
+            <div id="isValidHost().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidHost()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidHost</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a percent-encoded <code>host</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidPath()" class="anchor"> </div>
+            <div id="isValidPath().value" class="anchor-param1"> </div>
+            <div id="isValidPath().hasScheme" class="anchor-param2"> </div>
+            <div id="isValidPath().hasAuthority" class="anchor-param3"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidPath()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidPath</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>, <span class="param2">hasScheme</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a>, <span class="param3">hasAuthority</span>: <a href="../base/Boolean.html" class="name-ref">Boolean</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a percent-encoded path that can sit next to a scheme and an authority, or,
+when <code>hasScheme</code> or <code>hasAuthority</code> is <code>false</code>, next to no scheme or no authority.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidQuery()" class="anchor"> </div>
+            <div id="isValidQuery().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidQuery()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidQuery</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a percent-encoded <code>query</code>.</p></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div id="isValidFragment()" class="anchor"> </div>
+            <div id="isValidFragment().value" class="anchor-param1"> </div>
+            <div class="member"><a class="member-selflink material-icons" href="#isValidFragment()">link</a>
+              <div class="member-left">
+                <div class="member-modifiers">function </div>
+              </div>
+              <div class="member-main">
+                <div class="member-signature"><span class="name-decl">isValidFragment</span>(<span class="param1">value</span>: <a href="../base/String.html" class="name-ref">String</a>): <a href="../base/Boolean.html" class="name-ref">Boolean</a></div>
+                <div class="doc-comment"><p>Tells if <code>value</code> is a percent-encoded <code>fragment</code>.</p></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

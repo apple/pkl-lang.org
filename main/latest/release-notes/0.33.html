@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Pkl 0.33 Release Notes :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/0.33.html">
-    <link rel="prev" href="index.html">
+    <link rel="prev" href="0.34.html">
     <link rel="next" href="0.32.html">
     <meta name="generator" content="Antora 3.2.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="main" data-version="0.33.0-dev">
+<div class="nav-container" data-component="main" data-version="0.34.0-dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -240,6 +240,9 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Release Notes</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.34.html">0.34 Release Notes</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="0.33.html">0.33 Release Notes</a>
   </li>
@@ -280,7 +283,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Main Project</span>
-    <span class="version">0.33.0-dev</span>
+    <span class="version">0.34.0-dev</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -327,11 +330,11 @@
     <li class="component is-current">
       <div class="title"><a href="../../current/index.html">Main Project</a></div>
       <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">0.34.0-dev</a>
+        </li>
         <li class="version is-latest">
           <a href="../../current/index.html">0.33.0</a>
-        </li>
-        <li class="version is-current">
-          <a href="../index.html">0.33.0-dev</a>
         </li>
         <li class="version">
           <a href="../../0.32.2/index.html">0.32.2</a>
@@ -535,10 +538,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.33.0-dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.34.0-dev</button>
   <div class="version-menu">
+    <a class="version is-current" href="0.33.html">0.34.0-dev</a>
     <a class="version" href="../../current/release-notes/0.33.html">0.33.0</a>
-    <a class="version is-current" href="0.33.html">0.33.0-dev</a>
     <a class="version is-missing" href="../../0.32.2/index.html">0.32.2</a>
     <a class="version is-missing" href="../../0.31.1/index.html">0.31.1</a>
     <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
@@ -643,11 +646,11 @@ The following two are logically identical:</p>
 <div class="sect2">
 <h3 id="new-standard-library-module-pklnet"><a class="anchor" href="#new-standard-library-module-pklnet"></a><a class="link" href="#new-standard-library-module-pklnet">New standard library module: <code>pkl:net</code></a></h3>
 <div class="paragraph">
-<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/#" target="blank"><code>pkl:net</code></a>, for working with network types (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#" target="blank"><code>pkl:net</code></a>, for working with network types (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
 </div>
 <div class="paragraph">
-<p>Its centerpiece is <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/Url" target="blank"><code>Url</code></a>, a URL as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
-A string is parsed with <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/Url()" target="blank"><code>Url()</code></a>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
+<p>Its centerpiece is <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/Url" target="blank"><code>Url</code></a>, a URL as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+A string is parsed with <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/Url()" target="blank"><code>Url()</code></a>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -714,10 +717,10 @@ To instead compare them as the <strong>syntax-based normalization</strong> of RF
 </div>
 </div>
 <div class="paragraph">
-<p>The module also provides standalone helpers: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/encodeUrlComponent()" target="blank"><code>encodeUrlComponent()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/decodeUrlComponent()" target="blank"><code>decodeUrlComponent()</code></a> for percent-encoding, and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/buildQuery()" target="blank"><code>buildQuery()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/parseQuery()" target="blank"><code>parseQuery()</code></a> for <code>application/x-www-form-urlencoded</code> queries.</p>
+<p>The module also provides standalone helpers: <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/encodeUrlComponent()" target="blank"><code>encodeUrlComponent()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/decodeUrlComponent()" target="blank"><code>decodeUrlComponent()</code></a> for percent-encoding, and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/buildQuery()" target="blank"><code>buildQuery()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/parseQuery()" target="blank"><code>parseQuery()</code></a> for <code>application/x-www-form-urlencoded</code> queries.</p>
 </div>
 <div class="paragraph">
-<p>Alongside this module, <code>pkl:base</code> gains <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a>, which tells whether a string is a valid absolute URL.
+<p>Alongside this module, <code>pkl:base</code> gains <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a>, which tells whether a string is a valid absolute URL.
 It is stricter than <code>net.Url()</code>, which also parses a relative reference, and which percent-encodes whatever cannot appear literally in a URL component.
 The <code>Uri</code> typealias is now defined in terms of it, which is a <a href="#uri-validates">breaking change</a>.</p>
 </div>
@@ -725,7 +728,7 @@ The <code>Uri</code> typealias is now defined in terms of it, which is a <a href
 <div class="sect2">
 <h3 id="new-standard-library-module-pklsyntax"><a class="anchor" href="#new-standard-library-module-pklsyntax"></a><a class="link" href="#new-standard-library-module-pklsyntax">New standard library module: <code>pkl:syntax</code></a></h3>
 <div class="paragraph">
-<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/syntax/#" target="blank"><code>pkl:syntax</code></a>, for working with Pkl source code (<a href="https://github.com/apple/pkl/pull/1821">#1821</a>, <a href="https://github.com/apple/pkl/pull/1964">#1964</a>, <a href="https://github.com/apple/pkl/pull/1955">#1955</a>).</p>
+<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/syntax/#" target="blank"><code>pkl:syntax</code></a>, for working with Pkl source code (<a href="https://github.com/apple/pkl/pull/1821">#1821</a>, <a href="https://github.com/apple/pkl/pull/1964">#1964</a>, <a href="https://github.com/apple/pkl/pull/1955">#1955</a>).</p>
 </div>
 <div class="paragraph">
 <p>It has three parts:</p>
@@ -733,15 +736,15 @@ The <code>Uri</code> typealias is now defined in terms of it, which is a <a href
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/syntax/Parser" target="blank"><code>Parser</code></a> parses a string or resource into a syntax tree, as either a module or an expression.</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/syntax/Parser" target="blank"><code>Parser</code></a> parses a string or resource into a syntax tree, as either a module or an expression.</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/syntax/Node" target="blank"><code>Node</code></a> is a node of that tree.
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/syntax/Node" target="blank"><code>Node</code></a> is a node of that tree.
 It has a <code>type</code>, <code>children</code>, the verbatim source <code>text</code>, and the source <code>span</code>.
 Nodes can be searched, folded, and replaced with the <code>find*</code>, <code>fold</code>, and <code>replace*</code> methods.</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/syntax/FormattingRenderer" target="blank"><code>FormattingRenderer</code></a> renders a tree back to Pkl source code, using the canonical Pkl formatter.</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/syntax/FormattingRenderer" target="blank"><code>FormattingRenderer</code></a> renders a tree back to Pkl source code, using the canonical Pkl formatter.</p>
 </li>
 </ul>
 </div>
@@ -1053,7 +1056,7 @@ For example, setting <code>XDG_CACHE_HOME</code> will configure the cache direct
 <p>The JVM bindings now understand the new <code>pkl.net#Url</code> class (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
 </div>
 <div class="paragraph">
-<p>The Java and Kotlin code generators generate a <code>java.net.URI</code> for a property whose type is <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/net/Url" target="blank"><code>Url</code></a>.</p>
+<p>The Java and Kotlin code generators generate a <code>java.net.URI</code> for a property whose type is <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/Url" target="blank"><code>Url</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>Two conversions are added to <code>org.pkl.config.java.mapper.Conversions</code>, both part of the preconfigured set:</p>
@@ -1097,20 +1100,20 @@ For example, setting <code>XDG_CACHE_HOME</code> will configure the cache direct
 <div class="ulist">
 <ul>
 <li>
-<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a></p>
+<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a></p>
 </li>
 <li>
-<p>Changed typealias: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Uri" target="blank"><code>Uri</code></a> is now <code>String(isValidUrl)</code> (<a href="#uri-validates">breaking change</a>)</p>
+<p>Changed typealias: <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Uri" target="blank"><code>Uri</code></a> is now <code>String(isValidUrl)</code> (<a href="#uri-validates">breaking change</a>)</p>
 </li>
 <li>
 <p><a id="this-adoption"></a> Properties refined with <code>this</code> type</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Any.getClass()" target="blank"><code>Any.getClass()</code></a> now returns <code>Class&lt;this&gt;</code></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Any.getClass()" target="blank"><code>Any.getClass()</code></a> now returns <code>Class&lt;this&gt;</code></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Any.ifNonNull()" target="blank"><code>Any.ifNonNull()</code></a> now accepts an argument of type <code>(this) -&gt; Result</code></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Any.ifNonNull()" target="blank"><code>Any.ifNonNull()</code></a> now accepts an argument of type <code>(this) -&gt; Result</code></p>
 </li>
 </ul>
 </div>
@@ -1129,7 +1132,7 @@ For example, setting <code>XDG_CACHE_HOME</code> will configure the cache direct
 <p>Changed method: <code>Reference()</code> now takes type arguments instead of a <code>Class</code> parameter (<a href="#reference-changes">breaking change</a>)</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/ref/AbstractDomain.renderReference()" target="blank"><code>AbstractDomain.renderReference()</code></a> now accepts a <code>Reference&lt;this, Any&gt;</code></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/ref/AbstractDomain.renderReference()" target="blank"><code>AbstractDomain.renderReference()</code></a> now accepts a <code>Reference&lt;this, Any&gt;</code></p>
 </li>
 <li>
 <p>No longer considered experimental.</p>
@@ -1191,49 +1194,49 @@ Doing this makes little sense; these values are constants and overriding them by
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/minInt" target="blank"><code>minInt</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/minInt" target="blank"><code>minInt</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxInt" target="blank"><code>maxInt</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxInt" target="blank"><code>maxInt</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxInt8" target="blank"><code>maxInt8</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxInt8" target="blank"><code>maxInt8</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxInt16" target="blank"><code>maxInt16</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxInt16" target="blank"><code>maxInt16</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxInt32" target="blank"><code>maxInt32</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxInt32" target="blank"><code>maxInt32</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxUInt" target="blank"><code>maxUInt</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxUInt" target="blank"><code>maxUInt</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxUInt8" target="blank"><code>maxUInt8</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxUInt8" target="blank"><code>maxUInt8</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxUInt16" target="blank"><code>maxUInt16</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxUInt16" target="blank"><code>maxUInt16</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxUInt32" target="blank"><code>maxUInt32</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxUInt32" target="blank"><code>maxUInt32</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/minFiniteFloat" target="blank"><code>minFiniteFloat</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/minFiniteFloat" target="blank"><code>minFiniteFloat</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/maxFiniteFloat" target="blank"><code>maxFiniteFloat</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/maxFiniteFloat" target="blank"><code>maxFiniteFloat</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/minPositiveFloat" target="blank"><code>minPositiveFloat</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/minPositiveFloat" target="blank"><code>minPositiveFloat</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/e" target="blank"><code>e</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/e" target="blank"><code>e</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/math/pi" target="blank"><code>pi</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/math/pi" target="blank"><code>pi</code></a></p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/release/current" target="blank"><code>current</code></a></p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/release/current" target="blank"><code>current</code></a></p>
 </li>
 </ul>
 </div>
@@ -1301,7 +1304,7 @@ Doing this makes little sense; these values are constants and overriding them by
 <div class="sect2">
 <h3 id="uri-validates"><a class="anchor" href="#uri-validates"></a><a class="link" href="#uri-validates"><code>Uri</code> validates its value</a></h3>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Uri" target="blank"><code>Uri</code></a> typealias in <code>pkl:base</code> is now <code>String(isValidUrl)</code> instead of a plain <code>String</code> (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Uri" target="blank"><code>Uri</code></a> typealias in <code>pkl:base</code> is now <code>String(isValidUrl)</code> instead of a plain <code>String</code> (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
 </div>
 <div class="paragraph">
 <p>A value typed as <code>Uri</code> must be a valid absolute URL according to <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
@@ -1316,7 +1319,7 @@ This means that a relative reference, or a URL containing a character that must 
 </div>
 </div>
 <div class="paragraph">
-<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Resource#uri" target="blank"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/analyze/importGraph()" target="blank"><code>importGraph()</code></a>, and the URI-valued properties of <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/Project/#" target="blank"><code>pkl:Project</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/EvaluatorSettings/#" target="blank"><code>pkl:EvaluatorSettings</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/DocPackageInfo/#" target="blank"><code>pkl:DocPackageInfo</code></a>.</p>
+<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Resource#uri" target="blank"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/analyze/importGraph()" target="blank"><code>importGraph()</code></a>, and the URI-valued properties of <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/Project/#" target="blank"><code>pkl:Project</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/EvaluatorSettings/#" target="blank"><code>pkl:EvaluatorSettings</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/DocPackageInfo/#" target="blank"><code>pkl:DocPackageInfo</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>As a consequence, an invalid URI is now reported as a type constraint violation at the point where it is set, rather than as an error raised later by whatever consumes it.</p>
@@ -1404,7 +1407,7 @@ To restore the old meaning, wrap the left-hand side with parentheses:</p>
 <div class="sect2">
 <h3 id="test-catch-and-test-catchornull-force-their-result"><a class="anchor" href="#test-catch-and-test-catchornull-force-their-result"></a><a class="link" href="#test-catch-and-test-catchornull-force-their-result"><code>test.catch()</code> and <code>test.catchOrNull()</code> force their result</a></h3>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/test/catch()" target="blank"><code>catch()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/test/catchOrNull()" target="blank"><code>catchOrNull()</code></a> methods now fully evaluate the value returned by the function they are given (<a href="https://github.com/apple/pkl/pull/1910">#1910</a>).</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/catch()" target="blank"><code>catch()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/catchOrNull()" target="blank"><code>catchOrNull()</code></a> methods now fully evaluate the value returned by the function they are given (<a href="https://github.com/apple/pkl/pull/1910">#1910</a>).</p>
 </div>
 <div class="paragraph">
 <p>Currently, an error nested inside the returned value was not caught.
@@ -1543,7 +1546,7 @@ To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.
 <p>Use <code>EnumSet</code> for token categories (<a href="https://github.com/apple/pkl/pull/1803">#1803</a>).</p>
 </li>
 <li>
-<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String.toInt()" target="blank"><code>String.toInt()</code></a> now supports all hexadecimal, octal, and binary formats (<a href="https://github.com/apple/pkl/pull/1808">#1808</a>).</p>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String.toInt()" target="blank"><code>String.toInt()</code></a> now supports all hexadecimal, octal, and binary formats (<a href="https://github.com/apple/pkl/pull/1808">#1808</a>).</p>
 </li>
 <li>
 <p>Handle conditional pluralization in error message (<a href="https://github.com/apple/pkl/pull/1848">#1848</a>).</p>
@@ -1558,7 +1561,7 @@ To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.
 <p>Use module cache directory configured via the CLI or Gradle while evaluating <code>PklProject</code> and <code>settings.pkl</code> files (<a href="https://github.com/apple/pkl/pull/1900">#1900</a>).</p>
 </li>
 <li>
-<p>Typed values are rendered with more helpful type names in error messages and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/Any.toString()" target="blank"><code>Any.toString()</code></a> (<a href="https://github.com/apple/pkl/pull/1412">#1412</a>).</p>
+<p>Typed values are rendered with more helpful type names in error messages and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Any.toString()" target="blank"><code>Any.toString()</code></a> (<a href="https://github.com/apple/pkl/pull/1412">#1412</a>).</p>
 </li>
 <li>
 <p>Add support for customizing spring boot <code>@ConfigurationProperties</code> in generated Java/Kotlin code (<a href="https://github.com/apple/pkl/pull/1897">#1897</a>).</p>
@@ -1660,7 +1663,7 @@ To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.
 <p>Fix <code>pkl run</code> behaviors where (sub)commands amend <code>pkl:Command</code> without extending it (<a href="https://github.com/apple/pkl/pull/1882">#1882</a>).</p>
 </li>
 <li>
-<p>Fix <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String.endsWith()" target="blank"><code>String.endsWith()</code></a> for overlapping regex matches (<a href="https://github.com/apple/pkl/pull/1880">#1880</a>, <a href="https://github.com/apple/pkl/pull/1884">#1884</a>).</p>
+<p>Fix <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String.endsWith()" target="blank"><code>String.endsWith()</code></a> for overlapping regex matches (<a href="https://github.com/apple/pkl/pull/1880">#1880</a>, <a href="https://github.com/apple/pkl/pull/1884">#1884</a>).</p>
 </li>
 <li>
 <p>Fix leak of external reader processes in the language binding server (<a href="https://github.com/apple/pkl/pull/1885">#1885</a>).</p>
@@ -1702,7 +1705,7 @@ To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.
 <p>Fix resolution of qualified type names (<a href="https://github.com/apple/pkl/pull/1915">#1915</a>).</p>
 </li>
 <li>
-<p>Fix lookaround regexes in <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String.lastIndexOf()" target="blank"><code>String.lastIndexOf()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0-dev/base/String.replaceLast()" target="blank"><code>String.replaceLast()</code></a> (<a href="https://github.com/apple/pkl/pull/1908">#1908</a>).</p>
+<p>Fix lookaround regexes in <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String.lastIndexOf()" target="blank"><code>String.lastIndexOf()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String.replaceLast()" target="blank"><code>String.replaceLast()</code></a> (<a href="https://github.com/apple/pkl/pull/1908">#1908</a>).</p>
 </li>
 <li>
 <p>Fix formatter instability (<a href="https://github.com/apple/pkl/pull/1911">#1911</a>).</p>
@@ -1793,7 +1796,7 @@ To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Release Notes</a></span>
+  <span class="prev"><a href="0.34.html">0.34 Release Notes</a></span>
   <span class="next"><a href="0.32.html">0.32 Release Notes</a></span>
 </nav>
 </article>

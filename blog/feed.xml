@@ -2,11 +2,255 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://pkl-lang.org/blog/index.html</id>
     <title>Pkl Blog</title>
-    <updated>2026-05-13T00:00:00.000Z</updated>
+    <updated>2026-11-05T00:00:00.000Z</updated>
     <generator>Pkl Blog</generator>
     <link rel="alternate" href="https://pkl-lang.org/blog/index.html"/>
     <subtitle>Blog site from the maintainers of the Pkl configuration language</subtitle>
     <icon>https://pkl-lang.org/_/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Authenticating with .netrc in Pkl]]></title>
+        <id>authenticating-with-netrc</id>
+        <link href="https:/pkl-lang.org/blog/authenticating-with-netrc.html"/>
+        <updated>2026-11-05T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/ayashjorden">Jordan Bar</a> on November 5th, 2026</p>
+</div>
+</div>
+<div class="paragraph">
+<p>When evaluating Pkl code that fetches packages or imports modules over HTTP/HTTPS from private registries or internal servers, authentication is essential.
+Starting in Pkl 0.33, you can easily authenticate HTTP requests using your existing <code>.netrc</code> file with the new <code>pkl:EvaluatorSettings#Http.netRcHeaders</code> method.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="the-challenge-of-managing-http-credentials"><a class="anchor" href="#the-challenge-of-managing-http-credentials"></a><a class="link" href="#the-challenge-of-managing-http-credentials">The challenge of managing HTTP credentials</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl modules and packages can be loaded across the network using <code>https://</code> or <code>package://</code> URIs.
+While public packages and modules work out-of-the-box, enterprise environments frequently host packages on private artifact repositories (like Artifactory, Nexus, or GitHub Packages) or import configurations from internal services that require HTTP Basic authentication.</p>
+</div>
+<div class="paragraph">
+<p>Previously, configuring HTTP authentication in Pkl meant explicitly constructing header mappings in evaluator settings—often by reading custom environment variables and formatting the header programmatically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">headers</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;https://internal.repo.corp/**&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-string">&quot;Authorization&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Basic <span class="hljs-subst"><span class="hljs-char escape_">\(</span><span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:INTERNAL_REPO_TOKEN&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">base64</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While functional, this approach requires teams to maintain bespoke environment variable schemes and header boilerplate across developer workstations and CI runners.</p>
+</div>
+<div class="paragraph">
+<p>On Unix-like systems, standard command-line tools such as <code>curl</code> and <code>git</code> have long shared credentials via the standard <code>~/.netrc</code> file. Starting in Pkl 0.33, Pkl can plug directly into this existing credential store.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introducing-netrcheaders"><a class="anchor" href="#introducing-netrcheaders"></a><a class="link" href="#introducing-netrcheaders">Introducing <code>netRcHeaders</code></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The standard library class <code>pkl:EvaluatorSettings#Http</code> introduces the <code>netRcHeaders</code> method.
+Given the text content of a <code>.netrc</code> file, <code>netRcHeaders</code> parses its machine entries and returns a mapping of URL glob patterns to HTTP Basic <code>Authorization</code> headers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">external</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">netRcHeaders</span><span class="hljs-punctuation">(</span>
+  <span class="hljs-params">contents</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">|</span> <span class="hljs-title class_">Resource</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Mapping</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-punctuation">(</span>isGlobPattern<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">HttpHeaders</span><span class="hljs-operator">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each machine entry in the <code>.netrc</code> file (except <code>default</code> entries) is mapped to both HTTP and HTTPS schemes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">http{,s}://&lt;machine&gt;/** -&gt; Authorization: Basic &lt;base64(login:password)&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-pkl-to-use-netrc"><a class="anchor" href="#configuring-pkl-to-use-netrc"></a><a class="link" href="#configuring-pkl-to-use-netrc">Configuring Pkl to use <code>.netrc</code></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable <code>.netrc</code> authentication for all your local Pkl evaluations, configure your user settings file:</p>
+</div>
+<div class="listingblock">
+<div class="title">~/.config/pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">headers</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">netRcHeaders</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">read?</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;/path/to/.netrc&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">??</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pkl resolves user settings from <code>~/.config/pkl/settings.pkl</code> (or <code>$XDG_CONFIG_HOME/pkl/settings.pkl</code>), with fallback to <code>~/.pkl/settings.pkl</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using <code>read?("/path/to/.netrc") ?? ""</code> ensures that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pkl safely reads your <code>~/.netrc</code> if it exists.</p>
+</li>
+<li>
+<p>If the file is absent (for example, on a fresh machine or in an unauthenticated environment), evaluation does not fail; it simply passes an empty string, resulting in no added headers.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="combining-with-existing-headers"><a class="anchor" href="#combining-with-existing-headers"></a><a class="link" href="#combining-with-existing-headers">Combining with existing headers</a></h3>
+<div class="paragraph">
+<p>Because <code>headers</code> in <code>pkl:EvaluatorSettings#Http</code> accepts a <code>Listing</code>, you can easily combine <code>.netrc</code> entries with other static or dynamically configured headers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-property">home</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:HOME&quot;</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-property">netRcHeaders</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">netRcHeaders</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">read?</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>home<span class="hljs-char escape_">)</span></span>/.netrc&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">??</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">)</span>
+
+  <span class="hljs-comment">// Combine custom header mappings with .netrc credentials</span>
+  <span class="hljs-property">headers</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>netRcHeaders<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    [<span class="hljs-string">&quot;https://internal.repo.corp/**&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">{</span>
+      [<span class="hljs-string">&quot;X-MyOrg-MyHeader&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SomeValue&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-consuming-private-packages"><a class="anchor" href="#example-consuming-private-packages"></a><a class="link" href="#example-consuming-private-packages">Example: Consuming private packages</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Imagine you have private packages hosted on an internal GitHub or Artifactory instance:</p>
+</div>
+<div class="listingblock">
+<div class="title">~/.netrc</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">machine artifactory.corp.internal
+login developer
+password my-secret-api-key
+
+machine github.internal.corp
+login bot-account
+password ghp_PersonalAccessToken123</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure your <code>.netrc</code> permissions are restricted to your user (this is a best practice, but not required by Pkl):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">chmod 600 ~/.netrc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With <code>settings.pkl</code> configured as above, any package download or HTTP import targeting <code>https://artifactory.corp.internal/&#8230;&#8203;</code> or <code>https://github.internal.corp/&#8230;&#8203;</code> automatically includes the appropriate <code>Authorization: Basic &#8230;&#8203;</code> header during evaluation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Automatically authenticates against artifactory.corp.internal using ~/.netrc
+pkl eval -m . myService.pkl</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="security-design-why-default-is-omitted"><a class="anchor" href="#security-design-why-default-is-omitted"></a><a class="link" href="#security-design-why-default-is-omitted">Security design: Why <code>default</code> is omitted</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The standard <code>.netrc</code> format supports a <code>default</code> token, which provides a fallback login and password for any machine not explicitly named.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl&#8217;s <code>netRcHeaders</code>, <strong><code>default</code> entries are intentionally ignored</strong>.
+Because Pkl configurations often resolve dependencies across diverse public and private endpoints, automatically sending fallback credentials to arbitrary domains would risk leaking sensitive corporate tokens to public hosts.
+Only machines explicitly listed in your <code>.netrc</code> file are matched and sent authentication headers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ci-and-container-environments"><a class="anchor" href="#ci-and-container-environments"></a><a class="link" href="#ci-and-container-environments">CI and container environments</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In automated CI/CD pipelines, you can easily provide <code>.netrc</code> credentials using popular workflow actions (such as <code>extractions/netrc</code> in GitHub Actions) or by mounting your configuration file into runner containers.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, if creating a physical file is inconvenient, you can supply <code>.netrc</code> contents directly from an environment variable using Pkl&#8217;s <code>env:</code> reader:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">local</span> <span class="hljs-property">home</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:HOME&quot;</span><span class="hljs-punctuation">)</span>
+
+  <span class="hljs-property">headers</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">netRcHeaders</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">read?</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;env:NETRC_CONTENTS&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">??</span> <span class="hljs-built_in">read?</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-subst"><span class="hljs-char escape_">\(</span>home<span class="hljs-char escape_">)</span></span>/.netrc&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">??</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This allows your CI runner to inject credentials securely via environment variables (e.g. <code>NETRC_CONTENTS</code>) or secrets managers without writing secrets to disk.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary"><a class="anchor" href="#summary"></a><a class="link" href="#summary">Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>netRcHeaders</code> feature bridges the gap between Pkl&#8217;s hermetic evaluation model and everyday developer workflow tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Centralized</strong>: Reuses existing credentials already configured for <code>curl</code> and <code>git</code>.</p>
+</li>
+<li>
+<p><strong>Safe</strong>: Omission of <code>default</code> entries prevents credential leakage.</p>
+</li>
+<li>
+<p><strong>Flexible</strong>: Works with files, environment variables, or CI secrets.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more details on HTTP configuration in Pkl, check out the <a href="https://pkl-lang.org/main/current/pkl-cli/index.html#http">HTTP documentation</a> and the standard library reference for <code>pkl:EvaluatorSettings</code>.</p>
+</div>
+</div>
+</div>]]></content>
+        <author>
+            <name>Jordan Bar</name>
+            <uri>https://github.com/ayashjorden</uri>
+        </author>
+        <published>2026-11-05T00:00:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Building CLI Tools with Pkl]]></title>
         <id>building-cli-tools-with-pkl</id>

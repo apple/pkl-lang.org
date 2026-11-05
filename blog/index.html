@@ -100,6 +100,9 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authenticating-with-netrc.html">Authenticating with .netrc in Pkl</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="building-cli-tools-with-pkl.html">Building CLI Tools with Pkl</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -394,6 +397,19 @@
 </aside>
 <article class="doc">
 <h1 class="page">Pkl Blog</h1>
+<h3 id="authenticating-with-netrc-in-pkl" class="discrete"><a href="authenticating-with-netrc.html" class="xref page">Authenticating with .netrc in Pkl</a></h3>
+<div class="blog-byline">
+<div class="paragraph">
+<p>by <a href="https://github.com/ayashjorden">Jordan Bar</a> on November 5th, 2026</p>
+</div>
+</div>
+<div class="blog-excerpt">
+<div class="paragraph">
+<p>When evaluating Pkl code that fetches packages or imports modules over HTTP/HTTPS from private registries or internal servers, authentication is essential.
+Starting in Pkl 0.33, you can easily authenticate HTTP requests using your existing <code>.netrc</code> file with the new <code>pkl:EvaluatorSettings#Http.netRcHeaders</code> method.</p>
+</div>
+</div>
+<hr>
 <h3 id="building-cli-tools-with-pkl" class="discrete"><a href="building-cli-tools-with-pkl.html" class="xref page">Building CLI Tools with Pkl</a></h3>
 <div class="blog-byline">
 <div class="paragraph">

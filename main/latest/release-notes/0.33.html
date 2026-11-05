@@ -650,7 +650,7 @@ The following two are logically identical:</p>
 </div>
 <div class="paragraph">
 <p>Its centerpiece is <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/Url" target="blank"><code>Url</code></a>, a URL as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
-A string is parsed with <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/Url()" target="blank"><code>Url()</code></a>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
+A string is parsed with <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#Url()" target="blank"><code>Url()</code></a>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -717,7 +717,7 @@ To instead compare them as the <strong>syntax-based normalization</strong> of RF
 </div>
 </div>
 <div class="paragraph">
-<p>The module also provides standalone helpers: <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/encodeUrlComponent()" target="blank"><code>encodeUrlComponent()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/decodeUrlComponent()" target="blank"><code>decodeUrlComponent()</code></a> for percent-encoding, and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/buildQuery()" target="blank"><code>buildQuery()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/parseQuery()" target="blank"><code>parseQuery()</code></a> for <code>application/x-www-form-urlencoded</code> queries.</p>
+<p>The module also provides standalone helpers: <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#encodeUrlComponent()" target="blank"><code>encodeUrlComponent()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#decodeUrlComponent()" target="blank"><code>decodeUrlComponent()</code></a> for percent-encoding, and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#buildQuery()" target="blank"><code>buildQuery()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/net/#parseQuery()" target="blank"><code>parseQuery()</code></a> for <code>application/x-www-form-urlencoded</code> queries.</p>
 </div>
 <div class="paragraph">
 <p>Alongside this module, <code>pkl:base</code> gains <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a>, which tells whether a string is a valid absolute URL.
@@ -1319,7 +1319,7 @@ This means that a relative reference, or a URL containing a character that must 
 </div>
 </div>
 <div class="paragraph">
-<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Resource#uri" target="blank"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/analyze/importGraph()" target="blank"><code>importGraph()</code></a>, and the URI-valued properties of <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/Project/#" target="blank"><code>pkl:Project</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/EvaluatorSettings/#" target="blank"><code>pkl:EvaluatorSettings</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/DocPackageInfo/#" target="blank"><code>pkl:DocPackageInfo</code></a>.</p>
+<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/base/Resource#uri" target="blank"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/analyze/#importGraph()" target="blank"><code>importGraph()</code></a>, and the URI-valued properties of <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/Project/#" target="blank"><code>pkl:Project</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/EvaluatorSettings/#" target="blank"><code>pkl:EvaluatorSettings</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/DocPackageInfo/#" target="blank"><code>pkl:DocPackageInfo</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>As a consequence, an invalid URI is now reported as a type constraint violation at the point where it is set, rather than as an error raised later by whatever consumes it.</p>
@@ -1407,7 +1407,7 @@ To restore the old meaning, wrap the left-hand side with parentheses:</p>
 <div class="sect2">
 <h3 id="test-catch-and-test-catchornull-force-their-result"><a class="anchor" href="#test-catch-and-test-catchornull-force-their-result"></a><a class="link" href="#test-catch-and-test-catchornull-force-their-result"><code>test.catch()</code> and <code>test.catchOrNull()</code> force their result</a></h3>
 <div class="paragraph">
-<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/catch()" target="blank"><code>catch()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/catchOrNull()" target="blank"><code>catchOrNull()</code></a> methods now fully evaluate the value returned by the function they are given (<a href="https://github.com/apple/pkl/pull/1910">#1910</a>).</p>
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/#catch()" target="blank"><code>catch()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.34.0-dev/test/#catchOrNull()" target="blank"><code>catchOrNull()</code></a> methods now fully evaluate the value returned by the function they are given (<a href="https://github.com/apple/pkl/pull/1910">#1910</a>).</p>
 </div>
 <div class="paragraph">
 <p>Currently, an error nested inside the returned value was not caught.

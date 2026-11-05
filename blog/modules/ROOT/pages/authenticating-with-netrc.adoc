@@ -94,7 +94,8 @@ Because `headers` in `pkl:EvaluatorSettings#Http` accepts a `Listing`, you can e
 amends "pkl:settings"
 
 http {
-  local netRcHeaders = netRcHeaders(read?("/path/to/.netrc") ?? "")
+  local home = read("env:HOME")
+  local netRcHeaders = netRcHeaders(read?("\(home)/.netrc") ?? "")
 
   // Combine custom header mappings with .netrc credentials
   headers = (netRcHeaders) {
@@ -148,18 +149,20 @@ Only machines explicitly listed in your `.netrc` file are matched and sent authe
 
 In automated CI/CD pipelines, you can easily provide `.netrc` credentials using popular workflow actions (such as `extractions/netrc` in GitHub Actions) or by mounting your configuration file into runner containers.
 
-Alternatively, if creating a physical file in `~/.netrc` is inconvenient, you can supply `.netrc` contents directly from an environment variable using Pkl's `env:` reader:
+Alternatively, if creating a physical file is inconvenient, you can supply `.netrc` contents directly from an environment variable using Pkl's `env:` reader:
 
 [source,pkl]
 ----
 amends "pkl:settings"
 
 http {
-  headers = netRcHeaders(read?("env:NETRC") ?? read?("file:///path/to/.netrc") ?? "")
+  local home = read("env:HOME")
+
+  headers = netRcHeaders(read?("env:NETRC_CONTENTS") ?? read?("\(home)/.netrc") ?? "")
 }
 ----
 
-This allows your CI runner to inject credentials securely via environment variables (e.g. `NETRC`) or secrets managers without writing secrets to disk.
+This allows your CI runner to inject credentials securely via environment variables (e.g. `NETRC_CONTENTS`) or secrets managers without writing secrets to disk.
 
 == Summary
 

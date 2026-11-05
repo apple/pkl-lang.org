@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>libpkl :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/libpkl/index.html">
+    <link rel="prev" href="../../../go/current/index.html">
+    <link rel="next" href="../bindings-specification/index.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+<script src="../../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.33.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="index.html">libpkl</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.33.html">0.33 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.32.html">0.32 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.31.html">0.31 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../release-notes/changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.33.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.37.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.36.1/index.html">0.36.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.35.1/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.33.0-dev</a>
+        </li>
+        <li class="version">
+          <a href="../../0.32.2/index.html">0.32.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.30.2/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.13.2/index.html">0.13.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.12.1/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.7.1/index.html">0.7.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.5.1/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.8.2/index.html">0.8.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.7.2/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.17.1/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.23.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.22.0/index.html">0.22.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.21.0/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="../language.html">Language</a></li>
+    <li><a href="../language-bindings.html">Language Bindings</a></li>
+    <li><a href="index.html">libpkl</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.33.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="index.html">0.33.0</a>
+    <a class="version" href="../../latest/libpkl/index.html">0.33.0-dev</a>
+    <a class="version is-missing" href="../../0.32.2/index.html">0.32.2</a>
+    <a class="version is-missing" href="../../0.31.1/index.html">0.31.1</a>
+    <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
+    <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
+    <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
+    <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
+    <a class="version is-missing" href="../../0.26.3/index.html">0.26.3</a>
+    <a class="version is-missing" href="../../0.25.3/index.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.33/docs/modules/libpkl/pages/index.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">libpkl</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>libpkl is a C library for driving Pkl evaluation.</p>
+</div>
+<div class="paragraph">
+<p>It is designed to be a low-level API that interacts with Pkl via the <a href="../bindings-specification/message-passing-api.html" class="xref page">message passing API</a>.
+It is meant to be paired with higher level logic written in a host language within the context of a Pkl language binding library.
+The higher level logic deals with implementing the evaluator API, and serializing/deserializing messages according to the message passing API.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installing-libpkl"><a class="anchor" href="#installing-libpkl"></a><a class="link" href="#installing-libpkl">Installing libpkl</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Currently, we do not publish libpkl.
+Therefore, libpkl needs to be built from source, by cloning this repository and running the steps laid out in <a href="#build-from-source">Building libpkl from source</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once built, it can be <a href="#linking-to-libpkl">linked against</a>, either statically or dynamically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="linking-to-libpkl"><a class="anchor" href="#linking-to-libpkl"></a><a class="link" href="#linking-to-libpkl">Linking to libpkl</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is possible to link to libpkl either as a static library or a dynamic library.</p>
+</div>
+<div class="paragraph">
+<p>Statically linking to libpkl means that it is possible to copy libpkl&#8217;s library code directly into your own library or executable at compile time, meaning that it is self-contained.
+However, this impacts the binary size of your application, as libpkl&#8217;s library files are around 100MB.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, dynamically linking to libpkl has negligible impact on binary size, but requires that end users have libpkl installed on their OS.</p>
+</div>
+<div class="sect2">
+<h3 id="linking-to-the-static-vs-shared-library"><a class="anchor" href="#linking-to-the-static-vs-shared-library"></a><a class="link" href="#linking-to-the-static-vs-shared-library">Linking to the static vs. shared library</a></h3>
+<div class="paragraph">
+<p>The simplest way to configure your compiler to link to either the static or the shared library is to use <a href="https://en.wikipedia.org/wiki/Pkg-config">pkg-config</a>.</p>
+</div>
+<div class="paragraph">
+<p>The libpkl library ships with two pkg-config files: <code>libpkl.pc</code>, and <code>libpkl-static.pc</code>.</p>
+</div>
+<div class="paragraph">
+<p>The normal <code>libpkl.pc</code> links to the shared library.</p>
+</div>
+<div class="paragraph">
+<p>To unambiguously link to the static library, use <code>libpkl-static.pc</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, when using <code>cc</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Link against the shared library
+cc -o myprogram myprogram.c $(pkg-config --libs --cflags libpkl)
+
+# Link against the static library
+cc -o myprogram myprogram.c $(pkg-config --static --libs --cflags libpkl-static)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If libpkl is installed in a non-system directory, set <code>PKG_CONFIG_PATH</code> to the subpath <code>lib/pkgconfig</code> within the directory that contains libpkl. For example, given libpkl directory <code>/path/to/libpkl</code>, the environment variable should have <code>/path/to/libpkl/lib/pkgconfig</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Windows can use pkg-config through the <a href="https://www.msys2.org/docs/pkgconfig/">MSYS2 toolchain</a>. Using pkg-config on Windows implies compiling with gcc-style compiler like <a href="https://code.visualstudio.com/docs/cpp/config-mingw">MinGW</a>, instead of MSVC.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It&#8217;s also possible to link to the static library with the normal <code>libpkl.pc</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cc -Wl,-Bstatic $(pkg-config --libs --cflags libpkl)</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build-from-source"><a class="anchor" href="#build-from-source"></a><a class="link" href="#build-from-source">Building libpkl from source</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To build libpkl from source, the apple/pkl repository first must be cloned down to a host OS.</p>
+</div>
+<div class="paragraph">
+<p>Build machine requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java 21 or higher</p>
+</li>
+<li>
+<p>zlib</p>
+</li>
+<li>
+<p>C compiler</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cc</code> (gcc, clang) toolchain on Unix</p>
+</li>
+<li>
+<p>MSVC toolchain on Windows</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">git clone git@github.com:apple/pkl.git
+cd pkl/
+./gradlew libpkl:buildNative</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This results in two directories of interest:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>libpkl/build/distributions/</code>: directory containing archives (<code>.zip</code> on Windows, <code>.tar.gz</code> on macOS/Linux) of C libraries.</p>
+</li>
+<li>
+<p><code>libpkl/build/native-libs/&lt;os&gt;-&lt;arch&gt;</code>: directory containing the built library files (the inner structure of the archive).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cross-compilation is not supported.</p>
+</div>
+<div class="sect2">
+<h3 id="distribution-layout"><a class="anchor" href="#distribution-layout"></a><a class="link" href="#distribution-layout">Distribution layout</a></h3>
+<div class="paragraph">
+<p>The built distribution archive contains both statically linked and dynamically linked binaries for each OS.</p>
+</div>
+<div class="paragraph">
+<p>The archive has the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">.
+└── libpkl-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;
+    ├── include
+    │   └── pkl.h
+    ├── lib
+    │   ├── libpkl.&lt;shared library extension&gt;
+    │   ├── libpkl.&lt;static library extension&gt;
+    │   └── pkgconfig
+    │       ├── libpkl-static.pc
+    │       └── libpkl.pc
+    ├── LICENSE.txt
+    ├── README.md
+    └── THIRD-PARTY-NOTICES.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The file extensions are as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">Static Library Extension</th>
+<th class="tableblock halign-left valign-top">Shared library extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">macOS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dylib</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.so</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.lib</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.dll</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="abi-compatibility"><a class="anchor" href="#abi-compatibility"></a><a class="link" href="#abi-compatibility">ABI compatibility</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>libpkl is ABI compatible across Pkl versions.
+The underlying Pkl version can be accessed using the <code>pkl_version()</code> method.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../../../go/current/index.html">Go</a></span>
+  <span class="next"><a href="../bindings-specification/index.html">Specification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

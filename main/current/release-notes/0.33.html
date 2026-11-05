@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pkl 0.33 Release Notes :: Pkl Docs</title>
+    <link rel="canonical" href="https://pkl-lang.org/main/current/release-notes/0.33.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="0.32.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/theme-vars.css">
+<link rel="stylesheet" href="../../../_/css/theme-switch.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/syntax-highlights.css">
+<link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+<link rel="icon" type="image/svg+xml" href="../../../_/img/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicon-16x16.png">
+<script src="../../../_/js/theme-switcher.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="../../../index.html"><img src="../../../_/img/favicon.svg" alt="Pkl" height="35" width="35"/></a>
+        <a href="../../../index.html">Pkl</a>
+        <span class="separator">//</span>
+        <a href="../../../main/current/index.html">Docs</a>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Enter Search Term">
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../../main/current/index.html">Language</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/language-bindings.html" class="navbar-link">Bindings</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../main/current/java-binding/index.html">Java</a>
+            <a class="navbar-item" href="../../../main/current/kotlin-binding/index.html">Kotlin</a>
+            <a class="navbar-item" href="../../../swift/current/index.html">Swift</a>
+            <a class="navbar-item" href="../../../go/current/index.html">Go</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/integrations.html" class="navbar-link">Frameworks</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../spring/current/index.html">Spring (Boot)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/tools.html" class="navbar-link">Editors</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../../../intellij/current/index.html">IntelliJ</a>
+            <a class="navbar-item" href="../../../neovim/current/index.html">Neovim</a>
+            <a class="navbar-item" href="../../../vscode/current/index.html">VS Code</a>
+            <a class="navbar-item" href="../../../lsp/current/index.html">Pkl Language Server</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../main/current/resources.html" class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/apple/pkl">GitHub</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/pkl/current/index.html">Standard Library</a>
+            <a class="navbar-item" href="https://pkl-lang.org/package-docs/">Package Docs</a>
+            <a class="navbar-item" href="../../../main/current/style-guide/index.html">Style Guide</a>
+            <a class="navbar-item" href="../../../security.html">Security</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="../../../community.html" class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/apple/pkl/discussions" target="_blank">GitHub Discussions</a>
+            <a class="navbar-item" href="../../../blog/index.html">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="main" data-version="0.33.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Main Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/index.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/use-cases.html">Use Cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/comparison.html">Comparison</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../pkl-cli/index.html#installation">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-tutorial/index.html">Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/01_basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/02_filling_out_a_template.html">Filling out a Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-tutorial/03_writing_a_template.html">Writing a Template</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language.html">Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language-reference/index.html">Language Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standard-library.html">Standard Library</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../language-bindings.html">Language Bindings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../java-binding/index.html">Java</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../pkl-core/index.html">pkl-core Library</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../java-binding/pkl-config-java.html">pkl-config-java Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../kotlin-binding/index.html">Kotlin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/codegen.html">Code Generator</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../kotlin-binding/pkl-config-kotlin.html">pkl-config-kotlin Library</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../swift/current/index.html">Swift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../go/current/index.html">Go</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../libpkl/index.html">libpkl</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../bindings-specification/index.html">Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/message-passing-api.html">Message Passing API</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../bindings-specification/binary-encoding.html">Pkl Binary Encoding</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tools.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-cli/index.html">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-doc/index.html">Pkldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../pkl-gradle/index.html">Gradle Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Editor support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../intellij/current/index.html">IntelliJ</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../vscode/current/index.html">VSCode</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../neovim/current/index.html">Neovim</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../evolution-and-roadmap.html">Evolution and Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="0.33.html">0.33 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.32.html">0.32 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.31.html">0.31 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.30.html">0.30 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.29.html">0.29 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.28.html">0.28 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.27.html">0.27 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.26.html">0.26 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="0.25.html">0.25 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Main Project</span>
+    <span class="version">0.33.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../intellij/current/index.html">IntelliJ Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../intellij/current/index.html">0.37.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.36.1/index.html">0.36.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.35.1/index.html">0.35.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.34.1/index.html">0.34.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.33.0/index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.32.0/index.html">0.32.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.30.1/index.html">0.30.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.29.0/index.html">0.29.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.28.0/index.html">0.28.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.27.0/index.html">0.27.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../intellij/0.26.0/index.html">0.26.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">Main Project</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.33.0</a>
+        </li>
+        <li class="version">
+          <a href="../../latest/index.html">0.33.0-dev</a>
+        </li>
+        <li class="version">
+          <a href="../../0.32.2/index.html">0.32.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.31.1/index.html">0.31.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.30.2/index.html">0.30.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.29.1/index.html">0.29.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.28.2/index.html">0.28.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.27.2/index.html">0.27.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.26.3/index.html">0.26.3</a>
+        </li>
+        <li class="version">
+          <a href="../../0.25.3/index.html">0.25.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../neovim/current/index.html">Neovim Plugin</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../neovim/current/index.html">0.6.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../blog/index.html">Pkl Blog</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../go/current/index.html">Pkl Go Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../go/current/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.13.2/index.html">0.13.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.12.1/index.html">0.12.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.11.1/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.10.0/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.8.0/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../go/0.5.3/index.html">0.5.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../lsp/current/index.html">Pkl Language Server</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../lsp/current/index.html">0.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.7.1/index.html">0.7.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.5.1/index.html">0.5.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.4.0/index.html">0.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.3.2/index.html">0.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.2.0/index.html">0.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../lsp/0.1.2/index.html">0.1.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../swift/current/index.html">Pkl Swift Bindings</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../swift/current/index.html">0.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.9.0/index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.8.2/index.html">0.8.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.7.2/index.html">0.7.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.3.0/index.html">0.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../swift/0.2.3/index.html">0.2.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../index.html">ROOT</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../spring/current/index.html">Spring Boot Integration</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../spring/current/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.17.1/index.html">0.17.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../spring/0.15.0/index.html">0.15.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../vscode/current/index.html">VS Code Extension</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../vscode/current/index.html">0.23.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.22.0/index.html">0.22.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.21.0/index.html">0.21.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.20.0/index.html">0.20.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.19.0/index.html">0.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.18.2/index.html">0.18.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.17.0/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.16.0/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../vscode/0.11.0/index.html">0.11.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Main Project</a></li>
+    <li><a href="index.html">Release Notes</a></li>
+    <li><a href="0.33.html">0.33 Release Notes</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.33.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="0.33.html">0.33.0</a>
+    <a class="version" href="../../latest/release-notes/0.33.html">0.33.0-dev</a>
+    <a class="version is-missing" href="../../0.32.2/index.html">0.32.2</a>
+    <a class="version is-missing" href="../../0.31.1/index.html">0.31.1</a>
+    <a class="version is-missing" href="../../0.30.2/index.html">0.30.2</a>
+    <a class="version is-missing" href="../../0.29.1/index.html">0.29.1</a>
+    <a class="version is-missing" href="../../0.28.2/index.html">0.28.2</a>
+    <a class="version is-missing" href="../../0.27.2/index.html">0.27.2</a>
+    <a class="version is-missing" href="../../0.26.3/index.html">0.26.3</a>
+    <a class="version is-missing" href="../../0.25.3/index.html">0.25.3</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl/edit/release/0.33/docs/modules/release-notes/pages/0.33.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Page Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Pkl 0.33 Release Notes</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pkl 0.33 was released on November 5th, 2026.<br>
+<span class="small">The latest bugfix release is 0.33.0. (<a href="changelog.html" class="xref page">All Versions</a>)</span></p>
+</div>
+<div class="paragraph">
+<p>The next release (0.34) is scheduled for February 2027.
+To see what&#8217;s coming in the future, follow the <a href="https://github.com/orgs/apple/projects/12/views/1">Pkl Roadmap</a>.</p>
+</div>
+<div class="paragraph">
+<p>Please send feedback and questions to <a href="https://github.com/apple/pkl/discussions">GitHub Discussions</a>, or submit an issue on <a href="https://github.com/apple/pkl/issues/new">GitHub</a>.<br></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Pkl is hosted on <a href="https://github.com/apple/pkl">GitHub</a>.
+To get started, follow <a href="../pkl-cli/index.html#installation" class="xref page">Installation</a>.</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="highlights"><a class="anchor" href="#highlights"></a><a class="link" href="#highlights">Highlights <span class="small">💖</span></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="generic-methods"><a class="anchor" href="#generic-methods"></a><a class="link" href="#generic-methods">Generic Methods</a></h3>
+<div class="paragraph">
+<p>Support for generic methods has been greatly expanded (<a href="https://github.com/apple/pkl/pull/1849">#1849</a>, <a href="https://github.com/apple/pkl/pull/1940">#1940</a>).</p>
+</div>
+<div class="paragraph">
+<p>A generic method is a method that accepts types as arguments.
+This is a powerful tool that allows writing business logic that works over a variety of types.</p>
+</div>
+<div class="paragraph">
+<p>For example, this code declares two parameters: type parameter <code>T</code>, and value parameter <code>arg</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">function</span> <span class="hljs-title function_">identity</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-params">arg</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">T</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">T</span> <span class="hljs-operator">=</span> arg</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generic methods currently already exist in a limited sense:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Only the standard library can declare generic methods.</p>
+</li>
+<li>
+<p>It is not possible to pass in type arguments when calling generic methods.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, both of these restrictions are lifted.</p>
+</div>
+<div class="paragraph">
+<p>To pass type arguments into a generic method, add the type surrounded by angle brackets:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">result</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">identity</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">String</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Hello, World!&quot;</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If type arguments are omitted entirely, it behaves as calling the method with the <code>unknown</code> type.
+The following two are logically identical:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">result</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">identity</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Hello, World!&quot;</span><span class="hljs-punctuation">)</span>
+<span class="hljs-property">result2</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">identity</span><span class="hljs-operator">&lt;</span><span class="hljs-type">unknown</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Hello, World!&quot;</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a <a href="#parser-rule-change-for-comparison">breaking change</a>: in some cases, code that parses as a comparison expression now parses as a method call.</p>
+</div>
+<div class="paragraph">
+<p>To read more about generic methods, consult the <a href="../language-reference/index.html#generic-methods" class="xref page">language reference</a>.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about the design of generic method calls, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0032-generic-methods.adoc">SPICE-0032</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-standard-library-module-pklnet"><a class="anchor" href="#new-standard-library-module-pklnet"></a><a class="link" href="#new-standard-library-module-pklnet">New standard library module: <code>pkl:net</code></a></h3>
+<div class="paragraph">
+<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/#" target="blank"><code>pkl:net</code></a>, for working with network types (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>Its centerpiece is <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/Url" target="blank"><code>Url</code></a>, a URL as defined by <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+A string is parsed with <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/Url()" target="blank"><code>Url()</code></a>, which accepts an absolute URL as well as a relative reference, and which throws if the string cannot be parsed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:net&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">url</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://user:pw@example.com:8080/a/b c?q=1&amp;q=2#f&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">scheme</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">scheme</span>                   <span class="hljs-comment">// &quot;https&quot;</span>
+<span class="hljs-property">rawUserInfo</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawUserInfo</span>         <span class="hljs-comment">// &quot;user:pw&quot;</span>
+<span class="hljs-property">authority</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">authority</span>             <span class="hljs-comment">// &quot;user:pw@example.com:8080&quot;</span>
+<span class="hljs-property">rawHost</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawHost</span>                 <span class="hljs-comment">// &quot;example.com&quot;</span>
+<span class="hljs-property">rawPort</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawPort</span>                 <span class="hljs-comment">// &quot;8080&quot;</span>
+<span class="hljs-property">port</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">port</span>                       <span class="hljs-comment">// 8080</span>
+<span class="hljs-property">rawPath</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawPath</span>                 <span class="hljs-comment">// &quot;/a/b%20c&quot;</span>
+<span class="hljs-property">path</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">path</span>                       <span class="hljs-comment">// &quot;/a/b c&quot;</span>
+<span class="hljs-property">pathSegments</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">pathSegments</span>       <span class="hljs-comment">// List(&quot;a&quot;, &quot;b c&quot;)</span>
+<span class="hljs-property">rawQuery</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawQuery</span>               <span class="hljs-comment">// &quot;q=1&amp;q=2&quot;</span>
+<span class="hljs-property">queryParameters</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">queryParameters</span> <span class="hljs-comment">// Mapping { [&quot;q&quot;] = Listing { &quot;1&quot;; &quot;2&quot; } }</span>
+<span class="hljs-property">rawFragment</span> <span class="hljs-operator">=</span> url<span class="hljs-punctuation">.</span><span class="hljs-variable">rawFragment</span>         <span class="hljs-comment">// &quot;f&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Parsing is lenient: whatever cannot appear literally in a component is percent-encoded as its UTF-8 bytes, and whatever is already encoded is kept as written.
+Every component is held percent-encoded in its <code>raw</code> property, whether the input was encoded or not; the percent-decoded form of each is available as <code>userInfo</code>, <code>host</code>, <code>path</code>, <code>query</code>, and <code>fragment</code>.
+The derived <code>pathSegments</code> and <code>queryParameters</code> are percent-decoded too.</p>
+</div>
+<div class="paragraph">
+<p>A URL can also be built from its components, or derived from another URL by amending it.
+A component given this way has to be percent-encoded already:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">built</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> net<span class="hljs-punctuation">.</span><span class="hljs-title class_">Url</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">scheme</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https&quot;</span>
+  <span class="hljs-property">rawHost</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;example.com&quot;</span>
+  <span class="hljs-property">rawPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/a%20b&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/a%20b&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">base</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/a?q=1&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">amended</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>base<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">rawQuery</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/a&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each component is type-checked, so a URL built this way cannot be malformed.
+For example, a <code>rawPort</code> can only hold digits, only a URL with a <code>rawHost</code> can have one, and a <code>rawPath</code> of <code>"/a b"</code> is rejected.
+The decoded components are <code>fixed</code>, so they cannot be amended.</p>
+</div>
+<div class="paragraph">
+<p>A relative reference can be resolved against an absolute URL, which also removes dot segments from the result&#8217;s path:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">resolved</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/a/b&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">resolve</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;../c&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// &quot;https://example.com/c&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Comparing two URLs with <code>==</code> compares their components as written.
+To instead compare them as the <strong>syntax-based normalization</strong> of RFC 3986, where scheme and host are case-insensitive and percent-encoding is normalized, use <code>equals()</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">same</span> <span class="hljs-operator">=</span> net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;HTTPS://Example.com/%7Euser&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">equals</span><span class="hljs-punctuation">(</span>net<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Url</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;https://example.com/~user&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">// true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The module also provides standalone helpers: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/encodeUrlComponent()" target="blank"><code>encodeUrlComponent()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/decodeUrlComponent()" target="blank"><code>decodeUrlComponent()</code></a> for percent-encoding, and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/buildQuery()" target="blank"><code>buildQuery()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/parseQuery()" target="blank"><code>parseQuery()</code></a> for <code>application/x-www-form-urlencoded</code> queries.</p>
+</div>
+<div class="paragraph">
+<p>Alongside this module, <code>pkl:base</code> gains <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a>, which tells whether a string is a valid absolute URL.
+It is stricter than <code>net.Url()</code>, which also parses a relative reference, and which percent-encodes whatever cannot appear literally in a URL component.
+The <code>Uri</code> typealias is now defined in terms of it, which is a <a href="#uri-validates">breaking change</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-standard-library-module-pklsyntax"><a class="anchor" href="#new-standard-library-module-pklsyntax"></a><a class="link" href="#new-standard-library-module-pklsyntax">New standard library module: <code>pkl:syntax</code></a></h3>
+<div class="paragraph">
+<p>A new standard library module is introduced called <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/syntax/#" target="blank"><code>pkl:syntax</code></a>, for working with Pkl source code (<a href="https://github.com/apple/pkl/pull/1821">#1821</a>, <a href="https://github.com/apple/pkl/pull/1964">#1964</a>, <a href="https://github.com/apple/pkl/pull/1955">#1955</a>).</p>
+</div>
+<div class="paragraph">
+<p>It has three parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/syntax/Parser" target="blank"><code>Parser</code></a> parses a string or resource into a syntax tree, as either a module or an expression.</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/syntax/Node" target="blank"><code>Node</code></a> is a node of that tree.
+It has a <code>type</code>, <code>children</code>, the verbatim source <code>text</code>, and the source <code>span</code>.
+Nodes can be searched, folded, and replaced with the <code>find*</code>, <code>fold</code>, and <code>replace*</code> methods.</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/syntax/FormattingRenderer" target="blank"><code>FormattingRenderer</code></a> renders a tree back to Pkl source code, using the canonical Pkl formatter.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:syntax&quot;</span>
+
+<span class="hljs-keyword">local</span> <span class="hljs-property">myModule</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> syntax<span class="hljs-punctuation">.</span><span class="hljs-title class_">Parser</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">parseModule</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  class Point {</span>
+<span class="hljs-string">    x: Int</span>
+<span class="hljs-string">    y: Int</span>
+<span class="hljs-string">  }</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-property">className</span> <span class="hljs-operator">=</span> myModule<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">findChild</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-params">n</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> n<span class="hljs-punctuation">.</span><span class="hljs-variable">type</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;class&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">findChildOfType</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;identifier&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">.</span><span class="hljs-variable">text</span> <span class="hljs-comment">// &quot;Point&quot;</span>
+
+<span class="hljs-property">ifCount</span> <span class="hljs-operator">=</span> myModule<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">fold</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">(</span><span class="hljs-params">acc</span><span class="hljs-punctuation">,</span> <span class="hljs-params">n</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">.</span><span class="hljs-variable">type</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;if_expr&quot;</span><span class="hljs-punctuation">)</span> acc <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> acc<span class="hljs-punctuation">)</span> <span class="hljs-comment">// 0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="c-library-libpkl"><a class="anchor" href="#c-library-libpkl"></a><a class="link" href="#c-library-libpkl">C Library (libpkl)</a></h3>
+<div class="paragraph">
+<p>A new C library, libpkl, is introduced (<a href="https://github.com/apple/pkl/pull/1238">#1238</a>, <a href="https://github.com/apple/pkl/pull/1799">#1799</a>, <a href="https://github.com/apple/pkl/pull/1801">#1801</a>, <a href="https://github.com/apple/pkl/pull/1805">#1805</a>, <a href="https://github.com/apple/pkl/pull/1812">#1812</a>).</p>
+</div>
+<div class="paragraph">
+<p>One of Pkl&#8217;s selling points is the ability to embed the language into another runtime as a library.
+However, currently, callers from non-JVM languages must spawn Pkl as a child process.
+This introduces a system dependency on downstream users, and also introduces complexity and overhead for the operating system.</p>
+</div>
+<div class="paragraph">
+<p>To address this pain point, a new library called libpkl is released for the C language.</p>
+</div>
+<div class="paragraph">
+<p>This is a low-level library meant to be called into from language binding libraries.
+It exposes the <a href="../bindings-specification/message-passing-api.html" class="xref page">message passing API</a> through a small C interface (<code>pkl.h</code>).</p>
+</div>
+<div class="paragraph">
+<p>Archives containing the header, both static and dynamic (shared) libraries, and <code>pkg-config</code> files are published for each supported OS and architecture, as part of the GitHub release.</p>
+</div>
+<div class="paragraph">
+<p>To read more about libpkl, consult the <a href="../libpkl/index.html" class="xref page">libpkl documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>To read more about the design of this feature, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0015-c-library-for-pkl.adoc">SPICE-0015</a>.</p>
+</div>
+<div class="paragraph">
+<p>Thank you to <a href="https://github.com/KushalP">@KushalP</a> for their contributions to this feature!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cpu-profiler"><a class="anchor" href="#cpu-profiler"></a><a class="link" href="#cpu-profiler">CPU Profiler</a></h3>
+<div class="paragraph">
+<p>The Pkl CLI can now profile where an evaluation spends its CPU time (<a href="https://github.com/apple/pkl/pull/1823">#1823</a>, <a href="https://github.com/apple/pkl/pull/1931">#1931</a>).</p>
+</div>
+<div class="paragraph">
+<p>Profiling is enabled by passing <code>--profile-cpu-output</code>, which sets the file to write the profile to.
+The profile is written in <a href="https://github.com/google/pprof">pprof</a> format, so it can be explored with any tool that reads it, such as <code>go tool pprof</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ pkl eval --profile-cpu-output profile.pb.gz myConfig.pkl
+$ go tool pprof -http=:8080 profile.pb.gz</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Profiling is only exposed through the CLI.
+For more details, consult <a href="../pkl-cli/index.html#profile-cpu-output" class="xref page">the CLI documentation</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="noteworthy"><a class="anchor" href="#noteworthy"></a><a class="link" href="#noteworthy">Noteworthy <span class="small">🎶</span></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="this-as-a-type"><a class="anchor" href="#this-as-a-type"></a><a class="link" href="#this-as-a-type"><code>this</code> as a type</a></h3>
+<div class="paragraph">
+<p>The <code>this</code> keyword can now be used as a type (<a href="https://github.com/apple/pkl/pull/1708">#1708</a>, <a href="https://github.com/apple/pkl/pull/1962">#1962</a>).</p>
+</div>
+<div class="paragraph">
+<p>A self type is the type of the object that a member is accessed on.
+Self types are useful when building class hierarchies, because they let a member refer to the <em>same</em> type as the object it belongs to, even after the class is extended.</p>
+</div>
+<div class="paragraph">
+<p>Currently, Pkl has a self-type, <code>module</code>, but it specifically describes the type of the module object.
+There is no equivalent for regular classes nor objects.</p>
+</div>
+<div class="paragraph">
+<p>To address this shortcoming, the <code>this</code> keyword is now also a type.
+It refers to the self-type of the directly enclosing object, class, or module.</p>
+</div>
+<div class="paragraph">
+<p>When a class is extended, <code>this</code> in an inherited member refers to the subclass, not to the class that declares the member:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">parent</span><span class="hljs-punctuation">:</span> this<span class="hljs-operator">?</span>
+  <span class="hljs-property">children</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">List</span><span class="hljs-operator">&lt;</span>this<span class="hljs-operator">&gt;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">SpecialNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Node</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">special</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">node</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">SpecialNode</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">special</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-property">parent</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpecialNode</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">special</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>; <span class="hljs-property">children</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">}</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-property">children</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">SpecialNode</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">special</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>; <span class="hljs-property">children</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">List</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">bad</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">SpecialNode</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">special</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+  <span class="hljs-property">parent</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>parent</code> has type <code>SpecialNode?</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Error: <code>Node</code> is not a <code>SpecialNode</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>this</code> type can be used in properties, method parameters and return types, function types, and type arguments.
+It cannot be used in a type alias body.</p>
+</div>
+<div class="paragraph">
+<p>The <code>this</code> type has also been <a href="#this-adoption">adopted in the standard library</a>.</p>
+</div>
+<div class="paragraph">
+<p>To read more about the design, see <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0029-self-type.adoc">SPICE-0029</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="better-new-inference"><a class="anchor" href="#better-new-inference"></a><a class="link" href="#better-new-inference">Better <code>new {}</code> inference</a></h3>
+<div class="paragraph">
+<p>The <code>new {}</code> expression can now correctly infer its parent in more positions (<a href="https://github.com/apple/pkl/pull/1768">#1768</a>, <a href="https://github.com/apple/pkl/pull/1824">#1824</a>, <a href="https://github.com/apple/pkl/pull/1845">#1845</a>, <a href="https://github.com/apple/pkl/pull/1847">#1847</a>, <a href="https://github.com/apple/pkl/pull/1857">#1857</a>).</p>
+</div>
+<div class="paragraph">
+<p>An <a href="../language-reference/index.html#implicitly-typed-new" class="xref page">implicitly typed <code>new {}</code> expression</a> tells Pkl to infer the parent when amending.
+When used inside a property, for example, it amends the class property default.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>new {}</code> in the following positions currently throw, and will work in Pkl 0.33:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Method arguments</p>
+</li>
+<li>
+<p>Let bindings</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span><span class="hljs-punctuation">(</span><span class="hljs-params">bird</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, <span class="hljs-subst"><span class="hljs-char escape_">\(</span>bird<span class="hljs-punctuation">.</span><span class="hljs-variable">name</span><span class="hljs-char escape_">)</span></span>&quot;</span>
+
+<span class="hljs-property">greeting1</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">greet</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Pigeon&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-property">greeting2</span> <span class="hljs-operator">=</span>
+  <span class="hljs-keyword">let</span> <span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Parrot&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="hljs-title function_ invoke__">greet</span><span class="hljs-punctuation">(</span>bird<span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The argument is inferred to be a <code>Bird</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>let</code> binding is inferred to be a <code>Bird</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Inference is not available where the parameter type is not known ahead of time.
+Additionally, it cannot be used for constructor methods like <code>List()</code>, generic methods like <code>Pair()</code>, and <code>Function.apply()</code>.</p>
+</div>
+<div class="paragraph">
+<p>It is an error for the parameter type to be <code>this</code> or <code>module</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-parsing-netrc-files-into-http-headers"><a class="anchor" href="#support-for-parsing-netrc-files-into-http-headers"></a><a class="link" href="#support-for-parsing-netrc-files-into-http-headers">Support for parsing <code>.netrc</code> files into HTTP headers</a></h3>
+<div class="paragraph">
+<p>Pkl now supports parsing <code>.netrc</code> files to configure HTTP Basic authentication headers (<a href="https://github.com/apple/pkl/pull/1817">#1817</a>, <a href="https://github.com/apple/pkl/pull/1854">#1854</a>).</p>
+</div>
+<div class="paragraph">
+<p>A new method is introduced called <code>netRcHeaders()</code> on class <code>pkl.EvaluatorSettings#Http</code>.</p>
+</div>
+<div class="paragraph">
+<p>It can be used to read credentials directly from a local <code>.netrc</code> file and mapped to HTTP <code>Authorization</code> headers:</p>
+</div>
+<div class="listingblock">
+<div class="title">~/.config/pkl/settings.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">amends</span> <span class="hljs-string">&quot;pkl:settings&quot;</span>
+
+<span class="hljs-property">http</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">headers</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">netRcHeaders</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">read</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;/Users/johnappleseed/.netrc&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It follows standard <code>curl</code> parsing rules, supporting comments, quoted values, and escaped characters.</p>
+</div>
+<div class="paragraph">
+<p>Thank you to <a href="https://github.com/ayashjorden">@ayashjorden</a> for their contributions to this feature!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cli-changes"><a class="anchor" href="#cli-changes"></a><a class="link" href="#cli-changes">CLI Changes</a></h3>
+<div class="sect3">
+<h4 id="package-installation-to-the-local-cache"><a class="anchor" href="#package-installation-to-the-local-cache"></a><a class="link" href="#package-installation-to-the-local-cache">Package installation to the local cache</a></h4>
+<div class="paragraph">
+<p>The <code>pkl project package</code> command has gained a new <code>--install</code> flag that triggers installation of the built package(s) into the module cache (<a href="https://github.com/apple/pkl/pull/1795">#1795</a>).</p>
+</div>
+<div class="paragraph">
+<p>Local cache installation is useful for local end-to-end testing of dependency trees.
+This functionality is also available via pkl-gradle.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="default-file-locations"><a class="anchor" href="#default-file-locations"></a><a class="link" href="#default-file-locations">Default file locations</a></h4>
+<div class="paragraph">
+<p>For new setups, the CLI no longer stores anything under <code>~/.pkl</code> (<a href="https://github.com/apple/pkl/pull/1809">#1809</a>).</p>
+</div>
+<div class="paragraph">
+<p>It uses XDG-style locations on Unix and Known Folder locations on Windows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Concern</th>
+<th class="tableblock halign-left valign-top">Unix (Linux/macOS)</th>
+<th class="tableblock halign-left valign-top">Windows</th>
+<th class="tableblock halign-left valign-top">Legacy fallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Package cache</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.cache/pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$LOCALAPPDATA/pkl/Cache</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Settings file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.config/pkl/settings.pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$APPDATA/pkl/settings.pkl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.pkl/settings.pkl</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CA certificates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.config/pkl/cacerts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$APPDATA/pkl/cacerts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.pkl/cacerts</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">REPL history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~/.local/state/pkl/repl-history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$LOCALAPPDATA/pkl/repl-history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>On every OS, these locations can be overridden with XDG-style env vars.
+For example, setting <code>XDG_CACHE_HOME</code> will configure the cache directory.</p>
+</div>
+<div class="paragraph">
+<p>Note that the existing <code>~/.pkl/cache</code> directory is ignored, so Pkl will download packages to populate its cache if configured to do so.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about this design, consult <a href="https://github.com/apple/pkl-evolution/blob/main/spices/SPICE-0031-os-base-directories.adoc">SPICE-0031</a>.</p>
+</div>
+<div class="paragraph">
+<p>Thank you to <a href="https://github.com/florinungur">@florinungur</a> for their contributions to this feature!</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-library-changes"><a class="anchor" href="#java-library-changes"></a><a class="link" href="#java-library-changes">Java Library Changes</a></h3>
+<div class="sect3">
+<h4 id="pkl-neturl-maps-to-java-net-uri"><a class="anchor" href="#pkl-neturl-maps-to-java-net-uri"></a><a class="link" href="#pkl-neturl-maps-to-java-net-uri"><code>pkl.net#Url</code> maps to <code>java.net.URI</code></a></h4>
+<div class="paragraph">
+<p>The JVM bindings now understand the new <code>pkl.net#Url</code> class (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>The Java and Kotlin code generators generate a <code>java.net.URI</code> for a property whose type is <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/net/Url" target="blank"><code>Url</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Two conversions are added to <code>org.pkl.config.java.mapper.Conversions</code>, both part of the preconfigured set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pUrlToString</code>&#8201;&#8212;&#8201;gives the same result as <code>Url.toString()</code></p>
+</li>
+<li>
+<p><code>pUrlToURI</code>&#8201;&#8212;&#8201;throws <code>ConversionException</code> if the URL cannot be represented as a <code>java.net.URI</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="standard-library-changes"><a class="anchor" href="#standard-library-changes"></a><a class="link" href="#standard-library-changes">Standard Library Changes</a></h3>
+<div class="sect3">
+<h4 id="pklnet"><a class="anchor" href="#pklnet"></a><a class="link" href="#pklnet"><code>pkl:net</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New module introduced.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pklsyntax"><a class="anchor" href="#pklsyntax"></a><a class="link" href="#pklsyntax"><code>pkl:syntax</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New module introduced.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pklbase"><a class="anchor" href="#pklbase"></a><a class="link" href="#pklbase"><code>pkl:base</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New property: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String#isValidUrl" target="blank"><code>String.isValidUrl</code></a></p>
+</li>
+<li>
+<p>Changed typealias: <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Uri" target="blank"><code>Uri</code></a> is now <code>String(isValidUrl)</code> (<a href="#uri-validates">breaking change</a>)</p>
+</li>
+<li>
+<p><a id="this-adoption"></a> Properties refined with <code>this</code> type</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Any.getClass()" target="blank"><code>Any.getClass()</code></a> now returns <code>Class&lt;this&gt;</code></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Any.ifNonNull()" target="blank"><code>Any.ifNonNull()</code></a> now accepts an argument of type <code>(this) -&gt; Result</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pklref"><a class="anchor" href="#pklref"></a><a class="link" href="#pklref"><code>pkl:ref</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Renamed class: <code>Domain</code> is now <code>AbstractDomain</code> (<a href="#reference-changes">breaking change</a>)</p>
+</li>
+<li>
+<p>Changed method: <code>Reference()</code> now takes type arguments instead of a <code>Class</code> parameter (<a href="#reference-changes">breaking change</a>)</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/ref/AbstractDomain.renderReference()" target="blank"><code>AbstractDomain.renderReference()</code></a> now accepts a <code>Reference&lt;this, Any&gt;</code></p>
+</li>
+<li>
+<p>No longer considered experimental.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pklprotobuf"><a class="anchor" href="#pklprotobuf"></a><a class="link" href="#pklprotobuf"><code>pkl:protobuf</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Module deprecated for removal in Pkl 0.34 (<a href="https://github.com/apple/pkl/pull/1778">#1778</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="breaking-changes"><a class="anchor" href="#breaking-changes"></a><a class="link" href="#breaking-changes">Breaking Changes <span class="small">💔</span></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="removal-of-macos-amd64-intel-binaries"><a class="anchor" href="#removal-of-macos-amd64-intel-binaries"></a><a class="link" href="#removal-of-macos-amd64-intel-binaries">Removal of macOS amd64 (Intel) Binaries</a></h3>
+<div class="paragraph">
+<p>Native <code>pkl</code> and <code>pkldoc</code> binaries for Intel Mac systems are no longer published with Pkl releases (<a href="https://github.com/apple/pkl/pull/1769">#1769</a>).</p>
+</div>
+<div class="paragraph">
+<p>To continue running new Pkl releases on these systems, use an appropriate Java runtime and the <code>jpkl</code> and <code>jpkldoc</code> Java executables.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="type-check-changes-for-classt"><a class="anchor" href="#type-check-changes-for-classt"></a><a class="link" href="#type-check-changes-for-classt">Type check changes for <code>Class&lt;T&gt;</code></a></h3>
+<div class="paragraph">
+<p>Currently, type arguments to the <code>Class</code> type are erased.
+Any <code>Class</code> value would typecheck against <code>Class&lt;T&gt;</code> for any value of <code>T</code>.</p>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, this erasure has been removed.
+A <code>Class</code> value typechecked against <code>Class&lt;T&gt;</code> must be a subclass of <code>T</code> (<a href="https://github.com/apple/pkl/pull/1698">#1698</a>).</p>
+</div>
+<div class="paragraph">
+<p>If <code>T</code> does not resolve to a class type (i.e. it is a union type, nullable type, string literal type, parameterized type, or <code>nothing</code>), the type check will always fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="standard-library-properties-marked-const"><a class="anchor" href="#standard-library-properties-marked-const"></a><a class="link" href="#standard-library-properties-marked-const">Standard library properties marked <code>const</code></a></h3>
+<div class="paragraph">
+<p>Some properties within the <code>pkl:math</code> and <code>pkl:release</code> modules have been marked <code>const</code> (<a href="https://github.com/apple/pkl/pull/1864">#1864</a>).</p>
+</div>
+<div class="paragraph">
+<p>Currently, module properties in <code>pkl:math</code> and <code>pkl:release</code> can be overridden by amending the module.
+Doing this makes little sense; these values are constants and overriding them by amending their module would be odd.</p>
+</div>
+<div class="paragraph">
+<p>The following properties are now <code>const</code> and cannot be amended:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/minInt" target="blank"><code>minInt</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxInt" target="blank"><code>maxInt</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxInt8" target="blank"><code>maxInt8</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxInt16" target="blank"><code>maxInt16</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxInt32" target="blank"><code>maxInt32</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxUInt" target="blank"><code>maxUInt</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxUInt8" target="blank"><code>maxUInt8</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxUInt16" target="blank"><code>maxUInt16</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxUInt32" target="blank"><code>maxUInt32</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/minFiniteFloat" target="blank"><code>minFiniteFloat</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/maxFiniteFloat" target="blank"><code>maxFiniteFloat</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/minPositiveFloat" target="blank"><code>minPositiveFloat</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/e" target="blank"><code>e</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/math/pi" target="blank"><code>pi</code></a></p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/release/current" target="blank"><code>current</code></a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This is a breaking change for code that looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">bogusMath</span> <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">import</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;pkl:math&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">minInt</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">1</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-to-join-method-on-list-set-and-listing"><a class="anchor" href="#changes-to-join-method-on-list-set-and-listing"></a><a class="link" href="#changes-to-join-method-on-list-set-and-listing">Changes to <code>join</code> method on <code>List</code>, <code>Set</code>, and <code>Listing</code></a></h3>
+<div class="paragraph">
+<p>The <code>join</code> method in <code>List</code>, <code>Set</code>, and <code>Listing</code> will now call the <code>toString()</code> method if overridden on an object (<a href="https://github.com/apple/pkl/pull/1872">#1872</a>).</p>
+</div>
+<div class="paragraph">
+<p>This is a breaking change, but is also considered a bugfix.</p>
+</div>
+<div class="paragraph">
+<p>The following snippet will produce different results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">name</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span>
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">toString</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;{ My name is <span class="hljs-subst"><span class="hljs-char escape_">\(</span>name<span class="hljs-char escape_">)</span></span> }&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">hidden</span> <span class="hljs-property">birds</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Listing</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">Bird</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Osprey&quot;</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-punctuation">{</span> <span class="hljs-property">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Eagle&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-property">res</span> <span class="hljs-operator">=</span> birds<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">join</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;<span class="hljs-char escape_">\n</span>&quot;</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Currently, Pkl ignores the <code>toString()</code> override, and produces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  new Bird { name = &quot;Osprey&quot; }</span>
+<span class="hljs-string">  new Bird { name = &quot;Eagle&quot; }</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, the overridden <code>toString()</code> will be called, and produces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">  { My name is Osprey }</span>
+<span class="hljs-string">  { My name is Eagle }</span>
+<span class="hljs-string">  &quot;&quot;&quot;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uri-validates"><a class="anchor" href="#uri-validates"></a><a class="link" href="#uri-validates"><code>Uri</code> validates its value</a></h3>
+<div class="paragraph">
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Uri" target="blank"><code>Uri</code></a> typealias in <code>pkl:base</code> is now <code>String(isValidUrl)</code> instead of a plain <code>String</code> (<a href="https://github.com/apple/pkl/pull/1834">#1834</a>).</p>
+</div>
+<div class="paragraph">
+<p>A value typed as <code>Uri</code> must be a valid absolute URL according to <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a>.
+This means that a relative reference, or a URL containing a character that must be percent-encoded, no longer type-checks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">good</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/some%20path&quot;</span>
+
+<span class="hljs-property">bad1</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;./some/path&quot;</span>                   <span class="hljs-comment">// throws: not absolute</span>
+<span class="hljs-property">bad2</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Uri</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://example.com/some path&quot;</span> <span class="hljs-comment">// throws: space must be percent-encoded</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This affects every standard library member typed as <code>Uri</code>, among them <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Resource#uri" target="blank"><code>Resource.uri</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/analyze/importGraph()" target="blank"><code>importGraph()</code></a>, and the URI-valued properties of <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/Project/#" target="blank"><code>pkl:Project</code></a>, <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/EvaluatorSettings/#" target="blank"><code>pkl:EvaluatorSettings</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/DocPackageInfo/#" target="blank"><code>pkl:DocPackageInfo</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>As a consequence, an invalid URI is now reported as a type constraint violation at the point where it is set, rather than as an error raised later by whatever consumes it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reference-changes"><a class="anchor" href="#reference-changes"></a><a class="link" href="#reference-changes">Changes to <code>Reference</code> construction</a></h3>
+<div class="paragraph">
+<p>As part of the introduction of generic methods, the <code>Reference()</code> constructor method in <code>pkl:ref</code> takes the domain and referent types as type arguments instead of taking a <code>Class</code> parameter (<a href="https://github.com/apple/pkl/pull/1849">#1849</a>).
+This also makes it possible to construct references to non-class types, such as <code>Listing&lt;String&gt;</code> or <code>String | Int</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ref.Domain</code> class has been renamed to <code>ref.AbstractDomain</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;pkl:ref&quot;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyDomain</span> <span class="hljs-keyword">extends</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">AbstractDomain</span> <span class="hljs-punctuation">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">renderReference</span><span class="hljs-punctuation">(</span><span class="hljs-params">reference</span><span class="hljs-punctuation">:</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title class_">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">MyDomain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">Any</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;...&quot;</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment">// current</span>
+<span class="hljs-property">myRef</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">MyDomain</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">MyReferent</span><span class="hljs-punctuation">,</span> myData<span class="hljs-punctuation">)</span>
+
+<span class="hljs-comment">// new</span>
+<span class="hljs-property">myRef</span> <span class="hljs-operator">=</span> ref<span class="hljs-punctuation">.</span><span class="hljs-title function_ invoke__">Reference</span><span class="hljs-operator">&lt;</span><span class="hljs-title class_">MyDomain</span><span class="hljs-punctuation">,</span> <span class="hljs-title class_">MyReferent</span><span class="hljs-operator">&gt;</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">MyDomain</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> myData<span class="hljs-punctuation">)</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>In Pkl 0.32, <code>extends ref.Domain</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Constraints in the referent type of a <code>Reference</code> type annotation are no longer an error, they are ignored.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parser-rule-change-for-comparison"><a class="anchor" href="#parser-rule-change-for-comparison"></a><a class="link" href="#parser-rule-change-for-comparison">Parser rule changes for comparison</a></h3>
+<div class="paragraph">
+<p>To support <a href="#generic-methods">generic method calls</a>, the syntax for Pkl has changed to permit passing type arguments when calling a method.</p>
+</div>
+<div class="paragraph">
+<p>This purposefully introduces an ambiguity to the grammar: the following expression can be parsed as either a generic method call, or as nested comparison expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl expression hljs" data-lang="pkl expression"><span class="hljs-title function_ invoke__">foo</span> <span class="hljs-operator">&lt;</span> <span class="hljs-title class_">Int</span> <span class="hljs-operator">&gt;</span> <span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To resolve such ambiguities, such code is preferably parsed as a generic method call.</p>
+</div>
+<div class="paragraph">
+<p>This contrived example is nonsensical today, because it is an error to compare a boolean.
+However, there are times when such code might be written in a well-formed way, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-property">res</span> <span class="hljs-operator">=</span> <span class="hljs-title function_ invoke__">foo</span><span class="hljs-punctuation">(</span>
+  <span class="hljs-title function_ invoke__">bar</span> <span class="hljs-operator">&lt;</span> baz<span class="hljs-punctuation">,</span>
+  qux <span class="hljs-operator">&gt;</span> <span class="hljs-punctuation">(</span>corge <span class="hljs-operator">+</span> <span class="hljs-number">3</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Pkl 0.33, this above snippet will interpret <code>bar</code> as a generic method call.
+To restore the old meaning, wrap the left-hand side with parentheses:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff"> res = foo(
+-  bar &lt; baz,
++  (bar) &lt; baz,
+   qux &gt; (corge + 3)
+ )</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test-catch-and-test-catchornull-force-their-result"><a class="anchor" href="#test-catch-and-test-catchornull-force-their-result"></a><a class="link" href="#test-catch-and-test-catchornull-force-their-result"><code>test.catch()</code> and <code>test.catchOrNull()</code> force their result</a></h3>
+<div class="paragraph">
+<p>The <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/test/catch()" target="blank"><code>catch()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/test/catchOrNull()" target="blank"><code>catchOrNull()</code></a> methods now fully evaluate the value returned by the function they are given (<a href="https://github.com/apple/pkl/pull/1910">#1910</a>).</p>
+</div>
+<div class="paragraph">
+<p>Currently, an error nested inside the returned value was not caught.
+It surfaced later, when the value was used.
+In Pkl 0.33, it is caught, and <code>catch()</code> returns its message.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="abstract-methods-must-be-implemented-in-extending-non-abstract-classesmodules"><a class="anchor" href="#abstract-methods-must-be-implemented-in-extending-non-abstract-classesmodules"></a><a class="link" href="#abstract-methods-must-be-implemented-in-extending-non-abstract-classesmodules">Abstract methods must be implemented in extending non-abstract classes/modules</a></h3>
+<div class="paragraph">
+<p>When extending an abstract class or module, it is now an error if any abstract methods are not implemented.</p>
+</div>
+<div class="paragraph">
+<p>In the following snippet, class <code>Swallow</code> is invalid because it does not implement <code>canCarry</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">canCarry</span><span class="hljs-punctuation">(</span><span class="hljs-params">fruit</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Fruit</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Boolean</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Swallow</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Bird</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;European&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;African&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removal-of-module-type-in-const-scopes"><a class="anchor" href="#removal-of-module-type-in-const-scopes"></a><a class="link" href="#removal-of-module-type-in-const-scopes">Removal of <code>module</code> type in const scopes</a></h3>
+<div class="paragraph">
+<p>The <code>module</code> type should no longer be used inside typealiases, class bodies, annotation bodies, and <code>const</code> scopes.
+Such usages will emit a deprecation warning, and will become a full error in Pkl 0.34 (<a href="https://github.com/apple/pkl/pull/1708">#1708</a>).</p>
+</div>
+<div class="paragraph">
+<p>The <code>module</code> type is a self-type, which refers to the <code>this</code> of the module.
+When a module is extended, the <code>module</code> type refers to the extending module.
+On the other hand, the definition of classes and typealiases cannot be changed by an extending module.</p>
+</div>
+<div class="paragraph">
+<p>The following snippet is misleading, because the module property <code>friend</code> <em>is</em> a self-type, whereas class property <code>Feature.animal</code> is not.</p>
+</div>
+<div class="listingblock">
+<div class="title">Bird.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">module</span> <span class="hljs-title class_">Bird</span>
+
+<span class="hljs-property">friend</span><span class="hljs-punctuation">:</span> module<span class="hljs-operator">?</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Feature</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">animal</span><span class="hljs-punctuation">:</span> module<span class="hljs-operator">?</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Self-type</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Not a self-type</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To have clearer semantics, the <code>module</code> type can no longer be used inside const scopes.</p>
+</div>
+<div class="paragraph">
+<p>In most cases, such code should be replaced with a self-import.</p>
+</div>
+<div class="listingblock">
+<div class="title">Bird.pkl</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-pkl hljs" data-lang="pkl"><span class="hljs-keyword">open</span> <span class="hljs-keyword">module</span> <span class="hljs-title class_">Bird</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;Bird.pkl&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Feature</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-property">animal</span><span class="hljs-punctuation">:</span> <span class="hljs-title class_">Bird</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="hljs-punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Self-import to use <code>Bird</code> as a type</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="protobuf-module-deprecated"><a class="anchor" href="#protobuf-module-deprecated"></a><a class="link" href="#protobuf-module-deprecated">Protobuf module deprecated</a></h3>
+<div class="paragraph">
+<p>The <code>pkl:protobuf</code> module is deprecated without replacement (<a href="https://github.com/apple/pkl/pull/1778">#1778</a>).</p>
+</div>
+<div class="paragraph">
+<p>The protobuf module renders Pkl data into the "textproto" format.
+However, Pkl is more expressive than protobuf, which means that Pkl&#8217;s renderer needs to make rendering choices that are bespoke to Pkl&#8217;s protobuf renderer.</p>
+</div>
+<div class="paragraph">
+<p>For example, there is no native equivalent for Pkl&#8217;s <code>null</code> literal.
+To address this, Pkl&#8217;s protobuf renderer renders these as a "null" scalar.</p>
+</div>
+<div class="paragraph">
+<p>These rendering choices are somewhat ad-hoc and likely to break from one usage to the next.</p>
+</div>
+<div class="paragraph">
+<p>Users of protobuf are encouraged render Pkl into <a href="https://protobuf.dev/programming-guides/json/">ProtoJSON</a> instead.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="miscellaneous"><a class="anchor" href="#miscellaneous"></a><a class="link" href="#miscellaneous">Miscellaneous <span class="small">🐸</span></a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>abstract</code> modifier is now a no-op for properties. (<a href="https://github.com/apple/pkl/pull/1781">#1781</a>).</p>
+</li>
+<li>
+<p>Abstract methods in non-abstract classes and modules are now rejected (<a href="https://github.com/apple/pkl/pull/1647">#1647</a>, <a href="https://github.com/apple/pkl/pull/1780">#1780</a>).</p>
+</li>
+<li>
+<p>Enforce that non-abstract classes implement all abstract methods from superclasses (<a href="https://github.com/apple/pkl/pull/1785">#1785</a>).</p>
+</li>
+<li>
+<p>Introduce a new internal representation for type metadata (<a href="https://github.com/apple/pkl/pull/1838">#1838</a>).</p>
+</li>
+<li>
+<p>Improve error message when amending a property with no value set (<a href="https://github.com/apple/pkl/pull/1867">#1867</a>).</p>
+</li>
+<li>
+<p>Use <code>EnumSet</code> for token categories (<a href="https://github.com/apple/pkl/pull/1803">#1803</a>).</p>
+</li>
+<li>
+<p><a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String.toInt()" target="blank"><code>String.toInt()</code></a> now supports all hexadecimal, octal, and binary formats (<a href="https://github.com/apple/pkl/pull/1808">#1808</a>).</p>
+</li>
+<li>
+<p>Handle conditional pluralization in error message (<a href="https://github.com/apple/pkl/pull/1848">#1848</a>).</p>
+</li>
+<li>
+<p>Avoid using Java <code>Object.toString()</code> to present language-facing string representations (<a href="https://github.com/apple/pkl/pull/1850">#1850</a>).</p>
+</li>
+<li>
+<p>Unify internal construction of objects (<a href="https://github.com/apple/pkl/pull/1873">#1873</a>).</p>
+</li>
+<li>
+<p>Use module cache directory configured via the CLI or Gradle while evaluating <code>PklProject</code> and <code>settings.pkl</code> files (<a href="https://github.com/apple/pkl/pull/1900">#1900</a>).</p>
+</li>
+<li>
+<p>Typed values are rendered with more helpful type names in error messages and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/Any.toString()" target="blank"><code>Any.toString()</code></a> (<a href="https://github.com/apple/pkl/pull/1412">#1412</a>).</p>
+</li>
+<li>
+<p>Add support for customizing spring boot <code>@ConfigurationProperties</code> in generated Java/Kotlin code (<a href="https://github.com/apple/pkl/pull/1897">#1897</a>).</p>
+</li>
+<li>
+<p>Improve error message when instantiating a class that cannot be instantiated (<a href="https://github.com/apple/pkl/pull/1916">#1916</a>).</p>
+</li>
+<li>
+<p>Improve error messages when a type alias fails to type check (<a href="https://github.com/apple/pkl/pull/1914">#1914</a>).</p>
+</li>
+<li>
+<p>Add descriptions and groups to the tasks created by the pkl-gradle plugin (<a href="https://github.com/apple/pkl/pull/190">#190</a>).</p>
+</li>
+<li>
+<p>Pkldoc no longer truncates the names of modules that do not start with the package&#8217;s module name prefix (<a href="https://github.com/apple/pkl/pull/1909">#1909</a>).</p>
+</li>
+<li>
+<p>Reject <code>file:</code> URIs that include an authority (<a href="https://github.com/apple/pkl/pull/629">#629</a>).</p>
+</li>
+<li>
+<p>Upgrade to GraalVM 25.2.4 (<a href="https://github.com/apple/pkl/pull/1804">#1804</a>).</p>
+</li>
+<li>
+<p>Improve performance of reading <code>const</code> members (<a href="https://github.com/apple/pkl/pull/1835">#1835</a>).</p>
+</li>
+<li>
+<p>Improve performance of <code>Listing</code> and <code>Mapping</code> type casts (<a href="https://github.com/apple/pkl/pull/1837">#1837</a>).</p>
+</li>
+<li>
+<p>Improve performance of lexical frame resolution (<a href="https://github.com/apple/pkl/pull/1842">#1842</a>).</p>
+</li>
+<li>
+<p>Improve performance of amending <code>null</code> parents (<a href="https://github.com/apple/pkl/pull/1836">#1836</a>).</p>
+</li>
+<li>
+<p>Improve performance of annotations without object bodies (<a href="https://github.com/apple/pkl/pull/1843">#1843</a>).</p>
+</li>
+<li>
+<p>Improve performance of <code>for</code> and <code>when</code> generators (<a href="https://github.com/apple/pkl/pull/1844">#1844</a>).</p>
+</li>
+<li>
+<p>Improve performance of parent property and subscript access (<a href="https://github.com/apple/pkl/pull/1853">#1853</a>).</p>
+</li>
+<li>
+<p>Improve performance of typechecking (<a href="https://github.com/apple/pkl/pull/1871">#1871</a>).</p>
+</li>
+<li>
+<p>Improve performance of string literal union types in more cases (<a href="https://github.com/apple/pkl/pull/1875">#1875</a>).</p>
+</li>
+<li>
+<p>Improve performance of iterating object members (<a href="https://github.com/apple/pkl/pull/1879">#1879</a>). Thank you to <a href="https://github.com/odenix">@odenix</a> for their contributions to this feature!</p>
+</li>
+<li>
+<p>Fix some partial evaluation issues in the GraalVM compiler (<a href="https://github.com/apple/pkl/pull/1944">#1944</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bug-fixes"><a class="anchor" href="#bug-fixes"></a><a class="link" href="#bug-fixes">Bug Fixes <span class="small">🐜</span></a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix incorrect behavior when objects are partially forced (<a href="https://github.com/apple/pkl/pull/1790">#1790</a>).</p>
+</li>
+<li>
+<p>Fix issues publishing pkl-gradle (<a href="https://github.com/apple/pkl/pull/1777">#1777</a>, <a href="https://github.com/apple/pkl/pull/1807">#1807</a>).</p>
+</li>
+<li>
+<p>Fix resolution of the <code>module</code> type in typealias bodies (<a href="https://github.com/apple/pkl/pull/1796">#1796</a>).</p>
+</li>
+<li>
+<p>Don&#8217;t fail when loading known-malformed CA certs (<a href="https://github.com/apple/pkl/pull/1806">#1806</a>).</p>
+</li>
+<li>
+<p>Fix resolution of type names in typealias constraints (<a href="https://github.com/apple/pkl/pull/1826">#1826</a>).</p>
+</li>
+<li>
+<p>Fix parsing of block comments at the end of a file (<a href="https://github.com/apple/pkl/pull/1828">#1828</a>).</p>
+</li>
+<li>
+<p>Sanitize block comment endings in generated Kotlin doc comments (<a href="https://github.com/apple/pkl/pull/1830">#1830</a>).</p>
+</li>
+<li>
+<p>Enforce max collection size when decoding pkl-binary data (<a href="https://github.com/apple/pkl/pull/1831">#1831</a>).</p>
+</li>
+<li>
+<p>Correctly omit glob imports from reflected imports (<a href="https://github.com/apple/pkl/pull/1816">#1816</a>).</p>
+</li>
+<li>
+<p>Escape characters that cannot appear literally in rendered YAML (<a href="https://github.com/apple/pkl/pull/1846">#1846</a>).</p>
+</li>
+<li>
+<p>Fix invalid prefix when generating spring boot config (<a href="https://github.com/apple/pkl/pull/1862">#1862</a>).</p>
+</li>
+<li>
+<p>Fix <code>pkl run</code> behaviors where (sub)commands amend <code>pkl:Command</code> without extending it (<a href="https://github.com/apple/pkl/pull/1882">#1882</a>).</p>
+</li>
+<li>
+<p>Fix <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String.endsWith()" target="blank"><code>String.endsWith()</code></a> for overlapping regex matches (<a href="https://github.com/apple/pkl/pull/1880">#1880</a>, <a href="https://github.com/apple/pkl/pull/1884">#1884</a>).</p>
+</li>
+<li>
+<p>Fix leak of external reader processes in the language binding server (<a href="https://github.com/apple/pkl/pull/1885">#1885</a>).</p>
+</li>
+<li>
+<p>Fix decoding of <code>Regex</code> values from pkl-binary data (<a href="https://github.com/apple/pkl/pull/1895">#1895</a>).</p>
+</li>
+<li>
+<p>Fix <code>pkl eval</code> of dependency notation source modules when using multiple file output (<a href="https://github.com/apple/pkl/pull/1942">#1942</a>).</p>
+</li>
+<li>
+<p>Report an error, instead of overflowing the stack, when parsing or formatting code that is nested too deeply (<a href="https://github.com/apple/pkl/pull/1918">#1918</a>, <a href="https://github.com/apple/pkl/pull/1953">#1953</a>).</p>
+</li>
+<li>
+<p>Fix type check of the <code>module</code> type when it is defined in a parent member body (<a href="https://github.com/apple/pkl/pull/1936">#1936</a>).</p>
+</li>
+<li>
+<p>Fix type check of subscript key types for <code>Map</code> and <code>Mapping</code> references (<a href="https://github.com/apple/pkl/pull/1933">#1933</a>).</p>
+</li>
+<li>
+<p>Fix <code>hashCode()</code> and <code>==</code> inconsistency for negative zero in <code>Duration</code> and <code>DataSize</code> (<a href="https://github.com/apple/pkl/pull/1932">#1932</a>).</p>
+</li>
+<li>
+<p>Fix <code>hashCode()</code> inconsistency with <code>==</code> for <code>Listing</code>, <code>Duration</code>, and <code>DataSize</code> (<a href="https://github.com/apple/pkl/pull/1922">#1922</a>).</p>
+</li>
+<li>
+<p>Fix <code>toString()</code> and <code>value</code> of <code>Duration</code> and <code>DataSize</code> values that are too large to fit in a <code>Long</code> (<a href="https://github.com/apple/pkl/pull/1935">#1935</a>).</p>
+</li>
+<li>
+<p>Fix iteration over <code>Dynamic</code> objects that have a negative key, such as <code>new Dynamic { [-1] = 2 }</code> (<a href="https://github.com/apple/pkl/pull/1948">#1948</a>).</p>
+</li>
+<li>
+<p>Fix enforcement of <code>const</code> member access inside methods (<a href="https://github.com/apple/pkl/pull/1945">#1945</a>).</p>
+</li>
+<li>
+<p>Fix parameterized type checks in type alias constraints (<a href="https://github.com/apple/pkl/pull/1906">#1906</a>).</p>
+</li>
+<li>
+<p>Fix resolution of qualified type names (<a href="https://github.com/apple/pkl/pull/1915">#1915</a>).</p>
+</li>
+<li>
+<p>Fix lookaround regexes in <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String.lastIndexOf()" target="blank"><code>String.lastIndexOf()</code></a> and <a href="https://pkl-lang.org/package-docs/pkl/0.33.0/base/String.replaceLast()" target="blank"><code>String.replaceLast()</code></a> (<a href="https://github.com/apple/pkl/pull/1908">#1908</a>).</p>
+</li>
+<li>
+<p>Fix formatter instability (<a href="https://github.com/apple/pkl/pull/1911">#1911</a>).</p>
+</li>
+<li>
+<p>Improve normalization of URIs (<a href="https://github.com/apple/pkl/pull/1937">#1937</a>, <a href="https://github.com/apple/pkl/pull/1954">#1954</a>).</p>
+</li>
+<li>
+<p>Missing const checks which allow accessing non-const members (<a href="https://github.com/apple/pkl/issues/1963">#1963</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors <span class="small">🙏</span></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We would like to thank the contributors to this release (in alphabetical order):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/AAGAM17">@AAGAM17</a></p>
+</li>
+<li>
+<p><a href="https://github.com/aashish254">@aashish254</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ayashjorden">@ayashjorden</a></p>
+</li>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Carpe-Wang">@Carpe-Wang</a></p>
+</li>
+<li>
+<p><a href="https://github.com/dylanpulver">@dylanpulver</a></p>
+</li>
+<li>
+<p><a href="https://github.com/florinungur">@florinungur</a></p>
+</li>
+<li>
+<p><a href="https://github.com/goutamadwant">@goutamadwant</a></p>
+</li>
+<li>
+<p><a href="https://github.com/henriquejsza">@henriquejsza</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/KushalP">@KushalP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kwy404">@kwy404</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mayc7n">@mayc7n</a></p>
+</li>
+<li>
+<p><a href="https://github.com/netvl">@netvl</a></p>
+</li>
+<li>
+<p><a href="https://github.com/odenix">@odenix</a></p>
+</li>
+<li>
+<p><a href="https://github.com/protobufel2">@protobufel2</a></p>
+</li>
+<li>
+<p><a href="https://github.com/RushikeshGandhmal">@RushikeshGandhmal</a></p>
+</li>
+<li>
+<p><a href="https://github.com/sergiosalvi">@sergiosalvi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/sgammon">@sgammon</a></p>
+</li>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinayakj592">@vinayakj592</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Release Notes</a></span>
+  <span class="next"><a href="0.32.html">0.32 Release Notes</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2024-2025 Apple Inc. All rights reserved.</p>
+    <div class="theme-selector">
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" class="theme-dropdown">
+        <option value="system">💻 System</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/site-support.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

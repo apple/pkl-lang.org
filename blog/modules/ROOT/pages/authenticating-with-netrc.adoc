@@ -52,7 +52,9 @@ Given the text content of a `.netrc` file, `netRcHeaders` parses its machine ent
 
 [source,pkl]
 ----
-netRcHeaders(netrcText: String): Listing<ResourceMapping<Map<String, String>>>
+external function netRcHeaders(
+  contents: String | Resource,
+): Mapping<String(isGlobPattern), HttpHeaders>
 ----
 
 Each machine entry in the `.netrc` file (except `default` entries) is mapped to both HTTP and HTTPS schemes:
@@ -72,13 +74,13 @@ To enable `.netrc` authentication for all your local Pkl evaluations, configure 
 amends "pkl:settings"
 
 http {
-  headers = netRcHeaders(read?("file:~/.netrc") ?? "")
+  headers = netRcHeaders(read?("/path/to/.netrc") ?? "")
 }
 ----
 
 NOTE: Pkl resolves user settings from `~/.config/pkl/settings.pkl` (or `$XDG_CONFIG_HOME/pkl/settings.pkl`), with fallback to `~/.pkl/settings.pkl`.
 
-Using `read?("file:~/.netrc") ?? ""` ensures that:
+Using `read?("/path/to/.netrc") ?? ""` ensures that:
 
 . Pkl safely reads your `~/.netrc` if it exists.
 . If the file is absent (for example, on a fresh machine or in an unauthenticated environment), evaluation does not fail; it simply passes an empty string, resulting in no added headers.
@@ -92,15 +94,13 @@ Because `headers` in `pkl:EvaluatorSettings#Http` accepts a `Listing`, you can e
 amends "pkl:settings"
 
 http {
+  local netRcHeaders = netRcHeaders(read?("/path/to/.netrc") ?? "")
+
   // Combine custom header mappings with .netrc credentials
-  headers {
-    new {
-      uri = "https://internal.repo.corp/**"
-      value {
-        ["X-MyOrg-MyHeader"] = "SomeValue"
-      }
+  headers = (netRcHeaders) {
+    ["https://internal.repo.corp/**"] {
+      ["X-MyOrg-MyHeader"] = "SomeValue"
     }
-    netRcHeaders(read?("file:~/.netrc") ?? "")
   }
 }
 ----
@@ -121,14 +121,14 @@ login bot-account
 password ghp_PersonalAccessToken123
 ----
 
-Make sure your `.netrc` permissions are restricted to your user:
+Make sure your `.netrc` permissions are restricted to your user (this is a best practice, but not required by Pkl):
 
 [source,bash]
 ----
 chmod 600 ~/.netrc
 ----
 
-With `settings.pkl` configured as above, any package download or HTTP import targeting `https://artifactory.corp.internal/...` or `https://github.internal.corp/...` automatically includes the appropriate `Authorization: Basic ...` header during evaluation:
+With `settings.pkl` configured as above, any package download or HTTP import targeting `\https://artifactory.corp.internal/...` or `\https://github.internal.corp/...` automatically includes the appropriate `Authorization: Basic ...` header during evaluation:
 
 [source,bash]
 ----
@@ -155,7 +155,7 @@ Alternatively, if creating a physical file in `~/.netrc` is inconvenient, you ca
 amends "pkl:settings"
 
 http {
-  headers = netRcHeaders(read?("env:NETRC") ?? read?("file:~/.netrc") ?? "")
+  headers = netRcHeaders(read?("env:NETRC") ?? read?("file:///path/to/.netrc") ?? "")
 }
 ----
 

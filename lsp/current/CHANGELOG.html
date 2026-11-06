@@ -90,7 +90,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="lsp" data-version="0.8.0">
+<div class="nav-container" data-component="lsp" data-version="0.9.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -100,6 +100,9 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation.html">Installation</a>
+  </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="integration.html">Integrating with Pkl Language Server</a>
   </li>
@@ -114,14 +117,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Language Server</span>
-    <span class="version">0.8.0</span>
+    <span class="version">0.9.0</span>
   </div>
   <ul class="components">
     <li class="component">
       <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../intellij/current/index.html">0.37.1</a>
+          <a href="../../intellij/current/index.html">0.38.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.37.1/index.html">0.37.1</a>
         </li>
         <li class="version">
           <a href="../../intellij/0.36.1/index.html">0.36.1</a>
@@ -243,7 +249,10 @@
       <div class="title"><a href="index.html">Pkl Language Server</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.8.0</a>
+          <a href="index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.8.0/index.html">0.8.0</a>
         </li>
         <li class="version">
           <a href="../0.7.1/index.html">0.7.1</a>
@@ -368,9 +377,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.9.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="CHANGELOG.html">0.8.0</a>
+    <a class="version is-current" href="CHANGELOG.html">0.9.0</a>
+    <a class="version" href="../0.8.0/CHANGELOG.html">0.8.0</a>
     <a class="version" href="../0.7.1/CHANGELOG.html">0.7.1</a>
     <a class="version" href="../0.6.0/CHANGELOG.html">0.6.0</a>
     <a class="version" href="../0.5.1/CHANGELOG.html">0.5.1</a>
@@ -380,7 +390,7 @@
     <a class="version" href="../0.1.2/CHANGELOG.html">0.1.2</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.8/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.9/docs/modules/ROOT/pages/CHANGELOG.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -389,10 +399,103 @@
 <article class="doc">
 <h1 class="page">Changelog</h1>
 <div class="sect1">
+<h2 id="release-0.9.0"><a class="anchor" href="#release-0.9.0"></a><a class="link" href="#release-0.9.0">0.9.0 (2026-11-06)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add support for <code>this</code> as a type (<a href="https://github.com/apple/pkl-lsp/pull/221">#221</a>, <a href="https://github.com/apple/pkl-lsp/pull/268">#268</a>).</p>
+</li>
+<li>
+<p>Add <code>.gitignore</code> to <code>.pkl-lsp</code> when creating directory by default (<a href="https://github.com/apple/pkl-lsp/pull/242">#242</a>).</p>
+</li>
+<li>
+<p>Add support for expanded generic methods (<a href="https://github.com/apple/pkl-lsp/pull/245">#245</a>, <a href="https://github.com/apple/pkl-lsp/pull/264">#264</a>).</p>
+</li>
+<li>
+<p>Add completions for module names (<a href="https://github.com/apple/pkl-lsp/pull/265">#265</a>).</p>
+</li>
+<li>
+<p>Add support for checking <code>String</code>/<code>List</code>/<code>Set</code>/<code>Map.isNotEmpty</code> constraints (<a href="https://github.com/apple/pkl-lsp/pull/266">#266</a>).</p>
+</li>
+<li>
+<p>Add support for new XDG style paths (<a href="https://github.com/apple/pkl-lsp/pull/273">#273</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve handling of doc comment reference links (<a href="https://github.com/apple/pkl-lsp/pull/230">#230</a>).</p>
+</li>
+<li>
+<p>Update diagnostics for abstract elements (<a href="https://github.com/apple/pkl-lsp/pull/247">#247</a>).</p>
+</li>
+<li>
+<p>Update fallback stdlib to Pkl 0.33.0 (<a href="https://github.com/apple/pkl-lsp/pull/269">#269</a>).</p>
+</li>
+<li>
+<p>Change <code>editor-support</code> directory from <code>~/.pkl/editor-support</code> to <code>~/.local/share/pkl/editor-support</code>, or configurable with <code>$XDG_DATA_HOME</code> (<a href="https://github.com/apple/pkl-lsp/pull/273">#273</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix incorrect <code>scopeUri</code> value when fetching configuration (<a href="https://github.com/apple/pkl-lsp/pull/243">#243</a>).</p>
+</li>
+<li>
+<p>Fix resolution of properties within annotation bodies (<a href="https://github.com/apple/pkl-lsp/pull/256">#256</a>).</p>
+</li>
+<li>
+<p>Fix resolution of amended fixed properties (<a href="https://github.com/apple/pkl-lsp/pull/261">#261</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+<li>
+<p><a href="https://github.com/florinungur">@florinungur</a></p>
+</li>
+<li>
+<p><a href="https://github.com/HT154">@HT154</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mimischi">@mimischi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pngdeity">@pngdeity</a></p>
+</li>
+<li>
+<p><a href="https://github.com/stackoverflow">@stackoverflow</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.8.0"><a class="anchor" href="#release-0.8.0"></a><a class="link" href="#release-0.8.0">0.8.0 (2026-07-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes"><a class="anchor" href="#changes"></a><a class="link" href="#changes">Changes</a></h3>
+<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -420,7 +523,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes"><a class="anchor" href="#fixes"></a><a class="link" href="#fixes">Fixes</a></h3>
+<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -430,7 +533,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors"><a class="anchor" href="#contributors"></a><a class="link" href="#contributors">Contributors ❤️</a></h3>
+<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -451,7 +554,7 @@
 <h2 id="release-0.7.1"><a class="anchor" href="#release-0.7.1"></a><a class="link" href="#release-0.7.1">0.7.1 (2026-06-08)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-2"><a class="anchor" href="#fixes-2"></a><a class="link" href="#fixes-2">Fixes</a></h3>
+<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -461,7 +564,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-2"><a class="anchor" href="#contributors-2"></a><a class="link" href="#contributors-2">Contributors ❤️</a></h3>
+<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -479,7 +582,7 @@
 <h2 id="release-0.7.0"><a class="anchor" href="#release-0.7.0"></a><a class="link" href="#release-0.7.0">0.7.0 (2026-05-20)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-2"><a class="anchor" href="#changes-2"></a><a class="link" href="#changes-2">Changes</a></h3>
+<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -492,7 +595,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-3"><a class="anchor" href="#fixes-3"></a><a class="link" href="#fixes-3">Fixes</a></h3>
+<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -505,7 +608,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-3"><a class="anchor" href="#contributors-3"></a><a class="link" href="#contributors-3">Contributors ❤️</a></h3>
+<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -539,7 +642,7 @@
 <h2 id="release-0.6.0"><a class="anchor" href="#release-0.6.0"></a><a class="link" href="#release-0.6.0">0.6.0 (2026-02-27)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-3"><a class="anchor" href="#changes-3"></a><a class="link" href="#changes-3">Changes</a></h3>
+<h3 id="changes-4"><a class="anchor" href="#changes-4"></a><a class="link" href="#changes-4">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -558,7 +661,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-4"><a class="anchor" href="#fixes-4"></a><a class="link" href="#fixes-4">Fixes</a></h3>
+<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -571,7 +674,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-4"><a class="anchor" href="#contributors-4"></a><a class="link" href="#contributors-4">Contributors ❤️</a></h3>
+<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -595,49 +698,11 @@
 <h2 id="release-0.5.3"><a class="anchor" href="#release-0.5.3"></a><a class="link" href="#release-0.5.3">0.5.3 (2025-12-16)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-5"><a class="anchor" href="#fixes-5"></a><a class="link" href="#fixes-5">Fixes</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Fix incorrect bundling of the Pkl stdlib (<a href="https://github.com/apple/pkl-lsp/pull/130">#130</a>).</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="contributors-5"><a class="anchor" href="#contributors-5"></a><a class="link" href="#contributors-5">Contributors ❤️</a></h3>
-<div class="paragraph">
-<p>Thank you to all of our contributors!</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/bioball">@bioball</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-0.5.2"><a class="anchor" href="#release-0.5.2"></a><a class="link" href="#release-0.5.2">0.5.2 (2025-12-16)</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="changes-4"><a class="anchor" href="#changes-4"></a><a class="link" href="#changes-4">Changes</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Bump Pkl fallback standard library to 0.30.2 (<a href="https://github.com/apple/pkl-lsp/pull/125">#125</a>).</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
 <h3 id="fixes-6"><a class="anchor" href="#fixes-6"></a><a class="link" href="#fixes-6">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Bump Pkl formatter to 0.30.2, which fixes some formatting bugs (<a href="https://github.com/apple/pkl-lsp/pull/125">#125</a>).</p>
+<p>Fix incorrect bundling of the Pkl stdlib (<a href="https://github.com/apple/pkl-lsp/pull/130">#130</a>).</p>
 </li>
 </ul>
 </div>
@@ -658,10 +723,48 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-0.5.2"><a class="anchor" href="#release-0.5.2"></a><a class="link" href="#release-0.5.2">0.5.2 (2025-12-16)</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="changes-5"><a class="anchor" href="#changes-5"></a><a class="link" href="#changes-5">Changes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bump Pkl fallback standard library to 0.30.2 (<a href="https://github.com/apple/pkl-lsp/pull/125">#125</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bump Pkl formatter to 0.30.2, which fixes some formatting bugs (<a href="https://github.com/apple/pkl-lsp/pull/125">#125</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
+<div class="paragraph">
+<p>Thank you to all of our contributors!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bioball">@bioball</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-0.5.1"><a class="anchor" href="#release-0.5.1"></a><a class="link" href="#release-0.5.1">0.5.1 (2025-11-05)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-7"><a class="anchor" href="#fixes-7"></a><a class="link" href="#fixes-7">Fixes</a></h3>
+<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -671,7 +774,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-5"><a class="anchor" href="#changes-5"></a><a class="link" href="#changes-5">Changes</a></h3>
+<h3 id="changes-6"><a class="anchor" href="#changes-6"></a><a class="link" href="#changes-6">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -681,7 +784,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-7"><a class="anchor" href="#contributors-7"></a><a class="link" href="#contributors-7">Contributors ❤️</a></h3>
+<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -702,7 +805,7 @@
 <h2 id="release-0.5.0"><a class="anchor" href="#release-0.5.0"></a><a class="link" href="#release-0.5.0">0.5.0 (2025-11-04)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-8"><a class="anchor" href="#fixes-8"></a><a class="link" href="#fixes-8">Fixes</a></h3>
+<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -715,7 +818,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-6"><a class="anchor" href="#changes-6"></a><a class="link" href="#changes-6">Changes</a></h3>
+<h3 id="changes-7"><a class="anchor" href="#changes-7"></a><a class="link" href="#changes-7">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -741,7 +844,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-8"><a class="anchor" href="#contributors-8"></a><a class="link" href="#contributors-8">Contributors ❤️</a></h3>
+<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -765,7 +868,7 @@
 <h2 id="release-0.4.0"><a class="anchor" href="#release-0.4.0"></a><a class="link" href="#release-0.4.0">0.4.0 (2025-07-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-9"><a class="anchor" href="#fixes-9"></a><a class="link" href="#fixes-9">Fixes</a></h3>
+<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -775,7 +878,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-7"><a class="anchor" href="#changes-7"></a><a class="link" href="#changes-7">Changes</a></h3>
+<h3 id="changes-8"><a class="anchor" href="#changes-8"></a><a class="link" href="#changes-8">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -798,7 +901,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="additions"><a class="anchor" href="#additions"></a><a class="link" href="#additions">Additions</a></h3>
+<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -808,7 +911,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-9"><a class="anchor" href="#contributors-9"></a><a class="link" href="#contributors-9">Contributors ❤️</a></h3>
+<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -829,7 +932,7 @@
 <h2 id="release-0.3.2"><a class="anchor" href="#release-0.3.2"></a><a class="link" href="#release-0.3.2">0.3.2 (2025-04-24)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-10"><a class="anchor" href="#fixes-10"></a><a class="link" href="#fixes-10">Fixes</a></h3>
+<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -847,7 +950,7 @@
 <h2 id="release-0.3.1"><a class="anchor" href="#release-0.3.1"></a><a class="link" href="#release-0.3.1">0.3.1 (2025-04-17)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fixes-11"><a class="anchor" href="#fixes-11"></a><a class="link" href="#fixes-11">Fixes</a></h3>
+<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -865,7 +968,7 @@
 <p>This change adds many more diagnostics to better match the capabilities of pkl-intellij.</p>
 </div>
 <div class="sect2">
-<h3 id="fixes-12"><a class="anchor" href="#fixes-12"></a><a class="link" href="#fixes-12">Fixes</a></h3>
+<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -896,7 +999,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="changes-8"><a class="anchor" href="#changes-8"></a><a class="link" href="#changes-8">Changes</a></h3>
+<h3 id="changes-9"><a class="anchor" href="#changes-9"></a><a class="link" href="#changes-9">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -909,7 +1012,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="additions-2"><a class="anchor" href="#additions-2"></a><a class="link" href="#additions-2">Additions</a></h3>
+<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -928,7 +1031,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-10"><a class="anchor" href="#contributors-10"></a><a class="link" href="#contributors-10">Contributors ❤️</a></h3>
+<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all of our contributors!</p>
 </div>
@@ -952,7 +1055,7 @@
 <h2 id="release-0.2.0"><a class="anchor" href="#release-0.2.0"></a><a class="link" href="#release-0.2.0">0.2.0 (2025-02-27)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-9"><a class="anchor" href="#changes-9"></a><a class="link" href="#changes-9">Changes</a></h3>
+<h3 id="changes-10"><a class="anchor" href="#changes-10"></a><a class="link" href="#changes-10">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -962,7 +1065,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixes-13"><a class="anchor" href="#fixes-13"></a><a class="link" href="#fixes-13">Fixes</a></h3>
+<h3 id="fixes-14"><a class="anchor" href="#fixes-14"></a><a class="link" href="#fixes-14">Fixes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -987,7 +1090,7 @@
 <h2 id="release-0.1.2"><a class="anchor" href="#release-0.1.2"></a><a class="link" href="#release-0.1.2">0.1.2 (2024-11-28)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="changes-10"><a class="anchor" href="#changes-10"></a><a class="link" href="#changes-10">Changes</a></h3>
+<h3 id="changes-11"><a class="anchor" href="#changes-11"></a><a class="link" href="#changes-11">Changes</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1010,7 +1113,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="contributors-11"><a class="anchor" href="#contributors-11"></a><a class="link" href="#contributors-11">Contributors ❤️</a></h3>
+<h3 id="contributors-12"><a class="anchor" href="#contributors-12"></a><a class="link" href="#contributors-12">Contributors ❤️</a></h3>
 <div class="paragraph">
 <p>Thank you to all the contributors for this release!</p>
 </div>
@@ -1028,7 +1131,7 @@
 <h2 id="release-0.1.1"><a class="anchor" href="#release-0.1.1"></a><a class="link" href="#release-0.1.1">0.1.1 (2024-10-10)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="additions-3"><a class="anchor" href="#additions-3"></a><a class="link" href="#additions-3">Additions</a></h3>
+<h3 id="additions-4"><a class="anchor" href="#additions-4"></a><a class="link" href="#additions-4">Additions</a></h3>
 <div class="ulist">
 <ul>
 <li>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Integrating with Pkl Language Server :: Pkl Docs</title>
     <link rel="canonical" href="https://pkl-lang.org/lsp/current/integration.html">
-    <link rel="prev" href="index.html">
+    <link rel="prev" href="installation.html">
     <link rel="next" href="CHANGELOG.html">
     <meta name="generator" content="Antora 3.2.0">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -91,7 +91,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="lsp" data-version="0.8.0">
+<div class="nav-container" data-component="lsp" data-version="0.9.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,6 +101,9 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation.html">Installation</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="integration.html">Integrating with Pkl Language Server</a>
   </li>
@@ -115,14 +118,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Pkl Language Server</span>
-    <span class="version">0.8.0</span>
+    <span class="version">0.9.0</span>
   </div>
   <ul class="components">
     <li class="component">
       <div class="title"><a href="../../intellij/current/index.html">IntelliJ Plugin</a></div>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../intellij/current/index.html">0.37.1</a>
+          <a href="../../intellij/current/index.html">0.38.0</a>
+        </li>
+        <li class="version">
+          <a href="../../intellij/0.37.1/index.html">0.37.1</a>
         </li>
         <li class="version">
           <a href="../../intellij/0.36.1/index.html">0.36.1</a>
@@ -244,7 +250,10 @@
       <div class="title"><a href="index.html">Pkl Language Server</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.8.0</a>
+          <a href="index.html">0.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../0.8.0/index.html">0.8.0</a>
         </li>
         <li class="version">
           <a href="../0.7.1/index.html">0.7.1</a>
@@ -369,9 +378,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.9.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="integration.html">0.8.0</a>
+    <a class="version is-current" href="integration.html">0.9.0</a>
+    <a class="version" href="../0.8.0/integration.html">0.8.0</a>
     <a class="version" href="../0.7.1/integration.html">0.7.1</a>
     <a class="version" href="../0.6.0/integration.html">0.6.0</a>
     <a class="version" href="../0.5.1/integration.html">0.5.1</a>
@@ -381,7 +391,7 @@
     <a class="version" href="../0.1.2/integration.html">0.1.2</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.8/docs/modules/ROOT/pages/integration.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/apple/pkl-lsp/edit/release/0.9/docs/modules/ROOT/pages/integration.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Page Contents" data-levels="2">
@@ -400,47 +410,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="distribution"><a class="anchor" href="#distribution"></a><a class="link" href="#distribution">Distribution</a></h2>
+<h2 id="installing-pkl-language-server"><a class="anchor" href="#installing-pkl-language-server"></a><a class="link" href="#installing-pkl-language-server">Installing Pkl Language Server</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pkl Language Server is published to <a href="https://central.sonatype.com/artifact/org.pkl-lang/pkl-lsp">Maven Central</a>, and also as releases on <a href="https://github.com/apple/pkl-lsp/releases">GitHub</a>.</p>
-</div>
-<div class="paragraph">
-<p>It is recommended that the jar file be bundled into an editor plugin&#8217;s package contents.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="running-pkl-language-server"><a class="anchor" href="#running-pkl-language-server"></a><a class="link" href="#running-pkl-language-server">Running Pkl Language Server</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To run the server, provide the jar as an argument to Java.
-For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">java -jar path/to/pkl-lsp.jar</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pkl Language Server requires Java 23 or higher.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>We plan on providing native binaries in the future.</p>
-</div>
-<div class="paragraph">
-<p>Follow <a href="https://github.com/apple/pkl-lsp/issues/60">#60</a> to stay updated on its progress.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>For installation instructions, see <a href="installation.html" class="xref page">Installation</a>.</p>
 </div>
 </div>
 </div>
@@ -653,7 +626,7 @@ If implemented, and the <a href="#extended-client-capabilities">capability</a> i
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Pkl Language Server</a></span>
+  <span class="prev"><a href="installation.html">Installation</a></span>
   <span class="next"><a href="CHANGELOG.html">Changelog</a></span>
 </nav>
 </article>
